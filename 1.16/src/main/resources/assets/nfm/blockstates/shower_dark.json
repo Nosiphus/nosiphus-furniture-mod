@@ -1,0 +1,20 @@
+{
+    "variants": {
+        "facing=north": {
+            "model": "nfm:block/shower_dark",
+            "y": 270
+        },
+        "facing=east": {
+            "model": "nfm:block/shower_dark",
+            "y": 0
+        },
+        "facing=south": {
+            "model": "nfm:block/shower_dark",
+            "y": 90
+        },
+        "facing=west": {
+            "model": "nfm:block/shower_dark",
+            "y": 180
+        }
+    }
+}

@@ -1,0 +1,14 @@
+{
+    "required": true,
+    "package": "com.nosiphus.furniture.mixin",
+    "compatibilityLevel": "JAVA_8",
+    "minVersion": "0.8",
+    "refmap": "nfm.refmap.json",
+    "mixins": [
+        "ForgeHooksMixin",
+        "TileEntityTypeMixin"
+    ],
+    "injectors": {
+        "defaultRequire": 1
+    }
+}

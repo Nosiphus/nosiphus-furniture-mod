@@ -1,0 +1,6 @@
+{
+    "parent": "nfm:block/modern_chair",
+    "textures": {
+        "color": "minecraft:block/pink_concrete"
+    }
+}
