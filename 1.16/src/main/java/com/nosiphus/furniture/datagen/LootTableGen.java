@@ -286,6 +286,24 @@ public class LootTableGen extends ForgeLootTableProvider
             this.registerDropSelfLootTable(ModBlocks.KITCHEN_SINK_RED_MODERN.get());
             this.registerDropSelfLootTable(ModBlocks.KITCHEN_SINK_BLACK_MODERN.get());
 
+            // Bar Stools
+            this.registerDropSelfLootTable(ModBlocks.BAR_STOOL_WHITE.get());
+            this.registerDropSelfLootTable(ModBlocks.BAR_STOOL_ORANGE.get());
+            this.registerDropSelfLootTable(ModBlocks.BAR_STOOL_MAGENTA.get());
+            this.registerDropSelfLootTable(ModBlocks.BAR_STOOL_LIGHT_BLUE.get());
+            this.registerDropSelfLootTable(ModBlocks.BAR_STOOL_YELLOW.get());
+            this.registerDropSelfLootTable(ModBlocks.BAR_STOOL_LIME.get());
+            this.registerDropSelfLootTable(ModBlocks.BAR_STOOL_PINK.get());
+            this.registerDropSelfLootTable(ModBlocks.BAR_STOOL_GRAY.get());
+            this.registerDropSelfLootTable(ModBlocks.BAR_STOOL_LIGHT_GRAY.get());
+            this.registerDropSelfLootTable(ModBlocks.BAR_STOOL_CYAN.get());
+            this.registerDropSelfLootTable(ModBlocks.BAR_STOOL_PURPLE.get());
+            this.registerDropSelfLootTable(ModBlocks.BAR_STOOL_BLUE.get());
+            this.registerDropSelfLootTable(ModBlocks.BAR_STOOL_BROWN.get());
+            this.registerDropSelfLootTable(ModBlocks.BAR_STOOL_GREEN.get());
+            this.registerDropSelfLootTable(ModBlocks.BAR_STOOL_RED.get());
+            this.registerDropSelfLootTable(ModBlocks.BAR_STOOL_BLACK.get());
+
             // Appliances
             this.registerDropSelfLootTable(ModBlocks.MICROWAVE_LIGHT.get());
             this.registerDropSelfLootTable(ModBlocks.MICROWAVE_DARK.get());

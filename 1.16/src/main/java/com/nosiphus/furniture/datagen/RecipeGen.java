@@ -234,6 +234,24 @@ public class RecipeGen extends RecipeProvider
         modernKitchenSink(consumer, ModBlocks.KITCHEN_SINK_RED_MODERN.get(), Blocks.RED_CONCRETE);
         modernKitchenSink(consumer, ModBlocks.KITCHEN_SINK_BLACK_MODERN.get(), Blocks.BLACK_CONCRETE);
 
+        // Bar Stools
+        barStool(consumer, ModBlocks.BAR_STOOL_WHITE.get(), Blocks.WHITE_WOOL);
+        barStool(consumer, ModBlocks.BAR_STOOL_ORANGE.get(), Blocks.ORANGE_WOOL);
+        barStool(consumer, ModBlocks.BAR_STOOL_MAGENTA.get(), Blocks.MAGENTA_WOOL);
+        barStool(consumer, ModBlocks.BAR_STOOL_LIGHT_BLUE.get(), Blocks.LIGHT_BLUE_WOOL);
+        barStool(consumer, ModBlocks.BAR_STOOL_YELLOW.get(), Blocks.YELLOW_WOOL);
+        barStool(consumer, ModBlocks.BAR_STOOL_LIME.get(), Blocks.LIME_WOOL);
+        barStool(consumer, ModBlocks.BAR_STOOL_PINK.get(), Blocks.PINK_WOOL);
+        barStool(consumer, ModBlocks.BAR_STOOL_GRAY.get(), Blocks.GRAY_WOOL);
+        barStool(consumer, ModBlocks.BAR_STOOL_LIGHT_GRAY.get(), Blocks.LIGHT_GRAY_WOOL);
+        barStool(consumer, ModBlocks.BAR_STOOL_CYAN.get(), Blocks.CYAN_WOOL);
+        barStool(consumer, ModBlocks.BAR_STOOL_PURPLE.get(), Blocks.PURPLE_WOOL);
+        barStool(consumer, ModBlocks.BAR_STOOL_BLUE.get(), Blocks.BLUE_WOOL);
+        barStool(consumer, ModBlocks.BAR_STOOL_BROWN.get(), Blocks.BROWN_WOOL);
+        barStool(consumer, ModBlocks.BAR_STOOL_GREEN.get(), Blocks.GREEN_WOOL);
+        barStool(consumer, ModBlocks.BAR_STOOL_RED.get(), Blocks.RED_WOOL);
+        barStool(consumer, ModBlocks.BAR_STOOL_BLACK.get(), Blocks.BLACK_WOOL);
+
         //Microwave
         ShapedRecipeBuilder.shapedRecipe(ModBlocks.MICROWAVE_LIGHT.get())
                 .patternLine("IIC")
@@ -506,6 +524,23 @@ public class RecipeGen extends RecipeProvider
                 .addCriterion("has_andesite", hasItem(Blocks.POLISHED_ANDESITE))
                 .addCriterion("has_bucket", hasItem(Items.BUCKET))
                 .build(recipeConsumer);
+    }
+
+    private static void barStool(Consumer<IFinishedRecipe> recipeConsumer, IItemProvider barStool, IItemProvider wool)
+    {
+        ShapedRecipeBuilder.shapedRecipe(barStool, 2)
+                .patternLine("WWW")
+                .patternLine("GGG")
+                .patternLine("C C")
+                .key('W', wool)
+                .key('G', Blocks.GRAY_CONCRETE)
+                .key('C', Blocks.WHITE_CONCRETE)
+                .setGroup("bar_stool")
+                .addCriterion("has_wool", hasItem(wool))
+                .addCriterion("has_gray_concrete", hasItem(Blocks.GRAY_CONCRETE))
+                .addCriterion("has_white_concrete", hasItem(Blocks.WHITE_CONCRETE))
+                .build(recipeConsumer);
+
     }
 
 }

@@ -48,7 +48,7 @@ public class ModernChairBlock extends FurnitureHorizontalWaterloggedBlock
 
 
         ImmutableMap.Builder<BlockState, VoxelShape> builder = new ImmutableMap.Builder<>();
-        for(BlockState state : states)
+        for (BlockState state : states)
         {
             Direction direction = state.get(DIRECTION);
             List<VoxelShape> shapes = new ArrayList<>();

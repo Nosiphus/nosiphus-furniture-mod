@@ -240,6 +240,24 @@ public class ModBlocks {
     public static final RegistryObject<Block> KITCHEN_SINK_RED_MODERN = register("red_modern_kitchen_sink", new KitchenSinkBlock(Block.Properties.from(Blocks.RED_CONCRETE), false));
     public static final RegistryObject<Block> KITCHEN_SINK_BLACK_MODERN = register("black_modern_kitchen_sink", new KitchenSinkBlock(Block.Properties.from(Blocks.BLACK_CONCRETE), false));
 
+    //Bar Stools
+    public static final RegistryObject<Block> BAR_STOOL_WHITE = register("white_bar_stool", new BarStoolBlock(Block.Properties.from(Blocks.WHITE_CONCRETE).notSolid()));
+    public static final RegistryObject<Block> BAR_STOOL_ORANGE = register("orange_bar_stool", new BarStoolBlock(Block.Properties.from(Blocks.ORANGE_CONCRETE).notSolid()));
+    public static final RegistryObject<Block> BAR_STOOL_MAGENTA = register("magenta_bar_stool", new BarStoolBlock(Block.Properties.from(Blocks.MAGENTA_CONCRETE).notSolid()));
+    public static final RegistryObject<Block> BAR_STOOL_LIGHT_BLUE = register("light_blue_bar_stool", new BarStoolBlock(Block.Properties.from(Blocks.LIGHT_BLUE_CONCRETE).notSolid()));
+    public static final RegistryObject<Block> BAR_STOOL_YELLOW = register("yellow_bar_stool", new BarStoolBlock(Block.Properties.from(Blocks.YELLOW_CONCRETE).notSolid()));
+    public static final RegistryObject<Block> BAR_STOOL_LIME = register("lime_bar_stool", new BarStoolBlock(Block.Properties.from(Blocks.LIME_CONCRETE).notSolid()));
+    public static final RegistryObject<Block> BAR_STOOL_PINK = register("pink_bar_stool", new BarStoolBlock(Block.Properties.from(Blocks.PINK_CONCRETE).notSolid()));
+    public static final RegistryObject<Block> BAR_STOOL_GRAY = register("gray_bar_stool", new BarStoolBlock(Block.Properties.from(Blocks.GRAY_CONCRETE).notSolid()));
+    public static final RegistryObject<Block> BAR_STOOL_LIGHT_GRAY = register("light_gray_bar_stool", new BarStoolBlock(Block.Properties.from(Blocks.LIGHT_GRAY_CONCRETE).notSolid()));
+    public static final RegistryObject<Block> BAR_STOOL_CYAN = register("cyan_bar_stool", new BarStoolBlock(Block.Properties.from(Blocks.CYAN_CONCRETE).notSolid()));
+    public static final RegistryObject<Block> BAR_STOOL_PURPLE = register("purple_bar_stool", new BarStoolBlock(Block.Properties.from(Blocks.PURPLE_CONCRETE).notSolid()));
+    public static final RegistryObject<Block> BAR_STOOL_BLUE = register("blue_bar_stool", new BarStoolBlock(Block.Properties.from(Blocks.BLUE_CONCRETE).notSolid()));
+    public static final RegistryObject<Block> BAR_STOOL_BROWN = register("brown_bar_stool", new BarStoolBlock(Block.Properties.from(Blocks.BROWN_CONCRETE).notSolid()));
+    public static final RegistryObject<Block> BAR_STOOL_GREEN = register("green_bar_stool", new BarStoolBlock(Block.Properties.from(Blocks.GREEN_CONCRETE).notSolid()));
+    public static final RegistryObject<Block> BAR_STOOL_RED = register("red_bar_stool", new BarStoolBlock(Block.Properties.from(Blocks.RED_CONCRETE).notSolid()));
+    public static final RegistryObject<Block> BAR_STOOL_BLACK = register("black_bar_stool", new BarStoolBlock(Block.Properties.from(Blocks.BLACK_CONCRETE).notSolid()));
+
     //Appliances
     public static final RegistryObject<Block> MICROWAVE_LIGHT = register("microwave_light", new MicrowaveBlock(AbstractBlock.Properties.from(Blocks.WHITE_CONCRETE).notSolid()));
     public static final RegistryObject<Block> MICROWAVE_DARK = register("microwave_dark", new MicrowaveBlock(AbstractBlock.Properties.from(Blocks.GRAY_CONCRETE).notSolid()));

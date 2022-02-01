@@ -1,0 +1,9 @@
+{
+    "parent": "nfm:block/bar_stool",
+    "textures": {
+        "1": "minecraft:block/blue_wool",
+        "2": "minecraft:block/gray_concrete",
+        "3": "minecraft:block/white_concrete",
+        "4": "minecraft:block/gray_concrete"
+    }
+}
