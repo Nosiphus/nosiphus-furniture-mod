@@ -3,4 +3,6 @@ Nosiphus Furniture Mod is an addon to MrCrayFish's Furniture Mod that restores f
 
 Name change under consideration, waiting on approval.
 
+https://www.curseforge.com/minecraft/mc-mods/nosiphus-furniture-mod
+
 See https://github.com/MrCrayfish/MrCrayfishFurnitureMod/pull/723 for some background.
