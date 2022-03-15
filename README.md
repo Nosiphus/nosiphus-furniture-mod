@@ -1,8 +1,33 @@
-# nosiphus-furniture-mod
-Nosiphus Furniture Mod is an addon to MrCrayFish's Furniture Mod that restores furniture from earlier versions of the mod that have been removed, as well as expanding on some of those older blocks to fit in better with the current mod.
+When MrCrayFish upgraded the Furniture Mod from 1.12.2 to 1.16.5, he decided to take the mod in a new direction, and part of that direction meant leaving behind some of the older furniture. With his blessing, I have created an addon to readd some of that furniture. I have also extended these blocks to more closely follow certain changes the main mod has made.
 
-Name change under consideration, waiting on approval.
+![White variants of furniture blocks](https://i.imgur.com/cKNaJyq.png "White Furniture Blocks")
 
-https://www.curseforge.com/minecraft/mc-mods/nosiphus-furniture-mod
+It presently contains:
 
-See https://github.com/MrCrayfish/MrCrayfishFurnitureMod/pull/723 for some background.
+Modern Tables (All Colors)
+Modern Chairs (All Colors)
+Office Chairs (All Colors)
+Modern Coffee Tables (All Colors)
+Modern Cabinets (All Colors)
+Modern Bedside Cabinets (All Colors)
+Modern Desks (All Colors)
+Modern Desk Cabinets (All Colors)
+Modern Sofas (All Colors)
+Modern Kitchen Counters (All Colors)
+Modern Kitchen Sinks (All Colors)
+Bar Stools (All Colors)
+Microwaves (Light & Dark)
+Ovens (Light & Dark)
+Oven Rangehoods (Light & Dark)
+Sinks (Light & Dark)
+Shower (Light & Dark)
+Shower Heads (Light & Dark)
+Toilets (Light & Dark)
+
+As a disclaimer, as the main mod receives updates, it is possible that I will remove certain blocks from this mod if they reappear in the main mod.
+
+See https://github.com/MrCrayfish/MrCrayfishFurnitureMod/pull/723 for more information.
+
+CREDITS
+windowsxprules1 for code
+MrCrayFish for original model files
