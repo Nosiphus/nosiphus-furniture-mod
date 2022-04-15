@@ -1,0 +1,7 @@
+{
+    "parent": "nfm:block/shower",
+    "textures": {
+        "concrete": "minecraft:block/gray_concrete",
+        "glass": "minecraft:block/glass"
+    }
+}
