@@ -4,6 +4,7 @@ import com.google.common.collect.Lists;
 import com.mrcrayfish.furniture.client.gui.widget.button.IconButton;
 import com.nosiphus.furniture.NosiphusFurnitureMod;
 import com.nosiphus.furniture.client.gui.widget.button.TagButton;
+import com.nosiphus.furniture.common.ModTags;
 import com.nosiphus.furniture.core.ModBlocks;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.components.Button;
@@ -215,12 +216,13 @@ public class CreativeScreenEvents {
     }
 
     private void compileItems() {
-        final TagFilter GENERAL = new TagFilter(new ResourceLocation("nfm", "general"), new ItemStack(ModBlocks.CHAIR_WHITE_MODERN.get()));
-        final TagFilter STORAGE = new TagFilter(new ResourceLocation("nfm", "storage"), new ItemStack(ModBlocks.CABINET_WHITE_MODERN.get()));
-        final TagFilter BEDROOM = new TagFilter(new ResourceLocation("nfm", "bedroom"), new ItemStack(ModBlocks.DESK_WHITE_MODERN.get()));
-        final TagFilter KITCHEN = new TagFilter(new ResourceLocation("nfm", "kitchen"), new ItemStack(ModBlocks.KITCHEN_COUNTER_WHITE_MODERN.get()));
-        final TagFilter BATHROOM = new TagFilter(new ResourceLocation("nfm", "bathroom"), new ItemStack(ModBlocks.TOILET_LIGHT.get()));
-        TagFilter[] filters = new TagFilter[] {GENERAL, STORAGE, BEDROOM, KITCHEN, BATHROOM};
+        TagFilter[] filters = new TagFilter[] {
+            new TagFilter(ModTags.Items.GENERAL, new ItemStack(ModBlocks.CHAIR_WHITE_MODERN.get())),
+            new TagFilter(ModTags.Items.STORAGE, new ItemStack(ModBlocks.CABINET_WHITE_MODERN.get())),
+            new TagFilter(ModTags.Items.BEDROOM, new ItemStack(ModBlocks.DESK_WHITE_MODERN.get())),
+            new TagFilter(ModTags.Items.KITCHEN, new ItemStack(ModBlocks.KITCHEN_COUNTER_WHITE_MODERN.get())),
+            new TagFilter(ModTags.Items.BATHROOM, new ItemStack(ModBlocks.TOILET_LIGHT.get()))
+        };
 
         ForgeRegistries.ITEMS.getValues().stream()
                 .filter(item -> item.getItemCategory() == NosiphusFurnitureMod.GROUP)
@@ -251,7 +253,7 @@ public class CreativeScreenEvents {
         private final ItemStack icon;
         private boolean enabled = true;
 
-        public TagFilter(ResourceLocation tag, ItemStack icon) {
+        public TagFilter(TagKey<Item> tag, ItemStack icon) {
             this.tag = tag;
             this.name = new TranslatableComponent(String.format("gui.tag_filter.%s.%s", tag.location().getNamespace(), tag.location().getPath().replace("/", ".")));
             this.icon = icon;
