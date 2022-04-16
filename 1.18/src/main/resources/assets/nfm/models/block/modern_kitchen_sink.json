@@ -3,7 +3,7 @@
     "textures": {
         "particle": "#base",
         "sink": "minecraft:block/white_concrete",
-        "taps": "minecraft:block/polished_andesite"
+        "taps": "minecraft:block/quartz_block_bottom"
     },
     "display": {
         "gui": {

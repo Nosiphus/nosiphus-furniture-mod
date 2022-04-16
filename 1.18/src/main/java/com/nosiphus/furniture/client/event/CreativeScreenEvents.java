@@ -27,7 +27,7 @@ import java.util.*;
 
 public class CreativeScreenEvents {
 
-    private static final ResourceLocation ICONS = new ResourceLocation("nfm", "textures/gui/icons.png");
+    private static final ResourceLocation ICONS = new ResourceLocation("cfm", "textures/gui/icons.png");
     private static int startIndex;
 
     private List<TagFilter> filters;
