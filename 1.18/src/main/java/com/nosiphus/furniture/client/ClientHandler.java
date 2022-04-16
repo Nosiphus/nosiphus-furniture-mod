@@ -1,6 +1,5 @@
 package com.nosiphus.furniture.client;
 
-import com.nosiphus.furniture.blockentity.SinkBlockEntity;
 import com.nosiphus.furniture.client.event.CreativeScreenEvents;
 import com.nosiphus.furniture.client.renderer.blockentity.SinkBlockEntityRenderer;
 import com.nosiphus.furniture.core.ModBlockEntities;
@@ -8,7 +7,6 @@ import com.nosiphus.furniture.core.ModBlocks;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderers;
-import net.minecraftforge.client.ClientRegistry;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.ModList;
 

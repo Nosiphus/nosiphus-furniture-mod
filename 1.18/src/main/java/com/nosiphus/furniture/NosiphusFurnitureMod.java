@@ -1,14 +1,12 @@
 package com.nosiphus.furniture;
 
-import com.mrcrayfish.furniture.datagen.BlockTagGen;
-import com.mrcrayfish.furniture.datagen.ItemTagGen;
-import com.mrcrayfish.furniture.datagen.LootTableGen;
-import com.mrcrayfish.furniture.datagen.RecipeGen;
 import com.nosiphus.furniture.client.ClientHandler;
 import com.nosiphus.furniture.core.*;
+import com.nosiphus.furniture.datagen.LootTableGen;
+import com.nosiphus.furniture.datagen.RecipeGen;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.world.item.CreativeModeTab;
-import net.minecraftforge.common.data.ExistingFileHelper;
+import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
@@ -22,6 +20,7 @@ public class NosiphusFurnitureMod {
 
     public static final Logger LOGGER = LogManager.getLogger("nfm");
     public static final CreativeModeTab GROUP = new NosiphusFurnitureModTab("nfm");
+    public static final String MOD_ID = "nfm";
 
     public NosiphusFurnitureMod() {
 
@@ -34,6 +33,8 @@ public class NosiphusFurnitureMod {
         eventBus.addListener(this::onClientSetup);
         eventBus.addListener(this::onDataSetup);
 
+        MinecraftForge.EVENT_BUS.register(this);
+
     }
 
     private void onClientSetup(FMLClientSetupEvent event) {
@@ -45,12 +46,8 @@ public class NosiphusFurnitureMod {
     private void onDataSetup(GatherDataEvent event) {
 
         DataGenerator generator = event.getGenerator();
-        ExistingFileHelper existingFileHelper = event.getExistingFileHelper();
-        BlockTagGen blockTagGen = new BlockTagGen(generator, existingFileHelper);
         generator.addProvider(new RecipeGen(generator));
         generator.addProvider(new LootTableGen(generator));
-        generator.addProvider(blockTagGen);
-        generator.addProvider(new ItemTagGen(generator, blockTagGen, existingFileHelper));
 
     }
 

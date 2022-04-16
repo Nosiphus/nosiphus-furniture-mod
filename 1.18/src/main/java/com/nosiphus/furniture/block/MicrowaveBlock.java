@@ -42,7 +42,7 @@ public class MicrowaveBlock extends FurnitureHorizontalWaterloggedBlock
         final VoxelShape[] RIGHT_COVER = VoxelShapeHelper.getRotatedShapes(VoxelShapeHelper.rotate(Block.box(3.0, 1.0, 11.0, 4.0, 7.0, 12.0), Direction.EAST));
         final VoxelShape[] BOTTOM_COVER = VoxelShapeHelper.getRotatedShapes(VoxelShapeHelper.rotate(Block.box(3.0, 0.0, 1.0, 4.0, 1.0, 12.0), Direction.EAST));
         final VoxelShape[] CONTROLS = VoxelShapeHelper.getRotatedShapes(VoxelShapeHelper.rotate(Block.box(3.0, 0.0, 12.5, 4.0, 8.0, 15.0), Direction.EAST));
-        final VoxelShape[] GLASS = VoxelShapeHelper.getRotatedShapes(VoxelShapeHelper.rotate(Block.box(3.5, 2.0, 3.0, 3.5, 6.0, 10.0), Direction.EAST));
+        final VoxelShape[] GLASS = VoxelShapeHelper.getRotatedShapes(VoxelShapeHelper.rotate(Block.box(3.5, 2.0, 3.0, 3.6, 6.0, 10.0), Direction.EAST));
         final VoxelShape[] PLATE = VoxelShapeHelper.getRotatedShapes(VoxelShapeHelper.rotate(Block.box(4.25, 1.0, 3.0, 10.0, 2.0, 10.25), Direction.EAST));
 
         ImmutableMap.Builder<BlockState, VoxelShape> builder = new ImmutableMap.Builder<>();

@@ -10,7 +10,7 @@ public class ModParticles {
 
     public static final DeferredRegister<ParticleType<?>> PARTICLES = DeferredRegister.create(ForgeRegistries.PARTICLE_TYPES, "nfm");
 
-    public static final RegistryObject<SimpleParticleType> SHOWER_PARTICLE = PARTICLES.register("shower_particle",
-            () -> new SimpleParticleType(true));
+    //public static final RegistryObject<SimpleParticleType> SHOWER_PARTICLE = PARTICLES.register("shower_particle",
+    //        () -> new SimpleParticleType(true));
 
 }

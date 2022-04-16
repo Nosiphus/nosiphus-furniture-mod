@@ -26,10 +26,6 @@ archivesBaseName = project.property('mod.id')
 
 java.toolchain.languageVersion = JavaLanguageVersion.of(17)
 
-mixin {
-    add sourceSets.main, "nfm.refmap.json"
-}
-
 println "Java: ${System.getProperty 'java.version'}, JVM: ${System.getProperty 'java.vm.version'} (${System.getProperty 'java.vendor'}), Arch: ${System.getProperty 'os.arch'}"
 minecraft {
     mappings channel: project.property('mappings.channel'), version: project.property('mappings.version')
@@ -37,11 +33,8 @@ minecraft {
     runs {
         client {
             workingDirectory project.file('run')
-			property 'mixin.env.remapRefMap', 'true'
-            property 'mixin.env.refMapRemappingFile', "${projectDir}/build/createSrgToMcp/output.srg"
             property 'forge.logging.markers', 'REGISTRIES'
             property 'forge.logging.console.level', 'debug'
-			arg '-mixin.config=nfm.mixins.json'
             property 'forge.enabledGameTestNamespaces', 'nfm'
             mods {
                 nfm {
@@ -52,12 +45,9 @@ minecraft {
 
         server {
             workingDirectory project.file('run')
-			property 'mixin.env.remapRefMap', 'true'
-            property 'mixin.env.refMapRemappingFile', "${projectDir}/build/createSrgToMcp/output.srg"
             property 'forge.logging.markers', 'REGISTRIES'
             property 'forge.logging.console.level', 'debug'
             property 'forge.enabledGameTestNamespaces', 'nfm'
-			arg '-mixin.config=nfm.mixins.json'
             mods {
                 nfm {
                     source sourceSets.main
@@ -67,11 +57,8 @@ minecraft {
 
         gameTestServer {
             workingDirectory project.file('run')
-			property 'mixin.env.remapRefMap', 'true'
-            property 'mixin.env.refMapRemappingFile', "${projectDir}/build/createSrgToMcp/output.srg"
 			property 'forge.logging.markers', 'REGISTRIES'
             property 'forge.logging.console.level', 'debug'
-			arg '-mixin.config=nfm.mixins.json'
             property 'forge.enabledGameTestNamespaces', 'nfm'
             mods {
                 nfm {
@@ -82,11 +69,8 @@ minecraft {
 
         data {
             workingDirectory project.file('run')
-			property 'mixin.env.remapRefMap', 'true'
-            property 'mixin.env.refMapRemappingFile', "${projectDir}/build/createSrgToMcp/output.srg"
             property 'forge.logging.markers', 'REGISTRIES'
             property 'forge.logging.console.level', 'debug'
-			arg '-mixin.config=nfm.mixins.json'
             args '--mod', 'nfm', '--all', '--output', file('src/generated/resources/'), '--existing', file('src/main/resources/')
             mods {
                 nfm {
@@ -107,8 +91,8 @@ repositories {
 
 dependencies {
     minecraft 'net.minecraftforge:forge:1.18.2-40.0.52'
-	annotationProcessor 'org.spongepowered:mixin:0.8:processor'
-    compileOnly fg.deobf('curse.maven:cfm-55438:3683524')
+	annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
+    implementation fg.deobf('curse.maven:cfm-55438:3683524')
 }
 
 processResources {

@@ -149,15 +149,6 @@ public class ModernSofaBlock extends FurnitureHorizontalWaterloggedBlock
         if(!level.isClientSide())
         {
             ItemStack stack = playerEntity.getItemInHand(hand);
-            if(stack.getItem() == Items.NAME_TAG && this != ModBlocks.SOFA_RAINBOW.get())
-            {
-                if(stack.getHoverName().getString().equals("jeb_"))
-                {
-                    BlockState rainbowSofaState = ModBlocks.SOFA_RAINBOW.get().defaultBlockState().setValue(DIRECTION, state.getValue(DIRECTION)).setValue(TYPE, state.getValue(TYPE)).setValue(WATERLOGGED, state.getValue(WATERLOGGED));
-                    level.setBlock(pos, rainbowSofaState, 3);
-                    return InteractionResult.SUCCESS;
-                }
-            }
             return SeatEntity.create(level, pos, 0.4, playerEntity, state.getValue(DIRECTION));
         }
         return InteractionResult.SUCCESS;
@@ -173,18 +164,8 @@ public class ModernSofaBlock extends FurnitureHorizontalWaterloggedBlock
     {
         boolean left = this.isSofa(level, pos, dir.getCounterClockWise(), dir) || this.isSofa(level, pos, dir.getCounterClockWise(), dir.getCounterClockWise());
         boolean right = this.isSofa(level, pos, dir.getClockWise(), dir) || this.isSofa(level, pos, dir.getClockWise(), dir.getClockWise());
-        boolean cornerLeft = this.isSofa(level, pos, dir.getOpposite(), dir.getCounterClockWise());
-        boolean cornerRight = this.isSofa(level, pos, dir.getOpposite(), dir.getClockWise());
 
-        if(cornerLeft)
-        {
-            return state.setValue(TYPE, Type.CORNER_LEFT);
-        }
-        else if(cornerRight)
-        {
-            return state.setValue(TYPE, Type.CORNER_RIGHT);
-        }
-        else if(left && right)
+        if(left && right)
         {
             return state.setValue(TYPE, Type.MIDDLE);
         }
@@ -222,9 +203,7 @@ public class ModernSofaBlock extends FurnitureHorizontalWaterloggedBlock
         SINGLE("single"),
         LEFT("left"),
         RIGHT("right"),
-        MIDDLE("middle"),
-        CORNER_LEFT("corner_left"),
-        CORNER_RIGHT("corner_right");
+        MIDDLE("middle");
 
         private final String id;
 
