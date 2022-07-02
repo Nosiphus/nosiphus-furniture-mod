@@ -8,24 +8,24 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: '4.1.+', changing: true
+        classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: '5.1.+', changing: true
 		classpath 'org.spongepowered:mixingradle:0.7-SNAPSHOT'
     }
 }
+
+plugins {
+    id 'eclipse'
+    id 'maven-publish'
+}
+
 apply plugin: 'net.minecraftforge.gradle'
-apply plugin: 'eclipse'
-apply plugin: 'maven-publish'
 apply plugin: 'org.spongepowered.mixin'
 
 version = project.property('mod.version') + "-" + project.property('minecraft.version')
 group = 'com.nosiphus'
 archivesBaseName = project.property('mod.id')
 
-java.toolchain.languageVersion = JavaLanguageVersion.of(8)
-
-mixin {
-    add sourceSets.main, "nfm.refmap.json"
-}
+java.toolchain.languageVersion = JavaLanguageVersion.of(17)
 
 minecraft {
     mappings channel: project.property('mappings.channel'), version: project.property('mappings.version')
@@ -33,11 +33,9 @@ minecraft {
     runs {
         client {
             workingDirectory project.file('run')
-            property 'mixin.env.remapRefMap', 'true'
-            property 'mixin.env.refMapRemappingFile', "${projectDir}/build/createSrgToMcp/output.srg"
             property 'forge.logging.markers', 'REGISTRIES'
             property 'forge.logging.console.level', 'debug'
-            arg '-mixin.config=nfm.mixins.json'
+            property 'forge.enabledGameTestNamespaces', 'nfm'
             mods {
                 nfm {
                     source sourceSets.main
@@ -47,11 +45,21 @@ minecraft {
 
         server {
             workingDirectory project.file('run')
-            property 'mixin.env.remapRefMap', 'true'
-            property 'mixin.env.refMapRemappingFile', "${projectDir}/build/createSrgToMcp/output.srg"
             property 'forge.logging.markers', 'REGISTRIES'
             property 'forge.logging.console.level', 'debug'
-            arg '-mixin.config=nfm.mixins.json'
+            property 'forge.enabledGameTestNamespaces', 'nfm'
+            mods {
+                nfm {
+                    source sourceSets.main
+                }
+            }
+        }
+
+        gameTestServer {
+            workingDirectory project.file('run')
+			property 'forge.logging.markers', 'REGISTRIES'
+            property 'forge.logging.console.level', 'debug'
+            property 'forge.enabledGameTestNamespaces', 'nfm'
             mods {
                 nfm {
                     source sourceSets.main
@@ -61,11 +69,8 @@ minecraft {
 
         data {
             workingDirectory project.file('run')
-            property 'mixin.env.remapRefMap', 'true'
-            property 'mixin.env.refMapRemappingFile', "${projectDir}/build/createSrgToMcp/output.srg"
             property 'forge.logging.markers', 'REGISTRIES'
             property 'forge.logging.console.level', 'debug'
-            arg '-mixin.config=nfm.mixins.json'
             args '--mod', 'nfm', '--all', '--output', file('src/generated/resources/'), '--existing', file('src/main/resources/')
             mods {
                 nfm {
@@ -88,9 +93,9 @@ repositories {
 }
 
 dependencies {
-    minecraft 'net.minecraftforge:forge:1.16.5-36.2.35'
-    annotationProcessor 'org.spongepowered:mixin:0.8:processor'
-    compile fg.deobf('curse.maven:cfm-55438:3346467')
+    minecraft 'net.minecraftforge:forge:1.18.2-40.0.52'
+	annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
+    implementation fg.deobf('curse.maven:cfm-55438:3683524')
 }
 
 processResources {
@@ -129,4 +134,8 @@ publishing {
             url "file:///${project.projectDir}/mcmodsrepo"
         }
     }
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8' // Use the UTF-8 charset for Java compilation
 }
