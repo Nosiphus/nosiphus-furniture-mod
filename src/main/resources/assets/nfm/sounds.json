@@ -1,0 +1,22 @@
+{
+	"block.microwave.finish": {
+        "subtitle": "subtitle.nfm.finish_microwave",
+        "sounds": [ "nfm:block/microwave/finish" ]
+    },
+    "block.microwave.running": {
+        "subtitle": "subtitle.nfm.running_microwave",
+        "sounds": [ "nfm:block/microwave/running" ]
+    },
+    "block.shower.running": {
+        "subtitle": "subtitle.nfm.running_shower",
+        "sounds": [ "nfm:block/shower/running" ]
+    },
+	"block.toilet.fart": {
+        "subtitle": "subtitle.nfm.toilet_fart",
+        "sounds": [ "nfm:block/toilet/fart" ]
+    },
+	"block.toilet.flush": {
+        "subtitle": "subtitle.nfm.toilet_flush",
+        "sounds": [ "nfm:block/toilet/flush" ]
+    }
+}

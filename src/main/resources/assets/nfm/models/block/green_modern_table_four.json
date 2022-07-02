@@ -1,0 +1,6 @@
+{
+    "parent": "nfm:block/modern_table_four",
+    "textures": {
+        "color": "minecraft:block/green_concrete"
+    }
+}
