@@ -15,6 +15,8 @@ import net.minecraft.core.Direction;
 import net.minecraft.world.level.material.Fluid;
 import net.minecraft.world.level.material.Fluids;
 import net.minecraftforge.client.ForgeHooksClient;
+import net.minecraftforge.client.RenderProperties;
+import net.minecraftforge.fluids.FluidStack;
 
 public class SinkBlockEntityRenderer implements BlockEntityRenderer<SinkBlockEntity> {
 
@@ -33,7 +35,8 @@ public class SinkBlockEntityRenderer implements BlockEntityRenderer<SinkBlockEnt
     }
 
     private void drawFluid(SinkBlockEntity te, PoseStack poseStack, MultiBufferSource source, float x, float y, float z, float width, float height, float depth, int light) {
-        Fluid fluid = te.getTank().getFluid().getFluid();
+        FluidStack fluidStack = te.getTank().getFluid();
+        Fluid fluid = fluidStack.getFluid();
         if(fluid == Fluids.EMPTY)
             return;
 
@@ -42,7 +45,7 @@ public class SinkBlockEntityRenderer implements BlockEntityRenderer<SinkBlockEnt
         float maxU = Math.min(minU + (sprite.getU0() - minU) * depth, sprite.getU0());
         float minV = sprite.getV0();
         float maxV = Math.min(minV + (sprite.getV1() - minV) * width, sprite.getV1());
-        int waterColor = fluid.getAttributes().getColor(te.getLevel(), te.getBlockPos());
+        int waterColor = RenderProperties.get(fluid).getColorTint(fluid.defaultFluidState(), te.getLevel(), te.getBlockPos());
         float red = (float)(waterColor >> 16 & 255) / 255.0F;
         float green = (float)(waterColor >> 8 & 255) / 255.0F;
         float blue = (float)(waterColor & 255) / 255.0F;

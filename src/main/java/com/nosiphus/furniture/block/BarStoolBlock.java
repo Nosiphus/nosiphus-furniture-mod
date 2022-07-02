@@ -2,7 +2,7 @@ package com.nosiphus.furniture.block;
 
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
-import com.mrcrayfish.furniture.block.FurnitureHorizontalWaterloggedBlock;
+import com.mrcrayfish.furniture.block.FurnitureHorizontalBlock;
 import com.mrcrayfish.furniture.entity.SeatEntity;
 import com.mrcrayfish.furniture.util.VoxelShapeHelper;
 import net.minecraft.core.BlockPos;
@@ -22,7 +22,7 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 import java.util.ArrayList;
 import java.util.List;
 
-public class BarStoolBlock extends FurnitureHorizontalWaterloggedBlock {
+public class BarStoolBlock extends FurnitureHorizontalBlock {
 
     public final ImmutableMap<BlockState, VoxelShape> SHAPES;
 

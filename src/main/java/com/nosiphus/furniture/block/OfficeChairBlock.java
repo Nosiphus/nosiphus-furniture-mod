@@ -2,7 +2,7 @@ package com.nosiphus.furniture.block;
 
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
-import com.mrcrayfish.furniture.block.FurnitureHorizontalWaterloggedBlock;
+import com.mrcrayfish.furniture.block.FurnitureHorizontalBlock;
 import com.mrcrayfish.furniture.entity.SeatEntity;
 import com.mrcrayfish.furniture.util.VoxelShapeHelper;
 import com.nosiphus.furniture.blockentity.OfficeChairBlockEntity;
@@ -26,7 +26,7 @@ import javax.annotation.Nullable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class OfficeChairBlock extends FurnitureHorizontalWaterloggedBlock implements EntityBlock
+public class OfficeChairBlock extends FurnitureHorizontalBlock implements EntityBlock
 {
     public final ImmutableMap<BlockState, VoxelShape> SHAPES;
 

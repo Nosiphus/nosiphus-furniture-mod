@@ -2,6 +2,7 @@ package com.nosiphus.furniture.datagen;
 
 import com.google.common.collect.ImmutableList;
 import com.mojang.datafixers.util.Pair;
+import com.mrcrayfish.furniture.Reference;
 import com.nosiphus.furniture.NosiphusFurnitureMod;
 import com.nosiphus.furniture.block.ModernCoffeeTableBlock;
 import com.nosiphus.furniture.core.ModBlocks;
@@ -24,6 +25,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.function.BiConsumer;
 import java.util.function.Consumer;
 import java.util.function.Supplier;
@@ -295,7 +297,7 @@ public class LootTableGen extends LootTableProvider
         @Override
         protected Iterable<Block> getKnownBlocks()
         {
-            return ForgeRegistries.BLOCKS.getValues().stream().filter(entityType -> entityType.getRegistryName() != null && NosiphusFurnitureMod.MOD_ID.equals(entityType.getRegistryName().getNamespace())).collect(Collectors.toSet());
+            return ForgeRegistries.BLOCKS.getValues().stream().filter(block -> NosiphusFurnitureMod.MOD_ID.equals(Objects.requireNonNull(ForgeRegistries.BLOCKS.getKey(block)).getNamespace())).collect(Collectors.toSet());
         }
     }
 }

@@ -1,5 +1,5 @@
 modLoader="javafml"
-loaderVersion="[40,)"
+loaderVersion="[41,)"
 license="GPLv3"
 issueTrackerURL="https://github.com/Nosiphus/nosiphus-furniture-mod/issues"
 
@@ -17,19 +17,19 @@ description="Nosiphus Furniture Mod is an addon to MrCrayFish's Furniture Mod th
 [[dependencies.nfm]]
     modId="forge"
     mandatory=true
-    versionRange="[40.0.0,)"
+    versionRange="[41.0.0,)"
     ordering="NONE"
     side="BOTH"
 [[dependencies.nfm]]
     modId="minecraft"
     mandatory=true
-    versionRange="[1.18.2,)"
+    versionRange="[1.19,)"
     ordering="NONE"
     side="BOTH"
 [[dependencies.nfm]]
     modId="cfm"
     mandatory=true
-    versionRange="[7.0.0-pre29,)"
+    versionRange="[7.0.0-pre31,)"
     ordering="AFTER"
     side="BOTH"
 

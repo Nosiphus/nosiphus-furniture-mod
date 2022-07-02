@@ -2,7 +2,7 @@ package com.nosiphus.furniture.block;
 
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
-import com.mrcrayfish.furniture.block.FurnitureHorizontalWaterloggedBlock;
+import com.mrcrayfish.furniture.block.FurnitureHorizontalBlock;
 import com.mrcrayfish.furniture.util.VoxelShapeHelper;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -15,7 +15,7 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ShowerBlock extends FurnitureHorizontalWaterloggedBlock
+public class ShowerBlock extends FurnitureHorizontalBlock
 {
     public final ImmutableMap<BlockState, VoxelShape> SHAPES;
 

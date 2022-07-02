@@ -46,8 +46,8 @@ public class NosiphusFurnitureMod {
     private void onDataSetup(GatherDataEvent event) {
 
         DataGenerator generator = event.getGenerator();
-        generator.addProvider(new RecipeGen(generator));
-        generator.addProvider(new LootTableGen(generator));
+        generator.addProvider(event.includeServer(), new RecipeGen(generator));
+        generator.addProvider(event.includeServer(), new LootTableGen(generator));
 
     }
 

@@ -2,7 +2,7 @@ package com.nosiphus.furniture.block;
 
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
-import com.mrcrayfish.furniture.block.FurnitureHorizontalWaterloggedBlock;
+import com.mrcrayfish.furniture.block.FurnitureHorizontalBlock;
 import com.mrcrayfish.furniture.core.ModBlocks;
 import com.mrcrayfish.furniture.entity.SeatEntity;
 import com.mrcrayfish.furniture.util.VoxelShapeHelper;
@@ -29,7 +29,7 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ModernSofaBlock extends FurnitureHorizontalWaterloggedBlock
+public class ModernSofaBlock extends FurnitureHorizontalBlock
 {
     public static final EnumProperty<Type> TYPE = EnumProperty.create("type", Type.class);
 
