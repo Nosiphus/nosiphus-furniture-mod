@@ -1,0 +1,38 @@
+modLoader="javafml"
+loaderVersion="[36,)"
+license="GPLv3"
+issueTrackerURL="https://github.com/Nosiphus/nosiphus-furniture/issues"
+
+[[mods]]
+modId="nfm"
+version="2022.07.02"
+displayName="Nosiphus Furniture Mod"
+updateJSONURL="https://www.nosiphus.com/"
+displayURL="https://www.nosiphus.com/"
+logoFile="nfm.png"
+credits="MrCrayFish, Ocelot"
+authors="Nosiphus"
+description="Nosiphus Furniture Mod is an addon to MrCrayFish's Furniture Mod that readds old furniture"
+
+[[dependencies.nfm]]
+    modId="forge"
+    mandatory=true
+    versionRange="[36.2.0,)"
+    ordering="NONE"
+    side="BOTH"
+[[dependencies.nfm]]
+    modId="minecraft"
+    mandatory=true
+    versionRange="[1.16.5,)"
+    ordering="NONE"
+    side="BOTH"
+[[dependencies.nfm]]
+    modId="cfm"
+    mandatory=true
+    versionRange="[7.0.0-pre22,)"
+    ordering="AFTER"
+    side="BOTH"
+
+[modproperties.nfm]
+    catalogueItemIcon="nfm:white_modern_chair"
+    configuredBackground="minecraft:textures/block/white_concrete.png"
