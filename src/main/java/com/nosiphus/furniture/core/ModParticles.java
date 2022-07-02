@@ -1,15 +1,16 @@
 package com.nosiphus.furniture.core;
 
-import com.nosiphus.furniture.Reference;
-import net.minecraft.particles.BasicParticleType;
-import net.minecraft.particles.ParticleType;
-import net.minecraftforge.fml.RegistryObject;
+import net.minecraft.core.particles.ParticleType;
+import net.minecraft.core.particles.SimpleParticleType;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
+import net.minecraftforge.registries.RegistryObject;
 
-public class ModParticles
-{
-    public static final DeferredRegister<ParticleType<?>> REGISTER = DeferredRegister.create(ForgeRegistries.PARTICLE_TYPES, Reference.MOD_ID);
+public class ModParticles {
 
-    public static final RegistryObject<BasicParticleType> SHOWER_PARTICLE = REGISTER.register("shower_particle", () -> new BasicParticleType(true));
+    public static final DeferredRegister<ParticleType<?>> PARTICLES = DeferredRegister.create(ForgeRegistries.PARTICLE_TYPES, "nfm");
+
+    //public static final RegistryObject<SimpleParticleType> SHOWER_PARTICLE = PARTICLES.register("shower_particle",
+    //        () -> new SimpleParticleType(true));
+
 }

@@ -1,33 +1,28 @@
 package com.nosiphus.furniture.client.gui.widget.button;
 
-import com.mojang.blaze3d.matrix.MatrixStack;
-import com.mojang.blaze3d.platform.GlStateManager;
 import com.mojang.blaze3d.systems.RenderSystem;
+import com.mojang.blaze3d.vertex.*;
+import com.mojang.math.Matrix4f;
 import com.nosiphus.furniture.client.event.CreativeScreenEvents;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.gui.widget.button.Button;
-import net.minecraft.client.renderer.BufferBuilder;
-import net.minecraft.client.renderer.ItemRenderer;
-import net.minecraft.client.renderer.Tessellator;
-import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.text.StringTextComponent;
+import net.minecraft.client.gui.components.Button;
+import net.minecraft.client.renderer.GameRenderer;
+import net.minecraft.client.renderer.entity.ItemRenderer;
+import net.minecraft.network.chat.TextComponent;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.ItemStack;
 
-/**
- * Author: MrCrayfish, Nosiphus
- */
-public class TagButton extends Button
-{
+public class TagButton extends Button {
+
     private static final ResourceLocation TABS = new ResourceLocation("textures/gui/container/creative_inventory/tabs.png");
 
     private CreativeScreenEvents.TagFilter category;
     private ItemStack stack;
     private boolean toggled;
 
-    public TagButton(int x, int y, CreativeScreenEvents.TagFilter category, IPressable pressable)
+    public TagButton(int x, int y, CreativeScreenEvents.TagFilter category, OnPress onPress)
     {
-        super(x, y, 32, 28, StringTextComponent.EMPTY, pressable);
+        super(x, y, 32, 28, TextComponent.EMPTY, onPress);
         this.category = category;
         this.stack = category.getIcon();
         this.toggled = category.isEnabled();
@@ -47,46 +42,43 @@ public class TagButton extends Button
     }
 
     @Override
-    public void renderButton(MatrixStack matrixStack, int mouseX, int mouseY, float partialTicks)
+    public void renderButton(PoseStack poseStack, int mouseX, int mouseY, float partialTicks)
     {
-        Minecraft mc = Minecraft.getInstance();
-        mc.getTextureManager().bindTexture(TABS);
-
-        RenderSystem.color4f(1.0F, 1.0F, 1.0F, this.alpha);
-        RenderSystem.disableLighting();
-        RenderSystem.enableBlend();
-        RenderSystem.blendFuncSeparate(GlStateManager.SourceFactor.SRC_ALPHA, GlStateManager.DestFactor.ONE_MINUS_SRC_ALPHA, GlStateManager.SourceFactor.ONE, GlStateManager.DestFactor.ZERO);
-        RenderSystem.blendFunc(GlStateManager.SourceFactor.SRC_ALPHA, GlStateManager.DestFactor.ONE_MINUS_SRC_ALPHA);
+        Minecraft minecraft = Minecraft.getInstance();
+        RenderSystem.setShader(GameRenderer::getPositionColorTexShader);
+        RenderSystem.setShaderTexture(0, TABS);
+        RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, this.alpha);
 
         int width = this.toggled ? 32 : 28;
         int textureX = 28;
         int textureY = this.toggled ? 32 : 0;
-        this.drawRotatedTexture(this.x, this.y, textureX, textureY, width, 28);
+        this.drawRotatedTexture(poseStack.last().pose(), this.x, this.y, textureX, textureY, width, 28);
 
-        RenderSystem.enableRescaleNormal();
-        ItemRenderer renderer = mc.getItemRenderer();
-        renderer.zLevel = 100.0F;
-        renderer.renderItemAndEffectIntoGUI(this.stack, x + 8, y + 6);
-        renderer.renderItemOverlays(mc.fontRenderer, this.stack, x + 8, y + 6);
-        renderer.zLevel = 0.0F;
+        ItemRenderer renderer = minecraft.getItemRenderer();
+        renderer.blitOffset = 100.0F;
+        renderer.renderAndDecorateItem(this.stack, x + 8, y + 6);
+        renderer.renderGuiItemDecorations(minecraft.font, this.stack, x + 8, y + 6);
+        renderer.blitOffset = 0.0F;
     }
 
-    private void drawRotatedTexture(int x, int y, int textureX, int textureY, int width, int height)
+    private void drawRotatedTexture(Matrix4f matrix4f, int x, int y, int textureX, int textureY, int width, int height)
     {
         float scaleX = 0.00390625F;
         float scaleY = 0.00390625F;
-        Tessellator tessellator = Tessellator.getInstance();
-        BufferBuilder buffer = tessellator.getBuffer();
-        buffer.begin(7, DefaultVertexFormats.POSITION_TEX);
-        buffer.pos(x, y + height, 0.0).tex(((float) (textureX + height) * scaleX), ((float) (textureY) * scaleY)).endVertex();
-        buffer.pos(x + width, y + height, 0.0).tex(((float) (textureX + height) * scaleX), ((float) (textureY + width) * scaleY)).endVertex();
-        buffer.pos(x + width, y, 0.0).tex(((float) (textureX) * scaleX), ((float) (textureY + width) * scaleY)).endVertex();
-        buffer.pos(x, y, 0.0).tex(((float) (textureX) * scaleX), ((float) (textureY) * scaleY)).endVertex();
-        tessellator.draw();
+        RenderSystem.setShader(GameRenderer::getPositionTexShader);
+        BufferBuilder buffer = Tesselator.getInstance().getBuilder();
+        buffer.begin(VertexFormat.Mode.QUADS, DefaultVertexFormat.POSITION_TEX);
+        buffer.vertex(matrix4f, x, y + height, 0.0F).uv(((float) (textureX + height) * scaleX), ((float) (textureY) * scaleY)).endVertex();
+        buffer.vertex(matrix4f, x + width, y + height, 0.0F).uv(((float) (textureX + height) * scaleX), ((float) (textureY + width) * scaleY)).endVertex();
+        buffer.vertex(matrix4f, x + width, y, 0.0F).uv(((float) (textureX) * scaleX), ((float) (textureY + width) * scaleY)).endVertex();
+        buffer.vertex(matrix4f, x, y, 0.0F).uv(((float) (textureX) * scaleX), ((float) (textureY) * scaleY)).endVertex();
+        buffer.end();
+        BufferUploader.end(buffer);
     }
 
     public void updateState()
     {
         this.toggled = this.category.isEnabled();
     }
+
 }

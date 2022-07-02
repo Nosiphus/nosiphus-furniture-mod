@@ -1,18 +1,14 @@
 package com.nosiphus.furniture.core;
 
-import com.nosiphus.furniture.Reference;
-import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.SoundEvent;
-import net.minecraftforge.fml.RegistryObject;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.sounds.SoundEvent;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
+import net.minecraftforge.registries.RegistryObject;
 
-/**
- * Author: MrCrayfish, Nosiphus
- */
-public class ModSounds
-{
-    public static final DeferredRegister<SoundEvent> REGISTER = DeferredRegister.create(ForgeRegistries.SOUND_EVENTS, Reference.MOD_ID);
+public class ModSounds {
+
+    public static final DeferredRegister<SoundEvent> SOUNDS = DeferredRegister.create(ForgeRegistries.SOUND_EVENTS, "nfm");
 
     public static final RegistryObject<SoundEvent> BLOCK_MICROWAVE_FINISH = register("block.microwave.finish");
     public static final RegistryObject<SoundEvent> BLOCK_MICROWAVE_RUNNING = register("block.microwave.running");
@@ -22,6 +18,7 @@ public class ModSounds
 
     private static RegistryObject<SoundEvent> register(String name)
     {
-        return REGISTER.register(name, () -> new SoundEvent(new ResourceLocation(Reference.MOD_ID, name)));
+        return SOUNDS.register(name, () -> new SoundEvent(new ResourceLocation("nfm", name)));
     }
+
 }

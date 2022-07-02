@@ -5,50 +5,50 @@ import com.nosiphus.furniture.core.*;
 import com.nosiphus.furniture.datagen.LootTableGen;
 import com.nosiphus.furniture.datagen.RecipeGen;
 import net.minecraft.data.DataGenerator;
-import net.minecraft.item.ItemGroup;
-import net.minecraft.item.ItemStack;
+import net.minecraft.world.item.CreativeModeTab;
+import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
-import net.minecraftforge.fml.event.lifecycle.GatherDataEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import net.minecraftforge.forge.event.lifecycle.GatherDataEvent;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
-/**
- * Author: MrCrayfish, Nosiphus
- */
-@Mod(Reference.MOD_ID)
-public class NosiphusFurnitureMod
-{
-    public static final ItemGroup GROUP = new ItemGroup(Reference.MOD_ID)
-    {
-        @Override
-        public ItemStack createIcon()
-        {
-            return new ItemStack(ModBlocks.CHAIR_WHITE_MODERN.get());
-        }
-    };
+@Mod("nfm")
+public class NosiphusFurnitureMod {
 
-    public NosiphusFurnitureMod()
-    {
+    public static final Logger LOGGER = LogManager.getLogger("nfm");
+    public static final CreativeModeTab GROUP = new NosiphusFurnitureModTab("nfm");
+    public static final String MOD_ID = "nfm";
+
+    public NosiphusFurnitureMod() {
+
         IEventBus eventBus = FMLJavaModLoadingContext.get().getModEventBus();
-        ModBlocks.REGISTER.register(eventBus);
-        ModItems.REGISTER.register(eventBus);
-        ModParticles.REGISTER.register(eventBus);
-        ModSounds.REGISTER.register(eventBus);
-        ModTileEntities.REGISTER.register(eventBus);
+        ModBlocks.BLOCKS.register(eventBus);
+        ModBlockEntities.BLOCK_ENTITIES.register(eventBus);
+        ModItems.ITEMS.register(eventBus);
+        ModParticles.PARTICLES.register(eventBus);
+        ModSounds.SOUNDS.register(eventBus);
         eventBus.addListener(this::onClientSetup);
         eventBus.addListener(this::onDataSetup);
+
+        MinecraftForge.EVENT_BUS.register(this);
+
     }
 
-    private void onClientSetup(FMLClientSetupEvent event)
-    {
-        ClientHandler.setup();
+    private void onClientSetup(FMLClientSetupEvent event) {
+
+        event.enqueueWork(ClientHandler::setup);
+
     }
 
-    private void onDataSetup(GatherDataEvent event)
-    {
-        DataGenerator dataGenerator = event.getGenerator();
-        dataGenerator.addProvider(new RecipeGen(dataGenerator));
-        dataGenerator.addProvider(new LootTableGen(dataGenerator));
+    private void onDataSetup(GatherDataEvent event) {
+
+        DataGenerator generator = event.getGenerator();
+        generator.addProvider(new RecipeGen(generator));
+        generator.addProvider(new LootTableGen(generator));
+
     }
+
 }

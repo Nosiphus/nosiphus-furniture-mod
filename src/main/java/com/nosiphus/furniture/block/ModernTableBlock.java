@@ -4,16 +4,16 @@ import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
 import com.mrcrayfish.furniture.block.FurnitureWaterloggedBlock;
 import com.mrcrayfish.furniture.util.VoxelShapeHelper;
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.state.BooleanProperty;
-import net.minecraft.state.StateContainer;
-import net.minecraft.util.Direction;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.shapes.ISelectionContext;
-import net.minecraft.util.math.shapes.VoxelShape;
-import net.minecraft.world.IBlockReader;
-import net.minecraft.world.IWorld;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
+import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.StateDefinition;
+import net.minecraft.world.level.block.state.properties.BooleanProperty;
+import net.minecraft.world.phys.shapes.CollisionContext;
+import net.minecraft.world.phys.shapes.VoxelShape;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,28 +27,29 @@ public class ModernTableBlock extends FurnitureWaterloggedBlock {
 
     public final ImmutableMap<BlockState, VoxelShape> SHAPES;
 
-    public ModernTableBlock(Properties properties)
-    {
+    public ModernTableBlock(Properties properties) {
+
         super(properties);
-        this.setDefaultState(this.getStateContainer().getBaseState().with(NORTH, false).with(EAST, false).with(SOUTH, false).with(WEST, false));
-        SHAPES = this.generateShapes(this.getStateContainer().getValidStates());
+        this.registerDefaultState(this.getStateDefinition().any().setValue(NORTH, false).setValue(EAST, false).setValue(SOUTH, false).setValue(WEST, false));
+        SHAPES = this.generateShapes(this.getStateDefinition().getPossibleStates());
+
     }
 
-    private ImmutableMap<BlockState, VoxelShape> generateShapes(ImmutableList<BlockState> states)
-    {
-        final VoxelShape TABLE_TOP = Block.makeCuboidShape(0.0, 14.0, 0.0, 16.0, 16.0, 16.0);
-        final VoxelShape LEG_SOUTH_EAST = Block.makeCuboidShape(13.5, 0.0, 13.5, 15.0, 14.0, 15.0);
-        final VoxelShape LEG_SOUTH_WEST = Block.makeCuboidShape(1.0, 0.0, 13.5, 2.5, 14.0, 15.0);
-        final VoxelShape LEG_NORTH_EAST = Block.makeCuboidShape(13.5, 0.0, 1.0, 15.0, 14.0, 2.5);
-        final VoxelShape LEG_NORTH_WEST = Block.makeCuboidShape(1.0, 0.0, 1.0, 2.5, 14.0, 2.5);
+    private ImmutableMap<BlockState, VoxelShape> generateShapes(ImmutableList<BlockState> states) {
+
+        final VoxelShape TABLE_TOP = Block.box(0.0, 14.0, 0.0, 16.0, 16.0, 16.0);
+        final VoxelShape LEG_SOUTH_EAST = Block.box(13.5, 0.0, 13.5, 15.0, 14.0, 15.0);
+        final VoxelShape LEG_SOUTH_WEST = Block.box(1.0, 0.0, 13.5, 2.5, 14.0, 15.0);
+        final VoxelShape LEG_NORTH_EAST = Block.box(13.5, 0.0, 1.0, 15.0, 14.0, 2.5);
+        final VoxelShape LEG_NORTH_WEST = Block.box(1.0, 0.0, 1.0, 2.5, 14.0, 2.5);
 
         ImmutableMap.Builder<BlockState, VoxelShape> builder = new ImmutableMap.Builder<>();
-        for(BlockState state : states)
-        {
-            boolean north = state.get(NORTH);
-            boolean east = state.get(EAST);
-            boolean south = state.get(SOUTH);
-            boolean west = state.get(WEST);
+        for(BlockState state : states) {
+
+            boolean north = state.getValue(NORTH);
+            boolean east = state.getValue(EAST);
+            boolean south = state.getValue(SOUTH);
+            boolean west = state.getValue(WEST);
 
             List<VoxelShape> shapes = new ArrayList<>();
             shapes.add(TABLE_TOP);
@@ -75,45 +76,35 @@ public class ModernTableBlock extends FurnitureWaterloggedBlock {
     }
 
     @Override
-    public VoxelShape getShape(BlockState state, IBlockReader reader, BlockPos pos, ISelectionContext context)
+    public VoxelShape getShape(BlockState state, BlockGetter reader, BlockPos pos, CollisionContext context)
     {
         return SHAPES.get(state);
     }
 
     @Override
-    public VoxelShape getCollisionShape(BlockState state, IBlockReader reader, BlockPos pos, ISelectionContext context)
+    public VoxelShape getCollisionShape(BlockState state, BlockGetter reader, BlockPos pos, CollisionContext context)
     {
         return SHAPES.get(state);
     }
 
     @Override
-    public BlockState updatePostPlacement(BlockState state, Direction direction, BlockState newState, IWorld world, BlockPos pos, BlockPos newPos)
+    public BlockState updateShape(BlockState state, Direction direction, BlockState newState, LevelAccessor level, BlockPos pos, BlockPos newPos)
     {
-        boolean north = world.getBlockState(pos.north()).getBlock() == this;
-        boolean east = world.getBlockState(pos.east()).getBlock() == this;
-        boolean south = world.getBlockState(pos.south()).getBlock() == this;
-        boolean west = world.getBlockState(pos.west()).getBlock() == this;
-        return state.with(NORTH, north).with(EAST, east).with(SOUTH, south).with(WEST, west);
+        boolean north = level.getBlockState(pos.north()).getBlock() == this;
+        boolean east = level.getBlockState(pos.east()).getBlock() == this;
+        boolean south = level.getBlockState(pos.south()).getBlock() == this;
+        boolean west = level.getBlockState(pos.west()).getBlock() == this;
+        return state.setValue(NORTH, north).setValue(EAST, east).setValue(SOUTH, south).setValue(WEST, west);
     }
 
-    //May be able to switch back in a future forge update
-    /*@Override
-    public BlockState getExtendedState(BlockState state, IBlockReader world, BlockPos pos)
-    {
-        boolean north = world.getBlockState(pos.north()).getBlock() == this;
-        boolean east = world.getBlockState(pos.east()).getBlock() == this;
-        boolean south = world.getBlockState(pos.south()).getBlock() == this;
-        boolean west = world.getBlockState(pos.west()).getBlock() == this;
-        return state.with(NORTH, north).with(EAST, east).with(SOUTH, south).with(WEST, west);
-    }*/
-
     @Override
-    protected void fillStateContainer(StateContainer.Builder<Block, BlockState> builder)
+    protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder)
     {
-        super.fillStateContainer(builder);
+        super.createBlockStateDefinition(builder);
         builder.add(NORTH);
         builder.add(EAST);
         builder.add(SOUTH);
         builder.add(WEST);
     }
+
 }

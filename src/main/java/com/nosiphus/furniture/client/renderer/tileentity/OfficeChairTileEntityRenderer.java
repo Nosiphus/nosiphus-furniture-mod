@@ -3,7 +3,6 @@ package com.nosiphus.furniture.client.renderer.tileentity;
 import com.mojang.blaze3d.matrix.MatrixStack;
 import com.mojang.blaze3d.platform.GlStateManager;
 import com.nosiphus.furniture.block.OfficeChairBlock;
-import com.nosiphus.furniture.tileentity.OfficeChairTileEntity;
 import net.minecraft.block.BlockState;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.BlockRendererDispatcher;
