@@ -1,6 +1,0 @@
-{
-    "parent": "nfm:block/modern_table_two_alt",
-    "textures": {
-        "color": "minecraft:block/yellow_concrete"
-    }
-}

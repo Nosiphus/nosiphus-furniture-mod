@@ -1,6 +1,0 @@
-{
-    "parent": "nfm:block/modern_kitchen_sink_alt",
-    "textures": {
-        "sink": "minecraft:block/yellow_concrete"
-    }
-}
