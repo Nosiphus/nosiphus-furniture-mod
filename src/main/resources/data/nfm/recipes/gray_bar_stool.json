@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "WWW",
+    "CCC",
+    "L L"
+  ],
+  "key": {
+    "W": {
+      "item": "minecraft:gray_wool"
+    },
+	"C": {
+      "item": "minecraft:gray_concrete"
+    },
+	"L": {
+      "item": "minecraft:white_concrete"
+    }
+  },
+  "result": {
+    "item": "nfm:gray_bar_stool"
+  }
+}

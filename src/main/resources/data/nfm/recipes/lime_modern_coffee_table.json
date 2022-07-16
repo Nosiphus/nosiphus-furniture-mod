@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "   ",
+    "CCC",
+    "S S"
+  ],
+  "key": {
+    "C": {
+      "item": "minecraft:lime_concrete"
+    },
+	"S": {
+      "item": "minecraft:stone"
+    }
+  },
+  "result": {
+    "item": "nfm:lime_modern_coffee_table"
+  }
+}

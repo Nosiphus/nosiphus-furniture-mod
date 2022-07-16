@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "CCC",
+    "CFC",
+    "CCC"
+  ],
+  "key": {
+	"F": {
+      "item": "minecraft:furnace"
+    },
+	"C": {
+      "item": "minecraft:white_concrete"
+    }
+  },
+  "result": {
+    "item": "nfm:oven_light"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "CCC",
+    "S S",
+    "S S"
+  ],
+  "key": {
+    "C": {
+      "item": "minecraft:pink_concrete"
+    },
+	"S": {
+      "item": "minecraft:stone"
+    }
+  },
+  "result": {
+    "item": "nfm:pink_modern_table"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "W  ",
+    "WWW",
+    "C C"
+  ],
+  "key": {
+    "W": {
+      "item": "minecraft:green_wool"
+    },
+	"C": {
+      "item": "minecraft:light_gray_concrete"
+    }
+  },
+  "result": {
+    "item": "nfm:green_modern_sofa"
+  }
+}

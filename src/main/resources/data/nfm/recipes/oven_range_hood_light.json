@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " C ",
+    " C ",
+    "CSC"
+  ],
+  "key": {
+	"S": {
+      "item": "minecraft:sea_lantern"
+    },
+	"C": {
+      "item": "minecraft:white_concrete"
+    }
+  },
+  "result": {
+    "item": "nfm:oven_range_hood_light"
+  }
+}

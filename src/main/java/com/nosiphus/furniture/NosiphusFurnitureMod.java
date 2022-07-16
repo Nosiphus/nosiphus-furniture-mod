@@ -3,15 +3,14 @@ package com.nosiphus.furniture;
 import com.nosiphus.furniture.client.ClientHandler;
 import com.nosiphus.furniture.core.*;
 import com.nosiphus.furniture.datagen.LootTableGen;
-import com.nosiphus.furniture.datagen.RecipeGen;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.data.event.GatherDataEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
-import net.minecraftforge.forge.event.lifecycle.GatherDataEvent;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -46,7 +45,6 @@ public class NosiphusFurnitureMod {
     private void onDataSetup(GatherDataEvent event) {
 
         DataGenerator generator = event.getGenerator();
-        generator.addProvider(event.includeServer(), new RecipeGen(generator));
         generator.addProvider(event.includeServer(), new LootTableGen(generator));
 
     }

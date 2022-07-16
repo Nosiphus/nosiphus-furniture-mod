@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "CCC",
+    "SSS",
+    "SSS"
+  ],
+  "key": {
+    "C": {
+      "item": "minecraft:red_concrete"
+    },
+	"S": {
+      "item": "minecraft:stone"
+    }
+  },
+  "result": {
+    "item": "nfm:red_modern_kitchen_counter"
+  }
+}

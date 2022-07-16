@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "CCC",
+    "S C",
+    "S C"
+  ],
+  "key": {
+    "C": {
+      "item": "minecraft:magenta_concrete"
+    },
+	"S": {
+      "item": "minecraft:stone"
+    }
+  },
+  "result": {
+    "item": "nfm:magenta_modern_desk_cabinet"
+  }
+}

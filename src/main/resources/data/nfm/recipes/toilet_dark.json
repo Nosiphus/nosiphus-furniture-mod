@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "GW ",
+    "GGG",
+    " G "
+  ],
+  "key": {
+	"G": {
+      "item": "minecraft:gray_concrete"
+    },
+	"W": {
+      "item": "minecraft:white_concrete"
+    }
+  },
+  "result": {
+    "item": "nfm:toilet_dark"
+  }
+}

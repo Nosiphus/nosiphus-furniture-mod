@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "II ",
+    " I ",
+    "CCC"
+  ],
+  "key": {
+	"I": {
+      "item": "minecraft:iron_ingot"
+    },
+	"C": {
+      "item": "minecraft:gray_concrete"
+    }
+  },
+  "result": {
+    "item": "nfm:shower_head_dark"
+  }
+}
