@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "CGC",
+    "CGC",
+    "CGC"
+  ],
+  "key": {
+	"G": {
+      "item": "minecraft:glass_pane"
+    },
+	"C": {
+      "item": "minecraft:white_concrete"
+    }
+  },
+  "result": {
+    "item": "nfm:shower_light"
+  }
+}

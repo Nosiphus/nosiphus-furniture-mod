@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "IIC",
+    "GGB",
+    "IIC"
+  ],
+  "key": {
+    "I": {
+      "item": "minecraft:iron_ingot"
+    },
+	"G": {
+      "item": "minecraft:gray_stained_glass_pane"
+    },
+	"B": {
+      "item": "minecraft:stone_button"
+    },
+	"C": {
+      "item": "minecraft:gray_concrete"
+    }
+  },
+  "result": {
+    "item": "nfm:microwave_dark"
+  }
+}

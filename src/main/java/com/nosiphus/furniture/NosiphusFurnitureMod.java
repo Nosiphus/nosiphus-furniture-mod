@@ -3,7 +3,6 @@ package com.nosiphus.furniture;
 import com.nosiphus.furniture.client.ClientHandler;
 import com.nosiphus.furniture.core.*;
 import com.nosiphus.furniture.datagen.LootTableGen;
-import com.nosiphus.furniture.datagen.RecipeGen;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraftforge.common.MinecraftForge;
@@ -46,7 +45,6 @@ public class NosiphusFurnitureMod {
     private void onDataSetup(GatherDataEvent event) {
 
         DataGenerator generator = event.getGenerator();
-        generator.addProvider(new RecipeGen(generator));
         generator.addProvider(new LootTableGen(generator));
 
     }

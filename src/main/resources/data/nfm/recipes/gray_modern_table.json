@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "CCC",
+    "S S",
+    "S S"
+  ],
+  "key": {
+    "C": {
+      "item": "minecraft:gray_concrete"
+    },
+	"S": {
+      "item": "minecraft:stone"
+    }
+  },
+  "result": {
+    "item": "nfm:gray_modern_table"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "CCC",
+    "S  ",
+    "S  "
+  ],
+  "key": {
+    "C": {
+      "item": "minecraft:black_concrete"
+    },
+	"S": {
+      "item": "minecraft:stone"
+    }
+  },
+  "result": {
+    "item": "nfm:black_modern_desk"
+  }
+}
