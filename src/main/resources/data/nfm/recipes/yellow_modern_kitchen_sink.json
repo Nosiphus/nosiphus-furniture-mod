@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "C C",
+    "SSS",
+    "SSS"
+  ],
+  "key": {
+    "C": {
+      "item": "minecraft:yellow_concrete"
+    },
+	"S": {
+      "item": "minecraft:stone"
+    }
+  },
+  "result": {
+    "item": "nfm:yellow_modern_kitchen_sink"
+  }
+}

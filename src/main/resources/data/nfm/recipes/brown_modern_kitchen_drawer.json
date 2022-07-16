@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "CCC",
+    "S S",
+    "SSS"
+  ],
+  "key": {
+    "C": {
+      "item": "minecraft:brown_concrete"
+    },
+	"S": {
+      "item": "minecraft:stone"
+    }
+  },
+  "result": {
+    "item": "nfm:brown_modern_kitchen_drawer"
+  }
+}

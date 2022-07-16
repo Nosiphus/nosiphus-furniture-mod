@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "GWG",
+    "GLG",
+    "GGG"
+  ],
+  "key": {
+	"G": {
+      "item": "minecraft:gray_concrete"
+    },
+    "C": {
+      "item": "minecraft:light_blue_wool"
+    },
+	"L": {
+      "item": "minecraft:leather"
+    }
+  },
+  "result": {
+    "item": "nfm:light_blue_office_chair"
+  }
+}

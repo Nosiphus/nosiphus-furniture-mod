@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "BIB",
+    "CCC",
+    " C "
+  ],
+  "key": {
+	"B": {
+      "item": "minecraft:stone_button"
+    },
+	"I": {
+      "item": "minecraft:iron_ingot"
+    },
+	"C": {
+      "item": "minecraft:white_concrete"
+    }
+  },
+  "result": {
+    "item": "nfm:sink_light"
+  }
+}
