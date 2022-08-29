@@ -2,7 +2,6 @@ package com.nosiphus.furniture;
 
 import com.nosiphus.furniture.client.ClientHandler;
 import com.nosiphus.furniture.core.*;
-import com.nosiphus.furniture.datagen.LootTableGen;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
@@ -47,6 +46,5 @@ public class NosiphusFurnitureMod
     private void onDataSetup(GatherDataEvent event)
     {
         DataGenerator dataGenerator = event.getGenerator();
-        dataGenerator.addProvider(new LootTableGen(dataGenerator));
     }
 }
