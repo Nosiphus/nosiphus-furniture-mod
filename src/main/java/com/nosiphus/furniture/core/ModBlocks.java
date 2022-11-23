@@ -399,37 +399,37 @@ public class ModBlocks {
 
     //Kitchen Sinks
     public static final RegistryObject<Block> KITCHEN_SINK_WHITE_MODERN = BLOCKS.register("white_modern_kitchen_sink",
-            () -> new KitchenSinkBlock(BlockBehaviour.Properties.copy(Blocks.WHITE_CONCRETE), false));
+            () -> new ModernKitchenSinkBlock(BlockBehaviour.Properties.copy(Blocks.WHITE_CONCRETE), false));
     public static final RegistryObject<Block> KITCHEN_SINK_ORANGE_MODERN = BLOCKS.register("orange_modern_kitchen_sink",
-            () -> new KitchenSinkBlock(BlockBehaviour.Properties.copy(Blocks.ORANGE_CONCRETE), false));
+            () -> new ModernKitchenSinkBlock(BlockBehaviour.Properties.copy(Blocks.ORANGE_CONCRETE), false));
     public static final RegistryObject<Block> KITCHEN_SINK_MAGENTA_MODERN = BLOCKS.register("magenta_modern_kitchen_sink",
-            () -> new KitchenSinkBlock(BlockBehaviour.Properties.copy(Blocks.MAGENTA_CONCRETE), false));
+            () -> new ModernKitchenSinkBlock(BlockBehaviour.Properties.copy(Blocks.MAGENTA_CONCRETE), false));
     public static final RegistryObject<Block> KITCHEN_SINK_LIGHT_BLUE_MODERN = BLOCKS.register("light_blue_modern_kitchen_sink",
-            () -> new KitchenSinkBlock(BlockBehaviour.Properties.copy(Blocks.LIGHT_BLUE_CONCRETE), false));
+            () -> new ModernKitchenSinkBlock(BlockBehaviour.Properties.copy(Blocks.LIGHT_BLUE_CONCRETE), false));
     public static final RegistryObject<Block> KITCHEN_SINK_YELLOW_MODERN = BLOCKS.register("yellow_modern_kitchen_sink",
-            () -> new KitchenSinkBlock(BlockBehaviour.Properties.copy(Blocks.YELLOW_CONCRETE), false));
+            () -> new ModernKitchenSinkBlock(BlockBehaviour.Properties.copy(Blocks.YELLOW_CONCRETE), false));
     public static final RegistryObject<Block> KITCHEN_SINK_LIME_MODERN = BLOCKS.register("lime_modern_kitchen_sink",
-            () -> new KitchenSinkBlock(BlockBehaviour.Properties.copy(Blocks.LIME_CONCRETE), false));
+            () -> new ModernKitchenSinkBlock(BlockBehaviour.Properties.copy(Blocks.LIME_CONCRETE), false));
     public static final RegistryObject<Block> KITCHEN_SINK_PINK_MODERN = BLOCKS.register("pink_modern_kitchen_sink",
-            () -> new KitchenSinkBlock(BlockBehaviour.Properties.copy(Blocks.PINK_CONCRETE), false));
+            () -> new ModernKitchenSinkBlock(BlockBehaviour.Properties.copy(Blocks.PINK_CONCRETE), false));
     public static final RegistryObject<Block> KITCHEN_SINK_GRAY_MODERN = BLOCKS.register("gray_modern_kitchen_sink",
-            () -> new KitchenSinkBlock(BlockBehaviour.Properties.copy(Blocks.GRAY_CONCRETE), false));
+            () -> new ModernKitchenSinkBlock(BlockBehaviour.Properties.copy(Blocks.GRAY_CONCRETE), false));
     public static final RegistryObject<Block> KITCHEN_SINK_LIGHT_GRAY_MODERN = BLOCKS.register("light_gray_modern_kitchen_sink",
-            () -> new KitchenSinkBlock(BlockBehaviour.Properties.copy(Blocks.LIGHT_GRAY_CONCRETE), false));
+            () -> new ModernKitchenSinkBlock(BlockBehaviour.Properties.copy(Blocks.LIGHT_GRAY_CONCRETE), false));
     public static final RegistryObject<Block> KITCHEN_SINK_CYAN_MODERN = BLOCKS.register("cyan_modern_kitchen_sink",
-            () -> new KitchenSinkBlock(BlockBehaviour.Properties.copy(Blocks.CYAN_CONCRETE), false));
+            () -> new ModernKitchenSinkBlock(BlockBehaviour.Properties.copy(Blocks.CYAN_CONCRETE), false));
     public static final RegistryObject<Block> KITCHEN_SINK_PURPLE_MODERN = BLOCKS.register("purple_modern_kitchen_sink",
-            () -> new KitchenSinkBlock(BlockBehaviour.Properties.copy(Blocks.PURPLE_CONCRETE), false));
+            () -> new ModernKitchenSinkBlock(BlockBehaviour.Properties.copy(Blocks.PURPLE_CONCRETE), false));
     public static final RegistryObject<Block> KITCHEN_SINK_BLUE_MODERN = BLOCKS.register("blue_modern_kitchen_sink",
-            () -> new KitchenSinkBlock(BlockBehaviour.Properties.copy(Blocks.BLUE_CONCRETE), false));
+            () -> new ModernKitchenSinkBlock(BlockBehaviour.Properties.copy(Blocks.BLUE_CONCRETE), false));
     public static final RegistryObject<Block> KITCHEN_SINK_BROWN_MODERN = BLOCKS.register("brown_modern_kitchen_sink",
-            () -> new KitchenSinkBlock(BlockBehaviour.Properties.copy(Blocks.BROWN_CONCRETE), false));
+            () -> new ModernKitchenSinkBlock(BlockBehaviour.Properties.copy(Blocks.BROWN_CONCRETE), false));
     public static final RegistryObject<Block> KITCHEN_SINK_GREEN_MODERN = BLOCKS.register("green_modern_kitchen_sink",
-            () -> new KitchenSinkBlock(BlockBehaviour.Properties.copy(Blocks.GREEN_CONCRETE), false));
+            () -> new ModernKitchenSinkBlock(BlockBehaviour.Properties.copy(Blocks.GREEN_CONCRETE), false));
     public static final RegistryObject<Block> KITCHEN_SINK_RED_MODERN = BLOCKS.register("red_modern_kitchen_sink",
-            () -> new KitchenSinkBlock(BlockBehaviour.Properties.copy(Blocks.RED_CONCRETE), false));
+            () -> new ModernKitchenSinkBlock(BlockBehaviour.Properties.copy(Blocks.RED_CONCRETE), false));
     public static final RegistryObject<Block> KITCHEN_SINK_BLACK_MODERN = BLOCKS.register("black_modern_kitchen_sink",
-            () -> new KitchenSinkBlock(BlockBehaviour.Properties.copy(Blocks.BLACK_CONCRETE), false));
+            () -> new ModernKitchenSinkBlock(BlockBehaviour.Properties.copy(Blocks.BLACK_CONCRETE), false));
 
     //Bar Stools
     public static final RegistryObject<Block> BAR_STOOL_WHITE = BLOCKS.register("white_bar_stool",
@@ -466,6 +466,10 @@ public class ModBlocks {
             () -> new BarStoolBlock(BlockBehaviour.Properties.copy(Blocks.BLACK_CONCRETE)));
 
     //Appliances
+    public static final RegistryObject<Block> BLENDER_LIGHT = BLOCKS.register("blender_light",
+            () -> new BlenderBlock(BlockBehaviour.Properties.copy(Blocks.WHITE_CONCRETE).noOcclusion()));
+    public static final RegistryObject<Block> BLENDER_DARK = BLOCKS.register("blender_dark",
+            () -> new BlenderBlock(BlockBehaviour.Properties.copy(Blocks.GRAY_CONCRETE).noOcclusion()));
     public static final RegistryObject<Block> MICROWAVE_LIGHT = BLOCKS.register("microwave_light",
             () -> new MicrowaveBlock(BlockBehaviour.Properties.copy(Blocks.WHITE_CONCRETE).noOcclusion()));
     public static final RegistryObject<Block> MICROWAVE_DARK = BLOCKS.register("microwave_dark",

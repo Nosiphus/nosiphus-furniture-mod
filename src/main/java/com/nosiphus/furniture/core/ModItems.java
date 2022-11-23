@@ -456,6 +456,10 @@ public class ModItems {
             () -> new BlockItem(ModBlocks.BAR_STOOL_BLACK.get(), new Item.Properties().tab(NosiphusFurnitureMod.GROUP)));
 
     //Appliances
+    public static final RegistryObject<BlockItem> BLENDER_LIGHT = ITEMS.register("blender_light",
+            () -> new BlockItem(ModBlocks.BLENDER_LIGHT.get(), new Item.Properties().tab(NosiphusFurnitureMod.GROUP)));
+    public static final RegistryObject<BlockItem> BLENDER_DARK = ITEMS.register("blender_dark",
+            () -> new BlockItem(ModBlocks.BLENDER_DARK.get(), new Item.Properties().tab(NosiphusFurnitureMod.GROUP)));
     public static final RegistryObject<BlockItem> MICROWAVE_LIGHT = ITEMS.register("microwave_light",
             () -> new BlockItem(ModBlocks.MICROWAVE_LIGHT.get(), new Item.Properties().tab(NosiphusFurnitureMod.GROUP)));
     public static final RegistryObject<BlockItem> MICROWAVE_DARK = ITEMS.register("microwave_dark",

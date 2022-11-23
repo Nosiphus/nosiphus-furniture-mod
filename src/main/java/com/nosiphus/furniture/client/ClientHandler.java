@@ -1,6 +1,7 @@
 package com.nosiphus.furniture.client;
 
 import com.nosiphus.furniture.client.event.CreativeScreenEvents;
+import com.nosiphus.furniture.client.renderer.blockentity.ModernKitchenSinkBlockEntityRenderer;
 import com.nosiphus.furniture.client.renderer.blockentity.SinkBlockEntityRenderer;
 import com.nosiphus.furniture.core.ModBlockEntities;
 import com.nosiphus.furniture.core.ModBlocks;
@@ -31,6 +32,7 @@ public class ClientHandler {
 
     private static void registerBlockEntityRenderers() {
 
+        BlockEntityRenderers.register(ModBlockEntities.MODERN_KITCHEN_SINK.get(), ModernKitchenSinkBlockEntityRenderer::new);
         //BlockEntityRenderers.register(ModBlockEntities.OFFICE_CHAIR.get(), OfficeChairBlockEntityRenderer::new);
         BlockEntityRenderers.register(ModBlockEntities.SINK.get(), SinkBlockEntityRenderer::new);
 
@@ -39,6 +41,8 @@ public class ClientHandler {
     private static void registerLayers() {
 
         Predicate<RenderType> cutoutPredicate = renderType -> renderType == RenderType.cutout();
+        ItemBlockRenderTypes.setRenderLayer(ModBlocks.BLENDER_DARK.get(), cutoutPredicate);
+        ItemBlockRenderTypes.setRenderLayer(ModBlocks.BLENDER_LIGHT.get(), cutoutPredicate);
         ItemBlockRenderTypes.setRenderLayer(ModBlocks.MICROWAVE_DARK.get(), cutoutPredicate);
         ItemBlockRenderTypes.setRenderLayer(ModBlocks.MICROWAVE_LIGHT.get(), cutoutPredicate);
         ItemBlockRenderTypes.setRenderLayer(ModBlocks.OVEN_DARK.get(), cutoutPredicate);

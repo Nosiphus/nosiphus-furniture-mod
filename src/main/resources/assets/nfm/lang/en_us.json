@@ -221,7 +221,9 @@
     "block.nfm.green_bar_stool": "Green Bar Stool",
     "block.nfm.red_bar_stool": "Red Bar Stool",
     "block.nfm.black_bar_stool": "Black Bar Stool",
-	
+
+	"block.nfm.blender_light": "Blender (Light)",
+	"block.nfm.blender_dark": "Blender (Dark)",
 	"block.nfm.microwave_light": "Microwave (Light)",
 	"block.nfm.microwave_dark": "Microwave (Dark)",
 	"block.nfm.oven_light": "Oven (Light)",

@@ -208,6 +208,8 @@
     "nfm:green_bar_stool",
     "nfm:red_bar_stool",
     "nfm:black_bar_stool",
+    "nfm:blender_light",
+    "nfm:blender_dark",
 	"nfm:microwave_light",
 	"nfm:microwave_dark",
 	"nfm:oven_light",
