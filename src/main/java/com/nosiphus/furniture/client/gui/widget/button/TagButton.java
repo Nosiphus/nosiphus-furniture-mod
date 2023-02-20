@@ -2,7 +2,6 @@ package com.nosiphus.furniture.client.gui.widget.button;
 
 import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.*;
-import com.mojang.math.Matrix4f;
 import com.nosiphus.furniture.client.event.CreativeScreenEvents;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.components.Button;
@@ -11,6 +10,7 @@ import net.minecraft.client.renderer.entity.ItemRenderer;
 import net.minecraft.network.chat.CommonComponents;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
+import org.joml.Matrix4f;
 
 public class TagButton extends Button {
 
@@ -22,7 +22,7 @@ public class TagButton extends Button {
 
     public TagButton(int x, int y, CreativeScreenEvents.TagFilter category, OnPress onPress)
     {
-        super(x, y, 32, 28, CommonComponents.EMPTY, onPress);
+        super(x, y, 32, 28, CommonComponents.EMPTY, onPress, Button.DEFAULT_NARRATION);
         this.category = category;
         this.stack = category.getIcon();
         this.toggled = category.isEnabled();
@@ -52,12 +52,12 @@ public class TagButton extends Button {
         int width = this.toggled ? 32 : 28;
         int textureX = 28;
         int textureY = this.toggled ? 32 : 0;
-        this.drawRotatedTexture(poseStack.last().pose(), this.x, this.y, textureX, textureY, width, 28);
+        this.drawRotatedTexture(poseStack.last().pose(), this.getX(), this.getY(), textureX, textureY, width, 28);
 
         ItemRenderer renderer = minecraft.getItemRenderer();
         renderer.blitOffset = 100.0F;
-        renderer.renderAndDecorateItem(this.stack, x + 8, y + 6);
-        renderer.renderGuiItemDecorations(minecraft.font, this.stack, x + 8, y + 6);
+        renderer.renderAndDecorateItem(this.stack, this.getX() + 8, this.getY() + 6);
+        renderer.renderGuiItemDecorations(minecraft.font, this.stack, this.getX() + 8, this.getY() + 6);
         renderer.blitOffset = 0.0F;
     }
 

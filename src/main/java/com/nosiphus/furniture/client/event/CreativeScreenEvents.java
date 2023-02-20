@@ -49,7 +49,7 @@ public class CreativeScreenEvents
     private int guiCenterX = 0;
     private int guiCenterY = 0;
 
-    @SubscribeEvent
+    /*@SubscribeEvent
     public void onPlayerLogout(ClientPlayerNetworkEvent.LoggingOut event)
     {
         this.filters = null;
@@ -177,13 +177,13 @@ public class CreativeScreenEvents
                 this.btnDisableAll.visible = true;
                 this.buttons.forEach(button -> button.visible = true);
 
-                /* Render buttons */
+
                 this.buttons.forEach(button ->
                 {
                     button.render(event.getPoseStack(), event.getMouseX(), event.getMouseY(), event.getPartialTick());
                 });
 
-                /* Render tooltips after so it renders above buttons */
+
                 this.buttons.forEach(button ->
                 {
                     if(button.isMouseOver(event.getMouseX(), event.getMouseY()))
@@ -285,6 +285,8 @@ public class CreativeScreenEvents
         this.filters = new ArrayList<>();
         this.filters.addAll(Arrays.asList(filters));
     }
+
+    */
 
     /**
      * Author: MrCrayfish

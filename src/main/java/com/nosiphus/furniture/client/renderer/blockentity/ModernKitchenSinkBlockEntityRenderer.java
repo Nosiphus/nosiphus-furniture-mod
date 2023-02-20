@@ -2,8 +2,7 @@ package com.nosiphus.furniture.client.renderer.blockentity;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
-import com.mojang.math.Matrix4f;
-import com.mojang.math.Vector3f;
+import com.mojang.math.Axis;
 import com.mrcrayfish.furniture.block.FurnitureHorizontalBlock;
 import com.nosiphus.furniture.blockentity.ModernKitchenSinkBlockEntity;
 import net.minecraft.client.Minecraft;
@@ -18,6 +17,7 @@ import net.minecraft.world.level.material.Fluid;
 import net.minecraft.world.level.material.Fluids;
 import net.minecraftforge.client.extensions.common.IClientFluidTypeExtensions;
 import net.minecraftforge.fluids.FluidStack;
+import org.joml.Matrix4f;
 
 public class ModernKitchenSinkBlockEntityRenderer implements BlockEntityRenderer<ModernKitchenSinkBlockEntity>
 {
@@ -30,7 +30,7 @@ public class ModernKitchenSinkBlockEntityRenderer implements BlockEntityRenderer
         poseStack.pushPose();
         poseStack.translate(0.5, 0.5, 0.5);
         Direction direction = tileEntity.getBlockState().getValue(FurnitureHorizontalBlock.DIRECTION);
-        poseStack.mulPose(Vector3f.YP.rotationDegrees(direction.get2DDataValue() * -90F - 90F));
+        poseStack.mulPose(Axis.YP.rotationDegrees(direction.get2DDataValue() * -90F - 90F));
         poseStack.translate(-0.5, -0.5, -0.5);
         this.drawFluid(tileEntity, poseStack, source, 2F * 0.0625F, 10F * 0.0625F, 2F * 0.0625F, 10F * 0.0625F, 5F * 0.0625F, 12F * 0.0625F, light);
         poseStack.popPose();

@@ -1,14 +1,22 @@
 package com.nosiphus.furniture.client;
 
+import com.mrcrayfish.furniture.Reference;
+import com.nosiphus.furniture.NosiphusFurnitureMod;
 import com.nosiphus.furniture.client.event.CreativeScreenEvents;
 import com.nosiphus.furniture.client.renderer.blockentity.ModernKitchenSinkBlockEntityRenderer;
 import com.nosiphus.furniture.client.renderer.blockentity.SinkBlockEntityRenderer;
 import com.nosiphus.furniture.core.ModBlockEntities;
 import com.nosiphus.furniture.core.ModBlocks;
+import com.nosiphus.furniture.core.ModItems;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderers;
+import net.minecraft.network.chat.Component;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.event.CreativeModeTabEvent;
 import net.minecraftforge.fml.ModList;
 
 import java.util.function.Predicate;
@@ -49,6 +57,16 @@ public class ClientHandler {
         ItemBlockRenderTypes.setRenderLayer(ModBlocks.OVEN_LIGHT.get(), cutoutPredicate);
         ItemBlockRenderTypes.setRenderLayer(ModBlocks.SHOWER_DARK.get(), cutoutPredicate);
         ItemBlockRenderTypes.setRenderLayer(ModBlocks.SHOWER_LIGHT.get(), cutoutPredicate);
+
+    }
+
+    public static void onRegisterCreativeTab(CreativeModeTabEvent.Register event) {
+
+        event.registerCreativeModeTab(new ResourceLocation(NosiphusFurnitureMod.MOD_ID, "cfm"), builder -> {
+            builder.title(Component.translatable("itemGroup." + NosiphusFurnitureMod.MOD_ID));
+            builder.icon(() -> new ItemStack(ModBlocks.CHAIR_WHITE_MODERN.get()));
+            builder.displayItems((flags, output, permission) -> ModItems.ITEMS.getEntries().forEach(registryObject -> output.accept(registryObject.get())));
+        });
 
     }
 

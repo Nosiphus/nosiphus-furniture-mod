@@ -1,9 +1,9 @@
 package com.nosiphus.furniture.common;
 
-import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
+import net.minecraftforge.registries.ForgeRegistries;
 
 public class ModTags
 {
@@ -17,7 +17,7 @@ public class ModTags
 
         private static TagKey<Item> tag(String name)
         {
-            return TagKey.create(Registry.ITEM_REGISTRY, new ResourceLocation("nfm", name));
+            return TagKey.create(ForgeRegistries.ITEMS.getRegistryKey(), new ResourceLocation("nfm", name));
         }
     }
 }

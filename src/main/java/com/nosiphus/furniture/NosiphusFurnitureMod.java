@@ -17,7 +17,6 @@ import org.apache.logging.log4j.Logger;
 public class NosiphusFurnitureMod {
 
     public static final Logger LOGGER = LogManager.getLogger("nfm");
-    public static final CreativeModeTab GROUP = new NosiphusFurnitureModTab("nfm");
     public static final String MOD_ID = "nfm";
 
     public NosiphusFurnitureMod() {
@@ -26,10 +25,10 @@ public class NosiphusFurnitureMod {
         ModBlocks.BLOCKS.register(eventBus);
         ModBlockEntities.BLOCK_ENTITIES.register(eventBus);
         ModItems.ITEMS.register(eventBus);
-        ModParticles.PARTICLES.register(eventBus);
         ModSounds.SOUNDS.register(eventBus);
         eventBus.addListener(this::onClientSetup);
         eventBus.addListener(this::onDataSetup);
+        eventBus.addListener(ClientHandler::onRegisterCreativeTab);
 
         MinecraftForge.EVENT_BUS.register(this);
 
