@@ -26,6 +26,7 @@ public class NosiphusFurnitureMod {
         ModBlocks.BLOCKS.register(eventBus);
         ModBlockEntities.BLOCK_ENTITIES.register(eventBus);
         ModItems.ITEMS.register(eventBus);
+        ModMenuTypes.MENU_TYPES.register(eventBus);
         ModParticles.PARTICLES.register(eventBus);
         ModSounds.SOUNDS.register(eventBus);
         eventBus.addListener(this::onClientSetup);
