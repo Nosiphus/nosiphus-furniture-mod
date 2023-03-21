@@ -3,7 +3,6 @@ package com.nosiphus.furniture;
 import com.nosiphus.furniture.client.ClientHandler;
 import com.nosiphus.furniture.core.*;
 import net.minecraft.data.DataGenerator;
-import net.minecraft.world.item.CreativeModeTab;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.data.event.GatherDataEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -24,6 +23,7 @@ public class NosiphusFurnitureMod {
         IEventBus eventBus = FMLJavaModLoadingContext.get().getModEventBus();
         ModBlocks.BLOCKS.register(eventBus);
         ModBlockEntities.BLOCK_ENTITIES.register(eventBus);
+        ModMenuTypes.MENU_TYPES.register(eventBus);
         ModItems.ITEMS.register(eventBus);
         ModSounds.SOUNDS.register(eventBus);
         eventBus.addListener(this::onClientSetup);

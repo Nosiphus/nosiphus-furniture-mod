@@ -241,8 +241,11 @@
 
     "container.nfm.cabinet": "Cabinet",
     "container.nfm.bedside_cabinet": "Bedside Cabinet",
-    "container.nfm.sofa": "Desk Cabinet",
+	"container.nfm.microwave": "Microwave",
+	"container.nfm.oven": "Oven",
+    "container.nfm.desk_cabinet": "Desk Cabinet",
     "container.nfm.kitchen_drawer": "Kitchen Drawer",
+
     "gui.button.nfm.locked": "Locked",
     "gui.button.nfm.unlocked": "Unlocked",
     "gui.button.nfm.save": "Save",
@@ -250,16 +253,20 @@
     "gui.button.nfm.cancel": "Cancel",
     "gui.button.nfm.enable_filters": "Enable All Filters",
     "gui.button.nfm.disable_filters": "Disable All Filters",
+
     "gui.tag_filter.nfm.general": "General",
     "gui.tag_filter.nfm.storage": "Storage",
     "gui.tag_filter.nfm.bedroom": "Bedroom",
     "gui.tag_filter.nfm.kitchen": "Kitchen",
     "gui.tag_filter.nfm.bathroom": "Bathroom",
+
     "gui.nfm.mail_box_settings": "Change Mail Box Name",
     "gui.nfm.door_mat_message": "Set Door Mat Message",
+
     "subtitle.nfm.open_cabinet": "Open Cabinet",
     "subtitle.nfm.close_cabinet": "Close Cabinet",
 	"subtitle.nfm.fart": "Fart",
 	"subtitle.nfm.flush": "Flush",
+
     "message.nfm.mail_queue_full": "This player's mail queue is full. Try again later..."
 }

@@ -1,19 +1,19 @@
 package com.nosiphus.furniture.client;
 
-import com.mrcrayfish.furniture.Reference;
 import com.nosiphus.furniture.NosiphusFurnitureMod;
 import com.nosiphus.furniture.client.event.CreativeScreenEvents;
-import com.nosiphus.furniture.client.renderer.blockentity.ModernKitchenSinkBlockEntityRenderer;
-import com.nosiphus.furniture.client.renderer.blockentity.SinkBlockEntityRenderer;
+import com.nosiphus.furniture.client.menu.screen.*;
+import com.nosiphus.furniture.client.renderer.blockentity.*;
 import com.nosiphus.furniture.core.ModBlockEntities;
 import com.nosiphus.furniture.core.ModBlocks;
 import com.nosiphus.furniture.core.ModItems;
+import com.nosiphus.furniture.core.ModMenuTypes;
+import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderers;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.CreativeModeTabEvent;
@@ -27,6 +27,9 @@ public class ClientHandler {
 
         registerBlockEntityRenderers();
         registerLayers();
+
+        MenuScreens.register(ModMenuTypes.MICROWAVE_MENU.get(), MicrowaveMenuScreen::new);
+        MenuScreens.register(ModMenuTypes.OVEN_MENU.get(), OvenMenuScreen::new);
 
         if(!ModList.get().isLoaded("filters")) {
 
