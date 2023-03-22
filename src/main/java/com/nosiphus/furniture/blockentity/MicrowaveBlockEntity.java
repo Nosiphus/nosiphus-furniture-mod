@@ -1,7 +1,6 @@
 package com.nosiphus.furniture.blockentity;
 
 import com.nosiphus.furniture.client.menu.MicrowaveMenu;
-import com.nosiphus.furniture.client.menu.OvenMenu;
 import com.nosiphus.furniture.core.ModBlockEntities;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
@@ -16,7 +15,7 @@ import org.jetbrains.annotations.NotNull;
 public class MicrowaveBlockEntity extends AbstractFurnaceBlockEntity {
     public MicrowaveBlockEntity(BlockPos pos, BlockState state) {
 
-        super(ModBlockEntities.OVEN.get(), pos, state, RecipeType.SMELTING);
+        super(ModBlockEntities.MICROWAVE.get(), pos, state, RecipeType.SMELTING);
 
     }
 

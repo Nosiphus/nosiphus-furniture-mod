@@ -1,7 +1,6 @@
 package com.nosiphus.furniture.client.menu;
 
 import com.nosiphus.furniture.core.ModMenuTypes;
-import net.minecraft.network.chat.Component;
 import net.minecraft.world.Container;
 import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.entity.player.Inventory;
