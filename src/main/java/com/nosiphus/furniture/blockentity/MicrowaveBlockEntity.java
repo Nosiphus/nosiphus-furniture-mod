@@ -16,7 +16,7 @@ import org.jetbrains.annotations.NotNull;
 public class MicrowaveBlockEntity extends AbstractFurnaceBlockEntity {
     public MicrowaveBlockEntity(BlockPos pos, BlockState state) {
 
-        super(ModBlockEntities.OVEN.get(), pos, state, RecipeType.SMELTING);
+        super(ModBlockEntities.MICROWAVE.get(), pos, state, RecipeType.SMELTING);
 
     }
 
