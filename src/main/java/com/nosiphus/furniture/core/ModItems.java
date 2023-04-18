@@ -460,6 +460,10 @@ public class ModItems {
             () -> new BlockItem(ModBlocks.BLENDER_LIGHT.get(), new Item.Properties().tab(NosiphusFurnitureMod.GROUP)));
     public static final RegistryObject<BlockItem> BLENDER_DARK = ITEMS.register("blender_dark",
             () -> new BlockItem(ModBlocks.BLENDER_DARK.get(), new Item.Properties().tab(NosiphusFurnitureMod.GROUP)));
+    public static final RegistryObject<BlockItem> DISHWASHER_LIGHT = ITEMS.register("dishwasher_light",
+            () -> new BlockItem(ModBlocks.DISHWASHER_LIGHT.get(), new Item.Properties().tab(NosiphusFurnitureMod.GROUP)));
+    public static final RegistryObject<BlockItem> DISHWASHER_DARK = ITEMS.register("dishwasher_dark",
+            () -> new BlockItem(ModBlocks.DISHWASHER_DARK.get(), new Item.Properties().tab(NosiphusFurnitureMod.GROUP)));
     public static final RegistryObject<BlockItem> MICROWAVE_LIGHT = ITEMS.register("microwave_light",
             () -> new BlockItem(ModBlocks.MICROWAVE_LIGHT.get(), new Item.Properties().tab(NosiphusFurnitureMod.GROUP)));
     public static final RegistryObject<BlockItem> MICROWAVE_DARK = ITEMS.register("microwave_dark",
@@ -484,6 +488,10 @@ public class ModItems {
             () -> new BlockItem(ModBlocks.SHOWER_HEAD_LIGHT.get(), new Item.Properties().tab(NosiphusFurnitureMod.GROUP)));
     public static final RegistryObject<BlockItem> SHOWER_HEAD_DARK = ITEMS.register("shower_head_dark",
             () -> new BlockItem(ModBlocks.SHOWER_HEAD_DARK.get(), new Item.Properties().tab(NosiphusFurnitureMod.GROUP)));
+    public static final RegistryObject<BlockItem> TOASTER_LIGHT = ITEMS.register("toaster_light",
+            () -> new BlockItem(ModBlocks.TOASTER_LIGHT.get(), new Item.Properties().tab(NosiphusFurnitureMod.GROUP)));
+    public static final RegistryObject<BlockItem> TOASTER_DARK = ITEMS.register("toaster_dark",
+            () -> new BlockItem(ModBlocks.TOASTER_DARK.get(), new Item.Properties().tab(NosiphusFurnitureMod.GROUP)));
     public static final RegistryObject<BlockItem> TOILET_LIGHT = ITEMS.register("toilet_light",
             () -> new BlockItem(ModBlocks.TOILET_LIGHT.get(), new Item.Properties().tab(NosiphusFurnitureMod.GROUP)));
     public static final RegistryObject<BlockItem> TOILET_DARK = ITEMS.register("toilet_dark",

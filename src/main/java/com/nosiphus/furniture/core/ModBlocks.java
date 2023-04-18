@@ -470,6 +470,10 @@ public class ModBlocks {
             () -> new BlenderBlock(BlockBehaviour.Properties.copy(Blocks.WHITE_CONCRETE).noOcclusion()));
     public static final RegistryObject<Block> BLENDER_DARK = BLOCKS.register("blender_dark",
             () -> new BlenderBlock(BlockBehaviour.Properties.copy(Blocks.GRAY_CONCRETE).noOcclusion()));
+    public static final RegistryObject<Block> DISHWASHER_LIGHT = BLOCKS.register("dishwasher_light",
+            () -> new DishwasherBlock(BlockBehaviour.Properties.copy(Blocks.WHITE_CONCRETE).noOcclusion()));
+    public static final RegistryObject<Block> DISHWASHER_DARK = BLOCKS.register("dishwasher_dark",
+            () -> new DishwasherBlock(BlockBehaviour.Properties.copy(Blocks.GRAY_CONCRETE).noOcclusion()));
     public static final RegistryObject<Block> MICROWAVE_LIGHT = BLOCKS.register("microwave_light",
             () -> new MicrowaveBlock(BlockBehaviour.Properties.copy(Blocks.WHITE_CONCRETE).noOcclusion()));
     public static final RegistryObject<Block> MICROWAVE_DARK = BLOCKS.register("microwave_dark",
@@ -494,6 +498,10 @@ public class ModBlocks {
             () -> new ShowerHeadBlock(BlockBehaviour.Properties.copy(Blocks.WHITE_CONCRETE).noOcclusion()));
     public static final RegistryObject<Block> SHOWER_HEAD_DARK = BLOCKS.register("shower_head_dark",
             () -> new ShowerHeadBlock(BlockBehaviour.Properties.copy(Blocks.GRAY_CONCRETE).noOcclusion()));
+    public static final RegistryObject<Block> TOASTER_LIGHT = BLOCKS.register("toaster_light",
+            () -> new ToasterBlock(BlockBehaviour.Properties.copy(Blocks.WHITE_CONCRETE).noOcclusion()));
+    public static final RegistryObject<Block> TOASTER_DARK = BLOCKS.register("toaster_dark",
+            () -> new ToasterBlock(BlockBehaviour.Properties.copy(Blocks.GRAY_CONCRETE).noOcclusion()));
     public static final RegistryObject<Block> TOILET_LIGHT = BLOCKS.register("toilet_light",
             () -> new ToiletBlock(BlockBehaviour.Properties.copy(Blocks.WHITE_CONCRETE).noOcclusion()));
     public static final RegistryObject<Block> TOILET_DARK = BLOCKS.register("toilet_dark",

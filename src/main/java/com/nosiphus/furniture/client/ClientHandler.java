@@ -20,7 +20,6 @@ public class ClientHandler {
     public static void setup() {
 
         registerBlockEntityRenderers();
-        registerLayers();
 
         MenuScreens.register(ModMenuTypes.MICROWAVE_MENU.get(), MicrowaveMenuScreen::new);
         MenuScreens.register(ModMenuTypes.OVEN_MENU.get(), OvenMenuScreen::new);
@@ -40,20 +39,6 @@ public class ClientHandler {
         BlockEntityRenderers.register(ModBlockEntities.MODERN_KITCHEN_SINK.get(), ModernKitchenSinkBlockEntityRenderer::new);
         //BlockEntityRenderers.register(ModBlockEntities.OFFICE_CHAIR.get(), OfficeChairBlockEntityRenderer::new);
         BlockEntityRenderers.register(ModBlockEntities.SINK.get(), SinkBlockEntityRenderer::new);
-
-    }
-
-    private static void registerLayers() {
-
-        Predicate<RenderType> cutoutPredicate = renderType -> renderType == RenderType.cutout();
-        ItemBlockRenderTypes.setRenderLayer(ModBlocks.BLENDER_DARK.get(), cutoutPredicate);
-        ItemBlockRenderTypes.setRenderLayer(ModBlocks.BLENDER_LIGHT.get(), cutoutPredicate);
-        ItemBlockRenderTypes.setRenderLayer(ModBlocks.MICROWAVE_DARK.get(), cutoutPredicate);
-        ItemBlockRenderTypes.setRenderLayer(ModBlocks.MICROWAVE_LIGHT.get(), cutoutPredicate);
-        ItemBlockRenderTypes.setRenderLayer(ModBlocks.OVEN_DARK.get(), cutoutPredicate);
-        ItemBlockRenderTypes.setRenderLayer(ModBlocks.OVEN_LIGHT.get(), cutoutPredicate);
-        ItemBlockRenderTypes.setRenderLayer(ModBlocks.SHOWER_DARK.get(), cutoutPredicate);
-        ItemBlockRenderTypes.setRenderLayer(ModBlocks.SHOWER_LIGHT.get(), cutoutPredicate);
 
     }
 

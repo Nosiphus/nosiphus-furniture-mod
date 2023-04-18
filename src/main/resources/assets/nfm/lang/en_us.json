@@ -224,6 +224,8 @@
 
 	"block.nfm.blender_light": "Blender (Light)",
 	"block.nfm.blender_dark": "Blender (Dark)",
+	"block.nfm.dishwasher_light": "Dishwasher (Light)",
+	"block.nfm.dishwasher_dark": "Dishwasher (Dark)",
 	"block.nfm.microwave_light": "Microwave (Light)",
 	"block.nfm.microwave_dark": "Microwave (Dark)",
 	"block.nfm.oven_light": "Oven (Light)",
@@ -236,6 +238,8 @@
 	"block.nfm.shower_dark": "Shower (Dark)",
 	"block.nfm.shower_head_light": "Shower Head (Light)",
 	"block.nfm.shower_head_dark": "Shower Head (Dark)",
+	"block.nfm.toaster_light": "Toaster (Light)",
+	"block.nfm.toaster_dark": "Toaster (Dark)",
 	"block.nfm.toilet_light": "Toilet (Light)",
 	"block.nfm.toilet_dark": "Toilet (Dark)",
 

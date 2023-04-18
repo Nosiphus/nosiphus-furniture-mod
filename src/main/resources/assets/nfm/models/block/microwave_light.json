@@ -1,5 +1,6 @@
 {
     "parent": "nfm:block/microwave",
+	"render_type": "cutout",
     "textures": {
         "1": "minecraft:block/white_concrete",
         "2": "minecraft:block/gray_concrete",

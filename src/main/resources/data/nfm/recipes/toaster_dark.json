@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "GIG",
+    "GPL",
+    "WWW"
+  ],
+  "key": {
+	"G": {
+      "item": "minecraft:gray_concrete"
+    },
+	"W": {
+      "item": "minecraft:white_concrete"
+    },
+	"I": {
+      "item": "minecraft:iron_bars"
+    },
+	"P": {
+      "item": "minecraft:piston"
+    },
+	"L": {
+      "item": "minecraft:light_gray_concrete"
+    }
+  },
+  "result": {
+    "item": "nfm:toaster_dark"
+  }
+}
