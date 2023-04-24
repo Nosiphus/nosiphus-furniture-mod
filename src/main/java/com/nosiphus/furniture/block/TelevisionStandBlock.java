@@ -3,24 +3,17 @@ package com.nosiphus.furniture.block;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
 import com.mrcrayfish.furniture.block.FurnitureHorizontalBlock;
-import com.mrcrayfish.furniture.entity.SeatEntity;
 import com.mrcrayfish.furniture.util.VoxelShapeHelper;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.util.StringRepresentable;
-import net.minecraft.world.InteractionHand;
-import net.minecraft.world.InteractionResult;
-import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
-import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.EnumProperty;
-import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
@@ -129,30 +122,19 @@ public class TelevisionStandBlock extends FurnitureHorizontalBlock
     public BlockState getStateForPlacement(BlockPlaceContext context)
     {
         BlockState state = super.getStateForPlacement(context);
-        return this.getSofaState(state, context.getLevel(), context.getClickedPos(), state.getValue(DIRECTION));
-    }
-
-    @Override
-    public InteractionResult use(BlockState state, Level level, BlockPos pos, Player playerEntity, InteractionHand hand, BlockHitResult result)
-    {
-        if(!level.isClientSide())
-        {
-            ItemStack stack = playerEntity.getItemInHand(hand);
-            return SeatEntity.create(level, pos, 0.4, playerEntity, state.getValue(DIRECTION));
-        }
-        return InteractionResult.SUCCESS;
+        return this.getTVStandState(state, context.getLevel(), context.getClickedPos(), state.getValue(DIRECTION));
     }
 
     @Override
     public BlockState updateShape(BlockState state, Direction direction, BlockState newState, LevelAccessor level, BlockPos pos, BlockPos newPos)
     {
-        return this.getSofaState(state, level, pos, state.getValue(DIRECTION));
+        return this.getTVStandState(state, level, pos, state.getValue(DIRECTION));
     }
 
-    private BlockState getSofaState(BlockState state, LevelAccessor level, BlockPos pos, Direction dir)
+    private BlockState getTVStandState(BlockState state, LevelAccessor level, BlockPos pos, Direction dir)
     {
-        boolean left = this.isSofa(level, pos, dir.getCounterClockWise(), dir) || this.isSofa(level, pos, dir.getCounterClockWise(), dir.getCounterClockWise());
-        boolean right = this.isSofa(level, pos, dir.getClockWise(), dir) || this.isSofa(level, pos, dir.getClockWise(), dir.getClockWise());
+        boolean left = this.isTVStand(level, pos, dir.getCounterClockWise(), dir) || this.isTVStand(level, pos, dir.getCounterClockWise(), dir.getCounterClockWise());
+        boolean right = this.isTVStand(level, pos, dir.getClockWise(), dir) || this.isTVStand(level, pos, dir.getClockWise(), dir.getClockWise());
 
         if(left && right)
         {
@@ -169,13 +151,13 @@ public class TelevisionStandBlock extends FurnitureHorizontalBlock
         return state.setValue(TYPE, Type.SINGLE);
     }
 
-    private boolean isSofa(LevelAccessor level, BlockPos source, Direction direction, Direction targetDirection)
+    private boolean isTVStand(LevelAccessor level, BlockPos source, Direction direction, Direction targetDirection)
     {
         BlockState state = level.getBlockState(source.relative(direction));
         if(state.getBlock() == this)
         {
-            Direction sofaDirection = state.getValue(DIRECTION);
-            return sofaDirection.equals(targetDirection);
+            Direction tvStandDirection = state.getValue(DIRECTION);
+            return tvStandDirection.equals(targetDirection);
         }
         return false;
     }
