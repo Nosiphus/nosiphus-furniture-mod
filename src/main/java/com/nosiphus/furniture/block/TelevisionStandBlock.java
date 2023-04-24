@@ -48,16 +48,21 @@ public class TelevisionStandBlock extends FurnitureHorizontalBlock
         final VoxelShape[] SOUTHEAST_LEG = VoxelShapeHelper.getRotatedShapes(VoxelShapeHelper.rotate(Block.box(13.5, 0.0, 12.5, 15.0, 3.5, 14.0), Direction.EAST));
         final VoxelShape[] LEFT_SIDE = VoxelShapeHelper.getRotatedShapes(VoxelShapeHelper.rotate(Block.box(1.0, 5.0, 2.0, 2.5, 14.5, 14.0), Direction.EAST));
         final VoxelShape[] RIGHT_SIDE = VoxelShapeHelper.getRotatedShapes(VoxelShapeHelper.rotate(Block.box(13.5, 5.0, 2.0, 15.0, 14.5, 14.0), Direction.EAST));
-        final VoxelShape[] BACK_SIDE = VoxelShapeHelper.getRotatedShapes(VoxelShapeHelper.rotate(Block.box(2.5, 5.0, 2.0, 13.5, 14.5, 3.5), Direction.EAST));
+        final VoxelShape[] BACK_SIDE_SINGLE = VoxelShapeHelper.getRotatedShapes(VoxelShapeHelper.rotate(Block.box(2.5, 5.0, 2.0, 13.5, 14.5, 3.5), Direction.EAST));
         final VoxelShape[] TOP_SHELF_SINGLE = VoxelShapeHelper.getRotatedShapes(VoxelShapeHelper.rotate(Block.box(2.5, 9.0, 3.5, 13.5, 10.5, 14.0), Direction.EAST));
         final VoxelShape[] BOTTOM_SHELF_SINGLE = VoxelShapeHelper.getRotatedShapes(VoxelShapeHelper.rotate(Block.box(1.0, 3.5, 2.0, 15.0, 5.0, 14.0), Direction.EAST));
         final VoxelShape[] TABLE_TOP = VoxelShapeHelper.getRotatedShapes(VoxelShapeHelper.rotate(Block.box(0.0, 14.5, 2.0, 16.0, 16.0, 14.0), Direction.EAST));
-        final VoxelShape[] TABLE_TOP_NORTH = VoxelShapeHelper.getRotatedShapes(VoxelShapeHelper.rotate(Block.box(1.0, 14.5, 1.0, 15.0, 16.0, 2.0), Direction.EAST));
-        final VoxelShape[] TABLE_TOP_SOUTH = VoxelShapeHelper.getRotatedShapes(VoxelShapeHelper.rotate(Block.box(1.0, 14.5, 14.0, 15.0, 16.0, 15.0), Direction.EAST));
+        final VoxelShape[] TABLE_TOP_NORTH_SINGLE = VoxelShapeHelper.getRotatedShapes(VoxelShapeHelper.rotate(Block.box(1.0, 14.5, 1.0, 15.0, 16.0, 2.0), Direction.EAST));
+        final VoxelShape[] TABLE_TOP_SOUTH_SINGLE = VoxelShapeHelper.getRotatedShapes(VoxelShapeHelper.rotate(Block.box(1.0, 14.5, 14.0, 15.0, 16.0, 15.0), Direction.EAST));
 
+        final VoxelShape[] TABLE_TOP_NORTH_LEFT = VoxelShapeHelper.getRotatedShapes(VoxelShapeHelper.rotate(Block.box(1.0, 14.5, 1.0, 16.0, 16.0, 2.0), Direction.EAST));
+        final VoxelShape[] TABLE_TOP_SOUTH_LEFT = VoxelShapeHelper.getRotatedShapes(VoxelShapeHelper.rotate(Block.box(1.0, 14.5, 14.0, 16.0, 16.0, 15.0), Direction.EAST));
+
+        final VoxelShape[] TABLE_TOP_MIDDLE = VoxelShapeHelper.getRotatedShapes(VoxelShapeHelper.rotate(Block.box(0.0, 14.5, 1.0, 16.0, 16.0, 15.0), Direction.EAST));
         final VoxelShape[] TOP_SHELF_MIDDLE = VoxelShapeHelper.getRotatedShapes(VoxelShapeHelper.rotate(Block.box(0.5, 9.0, 3.5, 15.5, 10.5, 14.0), Direction.EAST));
-        
-
+        final VoxelShape[] BOTTOM_SHELF_MIDDLE = VoxelShapeHelper.getRotatedShapes(VoxelShapeHelper.rotate(Block.box(0.0, 3.5, 2.0, 16.0, 5.0, 14.0), Direction.EAST));
+        final VoxelShape[] LEFT_SIDE_MIDDLE = VoxelShapeHelper.getRotatedShapes(VoxelShapeHelper.rotate(Block.box(0.0, 5.0, 2.0, 0.5, 14.5, 14.0), Direction.EAST));
+        final VoxelShape[] RIGHT_SIDE_MIDDLE = VoxelShapeHelper.getRotatedShapes(VoxelShapeHelper.rotate(Block.box(15.5, 5.0, 2.0, 16.0, 14.0, 14.0), Direction.EAST));
 
 
         ImmutableMap.Builder<BlockState, VoxelShape> builder = new ImmutableMap.Builder<>();
@@ -66,44 +71,40 @@ public class TelevisionStandBlock extends FurnitureHorizontalBlock
             Direction direction = state.getValue(DIRECTION);
             Type type = state.getValue(TYPE);
             List<VoxelShape> shapes = new ArrayList<>();
-            shapes.add(TABLE_TOP[direction.get2DDataValue()]);
             switch(type)
             {
                 case SINGLE:
+                    shapes.add(TABLE_TOP[direction.get2DDataValue()]);
+                    shapes.add(TABLE_TOP_NORTH_SINGLE[direction.get2DDataValue()]);
+                    shapes.add(TABLE_TOP_SOUTH_SINGLE[direction.get2DDataValue()]);
+                    shapes.add(BACK_SIDE_SINGLE[direction.get2DDataValue()]);
+                    shapes.add(TOP_SHELF_SINGLE[direction.get2DDataValue()]);
+                    shapes.add(BOTTOM_SHELF_SINGLE[direction.get2DDataValue()]);
                     shapes.add(NORTHWEST_LEG[direction.get2DDataValue()]);
                     shapes.add(NORTHEAST_LEG[direction.get2DDataValue()]);
                     shapes.add(SOUTHWEST_LEG[direction.get2DDataValue()]);
                     shapes.add(SOUTHEAST_LEG[direction.get2DDataValue()]);
                     break;
                 case LEFT:
-                    shapes.add(LEFT_ARM_TOP[direction.get2DDataValue()]);
-                    shapes.add(LEFT_ARM_FRONT[direction.get2DDataValue()]);
-                    shapes.add(LEFT_ARM_BACK[direction.get2DDataValue()]);
-                    shapes.add(LEFT_ARM_BOTTOM[direction.get2DDataValue()]);
-                    shapes.add(LEFT_BACKREST[direction.get2DDataValue()]);
-                    shapes.add(LEFT_BASE[direction.get2DDataValue()]);
-                    shapes.add(LEFT_BACKBASE[direction.get2DDataValue()]);
-                    shapes.add(LEFT_UNDERBASE[direction.get2DDataValue()]);
+                    shapes.add(TABLE_TOP[direction.get2DDataValue()]);
+                    shapes.add(TABLE_TOP_NORTH_LEFT[direction.get2DDataValue()]);
+                    shapes.add(TABLE_TOP_SOUTH_LEFT[direction.get2DDataValue()]);
+                    shapes.add(LEFT_SIDE[direction.get2DDataValue()]);
+                    shapes.add(NORTHWEST_LEG[direction.get2DDataValue()]);
+                    shapes.add(SOUTHWEST_LEG[direction.get2DDataValue()]);
                     break;
                 case RIGHT:
-                    shapes.add(RIGHT_ARM_TOP[direction.get2DDataValue()]);
-                    shapes.add(RIGHT_ARM_FRONT[direction.get2DDataValue()]);
-                    shapes.add(RIGHT_ARM_BACK[direction.get2DDataValue()]);
-                    shapes.add(RIGHT_ARM_BOTTOM[direction.get2DDataValue()]);
-                    shapes.add(RIGHT_BACKREST[direction.get2DDataValue()]);
-                    shapes.add(RIGHT_BASE[direction.get2DDataValue()]);
-                    shapes.add(RIGHT_BACKBASE[direction.get2DDataValue()]);
-                    shapes.add(RIGHT_UNDERBASE[direction.get2DDataValue()]);
+                    shapes.add(TABLE_TOP[direction.get2DDataValue()]);
+                    shapes.add(RIGHT_SIDE[direction.get2DDataValue()]);
+                    shapes.add(NORTHEAST_LEG[direction.get2DDataValue()]);
+                    shapes.add(SOUTHEAST_LEG[direction.get2DDataValue()]);
                     break;
                 case MIDDLE:
-                    shapes.add(LEFT_BACKREST[direction.get2DDataValue()]);
-                    shapes.add(LEFT_BASE[direction.get2DDataValue()]);
-                    shapes.add(LEFT_BACKBASE[direction.get2DDataValue()]);
-                    shapes.add(LEFT_UNDERBASE[direction.get2DDataValue()]);
-                    shapes.add(RIGHT_BACKREST[direction.get2DDataValue()]);
-                    shapes.add(RIGHT_BASE[direction.get2DDataValue()]);
-                    shapes.add(RIGHT_BACKBASE[direction.get2DDataValue()]);
-                    shapes.add(RIGHT_UNDERBASE[direction.get2DDataValue()]);
+                    shapes.add(TABLE_TOP_MIDDLE[direction.get2DDataValue()]);
+                    shapes.add(TOP_SHELF_MIDDLE[direction.get2DDataValue()]);
+                    shapes.add(BOTTOM_SHELF_MIDDLE[direction.get2DDataValue()]);
+                    shapes.add(LEFT_SIDE_MIDDLE[direction.get2DDataValue()]);
+                    shapes.add(RIGHT_SIDE_MIDDLE[direction.get2DDataValue()]);
                     break;
 
             }
