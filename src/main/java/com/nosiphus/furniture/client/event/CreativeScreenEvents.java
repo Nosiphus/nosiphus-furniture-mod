@@ -262,6 +262,7 @@ public class CreativeScreenEvents
         TagFilter[] filters = new TagFilter[] {
                 new TagFilter(ModTags.Items.GENERAL, new ItemStack(ModBlocks.CHAIR_WHITE_MODERN.get())),
                 new TagFilter(ModTags.Items.STORAGE, new ItemStack(ModBlocks.CABINET_WHITE_MODERN.get())),
+                new TagFilter(ModTags.Items.ELECTRONICS, new ItemStack(ModBlocks.LAPTOP_WHITE.get())),
                 new TagFilter(ModTags.Items.BEDROOM, new ItemStack(ModBlocks.DESK_WHITE_MODERN.get())),
                 new TagFilter(ModTags.Items.KITCHEN, new ItemStack(ModBlocks.KITCHEN_COUNTER_WHITE_MODERN.get())),
                 new TagFilter(ModTags.Items.BATHROOM, new ItemStack(ModBlocks.TOILET_LIGHT.get()))

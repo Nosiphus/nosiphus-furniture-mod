@@ -319,6 +319,40 @@ public class ModItems {
     public static final RegistryObject<BlockItem> SOFA_BLACK_MODERN = ITEMS.register("black_modern_sofa",
             () -> new BlockItem(ModBlocks.SOFA_BLACK_MODERN.get(), new Item.Properties().tab(NosiphusFurnitureMod.GROUP)));
 
+    //Television Stands
+    public static final RegistryObject<BlockItem> TELEVISION_STAND_WHITE = ITEMS.register("white_television_stand",
+            () -> new BlockItem(ModBlocks.TELEVISION_STAND_WHITE.get(), new Item.Properties().tab(NosiphusFurnitureMod.GROUP)));
+    public static final RegistryObject<BlockItem> TELEVISION_STAND_ORANGE = ITEMS.register("orange_television_stand",
+            () -> new BlockItem(ModBlocks.TELEVISION_STAND_ORANGE.get(), new Item.Properties().tab(NosiphusFurnitureMod.GROUP)));
+    public static final RegistryObject<BlockItem> TELEVISION_STAND_MAGENTA = ITEMS.register("magenta_television_stand",
+            () -> new BlockItem(ModBlocks.TELEVISION_STAND_MAGENTA.get(), new Item.Properties().tab(NosiphusFurnitureMod.GROUP)));
+    public static final RegistryObject<BlockItem> TELEVISION_STAND_LIGHT_BLUE = ITEMS.register("light_blue_television_stand",
+            () -> new BlockItem(ModBlocks.TELEVISION_STAND_LIGHT_BLUE.get(), new Item.Properties().tab(NosiphusFurnitureMod.GROUP)));
+    public static final RegistryObject<BlockItem> TELEVISION_STAND_YELLOW = ITEMS.register("yellow_television_stand",
+            () -> new BlockItem(ModBlocks.TELEVISION_STAND_YELLOW.get(), new Item.Properties().tab(NosiphusFurnitureMod.GROUP)));
+    public static final RegistryObject<BlockItem> TELEVISION_STAND_LIME = ITEMS.register("lime_television_stand",
+            () -> new BlockItem(ModBlocks.TELEVISION_STAND_LIME.get(), new Item.Properties().tab(NosiphusFurnitureMod.GROUP)));
+    public static final RegistryObject<BlockItem> TELEVISION_STAND_PINK = ITEMS.register("pink_television_stand",
+            () -> new BlockItem(ModBlocks.TELEVISION_STAND_PINK.get(), new Item.Properties().tab(NosiphusFurnitureMod.GROUP)));
+    public static final RegistryObject<BlockItem> TELEVISION_STAND_GRAY = ITEMS.register("gray_television_stand",
+            () -> new BlockItem(ModBlocks.TELEVISION_STAND_GRAY.get(), new Item.Properties().tab(NosiphusFurnitureMod.GROUP)));
+    public static final RegistryObject<BlockItem> TELEVISION_STAND_LIGHT_GRAY = ITEMS.register("light_gray_television_stand",
+            () -> new BlockItem(ModBlocks.TELEVISION_STAND_LIGHT_GRAY.get(), new Item.Properties().tab(NosiphusFurnitureMod.GROUP)));
+    public static final RegistryObject<BlockItem> TELEVISION_STAND_CYAN = ITEMS.register("cyan_television_stand",
+            () -> new BlockItem(ModBlocks.TELEVISION_STAND_CYAN.get(), new Item.Properties().tab(NosiphusFurnitureMod.GROUP)));
+    public static final RegistryObject<BlockItem> TELEVISION_STAND_PURPLE = ITEMS.register("purple_television_stand",
+            () -> new BlockItem(ModBlocks.TELEVISION_STAND_PURPLE.get(), new Item.Properties().tab(NosiphusFurnitureMod.GROUP)));
+    public static final RegistryObject<BlockItem> TELEVISION_STAND_BLUE = ITEMS.register("blue_television_stand",
+            () -> new BlockItem(ModBlocks.TELEVISION_STAND_BLUE.get(), new Item.Properties().tab(NosiphusFurnitureMod.GROUP)));
+    public static final RegistryObject<BlockItem> TELEVISION_STAND_BROWN = ITEMS.register("brown_television_stand",
+            () -> new BlockItem(ModBlocks.TELEVISION_STAND_BROWN.get(), new Item.Properties().tab(NosiphusFurnitureMod.GROUP)));
+    public static final RegistryObject<BlockItem> TELEVISION_STAND_GREEN = ITEMS.register("green_television_stand",
+            () -> new BlockItem(ModBlocks.TELEVISION_STAND_GREEN.get(), new Item.Properties().tab(NosiphusFurnitureMod.GROUP)));
+    public static final RegistryObject<BlockItem> TELEVISION_STAND_RED = ITEMS.register("red_television_stand",
+            () -> new BlockItem(ModBlocks.TELEVISION_STAND_RED.get(), new Item.Properties().tab(NosiphusFurnitureMod.GROUP)));
+    public static final RegistryObject<BlockItem> TELEVISION_STAND_BLACK = ITEMS.register("black_television_stand",
+            () -> new BlockItem(ModBlocks.TELEVISION_STAND_BLACK.get(), new Item.Properties().tab(NosiphusFurnitureMod.GROUP)));
+
     //Kitchen Counters
     public static final RegistryObject<BlockItem> KITCHEN_COUNTER_WHITE_MODERN = ITEMS.register("white_modern_kitchen_counter",
             () -> new BlockItem(ModBlocks.KITCHEN_COUNTER_WHITE_MODERN.get(), new Item.Properties().tab(NosiphusFurnitureMod.GROUP)));
@@ -454,6 +488,40 @@ public class ModItems {
             () -> new BlockItem(ModBlocks.BAR_STOOL_RED.get(), new Item.Properties().tab(NosiphusFurnitureMod.GROUP)));
     public static final RegistryObject<BlockItem> BAR_STOOL_BLACK = ITEMS.register("black_bar_stool",
             () -> new BlockItem(ModBlocks.BAR_STOOL_BLACK.get(), new Item.Properties().tab(NosiphusFurnitureMod.GROUP)));
+
+    //Electronics
+    public static final RegistryObject<BlockItem> LAPTOP_WHITE = ITEMS.register("white_laptop",
+            () -> new BlockItem(ModBlocks.LAPTOP_WHITE.get(), new Item.Properties().tab(NosiphusFurnitureMod.GROUP)));
+    public static final RegistryObject<BlockItem> LAPTOP_ORANGE = ITEMS.register("orange_laptop",
+            () -> new BlockItem(ModBlocks.LAPTOP_ORANGE.get(), new Item.Properties().tab(NosiphusFurnitureMod.GROUP)));
+    public static final RegistryObject<BlockItem> LAPTOP_MAGENTA = ITEMS.register("magenta_laptop",
+            () -> new BlockItem(ModBlocks.LAPTOP_MAGENTA.get(), new Item.Properties().tab(NosiphusFurnitureMod.GROUP)));
+    public static final RegistryObject<BlockItem> LAPTOP_LIGHT_BLUE = ITEMS.register("light_blue_laptop",
+            () -> new BlockItem(ModBlocks.LAPTOP_LIGHT_BLUE.get(), new Item.Properties().tab(NosiphusFurnitureMod.GROUP)));
+    public static final RegistryObject<BlockItem> LAPTOP_YELLOW = ITEMS.register("yellow_laptop",
+            () -> new BlockItem(ModBlocks.LAPTOP_YELLOW.get(), new Item.Properties().tab(NosiphusFurnitureMod.GROUP)));
+    public static final RegistryObject<BlockItem> LAPTOP_LIME = ITEMS.register("lime_laptop",
+            () -> new BlockItem(ModBlocks.LAPTOP_LIME.get(), new Item.Properties().tab(NosiphusFurnitureMod.GROUP)));
+    public static final RegistryObject<BlockItem> LAPTOP_PINK = ITEMS.register("pink_laptop",
+            () -> new BlockItem(ModBlocks.LAPTOP_PINK.get(), new Item.Properties().tab(NosiphusFurnitureMod.GROUP)));
+    public static final RegistryObject<BlockItem> LAPTOP_GRAY = ITEMS.register("gray_laptop",
+            () -> new BlockItem(ModBlocks.LAPTOP_GRAY.get(), new Item.Properties().tab(NosiphusFurnitureMod.GROUP)));
+    public static final RegistryObject<BlockItem> LAPTOP_LIGHT_GRAY = ITEMS.register("light_gray_laptop",
+            () -> new BlockItem(ModBlocks.LAPTOP_LIGHT_GRAY.get(), new Item.Properties().tab(NosiphusFurnitureMod.GROUP)));
+    public static final RegistryObject<BlockItem> LAPTOP_CYAN = ITEMS.register("cyan_laptop",
+            () -> new BlockItem(ModBlocks.LAPTOP_CYAN.get(), new Item.Properties().tab(NosiphusFurnitureMod.GROUP)));
+    public static final RegistryObject<BlockItem> LAPTOP_PURPLE = ITEMS.register("purple_laptop",
+            () -> new BlockItem(ModBlocks.LAPTOP_PURPLE.get(), new Item.Properties().tab(NosiphusFurnitureMod.GROUP)));
+    public static final RegistryObject<BlockItem> LAPTOP_BLUE = ITEMS.register("blue_laptop",
+            () -> new BlockItem(ModBlocks.LAPTOP_BLUE.get(), new Item.Properties().tab(NosiphusFurnitureMod.GROUP)));
+    public static final RegistryObject<BlockItem> LAPTOP_BROWN = ITEMS.register("brown_laptop",
+            () -> new BlockItem(ModBlocks.LAPTOP_BROWN.get(), new Item.Properties().tab(NosiphusFurnitureMod.GROUP)));
+    public static final RegistryObject<BlockItem> LAPTOP_GREEN = ITEMS.register("green_laptop",
+            () -> new BlockItem(ModBlocks.LAPTOP_GREEN.get(), new Item.Properties().tab(NosiphusFurnitureMod.GROUP)));
+    public static final RegistryObject<BlockItem> LAPTOP_RED = ITEMS.register("red_laptop",
+            () -> new BlockItem(ModBlocks.LAPTOP_RED.get(), new Item.Properties().tab(NosiphusFurnitureMod.GROUP)));
+    public static final RegistryObject<BlockItem> LAPTOP_BLACK = ITEMS.register("black_laptop",
+            () -> new BlockItem(ModBlocks.LAPTOP_BLACK.get(), new Item.Properties().tab(NosiphusFurnitureMod.GROUP)));
 
     //Appliances
     public static final RegistryObject<BlockItem> BLENDER_LIGHT = ITEMS.register("blender_light",

@@ -329,6 +329,40 @@ public class ModBlocks {
     public static final RegistryObject<Block> SOFA_BLACK_MODERN = BLOCKS.register("black_modern_sofa",
             () -> new ModernSofaBlock(BlockBehaviour.Properties.copy(Blocks.BLACK_CONCRETE)));
 
+    //Television Stands
+    public static final RegistryObject<Block> TELEVISION_STAND_WHITE = BLOCKS.register("white_television_stand",
+            () -> new TelevisionStandBlock(BlockBehaviour.Properties.copy(Blocks.WHITE_CONCRETE)));
+    public static final RegistryObject<Block> TELEVISION_STAND_ORANGE = BLOCKS.register("orange_television_stand",
+            () -> new TelevisionStandBlock(BlockBehaviour.Properties.copy(Blocks.ORANGE_CONCRETE)));
+    public static final RegistryObject<Block> TELEVISION_STAND_MAGENTA = BLOCKS.register("magenta_television_stand",
+            () -> new TelevisionStandBlock(BlockBehaviour.Properties.copy(Blocks.MAGENTA_CONCRETE)));
+    public static final RegistryObject<Block> TELEVISION_STAND_LIGHT_BLUE = BLOCKS.register("light_blue_television_stand",
+            () -> new TelevisionStandBlock(BlockBehaviour.Properties.copy(Blocks.LIGHT_BLUE_CONCRETE)));
+    public static final RegistryObject<Block> TELEVISION_STAND_YELLOW = BLOCKS.register("yellow_television_stand",
+            () -> new TelevisionStandBlock(BlockBehaviour.Properties.copy(Blocks.YELLOW_CONCRETE)));
+    public static final RegistryObject<Block> TELEVISION_STAND_LIME = BLOCKS.register("lime_television_stand",
+            () -> new TelevisionStandBlock(BlockBehaviour.Properties.copy(Blocks.LIME_CONCRETE)));
+    public static final RegistryObject<Block> TELEVISION_STAND_PINK = BLOCKS.register("pink_television_stand",
+            () -> new TelevisionStandBlock(BlockBehaviour.Properties.copy(Blocks.PINK_CONCRETE)));
+    public static final RegistryObject<Block> TELEVISION_STAND_GRAY = BLOCKS.register("gray_television_stand",
+            () -> new TelevisionStandBlock(BlockBehaviour.Properties.copy(Blocks.GRAY_CONCRETE)));
+    public static final RegistryObject<Block> TELEVISION_STAND_LIGHT_GRAY = BLOCKS.register("light_gray_television_stand",
+            () -> new TelevisionStandBlock(BlockBehaviour.Properties.copy(Blocks.LIGHT_GRAY_CONCRETE)));
+    public static final RegistryObject<Block> TELEVISION_STAND_CYAN = BLOCKS.register("cyan_television_stand",
+            () -> new TelevisionStandBlock(BlockBehaviour.Properties.copy(Blocks.CYAN_CONCRETE)));
+    public static final RegistryObject<Block> TELEVISION_STAND_PURPLE = BLOCKS.register("purple_television_stand",
+            () -> new TelevisionStandBlock(BlockBehaviour.Properties.copy(Blocks.PURPLE_CONCRETE)));
+    public static final RegistryObject<Block> TELEVISION_STAND_BLUE = BLOCKS.register("blue_television_stand",
+            () -> new TelevisionStandBlock(BlockBehaviour.Properties.copy(Blocks.BLUE_CONCRETE)));
+    public static final RegistryObject<Block> TELEVISION_STAND_BROWN = BLOCKS.register("brown_television_stand",
+            () -> new TelevisionStandBlock(BlockBehaviour.Properties.copy(Blocks.BROWN_CONCRETE)));
+    public static final RegistryObject<Block> TELEVISION_STAND_GREEN = BLOCKS.register("green_television_stand",
+            () -> new TelevisionStandBlock(BlockBehaviour.Properties.copy(Blocks.GREEN_CONCRETE)));
+    public static final RegistryObject<Block> TELEVISION_STAND_RED = BLOCKS.register("red_television_stand",
+            () -> new TelevisionStandBlock(BlockBehaviour.Properties.copy(Blocks.RED_CONCRETE)));
+    public static final RegistryObject<Block> TELEVISION_STAND_BLACK = BLOCKS.register("black_television_stand",
+            () -> new TelevisionStandBlock(BlockBehaviour.Properties.copy(Blocks.BLACK_CONCRETE)));
+
     //Kitchen Counters
     public static final RegistryObject<Block> KITCHEN_COUNTER_WHITE_MODERN = BLOCKS.register("white_modern_kitchen_counter",
             () -> new KitchenCounterBlock(BlockBehaviour.Properties.copy(Blocks.WHITE_CONCRETE)));
@@ -464,6 +498,40 @@ public class ModBlocks {
             () -> new BarStoolBlock(BlockBehaviour.Properties.copy(Blocks.RED_CONCRETE)));
     public static final RegistryObject<Block> BAR_STOOL_BLACK = BLOCKS.register("black_bar_stool",
             () -> new BarStoolBlock(BlockBehaviour.Properties.copy(Blocks.BLACK_CONCRETE)));
+
+    //Electronics
+    public static final RegistryObject<Block> LAPTOP_WHITE = BLOCKS.register("white_laptop",
+            () -> new LaptopBlock(BlockBehaviour.Properties.copy(Blocks.WHITE_CONCRETE)));
+    public static final RegistryObject<Block> LAPTOP_ORANGE = BLOCKS.register("orange_laptop",
+            () -> new LaptopBlock(BlockBehaviour.Properties.copy(Blocks.ORANGE_CONCRETE)));
+    public static final RegistryObject<Block> LAPTOP_MAGENTA = BLOCKS.register("magenta_laptop",
+            () -> new LaptopBlock(BlockBehaviour.Properties.copy(Blocks.MAGENTA_CONCRETE)));
+    public static final RegistryObject<Block> LAPTOP_LIGHT_BLUE = BLOCKS.register("light_blue_laptop",
+            () -> new LaptopBlock(BlockBehaviour.Properties.copy(Blocks.LIGHT_BLUE_CONCRETE)));
+    public static final RegistryObject<Block> LAPTOP_YELLOW = BLOCKS.register("yellow_laptop",
+            () -> new LaptopBlock(BlockBehaviour.Properties.copy(Blocks.YELLOW_CONCRETE)));
+    public static final RegistryObject<Block> LAPTOP_LIME = BLOCKS.register("lime_laptop",
+            () -> new LaptopBlock(BlockBehaviour.Properties.copy(Blocks.LIME_CONCRETE)));
+    public static final RegistryObject<Block> LAPTOP_PINK = BLOCKS.register("pink_laptop",
+            () -> new LaptopBlock(BlockBehaviour.Properties.copy(Blocks.PINK_CONCRETE)));
+    public static final RegistryObject<Block> LAPTOP_GRAY = BLOCKS.register("gray_laptop",
+            () -> new LaptopBlock(BlockBehaviour.Properties.copy(Blocks.GRAY_CONCRETE)));
+    public static final RegistryObject<Block> LAPTOP_LIGHT_GRAY = BLOCKS.register("light_gray_laptop",
+            () -> new LaptopBlock(BlockBehaviour.Properties.copy(Blocks.LIGHT_GRAY_CONCRETE)));
+    public static final RegistryObject<Block> LAPTOP_CYAN = BLOCKS.register("cyan_laptop",
+            () -> new LaptopBlock(BlockBehaviour.Properties.copy(Blocks.CYAN_CONCRETE)));
+    public static final RegistryObject<Block> LAPTOP_PURPLE = BLOCKS.register("purple_laptop",
+            () -> new LaptopBlock(BlockBehaviour.Properties.copy(Blocks.PURPLE_CONCRETE)));
+    public static final RegistryObject<Block> LAPTOP_BLUE = BLOCKS.register("blue_laptop",
+            () -> new LaptopBlock(BlockBehaviour.Properties.copy(Blocks.BLUE_CONCRETE)));
+    public static final RegistryObject<Block> LAPTOP_BROWN = BLOCKS.register("brown_laptop",
+            () -> new LaptopBlock(BlockBehaviour.Properties.copy(Blocks.BROWN_CONCRETE)));
+    public static final RegistryObject<Block> LAPTOP_GREEN = BLOCKS.register("green_laptop",
+            () -> new LaptopBlock(BlockBehaviour.Properties.copy(Blocks.GREEN_CONCRETE)));
+    public static final RegistryObject<Block> LAPTOP_RED = BLOCKS.register("red_laptop",
+            () -> new LaptopBlock(BlockBehaviour.Properties.copy(Blocks.RED_CONCRETE)));
+    public static final RegistryObject<Block> LAPTOP_BLACK = BLOCKS.register("black_laptop",
+            () -> new LaptopBlock(BlockBehaviour.Properties.copy(Blocks.BLACK_CONCRETE)));
 
     //Appliances
     public static final RegistryObject<Block> BLENDER_LIGHT = BLOCKS.register("blender_light",

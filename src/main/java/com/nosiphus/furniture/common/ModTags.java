@@ -11,6 +11,7 @@ public class ModTags
     {
         public static final TagKey<Item> BEDROOM = tag("bedroom");
         public static final TagKey<Item> BATHROOM = tag("bathroom");
+        public static final TagKey<Item> ELECTRONICS = tag("electronics");
         public static final TagKey<Item> GENERAL = tag("general");
         public static final TagKey<Item> KITCHEN = tag("kitchen");
         public static final TagKey<Item> STORAGE = tag("storage");
