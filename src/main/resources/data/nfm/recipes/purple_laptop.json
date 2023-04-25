@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "CGC",
+    "SRS",
+    "SIS"
+  ],
+  "key": {
+    "C": {
+      "item": "minecraft:purple_concrete"
+    },
+	"G": {
+      "item": "minecraft:glass_pane"
+    },
+	"R": {
+      "item": "minecraft:redstone"
+    },
+	"I": {
+      "item": "minecraft:iron_ingot"
+    },
+	"S": {
+      "item": "minecraft:stone"
+    }
+  },
+  "result": {
+    "item": "nfm:purple_laptop"
+  }
+}

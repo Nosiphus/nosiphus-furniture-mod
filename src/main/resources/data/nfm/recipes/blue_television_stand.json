@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "STS",
+    "SCS",
+    "   "
+  ],
+  "key": {
+    "S": {
+      "item": "minecraft:stone"
+    },
+	"C": {
+      "item": "minecraft:chest"
+    },
+	"T": {
+      "item": "nfm:blue_modern_table"
+    }
+  },
+  "result": {
+    "item": "nfm:blue_television_stand"
+  }
+}

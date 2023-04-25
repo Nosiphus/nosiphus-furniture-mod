@@ -1,0 +1,7 @@
+{
+    "parent": "nfm:block/television_stand_middle",
+    "textures": {
+        "0": "minecraft:block/orange_concrete",
+        "1": "minecraft:block/stone"
+    }
+}
