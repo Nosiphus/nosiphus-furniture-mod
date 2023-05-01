@@ -1,8 +1,8 @@
 {
-    "parent": "nfm:block/laptop",
-    "textures": {
-        "0": "minecraft:block/cauldron_side",
-        "1": "minecraft:block/cauldron_inner",
-        "2": "minecraft:block/magenta_concrete"
-    }
+	"parent": "nfm:block/laptop",
+	"textures": {
+		"base": "minecraft:block/cauldron_side",
+		"mount": "minecraft:block/cauldron_inner",
+		"trim": "minecraft:block/magenta_concrete"
+	}
 }
