@@ -37,7 +37,6 @@ public class ClientHandler {
     private static void registerBlockEntityRenderers() {
 
         BlockEntityRenderers.register(ModBlockEntities.MODERN_KITCHEN_SINK.get(), ModernKitchenSinkBlockEntityRenderer::new);
-        //BlockEntityRenderers.register(ModBlockEntities.OFFICE_CHAIR.get(), OfficeChairBlockEntityRenderer::new);
         BlockEntityRenderers.register(ModBlockEntities.SINK.get(), SinkBlockEntityRenderer::new);
 
     }
