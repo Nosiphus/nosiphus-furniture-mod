@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "WWW",
+    "LIL",
+    "LFL"
+  ],
+  "key": {
+	"W": {
+      "item": "minecraft:white_concrete"
+    },
+	"I": {
+      "item": "minecraft:iron_bars"
+    },
+	"F": {
+      "item": "minecraft:furnace"
+    },
+	"L": {
+      "item": "minecraft:light_gray_concrete"
+    }
+  },
+  "result": {
+    "item": "nfm:dishwasher_light"
+  }
+}

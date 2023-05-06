@@ -1,6 +1,6 @@
 {
-    "parent": "nfm:block/modern_table_two_alt",
-    "textures": {
-        "color": "minecraft:block/red_concrete"
-    }
+	"parent": "nfm:block/modern_table_two_alt",
+	"textures": {
+		"table_top": "minecraft:block/red_concrete"
+	}
 }

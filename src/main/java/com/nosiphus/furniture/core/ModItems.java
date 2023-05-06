@@ -455,6 +455,40 @@ public class ModItems {
     public static final RegistryObject<BlockItem> BAR_STOOL_BLACK = ITEMS.register("black_bar_stool",
             () -> new BlockItem(ModBlocks.BAR_STOOL_BLACK.get(), new Item.Properties()));
 
+    //Laptops
+    public static final RegistryObject<BlockItem> LAPTOP_WHITE = ITEMS.register("white_laptop",
+            () -> new BlockItem(ModBlocks.LAPTOP_WHITE.get(), new Item.Properties()));
+    public static final RegistryObject<BlockItem> LAPTOP_ORANGE = ITEMS.register("orange_laptop",
+            () -> new BlockItem(ModBlocks.LAPTOP_ORANGE.get(), new Item.Properties()));
+    public static final RegistryObject<BlockItem> LAPTOP_MAGENTA = ITEMS.register("magenta_laptop",
+            () -> new BlockItem(ModBlocks.LAPTOP_MAGENTA.get(), new Item.Properties()));
+    public static final RegistryObject<BlockItem> LAPTOP_LIGHT_BLUE = ITEMS.register("light_blue_laptop",
+            () -> new BlockItem(ModBlocks.LAPTOP_LIGHT_BLUE.get(), new Item.Properties()));
+    public static final RegistryObject<BlockItem> LAPTOP_YELLOW = ITEMS.register("yellow_laptop",
+            () -> new BlockItem(ModBlocks.LAPTOP_YELLOW.get(), new Item.Properties()));
+    public static final RegistryObject<BlockItem> LAPTOP_LIME = ITEMS.register("lime_laptop",
+            () -> new BlockItem(ModBlocks.LAPTOP_LIME.get(), new Item.Properties()));
+    public static final RegistryObject<BlockItem> LAPTOP_PINK = ITEMS.register("pink_laptop",
+            () -> new BlockItem(ModBlocks.LAPTOP_PINK.get(), new Item.Properties()));
+    public static final RegistryObject<BlockItem> LAPTOP_GRAY = ITEMS.register("gray_laptop",
+            () -> new BlockItem(ModBlocks.LAPTOP_GRAY.get(), new Item.Properties()));
+    public static final RegistryObject<BlockItem> LAPTOP_LIGHT_GRAY = ITEMS.register("light_gray_laptop",
+            () -> new BlockItem(ModBlocks.LAPTOP_LIGHT_GRAY.get(), new Item.Properties()));
+    public static final RegistryObject<BlockItem> LAPTOP_CYAN = ITEMS.register("cyan_laptop",
+            () -> new BlockItem(ModBlocks.LAPTOP_CYAN.get(), new Item.Properties()));
+    public static final RegistryObject<BlockItem> LAPTOP_PURPLE = ITEMS.register("purple_laptop",
+            () -> new BlockItem(ModBlocks.LAPTOP_PURPLE.get(), new Item.Properties()));
+    public static final RegistryObject<BlockItem> LAPTOP_BLUE = ITEMS.register("blue_laptop",
+            () -> new BlockItem(ModBlocks.LAPTOP_BLUE.get(), new Item.Properties()));
+    public static final RegistryObject<BlockItem> LAPTOP_BROWN = ITEMS.register("brown_laptop",
+            () -> new BlockItem(ModBlocks.LAPTOP_BROWN.get(), new Item.Properties()));
+    public static final RegistryObject<BlockItem> LAPTOP_GREEN = ITEMS.register("green_laptop",
+            () -> new BlockItem(ModBlocks.LAPTOP_GREEN.get(), new Item.Properties()));
+    public static final RegistryObject<BlockItem> LAPTOP_RED = ITEMS.register("red_laptop",
+            () -> new BlockItem(ModBlocks.LAPTOP_RED.get(), new Item.Properties()));
+    public static final RegistryObject<BlockItem> LAPTOP_BLACK = ITEMS.register("black_laptop",
+            () -> new BlockItem(ModBlocks.LAPTOP_BLACK.get(), new Item.Properties()));
+
     //Appliances
     public static final RegistryObject<BlockItem> BLENDER_LIGHT = ITEMS.register("blender_light",
             () -> new BlockItem(ModBlocks.BLENDER_LIGHT.get(), new Item.Properties()));
@@ -484,6 +518,10 @@ public class ModItems {
             () -> new BlockItem(ModBlocks.SHOWER_HEAD_LIGHT.get(), new Item.Properties()));
     public static final RegistryObject<BlockItem> SHOWER_HEAD_DARK = ITEMS.register("shower_head_dark",
             () -> new BlockItem(ModBlocks.SHOWER_HEAD_DARK.get(), new Item.Properties()));
+    public static final RegistryObject<BlockItem> TOASTER_LIGHT = ITEMS.register("toaster_light",
+            () -> new BlockItem(ModBlocks.TOASTER_LIGHT.get(), new Item.Properties()));
+    public static final RegistryObject<BlockItem> TOASTER_DARK = ITEMS.register("toaster_dark",
+            () -> new BlockItem(ModBlocks.TOASTER_DARK.get(), new Item.Properties()));
     public static final RegistryObject<BlockItem> TOILET_LIGHT = ITEMS.register("toilet_light",
             () -> new BlockItem(ModBlocks.TOILET_LIGHT.get(), new Item.Properties()));
     public static final RegistryObject<BlockItem> TOILET_DARK = ITEMS.register("toilet_dark",

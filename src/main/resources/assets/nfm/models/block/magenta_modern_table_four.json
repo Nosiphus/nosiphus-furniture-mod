@@ -1,6 +1,6 @@
 {
-    "parent": "nfm:block/modern_table_four",
-    "textures": {
-        "color": "minecraft:block/magenta_concrete"
-    }
+	"parent": "nfm:block/modern_table_four",
+	"textures": {
+		"table_top": "minecraft:block/magenta_concrete"
+	}
 }

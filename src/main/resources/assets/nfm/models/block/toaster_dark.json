@@ -1,0 +1,8 @@
+{
+	"parent": "nfm:block/toaster",
+	"textures": {
+		"base": "minecraft:block/white_concrete",
+		"handle": "minecraft:block/light_gray_concrete",
+		"shell": "minecraft:block/gray_concrete"
+	}
+}

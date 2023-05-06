@@ -93,37 +93,37 @@ public class ModBlocks {
 
     //Office Chairs
     public static final RegistryObject<Block> CHAIR_WHITE_OFFICE = BLOCKS.register("white_office_chair",
-            () -> new OfficeChairBlock(BlockBehaviour.Properties.copy(Blocks.WHITE_CONCRETE)));
+            () -> new PlaceholderBlock(BlockBehaviour.Properties.copy(Blocks.WHITE_CONCRETE)));
     public static final RegistryObject<Block> CHAIR_ORANGE_OFFICE = BLOCKS.register("orange_office_chair",
-            () -> new OfficeChairBlock(BlockBehaviour.Properties.copy(Blocks.ORANGE_CONCRETE)));
+            () -> new PlaceholderBlock(BlockBehaviour.Properties.copy(Blocks.ORANGE_CONCRETE)));
     public static final RegistryObject<Block> CHAIR_MAGENTA_OFFICE = BLOCKS.register("magenta_office_chair",
-            () -> new OfficeChairBlock(BlockBehaviour.Properties.copy(Blocks.MAGENTA_CONCRETE)));
+            () -> new PlaceholderBlock(BlockBehaviour.Properties.copy(Blocks.MAGENTA_CONCRETE)));
     public static final RegistryObject<Block> CHAIR_LIGHT_BLUE_OFFICE = BLOCKS.register("light_blue_office_chair",
-            () -> new OfficeChairBlock(BlockBehaviour.Properties.copy(Blocks.LIGHT_BLUE_CONCRETE)));
+            () -> new PlaceholderBlock(BlockBehaviour.Properties.copy(Blocks.LIGHT_BLUE_CONCRETE)));
     public static final RegistryObject<Block> CHAIR_YELLOW_OFFICE = BLOCKS.register("yellow_office_chair",
-            () -> new OfficeChairBlock(BlockBehaviour.Properties.copy(Blocks.YELLOW_CONCRETE)));
+            () -> new PlaceholderBlock(BlockBehaviour.Properties.copy(Blocks.YELLOW_CONCRETE)));
     public static final RegistryObject<Block> CHAIR_LIME_OFFICE = BLOCKS.register("lime_office_chair",
-            () -> new OfficeChairBlock(BlockBehaviour.Properties.copy(Blocks.LIME_CONCRETE)));
+            () -> new PlaceholderBlock(BlockBehaviour.Properties.copy(Blocks.LIME_CONCRETE)));
     public static final RegistryObject<Block> CHAIR_PINK_OFFICE = BLOCKS.register("pink_office_chair",
-            () -> new OfficeChairBlock(BlockBehaviour.Properties.copy(Blocks.PINK_CONCRETE)));
+            () -> new PlaceholderBlock(BlockBehaviour.Properties.copy(Blocks.PINK_CONCRETE)));
     public static final RegistryObject<Block> CHAIR_GRAY_OFFICE = BLOCKS.register("gray_office_chair",
-            () -> new OfficeChairBlock(BlockBehaviour.Properties.copy(Blocks.GRAY_CONCRETE)));
+            () -> new PlaceholderBlock(BlockBehaviour.Properties.copy(Blocks.GRAY_CONCRETE)));
     public static final RegistryObject<Block> CHAIR_LIGHT_GRAY_OFFICE = BLOCKS.register("light_gray_office_chair",
-            () -> new OfficeChairBlock(BlockBehaviour.Properties.copy(Blocks.LIGHT_GRAY_CONCRETE)));
+            () -> new PlaceholderBlock(BlockBehaviour.Properties.copy(Blocks.LIGHT_GRAY_CONCRETE)));
     public static final RegistryObject<Block> CHAIR_CYAN_OFFICE = BLOCKS.register("cyan_office_chair",
-            () -> new OfficeChairBlock(BlockBehaviour.Properties.copy(Blocks.CYAN_CONCRETE)));
+            () -> new PlaceholderBlock(BlockBehaviour.Properties.copy(Blocks.CYAN_CONCRETE)));
     public static final RegistryObject<Block> CHAIR_PURPLE_OFFICE = BLOCKS.register("purple_office_chair",
-            () -> new OfficeChairBlock(BlockBehaviour.Properties.copy(Blocks.PURPLE_CONCRETE)));
+            () -> new PlaceholderBlock(BlockBehaviour.Properties.copy(Blocks.PURPLE_CONCRETE)));
     public static final RegistryObject<Block> CHAIR_BLUE_OFFICE = BLOCKS.register("blue_office_chair",
-            () -> new OfficeChairBlock(BlockBehaviour.Properties.copy(Blocks.BLUE_CONCRETE)));
+            () -> new PlaceholderBlock(BlockBehaviour.Properties.copy(Blocks.BLUE_CONCRETE)));
     public static final RegistryObject<Block> CHAIR_BROWN_OFFICE = BLOCKS.register("brown_office_chair",
-            () -> new OfficeChairBlock(BlockBehaviour.Properties.copy(Blocks.BROWN_CONCRETE)));
+            () -> new PlaceholderBlock(BlockBehaviour.Properties.copy(Blocks.BROWN_CONCRETE)));
     public static final RegistryObject<Block> CHAIR_GREEN_OFFICE = BLOCKS.register("green_office_chair",
-            () -> new OfficeChairBlock(BlockBehaviour.Properties.copy(Blocks.GREEN_CONCRETE)));
+            () -> new PlaceholderBlock(BlockBehaviour.Properties.copy(Blocks.GREEN_CONCRETE)));
     public static final RegistryObject<Block> CHAIR_RED_OFFICE = BLOCKS.register("red_office_chair",
-            () -> new OfficeChairBlock(BlockBehaviour.Properties.copy(Blocks.RED_CONCRETE)));
+            () -> new PlaceholderBlock(BlockBehaviour.Properties.copy(Blocks.RED_CONCRETE)));
     public static final RegistryObject<Block> CHAIR_BLACK_OFFICE = BLOCKS.register("black_office_chair",
-            () -> new OfficeChairBlock(BlockBehaviour.Properties.copy(Blocks.BLACK_CONCRETE)));
+            () -> new PlaceholderBlock(BlockBehaviour.Properties.copy(Blocks.BLACK_CONCRETE)));
 
     //Coffee Tables
     public static final RegistryObject<Block> COFFEE_TABLE_WHITE_MODERN = BLOCKS.register("white_modern_coffee_table",
@@ -465,6 +465,40 @@ public class ModBlocks {
     public static final RegistryObject<Block> BAR_STOOL_BLACK = BLOCKS.register("black_bar_stool",
             () -> new BarStoolBlock(BlockBehaviour.Properties.copy(Blocks.BLACK_CONCRETE)));
 
+    //Laptops
+    public static final RegistryObject<Block> LAPTOP_WHITE = BLOCKS.register("white_laptop",
+            () -> new PlaceholderBlock(BlockBehaviour.Properties.copy(Blocks.WHITE_CONCRETE)));
+    public static final RegistryObject<Block> LAPTOP_ORANGE = BLOCKS.register("orange_laptop",
+            () -> new PlaceholderBlock(BlockBehaviour.Properties.copy(Blocks.ORANGE_CONCRETE)));
+    public static final RegistryObject<Block> LAPTOP_MAGENTA = BLOCKS.register("magenta_laptop",
+            () -> new PlaceholderBlock(BlockBehaviour.Properties.copy(Blocks.MAGENTA_CONCRETE)));
+    public static final RegistryObject<Block> LAPTOP_LIGHT_BLUE = BLOCKS.register("light_blue_laptop",
+            () -> new PlaceholderBlock(BlockBehaviour.Properties.copy(Blocks.LIGHT_BLUE_CONCRETE)));
+    public static final RegistryObject<Block> LAPTOP_YELLOW = BLOCKS.register("yellow_laptop",
+            () -> new PlaceholderBlock(BlockBehaviour.Properties.copy(Blocks.YELLOW_CONCRETE)));
+    public static final RegistryObject<Block> LAPTOP_LIME = BLOCKS.register("lime_laptop",
+            () -> new PlaceholderBlock(BlockBehaviour.Properties.copy(Blocks.LIME_CONCRETE)));
+    public static final RegistryObject<Block> LAPTOP_PINK = BLOCKS.register("pink_laptop",
+            () -> new PlaceholderBlock(BlockBehaviour.Properties.copy(Blocks.PINK_CONCRETE)));
+    public static final RegistryObject<Block> LAPTOP_GRAY = BLOCKS.register("gray_laptop",
+            () -> new PlaceholderBlock(BlockBehaviour.Properties.copy(Blocks.GRAY_CONCRETE)));
+    public static final RegistryObject<Block> LAPTOP_LIGHT_GRAY = BLOCKS.register("light_gray_laptop",
+            () -> new PlaceholderBlock(BlockBehaviour.Properties.copy(Blocks.LIGHT_GRAY_CONCRETE)));
+    public static final RegistryObject<Block> LAPTOP_CYAN = BLOCKS.register("cyan_laptop",
+            () -> new PlaceholderBlock(BlockBehaviour.Properties.copy(Blocks.CYAN_CONCRETE)));
+    public static final RegistryObject<Block> LAPTOP_PURPLE = BLOCKS.register("purple_laptop",
+            () -> new PlaceholderBlock(BlockBehaviour.Properties.copy(Blocks.PURPLE_CONCRETE)));
+    public static final RegistryObject<Block> LAPTOP_BLUE = BLOCKS.register("blue_laptop",
+            () -> new PlaceholderBlock(BlockBehaviour.Properties.copy(Blocks.BLUE_CONCRETE)));
+    public static final RegistryObject<Block> LAPTOP_BROWN = BLOCKS.register("brown_laptop",
+            () -> new PlaceholderBlock(BlockBehaviour.Properties.copy(Blocks.BROWN_CONCRETE)));
+    public static final RegistryObject<Block> LAPTOP_GREEN = BLOCKS.register("green_laptop",
+            () -> new PlaceholderBlock(BlockBehaviour.Properties.copy(Blocks.GREEN_CONCRETE)));
+    public static final RegistryObject<Block> LAPTOP_RED = BLOCKS.register("red_laptop",
+            () -> new PlaceholderBlock(BlockBehaviour.Properties.copy(Blocks.RED_CONCRETE)));
+    public static final RegistryObject<Block> LAPTOP_BLACK = BLOCKS.register("black_laptop",
+            () -> new PlaceholderBlock(BlockBehaviour.Properties.copy(Blocks.BLACK_CONCRETE)));
+
     //Appliances
     public static final RegistryObject<Block> BLENDER_LIGHT = BLOCKS.register("blender_light",
             () -> new BlenderBlock(BlockBehaviour.Properties.copy(Blocks.WHITE_CONCRETE).noOcclusion()));
@@ -494,6 +528,10 @@ public class ModBlocks {
             () -> new ShowerHeadBlock(BlockBehaviour.Properties.copy(Blocks.WHITE_CONCRETE).noOcclusion()));
     public static final RegistryObject<Block> SHOWER_HEAD_DARK = BLOCKS.register("shower_head_dark",
             () -> new ShowerHeadBlock(BlockBehaviour.Properties.copy(Blocks.GRAY_CONCRETE).noOcclusion()));
+    public static final RegistryObject<Block> TOASTER_LIGHT = BLOCKS.register("toaster_light",
+            () -> new ToasterBlock(BlockBehaviour.Properties.copy(Blocks.WHITE_CONCRETE).noOcclusion()));
+    public static final RegistryObject<Block> TOASTER_DARK = BLOCKS.register("toaster_dark",
+            () -> new ToasterBlock(BlockBehaviour.Properties.copy(Blocks.GRAY_CONCRETE).noOcclusion()));
     public static final RegistryObject<Block> TOILET_LIGHT = BLOCKS.register("toilet_light",
             () -> new ToiletBlock(BlockBehaviour.Properties.copy(Blocks.WHITE_CONCRETE).noOcclusion()));
     public static final RegistryObject<Block> TOILET_DARK = BLOCKS.register("toilet_dark",

@@ -1,6 +1,6 @@
 {
-    "parent": "nfm:block/modern_chair",
-    "textures": {
-        "color": "minecraft:block/cyan_concrete"
-    }
+	"parent": "nfm:block/modern_chair",
+	"textures": {
+		"seat": "minecraft:block/cyan_concrete"
+	}
 }
