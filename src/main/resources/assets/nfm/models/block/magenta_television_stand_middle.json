@@ -1,7 +1,6 @@
 {
-    "parent": "nfm:block/television_stand_middle",
-    "textures": {
-        "0": "minecraft:block/magenta_concrete",
-        "1": "minecraft:block/stone"
-    }
+	"parent": "nfm:block/television_stand_middle",
+	"textures": {
+		"table_top": "minecraft:block/magenta_concrete"
+	}
 }

@@ -11,7 +11,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "nfm:light_gray_office_chair"
+          "name": "devices:light_gray_office_chair"
         }
       ],
       "rolls": 1.0

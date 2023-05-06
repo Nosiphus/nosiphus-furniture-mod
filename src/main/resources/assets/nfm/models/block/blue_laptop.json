@@ -1,8 +1,6 @@
 {
-	"parent": "nfm:block/laptop",
-	"textures": {
-		"base": "minecraft:block/cauldron_side",
-		"mount": "minecraft:block/cauldron_inner",
-		"trim": "minecraft:block/blue_concrete"
-	}
+  "parent": "block/cube_all",
+  "textures": {
+    "all": "nfm:block/placeholder"
+  }
 }

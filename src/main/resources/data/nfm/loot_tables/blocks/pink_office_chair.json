@@ -11,7 +11,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "nfm:pink_office_chair"
+          "name": "devices:pink_office_chair"
         }
       ],
       "rolls": 1.0

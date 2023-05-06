@@ -8,7 +8,7 @@
         "2": "minecraft:block/red_concrete",
         "3": "minecraft:block/stone",
         "4": "minecraft:block/white_stained_glass",
-        "5": "nfm:block/mesh",
+        "5": "cfm:block/mesh",
         "6": "minecraft:block/anvil_base"
     },
 	"display": {

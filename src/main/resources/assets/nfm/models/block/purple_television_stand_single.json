@@ -1,7 +1,6 @@
 {
-    "parent": "nfm:block/television_stand_single",
-    "textures": {
-        "0": "minecraft:block/stone",
-        "1": "minecraft:block/purple_concrete"
-    }
+	"parent": "nfm:block/television_stand_single",
+	"textures": {
+		"table_top": "minecraft:block/purple_concrete"
+	}
 }

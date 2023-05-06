@@ -17,6 +17,9 @@ import java.util.List;
 
 public class LaptopBlock extends FurnitureHorizontalBlock
 {
+
+    //This class is no longer used now that the Devices Mod exists, but it remains in case they ever decide to use the more detailed model file.
+
     public final ImmutableMap<BlockState, VoxelShape> SHAPES;
 
     public LaptopBlock(Properties properties)

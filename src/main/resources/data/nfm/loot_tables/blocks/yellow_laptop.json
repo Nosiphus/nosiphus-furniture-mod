@@ -11,7 +11,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "nfm:yellow_laptop"
+          "name": "devices:yellow_laptop"
         }
       ],
       "rolls": 1.0

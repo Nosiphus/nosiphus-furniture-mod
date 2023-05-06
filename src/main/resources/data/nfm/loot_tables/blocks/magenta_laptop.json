@@ -11,7 +11,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "nfm:magenta_laptop"
+          "name": "devices:magenta_laptop"
         }
       ],
       "rolls": 1.0

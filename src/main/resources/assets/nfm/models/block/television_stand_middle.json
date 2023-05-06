@@ -1,9 +1,8 @@
 {
-    "__comment": "Model generated using MrCrayfish's Model Creator (https://mrcrayfish.com/tools?id=mc)",
     "textures": {
-        "0": "#0",
-        "1": "#1",
-		"particle": "#0"
+        "handle": "minecraft:block/blackstone",
+        "legs": "minecraft:block/stone",
+		"particle": "#table_top"
     },
     "display": {
         "gui": {
@@ -48,10 +47,10 @@
             "from": [ -0.00, 14.50, 1.00 ], 
             "to": [ 16.00, 16.00, 15.00 ], 
             "faces": {
-                "north": { "texture": "#0", "uv": [ 0.00, 0.00, 16.00, 1.50 ] },
-                "south": { "texture": "#0", "uv": [ 0.00, 0.00, 16.00, 1.50 ] },
-                "up": { "texture": "#0", "uv": [ 0.00, 0.00, 16.00, 14.00 ], "cullface": "up" },
-                "down": { "texture": "#0", "uv": [ 0.00, 0.00, 16.00, 14.00 ] }
+                "north": { "texture": "#table_top", "uv": [ 0.00, 0.00, 16.00, 1.50 ] },
+                "south": { "texture": "#table_top", "uv": [ 0.00, 0.00, 16.00, 1.50 ] },
+                "up": { "texture": "#table_top", "uv": [ 0.00, 0.00, 16.00, 14.00 ], "cullface": "up" },
+                "down": { "texture": "#table_top", "uv": [ 0.00, 0.00, 16.00, 14.00 ] }
             }
         },
         {
@@ -59,9 +58,9 @@
             "from": [ 0.50, 9.00, 3.50 ], 
             "to": [ 15.50, 10.50, 14.00 ], 
             "faces": {
-                "south": { "texture": "#0", "uv": [ 0.00, 0.00, 15.00, 1.50 ] },
-                "up": { "texture": "#0", "uv": [ 0.00, 0.00, 15.00, 10.50 ] },
-                "down": { "texture": "#0", "uv": [ 0.00, 0.00, 15.00, 10.50 ] }
+                "south": { "texture": "#table_top", "uv": [ 0.00, 0.00, 15.00, 1.50 ] },
+                "up": { "texture": "#table_top", "uv": [ 0.00, 0.00, 15.00, 10.50 ] },
+                "down": { "texture": "#table_top", "uv": [ 0.00, 0.00, 15.00, 10.50 ] }
             }
         },
         {
@@ -69,8 +68,8 @@
             "from": [ 0.50, 5.00, 2.00 ], 
             "to": [ 15.50, 14.50, 3.50 ], 
             "faces": {
-                "north": { "texture": "#0", "uv": [ 0.00, 0.00, 15.00, 9.50 ] },
-                "south": { "texture": "#1", "uv": [ 0.00, 0.00, 15.00, 9.50 ] }
+                "north": { "texture": "#table_top", "uv": [ 0.00, 0.00, 15.00, 9.50 ] },
+                "south": { "texture": "#legs", "uv": [ 0.00, 0.00, 15.00, 9.50 ] }
             }
         },
         {
@@ -78,10 +77,10 @@
             "from": [ 0.00, 3.50, 2.00 ], 
             "to": [ 16.00, 5.00, 14.00 ], 
             "faces": {
-                "north": { "texture": "#0", "uv": [ 0.00, 0.00, 16.00, 1.50 ] },
-                "south": { "texture": "#0", "uv": [ 0.00, 0.00, 16.00, 1.50 ] },
-                "up": { "texture": "#0", "uv": [ 0.00, 0.00, 16.00, 12.00 ] },
-                "down": { "texture": "#0", "uv": [ 0.00, 0.00, 16.00, 12.00 ] }
+                "north": { "texture": "#table_top", "uv": [ 0.00, 0.00, 16.00, 1.50 ] },
+                "south": { "texture": "#table_top", "uv": [ 0.00, 0.00, 16.00, 1.50 ] },
+                "up": { "texture": "#table_top", "uv": [ 0.00, 0.00, 16.00, 12.00 ] },
+                "down": { "texture": "#table_top", "uv": [ 0.00, 0.00, 16.00, 12.00 ] }
             }
         },
         {
@@ -89,11 +88,11 @@
             "from": [ 0.00, 5.00, 2.00 ], 
             "to": [ 0.50, 14.50, 14.00 ], 
             "faces": {
-                "north": { "texture": "#0", "uv": [ 0.00, 0.00, 0.50, 9.50 ] },
-                "east": { "texture": "#0", "uv": [ 0.00, 0.00, 12.00, 9.50 ] },
-                "south": { "texture": "#0", "uv": [ 0.00, 0.00, 0.50, 9.50 ] },
-                "up": { "texture": "#0", "uv": [ 0.00, 0.00, 0.50, 12.00 ] },
-                "down": { "texture": "#0", "uv": [ 0.00, 0.00, 0.50, 12.00 ] }
+                "north": { "texture": "#table_top", "uv": [ 0.00, 0.00, 0.50, 9.50 ] },
+                "east": { "texture": "#table_top", "uv": [ 0.00, 0.00, 12.00, 9.50 ] },
+                "south": { "texture": "#table_top", "uv": [ 0.00, 0.00, 0.50, 9.50 ] },
+                "up": { "texture": "#table_top", "uv": [ 0.00, 0.00, 0.50, 12.00 ] },
+                "down": { "texture": "#table_top", "uv": [ 0.00, 0.00, 0.50, 12.00 ] }
             }
         },
         {
@@ -101,11 +100,11 @@
             "from": [ 15.50, 5.00, 2.00 ], 
             "to": [ 16.00, 14.50, 14.00 ], 
             "faces": {
-                "north": { "texture": "#0", "uv": [ 0.00, 0.00, 0.50, 9.50 ] },
-                "south": { "texture": "#0", "uv": [ 0.00, 0.00, 0.50, 9.50 ] },
-                "west": { "texture": "#0", "uv": [ 0.00, 0.00, 12.00, 9.50 ] },
-                "up": { "texture": "#0", "uv": [ 0.00, 0.00, 0.50, 12.00 ] },
-                "down": { "texture": "#0", "uv": [ 0.00, 0.00, 0.50, 12.00 ] }
+                "north": { "texture": "#table_top", "uv": [ 0.00, 0.00, 0.50, 9.50 ] },
+                "south": { "texture": "#table_top", "uv": [ 0.00, 0.00, 0.50, 9.50 ] },
+                "west": { "texture": "#table_top", "uv": [ 0.00, 0.00, 12.00, 9.50 ] },
+                "up": { "texture": "#table_top", "uv": [ 0.00, 0.00, 0.50, 12.00 ] },
+                "down": { "texture": "#table_top", "uv": [ 0.00, 0.00, 0.50, 12.00 ] }
             }
         }
     ]
