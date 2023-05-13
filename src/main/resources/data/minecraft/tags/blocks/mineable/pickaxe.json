@@ -240,6 +240,8 @@
     "nfm:green_laptop",
     "nfm:red_laptop",
     "nfm:black_laptop",
+    "nfm:bin_light",
+    "nfm:bin_dark",
     "nfm:blender_light",
     "nfm:blender_dark",
 	"nfm:dishwasher_light",

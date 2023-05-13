@@ -534,6 +534,10 @@ public class ModBlocks {
             () -> new PlaceholderBlock(BlockBehaviour.Properties.copy(Blocks.BLACK_CONCRETE)));
 
     //Appliances
+    public static final RegistryObject<Block> BIN_LIGHT = BLOCKS.register("bin_light",
+            () -> new BinBlock(BlockBehaviour.Properties.copy(Blocks.WHITE_CONCRETE).noOcclusion()));
+    public static final RegistryObject<Block> BIN_DARK = BLOCKS.register("bin_dark",
+            () -> new BinBlock(BlockBehaviour.Properties.copy(Blocks.GRAY_CONCRETE).noOcclusion()));
     public static final RegistryObject<Block> BLENDER_LIGHT = BLOCKS.register("blender_light",
             () -> new BlenderBlock(BlockBehaviour.Properties.copy(Blocks.WHITE_CONCRETE).noOcclusion()));
     public static final RegistryObject<Block> BLENDER_DARK = BLOCKS.register("blender_dark",

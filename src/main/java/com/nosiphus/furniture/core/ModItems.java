@@ -524,6 +524,10 @@ public class ModItems {
             () -> new BlockItem(ModBlocks.LAPTOP_BLACK.get(), new Item.Properties().tab(NosiphusFurnitureMod.GROUP)));
 
     //Appliances
+    public static final RegistryObject<BlockItem> BIN_LIGHT = ITEMS.register("bin_light",
+            () -> new BlockItem(ModBlocks.BIN_LIGHT.get(), new Item.Properties().tab(NosiphusFurnitureMod.GROUP)));
+    public static final RegistryObject<BlockItem> BIN_DARK = ITEMS.register("bin_dark",
+            () -> new BlockItem(ModBlocks.BIN_DARK.get(), new Item.Properties().tab(NosiphusFurnitureMod.GROUP)));
     public static final RegistryObject<BlockItem> BLENDER_LIGHT = ITEMS.register("blender_light",
             () -> new BlockItem(ModBlocks.BLENDER_LIGHT.get(), new Item.Properties().tab(NosiphusFurnitureMod.GROUP)));
     public static final RegistryObject<BlockItem> BLENDER_DARK = ITEMS.register("blender_dark",
