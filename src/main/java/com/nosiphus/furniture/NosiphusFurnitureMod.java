@@ -23,12 +23,12 @@ public class NosiphusFurnitureMod {
         IEventBus eventBus = FMLJavaModLoadingContext.get().getModEventBus();
         ModBlocks.BLOCKS.register(eventBus);
         ModBlockEntities.BLOCK_ENTITIES.register(eventBus);
+        ModCreativeTabs.CREATIVE_TABS.register(eventBus);
         ModMenuTypes.MENU_TYPES.register(eventBus);
         ModItems.ITEMS.register(eventBus);
         ModSounds.SOUNDS.register(eventBus);
         eventBus.addListener(this::onClientSetup);
         eventBus.addListener(this::onDataSetup);
-        eventBus.addListener(ClientHandler::onRegisterCreativeTab);
 
         MinecraftForge.EVENT_BUS.register(this);
 

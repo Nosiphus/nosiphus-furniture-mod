@@ -1,1 +1,13 @@
-{"replace":false,"values":["nfm:shower_head_light","nfm:shower_head_dark","nfm:shower_light","nfm:shower_dark","nfm:sink_light","nfm:sink_dark","nfm:toilet_light","nfm:toilet_dark"]}
+{
+  "replace": false,
+  "values": [
+    "nfm:shower_head_light",
+    "nfm:shower_head_dark",
+    "nfm:shower_light",
+    "nfm:shower_dark",
+    "nfm:sink_light",
+    "nfm:sink_dark",
+    "nfm:toilet_light",
+    "nfm:toilet_dark"
+  ]
+}

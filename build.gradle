@@ -28,6 +28,9 @@ archivesBaseName = project.property('mod.id')
 java.toolchain.languageVersion = JavaLanguageVersion.of(17)
 
 minecraft {
+
+    accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg')
+
     mappings channel: project.property('mappings.channel'), version: project.property('mappings.version')
 
     runs {
@@ -93,9 +96,10 @@ repositories {
 }
 
 dependencies {
-    minecraft 'net.minecraftforge:forge:1.19.3-44.1.17'
-	annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
-    implementation fg.deobf('curse.maven:cfm-55438:4375004')
+    minecraft 'net.minecraftforge:forge:1.20.1-47.0.19'
+    implementation fg.deobf('curse.maven:catalogue-459701:4590890')
+	implementation fg.deobf('curse.maven:cfm-55438:4602980')
+    annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
 }
 
 processResources {
