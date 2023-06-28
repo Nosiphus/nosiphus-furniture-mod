@@ -11,7 +11,7 @@ import java.util.function.Supplier;
 
 public class ModItems {
 
-    public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, "nfm");
+    public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, NosiphusFurnitureMod.MOD_ID);
 
     //Tables
     public static final RegistryObject<BlockItem> TABLE_WHITE_MODERN = ITEMS.register("white_modern_table",
