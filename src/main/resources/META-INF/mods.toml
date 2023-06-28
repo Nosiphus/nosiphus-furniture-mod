@@ -5,14 +5,14 @@ issueTrackerURL="https://github.com/Nosiphus/nosiphus-furniture-mod/issues"
 
 [[mods]]
 modId="nfm"
-version="2023.05.30"
+version="2023.06.28"
 displayName="Nosiphus Furniture Mod"
-updateJSONURL="https://www.nosiphus.com/"
+updateJSONURL=""
 displayURL="https://www.nosiphus.com/"
 logoFile="nfm.png"
 credits="MrCrayFish, Ocelot"
 authors="Nosiphus"
-description="Nosiphus Furniture Mod is an addon to MrCrayFish's Furniture Mod that readds old furniture"
+description="Nosiphus Furniture Mod is an addon to MrCrayFish's Furniture Mod that readds old furniture."
 
 [[dependencies.nfm]]
     modId="forge"
