@@ -10,6 +10,7 @@ plugins {
 }
 
 version = mod_version
+version = project.property('mod_version') + "-" + project.property('minecraft_version')
 group = mod_group_id
 
 base {
