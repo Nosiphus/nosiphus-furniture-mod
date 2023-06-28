@@ -1,7 +1,6 @@
 package com.nosiphus.furniture.blockentity;
 
 import com.nosiphus.furniture.client.menu.MicrowaveMenu;
-import com.nosiphus.furniture.client.menu.OvenMenu;
 import com.nosiphus.furniture.core.ModBlockEntities;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;

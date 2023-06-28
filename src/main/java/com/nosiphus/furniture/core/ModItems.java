@@ -7,8 +7,6 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
-import java.util.function.Supplier;
-
 public class ModItems {
 
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, NosiphusFurnitureMod.MOD_ID);
@@ -319,6 +317,40 @@ public class ModItems {
     public static final RegistryObject<BlockItem> SOFA_BLACK_MODERN = ITEMS.register("black_modern_sofa",
             () -> new BlockItem(ModBlocks.SOFA_BLACK_MODERN.get(), new Item.Properties()));
 
+    //Television Stands
+    public static final RegistryObject<BlockItem> TELEVISION_STAND_WHITE = ITEMS.register("white_television_stand",
+            () -> new BlockItem(ModBlocks.TELEVISION_STAND_WHITE.get(), new Item.Properties()));
+    public static final RegistryObject<BlockItem> TELEVISION_STAND_ORANGE = ITEMS.register("orange_television_stand",
+            () -> new BlockItem(ModBlocks.TELEVISION_STAND_ORANGE.get(), new Item.Properties()));
+    public static final RegistryObject<BlockItem> TELEVISION_STAND_MAGENTA = ITEMS.register("magenta_television_stand",
+            () -> new BlockItem(ModBlocks.TELEVISION_STAND_MAGENTA.get(), new Item.Properties()));
+    public static final RegistryObject<BlockItem> TELEVISION_STAND_LIGHT_BLUE = ITEMS.register("light_blue_television_stand",
+            () -> new BlockItem(ModBlocks.TELEVISION_STAND_LIGHT_BLUE.get(), new Item.Properties()));
+    public static final RegistryObject<BlockItem> TELEVISION_STAND_YELLOW = ITEMS.register("yellow_television_stand",
+            () -> new BlockItem(ModBlocks.TELEVISION_STAND_YELLOW.get(), new Item.Properties()));
+    public static final RegistryObject<BlockItem> TELEVISION_STAND_LIME = ITEMS.register("lime_television_stand",
+            () -> new BlockItem(ModBlocks.TELEVISION_STAND_LIME.get(), new Item.Properties()));
+    public static final RegistryObject<BlockItem> TELEVISION_STAND_PINK = ITEMS.register("pink_television_stand",
+            () -> new BlockItem(ModBlocks.TELEVISION_STAND_PINK.get(), new Item.Properties()));
+    public static final RegistryObject<BlockItem> TELEVISION_STAND_GRAY = ITEMS.register("gray_television_stand",
+            () -> new BlockItem(ModBlocks.TELEVISION_STAND_GRAY.get(), new Item.Properties()));
+    public static final RegistryObject<BlockItem> TELEVISION_STAND_LIGHT_GRAY = ITEMS.register("light_gray_television_stand",
+            () -> new BlockItem(ModBlocks.TELEVISION_STAND_LIGHT_GRAY.get(), new Item.Properties()));
+    public static final RegistryObject<BlockItem> TELEVISION_STAND_CYAN = ITEMS.register("cyan_television_stand",
+            () -> new BlockItem(ModBlocks.TELEVISION_STAND_CYAN.get(), new Item.Properties()));
+    public static final RegistryObject<BlockItem> TELEVISION_STAND_PURPLE = ITEMS.register("purple_television_stand",
+            () -> new BlockItem(ModBlocks.TELEVISION_STAND_PURPLE.get(), new Item.Properties()));
+    public static final RegistryObject<BlockItem> TELEVISION_STAND_BLUE = ITEMS.register("blue_television_stand",
+            () -> new BlockItem(ModBlocks.TELEVISION_STAND_BLUE.get(), new Item.Properties()));
+    public static final RegistryObject<BlockItem> TELEVISION_STAND_BROWN = ITEMS.register("brown_television_stand",
+            () -> new BlockItem(ModBlocks.TELEVISION_STAND_BROWN.get(), new Item.Properties()));
+    public static final RegistryObject<BlockItem> TELEVISION_STAND_GREEN = ITEMS.register("green_television_stand",
+            () -> new BlockItem(ModBlocks.TELEVISION_STAND_GREEN.get(), new Item.Properties()));
+    public static final RegistryObject<BlockItem> TELEVISION_STAND_RED = ITEMS.register("red_television_stand",
+            () -> new BlockItem(ModBlocks.TELEVISION_STAND_RED.get(), new Item.Properties()));
+    public static final RegistryObject<BlockItem> TELEVISION_STAND_BLACK = ITEMS.register("black_television_stand",
+            () -> new BlockItem(ModBlocks.TELEVISION_STAND_BLACK.get(), new Item.Properties()));
+
     //Kitchen Counters
     public static final RegistryObject<BlockItem> KITCHEN_COUNTER_WHITE_MODERN = ITEMS.register("white_modern_kitchen_counter",
             () -> new BlockItem(ModBlocks.KITCHEN_COUNTER_WHITE_MODERN.get(), new Item.Properties()));
@@ -498,6 +530,10 @@ public class ModItems {
             () -> new BlockItem(ModBlocks.BLENDER_LIGHT.get(), new Item.Properties()));
     public static final RegistryObject<BlockItem> BLENDER_DARK = ITEMS.register("blender_dark",
             () -> new BlockItem(ModBlocks.BLENDER_DARK.get(), new Item.Properties()));
+    public static final RegistryObject<BlockItem> DISHWASHER_LIGHT = ITEMS.register("dishwasher_light",
+            () -> new BlockItem(ModBlocks.DISHWASHER_LIGHT.get(), new Item.Properties()));
+    public static final RegistryObject<BlockItem> DISHWASHER_DARK = ITEMS.register("dishwasher_dark",
+            () -> new BlockItem(ModBlocks.DISHWASHER_DARK.get(), new Item.Properties()));
     public static final RegistryObject<BlockItem> MICROWAVE_LIGHT = ITEMS.register("microwave_light",
             () -> new BlockItem(ModBlocks.MICROWAVE_LIGHT.get(), new Item.Properties()));
     public static final RegistryObject<BlockItem> MICROWAVE_DARK = ITEMS.register("microwave_dark",
