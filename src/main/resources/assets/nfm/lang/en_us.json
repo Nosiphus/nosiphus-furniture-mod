@@ -279,6 +279,7 @@
 	"block.nfm.toilet_light": "Toilet (Light)",
 	"block.nfm.toilet_dark": "Toilet (Dark)",
 
+	"container.nfm.bin": "Bin",
     "container.nfm.cabinet": "Cabinet",
     "container.nfm.bedside_cabinet": "Bedside Cabinet",
 	"container.nfm.microwave": "Microwave",

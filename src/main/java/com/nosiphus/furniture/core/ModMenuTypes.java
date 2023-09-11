@@ -13,6 +13,7 @@ public class ModMenuTypes {
 
     public static final DeferredRegister<MenuType<?>> MENU_TYPES = DeferredRegister.create(ForgeRegistries.MENU_TYPES, "nfm");
 
+    public static final RegistryObject<MenuType<BinMenu>> BIN_MENU = registerMenuType((ID, inventory, extraData) -> new BinMenu(ID, inventory, extraData), "bin_menu");
     public static final RegistryObject<MenuType<MicrowaveMenu>> MICROWAVE_MENU = registerMenuType((ID, inventory, extraData) -> new MicrowaveMenu(ID, inventory), "microwave_menu");
     public static final RegistryObject<MenuType<OvenMenu>> OVEN_MENU = registerMenuType((ID, inventory, extraData) -> new OvenMenu(ID, inventory), "oven_menu");
 

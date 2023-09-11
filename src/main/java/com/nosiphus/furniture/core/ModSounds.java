@@ -10,6 +10,8 @@ public class ModSounds {
 
     public static final DeferredRegister<SoundEvent> SOUNDS = DeferredRegister.create(ForgeRegistries.SOUND_EVENTS, "nfm");
 
+    public static final RegistryObject<SoundEvent> BLOCK_BIN_CLOSE = register("block.bin.close");
+    public static final RegistryObject<SoundEvent> BLOCK_BIN_OPEN = register("block.bin.open");
     public static final RegistryObject<SoundEvent> BLOCK_MICROWAVE_FINISH = register("block.microwave.finish");
     public static final RegistryObject<SoundEvent> BLOCK_MICROWAVE_RUNNING = register("block.microwave.running");
     public static final RegistryObject<SoundEvent> BLOCK_SHOWER_RUNNING = register("block.shower.running");
