@@ -25,6 +25,7 @@ public class BinMenu extends AbstractContainerMenu {
     }
 
     public BinMenu(int ID, Inventory inventory, BlockEntity blockEntity, ContainerData data) {
+
         super(ModMenuTypes.BIN_MENU.get(), ID);
         checkContainerSize(inventory, 12);
         binBlockEntity = (BinBlockEntity) blockEntity;
@@ -35,8 +36,18 @@ public class BinMenu extends AbstractContainerMenu {
         addPlayerHotbar(inventory);
 
         this.binBlockEntity.getCapability(ForgeCapabilities.ITEM_HANDLER).ifPresent(iItemHandler -> {
-            this.addSlot(new SlotItemHandler(iItemHandler,0, 12, 15));
-            this.addSlot(new SlotItemHandler(iItemHandler,1, 21, 24));
+            this.addSlot(new SlotItemHandler(iItemHandler,0, 62, 18));
+            this.addSlot(new SlotItemHandler(iItemHandler,1, 80, 18));
+            this.addSlot(new SlotItemHandler(iItemHandler, 2, 98, 18));
+            this.addSlot(new SlotItemHandler(iItemHandler,3, 62, 36));
+            this.addSlot(new SlotItemHandler(iItemHandler,4, 80, 36));
+            this.addSlot(new SlotItemHandler(iItemHandler, 5, 98, 36));
+            this.addSlot(new SlotItemHandler(iItemHandler,6, 62, 54));
+            this.addSlot(new SlotItemHandler(iItemHandler,7, 80, 54));
+            this.addSlot(new SlotItemHandler(iItemHandler, 8, 98, 54));
+            this.addSlot(new SlotItemHandler(iItemHandler,9, 62, 72));
+            this.addSlot(new SlotItemHandler(iItemHandler,10, 80, 72));
+            this.addSlot(new SlotItemHandler(iItemHandler, 11, 98, 72));
         });
 
         addDataSlots(data);
@@ -96,7 +107,7 @@ public class BinMenu extends AbstractContainerMenu {
 
     @Override
     public boolean stillValid(Player player) {
-        return stillValid(ContainerLevelAccess.create(level, binBlockEntity.getBlockPos()), player, ModBlocks.BIN_LIGHT.get());
+        return this.binBlockEntity.stillValid(player);
     }
 
     private void addPlayerInventory(Inventory inventory) {

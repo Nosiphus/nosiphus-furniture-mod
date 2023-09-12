@@ -1,20 +1,24 @@
 package com.nosiphus.furniture.blockentity;
 
+import com.mrcrayfish.furniture.tileentity.BasicLootBlockEntity;
+import com.nosiphus.furniture.block.BinBlock;
 import com.nosiphus.furniture.client.menu.BinMenu;
 import com.nosiphus.furniture.core.ModBlockEntities;
+import com.nosiphus.furniture.core.ModSounds;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.core.Vec3i;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
+import net.minecraft.sounds.SoundEvent;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.Containers;
 import net.minecraft.world.MenuProvider;
 import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.entity.player.Inventory;
-import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.ContainerData;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.capabilities.ForgeCapabilities;
@@ -24,7 +28,7 @@ import net.minecraftforge.items.ItemStackHandler;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-public class BinBlockEntity extends BlockEntity implements MenuProvider {
+public class BinBlockEntity extends BasicLootBlockEntity implements MenuProvider {
 
     private final ItemStackHandler itemStackHandler = new ItemStackHandler(12) {
         @Override
@@ -58,14 +62,18 @@ public class BinBlockEntity extends BlockEntity implements MenuProvider {
     }
 
     @Override
-    public Component getDisplayName()
+    public int getContainerSize() {
+        return 0;
+    }
+
+    @Override
+    public Component getDefaultName()
     {
         return Component.translatable("container.nfm.bin");
     }
 
-    @Nullable
     @Override
-    public AbstractContainerMenu createMenu(int ID, Inventory inventory, Player player) {
+    protected AbstractContainerMenu createMenu(int ID, Inventory inventory) {
         return new BinMenu(ID, inventory, this, this.data);
     }
 
@@ -115,4 +123,41 @@ public class BinBlockEntity extends BlockEntity implements MenuProvider {
             return;
         }
     }
+
+    @Override
+    public void onOpen(Level level, BlockPos pos, BlockState state)
+    {
+        this.playBinSound(state, ModSounds.BLOCK_BIN_OPEN.get());
+        this.setBinState(state, true);
+    }
+
+    @Override
+    public void onClose(Level level, BlockPos pos, BlockState state)
+    {
+        this.playBinSound(state, ModSounds.BLOCK_BIN_CLOSE.get());
+        this.setBinState(state, false);
+    }
+
+    private void playBinSound(BlockState state, SoundEvent event)
+    {
+        Vec3i directionVec = state.getValue(BinBlock.DIRECTION).getOpposite().getNormal();
+        double x = this.worldPosition.getX() + 0.5D + directionVec.getX() / 2.0D;
+        double y = this.worldPosition.getY() + 0.5D + directionVec.getY() / 2.0D;
+        double z = this.worldPosition.getZ() + 0.5D + directionVec.getZ() / 2.0D;
+        Level level = this.getLevel();
+        if(level != null)
+        {
+            level.playSound(null, x, y, z, event, SoundSource.BLOCKS, 1.0F, 1.0F);
+        }
+    }
+
+    private void setBinState(BlockState state, boolean open)
+    {
+        Level level = this.getLevel();
+        if(level != null)
+        {
+            level.setBlock(this.getBlockPos(), state.setValue(BinBlock.OPEN, open), 3);
+        }
+    }
+
 }

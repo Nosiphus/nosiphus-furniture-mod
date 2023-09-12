@@ -35,7 +35,7 @@ public class ShowerHeadBlock extends FurnitureHorizontalBlock
     public ShowerHeadBlock(Properties properties)
     {
         super(properties);
-        this.registerDefaultState(this.getStateDefinition().any().setValue(DIRECTION, Direction.NORTH));
+        this.registerDefaultState(this.getStateDefinition().any().setValue(DIRECTION, Direction.NORTH).setValue(ACTIVATED, false));
         SHAPES = this.generateShapes(this.getStateDefinition().getPossibleStates());
     }
 

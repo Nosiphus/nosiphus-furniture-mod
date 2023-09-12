@@ -28,11 +28,16 @@ public class BinMenuScreen extends AbstractContainerScreen<BinMenu> {
         RenderSystem.setShader(GameRenderer::getPositionTexShader);
         RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, 1.0F);
         RenderSystem.setShaderTexture(0, TEXTURE);
-        int x = (width - imageWidth) / 2;
-        int y = (height - imageHeight) / 2;
+        this.imageWidth = 176;
+        this.imageHeight = 197;
+        this.blit(poseStack, this.leftPos, this.topPos, 0, 0, this.imageWidth, this.imageHeight);
+    }
 
-        this.blit(poseStack, x, y, 0, 0, imageWidth, imageHeight);
-
+    @Override
+    protected void renderLabels(PoseStack poseStack, int mouseX, int mouseY) {
+        Component title = this.title;
+        this.font.draw(poseStack, title.getString(), (float) (this.imageWidth / 2 - this.font.width(title.getString()) / 2), 6.0F, 4210752);
+        this.font.draw(poseStack, this.playerInventoryTitle, 8.0F, (float) (this.imageHeight - 96 + 2), 4210752);
     }
 
     @Override
