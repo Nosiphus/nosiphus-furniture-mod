@@ -2,6 +2,8 @@ package com.nosiphus.furniture.client.menu.screen;
 
 import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.PoseStack;
+import com.mrcrayfish.furniture.client.gui.widget.button.IconButton;
+import com.mrcrayfish.furniture.network.PacketHandler;
 import com.nosiphus.furniture.NosiphusFurnitureMod;
 import com.nosiphus.furniture.client.menu.BinMenu;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
@@ -13,6 +15,8 @@ import net.minecraft.world.entity.player.Inventory;
 public class BinMenuScreen extends AbstractContainerScreen<BinMenu> {
 
     private static final ResourceLocation TEXTURE = new ResourceLocation(NosiphusFurnitureMod.MOD_ID, "textures/gui/bin.png");
+
+    // private IconButton button;
 
     public BinMenuScreen(BinMenu menu, Inventory inventory, Component component) {
         super(menu, inventory, component);

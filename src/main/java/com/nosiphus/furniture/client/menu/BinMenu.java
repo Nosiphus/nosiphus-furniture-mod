@@ -32,6 +32,8 @@ public class BinMenu extends AbstractContainerMenu {
         this.level = inventory.player.level;
         this.data = data;
 
+        binBlockEntity.startOpen(inventory.player);
+
         addPlayerInventory(inventory);
         addPlayerHotbar(inventory);
 
@@ -122,6 +124,13 @@ public class BinMenu extends AbstractContainerMenu {
         for (int i = 0; i < 9; ++i) {
             this.addSlot(new Slot(inventory, i, 8 + i * 18, 173));
         }
+    }
+
+    @Override
+    public void removed(Player player)
+    {
+        super.removed(player);
+        this.binBlockEntity.stopOpen(player);
     }
 
 }
