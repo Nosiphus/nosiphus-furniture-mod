@@ -1,11 +1,11 @@
 {
 	"block.bin.open": {
         "subtitle": "subtitle.nfm.open_bin",
-        "sounds": [ "nfm:block/bin/open" ]
+        "sounds": [ "nfm:block/bins/open" ]
     },
     "block.bin.close": {
         "subtitle": "subtitle.nfm.close_bin",
-        "sounds": [ "nfm:block/bin/close" ]
+        "sounds": [ "nfm:block/bins/close" ]
     },
 	"block.microwave.finish": {
         "subtitle": "subtitle.nfm.finish_microwave",

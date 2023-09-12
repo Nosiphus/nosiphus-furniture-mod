@@ -304,6 +304,8 @@
     "gui.nfm.mail_box_settings": "Change Mail Box Name",
     "gui.nfm.door_mat_message": "Set Door Mat Message",
 
+	"subtitle.nfm.open_bin": "Open Bin",
+	"subtitle.nfm.close_bin": "Close Bin",
     "subtitle.nfm.open_cabinet": "Open Cabinet",
     "subtitle.nfm.close_cabinet": "Close Cabinet",
 	"subtitle.nfm.fart": "Fart",
