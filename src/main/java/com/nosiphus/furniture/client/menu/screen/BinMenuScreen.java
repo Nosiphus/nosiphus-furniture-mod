@@ -10,7 +10,7 @@ import net.minecraft.client.renderer.GameRenderer;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
-import net.minecraft.world.inventory.Slot;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 
 public class BinMenuScreen extends AbstractContainerScreen<BinMenu> {
@@ -25,7 +25,7 @@ public class BinMenuScreen extends AbstractContainerScreen<BinMenu> {
     protected void init() {
         super.init();
         addRenderableWidget(new Button(this.getGuiLeft() + 128, this.getGuiTop() + 48, 40, 20, Component.translatable("gui.button.nfm.bin.empty"), button -> {
-            
+            menu.getSlot(36).set(ItemStack.EMPTY);
         }));
     }
 
@@ -51,5 +51,7 @@ public class BinMenuScreen extends AbstractContainerScreen<BinMenu> {
         super.render(poseStack, mouseX, mouseY, delta);
         this.renderTooltip(poseStack, mouseX, mouseY);
     }
+
+
 
 }
