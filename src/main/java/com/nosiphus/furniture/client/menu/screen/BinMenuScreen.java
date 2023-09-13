@@ -2,21 +2,20 @@ package com.nosiphus.furniture.client.menu.screen;
 
 import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.PoseStack;
-import com.mrcrayfish.furniture.client.gui.widget.button.IconButton;
-import com.mrcrayfish.furniture.network.PacketHandler;
 import com.nosiphus.furniture.NosiphusFurnitureMod;
 import com.nosiphus.furniture.client.menu.BinMenu;
+import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.client.renderer.GameRenderer;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
+import net.minecraft.world.inventory.Slot;
+import net.minecraft.world.item.ItemStack;
 
 public class BinMenuScreen extends AbstractContainerScreen<BinMenu> {
 
     private static final ResourceLocation TEXTURE = new ResourceLocation(NosiphusFurnitureMod.MOD_ID, "textures/gui/bin.png");
-
-    // private IconButton button;
 
     public BinMenuScreen(BinMenu menu, Inventory inventory, Component component) {
         super(menu, inventory, component);
@@ -25,6 +24,9 @@ public class BinMenuScreen extends AbstractContainerScreen<BinMenu> {
     @Override
     protected void init() {
         super.init();
+        addRenderableWidget(new Button(this.getGuiLeft() + 128, this.getGuiTop() + 48, 40, 20, Component.translatable("gui.button.nfm.bin.empty"), button -> {
+            
+        }));
     }
 
     @Override
@@ -45,8 +47,9 @@ public class BinMenuScreen extends AbstractContainerScreen<BinMenu> {
 
     @Override
     public void render(PoseStack poseStack, int mouseX, int mouseY, float delta) {
-        renderBackground(poseStack);
+        this.renderBackground(poseStack);
         super.render(poseStack, mouseX, mouseY, delta);
-        renderTooltip(poseStack, mouseX, mouseY);
+        this.renderTooltip(poseStack, mouseX, mouseY);
     }
+
 }

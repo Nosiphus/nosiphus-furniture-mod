@@ -1,8 +1,6 @@
 package com.nosiphus.furniture.client.menu;
 
-import com.nosiphus.furniture.block.BinBlock;
 import com.nosiphus.furniture.blockentity.BinBlockEntity;
-import com.nosiphus.furniture.core.ModBlocks;
 import com.nosiphus.furniture.core.ModMenuTypes;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.world.entity.player.Inventory;

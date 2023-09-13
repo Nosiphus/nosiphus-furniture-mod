@@ -9,7 +9,11 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.Vec3i;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.network.Connection;
 import net.minecraft.network.chat.Component;
+import net.minecraft.network.protocol.Packet;
+import net.minecraft.network.protocol.game.ClientGamePacketListener;
+import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.Containers;
@@ -100,7 +104,6 @@ public class BinBlockEntity extends BasicLootBlockEntity implements MenuProvider
     @Override
     protected void saveAdditional(CompoundTag compoundTag) {
         compoundTag.put("inventory", itemStackHandler.serializeNBT());
-
         super.saveAdditional(compoundTag);
     }
 
@@ -160,4 +163,16 @@ public class BinBlockEntity extends BasicLootBlockEntity implements MenuProvider
         }
     }
 
+    @Nullable
+    @Override
+    public Packet<ClientGamePacketListener> getUpdatePacket() {
+        CompoundTag compoundTag = new CompoundTag();
+        return super.getUpdatePacket();
+    }
+
+
+    @Override
+    public void onDataPacket(Connection net, ClientboundBlockEntityDataPacket packet) {
+        CompoundTag compoundTag = packet.getTag();
+    }
 }
