@@ -2,7 +2,6 @@ package com.nosiphus.furniture.client.menu;
 
 import com.nosiphus.furniture.blockentity.BinBlockEntity;
 import com.nosiphus.furniture.core.ModMenuTypes;
-import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
@@ -123,21 +122,6 @@ public class BinMenu extends AbstractContainerMenu {
         for (int i = 0; i < 9; ++i) {
             this.addSlot(new Slot(inventory, i, 8 + i * 18, 173));
         }
-    }
-
-    public void emptyBin() {
-        this.getSlot(36).set(ItemStack.EMPTY);
-        this.getSlot(37).set(ItemStack.EMPTY);
-        this.getSlot(38).set(ItemStack.EMPTY);
-        this.getSlot(39).set(ItemStack.EMPTY);
-        this.getSlot(40).set(ItemStack.EMPTY);
-        this.getSlot(41).set(ItemStack.EMPTY);
-        this.getSlot(42).set(ItemStack.EMPTY);
-        this.getSlot(43).set(ItemStack.EMPTY);
-        this.getSlot(44).set(ItemStack.EMPTY);
-        this.getSlot(45).set(ItemStack.EMPTY);
-        this.getSlot(46).set(ItemStack.EMPTY);
-        this.getSlot(47).set(ItemStack.EMPTY);
     }
 
     @Override

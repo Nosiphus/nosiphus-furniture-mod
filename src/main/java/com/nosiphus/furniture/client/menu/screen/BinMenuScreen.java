@@ -4,13 +4,14 @@ import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.nosiphus.furniture.NosiphusFurnitureMod;
 import com.nosiphus.furniture.client.menu.BinMenu;
+import com.nosiphus.furniture.network.PacketHandler;
+import com.nosiphus.furniture.network.message.C2SMessageEmptyBin;
 import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.client.renderer.GameRenderer;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
-import net.minecraft.world.item.ItemStack;
 
 public class BinMenuScreen extends AbstractContainerScreen<BinMenu> {
 
@@ -23,9 +24,8 @@ public class BinMenuScreen extends AbstractContainerScreen<BinMenu> {
     @Override
     protected void init() {
         super.init();
-        addRenderableWidget(new Button(this.getGuiLeft() + 128, this.getGuiTop() + 48, 40, 20, Component.translatable("gui.button.nfm.bin.empty"), button -> {
-            menu.emptyBin();
-        }));
+        addRenderableWidget(new Button(this.getGuiLeft() + 128, this.getGuiTop() + 48, 40, 20, Component.translatable("gui.button.nfm.bin.empty"), button -> PacketHandler.getPlayChannel()
+                .sendToServer(new C2SMessageEmptyBin())));
     }
 
     @Override
