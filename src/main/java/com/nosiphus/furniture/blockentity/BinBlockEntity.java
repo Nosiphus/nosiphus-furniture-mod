@@ -162,4 +162,19 @@ public class BinBlockEntity extends BasicLootBlockEntity implements MenuProvider
         }
     }
 
+    public static void emptyBin(BinMenu binMenu) {
+        binMenu.getSlot(36).set(ItemStack.EMPTY);
+        binMenu.getSlot(37).set(ItemStack.EMPTY);
+        binMenu.getSlot(38).set(ItemStack.EMPTY);
+        binMenu.getSlot(39).set(ItemStack.EMPTY);
+        binMenu.getSlot(40).set(ItemStack.EMPTY);
+        binMenu.getSlot(41).set(ItemStack.EMPTY);
+        binMenu.getSlot(42).set(ItemStack.EMPTY);
+        binMenu.getSlot(43).set(ItemStack.EMPTY);
+        binMenu.getSlot(44).set(ItemStack.EMPTY);
+        binMenu.getSlot(45).set(ItemStack.EMPTY);
+        binMenu.getSlot(46).set(ItemStack.EMPTY);
+        binMenu.getSlot(47).set(ItemStack.EMPTY);
+    }
+
 }

@@ -31,6 +31,7 @@ public class NosiphusFurnitureMod {
         ModMenuTypes.MENU_TYPES.register(eventBus);
         ModSounds.SOUNDS.register(eventBus);
         eventBus.addListener(this::onClientSetup);
+        eventBus.addListener(this::onCommonSetup);
         eventBus.addListener(this::onDataSetup);
 
         MinecraftForge.EVENT_BUS.register(this);
