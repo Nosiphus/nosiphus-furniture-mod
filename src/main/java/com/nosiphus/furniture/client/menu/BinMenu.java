@@ -87,4 +87,19 @@ public class BinMenu extends AbstractContainerMenu {
         return blockEntity;
     }
 
+    public static void emptyBin(BinMenu binMenu) {
+        binMenu.getSlot(0).set(ItemStack.EMPTY);
+        binMenu.getSlot(1).set(ItemStack.EMPTY);
+        binMenu.getSlot(2).set(ItemStack.EMPTY);
+        binMenu.getSlot(3).set(ItemStack.EMPTY);
+        binMenu.getSlot(4).set(ItemStack.EMPTY);
+        binMenu.getSlot(5).set(ItemStack.EMPTY);
+        binMenu.getSlot(6).set(ItemStack.EMPTY);
+        binMenu.getSlot(7).set(ItemStack.EMPTY);
+        binMenu.getSlot(8).set(ItemStack.EMPTY);
+        binMenu.getSlot(9).set(ItemStack.EMPTY);
+        binMenu.getSlot(10).set(ItemStack.EMPTY);
+        binMenu.getSlot(11).set(ItemStack.EMPTY);
+    }
+
 }

@@ -96,6 +96,8 @@ dependencies {
     minecraft 'net.minecraftforge:forge:1.19.2-43.2.10'
 	annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
     implementation fg.deobf('curse.maven:cfm-55438:3907425')
+    implementation fg.deobf("curse.maven:cupboard-326652:4750358")
+    implementation fg.deobf("curse.maven:connectivity-470193:4689491")
 }
 
 processResources {

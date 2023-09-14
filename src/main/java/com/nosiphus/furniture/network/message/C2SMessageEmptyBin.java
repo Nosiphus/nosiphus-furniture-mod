@@ -1,14 +1,12 @@
 package com.nosiphus.furniture.network.message;
 
 import com.mrcrayfish.furniture.network.message.IMessage;
-import com.mrcrayfish.furniture.util.BlockEntityUtil;
-import com.nosiphus.furniture.blockentity.BinBlockEntity;
 import com.nosiphus.furniture.client.menu.BinMenu;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraftforge.network.NetworkEvent;
 
 import java.util.function.Supplier;
@@ -44,13 +42,9 @@ public class C2SMessageEmptyBin implements IMessage<C2SMessageEmptyBin> {
                 return;
             }
 
-            BlockEntity blockEntity = level.getBlockEntity(pos);
-            if (blockEntity instanceof BinBlockEntity) {
-                BinBlockEntity binBlockEntity = (BinBlockEntity) blockEntity;
-                binBlockEntity.clearContent();
-                BlockEntityUtil.sendUpdatePacket(binBlockEntity);
+            if (player.containerMenu instanceof BinMenu) {
+                binMenu.emptyBin(binMenu);
             }
-            return;
 
         });
         supplier.get().setPacketHandled(true);
