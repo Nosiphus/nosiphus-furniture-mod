@@ -55,9 +55,7 @@ public class BinBlockEntity extends BasicLootBlockEntity implements MenuProvider
             }
 
             @Override
-            public void set(int index, int value) {
-
-            }
+            public void set(int index, int value) {  }
 
             @Override
             public int getCount() {
@@ -164,16 +162,4 @@ public class BinBlockEntity extends BasicLootBlockEntity implements MenuProvider
         }
     }
 
-    @Nullable
-    @Override
-    public Packet<ClientGamePacketListener> getUpdatePacket() {
-        CompoundTag compoundTag = new CompoundTag();
-        return super.getUpdatePacket();
-    }
-
-
-    @Override
-    public void onDataPacket(Connection net, ClientboundBlockEntityDataPacket packet) {
-        CompoundTag compoundTag = packet.getTag();
-    }
 }
