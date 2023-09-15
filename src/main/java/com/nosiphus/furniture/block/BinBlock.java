@@ -3,6 +3,7 @@ package com.nosiphus.furniture.block;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
 import com.mrcrayfish.furniture.block.FurnitureHorizontalBlock;
+import com.mrcrayfish.furniture.tileentity.DeskCabinetBlockEntity;
 import com.mrcrayfish.furniture.util.VoxelShapeHelper;
 import com.nosiphus.furniture.blockentity.BinBlockEntity;
 import net.minecraft.core.BlockPos;
@@ -90,16 +91,15 @@ public class BinBlock extends FurnitureHorizontalBlock implements EntityBlock
     }
 
     @Override
-    public InteractionResult use(BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult blockHitResult) {
-        if(!level.isClientSide()) {
-            BlockEntity blockEntity = level.getBlockEntity(pos);
-            if (blockEntity instanceof BinBlockEntity) {
-                NetworkHooks.openScreen(((ServerPlayer) player), (BinBlockEntity) blockEntity, pos);
+    public InteractionResult use(BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult result) {
+        if (!level.isClientSide()) {
+            if(level.getBlockEntity(pos) instanceof BinBlockEntity blockEntity) {
+                NetworkHooks.openScreen(((ServerPlayer) player), blockEntity, pos);
             } else {
                 throw new IllegalStateException("Bin container provider is absent.");
             }
         }
-        return super.use(state, level, pos, player, hand, blockHitResult);
+        return InteractionResult.SUCCESS;
     }
 
     @Nullable
