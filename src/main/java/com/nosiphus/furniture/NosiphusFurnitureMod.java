@@ -1,6 +1,7 @@
 package com.nosiphus.furniture;
 
 import com.nosiphus.furniture.client.ClientHandler;
+import com.nosiphus.furniture.common.CommonHandler;
 import com.nosiphus.furniture.core.*;
 import net.minecraft.data.DataGenerator;
 import net.minecraftforge.common.MinecraftForge;
@@ -8,6 +9,7 @@ import net.minecraftforge.data.event.GatherDataEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
+import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -28,6 +30,7 @@ public class NosiphusFurnitureMod {
         ModItems.ITEMS.register(eventBus);
         ModSounds.SOUNDS.register(eventBus);
         eventBus.addListener(this::onClientSetup);
+        eventBus.addListener(this::onCommonSetup);
         eventBus.addListener(this::onDataSetup);
 
         MinecraftForge.EVENT_BUS.register(this);
@@ -37,6 +40,12 @@ public class NosiphusFurnitureMod {
     private void onClientSetup(FMLClientSetupEvent event) {
 
         event.enqueueWork(ClientHandler::setup);
+
+    }
+
+    private void onCommonSetup(FMLCommonSetupEvent event) {
+
+        event.enqueueWork(CommonHandler::setup);
 
     }
 

@@ -22,6 +22,7 @@ public class ClientHandler {
         registerBlockEntityRenderers();
         registerLayers();
 
+        MenuScreens.register(ModMenuTypes.BIN_MENU.get(), BinMenuScreen::new);
         MenuScreens.register(ModMenuTypes.MICROWAVE_MENU.get(), MicrowaveMenuScreen::new);
         MenuScreens.register(ModMenuTypes.OVEN_MENU.get(), OvenMenuScreen::new);
 
