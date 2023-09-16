@@ -499,6 +499,72 @@ public class ModBlocks {
     public static final RegistryObject<Block> BAR_STOOL_BLACK = BLOCKS.register("black_bar_stool",
             () -> new BarStoolBlock(BlockBehaviour.Properties.copy(Blocks.BLACK_CONCRETE)));
 
+    //Beds
+    public static final RegistryObject<Block> MODERN_BED_LIGHT_WHITE = BLOCKS.register("white_modern_bed_light",
+            () -> new ModernBedBlock(BlockBehaviour.Properties.copy(Blocks.WHITE_CONCRETE)));
+    public static final RegistryObject<Block> MODERN_BED_LIGHT_ORANGE = BLOCKS.register("orange_modern_bed_light",
+            () -> new ModernBedBlock(BlockBehaviour.Properties.copy(Blocks.ORANGE_CONCRETE)));
+    public static final RegistryObject<Block> MODERN_BED_LIGHT_MAGENTA = BLOCKS.register("magenta_modern_bed_light",
+            () -> new ModernBedBlock(BlockBehaviour.Properties.copy(Blocks.MAGENTA_CONCRETE)));
+    public static final RegistryObject<Block> MODERN_BED_LIGHT_LIGHT_BLUE = BLOCKS.register("light_blue_modern_bed_light",
+            () -> new ModernBedBlock(BlockBehaviour.Properties.copy(Blocks.LIGHT_BLUE_CONCRETE)));
+    public static final RegistryObject<Block> MODERN_BED_LIGHT_YELLOW = BLOCKS.register("yellow_modern_bed_light",
+            () -> new ModernBedBlock(BlockBehaviour.Properties.copy(Blocks.YELLOW_CONCRETE)));
+    public static final RegistryObject<Block> MODERN_BED_LIGHT_LIME = BLOCKS.register("lime_modern_bed_light",
+            () -> new ModernBedBlock(BlockBehaviour.Properties.copy(Blocks.LIME_CONCRETE)));
+    public static final RegistryObject<Block> MODERN_BED_LIGHT_PINK = BLOCKS.register("pink_modern_bed_light",
+            () -> new ModernBedBlock(BlockBehaviour.Properties.copy(Blocks.PINK_CONCRETE)));
+    public static final RegistryObject<Block> MODERN_BED_LIGHT_GRAY = BLOCKS.register("gray_modern_bed_light",
+            () -> new ModernBedBlock(BlockBehaviour.Properties.copy(Blocks.GRAY_CONCRETE)));
+    public static final RegistryObject<Block> MODERN_BED_LIGHT_LIGHT_GRAY = BLOCKS.register("light_gray_modern_bed_light",
+            () -> new ModernBedBlock(BlockBehaviour.Properties.copy(Blocks.LIGHT_GRAY_CONCRETE)));
+    public static final RegistryObject<Block> MODERN_BED_LIGHT_CYAN = BLOCKS.register("cyan_modern_bed_light",
+            () -> new ModernBedBlock(BlockBehaviour.Properties.copy(Blocks.CYAN_CONCRETE)));
+    public static final RegistryObject<Block> MODERN_BED_LIGHT_PURPLE = BLOCKS.register("purple_modern_bed_light",
+            () -> new ModernBedBlock(BlockBehaviour.Properties.copy(Blocks.PURPLE_CONCRETE)));
+    public static final RegistryObject<Block> MODERN_BED_LIGHT_BLUE = BLOCKS.register("blue_modern_bed_light",
+            () -> new ModernBedBlock(BlockBehaviour.Properties.copy(Blocks.BLUE_CONCRETE)));
+    public static final RegistryObject<Block> MODERN_BED_LIGHT_BROWN = BLOCKS.register("brown_modern_bed_light",
+            () -> new ModernBedBlock(BlockBehaviour.Properties.copy(Blocks.BROWN_CONCRETE)));
+    public static final RegistryObject<Block> MODERN_BED_LIGHT_GREEN = BLOCKS.register("green_modern_bed_light",
+            () -> new ModernBedBlock(BlockBehaviour.Properties.copy(Blocks.GREEN_CONCRETE)));
+    public static final RegistryObject<Block> MODERN_BED_LIGHT_RED = BLOCKS.register("red_modern_bed_light",
+            () -> new ModernBedBlock(BlockBehaviour.Properties.copy(Blocks.RED_CONCRETE)));
+    public static final RegistryObject<Block> MODERN_BED_LIGHT_BLACK = BLOCKS.register("black_modern_bed_light",
+            () -> new ModernBedBlock(BlockBehaviour.Properties.copy(Blocks.BLACK_CONCRETE)));
+    public static final RegistryObject<Block> MODERN_BED_DARK_WHITE = BLOCKS.register("white_modern_bed_dark",
+            () -> new ModernBedBlock(BlockBehaviour.Properties.copy(Blocks.WHITE_CONCRETE)));
+    public static final RegistryObject<Block> MODERN_BED_DARK_ORANGE = BLOCKS.register("orange_modern_bed_dark",
+            () -> new ModernBedBlock(BlockBehaviour.Properties.copy(Blocks.ORANGE_CONCRETE)));
+    public static final RegistryObject<Block> MODERN_BED_DARK_MAGENTA = BLOCKS.register("magenta_modern_bed_dark",
+            () -> new ModernBedBlock(BlockBehaviour.Properties.copy(Blocks.MAGENTA_CONCRETE)));
+    public static final RegistryObject<Block> MODERN_BED_DARK_LIGHT_BLUE = BLOCKS.register("light_blue_modern_bed_dark",
+            () -> new ModernBedBlock(BlockBehaviour.Properties.copy(Blocks.LIGHT_BLUE_CONCRETE)));
+    public static final RegistryObject<Block> MODERN_BED_DARK_YELLOW = BLOCKS.register("yellow_modern_bed_dark",
+            () -> new ModernBedBlock(BlockBehaviour.Properties.copy(Blocks.YELLOW_CONCRETE)));
+    public static final RegistryObject<Block> MODERN_BED_DARK_LIME = BLOCKS.register("lime_modern_bed_dark",
+            () -> new ModernBedBlock(BlockBehaviour.Properties.copy(Blocks.LIME_CONCRETE)));
+    public static final RegistryObject<Block> MODERN_BED_DARK_PINK = BLOCKS.register("pink_modern_bed_dark",
+            () -> new ModernBedBlock(BlockBehaviour.Properties.copy(Blocks.PINK_CONCRETE)));
+    public static final RegistryObject<Block> MODERN_BED_DARK_GRAY = BLOCKS.register("gray_modern_bed_dark",
+            () -> new ModernBedBlock(BlockBehaviour.Properties.copy(Blocks.GRAY_CONCRETE)));
+    public static final RegistryObject<Block> MODERN_BED_DARK_LIGHT_GRAY = BLOCKS.register("light_gray_modern_bed_dark",
+            () -> new ModernBedBlock(BlockBehaviour.Properties.copy(Blocks.LIGHT_GRAY_CONCRETE)));
+    public static final RegistryObject<Block> MODERN_BED_DARK_CYAN = BLOCKS.register("cyan_modern_bed_dark",
+            () -> new ModernBedBlock(BlockBehaviour.Properties.copy(Blocks.CYAN_CONCRETE)));
+    public static final RegistryObject<Block> MODERN_BED_DARK_PURPLE = BLOCKS.register("purple_modern_bed_dark",
+            () -> new ModernBedBlock(BlockBehaviour.Properties.copy(Blocks.PURPLE_CONCRETE)));
+    public static final RegistryObject<Block> MODERN_BED_DARK_BLUE = BLOCKS.register("blue_modern_bed_dark",
+            () -> new ModernBedBlock(BlockBehaviour.Properties.copy(Blocks.BLUE_CONCRETE)));
+    public static final RegistryObject<Block> MODERN_BED_DARK_BROWN = BLOCKS.register("brown_modern_bed_dark",
+            () -> new ModernBedBlock(BlockBehaviour.Properties.copy(Blocks.BROWN_CONCRETE)));
+    public static final RegistryObject<Block> MODERN_BED_DARK_GREEN = BLOCKS.register("green_modern_bed_dark",
+            () -> new ModernBedBlock(BlockBehaviour.Properties.copy(Blocks.GREEN_CONCRETE)));
+    public static final RegistryObject<Block> MODERN_BED_DARK_RED = BLOCKS.register("red_modern_bed_dark",
+            () -> new ModernBedBlock(BlockBehaviour.Properties.copy(Blocks.RED_CONCRETE)));
+    public static final RegistryObject<Block> MODERN_BED_DARK_BLACK = BLOCKS.register("black_modern_bed_dark",
+            () -> new ModernBedBlock(BlockBehaviour.Properties.copy(Blocks.BLACK_CONCRETE)));
+
     //Electronics
     public static final RegistryObject<Block> LAPTOP_WHITE = BLOCKS.register("white_laptop",
             () -> new PlaceholderBlock(BlockBehaviour.Properties.copy(Blocks.WHITE_CONCRETE)));

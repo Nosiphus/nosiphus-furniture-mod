@@ -1,0 +1,7 @@
+{
+    "parent": "nfm:block/modern_bed_middle",
+    "textures": {
+        "color": "minecraft:block/white_wool",
+		"frame": "minecraft:block/gray_concrete"
+    }
+}
