@@ -1,0 +1,17 @@
+{
+    "type": "minecraft:crafting_shapeless",
+    "ingredients": [
+        {
+            "item": "minecraft:cyan_wool",
+            "data": 4
+        },
+        {
+            "item": "minecraft:rabbit_foot"
+        }
+    ],
+	"result": {
+        "item": "nfm:cyan_inflatable_castle",
+        "data": 4,
+        "count": 16
+    }
+}

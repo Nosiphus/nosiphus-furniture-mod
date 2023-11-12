@@ -1,6 +1,5 @@
 package com.nosiphus.furniture.core;
 
-import com.nosiphus.furniture.NosiphusFurnitureMod;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraftforge.registries.DeferredRegister;
@@ -9,9 +8,21 @@ import net.minecraftforge.registries.RegistryObject;
 
 public class ModItems {
 
-    public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, NosiphusFurnitureMod.MOD_ID);
+    public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, "nfm");
 
     //Tables
+    public static final RegistryObject<BlockItem> TABLE_STONE = ITEMS.register("stone_table",
+            () -> new BlockItem(ModBlocks.TABLE_STONE.get(), new Item.Properties()));
+    public static final RegistryObject<BlockItem> TABLE_ANDESITE = ITEMS.register("andesite_table",
+            () -> new BlockItem(ModBlocks.TABLE_ANDESITE.get(), new Item.Properties()));
+    public static final RegistryObject<BlockItem> TABLE_DIORITE = ITEMS.register("diorite_table",
+            () -> new BlockItem(ModBlocks.TABLE_DIORITE.get(), new Item.Properties()));
+    public static final RegistryObject<BlockItem> TABLE_GRANITE = ITEMS.register("granite_table",
+            () -> new BlockItem(ModBlocks.TABLE_GRANITE.get(), new Item.Properties()));
+    public static final RegistryObject<BlockItem> TABLE_BLACKSTONE = ITEMS.register("blackstone_table",
+            () -> new BlockItem(ModBlocks.TABLE_BLACKSTONE.get(), new Item.Properties()));
+    public static final RegistryObject<BlockItem> TABLE_DEEPSLATE = ITEMS.register("deepslate_table",
+            () -> new BlockItem(ModBlocks.TABLE_DEEPSLATE.get(), new Item.Properties()));
     public static final RegistryObject<BlockItem> TABLE_WHITE_MODERN = ITEMS.register("white_modern_table",
             () -> new BlockItem(ModBlocks.TABLE_WHITE_MODERN.get(), new Item.Properties()));
     public static final RegistryObject<BlockItem> TABLE_ORANGE_MODERN = ITEMS.register("orange_modern_table",
@@ -46,6 +57,18 @@ public class ModItems {
             () -> new BlockItem(ModBlocks.TABLE_BLACK_MODERN.get(), new Item.Properties()));
 
     //Chairs
+    public static final RegistryObject<BlockItem> CHAIR_STONE = ITEMS.register("stone_chair",
+            () -> new BlockItem(ModBlocks.CHAIR_STONE.get(), new Item.Properties()));
+    public static final RegistryObject<BlockItem> CHAIR_ANDESITE = ITEMS.register("andesite_chair",
+            () -> new BlockItem(ModBlocks.CHAIR_ANDESITE.get(), new Item.Properties()));
+    public static final RegistryObject<BlockItem> CHAIR_DIORITE = ITEMS.register("diorite_chair",
+            () -> new BlockItem(ModBlocks.CHAIR_DIORITE.get(), new Item.Properties()));
+    public static final RegistryObject<BlockItem> CHAIR_GRANITE = ITEMS.register("granite_chair",
+            () -> new BlockItem(ModBlocks.CHAIR_GRANITE.get(), new Item.Properties()));
+    public static final RegistryObject<BlockItem> CHAIR_BLACKSTONE = ITEMS.register("blackstone_chair",
+            () -> new BlockItem(ModBlocks.CHAIR_BLACKSTONE.get(), new Item.Properties()));
+    public static final RegistryObject<BlockItem> CHAIR_DEEPSLATE = ITEMS.register("deepslate_chair",
+            () -> new BlockItem(ModBlocks.CHAIR_DEEPSLATE.get(), new Item.Properties()));
     public static final RegistryObject<BlockItem> CHAIR_WHITE_MODERN = ITEMS.register("white_modern_chair",
             () -> new BlockItem(ModBlocks.CHAIR_WHITE_MODERN.get(), new Item.Properties()));
     public static final RegistryObject<BlockItem> CHAIR_ORANGE_MODERN = ITEMS.register("orange_modern_chair",
@@ -114,6 +137,18 @@ public class ModItems {
             () -> new BlockItem(ModBlocks.CHAIR_BLACK_OFFICE.get(), new Item.Properties()));
 
     //Coffee Tables
+    public static final RegistryObject<BlockItem> COFFEE_TABLE_STONE = ITEMS.register("stone_coffee_table",
+            () -> new BlockItem(ModBlocks.COFFEE_TABLE_STONE.get(), new Item.Properties()));
+    public static final RegistryObject<BlockItem> COFFEE_TABLE_ANDESITE = ITEMS.register("andesite_coffee_table",
+            () -> new BlockItem(ModBlocks.COFFEE_TABLE_ANDESITE.get(), new Item.Properties()));
+    public static final RegistryObject<BlockItem> COFFEE_TABLE_DIORITE = ITEMS.register("diorite_coffee_table",
+            () -> new BlockItem(ModBlocks.COFFEE_TABLE_DIORITE.get(), new Item.Properties()));
+    public static final RegistryObject<BlockItem> COFFEE_TABLE_GRANITE = ITEMS.register("granite_coffee_table",
+            () -> new BlockItem(ModBlocks.COFFEE_TABLE_GRANITE.get(), new Item.Properties()));
+    public static final RegistryObject<BlockItem> COFFEE_TABLE_BLACKSTONE = ITEMS.register("blackstone_coffee_table",
+            () -> new BlockItem(ModBlocks.COFFEE_TABLE_BLACKSTONE.get(), new Item.Properties()));
+    public static final RegistryObject<BlockItem> COFFEE_TABLE_DEEPSLATE = ITEMS.register("deepslate_coffee_table",
+            () -> new BlockItem(ModBlocks.COFFEE_TABLE_DEEPSLATE.get(), new Item.Properties()));
     public static final RegistryObject<BlockItem> COFFEE_TABLE_WHITE_MODERN = ITEMS.register("white_modern_coffee_table",
             () -> new BlockItem(ModBlocks.COFFEE_TABLE_WHITE_MODERN.get(), new Item.Properties()));
     public static final RegistryObject<BlockItem> COFFEE_TABLE_ORANGE_MODERN = ITEMS.register("orange_modern_coffee_table",
@@ -148,6 +183,18 @@ public class ModItems {
             () -> new BlockItem(ModBlocks.COFFEE_TABLE_BLACK_MODERN.get(), new Item.Properties()));
 
     //Cabinets
+    public static final RegistryObject<BlockItem> CABINET_STONE = ITEMS.register("stone_cabinet",
+            () -> new BlockItem(ModBlocks.CABINET_STONE.get(), new Item.Properties()));
+    public static final RegistryObject<BlockItem> CABINET_ANDESITE = ITEMS.register("andesite_cabinet",
+            () -> new BlockItem(ModBlocks.CABINET_ANDESITE.get(), new Item.Properties()));
+    public static final RegistryObject<BlockItem> CABINET_DIORITE = ITEMS.register("diorite_cabinet",
+            () -> new BlockItem(ModBlocks.CABINET_DIORITE.get(), new Item.Properties()));
+    public static final RegistryObject<BlockItem> CABINET_GRANITE = ITEMS.register("granite_cabinet",
+            () -> new BlockItem(ModBlocks.CABINET_GRANITE.get(), new Item.Properties()));
+    public static final RegistryObject<BlockItem> CABINET_BLACKSTONE = ITEMS.register("blackstone_cabinet",
+            () -> new BlockItem(ModBlocks.CABINET_BLACKSTONE.get(), new Item.Properties()));
+    public static final RegistryObject<BlockItem> CABINET_DEEPSLATE = ITEMS.register("deepslate_cabinet",
+            () -> new BlockItem(ModBlocks.CABINET_DEEPSLATE.get(), new Item.Properties()));
     public static final RegistryObject<BlockItem> CABINET_WHITE_MODERN = ITEMS.register("white_modern_cabinet",
             () -> new BlockItem(ModBlocks.CABINET_WHITE_MODERN.get(), new Item.Properties()));
     public static final RegistryObject<BlockItem> CABINET_ORANGE_MODERN = ITEMS.register("orange_modern_cabinet",
@@ -182,6 +229,18 @@ public class ModItems {
             () -> new BlockItem(ModBlocks.CABINET_BLACK_MODERN.get(), new Item.Properties()));
 
     //Bedside Cabinets
+    public static final RegistryObject<BlockItem> BEDSIDE_CABINET_STONE = ITEMS.register("stone_bedside_cabinet",
+            () -> new BlockItem(ModBlocks.BEDSIDE_CABINET_STONE.get(), new Item.Properties()));
+    public static final RegistryObject<BlockItem> BEDSIDE_CABINET_ANDESITE = ITEMS.register("andesite_bedside_cabinet",
+            () -> new BlockItem(ModBlocks.BEDSIDE_CABINET_ANDESITE.get(), new Item.Properties()));
+    public static final RegistryObject<BlockItem> BEDSIDE_CABINET_DIORITE = ITEMS.register("diorite_bedside_cabinet",
+            () -> new BlockItem(ModBlocks.BEDSIDE_CABINET_DIORITE.get(), new Item.Properties()));
+    public static final RegistryObject<BlockItem> BEDSIDE_CABINET_GRANITE = ITEMS.register("granite_bedside_cabinet",
+            () -> new BlockItem(ModBlocks.BEDSIDE_CABINET_GRANITE.get(), new Item.Properties()));
+    public static final RegistryObject<BlockItem> BEDSIDE_CABINET_BLACKSTONE = ITEMS.register("blackstone_bedside_cabinet",
+            () -> new BlockItem(ModBlocks.BEDSIDE_CABINET_BLACKSTONE.get(), new Item.Properties()));
+    public static final RegistryObject<BlockItem> BEDSIDE_CABINET_DEEPSLATE = ITEMS.register("deepslate_bedside_cabinet",
+            () -> new BlockItem(ModBlocks.BEDSIDE_CABINET_DEEPSLATE.get(), new Item.Properties()));
     public static final RegistryObject<BlockItem> BEDSIDE_CABINET_WHITE_MODERN = ITEMS.register("white_modern_bedside_cabinet",
             () -> new BlockItem(ModBlocks.BEDSIDE_CABINET_WHITE_MODERN.get(), new Item.Properties()));
     public static final RegistryObject<BlockItem> BEDSIDE_CABINET_ORANGE_MODERN = ITEMS.register("orange_modern_bedside_cabinet",
@@ -216,6 +275,18 @@ public class ModItems {
             () -> new BlockItem(ModBlocks.BEDSIDE_CABINET_BLACK_MODERN.get(), new Item.Properties()));
 
     //Desk
+    public static final RegistryObject<BlockItem> DESK_STONE = ITEMS.register("stone_desk",
+            () -> new BlockItem(ModBlocks.DESK_STONE.get(), new Item.Properties()));
+    public static final RegistryObject<BlockItem> DESK_ANDESITE = ITEMS.register("andesite_desk",
+            () -> new BlockItem(ModBlocks.DESK_ANDESITE.get(), new Item.Properties()));
+    public static final RegistryObject<BlockItem> DESK_DIORITE = ITEMS.register("diorite_desk",
+            () -> new BlockItem(ModBlocks.DESK_DIORITE.get(), new Item.Properties()));
+    public static final RegistryObject<BlockItem> DESK_GRANITE = ITEMS.register("granite_desk",
+            () -> new BlockItem(ModBlocks.DESK_GRANITE.get(), new Item.Properties()));
+    public static final RegistryObject<BlockItem> DESK_BLACKSTONE = ITEMS.register("blackstone_desk",
+            () -> new BlockItem(ModBlocks.DESK_BLACKSTONE.get(), new Item.Properties()));
+    public static final RegistryObject<BlockItem> DESK_DEEPSLATE = ITEMS.register("deepslate_desk",
+            () -> new BlockItem(ModBlocks.DESK_DEEPSLATE.get(), new Item.Properties()));
     public static final RegistryObject<BlockItem> DESK_WHITE_MODERN = ITEMS.register("white_modern_desk",
             () -> new BlockItem(ModBlocks.DESK_WHITE_MODERN.get(), new Item.Properties()));
     public static final RegistryObject<BlockItem> DESK_ORANGE_MODERN = ITEMS.register("orange_modern_desk",
@@ -250,6 +321,18 @@ public class ModItems {
             () -> new BlockItem(ModBlocks.DESK_BLACK_MODERN.get(), new Item.Properties()));
 
     //Desk Cabinets
+    public static final RegistryObject<BlockItem> DESK_CABINET_STONE = ITEMS.register("stone_desk_cabinet",
+            () -> new BlockItem(ModBlocks.DESK_CABINET_STONE.get(), new Item.Properties()));
+    public static final RegistryObject<BlockItem> DESK_CABINET_ANDESITE = ITEMS.register("andesite_desk_cabinet",
+            () -> new BlockItem(ModBlocks.DESK_CABINET_ANDESITE.get(), new Item.Properties()));
+    public static final RegistryObject<BlockItem> DESK_CABINET_DIORITE = ITEMS.register("diorite_desk_cabinet",
+            () -> new BlockItem(ModBlocks.DESK_CABINET_DIORITE.get(), new Item.Properties()));
+    public static final RegistryObject<BlockItem> DESK_CABINET_GRANITE = ITEMS.register("granite_desk_cabinet",
+            () -> new BlockItem(ModBlocks.DESK_CABINET_GRANITE.get(), new Item.Properties()));
+    public static final RegistryObject<BlockItem> DESK_CABINET_BLACKSTONE = ITEMS.register("blackstone_desk_cabinet",
+            () -> new BlockItem(ModBlocks.DESK_CABINET_BLACKSTONE.get(), new Item.Properties()));
+    public static final RegistryObject<BlockItem> DESK_CABINET_DEEPSLATE = ITEMS.register("deepslate_desk_cabinet",
+            () -> new BlockItem(ModBlocks.DESK_CABINET_DEEPSLATE.get(), new Item.Properties()));
     public static final RegistryObject<BlockItem> DESK_CABINET_WHITE_MODERN = ITEMS.register("white_modern_desk_cabinet",
             () -> new BlockItem(ModBlocks.DESK_CABINET_WHITE_MODERN.get(), new Item.Properties()));
     public static final RegistryObject<BlockItem> DESK_CABINET_ORANGE_MODERN = ITEMS.register("orange_modern_desk_cabinet",
@@ -487,7 +570,7 @@ public class ModItems {
     public static final RegistryObject<BlockItem> BAR_STOOL_BLACK = ITEMS.register("black_bar_stool",
             () -> new BlockItem(ModBlocks.BAR_STOOL_BLACK.get(), new Item.Properties()));
 
-    //Laptops
+    //Electronics
     public static final RegistryObject<BlockItem> LAPTOP_WHITE = ITEMS.register("white_laptop",
             () -> new BlockItem(ModBlocks.LAPTOP_WHITE.get(), new Item.Properties()));
     public static final RegistryObject<BlockItem> LAPTOP_ORANGE = ITEMS.register("orange_laptop",
@@ -520,6 +603,42 @@ public class ModItems {
             () -> new BlockItem(ModBlocks.LAPTOP_RED.get(), new Item.Properties()));
     public static final RegistryObject<BlockItem> LAPTOP_BLACK = ITEMS.register("black_laptop",
             () -> new BlockItem(ModBlocks.LAPTOP_BLACK.get(), new Item.Properties()));
+
+    //Inflatable Castles
+    public static final RegistryObject<BlockItem> INFLATABLE_CASTLE_WHITE = ITEMS.register("white_inflatable_castle",
+            () -> new BlockItem(ModBlocks.INFLATABLE_CASTLE_WHITE.get(), new Item.Properties()));
+    public static final RegistryObject<BlockItem> INFLATABLE_CASTLE_ORANGE = ITEMS.register("orange_inflatable_castle",
+            () -> new BlockItem(ModBlocks.INFLATABLE_CASTLE_ORANGE.get(), new Item.Properties()));
+    public static final RegistryObject<BlockItem> INFLATABLE_CASTLE_MAGENTA = ITEMS.register("magenta_inflatable_castle",
+            () -> new BlockItem(ModBlocks.INFLATABLE_CASTLE_MAGENTA.get(), new Item.Properties()));
+    public static final RegistryObject<BlockItem> INFLATABLE_CASTLE_LIGHT_BLUE = ITEMS.register("light_blue_inflatable_castle",
+            () -> new BlockItem(ModBlocks.INFLATABLE_CASTLE_LIGHT_BLUE.get(), new Item.Properties()));
+    public static final RegistryObject<BlockItem> INFLATABLE_CASTLE_YELLOW = ITEMS.register("yellow_inflatable_castle",
+            () -> new BlockItem(ModBlocks.INFLATABLE_CASTLE_YELLOW.get(), new Item.Properties()));
+    public static final RegistryObject<BlockItem> INFLATABLE_CASTLE_LIME = ITEMS.register("lime_inflatable_castle",
+            () -> new BlockItem(ModBlocks.INFLATABLE_CASTLE_LIME.get(), new Item.Properties()));
+    public static final RegistryObject<BlockItem> INFLATABLE_CASTLE_PINK = ITEMS.register("pink_inflatable_castle",
+            () -> new BlockItem(ModBlocks.INFLATABLE_CASTLE_PINK.get(), new Item.Properties()));
+    public static final RegistryObject<BlockItem> INFLATABLE_CASTLE_GRAY = ITEMS.register("gray_inflatable_castle",
+            () -> new BlockItem(ModBlocks.INFLATABLE_CASTLE_GRAY.get(), new Item.Properties()));
+    public static final RegistryObject<BlockItem> INFLATABLE_CASTLE_LIGHT_GRAY = ITEMS.register("light_gray_inflatable_castle",
+            () -> new BlockItem(ModBlocks.INFLATABLE_CASTLE_LIGHT_GRAY.get(), new Item.Properties()));
+    public static final RegistryObject<BlockItem> INFLATABLE_CASTLE_CYAN = ITEMS.register("cyan_inflatable_castle",
+            () -> new BlockItem(ModBlocks.INFLATABLE_CASTLE_CYAN.get(), new Item.Properties()));
+    public static final RegistryObject<BlockItem> INFLATABLE_CASTLE_PURPLE = ITEMS.register("purple_inflatable_castle",
+            () -> new BlockItem(ModBlocks.INFLATABLE_CASTLE_PURPLE.get(), new Item.Properties()));
+    public static final RegistryObject<BlockItem> INFLATABLE_CASTLE_BLUE = ITEMS.register("blue_inflatable_castle",
+            () -> new BlockItem(ModBlocks.INFLATABLE_CASTLE_BLUE.get(), new Item.Properties()));
+    public static final RegistryObject<BlockItem> INFLATABLE_CASTLE_BROWN = ITEMS.register("brown_inflatable_castle",
+            () -> new BlockItem(ModBlocks.INFLATABLE_CASTLE_BROWN.get(), new Item.Properties()));
+    public static final RegistryObject<BlockItem> INFLATABLE_CASTLE_GREEN = ITEMS.register("green_inflatable_castle",
+            () -> new BlockItem(ModBlocks.INFLATABLE_CASTLE_GREEN.get(), new Item.Properties()));
+    public static final RegistryObject<BlockItem> INFLATABLE_CASTLE_RED = ITEMS.register("red_inflatable_castle",
+            () -> new BlockItem(ModBlocks.INFLATABLE_CASTLE_RED.get(), new Item.Properties()));
+    public static final RegistryObject<BlockItem> INFLATABLE_CASTLE_BLACK = ITEMS.register("black_inflatable_castle",
+            () -> new BlockItem(ModBlocks.INFLATABLE_CASTLE_BLACK.get(), new Item.Properties()));
+    public static final RegistryObject<BlockItem> CASTLE_NETTING = ITEMS.register("castle_netting",
+            () -> new BlockItem(ModBlocks.CASTLE_NETTING.get(), new Item.Properties()));
 
     //Appliances
     public static final RegistryObject<BlockItem> BIN_LIGHT = ITEMS.register("bin_light",

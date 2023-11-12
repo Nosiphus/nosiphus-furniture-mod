@@ -1,1 +1,34 @@
-{"block.bin.open":{"subtitle":"subtitle.nfm.open_bin","sounds":["nfm:block/bins/open"]},"block.bin.close":{"subtitle":"subtitle.nfm.close_bin","sounds":["nfm:block/bins/close"]},"block.microwave.finish":{"subtitle":"subtitle.nfm.finish_microwave","sounds":["nfm:block/microwave/finish"]},"block.microwave.running":{"subtitle":"subtitle.nfm.running_microwave","sounds":["nfm:block/microwave/running"]},"block.shower.running":{"subtitle":"subtitle.nfm.running_shower","sounds":["nfm:block/shower/running"]},"block.toilet.fart":{"subtitle":"subtitle.nfm.toilet_fart","sounds":["nfm:block/toilet/fart"]},"block.toilet.flush":{"subtitle":"subtitle.nfm.toilet_flush","sounds":["nfm:block/toilet/flush"]}}
+{
+	"block.bin.open": {
+        "subtitle": "subtitle.nfm.open_bin",
+        "sounds": [ "nfm:block/bins/open" ]
+    },
+    "block.bin.close": {
+        "subtitle": "subtitle.nfm.close_bin",
+        "sounds": [ "nfm:block/bins/close" ]
+    },
+    "block.inflatable_castle.bounce": {
+        "subtitle": "subtitle.nfm.bounce_inflatable_castle",
+        "sounds": [ "nfm:block/inflatable_castle/bounce" ]
+    },
+	"block.microwave.finish": {
+        "subtitle": "subtitle.nfm.finish_microwave",
+        "sounds": [ "nfm:block/microwave/finish" ]
+    },
+    "block.microwave.running": {
+        "subtitle": "subtitle.nfm.running_microwave",
+        "sounds": [ "nfm:block/microwave/running" ]
+    },
+    "block.shower.running": {
+        "subtitle": "subtitle.nfm.running_shower",
+        "sounds": [ "nfm:block/shower/running" ]
+    },
+	"block.toilet.fart": {
+        "subtitle": "subtitle.nfm.toilet_fart",
+        "sounds": [ "nfm:block/toilet/fart" ]
+    },
+	"block.toilet.flush": {
+        "subtitle": "subtitle.nfm.toilet_flush",
+        "sounds": [ "nfm:block/toilet/flush" ]
+    }
+}

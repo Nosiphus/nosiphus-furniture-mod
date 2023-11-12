@@ -5,6 +5,7 @@ import com.nosiphus.furniture.NosiphusFurnitureMod;
 import com.nosiphus.furniture.block.*;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.IronBarsBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
@@ -19,6 +20,18 @@ public class ModBlocks {
     public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, NosiphusFurnitureMod.MOD_ID);
 
     //Tables
+    public static final RegistryObject<Block> TABLE_STONE = BLOCKS.register("stone_table",
+            () -> new TableBlock(BlockBehaviour.Properties.copy(Blocks.STONE)));
+    public static final RegistryObject<Block> TABLE_ANDESITE = BLOCKS.register("andesite_table",
+            () -> new TableBlock(BlockBehaviour.Properties.copy(Blocks.ANDESITE)));
+    public static final RegistryObject<Block> TABLE_DIORITE = BLOCKS.register("diorite_table",
+            () -> new TableBlock(BlockBehaviour.Properties.copy(Blocks.DIORITE)));
+    public static final RegistryObject<Block> TABLE_GRANITE = BLOCKS.register("granite_table",
+            () -> new TableBlock(BlockBehaviour.Properties.copy(Blocks.GRANITE)));
+    public static final RegistryObject<Block> TABLE_BLACKSTONE = BLOCKS.register("blackstone_table",
+            () -> new TableBlock(BlockBehaviour.Properties.copy(Blocks.BLACKSTONE)));
+    public static final RegistryObject<Block> TABLE_DEEPSLATE = BLOCKS.register("deepslate_table",
+            () -> new TableBlock(BlockBehaviour.Properties.copy(Blocks.DEEPSLATE)));
     public static final RegistryObject<Block> TABLE_WHITE_MODERN = BLOCKS.register("white_modern_table",
             () -> new ModernTableBlock(BlockBehaviour.Properties.copy(Blocks.WHITE_CONCRETE)));
     public static final RegistryObject<Block> TABLE_ORANGE_MODERN = BLOCKS.register("orange_modern_table",
@@ -53,6 +66,18 @@ public class ModBlocks {
             () -> new ModernTableBlock(BlockBehaviour.Properties.copy(Blocks.BLACK_CONCRETE)));
 
     //Chairs
+    public static final RegistryObject<Block> CHAIR_STONE = BLOCKS.register("stone_chair",
+            () -> new ChairBlock(BlockBehaviour.Properties.copy(Blocks.STONE)));
+    public static final RegistryObject<Block> CHAIR_ANDESITE = BLOCKS.register("andesite_chair",
+            () -> new ChairBlock(BlockBehaviour.Properties.copy(Blocks.ANDESITE)));
+    public static final RegistryObject<Block> CHAIR_DIORITE = BLOCKS.register("diorite_chair",
+            () -> new ChairBlock(BlockBehaviour.Properties.copy(Blocks.DIORITE)));
+    public static final RegistryObject<Block> CHAIR_GRANITE = BLOCKS.register("granite_chair",
+            () -> new ChairBlock(BlockBehaviour.Properties.copy(Blocks.GRANITE)));
+    public static final RegistryObject<Block> CHAIR_BLACKSTONE = BLOCKS.register("blackstone_chair",
+            () -> new ChairBlock(BlockBehaviour.Properties.copy(Blocks.BLACKSTONE)));
+    public static final RegistryObject<Block> CHAIR_DEEPSLATE = BLOCKS.register("deepslate_chair",
+            () -> new ChairBlock(BlockBehaviour.Properties.copy(Blocks.DEEPSLATE)));
     public static final RegistryObject<Block> CHAIR_WHITE_MODERN = BLOCKS.register("white_modern_chair",
             () -> new ModernChairBlock(BlockBehaviour.Properties.copy(Blocks.WHITE_CONCRETE)));
     public static final RegistryObject<Block> CHAIR_ORANGE_MODERN = BLOCKS.register("orange_modern_chair",
@@ -121,6 +146,18 @@ public class ModBlocks {
             () -> new PlaceholderBlock(BlockBehaviour.Properties.copy(Blocks.BLACK_CONCRETE)));
 
     //Coffee Tables
+    public static final RegistryObject<Block> COFFEE_TABLE_STONE = BLOCKS.register("stone_coffee_table",
+            () -> new CoffeeTableBlock(BlockBehaviour.Properties.copy(Blocks.STONE)));
+    public static final RegistryObject<Block> COFFEE_TABLE_ANDESITE = BLOCKS.register("andesite_coffee_table",
+            () -> new CoffeeTableBlock(BlockBehaviour.Properties.copy(Blocks.ANDESITE)));
+    public static final RegistryObject<Block> COFFEE_TABLE_DIORITE = BLOCKS.register("diorite_coffee_table",
+            () -> new CoffeeTableBlock(BlockBehaviour.Properties.copy(Blocks.DIORITE)));
+    public static final RegistryObject<Block> COFFEE_TABLE_GRANITE = BLOCKS.register("granite_coffee_table",
+            () -> new CoffeeTableBlock(BlockBehaviour.Properties.copy(Blocks.GRANITE)));
+    public static final RegistryObject<Block> COFFEE_TABLE_BLACKSTONE = BLOCKS.register("blackstone_coffee_table",
+            () -> new CoffeeTableBlock(BlockBehaviour.Properties.copy(Blocks.BLACKSTONE)));
+    public static final RegistryObject<Block> COFFEE_TABLE_DEEPSLATE = BLOCKS.register("deepslate_coffee_table",
+            () -> new CoffeeTableBlock(BlockBehaviour.Properties.copy(Blocks.DEEPSLATE)));
     public static final RegistryObject<Block> COFFEE_TABLE_WHITE_MODERN = BLOCKS.register("white_modern_coffee_table",
             () -> new ModernCoffeeTableBlock(BlockBehaviour.Properties.copy(Blocks.WHITE_CONCRETE)));
     public static final RegistryObject<Block> COFFEE_TABLE_ORANGE_MODERN = BLOCKS.register("orange_modern_coffee_table",
@@ -155,6 +192,18 @@ public class ModBlocks {
             () -> new ModernCoffeeTableBlock(BlockBehaviour.Properties.copy(Blocks.BLACK_CONCRETE)));
 
     //Cabinets
+    public static final RegistryObject<Block> CABINET_STONE = BLOCKS.register("stone_cabinet",
+            () -> new CabinetBlock(BlockBehaviour.Properties.copy(Blocks.STONE)));
+    public static final RegistryObject<Block> CABINET_ANDESITE = BLOCKS.register("andesite_cabinet",
+            () -> new CabinetBlock(BlockBehaviour.Properties.copy(Blocks.ANDESITE)));
+    public static final RegistryObject<Block> CABINET_DIORITE = BLOCKS.register("diorite_cabinet",
+            () -> new CabinetBlock(BlockBehaviour.Properties.copy(Blocks.DIORITE)));
+    public static final RegistryObject<Block> CABINET_GRANITE = BLOCKS.register("granite_cabinet",
+            () -> new CabinetBlock(BlockBehaviour.Properties.copy(Blocks.GRANITE)));
+    public static final RegistryObject<Block> CABINET_BLACKSTONE = BLOCKS.register("blackstone_cabinet",
+            () -> new CabinetBlock(BlockBehaviour.Properties.copy(Blocks.BLACKSTONE)));
+    public static final RegistryObject<Block> CABINET_DEEPSLATE = BLOCKS.register("deepslate_cabinet",
+            () -> new CabinetBlock(BlockBehaviour.Properties.copy(Blocks.DEEPSLATE)));
     public static final RegistryObject<Block> CABINET_WHITE_MODERN = BLOCKS.register("white_modern_cabinet",
             () -> new CabinetBlock(BlockBehaviour.Properties.copy(Blocks.WHITE_CONCRETE)));
     public static final RegistryObject<Block> CABINET_ORANGE_MODERN = BLOCKS.register("orange_modern_cabinet",
@@ -189,6 +238,18 @@ public class ModBlocks {
             () -> new CabinetBlock(BlockBehaviour.Properties.copy(Blocks.BLACK_CONCRETE)));
 
     //Bedside Cabinets
+    public static final RegistryObject<Block> BEDSIDE_CABINET_STONE = BLOCKS.register("stone_bedside_cabinet",
+            () -> new BedsideCabinetBlock(BlockBehaviour.Properties.copy(Blocks.STONE)));
+    public static final RegistryObject<Block> BEDSIDE_CABINET_ANDESITE = BLOCKS.register("andesite_bedside_cabinet",
+            () -> new BedsideCabinetBlock(BlockBehaviour.Properties.copy(Blocks.ANDESITE)));
+    public static final RegistryObject<Block> BEDSIDE_CABINET_DIORITE = BLOCKS.register("diorite_bedside_cabinet",
+            () -> new BedsideCabinetBlock(BlockBehaviour.Properties.copy(Blocks.DIORITE)));
+    public static final RegistryObject<Block> BEDSIDE_CABINET_GRANITE = BLOCKS.register("granite_bedside_cabinet",
+            () -> new BedsideCabinetBlock(BlockBehaviour.Properties.copy(Blocks.GRANITE)));
+    public static final RegistryObject<Block> BEDSIDE_CABINET_BLACKSTONE = BLOCKS.register("blackstone_bedside_cabinet",
+            () -> new BedsideCabinetBlock(BlockBehaviour.Properties.copy(Blocks.BLACKSTONE)));
+    public static final RegistryObject<Block> BEDSIDE_CABINET_DEEPSLATE = BLOCKS.register("deepslate_bedside_cabinet",
+            () -> new BedsideCabinetBlock(BlockBehaviour.Properties.copy(Blocks.DEEPSLATE)));
     public static final RegistryObject<Block> BEDSIDE_CABINET_WHITE_MODERN = BLOCKS.register("white_modern_bedside_cabinet",
             () -> new BedsideCabinetBlock(BlockBehaviour.Properties.copy(Blocks.WHITE_CONCRETE)));
     public static final RegistryObject<Block> BEDSIDE_CABINET_ORANGE_MODERN = BLOCKS.register("orange_modern_bedside_cabinet",
@@ -223,6 +284,18 @@ public class ModBlocks {
             () -> new BedsideCabinetBlock(BlockBehaviour.Properties.copy(Blocks.BLACK_CONCRETE)));
 
     //Desk
+    public static final RegistryObject<Block> DESK_STONE = BLOCKS.register("stone_desk",
+            () -> new DeskBlock(BlockBehaviour.Properties.copy(Blocks.STONE), DeskBlock.MaterialType.STONE));
+    public static final RegistryObject<Block> DESK_ANDESITE = BLOCKS.register("andesite_desk",
+            () -> new DeskBlock(BlockBehaviour.Properties.copy(Blocks.ANDESITE), DeskBlock.MaterialType.ANDESITE));
+    public static final RegistryObject<Block> DESK_DIORITE = BLOCKS.register("diorite_desk",
+            () -> new DeskBlock(BlockBehaviour.Properties.copy(Blocks.DIORITE), DeskBlock.MaterialType.DIORITE));
+    public static final RegistryObject<Block> DESK_GRANITE = BLOCKS.register("granite_desk",
+            () -> new DeskBlock(BlockBehaviour.Properties.copy(Blocks.GRANITE), DeskBlock.MaterialType.GRANITE));
+    public static final RegistryObject<Block> DESK_BLACKSTONE = BLOCKS.register("blackstone_desk",
+            () -> new DeskBlock(BlockBehaviour.Properties.copy(Blocks.BLACKSTONE), DeskBlock.MaterialType.STONE));
+    public static final RegistryObject<Block> DESK_DEEPSLATE = BLOCKS.register("deepslate_desk",
+            () -> new DeskBlock(BlockBehaviour.Properties.copy(Blocks.DEEPSLATE), DeskBlock.MaterialType.STONE));
     public static final RegistryObject<Block> DESK_WHITE_MODERN = BLOCKS.register("white_modern_desk",
             () -> new ModernDeskBlock(BlockBehaviour.Properties.copy(Blocks.WHITE_CONCRETE), ModernDeskBlock.MaterialType.WHITE_CONCRETE));
     public static final RegistryObject<Block> DESK_ORANGE_MODERN = BLOCKS.register("orange_modern_desk",
@@ -257,6 +330,18 @@ public class ModBlocks {
             () -> new ModernDeskBlock(BlockBehaviour.Properties.copy(Blocks.BLACK_CONCRETE), ModernDeskBlock.MaterialType.BLACK_CONCRETE));
 
     //Desk Cabinets
+    public static final RegistryObject<Block> DESK_CABINET_STONE = BLOCKS.register("stone_desk_cabinet",
+            () -> new DeskCabinetBlock(BlockBehaviour.Properties.copy(Blocks.STONE), DeskBlock.MaterialType.STONE));
+    public static final RegistryObject<Block> DESK_CABINET_ANDESITE = BLOCKS.register("andesite_desk_cabinet",
+            () -> new DeskCabinetBlock(BlockBehaviour.Properties.copy(Blocks.ANDESITE), DeskBlock.MaterialType.ANDESITE));
+    public static final RegistryObject<Block> DESK_CABINET_DIORITE = BLOCKS.register("diorite_desk_cabinet",
+            () -> new DeskCabinetBlock(BlockBehaviour.Properties.copy(Blocks.DIORITE), DeskBlock.MaterialType.DIORITE));
+    public static final RegistryObject<Block> DESK_CABINET_GRANITE = BLOCKS.register("granite_desk_cabinet",
+            () -> new DeskCabinetBlock(BlockBehaviour.Properties.copy(Blocks.GRANITE), DeskBlock.MaterialType.GRANITE));
+    public static final RegistryObject<Block> DESK_CABINET_BLACKSTONE = BLOCKS.register("blackstone_desk_cabinet",
+            () -> new DeskCabinetBlock(BlockBehaviour.Properties.copy(Blocks.BLACKSTONE), DeskBlock.MaterialType.STONE));
+    public static final RegistryObject<Block> DESK_CABINET_DEEPSLATE = BLOCKS.register("deepslate_desk_cabinet",
+            () -> new DeskCabinetBlock(BlockBehaviour.Properties.copy(Blocks.DEEPSLATE), DeskBlock.MaterialType.STONE));
     public static final RegistryObject<Block> DESK_CABINET_WHITE_MODERN = BLOCKS.register("white_modern_desk_cabinet",
             () -> new ModernDeskCabinetBlock(BlockBehaviour.Properties.copy(Blocks.WHITE_CONCRETE), ModernDeskBlock.MaterialType.WHITE_CONCRETE));
     public static final RegistryObject<Block> DESK_CABINET_ORANGE_MODERN = BLOCKS.register("orange_modern_desk_cabinet",
@@ -494,7 +579,7 @@ public class ModBlocks {
     public static final RegistryObject<Block> BAR_STOOL_BLACK = BLOCKS.register("black_bar_stool",
             () -> new BarStoolBlock(BlockBehaviour.Properties.copy(Blocks.BLACK_CONCRETE)));
 
-    //Laptops
+    //Electronics
     public static final RegistryObject<Block> LAPTOP_WHITE = BLOCKS.register("white_laptop",
             () -> new PlaceholderBlock(BlockBehaviour.Properties.copy(Blocks.WHITE_CONCRETE)));
     public static final RegistryObject<Block> LAPTOP_ORANGE = BLOCKS.register("orange_laptop",
@@ -527,6 +612,42 @@ public class ModBlocks {
             () -> new PlaceholderBlock(BlockBehaviour.Properties.copy(Blocks.RED_CONCRETE)));
     public static final RegistryObject<Block> LAPTOP_BLACK = BLOCKS.register("black_laptop",
             () -> new PlaceholderBlock(BlockBehaviour.Properties.copy(Blocks.BLACK_CONCRETE)));
+
+    //Inflatable Castles
+    public static final RegistryObject<Block> INFLATABLE_CASTLE_WHITE = BLOCKS.register("white_inflatable_castle",
+            () -> new InflatableCastleBlock(BlockBehaviour.Properties.copy(Blocks.WHITE_WOOL)));
+    public static final RegistryObject<Block> INFLATABLE_CASTLE_ORANGE = BLOCKS.register("orange_inflatable_castle",
+            () -> new InflatableCastleBlock(BlockBehaviour.Properties.copy(Blocks.ORANGE_WOOL)));
+    public static final RegistryObject<Block> INFLATABLE_CASTLE_MAGENTA = BLOCKS.register("magenta_inflatable_castle",
+            () -> new InflatableCastleBlock(BlockBehaviour.Properties.copy(Blocks.MAGENTA_WOOL)));
+    public static final RegistryObject<Block> INFLATABLE_CASTLE_LIGHT_BLUE = BLOCKS.register("light_blue_inflatable_castle",
+            () -> new InflatableCastleBlock(BlockBehaviour.Properties.copy(Blocks.LIGHT_BLUE_WOOL)));
+    public static final RegistryObject<Block> INFLATABLE_CASTLE_YELLOW = BLOCKS.register("yellow_inflatable_castle",
+            () -> new InflatableCastleBlock(BlockBehaviour.Properties.copy(Blocks.YELLOW_WOOL)));
+    public static final RegistryObject<Block> INFLATABLE_CASTLE_LIME = BLOCKS.register("lime_inflatable_castle",
+            () -> new InflatableCastleBlock(BlockBehaviour.Properties.copy(Blocks.LIME_WOOL)));
+    public static final RegistryObject<Block> INFLATABLE_CASTLE_PINK = BLOCKS.register("pink_inflatable_castle",
+            () -> new InflatableCastleBlock(BlockBehaviour.Properties.copy(Blocks.PINK_WOOL)));
+    public static final RegistryObject<Block> INFLATABLE_CASTLE_GRAY = BLOCKS.register("gray_inflatable_castle",
+            () -> new InflatableCastleBlock(BlockBehaviour.Properties.copy(Blocks.GRAY_WOOL)));
+    public static final RegistryObject<Block> INFLATABLE_CASTLE_LIGHT_GRAY = BLOCKS.register("light_gray_inflatable_castle",
+            () -> new InflatableCastleBlock(BlockBehaviour.Properties.copy(Blocks.LIGHT_GRAY_WOOL)));
+    public static final RegistryObject<Block> INFLATABLE_CASTLE_CYAN = BLOCKS.register("cyan_inflatable_castle",
+            () -> new InflatableCastleBlock(BlockBehaviour.Properties.copy(Blocks.CYAN_WOOL)));
+    public static final RegistryObject<Block> INFLATABLE_CASTLE_PURPLE = BLOCKS.register("purple_inflatable_castle",
+            () -> new InflatableCastleBlock(BlockBehaviour.Properties.copy(Blocks.PURPLE_WOOL)));
+    public static final RegistryObject<Block> INFLATABLE_CASTLE_BLUE = BLOCKS.register("blue_inflatable_castle",
+            () -> new InflatableCastleBlock(BlockBehaviour.Properties.copy(Blocks.BLUE_WOOL)));
+    public static final RegistryObject<Block> INFLATABLE_CASTLE_BROWN = BLOCKS.register("brown_inflatable_castle",
+            () -> new InflatableCastleBlock(BlockBehaviour.Properties.copy(Blocks.BROWN_WOOL)));
+    public static final RegistryObject<Block> INFLATABLE_CASTLE_GREEN = BLOCKS.register("green_inflatable_castle",
+            () -> new InflatableCastleBlock(BlockBehaviour.Properties.copy(Blocks.GREEN_WOOL)));
+    public static final RegistryObject<Block> INFLATABLE_CASTLE_RED = BLOCKS.register("red_inflatable_castle",
+            () -> new InflatableCastleBlock(BlockBehaviour.Properties.copy(Blocks.RED_WOOL)));
+    public static final RegistryObject<Block> INFLATABLE_CASTLE_BLACK = BLOCKS.register("black_inflatable_castle",
+            () -> new InflatableCastleBlock(BlockBehaviour.Properties.copy(Blocks.BLACK_WOOL)));
+    public static final RegistryObject<Block> CASTLE_NETTING = BLOCKS.register("castle_netting",
+            () -> new IronBarsBlock(BlockBehaviour.Properties.copy(Blocks.WHITE_WOOL)));
 
     //Appliances
     public static final RegistryObject<Block> BIN_LIGHT = BLOCKS.register("bin_light",

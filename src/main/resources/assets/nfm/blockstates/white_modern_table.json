@@ -8,9 +8,6 @@
 		}
 	},
 	"variants": {
-		"inventory": [{
-			"model": "nfm:block/white_modern_table_single"
-		}],
 		"south=false,north=true,west=false,east=true": {
 			"model": "nfm:block/white_modern_table_two_alt",
 			"y": 90

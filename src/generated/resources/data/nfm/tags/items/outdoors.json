@@ -1,0 +1,22 @@
+{
+  "replace": false,
+  "values": [
+    "nfm:white_inflatable_castle",
+    "nfm:orange_inflatable_castle",
+    "nfm:magenta_inflatable_castle",
+    "nfm:light_blue_inflatable_castle",
+    "nfm:yellow_inflatable_castle",
+    "nfm:lime_inflatable_castle",
+    "nfm:pink_inflatable_castle",
+    "nfm:gray_inflatable_castle",
+    "nfm:light_gray_inflatable_castle",
+    "nfm:cyan_inflatable_castle",
+    "nfm:purple_inflatable_castle",
+    "nfm:blue_inflatable_castle",
+    "nfm:brown_inflatable_castle",
+    "nfm:green_inflatable_castle",
+    "nfm:red_inflatable_castle",
+    "nfm:black_inflatable_castle",
+	"nfm:castle_netting"
+  ]
+}
