@@ -8,9 +8,6 @@
 		}
 	},
 	"variants": {
-		"inventory": [{
-			"model": "nfm:block/red_modern_coffee_table_single"
-		}],
 		"south=false,north=true,west=false,east=true,tall=false": {
 			"model": "nfm:block/red_modern_coffee_table_two_alt",
 			"y": 90

@@ -20,16 +20,6 @@
             "uvlock": true,
             "y": 0
         },
-        "facing=north,type=corner_left": {
-            "model": "nfm:block/white_modern_sofa_corner_left",
-            "uvlock": true,
-            "y": 0
-        },
-        "facing=north,type=corner_right": {
-            "model": "nfm:block/white_modern_sofa_corner_right",
-            "uvlock": true,
-            "y": 0
-        },
         "facing=east,type=single": {
             "model": "nfm:block/white_modern_sofa_single",
             "uvlock": true,
@@ -47,16 +37,6 @@
         },
         "facing=east,type=middle": {
             "model": "nfm:block/white_modern_sofa_middle",
-            "uvlock": true,
-            "y": 90
-        },
-        "facing=east,type=corner_left": {
-            "model": "nfm:block/white_modern_sofa_corner_left",
-            "uvlock": true,
-            "y": 90
-        },
-        "facing=east,type=corner_right": {
-            "model": "nfm:block/white_modern_sofa_corner_right",
             "uvlock": true,
             "y": 90
         },
@@ -80,16 +60,6 @@
             "uvlock": true,
             "y": 180
         },
-        "facing=south,type=corner_left": {
-            "model": "nfm:block/white_modern_sofa_corner_left",
-            "uvlock": true,
-            "y": 180
-        },
-        "facing=south,type=corner_right": {
-            "model": "nfm:block/white_modern_sofa_corner_right",
-            "uvlock": true,
-            "y": 180
-        },
         "facing=west,type=single": {
             "model": "nfm:block/white_modern_sofa_single",
             "uvlock": true,
@@ -107,16 +77,6 @@
         },
         "facing=west,type=middle": {
             "model": "nfm:block/white_modern_sofa_middle",
-            "uvlock": true,
-            "y": 270
-        },
-        "facing=west,type=corner_left": {
-            "model": "nfm:block/white_modern_sofa_corner_left",
-            "uvlock": true,
-            "y": 270
-        },
-        "facing=west,type=corner_right": {
-            "model": "nfm:block/white_modern_sofa_corner_right",
             "uvlock": true,
             "y": 270
         }
