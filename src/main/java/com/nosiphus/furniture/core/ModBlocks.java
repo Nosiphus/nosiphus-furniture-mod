@@ -618,6 +618,40 @@ public class ModBlocks {
     public static final RegistryObject<Block> LAPTOP_BLACK = BLOCKS.register("black_laptop",
             () -> new PlaceholderBlock(BlockBehaviour.Properties.copy(Blocks.BLACK_CONCRETE)));
 
+    //Inflatable Castles
+    public static final RegistryObject<Block> INFLATABLE_CASTLE_WHITE = BLOCKS.register("white_inflatable_castle",
+            () -> new InflatableCastleBlock(BlockBehaviour.Properties.copy(Blocks.WHITE_WOOL)));
+    public static final RegistryObject<Block> INFLATABLE_CASTLE_ORANGE = BLOCKS.register("orange_inflatable_castle",
+            () -> new InflatableCastleBlock(BlockBehaviour.Properties.copy(Blocks.ORANGE_WOOL)));
+    public static final RegistryObject<Block> INFLATABLE_CASTLE_MAGENTA = BLOCKS.register("magenta_inflatable_castle",
+            () -> new InflatableCastleBlock(BlockBehaviour.Properties.copy(Blocks.MAGENTA_WOOL)));
+    public static final RegistryObject<Block> INFLATABLE_CASTLE_LIGHT_BLUE = BLOCKS.register("light_blue_inflatable_castle",
+            () -> new InflatableCastleBlock(BlockBehaviour.Properties.copy(Blocks.LIGHT_BLUE_WOOL)));
+    public static final RegistryObject<Block> INFLATABLE_CASTLE_YELLOW = BLOCKS.register("yellow_inflatable_castle",
+            () -> new InflatableCastleBlock(BlockBehaviour.Properties.copy(Blocks.YELLOW_WOOL)));
+    public static final RegistryObject<Block> INFLATABLE_CASTLE_LIME = BLOCKS.register("lime_inflatable_castle",
+            () -> new InflatableCastleBlock(BlockBehaviour.Properties.copy(Blocks.LIME_WOOL)));
+    public static final RegistryObject<Block> INFLATABLE_CASTLE_PINK = BLOCKS.register("pink_inflatable_castle",
+            () -> new InflatableCastleBlock(BlockBehaviour.Properties.copy(Blocks.PINK_WOOL)));
+    public static final RegistryObject<Block> INFLATABLE_CASTLE_GRAY = BLOCKS.register("gray_inflatable_castle",
+            () -> new InflatableCastleBlock(BlockBehaviour.Properties.copy(Blocks.GRAY_WOOL)));
+    public static final RegistryObject<Block> INFLATABLE_CASTLE_LIGHT_GRAY = BLOCKS.register("light_gray_inflatable_castle",
+            () -> new InflatableCastleBlock(BlockBehaviour.Properties.copy(Blocks.LIGHT_GRAY_WOOL)));
+    public static final RegistryObject<Block> INFLATABLE_CASTLE_CYAN = BLOCKS.register("cyan_inflatable_castle",
+            () -> new InflatableCastleBlock(BlockBehaviour.Properties.copy(Blocks.CYAN_WOOL)));
+    public static final RegistryObject<Block> INFLATABLE_CASTLE_PURPLE = BLOCKS.register("purple_inflatable_castle",
+            () -> new InflatableCastleBlock(BlockBehaviour.Properties.copy(Blocks.PURPLE_WOOL)));
+    public static final RegistryObject<Block> INFLATABLE_CASTLE_BLUE = BLOCKS.register("blue_inflatable_castle",
+            () -> new InflatableCastleBlock(BlockBehaviour.Properties.copy(Blocks.BLUE_WOOL)));
+    public static final RegistryObject<Block> INFLATABLE_CASTLE_BROWN = BLOCKS.register("brown_inflatable_castle",
+            () -> new InflatableCastleBlock(BlockBehaviour.Properties.copy(Blocks.BROWN_WOOL)));
+    public static final RegistryObject<Block> INFLATABLE_CASTLE_GREEN = BLOCKS.register("green_inflatable_castle",
+            () -> new InflatableCastleBlock(BlockBehaviour.Properties.copy(Blocks.GREEN_WOOL)));
+    public static final RegistryObject<Block> INFLATABLE_CASTLE_RED = BLOCKS.register("red_inflatable_castle",
+            () -> new InflatableCastleBlock(BlockBehaviour.Properties.copy(Blocks.RED_WOOL)));
+    public static final RegistryObject<Block> INFLATABLE_CASTLE_BLACK = BLOCKS.register("black_inflatable_castle",
+            () -> new InflatableCastleBlock(BlockBehaviour.Properties.copy(Blocks.BLACK_WOOL)));
+
     //Appliances
     public static final RegistryObject<Block> BIN_LIGHT = BLOCKS.register("bin_light",
             () -> new BinBlock(BlockBehaviour.Properties.copy(Blocks.WHITE_CONCRETE).noOcclusion()));

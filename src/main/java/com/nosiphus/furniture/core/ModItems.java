@@ -605,6 +605,40 @@ public class ModItems {
     public static final RegistryObject<BlockItem> LAPTOP_BLACK = ITEMS.register("black_laptop",
             () -> new BlockItem(ModBlocks.LAPTOP_BLACK.get(), new Item.Properties().tab(NosiphusFurnitureMod.GROUP)));
 
+    //Inflatable Castles
+    public static final RegistryObject<BlockItem> INFLATABLE_CASTLE_WHITE = ITEMS.register("white_inflatable_castle",
+            () -> new BlockItem(ModBlocks.INFLATABLE_CASTLE_WHITE.get(), new Item.Properties().tab(NosiphusFurnitureMod.GROUP)));
+    public static final RegistryObject<BlockItem> INFLATABLE_CASTLE_ORANGE = ITEMS.register("orange_inflatable_castle",
+            () -> new BlockItem(ModBlocks.INFLATABLE_CASTLE_ORANGE.get(), new Item.Properties().tab(NosiphusFurnitureMod.GROUP)));
+    public static final RegistryObject<BlockItem> INFLATABLE_CASTLE_MAGENTA = ITEMS.register("magenta_inflatable_castle",
+            () -> new BlockItem(ModBlocks.INFLATABLE_CASTLE_MAGENTA.get(), new Item.Properties().tab(NosiphusFurnitureMod.GROUP)));
+    public static final RegistryObject<BlockItem> INFLATABLE_CASTLE_LIGHT_BLUE = ITEMS.register("light_blue_inflatable_castle",
+            () -> new BlockItem(ModBlocks.INFLATABLE_CASTLE_LIGHT_BLUE.get(), new Item.Properties().tab(NosiphusFurnitureMod.GROUP)));
+    public static final RegistryObject<BlockItem> INFLATABLE_CASTLE_YELLOW = ITEMS.register("yellow_inflatable_castle",
+            () -> new BlockItem(ModBlocks.INFLATABLE_CASTLE_YELLOW.get(), new Item.Properties().tab(NosiphusFurnitureMod.GROUP)));
+    public static final RegistryObject<BlockItem> INFLATABLE_CASTLE_LIME = ITEMS.register("lime_inflatable_castle",
+            () -> new BlockItem(ModBlocks.INFLATABLE_CASTLE_LIME.get(), new Item.Properties().tab(NosiphusFurnitureMod.GROUP)));
+    public static final RegistryObject<BlockItem> INFLATABLE_CASTLE_PINK = ITEMS.register("pink_inflatable_castle",
+            () -> new BlockItem(ModBlocks.INFLATABLE_CASTLE_PINK.get(), new Item.Properties().tab(NosiphusFurnitureMod.GROUP)));
+    public static final RegistryObject<BlockItem> INFLATABLE_CASTLE_GRAY = ITEMS.register("gray_inflatable_castle",
+            () -> new BlockItem(ModBlocks.INFLATABLE_CASTLE_GRAY.get(), new Item.Properties().tab(NosiphusFurnitureMod.GROUP)));
+    public static final RegistryObject<BlockItem> INFLATABLE_CASTLE_LIGHT_GRAY = ITEMS.register("light_gray_inflatable_castle",
+            () -> new BlockItem(ModBlocks.INFLATABLE_CASTLE_LIGHT_GRAY.get(), new Item.Properties().tab(NosiphusFurnitureMod.GROUP)));
+    public static final RegistryObject<BlockItem> INFLATABLE_CASTLE_CYAN = ITEMS.register("cyan_inflatable_castle",
+            () -> new BlockItem(ModBlocks.INFLATABLE_CASTLE_CYAN.get(), new Item.Properties().tab(NosiphusFurnitureMod.GROUP)));
+    public static final RegistryObject<BlockItem> INFLATABLE_CASTLE_PURPLE = ITEMS.register("purple_inflatable_castle",
+            () -> new BlockItem(ModBlocks.INFLATABLE_CASTLE_PURPLE.get(), new Item.Properties().tab(NosiphusFurnitureMod.GROUP)));
+    public static final RegistryObject<BlockItem> INFLATABLE_CASTLE_BLUE = ITEMS.register("blue_inflatable_castle",
+            () -> new BlockItem(ModBlocks.INFLATABLE_CASTLE_BLUE.get(), new Item.Properties().tab(NosiphusFurnitureMod.GROUP)));
+    public static final RegistryObject<BlockItem> INFLATABLE_CASTLE_BROWN = ITEMS.register("brown_inflatable_castle",
+            () -> new BlockItem(ModBlocks.INFLATABLE_CASTLE_BROWN.get(), new Item.Properties().tab(NosiphusFurnitureMod.GROUP)));
+    public static final RegistryObject<BlockItem> INFLATABLE_CASTLE_GREEN = ITEMS.register("green_inflatable_castle",
+            () -> new BlockItem(ModBlocks.INFLATABLE_CASTLE_GREEN.get(), new Item.Properties().tab(NosiphusFurnitureMod.GROUP)));
+    public static final RegistryObject<BlockItem> INFLATABLE_CASTLE_RED = ITEMS.register("red_inflatable_castle",
+            () -> new BlockItem(ModBlocks.INFLATABLE_CASTLE_RED.get(), new Item.Properties().tab(NosiphusFurnitureMod.GROUP)));
+    public static final RegistryObject<BlockItem> INFLATABLE_CASTLE_BLACK = ITEMS.register("black_inflatable_castle",
+            () -> new BlockItem(ModBlocks.INFLATABLE_CASTLE_BLACK.get(), new Item.Properties().tab(NosiphusFurnitureMod.GROUP)));
+
     //Appliances
     public static final RegistryObject<BlockItem> BIN_LIGHT = ITEMS.register("bin_light",
             () -> new BlockItem(ModBlocks.BIN_LIGHT.get(), new Item.Properties().tab(NosiphusFurnitureMod.GROUP)));

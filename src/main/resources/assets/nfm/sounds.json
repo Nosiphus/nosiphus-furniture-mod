@@ -7,6 +7,10 @@
         "subtitle": "subtitle.nfm.close_bin",
         "sounds": [ "nfm:block/bins/close" ]
     },
+    "block.inflatable_castle.bounce": {
+        "subtitle": "subtitle.nfm.bounce_inflatable_castle",
+        "sounds": [ "nfm:block/inflatable_castle/bounce" ]
+    },
 	"block.microwave.finish": {
         "subtitle": "subtitle.nfm.finish_microwave",
         "sounds": [ "nfm:block/microwave/finish" ]

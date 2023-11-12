@@ -1,0 +1,17 @@
+{
+    "type": "minecraft:crafting_shapeless",
+    "ingredients": [
+        {
+            "item": "minecraft:green_wool",
+            "data": 4
+        },
+        {
+            "item": "minecraft:rabbit_foot"
+        }
+    ],
+	"result": {
+        "item": "nfm:green_inflatable_castle",
+        "data": 4,
+        "count": 16
+    }
+}
