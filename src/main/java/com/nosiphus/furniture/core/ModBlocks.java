@@ -6,8 +6,7 @@ import com.nosiphus.furniture.block.*;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
@@ -651,6 +650,8 @@ public class ModBlocks {
             () -> new InflatableCastleBlock(BlockBehaviour.Properties.copy(Blocks.RED_WOOL)));
     public static final RegistryObject<Block> INFLATABLE_CASTLE_BLACK = BLOCKS.register("black_inflatable_castle",
             () -> new InflatableCastleBlock(BlockBehaviour.Properties.copy(Blocks.BLACK_WOOL)));
+    public static final RegistryObject<Block> CASTLE_NETTING = BLOCKS.register("castle_netting",
+            () -> new IronBarsBlock(BlockBehaviour.Properties.copy(Blocks.WHITE_WOOL)));
 
     //Appliances
     public static final RegistryObject<Block> BIN_LIGHT = BLOCKS.register("bin_light",

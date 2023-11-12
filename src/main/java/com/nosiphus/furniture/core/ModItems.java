@@ -638,6 +638,8 @@ public class ModItems {
             () -> new BlockItem(ModBlocks.INFLATABLE_CASTLE_RED.get(), new Item.Properties().tab(NosiphusFurnitureMod.GROUP)));
     public static final RegistryObject<BlockItem> INFLATABLE_CASTLE_BLACK = ITEMS.register("black_inflatable_castle",
             () -> new BlockItem(ModBlocks.INFLATABLE_CASTLE_BLACK.get(), new Item.Properties().tab(NosiphusFurnitureMod.GROUP)));
+    public static final RegistryObject<BlockItem> CASTLE_NETTING = ITEMS.register("castle_netting",
+            () -> new BlockItem(ModBlocks.CASTLE_NETTING.get(), new Item.Properties().tab(NosiphusFurnitureMod.GROUP)));
 
     //Appliances
     public static final RegistryObject<BlockItem> BIN_LIGHT = ITEMS.register("bin_light",
