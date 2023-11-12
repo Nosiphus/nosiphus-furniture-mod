@@ -1,6 +1,12 @@
 {
     "itemGroup.nfm": "Nosiphus Furniture Mod",
 
+	"block.nfm.stone_table": "Stone Table",
+	"block.nfm.andesite_table": "Andesite Table",
+	"block.nfm.diorite_table": "Diorite Table",
+	"block.nfm.granite_table": "Granite Table",
+	"block.nfm.blackstone_table": "Blackstone Table",
+	"block.nfm.deepslate_table": "Deepslate Table",
 	"block.nfm.white_modern_table": "White Modern Table",
 	"block.nfm.orange_modern_table": "Orange Modern Table",
 	"block.nfm.magenta_modern_table": "Magenta Modern Table",
@@ -17,7 +23,13 @@
 	"block.nfm.green_modern_table": "Green Modern Table",
 	"block.nfm.red_modern_table": "Red Modern Table",
 	"block.nfm.black_modern_table": "Black Modern Table",
-	
+
+	"block.nfm.stone_chair": "Stone Chair",
+	"block.nfm.andesite_chair": "Andesite Chair",
+	"block.nfm.diorite_chair": "Diorite Chair",
+	"block.nfm.granite_chair": "Granite Chair",
+	"block.nfm.blackstone_chair": "Blackstone Chair",
+	"block.nfm.deepslate_chair": "Deepslate Chair",
 	"block.nfm.white_modern_chair": "White Modern Chair",
 	"block.nfm.orange_modern_chair": "Orange Modern Chair",
 	"block.nfm.magenta_modern_chair": "Magenta Modern Chair",
@@ -51,7 +63,13 @@
 	"block.nfm.green_office_chair": "Green Office Chair (Removed)",
 	"block.nfm.red_office_chair": "Red Office Chair (Removed)",
 	"block.nfm.black_office_chair": "Black Office Chair (Removed)",
-	
+
+	"block.nfm.stone_coffee_table": "Stone Coffee Table",
+	"block.nfm.andesite_coffee_table": "Andesite Coffee Table",
+	"block.nfm.diorite_coffee_table": "Diorite Coffee Table",
+	"block.nfm.granite_coffee_table": "Granite Coffee Table",
+	"block.nfm.blackstone_coffee_table": "Blackstone Coffee Table",
+	"block.nfm.deepslate_coffee_table": "Deepslate Coffee Table",
 	"block.nfm.white_modern_coffee_table": "White Modern Coffee Table",
 	"block.nfm.orange_modern_coffee_table": "Orange Modern Coffee Table",
 	"block.nfm.magenta_modern_coffee_table": "Magenta Modern Coffee Table",
@@ -68,7 +86,13 @@
 	"block.nfm.green_modern_coffee_table": "Green Modern Coffee Table",
 	"block.nfm.red_modern_coffee_table": "Red Modern Coffee Table",
 	"block.nfm.black_modern_coffee_table": "Black Modern Coffee Table",
-	
+
+	"block.nfm.stone_cabinet": "Stone Cabinet",
+	"block.nfm.andesite_cabinet": "Andesite Cabinet",
+	"block.nfm.diorite_cabinet": "Diorite Cabinet",
+	"block.nfm.granite_cabinet": "Granite Cabinet",
+	"block.nfm.blackstone_cabinet": "Blackstone Cabinet",
+	"block.nfm.deepslate_cabinet": "Deepslate Cabinet",
 	"block.nfm.white_modern_cabinet": "White Modern Cabinet",
 	"block.nfm.orange_modern_cabinet": "Orange Modern Cabinet",
 	"block.nfm.magenta_modern_cabinet": "Magenta Modern Cabinet",
@@ -85,7 +109,13 @@
 	"block.nfm.green_modern_cabinet": "Green Modern Cabinet",
 	"block.nfm.red_modern_cabinet": "Red Modern Cabinet",
 	"block.nfm.black_modern_cabinet": "Black Modern Cabinet",
-	
+
+	"block.nfm.stone_bedside_cabinet": "Stone Bedside Cabinet",
+	"block.nfm.andesite_bedside_cabinet": "Andesite Bedside Cabinet",
+	"block.nfm.diorite_bedside_cabinet": "Diorite Bedside Cabinet",
+	"block.nfm.granite_bedside_cabinet": "Granite Bedside Cabinet",
+	"block.nfm.blackstone_bedside_cabinet": "Blackstone Bedside Cabinet",
+	"block.nfm.deepslate_bedside_cabinet": "Deepslate Bedside Cabinet",
 	"block.nfm.white_modern_bedside_cabinet": "White Modern Bedside Cabinet",
 	"block.nfm.orange_modern_bedside_cabinet": "Orange Modern Bedside Cabinet",
 	"block.nfm.magenta_modern_bedside_cabinet": "Magenta Modern Bedside Cabinet",
@@ -103,6 +133,12 @@
 	"block.nfm.red_modern_bedside_cabinet": "Red Modern Bedside Cabinet",
 	"block.nfm.black_modern_bedside_cabinet": "Black Modern Bedside Cabinet",
 
+	"block.nfm.stone_desk": "Stone Desk",
+	"block.nfm.andesite_desk": "Andesite Desk",
+	"block.nfm.diorite_desk": "Diorite Desk",
+	"block.nfm.granite_desk": "Granite Desk",
+	"block.nfm.blackstone_desk": "Blackstone Desk",
+	"block.nfm.deepslate_desk": "Deepslate Desk",
 	"block.nfm.white_modern_desk": "White Modern Desk",
 	"block.nfm.orange_modern_desk": "Orange Modern Desk",
 	"block.nfm.magenta_modern_desk": "Magenta Modern Desk",
@@ -119,7 +155,13 @@
 	"block.nfm.green_modern_desk": "Green Modern Desk",
 	"block.nfm.red_modern_desk": "Red Modern Desk",
 	"block.nfm.black_modern_desk": "Black Modern Desk",
-	
+
+	"block.nfm.stone_desk_cabinet": "Stone Desk Cabinet",
+	"block.nfm.andesite_desk_cabinet": "Andesite Desk Cabinet",
+	"block.nfm.diorite_desk_cabinet": "Diorite Desk Cabinet",
+	"block.nfm.granite_desk_cabinet": "Granite Desk Cabinet",
+	"block.nfm.blackstone_desk_cabinet": "Blackstone Desk Cabinet",
+	"block.nfm.deepslate_desk_cabinet": "Deepslate Desk Cabinet",
 	"block.nfm.white_modern_desk_cabinet": "White Modern Desk Cabinet",
 	"block.nfm.orange_modern_desk_cabinet": "Orange Modern Desk Cabinet",
 	"block.nfm.magenta_modern_desk_cabinet": "Magenta Modern Desk Cabinet",

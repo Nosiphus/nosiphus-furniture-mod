@@ -12,6 +12,18 @@ public class ModItems {
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, "nfm");
 
     //Tables
+    public static final RegistryObject<BlockItem> TABLE_STONE = ITEMS.register("stone_table",
+            () -> new BlockItem(ModBlocks.TABLE_STONE.get(), new Item.Properties().tab(NosiphusFurnitureMod.GROUP)));
+    public static final RegistryObject<BlockItem> TABLE_ANDESITE = ITEMS.register("andesite_table",
+            () -> new BlockItem(ModBlocks.TABLE_ANDESITE.get(), new Item.Properties().tab(NosiphusFurnitureMod.GROUP)));
+    public static final RegistryObject<BlockItem> TABLE_DIORITE = ITEMS.register("diorite_table",
+            () -> new BlockItem(ModBlocks.TABLE_DIORITE.get(), new Item.Properties().tab(NosiphusFurnitureMod.GROUP)));
+    public static final RegistryObject<BlockItem> TABLE_GRANITE = ITEMS.register("granite_table",
+            () -> new BlockItem(ModBlocks.TABLE_GRANITE.get(), new Item.Properties().tab(NosiphusFurnitureMod.GROUP)));
+    public static final RegistryObject<BlockItem> TABLE_BLACKSTONE = ITEMS.register("blackstone_table",
+            () -> new BlockItem(ModBlocks.TABLE_BLACKSTONE.get(), new Item.Properties().tab(NosiphusFurnitureMod.GROUP)));
+    public static final RegistryObject<BlockItem> TABLE_DEEPSLATE = ITEMS.register("deepslate_table",
+            () -> new BlockItem(ModBlocks.TABLE_DEEPSLATE.get(), new Item.Properties().tab(NosiphusFurnitureMod.GROUP)));
     public static final RegistryObject<BlockItem> TABLE_WHITE_MODERN = ITEMS.register("white_modern_table",
             () -> new BlockItem(ModBlocks.TABLE_WHITE_MODERN.get(), new Item.Properties().tab(NosiphusFurnitureMod.GROUP)));
     public static final RegistryObject<BlockItem> TABLE_ORANGE_MODERN = ITEMS.register("orange_modern_table",
@@ -46,6 +58,18 @@ public class ModItems {
             () -> new BlockItem(ModBlocks.TABLE_BLACK_MODERN.get(), new Item.Properties().tab(NosiphusFurnitureMod.GROUP)));
 
     //Chairs
+    public static final RegistryObject<BlockItem> CHAIR_STONE = ITEMS.register("stone_chair",
+            () -> new BlockItem(ModBlocks.CHAIR_STONE.get(), new Item.Properties().tab(NosiphusFurnitureMod.GROUP)));
+    public static final RegistryObject<BlockItem> CHAIR_ANDESITE = ITEMS.register("andesite_chair",
+            () -> new BlockItem(ModBlocks.CHAIR_ANDESITE.get(), new Item.Properties().tab(NosiphusFurnitureMod.GROUP)));
+    public static final RegistryObject<BlockItem> CHAIR_DIORITE = ITEMS.register("diorite_chair",
+            () -> new BlockItem(ModBlocks.CHAIR_DIORITE.get(), new Item.Properties().tab(NosiphusFurnitureMod.GROUP)));
+    public static final RegistryObject<BlockItem> CHAIR_GRANITE = ITEMS.register("granite_chair",
+            () -> new BlockItem(ModBlocks.CHAIR_GRANITE.get(), new Item.Properties().tab(NosiphusFurnitureMod.GROUP)));
+    public static final RegistryObject<BlockItem> CHAIR_BLACKSTONE = ITEMS.register("blackstone_chair",
+            () -> new BlockItem(ModBlocks.CHAIR_BLACKSTONE.get(), new Item.Properties().tab(NosiphusFurnitureMod.GROUP)));
+    public static final RegistryObject<BlockItem> CHAIR_DEEPSLATE = ITEMS.register("deepslate_chair",
+            () -> new BlockItem(ModBlocks.CHAIR_DEEPSLATE.get(), new Item.Properties().tab(NosiphusFurnitureMod.GROUP)));
     public static final RegistryObject<BlockItem> CHAIR_WHITE_MODERN = ITEMS.register("white_modern_chair",
             () -> new BlockItem(ModBlocks.CHAIR_WHITE_MODERN.get(), new Item.Properties().tab(NosiphusFurnitureMod.GROUP)));
     public static final RegistryObject<BlockItem> CHAIR_ORANGE_MODERN = ITEMS.register("orange_modern_chair",
@@ -114,6 +138,18 @@ public class ModItems {
             () -> new BlockItem(ModBlocks.CHAIR_BLACK_OFFICE.get(), new Item.Properties().tab(NosiphusFurnitureMod.GROUP)));
 
     //Coffee Tables
+    public static final RegistryObject<BlockItem> COFFEE_TABLE_STONE = ITEMS.register("stone_coffee_table",
+            () -> new BlockItem(ModBlocks.COFFEE_TABLE_STONE.get(), new Item.Properties().tab(NosiphusFurnitureMod.GROUP)));
+    public static final RegistryObject<BlockItem> COFFEE_TABLE_ANDESITE = ITEMS.register("andesite_coffee_table",
+            () -> new BlockItem(ModBlocks.COFFEE_TABLE_ANDESITE.get(), new Item.Properties().tab(NosiphusFurnitureMod.GROUP)));
+    public static final RegistryObject<BlockItem> COFFEE_TABLE_DIORITE = ITEMS.register("diorite_coffee_table",
+            () -> new BlockItem(ModBlocks.COFFEE_TABLE_DIORITE.get(), new Item.Properties().tab(NosiphusFurnitureMod.GROUP)));
+    public static final RegistryObject<BlockItem> COFFEE_TABLE_GRANITE = ITEMS.register("granite_coffee_table",
+            () -> new BlockItem(ModBlocks.COFFEE_TABLE_GRANITE.get(), new Item.Properties().tab(NosiphusFurnitureMod.GROUP)));
+    public static final RegistryObject<BlockItem> COFFEE_TABLE_BLACKSTONE = ITEMS.register("blackstone_coffee_table",
+            () -> new BlockItem(ModBlocks.COFFEE_TABLE_BLACKSTONE.get(), new Item.Properties().tab(NosiphusFurnitureMod.GROUP)));
+    public static final RegistryObject<BlockItem> COFFEE_TABLE_DEEPSLATE = ITEMS.register("deepslate_coffee_table",
+            () -> new BlockItem(ModBlocks.COFFEE_TABLE_DEEPSLATE.get(), new Item.Properties().tab(NosiphusFurnitureMod.GROUP)));
     public static final RegistryObject<BlockItem> COFFEE_TABLE_WHITE_MODERN = ITEMS.register("white_modern_coffee_table",
             () -> new BlockItem(ModBlocks.COFFEE_TABLE_WHITE_MODERN.get(), new Item.Properties().tab(NosiphusFurnitureMod.GROUP)));
     public static final RegistryObject<BlockItem> COFFEE_TABLE_ORANGE_MODERN = ITEMS.register("orange_modern_coffee_table",
@@ -148,6 +184,18 @@ public class ModItems {
             () -> new BlockItem(ModBlocks.COFFEE_TABLE_BLACK_MODERN.get(), new Item.Properties().tab(NosiphusFurnitureMod.GROUP)));
 
     //Cabinets
+    public static final RegistryObject<BlockItem> CABINET_STONE = ITEMS.register("stone_cabinet",
+            () -> new BlockItem(ModBlocks.CABINET_STONE.get(), new Item.Properties().tab(NosiphusFurnitureMod.GROUP)));
+    public static final RegistryObject<BlockItem> CABINET_ANDESITE = ITEMS.register("andesite_cabinet",
+            () -> new BlockItem(ModBlocks.CABINET_ANDESITE.get(), new Item.Properties().tab(NosiphusFurnitureMod.GROUP)));
+    public static final RegistryObject<BlockItem> CABINET_DIORITE = ITEMS.register("diorite_cabinet",
+            () -> new BlockItem(ModBlocks.CABINET_DIORITE.get(), new Item.Properties().tab(NosiphusFurnitureMod.GROUP)));
+    public static final RegistryObject<BlockItem> CABINET_GRANITE = ITEMS.register("granite_cabinet",
+            () -> new BlockItem(ModBlocks.CABINET_GRANITE.get(), new Item.Properties().tab(NosiphusFurnitureMod.GROUP)));
+    public static final RegistryObject<BlockItem> CABINET_BLACKSTONE = ITEMS.register("blackstone_cabinet",
+            () -> new BlockItem(ModBlocks.CABINET_BLACKSTONE.get(), new Item.Properties().tab(NosiphusFurnitureMod.GROUP)));
+    public static final RegistryObject<BlockItem> CABINET_DEEPSLATE = ITEMS.register("deepslate_cabinet",
+            () -> new BlockItem(ModBlocks.CABINET_DEEPSLATE.get(), new Item.Properties().tab(NosiphusFurnitureMod.GROUP)));
     public static final RegistryObject<BlockItem> CABINET_WHITE_MODERN = ITEMS.register("white_modern_cabinet",
             () -> new BlockItem(ModBlocks.CABINET_WHITE_MODERN.get(), new Item.Properties().tab(NosiphusFurnitureMod.GROUP)));
     public static final RegistryObject<BlockItem> CABINET_ORANGE_MODERN = ITEMS.register("orange_modern_cabinet",
@@ -182,6 +230,18 @@ public class ModItems {
             () -> new BlockItem(ModBlocks.CABINET_BLACK_MODERN.get(), new Item.Properties().tab(NosiphusFurnitureMod.GROUP)));
 
     //Bedside Cabinets
+    public static final RegistryObject<BlockItem> BEDSIDE_CABINET_STONE = ITEMS.register("stone_bedside_cabinet",
+            () -> new BlockItem(ModBlocks.BEDSIDE_CABINET_STONE.get(), new Item.Properties().tab(NosiphusFurnitureMod.GROUP)));
+    public static final RegistryObject<BlockItem> BEDSIDE_CABINET_ANDESITE = ITEMS.register("andesite_bedside_cabinet",
+            () -> new BlockItem(ModBlocks.BEDSIDE_CABINET_ANDESITE.get(), new Item.Properties().tab(NosiphusFurnitureMod.GROUP)));
+    public static final RegistryObject<BlockItem> BEDSIDE_CABINET_DIORITE = ITEMS.register("diorite_bedside_cabinet",
+            () -> new BlockItem(ModBlocks.BEDSIDE_CABINET_DIORITE.get(), new Item.Properties().tab(NosiphusFurnitureMod.GROUP)));
+    public static final RegistryObject<BlockItem> BEDSIDE_CABINET_GRANITE = ITEMS.register("granite_bedside_cabinet",
+            () -> new BlockItem(ModBlocks.BEDSIDE_CABINET_GRANITE.get(), new Item.Properties().tab(NosiphusFurnitureMod.GROUP)));
+    public static final RegistryObject<BlockItem> BEDSIDE_CABINET_BLACKSTONE = ITEMS.register("blackstone_bedside_cabinet",
+            () -> new BlockItem(ModBlocks.BEDSIDE_CABINET_BLACKSTONE.get(), new Item.Properties().tab(NosiphusFurnitureMod.GROUP)));
+    public static final RegistryObject<BlockItem> BEDSIDE_CABINET_DEEPSLATE = ITEMS.register("deepslate_bedside_cabinet",
+            () -> new BlockItem(ModBlocks.BEDSIDE_CABINET_DEEPSLATE.get(), new Item.Properties().tab(NosiphusFurnitureMod.GROUP)));
     public static final RegistryObject<BlockItem> BEDSIDE_CABINET_WHITE_MODERN = ITEMS.register("white_modern_bedside_cabinet",
             () -> new BlockItem(ModBlocks.BEDSIDE_CABINET_WHITE_MODERN.get(), new Item.Properties().tab(NosiphusFurnitureMod.GROUP)));
     public static final RegistryObject<BlockItem> BEDSIDE_CABINET_ORANGE_MODERN = ITEMS.register("orange_modern_bedside_cabinet",
@@ -216,6 +276,18 @@ public class ModItems {
             () -> new BlockItem(ModBlocks.BEDSIDE_CABINET_BLACK_MODERN.get(), new Item.Properties().tab(NosiphusFurnitureMod.GROUP)));
 
     //Desk
+    public static final RegistryObject<BlockItem> DESK_STONE = ITEMS.register("stone_desk",
+            () -> new BlockItem(ModBlocks.DESK_STONE.get(), new Item.Properties().tab(NosiphusFurnitureMod.GROUP)));
+    public static final RegistryObject<BlockItem> DESK_ANDESITE = ITEMS.register("andesite_desk",
+            () -> new BlockItem(ModBlocks.DESK_ANDESITE.get(), new Item.Properties().tab(NosiphusFurnitureMod.GROUP)));
+    public static final RegistryObject<BlockItem> DESK_DIORITE = ITEMS.register("diorite_desk",
+            () -> new BlockItem(ModBlocks.DESK_DIORITE.get(), new Item.Properties().tab(NosiphusFurnitureMod.GROUP)));
+    public static final RegistryObject<BlockItem> DESK_GRANITE = ITEMS.register("granite_desk",
+            () -> new BlockItem(ModBlocks.DESK_GRANITE.get(), new Item.Properties().tab(NosiphusFurnitureMod.GROUP)));
+    public static final RegistryObject<BlockItem> DESK_BLACKSTONE = ITEMS.register("blackstone_desk",
+            () -> new BlockItem(ModBlocks.DESK_BLACKSTONE.get(), new Item.Properties().tab(NosiphusFurnitureMod.GROUP)));
+    public static final RegistryObject<BlockItem> DESK_DEEPSLATE = ITEMS.register("deepslate_desk",
+            () -> new BlockItem(ModBlocks.DESK_DEEPSLATE.get(), new Item.Properties().tab(NosiphusFurnitureMod.GROUP)));
     public static final RegistryObject<BlockItem> DESK_WHITE_MODERN = ITEMS.register("white_modern_desk",
             () -> new BlockItem(ModBlocks.DESK_WHITE_MODERN.get(), new Item.Properties().tab(NosiphusFurnitureMod.GROUP)));
     public static final RegistryObject<BlockItem> DESK_ORANGE_MODERN = ITEMS.register("orange_modern_desk",
@@ -250,6 +322,18 @@ public class ModItems {
             () -> new BlockItem(ModBlocks.DESK_BLACK_MODERN.get(), new Item.Properties().tab(NosiphusFurnitureMod.GROUP)));
 
     //Desk Cabinets
+    public static final RegistryObject<BlockItem> DESK_CABINET_STONE = ITEMS.register("stone_desk_cabinet",
+            () -> new BlockItem(ModBlocks.DESK_CABINET_STONE.get(), new Item.Properties().tab(NosiphusFurnitureMod.GROUP)));
+    public static final RegistryObject<BlockItem> DESK_CABINET_ANDESITE = ITEMS.register("andesite_desk_cabinet",
+            () -> new BlockItem(ModBlocks.DESK_CABINET_ANDESITE.get(), new Item.Properties().tab(NosiphusFurnitureMod.GROUP)));
+    public static final RegistryObject<BlockItem> DESK_CABINET_DIORITE = ITEMS.register("diorite_desk_cabinet",
+            () -> new BlockItem(ModBlocks.DESK_CABINET_DIORITE.get(), new Item.Properties().tab(NosiphusFurnitureMod.GROUP)));
+    public static final RegistryObject<BlockItem> DESK_CABINET_GRANITE = ITEMS.register("granite_desk_cabinet",
+            () -> new BlockItem(ModBlocks.DESK_CABINET_GRANITE.get(), new Item.Properties().tab(NosiphusFurnitureMod.GROUP)));
+    public static final RegistryObject<BlockItem> DESK_CABINET_BLACKSTONE = ITEMS.register("blackstone_desk_cabinet",
+            () -> new BlockItem(ModBlocks.DESK_CABINET_BLACKSTONE.get(), new Item.Properties().tab(NosiphusFurnitureMod.GROUP)));
+    public static final RegistryObject<BlockItem> DESK_CABINET_DEEPSLATE = ITEMS.register("deepslate_desk_cabinet",
+            () -> new BlockItem(ModBlocks.DESK_CABINET_DEEPSLATE.get(), new Item.Properties().tab(NosiphusFurnitureMod.GROUP)));
     public static final RegistryObject<BlockItem> DESK_CABINET_WHITE_MODERN = ITEMS.register("white_modern_desk_cabinet",
             () -> new BlockItem(ModBlocks.DESK_CABINET_WHITE_MODERN.get(), new Item.Properties().tab(NosiphusFurnitureMod.GROUP)));
     public static final RegistryObject<BlockItem> DESK_CABINET_ORANGE_MODERN = ITEMS.register("orange_modern_desk_cabinet",
