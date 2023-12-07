@@ -619,41 +619,41 @@ public class ModBlocks {
 
     //Door Bells
     public static final RegistryObject<Block> DOOR_BELL_OAK = BLOCKS.register("oak_door_bell",
-            () -> new DoorBellBlock(BlockBehaviour.Properties.copy(Blocks.OAK_WOOD)));
+            () -> new DoorBellBlock(BlockBehaviour.Properties.copy(Blocks.OAK_WOOD).noOcclusion()));
     public static final RegistryObject<Block> DOOR_BELL_SPRUCE = BLOCKS.register("spruce_door_bell",
-            () -> new DoorBellBlock(BlockBehaviour.Properties.copy(Blocks.SPRUCE_WOOD)));
+            () -> new DoorBellBlock(BlockBehaviour.Properties.copy(Blocks.SPRUCE_WOOD).noOcclusion()));
     public static final RegistryObject<Block> DOOR_BELL_BIRCH = BLOCKS.register("birch_door_bell",
-            () -> new DoorBellBlock(BlockBehaviour.Properties.copy(Blocks.BIRCH_WOOD)));
+            () -> new DoorBellBlock(BlockBehaviour.Properties.copy(Blocks.BIRCH_WOOD).noOcclusion()));
     public static final RegistryObject<Block> DOOR_BELL_JUNGLE = BLOCKS.register("jungle_door_bell",
-            () -> new DoorBellBlock(BlockBehaviour.Properties.copy(Blocks.JUNGLE_WOOD)));
+            () -> new DoorBellBlock(BlockBehaviour.Properties.copy(Blocks.JUNGLE_WOOD).noOcclusion()));
     public static final RegistryObject<Block> DOOR_BELL_ACACIA = BLOCKS.register("acacia_door_bell",
-            () -> new DoorBellBlock(BlockBehaviour.Properties.copy(Blocks.ACACIA_WOOD)));
+            () -> new DoorBellBlock(BlockBehaviour.Properties.copy(Blocks.ACACIA_WOOD).noOcclusion()));
     public static final RegistryObject<Block> DOOR_BELL_DARK_OAK = BLOCKS.register("dark_oak_door_bell",
-            () -> new DoorBellBlock(BlockBehaviour.Properties.copy(Blocks.DARK_OAK_WOOD)));
+            () -> new DoorBellBlock(BlockBehaviour.Properties.copy(Blocks.DARK_OAK_WOOD).noOcclusion()));
     public static final RegistryObject<Block> DOOR_BELL_CRIMSON = BLOCKS.register("crimson_door_bell",
-            () -> new DoorBellBlock(BlockBehaviour.Properties.copy(Blocks.CRIMSON_STEM)));
+            () -> new DoorBellBlock(BlockBehaviour.Properties.copy(Blocks.CRIMSON_STEM).noOcclusion()));
     public static final RegistryObject<Block> DOOR_BELL_WARPED = BLOCKS.register("warped_door_bell",
-            () -> new DoorBellBlock(BlockBehaviour.Properties.copy(Blocks.WARPED_STEM)));
+            () -> new DoorBellBlock(BlockBehaviour.Properties.copy(Blocks.WARPED_STEM).noOcclusion()));
     public static final RegistryObject<Block> DOOR_BELL_MANGROVE = BLOCKS.register("mangrove_door_bell",
-            () -> new DoorBellBlock(BlockBehaviour.Properties.copy(Blocks.MANGROVE_WOOD)));
+            () -> new DoorBellBlock(BlockBehaviour.Properties.copy(Blocks.MANGROVE_WOOD).noOcclusion()));
     public static final RegistryObject<Block> DOOR_BELL_STRIPPED_OAK = BLOCKS.register("stripped_oak_door_bell",
-            () -> new DoorBellBlock(BlockBehaviour.Properties.copy(Blocks.STRIPPED_OAK_WOOD)));
+            () -> new DoorBellBlock(BlockBehaviour.Properties.copy(Blocks.STRIPPED_OAK_WOOD).noOcclusion()));
     public static final RegistryObject<Block> DOOR_BELL_STRIPPED_SPRUCE = BLOCKS.register("stripped_spruce_door_bell",
-            () -> new DoorBellBlock(BlockBehaviour.Properties.copy(Blocks.STRIPPED_SPRUCE_WOOD)));
+            () -> new DoorBellBlock(BlockBehaviour.Properties.copy(Blocks.STRIPPED_SPRUCE_WOOD).noOcclusion()));
     public static final RegistryObject<Block> DOOR_BELL_STRIPPED_BIRCH = BLOCKS.register("stripped_birch_door_bell",
-            () -> new DoorBellBlock(BlockBehaviour.Properties.copy(Blocks.STRIPPED_BIRCH_WOOD)));
+            () -> new DoorBellBlock(BlockBehaviour.Properties.copy(Blocks.STRIPPED_BIRCH_WOOD).noOcclusion()));
     public static final RegistryObject<Block> DOOR_BELL_STRIPPED_JUNGLE = BLOCKS.register("stripped_jungle_door_bell",
-            () -> new DoorBellBlock(BlockBehaviour.Properties.copy(Blocks.STRIPPED_JUNGLE_WOOD)));
+            () -> new DoorBellBlock(BlockBehaviour.Properties.copy(Blocks.STRIPPED_JUNGLE_WOOD).noOcclusion()));
     public static final RegistryObject<Block> DOOR_BELL_STRIPPED_ACACIA = BLOCKS.register("stripped_acacia_door_bell",
-            () -> new DoorBellBlock(BlockBehaviour.Properties.copy(Blocks.STRIPPED_ACACIA_WOOD)));
+            () -> new DoorBellBlock(BlockBehaviour.Properties.copy(Blocks.STRIPPED_ACACIA_WOOD).noOcclusion()));
     public static final RegistryObject<Block> DOOR_BELL_STRIPPED_DARK_OAK = BLOCKS.register("stripped_dark_oak_door_bell",
-            () -> new DoorBellBlock(BlockBehaviour.Properties.copy(Blocks.STRIPPED_DARK_OAK_WOOD)));
+            () -> new DoorBellBlock(BlockBehaviour.Properties.copy(Blocks.STRIPPED_DARK_OAK_WOOD).noOcclusion()));
     public static final RegistryObject<Block> DOOR_BELL_STRIPPED_CRIMSON = BLOCKS.register("stripped_crimson_door_bell",
-            () -> new DoorBellBlock(BlockBehaviour.Properties.copy(Blocks.STRIPPED_CRIMSON_STEM)));
+            () -> new DoorBellBlock(BlockBehaviour.Properties.copy(Blocks.STRIPPED_CRIMSON_STEM).noOcclusion()));
     public static final RegistryObject<Block> DOOR_BELL_STRIPPED_WARPED = BLOCKS.register("stripped_warped_door_bell",
-            () -> new DoorBellBlock(BlockBehaviour.Properties.copy(Blocks.STRIPPED_WARPED_STEM)));
+            () -> new DoorBellBlock(BlockBehaviour.Properties.copy(Blocks.STRIPPED_WARPED_STEM).noOcclusion()));
     public static final RegistryObject<Block> DOOR_BELL_STRIPPED_MANGROVE = BLOCKS.register("stripped_mangrove_door_bell",
-            () -> new DoorBellBlock(BlockBehaviour.Properties.copy(Blocks.STRIPPED_MANGROVE_WOOD)));
+            () -> new DoorBellBlock(BlockBehaviour.Properties.copy(Blocks.STRIPPED_MANGROVE_WOOD).noOcclusion()));
 
     //Inflatable Castles
     public static final RegistryObject<Block> INFLATABLE_CASTLE_WHITE = BLOCKS.register("white_inflatable_castle",
