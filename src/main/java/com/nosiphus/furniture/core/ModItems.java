@@ -605,6 +605,44 @@ public class ModItems {
     public static final RegistryObject<BlockItem> LAPTOP_BLACK = ITEMS.register("black_laptop",
             () -> new BlockItem(ModBlocks.LAPTOP_BLACK.get(), new Item.Properties().tab(NosiphusFurnitureMod.GROUP)));
 
+    //Door Bells
+    public static final RegistryObject<BlockItem> DOOR_BELL_OAK = ITEMS.register("oak_door_bell",
+            () -> new BlockItem(ModBlocks.DOOR_BELL_OAK.get(), new Item.Properties().tab(NosiphusFurnitureMod.GROUP)));
+    public static final RegistryObject<BlockItem> DOOR_BELL_SPRUCE = ITEMS.register("spruce_door_bell",
+            () -> new BlockItem(ModBlocks.DOOR_BELL_SPRUCE.get(), new Item.Properties().tab(NosiphusFurnitureMod.GROUP)));
+    public static final RegistryObject<BlockItem> DOOR_BELL_BIRCH = ITEMS.register("birch_door_bell",
+            () -> new BlockItem(ModBlocks.DOOR_BELL_BIRCH.get(), new Item.Properties().tab(NosiphusFurnitureMod.GROUP)));
+    public static final RegistryObject<BlockItem> DOOR_BELL_JUNGLE = ITEMS.register("jungle_door_bell",
+            () -> new BlockItem(ModBlocks.DOOR_BELL_JUNGLE.get(), new Item.Properties().tab(NosiphusFurnitureMod.GROUP)));
+    public static final RegistryObject<BlockItem> DOOR_BELL_ACACIA = ITEMS.register("acacia_door_bell",
+            () -> new BlockItem(ModBlocks.DOOR_BELL_ACACIA.get(), new Item.Properties().tab(NosiphusFurnitureMod.GROUP)));
+    public static final RegistryObject<BlockItem> DOOR_BELL_DARK_OAK = ITEMS.register("dark_oak_door_bell",
+            () -> new BlockItem(ModBlocks.DOOR_BELL_DARK_OAK.get(), new Item.Properties().tab(NosiphusFurnitureMod.GROUP)));
+    public static final RegistryObject<BlockItem> DOOR_BELL_CRIMSON = ITEMS.register("crimson_door_bell",
+            () -> new BlockItem(ModBlocks.DOOR_BELL_CRIMSON.get(), new Item.Properties().tab(NosiphusFurnitureMod.GROUP)));
+    public static final RegistryObject<BlockItem> DOOR_BELL_WARPED = ITEMS.register("warped_door_bell",
+            () -> new BlockItem(ModBlocks.DOOR_BELL_WARPED.get(), new Item.Properties().tab(NosiphusFurnitureMod.GROUP)));
+    public static final RegistryObject<BlockItem> DOOR_BELL_MANGROVE = ITEMS.register("mangrove_door_bell",
+            () -> new BlockItem(ModBlocks.DOOR_BELL_MANGROVE.get(), new Item.Properties().tab(NosiphusFurnitureMod.GROUP)));
+    public static final RegistryObject<BlockItem> DOOR_BELL_STRIPPED_OAK = ITEMS.register("stripped_oak_door_bell",
+            () -> new BlockItem(ModBlocks.DOOR_BELL_STRIPPED_OAK.get(), new Item.Properties().tab(NosiphusFurnitureMod.GROUP)));
+    public static final RegistryObject<BlockItem> DOOR_BELL_STRIPPED_SPRUCE = ITEMS.register("stripped_spruce_door_bell",
+            () -> new BlockItem(ModBlocks.DOOR_BELL_STRIPPED_SPRUCE.get(), new Item.Properties().tab(NosiphusFurnitureMod.GROUP)));
+    public static final RegistryObject<BlockItem> DOOR_BELL_STRIPPED_BIRCH = ITEMS.register("stripped_birch_door_bell",
+            () -> new BlockItem(ModBlocks.DOOR_BELL_STRIPPED_BIRCH.get(), new Item.Properties().tab(NosiphusFurnitureMod.GROUP)));
+    public static final RegistryObject<BlockItem> DOOR_BELL_STRIPPED_JUNGLE = ITEMS.register("stripped_jungle_door_bell",
+            () -> new BlockItem(ModBlocks.DOOR_BELL_STRIPPED_JUNGLE.get(), new Item.Properties().tab(NosiphusFurnitureMod.GROUP)));
+    public static final RegistryObject<BlockItem> DOOR_BELL_STRIPPED_ACACIA = ITEMS.register("stripped_acacia_door_bell",
+            () -> new BlockItem(ModBlocks.DOOR_BELL_STRIPPED_ACACIA.get(), new Item.Properties().tab(NosiphusFurnitureMod.GROUP)));
+    public static final RegistryObject<BlockItem> DOOR_BELL_STRIPPED_DARK_OAK = ITEMS.register("stripped_dark_oak_door_bell",
+            () -> new BlockItem(ModBlocks.DOOR_BELL_STRIPPED_DARK_OAK.get(), new Item.Properties().tab(NosiphusFurnitureMod.GROUP)));
+    public static final RegistryObject<BlockItem> DOOR_BELL_STRIPPED_CRIMSON = ITEMS.register("stripped_crimson_door_bell",
+            () -> new BlockItem(ModBlocks.DOOR_BELL_STRIPPED_CRIMSON.get(), new Item.Properties().tab(NosiphusFurnitureMod.GROUP)));
+    public static final RegistryObject<BlockItem> DOOR_BELL_STRIPPED_WARPED = ITEMS.register("stripped_warped_door_bell",
+            () -> new BlockItem(ModBlocks.DOOR_BELL_STRIPPED_WARPED.get(), new Item.Properties().tab(NosiphusFurnitureMod.GROUP)));
+    public static final RegistryObject<BlockItem> DOOR_BELL_STRIPPED_MANGROVE = ITEMS.register("stripped_mangrove_door_bell",
+            () -> new BlockItem(ModBlocks.DOOR_BELL_STRIPPED_MANGROVE.get(), new Item.Properties().tab(NosiphusFurnitureMod.GROUP)));
+
     //Inflatable Castles
     public static final RegistryObject<BlockItem> INFLATABLE_CASTLE_WHITE = ITEMS.register("white_inflatable_castle",
             () -> new BlockItem(ModBlocks.INFLATABLE_CASTLE_WHITE.get(), new Item.Properties().tab(NosiphusFurnitureMod.GROUP)));

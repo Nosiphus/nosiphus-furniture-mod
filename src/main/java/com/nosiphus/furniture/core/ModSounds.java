@@ -12,6 +12,8 @@ public class ModSounds {
 
     public static final RegistryObject<SoundEvent> BLOCK_BIN_CLOSE = register("block.bin.close");
     public static final RegistryObject<SoundEvent> BLOCK_BIN_OPEN = register("block.bin.open");
+
+    public static final RegistryObject<SoundEvent> BLOCK_DOOR_BELL_RING = register("block.door_bell.ring");
     public static final RegistryObject<SoundEvent> BLOCK_INFLATABLE_CASTLE_BOUNCE = register("block.inflatable_castle.bounce");
     public static final RegistryObject<SoundEvent> BLOCK_MICROWAVE_FINISH = register("block.microwave.finish");
     public static final RegistryObject<SoundEvent> BLOCK_MICROWAVE_RUNNING = register("block.microwave.running");
