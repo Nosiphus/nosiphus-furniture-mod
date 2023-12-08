@@ -357,6 +357,8 @@
 	"block.nfm.toaster_dark": "Toaster (Dark)",
 	"block.nfm.toilet_light": "Toilet (Light)",
 	"block.nfm.toilet_dark": "Toilet (Dark)",
+	
+	"block.nfm.wreath": "Wreath",
 
 	"container.nfm.bin": "Bin",
     "container.nfm.cabinet": "Cabinet",
@@ -381,6 +383,7 @@
     "gui.tag_filter.nfm.kitchen": "Kitchen",
     "gui.tag_filter.nfm.bathroom": "Bathroom",
 	"gui.tag_filter.nfm.outdoors": "Outdoors",
+	"gui.tag_filter.nfm.festive": "Festive",
 
     "gui.nfm.mail_box_settings": "Change Mail Box Name",
     "gui.nfm.door_mat_message": "Set Door Mat Message",

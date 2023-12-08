@@ -737,6 +737,10 @@ public class ModBlocks {
     public static final RegistryObject<Block> TOILET_DARK = BLOCKS.register("toilet_dark",
             () -> new ToiletBlock(BlockBehaviour.Properties.copy(Blocks.GRAY_CONCRETE).noOcclusion()));
 
+    //Festive
+    public static final RegistryObject<Block> WREATH = BLOCKS.register("wreath",
+            () -> new WreathBlock(BlockBehaviour.Properties.copy(Blocks.DARK_OAK_LEAVES).noOcclusion()));
+
     private static ToIntFunction<BlockState> getLightValueLit(int lightValue) {
         return (state) -> {
             return state.getValue(BlockStateProperties.LIT) ? lightValue : 0;
