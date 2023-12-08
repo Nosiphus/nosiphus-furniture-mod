@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " W ",
+    " B ",
+    " N "
+  ],
+  "key": {
+    "W": {
+      "item": "minecraft:dark_oak_log"
+    },
+	"B": {
+      "item": "minecraft:stone_button"
+    },
+	"N": {
+      "item": "minecraft:note_block"
+    }
+  },
+  "result": {
+    "item": "nfm:dark_oak_door_bell"
+  }
+}

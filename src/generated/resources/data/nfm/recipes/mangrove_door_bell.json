@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " W ",
+    " B ",
+    " N "
+  ],
+  "key": {
+    "W": {
+      "item": "minecraft:mangrove_log"
+    },
+	"B": {
+      "item": "minecraft:stone_button"
+    },
+	"N": {
+      "item": "minecraft:note_block"
+    }
+  },
+  "result": {
+    "item": "nfm:mangrove_door_bell"
+  }
+}
