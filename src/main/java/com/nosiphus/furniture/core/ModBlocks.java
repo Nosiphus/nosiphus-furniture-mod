@@ -655,7 +655,6 @@ public class ModBlocks {
     public static final RegistryObject<Block> DOOR_BELL_STRIPPED_MANGROVE = BLOCKS.register("stripped_mangrove_door_bell",
             () -> new DoorBellBlock(BlockBehaviour.Properties.copy(Blocks.MANGROVE_WOOD).noOcclusion()));
 
-
     //Inflatable Castles
     public static final RegistryObject<Block> INFLATABLE_CASTLE_WHITE = BLOCKS.register("white_inflatable_castle",
             () -> new InflatableCastleBlock(BlockBehaviour.Properties.copy(Blocks.WHITE_WOOL)));
