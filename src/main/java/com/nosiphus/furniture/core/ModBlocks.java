@@ -742,6 +742,8 @@ public class ModBlocks {
     //Festive
     public static final RegistryObject<Block> CANDLE = BLOCKS.register("candle",
             () -> new CandleBlock(BlockBehaviour.Properties.of(Material.DECORATION).lightLevel((getLightValueLit(13))).noOcclusion()));
+    public static final RegistryObject<Block> CHRISTMAS_TREE = BLOCKS.register("christmas_tree",
+            () -> new ChristmasTreeBlock(BlockBehaviour.Properties.copy(Blocks.DARK_OAK_LEAVES).noOcclusion()));
     public static final RegistryObject<Block> WREATH = BLOCKS.register("wreath",
             () -> new WreathBlock(BlockBehaviour.Properties.copy(Blocks.DARK_OAK_LEAVES).noOcclusion()));
 

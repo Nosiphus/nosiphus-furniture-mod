@@ -66,6 +66,8 @@ public class NosiphusFurnitureMod {
 
         @SubscribeEvent
         public static void onRegisterBlockColors(RegisterColorHandlersEvent.Block event) {
+            event.register((state, reader, pos, i) -> FoliageColor.getEvergreenColor(),
+                    ModBlocks.CHRISTMAS_TREE.get());
             event.register((state, reader, pos, i) -> reader != null && pos != null ? BiomeColors.getAverageFoliageColor(reader, pos) : FoliageColor.getDefaultColor(),
                     ModBlocks.WREATH.get());
         }
@@ -75,7 +77,7 @@ public class NosiphusFurnitureMod {
             event.register((stack, i) -> {
                 BlockState state = ((BlockItem)stack.getItem()).getBlock().defaultBlockState();
                 return Minecraft.getInstance().getBlockColors().getColor(state, null, null, i);
-            }, ModBlocks.WREATH.get());
+            }, ModBlocks.CHRISTMAS_TREE.get(), ModBlocks.WREATH.get());
         }
 
         @SubscribeEvent

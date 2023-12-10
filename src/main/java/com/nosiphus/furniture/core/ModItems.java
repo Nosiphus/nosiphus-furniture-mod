@@ -728,6 +728,8 @@ public class ModItems {
     //Festive
     public static final RegistryObject<BlockItem> CANDLE = ITEMS.register("candle",
             () -> new BlockItem(ModBlocks.CANDLE.get(), new Item.Properties().tab(NosiphusFurnitureMod.GROUP)));
+    public static final RegistryObject<BlockItem> CHRISTMAS_TREE = ITEMS.register("christmas_tree",
+            () -> new BlockItem(ModBlocks.CHRISTMAS_TREE.get(), new Item.Properties().tab(NosiphusFurnitureMod.GROUP)));
     public static final RegistryObject<BlockItem> WREATH = ITEMS.register("wreath",
             () -> new BlockItem(ModBlocks.WREATH.get(), new Item.Properties().tab(NosiphusFurnitureMod.GROUP)));
 
