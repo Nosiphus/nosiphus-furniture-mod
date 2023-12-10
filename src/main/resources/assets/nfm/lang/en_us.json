@@ -298,6 +298,25 @@
     "block.nfm.red_laptop": "Red Laptop (Removed)",
     "block.nfm.black_laptop": "Black Laptop (Removed)",
 
+	"block.nfm.oak_door_bell": "Oak Door Bell",
+	"block.nfm.spruce_door_bell": "Spruce Door Bell",
+	"block.nfm.birch_door_bell": "Birch Door Bell",
+	"block.nfm.jungle_door_bell": "Jungle Door Bell",
+	"block.nfm.acacia_door_bell": "Acacia Door Bell",
+	"block.nfm.dark_oak_door_bell": "Dark Oak Door Bell",
+	"block.nfm.crimson_door_bell": "Crimson Door Bell",
+	"block.nfm.warped_door_bell": "Warped Door Bell",
+	"block.nfm.mangrove_door_bell": "Mangrove Door Bell",
+	"block.nfm.stripped_oak_door_bell": "Stripped Oak Door Bell",
+	"block.nfm.stripped_spruce_door_bell": "Stripped Spruce Door Bell",
+	"block.nfm.stripped_birch_door_bell": "Stripped Birch Door Bell",
+	"block.nfm.stripped_jungle_door_bell": "Stripped Jungle Door Bell",
+	"block.nfm.stripped_acacia_door_bell": "Stripped Acacia Door Bell",
+	"block.nfm.stripped_dark_oak_door_bell": "Stripped Dark Oak Door Bell",
+	"block.nfm.stripped_crimson_door_bell": "Stripped Crimson Door Bell",
+	"block.nfm.stripped_warped_door_bell": "Stripped Warped Door Bell",
+	"block.nfm.stripped_mangrove_door_bell": "Stripped Mangrove Door Bell",
+
 	"block.nfm.white_inflatable_castle": "White Inflatable Castle",
 	"block.nfm.orange_inflatable_castle": "Orange Inflatable Castle",
 	"block.nfm.magenta_inflatable_castle": "Magenta Inflatable Castle",
@@ -339,6 +358,10 @@
 	"block.nfm.toilet_light": "Toilet (Light)",
 	"block.nfm.toilet_dark": "Toilet (Dark)",
 
+	"block.nfm.candle": "Candle",
+	"block.nfm.christmas_tree": "Christmas Tree",
+	"block.nfm.wreath": "Wreath",
+
 	"container.nfm.bin": "Bin",
     "container.nfm.cabinet": "Cabinet",
     "container.nfm.bedside_cabinet": "Bedside Cabinet",
@@ -362,6 +385,7 @@
     "gui.tag_filter.nfm.kitchen": "Kitchen",
     "gui.tag_filter.nfm.bathroom": "Bathroom",
 	"gui.tag_filter.nfm.outdoors": "Outdoors",
+	"gui.tag_filter.nfm.festive": "Festive",
 
     "gui.nfm.mail_box_settings": "Change Mail Box Name",
     "gui.nfm.door_mat_message": "Set Door Mat Message",
@@ -370,6 +394,7 @@
 	"subtitle.nfm.close_bin": "Close Bin",
     "subtitle.nfm.open_cabinet": "Open Cabinet",
     "subtitle.nfm.close_cabinet": "Close Cabinet",
+	"subtitle.nfm.door_bell_ring": "Door Bell Ring",
 	"subtitle.nfm.fart": "Fart",
 	"subtitle.nfm.flush": "Flush",
 

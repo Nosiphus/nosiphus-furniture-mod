@@ -304,6 +304,7 @@
 	"nfm:toaster_light",
 	"nfm:toaster_dark",
 	"nfm:toilet_light",
-	"nfm:toilet_dark"
+	"nfm:toilet_dark",
+    "nfm:candle"
   ]
 }

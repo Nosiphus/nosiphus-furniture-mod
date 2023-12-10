@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " W ",
+    " B ",
+    " N "
+  ],
+  "key": {
+    "W": {
+      "item": "minecraft:stripped_warped_stem"
+    },
+	"B": {
+      "item": "minecraft:stone_button"
+    },
+	"N": {
+      "item": "minecraft:note_block"
+    }
+  },
+  "result": {
+    "item": "nfm:stripped_warped_door_bell"
+  }
+}

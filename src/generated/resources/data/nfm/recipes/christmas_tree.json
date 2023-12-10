@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " L ",
+    "LLL",
+    " P "
+  ],
+  "key": {
+    "L": {
+      "tag": "minecraft:leaves"
+    },
+	"P": {
+      "item": "minecraft:flower_pot"
+    }
+  },
+  "result": {
+    "item": "nfm:christmas_tree"
+  }
+}
