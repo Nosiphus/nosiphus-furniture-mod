@@ -726,6 +726,8 @@ public class ModItems {
             () -> new BlockItem(ModBlocks.TOILET_DARK.get(), new Item.Properties().tab(NosiphusFurnitureMod.GROUP)));
 
     //Festive
+    public static final RegistryObject<BlockItem> CANDLE = ITEMS.register("candle",
+            () -> new BlockItem(ModBlocks.CANDLE.get(), new Item.Properties().tab(NosiphusFurnitureMod.GROUP)));
     public static final RegistryObject<BlockItem> WREATH = ITEMS.register("wreath",
             () -> new BlockItem(ModBlocks.WREATH.get(), new Item.Properties().tab(NosiphusFurnitureMod.GROUP)));
 

@@ -265,7 +265,8 @@ public class CreativeScreenEvents
                 new TagFilter(ModTags.Items.BEDROOM, new ItemStack(ModBlocks.DESK_WHITE_MODERN.get())),
                 new TagFilter(ModTags.Items.KITCHEN, new ItemStack(ModBlocks.KITCHEN_COUNTER_WHITE_MODERN.get())),
                 new TagFilter(ModTags.Items.BATHROOM, new ItemStack(ModBlocks.TOILET_LIGHT.get())),
-                new TagFilter(ModTags.Items.OUTDOORS, new ItemStack(ModBlocks.INFLATABLE_CASTLE_WHITE.get()))
+                new TagFilter(ModTags.Items.OUTDOORS, new ItemStack(ModBlocks.INFLATABLE_CASTLE_WHITE.get())),
+                new TagFilter(ModTags.Items.FESTIVE, new ItemStack(ModBlocks.WREATH.get()))
         };
 
         ForgeRegistries.ITEMS.getValues().stream()

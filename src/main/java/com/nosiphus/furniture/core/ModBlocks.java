@@ -3,6 +3,7 @@ package com.nosiphus.furniture.core;
 import com.mrcrayfish.furniture.block.*;
 import com.nosiphus.furniture.NosiphusFurnitureMod;
 import com.nosiphus.furniture.block.*;
+import com.nosiphus.furniture.block.CandleBlock;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.item.Item;
@@ -10,6 +11,7 @@ import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import net.minecraft.world.level.material.Material;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
@@ -738,6 +740,8 @@ public class ModBlocks {
             () -> new ToiletBlock(BlockBehaviour.Properties.copy(Blocks.GRAY_CONCRETE).noOcclusion()));
 
     //Festive
+    public static final RegistryObject<Block> CANDLE = BLOCKS.register("candle",
+            () -> new CandleBlock(BlockBehaviour.Properties.of(Material.DECORATION).lightLevel((getLightValueLit(13))).noOcclusion()));
     public static final RegistryObject<Block> WREATH = BLOCKS.register("wreath",
             () -> new WreathBlock(BlockBehaviour.Properties.copy(Blocks.DARK_OAK_LEAVES).noOcclusion()));
 
