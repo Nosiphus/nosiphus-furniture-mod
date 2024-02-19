@@ -1,6 +1,6 @@
 {
     "__comment": "Model generated using MrCrayfish's Model Creator (http://mrcrayfish.com/modelcreator/)",
-	"render_type": "cutout",
+	"render_type": "translucent",
     "textures": {
         "particle": "minecraft:block/white_concrete",
         "0": "minecraft:block/white_concrete",
