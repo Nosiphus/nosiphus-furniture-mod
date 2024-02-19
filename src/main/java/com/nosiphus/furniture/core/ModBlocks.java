@@ -1,11 +1,10 @@
 package com.nosiphus.furniture.core;
 
 import com.mrcrayfish.furniture.block.*;
-import com.nosiphus.furniture.NosiphusFurnitureMod;
+import com.mrcrayfish.furniture.item.BlockSupplierItem;
 import com.nosiphus.furniture.block.*;
 import com.nosiphus.furniture.block.CandleBlock;
 import net.minecraft.world.item.BlockItem;
-import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
@@ -722,10 +721,14 @@ public class ModBlocks {
             () -> new SinkBlock(BlockBehaviour.Properties.copy(Blocks.WHITE_CONCRETE).noOcclusion()));
     public static final RegistryObject<Block> SINK_DARK = BLOCKS.register("sink_dark",
             () -> new SinkBlock(BlockBehaviour.Properties.copy(Blocks.GRAY_CONCRETE).noOcclusion()));
-    public static final RegistryObject<Block> SHOWER_LIGHT = BLOCKS.register("shower_light",
-            () -> new ShowerBlock(BlockBehaviour.Properties.copy(Blocks.WHITE_CONCRETE).noOcclusion()));
-    public static final RegistryObject<Block> SHOWER_DARK = BLOCKS.register("shower_dark",
-            () -> new ShowerBlock(BlockBehaviour.Properties.copy(Blocks.GRAY_CONCRETE).noOcclusion()));
+    public static final RegistryObject<Block> SHOWER_LIGHT_BOTTOM = BLOCKS.register("shower_light_bottom",
+            () -> new ShowerBottomBlock(Block.Properties.copy(Blocks.WHITE_CONCRETE).noOcclusion(), () -> ModBlocks.SHOWER_LIGHT));
+    public static final RegistryObject<Block> SHOWER_LIGHT = register("shower_light",
+            () -> new ShowerTopBlock(Block.Properties.copy(Blocks.WHITE_CONCRETE).noOcclusion(), () -> ModBlocks.SHOWER_LIGHT_BOTTOM), block -> new BlockSupplierItem(new Item.Properties(), block.get(), ModBlocks.SHOWER_LIGHT_BOTTOM));
+    public static final RegistryObject<Block> SHOWER_DARK_BOTTOM = BLOCKS.register("shower_dark_bottom",
+            () -> new ShowerBottomBlock(Block.Properties.copy(Blocks.GRAY_CONCRETE).noOcclusion(), () -> ModBlocks.SHOWER_DARK));
+    public static final RegistryObject<Block> SHOWER_DARK = register("shower_dark",
+            () -> new ShowerTopBlock(Block.Properties.copy(Blocks.GRAY_CONCRETE).noOcclusion(), () -> ModBlocks.SHOWER_DARK_BOTTOM), block -> new BlockSupplierItem(new Item.Properties(), block.get(), ModBlocks.SHOWER_DARK_BOTTOM));
     public static final RegistryObject<Block> SHOWER_HEAD_LIGHT = BLOCKS.register("shower_head_light",
             () -> new ShowerHeadBlock(BlockBehaviour.Properties.copy(Blocks.WHITE_CONCRETE).noOcclusion()));
     public static final RegistryObject<Block> SHOWER_HEAD_DARK = BLOCKS.register("shower_head_dark",
@@ -747,10 +750,21 @@ public class ModBlocks {
     public static final RegistryObject<Block> WREATH = BLOCKS.register("wreath",
             () -> new WreathBlock(BlockBehaviour.Properties.copy(Blocks.DARK_OAK_LEAVES).noOcclusion()));
 
+    //Methods
     private static ToIntFunction<BlockState> getLightValueLit(int lightValue) {
         return (state) -> {
             return state.getValue(BlockStateProperties.LIT) ? lightValue : 0;
         };
+    }
+
+    private static RegistryObject<Block> register(String name, Supplier<Block> block, @Nullable Function<RegistryObject<Block>, BlockItem> function)
+    {
+        RegistryObject<Block> registryObject = BLOCKS.register(name, block);
+        if(function != null)
+        {
+            ModItems.ITEMS.register(name, () -> function.apply(registryObject));
+        }
+        return registryObject;
     }
 
 }

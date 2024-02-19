@@ -76,6 +76,7 @@
     "nfm:oven_range_hood_light",
     "nfm:oven_range_hood_dark",
     "nfm:toaster_light",
-    "nfm:toaster_dark"
+    "nfm:toaster_dark",
+    "nfm:knife"
   ]
 }

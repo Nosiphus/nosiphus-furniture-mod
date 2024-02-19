@@ -1,0 +1,8 @@
+{
+    "parent": "nfm:block/shower_full",
+	"render_type": "cutout",
+    "textures": {
+        "concrete": "minecraft:block/white_concrete",
+        "glass": "minecraft:block/glass"
+    }
+}

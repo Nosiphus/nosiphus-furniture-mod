@@ -3,6 +3,8 @@ package com.nosiphus.furniture.core;
 import com.nosiphus.furniture.NosiphusFurnitureMod;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.SwordItem;
+import net.minecraft.world.item.Tiers;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
@@ -708,10 +710,6 @@ public class ModItems {
             () -> new BlockItem(ModBlocks.SINK_LIGHT.get(), new Item.Properties().tab(NosiphusFurnitureMod.GROUP)));
     public static final RegistryObject<BlockItem> SINK_DARK = ITEMS.register("sink_dark",
             () -> new BlockItem(ModBlocks.SINK_DARK.get(), new Item.Properties().tab(NosiphusFurnitureMod.GROUP)));
-    public static final RegistryObject<BlockItem> SHOWER_LIGHT = ITEMS.register("shower_light",
-            () -> new BlockItem(ModBlocks.SHOWER_LIGHT.get(), new Item.Properties().tab(NosiphusFurnitureMod.GROUP)));
-    public static final RegistryObject<BlockItem> SHOWER_DARK = ITEMS.register("shower_dark",
-            () -> new BlockItem(ModBlocks.SHOWER_DARK.get(), new Item.Properties().tab(NosiphusFurnitureMod.GROUP)));
     public static final RegistryObject<BlockItem> SHOWER_HEAD_LIGHT = ITEMS.register("shower_head_light",
             () -> new BlockItem(ModBlocks.SHOWER_HEAD_LIGHT.get(), new Item.Properties().tab(NosiphusFurnitureMod.GROUP)));
     public static final RegistryObject<BlockItem> SHOWER_HEAD_DARK = ITEMS.register("shower_head_dark",
@@ -732,5 +730,9 @@ public class ModItems {
             () -> new BlockItem(ModBlocks.CHRISTMAS_TREE.get(), new Item.Properties().tab(NosiphusFurnitureMod.GROUP)));
     public static final RegistryObject<BlockItem> WREATH = ITEMS.register("wreath",
             () -> new BlockItem(ModBlocks.WREATH.get(), new Item.Properties().tab(NosiphusFurnitureMod.GROUP)));
+
+    //Tools
+    public static final RegistryObject<Item> KNIFE = ITEMS.register("knife",
+            () -> new SwordItem(Tiers.STONE, 3, -2.4F, (new Item.Properties())));
 
 }

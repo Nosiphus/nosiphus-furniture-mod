@@ -389,6 +389,8 @@
 
     "gui.nfm.mail_box_settings": "Change Mail Box Name",
     "gui.nfm.door_mat_message": "Set Door Mat Message",
+	
+	"item.nfm.knife": "Knife",
 
 	"subtitle.nfm.open_bin": "Open Bin",
 	"subtitle.nfm.close_bin": "Close Bin",
