@@ -45,8 +45,6 @@ public class NosiphusFurnitureMod {
         ModItems.ITEMS.register(eventBus);
         ModMenuTypes.MENU_TYPES.register(eventBus);
         ModSounds.SOUNDS.register(eventBus);
-        eventBus.addListener(this::onDataSetup);
-
         MinecraftForge.EVENT_BUS.register(this);
 
     }
@@ -93,12 +91,6 @@ public class NosiphusFurnitureMod {
         public static void onCommonSetup(FMLCommonSetupEvent event) {
             PacketHandler.init();
         }
-
-    }
-
-    private void onDataSetup(GatherDataEvent event) {
-
-        DataGenerator generator = event.getGenerator();
 
     }
 
