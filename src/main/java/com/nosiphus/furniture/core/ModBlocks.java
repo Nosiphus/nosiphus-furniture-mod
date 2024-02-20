@@ -118,37 +118,37 @@ public class ModBlocks {
             () -> new ModernChairBlock(BlockBehaviour.Properties.copy(Blocks.BLACK_CONCRETE)));
 
     //Office Chairs
-    public static final RegistryObject<Block> CHAIR_WHITE_OFFICE = register("white_office_chair",
+    public static final RegistryObject<Block> CHAIR_WHITE_OFFICE = registerNoItem("white_office_chair",
             () -> new PlaceholderBlock(BlockBehaviour.Properties.copy(Blocks.WHITE_CONCRETE)));
-    public static final RegistryObject<Block> CHAIR_ORANGE_OFFICE = register("orange_office_chair",
+    public static final RegistryObject<Block> CHAIR_ORANGE_OFFICE = registerNoItem("orange_office_chair",
             () -> new PlaceholderBlock(BlockBehaviour.Properties.copy(Blocks.ORANGE_CONCRETE)));
-    public static final RegistryObject<Block> CHAIR_MAGENTA_OFFICE = register("magenta_office_chair",
+    public static final RegistryObject<Block> CHAIR_MAGENTA_OFFICE = registerNoItem("magenta_office_chair",
             () -> new PlaceholderBlock(BlockBehaviour.Properties.copy(Blocks.MAGENTA_CONCRETE)));
-    public static final RegistryObject<Block> CHAIR_LIGHT_BLUE_OFFICE = register("light_blue_office_chair",
+    public static final RegistryObject<Block> CHAIR_LIGHT_BLUE_OFFICE = registerNoItem("light_blue_office_chair",
             () -> new PlaceholderBlock(BlockBehaviour.Properties.copy(Blocks.LIGHT_BLUE_CONCRETE)));
-    public static final RegistryObject<Block> CHAIR_YELLOW_OFFICE = register("yellow_office_chair",
+    public static final RegistryObject<Block> CHAIR_YELLOW_OFFICE = registerNoItem("yellow_office_chair",
             () -> new PlaceholderBlock(BlockBehaviour.Properties.copy(Blocks.YELLOW_CONCRETE)));
-    public static final RegistryObject<Block> CHAIR_LIME_OFFICE = register("lime_office_chair",
+    public static final RegistryObject<Block> CHAIR_LIME_OFFICE = registerNoItem("lime_office_chair",
             () -> new PlaceholderBlock(BlockBehaviour.Properties.copy(Blocks.LIME_CONCRETE)));
-    public static final RegistryObject<Block> CHAIR_PINK_OFFICE = register("pink_office_chair",
+    public static final RegistryObject<Block> CHAIR_PINK_OFFICE = registerNoItem("pink_office_chair",
             () -> new PlaceholderBlock(BlockBehaviour.Properties.copy(Blocks.PINK_CONCRETE)));
-    public static final RegistryObject<Block> CHAIR_GRAY_OFFICE = register("gray_office_chair",
+    public static final RegistryObject<Block> CHAIR_GRAY_OFFICE = registerNoItem("gray_office_chair",
             () -> new PlaceholderBlock(BlockBehaviour.Properties.copy(Blocks.GRAY_CONCRETE)));
-    public static final RegistryObject<Block> CHAIR_LIGHT_GRAY_OFFICE = register("light_gray_office_chair",
+    public static final RegistryObject<Block> CHAIR_LIGHT_GRAY_OFFICE = registerNoItem("light_gray_office_chair",
             () -> new PlaceholderBlock(BlockBehaviour.Properties.copy(Blocks.LIGHT_GRAY_CONCRETE)));
-    public static final RegistryObject<Block> CHAIR_CYAN_OFFICE = register("cyan_office_chair",
+    public static final RegistryObject<Block> CHAIR_CYAN_OFFICE = registerNoItem("cyan_office_chair",
             () -> new PlaceholderBlock(BlockBehaviour.Properties.copy(Blocks.CYAN_CONCRETE)));
-    public static final RegistryObject<Block> CHAIR_PURPLE_OFFICE = register("purple_office_chair",
+    public static final RegistryObject<Block> CHAIR_PURPLE_OFFICE = registerNoItem("purple_office_chair",
             () -> new PlaceholderBlock(BlockBehaviour.Properties.copy(Blocks.PURPLE_CONCRETE)));
-    public static final RegistryObject<Block> CHAIR_BLUE_OFFICE = register("blue_office_chair",
+    public static final RegistryObject<Block> CHAIR_BLUE_OFFICE = registerNoItem("blue_office_chair",
             () -> new PlaceholderBlock(BlockBehaviour.Properties.copy(Blocks.BLUE_CONCRETE)));
-    public static final RegistryObject<Block> CHAIR_BROWN_OFFICE = register("brown_office_chair",
+    public static final RegistryObject<Block> CHAIR_BROWN_OFFICE = registerNoItem("brown_office_chair",
             () -> new PlaceholderBlock(BlockBehaviour.Properties.copy(Blocks.BROWN_CONCRETE)));
-    public static final RegistryObject<Block> CHAIR_GREEN_OFFICE = register("green_office_chair",
+    public static final RegistryObject<Block> CHAIR_GREEN_OFFICE = registerNoItem("green_office_chair",
             () -> new PlaceholderBlock(BlockBehaviour.Properties.copy(Blocks.GREEN_CONCRETE)));
-    public static final RegistryObject<Block> CHAIR_RED_OFFICE = register("red_office_chair",
+    public static final RegistryObject<Block> CHAIR_RED_OFFICE = registerNoItem("red_office_chair",
             () -> new PlaceholderBlock(BlockBehaviour.Properties.copy(Blocks.RED_CONCRETE)));
-    public static final RegistryObject<Block> CHAIR_BLACK_OFFICE = register("black_office_chair",
+    public static final RegistryObject<Block> CHAIR_BLACK_OFFICE = registerNoItem("black_office_chair",
             () -> new PlaceholderBlock(BlockBehaviour.Properties.copy(Blocks.BLACK_CONCRETE)));
 
     //Coffee Tables
@@ -586,37 +586,37 @@ public class ModBlocks {
             () -> new BarStoolBlock(BlockBehaviour.Properties.copy(Blocks.BLACK_CONCRETE)));
 
     //Electronics
-    public static final RegistryObject<Block> LAPTOP_WHITE = register("white_laptop",
+    public static final RegistryObject<Block> LAPTOP_WHITE = registerNoItem("white_laptop",
             () -> new PlaceholderBlock(BlockBehaviour.Properties.copy(Blocks.WHITE_CONCRETE)));
-    public static final RegistryObject<Block> LAPTOP_ORANGE = register("orange_laptop",
+    public static final RegistryObject<Block> LAPTOP_ORANGE = registerNoItem("orange_laptop",
             () -> new PlaceholderBlock(BlockBehaviour.Properties.copy(Blocks.ORANGE_CONCRETE)));
-    public static final RegistryObject<Block> LAPTOP_MAGENTA = register("magenta_laptop",
+    public static final RegistryObject<Block> LAPTOP_MAGENTA = registerNoItem("magenta_laptop",
             () -> new PlaceholderBlock(BlockBehaviour.Properties.copy(Blocks.MAGENTA_CONCRETE)));
-    public static final RegistryObject<Block> LAPTOP_LIGHT_BLUE = register("light_blue_laptop",
+    public static final RegistryObject<Block> LAPTOP_LIGHT_BLUE = registerNoItem("light_blue_laptop",
             () -> new PlaceholderBlock(BlockBehaviour.Properties.copy(Blocks.LIGHT_BLUE_CONCRETE)));
-    public static final RegistryObject<Block> LAPTOP_YELLOW = register("yellow_laptop",
+    public static final RegistryObject<Block> LAPTOP_YELLOW = registerNoItem("yellow_laptop",
             () -> new PlaceholderBlock(BlockBehaviour.Properties.copy(Blocks.YELLOW_CONCRETE)));
-    public static final RegistryObject<Block> LAPTOP_LIME = register("lime_laptop",
+    public static final RegistryObject<Block> LAPTOP_LIME = registerNoItem("lime_laptop",
             () -> new PlaceholderBlock(BlockBehaviour.Properties.copy(Blocks.LIME_CONCRETE)));
-    public static final RegistryObject<Block> LAPTOP_PINK = register("pink_laptop",
+    public static final RegistryObject<Block> LAPTOP_PINK = registerNoItem("pink_laptop",
             () -> new PlaceholderBlock(BlockBehaviour.Properties.copy(Blocks.PINK_CONCRETE)));
-    public static final RegistryObject<Block> LAPTOP_GRAY = register("gray_laptop",
+    public static final RegistryObject<Block> LAPTOP_GRAY = registerNoItem("gray_laptop",
             () -> new PlaceholderBlock(BlockBehaviour.Properties.copy(Blocks.GRAY_CONCRETE)));
-    public static final RegistryObject<Block> LAPTOP_LIGHT_GRAY = register("light_gray_laptop",
+    public static final RegistryObject<Block> LAPTOP_LIGHT_GRAY = registerNoItem("light_gray_laptop",
             () -> new PlaceholderBlock(BlockBehaviour.Properties.copy(Blocks.LIGHT_GRAY_CONCRETE)));
-    public static final RegistryObject<Block> LAPTOP_CYAN = register("cyan_laptop",
+    public static final RegistryObject<Block> LAPTOP_CYAN = registerNoItem("cyan_laptop",
             () -> new PlaceholderBlock(BlockBehaviour.Properties.copy(Blocks.CYAN_CONCRETE)));
-    public static final RegistryObject<Block> LAPTOP_PURPLE = register("purple_laptop",
+    public static final RegistryObject<Block> LAPTOP_PURPLE = registerNoItem("purple_laptop",
             () -> new PlaceholderBlock(BlockBehaviour.Properties.copy(Blocks.PURPLE_CONCRETE)));
-    public static final RegistryObject<Block> LAPTOP_BLUE = register("blue_laptop",
+    public static final RegistryObject<Block> LAPTOP_BLUE = registerNoItem("blue_laptop",
             () -> new PlaceholderBlock(BlockBehaviour.Properties.copy(Blocks.BLUE_CONCRETE)));
-    public static final RegistryObject<Block> LAPTOP_BROWN = register("brown_laptop",
+    public static final RegistryObject<Block> LAPTOP_BROWN = registerNoItem("brown_laptop",
             () -> new PlaceholderBlock(BlockBehaviour.Properties.copy(Blocks.BROWN_CONCRETE)));
-    public static final RegistryObject<Block> LAPTOP_GREEN = register("green_laptop",
+    public static final RegistryObject<Block> LAPTOP_GREEN = registerNoItem("green_laptop",
             () -> new PlaceholderBlock(BlockBehaviour.Properties.copy(Blocks.GREEN_CONCRETE)));
-    public static final RegistryObject<Block> LAPTOP_RED = register("red_laptop",
+    public static final RegistryObject<Block> LAPTOP_RED = registerNoItem("red_laptop",
             () -> new PlaceholderBlock(BlockBehaviour.Properties.copy(Blocks.RED_CONCRETE)));
-    public static final RegistryObject<Block> LAPTOP_BLACK = register("black_laptop",
+    public static final RegistryObject<Block> LAPTOP_BLACK = registerNoItem("black_laptop",
             () -> new PlaceholderBlock(BlockBehaviour.Properties.copy(Blocks.BLACK_CONCRETE)));
 
     //Door Bells
@@ -692,6 +692,40 @@ public class ModBlocks {
             () -> new InflatableCastleBlock(BlockBehaviour.Properties.copy(Blocks.BLACK_WOOL)));
     public static final RegistryObject<Block> CASTLE_NETTING = register("castle_netting",
             () -> new IronBarsBlock(BlockBehaviour.Properties.copy(Blocks.WHITE_WOOL)));
+
+    //Cups
+    public static final RegistryObject<Block> CUP_WHITE = register("white_cup",
+            () -> new CupBlock(BlockBehaviour.Properties.copy(Blocks.WHITE_STAINED_GLASS)));
+    public static final RegistryObject<Block> CUP_ORANGE = register("orange_cup",
+            () -> new CupBlock(BlockBehaviour.Properties.copy(Blocks.ORANGE_STAINED_GLASS)));
+    public static final RegistryObject<Block> CUP_MAGENTA = register("magenta_cup",
+            () -> new CupBlock(BlockBehaviour.Properties.copy(Blocks.MAGENTA_STAINED_GLASS)));
+    public static final RegistryObject<Block> CUP_LIGHT_BLUE = register("light_blue_cup",
+            () -> new CupBlock(BlockBehaviour.Properties.copy(Blocks.LIGHT_BLUE_STAINED_GLASS)));
+    public static final RegistryObject<Block> CUP_YELLOW = register("yellow_cup",
+            () -> new CupBlock(BlockBehaviour.Properties.copy(Blocks.YELLOW_STAINED_GLASS)));
+    public static final RegistryObject<Block> CUP_LIME = register("lime_cup",
+            () -> new CupBlock(BlockBehaviour.Properties.copy(Blocks.LIME_STAINED_GLASS)));
+    public static final RegistryObject<Block> CUP_PINK = register("pink_cup",
+            () -> new CupBlock(BlockBehaviour.Properties.copy(Blocks.PINK_STAINED_GLASS)));
+    public static final RegistryObject<Block> CUP_GRAY = register("gray_cup",
+            () -> new CupBlock(BlockBehaviour.Properties.copy(Blocks.GRAY_STAINED_GLASS)));
+    public static final RegistryObject<Block> CUP_LIGHT_GRAY = register("light_gray_cup",
+            () -> new CupBlock(BlockBehaviour.Properties.copy(Blocks.LIGHT_GRAY_STAINED_GLASS)));
+    public static final RegistryObject<Block> CUP_CYAN = register("cyan_cup",
+            () -> new CupBlock(BlockBehaviour.Properties.copy(Blocks.CYAN_STAINED_GLASS)));
+    public static final RegistryObject<Block> CUP_PURPLE = register("purple_cup",
+            () -> new CupBlock(BlockBehaviour.Properties.copy(Blocks.PURPLE_STAINED_GLASS)));
+    public static final RegistryObject<Block> CUP_BLUE = register("blue_cup",
+            () -> new CupBlock(BlockBehaviour.Properties.copy(Blocks.BLUE_STAINED_GLASS)));
+    public static final RegistryObject<Block> CUP_BROWN = register("brown_cup",
+            () -> new CupBlock(BlockBehaviour.Properties.copy(Blocks.BROWN_STAINED_GLASS)));
+    public static final RegistryObject<Block> CUP_GREEN = register("green_cup",
+            () -> new CupBlock(BlockBehaviour.Properties.copy(Blocks.GREEN_STAINED_GLASS)));
+    public static final RegistryObject<Block> CUP_RED = register("red_cup",
+            () -> new CupBlock(BlockBehaviour.Properties.copy(Blocks.RED_STAINED_GLASS)));
+    public static final RegistryObject<Block> CUP_BLACK = register("black_cup",
+            () -> new CupBlock(BlockBehaviour.Properties.copy(Blocks.BLACK_STAINED_GLASS)));
 
     //Appliances
     public static final RegistryObject<Block> BIN_LIGHT = register("bin_light",

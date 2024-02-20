@@ -95,7 +95,9 @@ repositories {
 dependencies {
     minecraft 'net.minecraftforge:forge:1.19.2-43.2.10'
 	annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
+    implementation fg.deobf("curse.maven:architectury-api-419699:5084406")
     implementation fg.deobf('curse.maven:cfm-55438:3907425')
+    implementation fg.deobf("curse.maven:devices-mod-659048:4167396")
 }
 
 processResources {

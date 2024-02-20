@@ -3,6 +3,6 @@
 	"ambientocclusion": false,
 	"render_type": "translucent",
 	"textures": {
-		"glass": "minecraft:block/white_stained_glass"
+		"glass": "minecraft:block/magenta_stained_glass"
 	}
 }
