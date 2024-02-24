@@ -379,9 +379,10 @@
 	"block.nfm.christmas_tree": "Christmas Tree",
 	"block.nfm.wreath": "Wreath",
 
+	"container.nfm.bedside_cabinet": "Bedside Cabinet",
 	"container.nfm.bin": "Bin",
     "container.nfm.cabinet": "Cabinet",
-    "container.nfm.bedside_cabinet": "Bedside Cabinet",
+    "container.nfm.dishwasher": "Dishwasher",
 	"container.nfm.microwave": "Microwave",
 	"container.nfm.oven": "Oven",
     "container.nfm.desk_cabinet": "Desk Cabinet",
@@ -408,6 +409,9 @@
     "gui.nfm.door_mat_message": "Set Door Mat Message",
 	
 	"item.nfm.knife": "Knife",
+	"item.nfm.soap": "Soap",
+	"item.nfm.soapy_water": "Soapy Water",
+	"item.nfm.super_soapy_water": "Super Soapy Water",
 
 	"subtitle.nfm.open_bin": "Open Bin",
 	"subtitle.nfm.close_bin": "Close Bin",

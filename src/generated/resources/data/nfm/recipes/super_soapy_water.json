@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "S  ",
+    "W  ",
+    "   "
+  ],
+  "key": {
+    "S": {
+      "item": "nfm:soap"
+    },
+	"W": {
+      "item": "nfm:soapy_water"
+    }
+  },
+  "result": {
+    "item": "nfm:super_soapy_water"
+  }
+}

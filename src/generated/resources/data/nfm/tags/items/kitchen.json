@@ -95,6 +95,9 @@
     "nfm:oven_range_hood_dark",
     "nfm:toaster_light",
     "nfm:toaster_dark",
-    "nfm:knife"
+    "nfm:knife",
+    "nfm:soap",
+    "nfm:soapy_water",
+    "nfm:super_soapy_water"
   ]
 }

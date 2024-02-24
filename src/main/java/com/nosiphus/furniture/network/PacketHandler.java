@@ -2,6 +2,7 @@ package com.nosiphus.furniture.network;
 
 import com.mrcrayfish.furniture.network.message.IMessage;
 import com.nosiphus.furniture.NosiphusFurnitureMod;
+import com.nosiphus.furniture.network.message.C2SMessageDishwasher;
 import com.nosiphus.furniture.network.message.C2SMessageEmptyBin;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.network.NetworkDirection;
@@ -25,6 +26,7 @@ public class PacketHandler {
                 .clientAcceptedVersions(PROTOCOL_VERSION::equals)
                 .serverAcceptedVersions(PROTOCOL_VERSION::equals)
                 .simpleChannel();
+        register(C2SMessageDishwasher.class, new C2SMessageDishwasher(), NetworkDirection.PLAY_TO_SERVER);
         register(C2SMessageEmptyBin.class, new C2SMessageEmptyBin(), NetworkDirection.PLAY_TO_SERVER);
     }
 
