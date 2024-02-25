@@ -389,6 +389,8 @@
     "container.nfm.kitchen_drawer": "Kitchen Drawer",
 
 	"gui.button.nfm.bin.empty": "Empty",
+	"gui.button.nfm.dishwasher.start": "Start",
+	"gui.button.nfm.dishwasher.stop": "Stop",
     "gui.button.nfm.locked": "Locked",
     "gui.button.nfm.unlocked": "Unlocked",
     "gui.button.nfm.save": "Save",

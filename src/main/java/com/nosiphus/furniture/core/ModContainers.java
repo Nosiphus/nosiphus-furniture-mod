@@ -2,7 +2,10 @@ package com.nosiphus.furniture.core;
 
 import com.nosiphus.furniture.blockentity.BinBlockEntity;
 import com.nosiphus.furniture.blockentity.DishwasherBlockEntity;
-import com.nosiphus.furniture.client.menu.*;
+import com.nosiphus.furniture.inventory.container.BinMenu;
+import com.nosiphus.furniture.inventory.container.DishwasherMenu;
+import com.nosiphus.furniture.inventory.container.MicrowaveMenu;
+import com.nosiphus.furniture.inventory.container.OvenMenu;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.MenuType;
 import net.minecraftforge.common.extensions.IForgeMenuType;
@@ -11,7 +14,7 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
-public class ModMenuTypes {
+public class ModContainers {
 
     public static final DeferredRegister<MenuType<?>> MENU_TYPES = DeferredRegister.create(ForgeRegistries.MENU_TYPES, "nfm");
 

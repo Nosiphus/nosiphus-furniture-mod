@@ -1,7 +1,7 @@
 package com.nosiphus.furniture.blockentity;
 
 import com.mrcrayfish.furniture.tileentity.BasicLootBlockEntity;
-import com.nosiphus.furniture.client.menu.DishwasherMenu;
+import com.nosiphus.furniture.inventory.container.DishwasherMenu;
 import com.nosiphus.furniture.core.ModBlockEntities;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
@@ -34,7 +34,5 @@ public class DishwasherBlockEntity extends BasicLootBlockEntity {
     protected AbstractContainerMenu createMenu(int ID, Inventory inventory) {
         return new DishwasherMenu(ID, inventory, this);
     }
-
-
 
 }

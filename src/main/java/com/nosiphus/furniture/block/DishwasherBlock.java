@@ -32,6 +32,7 @@ import java.util.List;
 public class DishwasherBlock extends FurnitureHorizontalBlock implements EntityBlock
 {
     public static final BooleanProperty WASHING = BooleanProperty.create("washing");
+
     public final ImmutableMap<BlockState, VoxelShape> SHAPES;
 
     public DishwasherBlock(Properties properties)
@@ -105,6 +106,14 @@ public class DishwasherBlock extends FurnitureHorizontalBlock implements EntityB
     @Override
     public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
         return new DishwasherBlockEntity(pos, state);
+    }
+
+    public static void switchState(BlockState state, Level level, BlockPos pos) {
+        if(state.getValue(WASHING)) {
+            level.setBlock(pos, state.setValue(WASHING, Boolean.valueOf(false)), 2);
+        } else {
+            level.setBlock(pos, state.setValue(WASHING, Boolean.valueOf(true)), 2);
+        }
     }
 
 }

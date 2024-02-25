@@ -1,6 +1,6 @@
-package com.nosiphus.furniture.client.menu;
+package com.nosiphus.furniture.inventory.container;
 
-import com.nosiphus.furniture.core.ModMenuTypes;
+import com.nosiphus.furniture.core.ModContainers;
 import net.minecraft.world.Container;
 import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.entity.player.Inventory;
@@ -10,14 +10,14 @@ import net.minecraft.world.inventory.RecipeBookType;
 import net.minecraft.world.inventory.SimpleContainerData;
 import net.minecraft.world.item.crafting.RecipeType;
 
-public class OvenMenu extends AbstractFurnaceMenu {
+public class MicrowaveMenu extends AbstractFurnaceMenu {
 
-    public OvenMenu(int ID, Inventory inventory) {
+    public MicrowaveMenu(int ID, Inventory inventory) {
         this(ID, inventory, new SimpleContainer(3), new SimpleContainerData(4));
     }
 
-    public OvenMenu(int ID, Inventory inventory, Container container, ContainerData data) {
-        super(ModMenuTypes.OVEN.get(), RecipeType.SMELTING, RecipeBookType.FURNACE, ID, inventory, container, data);
+    public MicrowaveMenu(int ID, Inventory inventory, Container container, ContainerData data) {
+        super(ModContainers.MICROWAVE.get(), RecipeType.SMELTING, RecipeBookType.FURNACE, ID, inventory, container, data);
     }
 
 }

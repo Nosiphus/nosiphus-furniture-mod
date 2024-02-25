@@ -1,40 +1,46 @@
-package com.nosiphus.furniture.client.menu;
+package com.nosiphus.furniture.inventory.container;
 
-import com.nosiphus.furniture.blockentity.BinBlockEntity;
-import com.nosiphus.furniture.core.ModMenuTypes;
+import com.nosiphus.furniture.block.DishwasherBlock;
+import com.nosiphus.furniture.blockentity.DishwasherBlockEntity;
+import com.nosiphus.furniture.core.ModContainers;
+import com.nosiphus.furniture.inventory.container.slot.SoapyWaterSlot;
+import com.nosiphus.furniture.inventory.container.slot.ToolSlot;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.inventory.*;
+import net.minecraft.world.inventory.AbstractContainerMenu;
+import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.block.state.BlockState;
 
-public class BinMenu extends AbstractContainerMenu {
+public class DishwasherMenu extends AbstractContainerMenu {
 
-    protected final BinBlockEntity blockEntity;
+    protected final DishwasherBlockEntity blockEntity;
 
-    public BinMenu(int ID, Inventory inventory, BinBlockEntity blockEntity) {
-        super(ModMenuTypes.BIN.get(), ID);
+    public DishwasherMenu(int ID, Inventory inventory, DishwasherBlockEntity blockEntity) {
+        super(ModContainers.DISHWASHER.get(), ID);
         this.blockEntity = blockEntity;
         blockEntity.startOpen(inventory.player);
 
-        for(int i = 0; i < 4; i++)
-        {
-            for(int j = 0; j < 3; j++)
-            {
-                this.addSlot(new Slot(blockEntity, j + i * 3, j * 18 + 62, i * 18 + 18));
-            }
-        }
+        this.addSlot(new ToolSlot(blockEntity, 0, 56, 43, 0));
+        this.addSlot(new ToolSlot(blockEntity, 1, 80, 43, 1));
+        this.addSlot(new ToolSlot(blockEntity, 2, 104, 43, 2));
+        this.addSlot(new ToolSlot(blockEntity, 3, 56, 74, 3));
+        this.addSlot(new ToolSlot(blockEntity, 4, 80, 74, 4));
+        this.addSlot(new ToolSlot(blockEntity, 5, 104, 74, 5));
+        this.addSlot(new SoapyWaterSlot(blockEntity, 6, 125, 7));
+
 
         for(int i = 0; i < 3; i++)
         {
             for(int j = 0; j < 9; ++j)
             {
-                this.addSlot(new Slot(inventory, j + i * 9 + 9, j * 18 + 8, i * 18 + 115));
+                this.addSlot(new Slot(inventory, j + i * 9 + 9, j * 18 + 8, i * 18 + 146));
             }
         }
 
         for(int i = 0; i < 9; i++)
         {
-            this.addSlot(new Slot(inventory, i, i * 18 + 8, 173));
+            this.addSlot(new Slot(inventory, i, i * 18 + 8, 204));
         }
 
     }
@@ -83,23 +89,12 @@ public class BinMenu extends AbstractContainerMenu {
         this.blockEntity.stopOpen(player);
     }
 
-    public BinBlockEntity getBlockEntity() {
+    public DishwasherBlockEntity getBlockEntity() {
         return blockEntity;
     }
 
-    public static void emptyBin(BinMenu binMenu) {
-        binMenu.getSlot(0).set(ItemStack.EMPTY);
-        binMenu.getSlot(1).set(ItemStack.EMPTY);
-        binMenu.getSlot(2).set(ItemStack.EMPTY);
-        binMenu.getSlot(3).set(ItemStack.EMPTY);
-        binMenu.getSlot(4).set(ItemStack.EMPTY);
-        binMenu.getSlot(5).set(ItemStack.EMPTY);
-        binMenu.getSlot(6).set(ItemStack.EMPTY);
-        binMenu.getSlot(7).set(ItemStack.EMPTY);
-        binMenu.getSlot(8).set(ItemStack.EMPTY);
-        binMenu.getSlot(9).set(ItemStack.EMPTY);
-        binMenu.getSlot(10).set(ItemStack.EMPTY);
-        binMenu.getSlot(11).set(ItemStack.EMPTY);
+    public static void switchState(DishwasherMenu dishwasherMenu) {
+        dishwasherMenu.
     }
 
 }

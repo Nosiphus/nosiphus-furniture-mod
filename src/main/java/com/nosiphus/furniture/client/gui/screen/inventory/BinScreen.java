@@ -1,9 +1,9 @@
-package com.nosiphus.furniture.client.menu.screen;
+package com.nosiphus.furniture.client.gui.screen.inventory;
 
 import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.nosiphus.furniture.NosiphusFurnitureMod;
-import com.nosiphus.furniture.client.menu.BinMenu;
+import com.nosiphus.furniture.inventory.container.BinMenu;
 import com.nosiphus.furniture.network.PacketHandler;
 import com.nosiphus.furniture.network.message.C2SMessageEmptyBin;
 import net.minecraft.client.gui.components.Button;
@@ -13,12 +13,14 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
 
-public class BinMenuScreen extends AbstractContainerScreen<BinMenu> {
+public class BinScreen extends AbstractContainerScreen<BinMenu> {
 
     private static final ResourceLocation TEXTURE = new ResourceLocation(NosiphusFurnitureMod.MOD_ID, "textures/gui/bin.png");
 
-    public BinMenuScreen(BinMenu menu, Inventory inventory, Component component) {
+    public BinScreen(BinMenu menu, Inventory inventory, Component component) {
         super(menu, inventory, component);
+        this.imageWidth = 176;
+        this.imageHeight = 197;
     }
 
     @Override
@@ -33,9 +35,9 @@ public class BinMenuScreen extends AbstractContainerScreen<BinMenu> {
         RenderSystem.setShader(GameRenderer::getPositionTexShader);
         RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, 1.0F);
         RenderSystem.setShaderTexture(0, TEXTURE);
-        this.imageWidth = 176;
-        this.imageHeight = 197;
-        this.blit(poseStack, this.leftPos, this.topPos, 0, 0, this.imageWidth, this.imageHeight);
+        int startX = (this.width - this.imageWidth) / 2;
+        int startY = (this.height - this.imageHeight) / 2;
+        this.blit(poseStack, startX, startY, 0, 0, this.imageWidth, this.imageHeight);
     }
 
     @Override

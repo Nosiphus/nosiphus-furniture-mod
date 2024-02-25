@@ -1,10 +1,10 @@
 package com.nosiphus.furniture;
 
 import com.nosiphus.furniture.client.event.CreativeScreenEvents;
-import com.nosiphus.furniture.client.menu.screen.BinMenuScreen;
-import com.nosiphus.furniture.client.menu.screen.DishwasherMenuScreen;
-import com.nosiphus.furniture.client.menu.screen.MicrowaveMenuScreen;
-import com.nosiphus.furniture.client.menu.screen.OvenMenuScreen;
+import com.nosiphus.furniture.client.gui.screen.inventory.BinScreen;
+import com.nosiphus.furniture.client.gui.screen.inventory.DishwasherScreen;
+import com.nosiphus.furniture.client.gui.screen.inventory.MicrowaveScreen;
+import com.nosiphus.furniture.client.gui.screen.inventory.OvenScreen;
 import com.nosiphus.furniture.client.renderer.blockentity.ModernKitchenSinkBlockEntityRenderer;
 import com.nosiphus.furniture.client.renderer.blockentity.SinkBlockEntityRenderer;
 import com.nosiphus.furniture.core.*;
@@ -42,7 +42,7 @@ public class NosiphusFurnitureMod {
         ModBlocks.BLOCKS.register(eventBus);
         ModBlockEntities.BLOCK_ENTITIES.register(eventBus);
         ModItems.ITEMS.register(eventBus);
-        ModMenuTypes.MENU_TYPES.register(eventBus);
+        ModContainers.MENU_TYPES.register(eventBus);
         ModSounds.SOUNDS.register(eventBus);
         MinecraftForge.EVENT_BUS.register(this);
 
@@ -53,10 +53,10 @@ public class NosiphusFurnitureMod {
 
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event) {
-            MenuScreens.register(ModMenuTypes.BIN.get(), BinMenuScreen::new);
-            MenuScreens.register(ModMenuTypes.DISHWASHER.get(), DishwasherMenuScreen::new);
-            MenuScreens.register(ModMenuTypes.MICROWAVE.get(), MicrowaveMenuScreen::new);
-            MenuScreens.register(ModMenuTypes.OVEN.get(), OvenMenuScreen::new);
+            MenuScreens.register(ModContainers.BIN.get(), BinScreen::new);
+            MenuScreens.register(ModContainers.DISHWASHER.get(), DishwasherScreen::new);
+            MenuScreens.register(ModContainers.MICROWAVE.get(), MicrowaveScreen::new);
+            MenuScreens.register(ModContainers.OVEN.get(), OvenScreen::new);
             MinecraftForge.EVENT_BUS.register(new CreativeScreenEvents());
         }
 

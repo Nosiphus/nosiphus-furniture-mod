@@ -1,21 +1,36 @@
-package com.nosiphus.furniture.client.menu;
+package com.nosiphus.furniture.inventory.container;
 
-import com.nosiphus.furniture.blockentity.DishwasherBlockEntity;
-import com.nosiphus.furniture.core.ModMenuTypes;
+import com.nosiphus.furniture.blockentity.BinBlockEntity;
+import com.nosiphus.furniture.core.ModContainers;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.inventory.AbstractContainerMenu;
-import net.minecraft.world.inventory.Slot;
+import net.minecraft.world.inventory.*;
 import net.minecraft.world.item.ItemStack;
 
-public class DishwasherMenu extends AbstractContainerMenu {
+public class BinMenu extends AbstractContainerMenu {
 
-    protected final DishwasherBlockEntity blockEntity;
+    protected final BinBlockEntity blockEntity;
 
-    public DishwasherMenu(int ID, Inventory inventory, DishwasherBlockEntity blockEntity) {
-        super(ModMenuTypes.DISHWASHER.get(), ID);
+    public BinMenu(int ID, Inventory inventory, BinBlockEntity blockEntity) {
+        super(ModContainers.BIN.get(), ID);
         this.blockEntity = blockEntity;
         blockEntity.startOpen(inventory.player);
+
+        for(int i = 0; i < 4; i++)
+        {
+            for(int j = 0; j < 3; j++)
+            {
+                this.addSlot(new Slot(blockEntity, j + i * 3, j * 18 + 62, i * 18 + 18));
+            }
+        }
+
+        for(int i = 0; i < 3; i++)
+        {
+            for(int j = 0; j < 9; ++j)
+            {
+                this.addSlot(new Slot(inventory, j + i * 9 + 9, j * 18 + 8, i * 18 + 115));
+            }
+        }
 
         for(int i = 0; i < 9; i++)
         {
@@ -68,10 +83,23 @@ public class DishwasherMenu extends AbstractContainerMenu {
         this.blockEntity.stopOpen(player);
     }
 
-    public DishwasherBlockEntity getBlockEntity() {
+    public BinBlockEntity getBlockEntity() {
         return blockEntity;
     }
 
-
+    public static void emptyBin(BinMenu binMenu) {
+        binMenu.getSlot(0).set(ItemStack.EMPTY);
+        binMenu.getSlot(1).set(ItemStack.EMPTY);
+        binMenu.getSlot(2).set(ItemStack.EMPTY);
+        binMenu.getSlot(3).set(ItemStack.EMPTY);
+        binMenu.getSlot(4).set(ItemStack.EMPTY);
+        binMenu.getSlot(5).set(ItemStack.EMPTY);
+        binMenu.getSlot(6).set(ItemStack.EMPTY);
+        binMenu.getSlot(7).set(ItemStack.EMPTY);
+        binMenu.getSlot(8).set(ItemStack.EMPTY);
+        binMenu.getSlot(9).set(ItemStack.EMPTY);
+        binMenu.getSlot(10).set(ItemStack.EMPTY);
+        binMenu.getSlot(11).set(ItemStack.EMPTY);
+    }
 
 }
