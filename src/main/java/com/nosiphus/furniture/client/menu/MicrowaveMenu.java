@@ -17,7 +17,7 @@ public class MicrowaveMenu extends AbstractFurnaceMenu {
     }
 
     public MicrowaveMenu(int ID, Inventory inventory, Container container, ContainerData data) {
-        super(ModMenuTypes.MICROWAVE_MENU.get(), RecipeType.SMELTING, RecipeBookType.FURNACE, ID, inventory, container, data);
+        super(ModMenuTypes.MICROWAVE.get(), RecipeType.SMELTING, RecipeBookType.FURNACE, ID, inventory, container, data);
     }
 
 }

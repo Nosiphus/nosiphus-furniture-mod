@@ -2,6 +2,7 @@ package com.nosiphus.furniture;
 
 import com.nosiphus.furniture.client.event.CreativeScreenEvents;
 import com.nosiphus.furniture.client.menu.screen.BinMenuScreen;
+import com.nosiphus.furniture.client.menu.screen.DishwasherMenuScreen;
 import com.nosiphus.furniture.client.menu.screen.MicrowaveMenuScreen;
 import com.nosiphus.furniture.client.menu.screen.OvenMenuScreen;
 import com.nosiphus.furniture.client.renderer.blockentity.ModernKitchenSinkBlockEntityRenderer;
@@ -52,9 +53,10 @@ public class NosiphusFurnitureMod {
 
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event) {
-            MenuScreens.register(ModMenuTypes.BIN_MENU.get(), BinMenuScreen::new);
-            MenuScreens.register(ModMenuTypes.MICROWAVE_MENU.get(), MicrowaveMenuScreen::new);
-            MenuScreens.register(ModMenuTypes.OVEN_MENU.get(), OvenMenuScreen::new);
+            MenuScreens.register(ModMenuTypes.BIN.get(), BinMenuScreen::new);
+            MenuScreens.register(ModMenuTypes.DISHWASHER.get(), DishwasherMenuScreen::new);
+            MenuScreens.register(ModMenuTypes.MICROWAVE.get(), MicrowaveMenuScreen::new);
+            MenuScreens.register(ModMenuTypes.OVEN.get(), OvenMenuScreen::new);
             MinecraftForge.EVENT_BUS.register(new CreativeScreenEvents());
         }
 

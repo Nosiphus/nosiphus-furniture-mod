@@ -1,6 +1,7 @@
 package com.nosiphus.furniture.core;
 
 import com.nosiphus.furniture.blockentity.BinBlockEntity;
+import com.nosiphus.furniture.blockentity.DishwasherBlockEntity;
 import com.nosiphus.furniture.client.menu.*;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.MenuType;
@@ -14,13 +15,16 @@ public class ModMenuTypes {
 
     public static final DeferredRegister<MenuType<?>> MENU_TYPES = DeferredRegister.create(ForgeRegistries.MENU_TYPES, "nfm");
 
-    public static final RegistryObject<MenuType<BinMenu>> BIN_MENU = register("bin", (IContainerFactory<BinMenu>) (ID, inventory, data) -> {
+    public static final RegistryObject<MenuType<BinMenu>> BIN = register("bin", (IContainerFactory<BinMenu>) (ID, inventory, data) -> {
         BinBlockEntity binBlockEntity = (BinBlockEntity) inventory.player.level.getBlockEntity(data.readBlockPos());
         return new BinMenu(ID, inventory, binBlockEntity);
     });
-
-    public static final RegistryObject<MenuType<MicrowaveMenu>> MICROWAVE_MENU = registerMenuType((ID, inventory, extraData) -> new MicrowaveMenu(ID, inventory), "microwave_menu");
-    public static final RegistryObject<MenuType<OvenMenu>> OVEN_MENU = registerMenuType((ID, inventory, extraData) -> new OvenMenu(ID, inventory), "oven_menu");
+    public static final RegistryObject<MenuType<DishwasherMenu>> DISHWASHER = register("dishwasher", (IContainerFactory<DishwasherMenu>) (ID, inventory, data) -> {
+        DishwasherBlockEntity dishwasherBlockEntity = (DishwasherBlockEntity) inventory.player.level.getBlockEntity(data.readBlockPos());
+        return new DishwasherMenu(ID, inventory, dishwasherBlockEntity);
+    });
+    public static final RegistryObject<MenuType<MicrowaveMenu>> MICROWAVE = registerMenuType((ID, inventory, extraData) -> new MicrowaveMenu(ID, inventory), "microwave");
+    public static final RegistryObject<MenuType<OvenMenu>> OVEN = registerMenuType((ID, inventory, extraData) -> new OvenMenu(ID, inventory), "oven");
 
     private static <T extends AbstractContainerMenu> RegistryObject<MenuType<T>> register(String key, MenuType.MenuSupplier<T> supplier) {
         MenuType<T> type = new MenuType<>(supplier);
