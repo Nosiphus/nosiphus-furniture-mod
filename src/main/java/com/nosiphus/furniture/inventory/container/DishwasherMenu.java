@@ -29,7 +29,6 @@ public class DishwasherMenu extends AbstractContainerMenu {
         this.addSlot(new ToolSlot(blockEntity, 5, 104, 74, 5));
         this.addSlot(new SoapyWaterSlot(blockEntity, 6, 125, 7));
 
-
         for(int i = 0; i < 3; i++)
         {
             for(int j = 0; j < 9; ++j)
@@ -91,10 +90,6 @@ public class DishwasherMenu extends AbstractContainerMenu {
 
     public DishwasherBlockEntity getBlockEntity() {
         return blockEntity;
-    }
-
-    public static void switchState(DishwasherMenu dishwasherMenu) {
-        dishwasherMenu.
     }
 
 }

@@ -108,12 +108,4 @@ public class DishwasherBlock extends FurnitureHorizontalBlock implements EntityB
         return new DishwasherBlockEntity(pos, state);
     }
 
-    public static void switchState(BlockState state, Level level, BlockPos pos) {
-        if(state.getValue(WASHING)) {
-            level.setBlock(pos, state.setValue(WASHING, Boolean.valueOf(false)), 2);
-        } else {
-            level.setBlock(pos, state.setValue(WASHING, Boolean.valueOf(true)), 2);
-        }
-    }
-
 }

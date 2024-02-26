@@ -2,13 +2,11 @@ package com.nosiphus.furniture.network;
 
 import com.mrcrayfish.furniture.network.message.IMessage;
 import com.nosiphus.furniture.NosiphusFurnitureMod;
-import com.nosiphus.furniture.network.message.C2SMessageDishwasher;
 import com.nosiphus.furniture.network.message.C2SMessageEmptyBin;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.network.NetworkDirection;
 import net.minecraftforge.network.NetworkRegistry;
 import net.minecraftforge.network.simple.SimpleChannel;
-import org.checkerframework.checker.units.qual.C;
 
 import javax.annotation.Nullable;
 import java.util.Optional;
@@ -27,7 +25,6 @@ public class PacketHandler {
                 .clientAcceptedVersions(PROTOCOL_VERSION::equals)
                 .serverAcceptedVersions(PROTOCOL_VERSION::equals)
                 .simpleChannel();
-        register(C2SMessageDishwasher.class, new C2SMessageDishwasher(), NetworkDirection.PLAY_TO_SERVER);
         register(C2SMessageEmptyBin.class, new C2SMessageEmptyBin(), NetworkDirection.PLAY_TO_SERVER);
     }
 

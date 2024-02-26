@@ -4,9 +4,6 @@ import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.nosiphus.furniture.NosiphusFurnitureMod;
 import com.nosiphus.furniture.inventory.container.DishwasherMenu;
-import com.nosiphus.furniture.network.PacketHandler;
-import com.nosiphus.furniture.network.message.C2SMessageDishwasher;
-import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.client.renderer.GameRenderer;
 import net.minecraft.network.chat.Component;
@@ -26,8 +23,6 @@ public class DishwasherScreen extends AbstractContainerScreen<DishwasherMenu> {
     @Override
     protected void init() {
         super.init();
-        addRenderableWidget(new Button(this.getGuiLeft() + 128, this.getGuiTop() + 48, 40, 20, Component.translatable("gui.button.nfm.dishwasher.start"), button -> PacketHandler.getPlayChannel()
-                .sendToServer(new C2SMessageDishwasher(getMenu().getBlockEntity().getBlockPos()))));
     }
 
     @Override
@@ -52,6 +47,5 @@ public class DishwasherScreen extends AbstractContainerScreen<DishwasherMenu> {
         super.render(poseStack, mouseX, mouseY, delta);
         this.renderTooltip(poseStack, mouseX, mouseY);
     }
-
 
 }
