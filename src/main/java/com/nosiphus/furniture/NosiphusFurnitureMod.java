@@ -41,8 +41,8 @@ public class NosiphusFurnitureMod {
         IEventBus eventBus = FMLJavaModLoadingContext.get().getModEventBus();
         ModBlocks.BLOCKS.register(eventBus);
         ModBlockEntities.BLOCK_ENTITIES.register(eventBus);
+        ModContainers.CONTAINERS.register(eventBus);
         ModItems.ITEMS.register(eventBus);
-        ModContainers.MENU_TYPES.register(eventBus);
         ModSounds.SOUNDS.register(eventBus);
         MinecraftForge.EVENT_BUS.register(this);
 
