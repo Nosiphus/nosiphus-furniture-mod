@@ -1,0 +1,8 @@
+{
+	"parent": "nfm:block/cup",
+	"ambientocclusion": false,
+	"render_type": "translucent",
+	"textures": {
+		"glass": "minecraft:block/light_gray_stained_glass"
+	}
+}

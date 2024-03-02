@@ -334,6 +334,23 @@
 	"block.nfm.red_inflatable_castle": "Red Inflatable Castle",
 	"block.nfm.black_inflatable_castle": "Black Inflatable Castle",
 	"block.nfm.castle_netting": "Castle Netting",
+	
+	"block.nfm.white_cup": "White Cup",
+	"block.nfm.orange_cup": "Orange Cup",
+	"block.nfm.magenta_cup": "Magenta Cup",
+	"block.nfm.light_blue_cup": "Light Blue Cup",
+	"block.nfm.yellow_cup": "Yellow Cup",
+	"block.nfm.lime_cup": "Lime Cup",
+	"block.nfm.pink_cup": "Pink Cup",
+	"block.nfm.gray_cup": "Gray Cup",
+	"block.nfm.light_gray_cup": "Light Gray Cup",
+	"block.nfm.cyan_cup": "Cyan Cup",
+	"block.nfm.purple_cup": "Purple Cup",
+	"block.nfm.blue_cup": "Blue Cup",
+	"block.nfm.brown_cup": "Brown Cup",
+	"block.nfm.green_cup": "Green Cup",
+	"block.nfm.red_cup": "Red Cup",
+	"block.nfm.black_cup": "Black Cup",
 
 	"block.nfm.bin_light": "Bin (Light)",
 	"block.nfm.bin_dark": "Bin (Dark)",
@@ -386,9 +403,8 @@
     "gui.tag_filter.nfm.bathroom": "Bathroom",
 	"gui.tag_filter.nfm.outdoors": "Outdoors",
 	"gui.tag_filter.nfm.festive": "Festive",
-
-    "gui.nfm.mail_box_settings": "Change Mail Box Name",
-    "gui.nfm.door_mat_message": "Set Door Mat Message",
+	
+	"item.nfm.knife": "Knife",
 
 	"subtitle.nfm.open_bin": "Open Bin",
 	"subtitle.nfm.close_bin": "Close Bin",
@@ -396,7 +412,6 @@
     "subtitle.nfm.close_cabinet": "Close Cabinet",
 	"subtitle.nfm.door_bell_ring": "Door Bell Ring",
 	"subtitle.nfm.fart": "Fart",
-	"subtitle.nfm.flush": "Flush",
+	"subtitle.nfm.flush": "Flush"
 
-    "message.nfm.mail_queue_full": "This player's mail queue is full. Try again later..."
 }

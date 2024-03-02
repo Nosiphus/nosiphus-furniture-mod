@@ -65,6 +65,22 @@
     "nfm:green_bar_stool",
     "nfm:red_bar_stool",
     "nfm:black_bar_stool",
+	"nfm:white_cup",
+    "nfm:orange_cup",
+    "nfm:magenta_cup",
+    "nfm:light_blue_cup",
+    "nfm:yellow_cup",
+    "nfm:lime_cup",
+    "nfm:pink_cup",
+    "nfm:gray_cup",
+    "nfm:light_gray_cup",
+    "nfm:cyan_cup",
+    "nfm:purple_cup",
+    "nfm:blue_cup",
+    "nfm:brown_cup",
+    "nfm:green_cup",
+    "nfm:red_cup",
+    "nfm:black_cup",
     "nfm:bin_light",
     "nfm:bin_dark",
     "nfm:blender_light",
@@ -76,6 +92,7 @@
     "nfm:oven_range_hood_light",
     "nfm:oven_range_hood_dark",
     "nfm:toaster_light",
-    "nfm:toaster_dark"
+    "nfm:toaster_dark",
+	"nfm:knife"
   ]
 }

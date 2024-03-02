@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "LC ",
+    "B  ",
+    "   "
+  ],
+  "key": {
+    "L": {
+      "item": "minecraft:light_blue_dye"
+    },
+	"C": {
+      "item": "minecraft:clay_ball"
+    },
+	"B": {
+      "item": "minecraft:bone_meal"
+    }
+  },
+  "result": {
+    "item": "nfm:soap"
+  }
+}
