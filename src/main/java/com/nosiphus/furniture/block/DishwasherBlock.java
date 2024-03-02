@@ -5,6 +5,7 @@ import com.google.common.collect.ImmutableMap;
 import com.mrcrayfish.furniture.block.FurnitureHorizontalBlock;
 import com.mrcrayfish.furniture.util.VoxelShapeHelper;
 import com.nosiphus.furniture.blockentity.DishwasherBlockEntity;
+import com.nosiphus.furniture.core.ModBlockEntities;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerPlayer;
@@ -17,6 +18,8 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.EntityBlock;
 import net.minecraft.world.level.block.RenderShape;
 import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.world.level.block.entity.BlockEntityTicker;
+import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
@@ -107,5 +110,14 @@ public class DishwasherBlock extends FurnitureHorizontalBlock implements EntityB
     public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
         return new DishwasherBlockEntity(pos, state);
     }
+
+    /*
+    @Nullable
+    @Override
+    public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level level, BlockState state, BlockEntityType<T> type) {
+        return createTickerHelper(type, ModBlockEntities.DISHWASHER.get(), DishwasherBlockEntity::tick);
+    }
+
+     */
 
 }

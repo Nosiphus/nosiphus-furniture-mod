@@ -785,6 +785,10 @@ public class ModBlocks {
     public static final RegistryObject<Block> WREATH = register("wreath",
             () -> new WreathBlock(BlockBehaviour.Properties.copy(Blocks.DARK_OAK_LEAVES).noOcclusion()));
 
+    //Fluid Blocks
+    public static final RegistryObject<LiquidBlock> SOAPY_WATER = registerLiquid("soapy_water",
+            () -> new LiquidBlock(ModFluids.SOAPY_WATER, BlockBehaviour.Properties.copy(Blocks.WATER)));
+
     //Methods
     private static ToIntFunction<BlockState> getLightValueLit(int lightValue) {
         return (state) -> {
@@ -815,6 +819,11 @@ public class ModBlocks {
     }
 
     private static RegistryObject<Block> registerNoItem(String name, Supplier<Block> block)
+    {
+        return BLOCKS.register(name, block);
+    }
+
+    private static RegistryObject<LiquidBlock> registerLiquid(String name, Supplier<LiquidBlock> block)
     {
         return BLOCKS.register(name, block);
     }

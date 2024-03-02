@@ -1,9 +1,7 @@
 package com.nosiphus.furniture.core;
 
 import com.nosiphus.furniture.NosiphusFurnitureMod;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.SwordItem;
-import net.minecraft.world.item.Tiers;
+import net.minecraft.world.item.*;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
@@ -20,7 +18,7 @@ public class ModItems {
     public static final RegistryObject<Item> SOAP = register("soap",
             () -> new Item(new Item.Properties().tab(NosiphusFurnitureMod.GROUP)));
     public static final RegistryObject<Item> SOAPY_WATER = register("soapy_water",
-            () -> new Item(new Item.Properties().tab(NosiphusFurnitureMod.GROUP)));
+            () -> new BucketItem(ModFluids.SOAPY_WATER, new Item.Properties().tab(NosiphusFurnitureMod.GROUP).craftRemainder(Items.BUCKET).stacksTo(1)));
     public static final RegistryObject<Item> SUPER_SOAPY_WATER = register("super_soapy_water",
             () -> new Item(new Item.Properties().tab(NosiphusFurnitureMod.GROUP)));
 

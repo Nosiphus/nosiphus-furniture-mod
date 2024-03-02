@@ -12,6 +12,8 @@ import com.nosiphus.furniture.network.PacketHandler;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraft.client.renderer.BiomeColors;
+import net.minecraft.client.renderer.ItemBlockRenderTypes;
+import net.minecraft.client.renderer.RenderType;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.level.FoliageColor;
@@ -42,6 +44,8 @@ public class NosiphusFurnitureMod {
         ModBlocks.BLOCKS.register(eventBus);
         ModBlockEntities.BLOCK_ENTITIES.register(eventBus);
         ModContainers.CONTAINERS.register(eventBus);
+        ModFluids.FLUIDS.register(eventBus);
+        ModFluidTypes.FLUID_TYPES.register(eventBus);
         ModItems.ITEMS.register(eventBus);
         ModSounds.SOUNDS.register(eventBus);
         MinecraftForge.EVENT_BUS.register(this);
@@ -53,6 +57,8 @@ public class NosiphusFurnitureMod {
 
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event) {
+            ItemBlockRenderTypes.setRenderLayer(ModFluids.SOAPY_WATER.get(), RenderType.translucent());
+            ItemBlockRenderTypes.setRenderLayer(ModFluids.FLOWING_SOAPY_WATER.get(), RenderType.translucent());
             MenuScreens.register(ModContainers.BIN.get(), BinScreen::new);
             MenuScreens.register(ModContainers.DISHWASHER.get(), DishwasherScreen::new);
             MenuScreens.register(ModContainers.MICROWAVE.get(), MicrowaveScreen::new);

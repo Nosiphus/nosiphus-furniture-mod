@@ -1,6 +1,5 @@
 package com.nosiphus.furniture.inventory.container;
 
-import com.nosiphus.furniture.block.DishwasherBlock;
 import com.nosiphus.furniture.blockentity.DishwasherBlockEntity;
 import com.nosiphus.furniture.core.ModContainers;
 import com.nosiphus.furniture.inventory.container.slot.SoapyWaterSlot;
@@ -10,7 +9,6 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.level.block.state.BlockState;
 
 public class DishwasherMenu extends AbstractContainerMenu {
 
