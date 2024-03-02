@@ -819,9 +819,4 @@ public class ModBlocks {
         return BLOCKS.register(name, block);
     }
 
-    private static RegistryObject<LiquidBlock> registerLiquid(String name, Supplier<LiquidBlock> block)
-    {
-        return BLOCKS.register(name, block);
-    }
-
 }
