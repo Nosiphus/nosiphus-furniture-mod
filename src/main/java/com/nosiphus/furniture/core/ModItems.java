@@ -10,17 +10,11 @@ import java.util.function.Supplier;
 
 public class ModItems {
 
-    public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, "nfm");
+    public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, NosiphusFurnitureMod.MOD_ID);
 
     //Tools
     public static final RegistryObject<Item> KNIFE = register("knife",
             () -> new SwordItem(Tiers.STONE, 3, -2.4F, (new Item.Properties().tab(NosiphusFurnitureMod.GROUP))));
-    public static final RegistryObject<Item> SOAP = register("soap",
-            () -> new Item(new Item.Properties().tab(NosiphusFurnitureMod.GROUP)));
-    public static final RegistryObject<Item> SOAPY_WATER = register("soapy_water",
-            () -> new BucketItem(ModFluids.SOAPY_WATER, new Item.Properties().tab(NosiphusFurnitureMod.GROUP).craftRemainder(Items.BUCKET).stacksTo(1)));
-    public static final RegistryObject<Item> SUPER_SOAPY_WATER = register("super_soapy_water",
-            () -> new Item(new Item.Properties().tab(NosiphusFurnitureMod.GROUP)));
 
     //Methods
     private static RegistryObject<Item> register(String name, Supplier<Item> item)

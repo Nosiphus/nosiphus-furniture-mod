@@ -1,7 +1,7 @@
-package com.nosiphus.furniture.inventory.container;
+package com.nosiphus.furniture.client.menu;
 
 import com.nosiphus.furniture.blockentity.BinBlockEntity;
-import com.nosiphus.furniture.core.ModContainers;
+import com.nosiphus.furniture.core.ModMenuTypes;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.*;
@@ -12,7 +12,7 @@ public class BinMenu extends AbstractContainerMenu {
     protected final BinBlockEntity blockEntity;
 
     public BinMenu(int ID, Inventory inventory, BinBlockEntity blockEntity) {
-        super(ModContainers.BIN.get(), ID);
+        super(ModMenuTypes.BIN.get(), ID);
         this.blockEntity = blockEntity;
         blockEntity.startOpen(inventory.player);
 

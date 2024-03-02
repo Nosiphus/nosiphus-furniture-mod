@@ -23,7 +23,7 @@ import java.util.function.ToIntFunction;
 
 public class ModBlocks {
 
-    public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, "nfm");
+    public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, NosiphusFurnitureMod.MOD_ID);
 
     //Tables
     public static final RegistryObject<Block> TABLE_STONE = register("stone_table",
@@ -784,10 +784,6 @@ public class ModBlocks {
             () -> new ChristmasTreeBlock(BlockBehaviour.Properties.copy(Blocks.DARK_OAK_LEAVES).noOcclusion()));
     public static final RegistryObject<Block> WREATH = register("wreath",
             () -> new WreathBlock(BlockBehaviour.Properties.copy(Blocks.DARK_OAK_LEAVES).noOcclusion()));
-
-    //Fluid Blocks
-    public static final RegistryObject<LiquidBlock> SOAPY_WATER = registerLiquid("soapy_water",
-            () -> new LiquidBlock(ModFluids.SOAPY_WATER, BlockBehaviour.Properties.copy(Blocks.WATER)));
 
     //Methods
     private static ToIntFunction<BlockState> getLightValueLit(int lightValue) {
