@@ -8,6 +8,7 @@ import com.nosiphus.furniture.client.menu.screen.WallCabinetMenuScreen;
 import com.nosiphus.furniture.client.renderer.blockentity.ModernKitchenSinkBlockEntityRenderer;
 import com.nosiphus.furniture.client.renderer.blockentity.SinkBlockEntityRenderer;
 import com.nosiphus.furniture.client.renderer.blockentity.ToiletBlockEntityRenderer;
+import com.nosiphus.furniture.client.renderer.blockentity.WaterTankBlockEntityRenderer;
 import com.nosiphus.furniture.core.*;
 import com.nosiphus.furniture.network.PacketHandler;
 import net.minecraft.client.Minecraft;
@@ -84,6 +85,7 @@ public class NosiphusFurnitureMod {
             event.registerBlockEntityRenderer(ModBlockEntities.MODERN_KITCHEN_SINK.get(), ModernKitchenSinkBlockEntityRenderer::new);
             event.registerBlockEntityRenderer(ModBlockEntities.SINK.get(), SinkBlockEntityRenderer::new);
             event.registerBlockEntityRenderer(ModBlockEntities.TOILET.get(), ToiletBlockEntityRenderer::new);
+            event.registerBlockEntityRenderer(ModBlockEntities.WATER_TANK.get(), WaterTankBlockEntityRenderer::new);
         }
 
     }

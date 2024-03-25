@@ -369,6 +369,16 @@
 	"block.nfm.red_cup": "Red Cup",
 	"block.nfm.black_cup": "Black Cup",
 
+	"block.nfm.oak_water_tank": "Oak Water Tank",
+	"block.nfm.spruce_water_tank": "Spruce Water Tank",
+	"block.nfm.birch_water_tank": "Birch Water Tank",
+	"block.nfm.jungle_water_tank": "Jungle Water Tank",
+	"block.nfm.acacia_water_tank": "Acacia Water Tank",
+	"block.nfm.dark_oak_water_tank": "Dark Oak Water Tank",
+	"block.nfm.crimson_water_tank": "Crimson Water Tank",
+	"block.nfm.warped_water_tank": "Warped Water Tank",
+	"block.nfm.mangrove_water_tank": "Mangrove Water Tank",
+
 	"block.nfm.bin_light": "Bin (Light)",
 	"block.nfm.bin_dark": "Bin (Dark)",
 	"block.nfm.blender_light": "Blender (Light)",

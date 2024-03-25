@@ -5,7 +5,7 @@
         "0": "minecraft:block/dark_oak_log",
         "1": "minecraft:block/oak_leaves",
         "2": "minecraft:block/gold_block",
-        "3": "minecraft:block/yellow_stained_terracotta",
+        "3": "minecraft:block/yellow_terracotta",
         "particle": "minecraft:block/oak_leaves"
     },
     "elements": [

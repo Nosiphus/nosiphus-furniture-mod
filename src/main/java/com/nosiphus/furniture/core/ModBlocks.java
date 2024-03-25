@@ -761,6 +761,26 @@ public class ModBlocks {
     public static final RegistryObject<Block> CUP_BLACK = register("black_cup",
             () -> new CupBlock(BlockBehaviour.Properties.copy(Blocks.BLACK_STAINED_GLASS)));
 
+    //Water Tanks
+    public static final RegistryObject<Block> OAK_WATER_TANK = register("oak_water_tank",
+            () -> new WaterTankBlock(BlockBehaviour.Properties.copy(Blocks.CAULDRON).noOcclusion()));
+    public static final RegistryObject<Block> SPRUCE_WATER_TANK = register("spruce_water_tank",
+            () -> new WaterTankBlock(BlockBehaviour.Properties.copy(Blocks.CAULDRON).noOcclusion()));
+    public static final RegistryObject<Block> BIRCH_WATER_TANK = register("birch_water_tank",
+            () -> new WaterTankBlock(BlockBehaviour.Properties.copy(Blocks.CAULDRON).noOcclusion()));
+    public static final RegistryObject<Block> JUNGLE_WATER_TANK = register("jungle_water_tank",
+            () -> new WaterTankBlock(BlockBehaviour.Properties.copy(Blocks.CAULDRON).noOcclusion()));
+    public static final RegistryObject<Block> ACACIA_WATER_TANK = register("acacia_water_tank",
+            () -> new WaterTankBlock(BlockBehaviour.Properties.copy(Blocks.CAULDRON).noOcclusion()));
+    public static final RegistryObject<Block> DARK_OAK_WATER_TANK = register("dark_oak_water_tank",
+            () -> new WaterTankBlock(BlockBehaviour.Properties.copy(Blocks.CAULDRON).noOcclusion()));
+    public static final RegistryObject<Block> CRIMSON_WATER_TANK = register("crimson_water_tank",
+            () -> new WaterTankBlock(BlockBehaviour.Properties.copy(Blocks.CAULDRON).noOcclusion()));
+    public static final RegistryObject<Block> WARPED_WATER_TANK = register("warped_water_tank",
+            () -> new WaterTankBlock(BlockBehaviour.Properties.copy(Blocks.CAULDRON).noOcclusion()));
+    public static final RegistryObject<Block> MANGROVE_WATER_TANK = register("mangrove_water_tank",
+            () -> new WaterTankBlock(BlockBehaviour.Properties.copy(Blocks.CAULDRON).noOcclusion()));
+
     //Appliances
     public static final RegistryObject<Block> BIN_LIGHT = register("bin_light",
             () -> new BinBlock(BlockBehaviour.Properties.copy(Blocks.WHITE_CONCRETE).noOcclusion()));
