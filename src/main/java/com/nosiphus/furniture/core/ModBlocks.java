@@ -776,6 +776,10 @@ public class ModBlocks {
             () -> new ToiletBlock(BlockBehaviour.Properties.copy(Blocks.WHITE_CONCRETE).noOcclusion()));
     public static final RegistryObject<Block> TOILET_DARK = register("toilet_dark",
             () -> new ToiletBlock(BlockBehaviour.Properties.copy(Blocks.GRAY_CONCRETE).noOcclusion()));
+    public static final RegistryObject<Block> WASHING_MACHINE_LIGHT = register("washing_machine_light",
+            () -> new WashingMachineBlock(BlockBehaviour.Properties.copy(Blocks.WHITE_CONCRETE).noOcclusion()));
+    public static final RegistryObject<Block> WASHING_MACHINE_DARK = register("washing_machine_dark",
+            () -> new WashingMachineBlock(BlockBehaviour.Properties.copy(Blocks.GRAY_CONCRETE).noOcclusion()));
 
     //Festive
     public static final RegistryObject<Block> CANDLE = register("candle",

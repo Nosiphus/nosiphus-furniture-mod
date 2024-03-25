@@ -8,6 +8,8 @@
     "nfm:sink_light",
     "nfm:sink_dark",
     "nfm:toilet_light",
-    "nfm:toilet_dark"
+    "nfm:toilet_dark",
+	"nfm:washing_machine_light",
+	"nfm:washing_machine_dark"
   ]
 }
