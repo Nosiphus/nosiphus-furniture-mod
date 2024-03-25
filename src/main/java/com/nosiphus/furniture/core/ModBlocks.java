@@ -381,6 +381,40 @@ public class ModBlocks {
     public static final RegistryObject<Block> DESK_CABINET_BLACK_MODERN = register("black_modern_desk_cabinet",
             () -> new ModernDeskCabinetBlock(BlockBehaviour.Properties.copy(Blocks.BLACK_CONCRETE), ModernDeskBlock.MaterialType.BLACK_CONCRETE));
 
+    //Wall Cabinets
+    public static final RegistryObject<Block> WALL_CABINET_WHITE = register("white_wall_cabinet",
+            () -> new WallCabinetBlock(BlockBehaviour.Properties.copy(Blocks.WHITE_CONCRETE)));
+    public static final RegistryObject<Block> WALL_CABINET_ORANGE = register("orange_wall_cabinet",
+            () -> new WallCabinetBlock(BlockBehaviour.Properties.copy(Blocks.ORANGE_CONCRETE)));
+    public static final RegistryObject<Block> WALL_CABINET_MAGENTA = register("magenta_wall_cabinet",
+            () -> new WallCabinetBlock(BlockBehaviour.Properties.copy(Blocks.MAGENTA_CONCRETE)));
+    public static final RegistryObject<Block> WALL_CABINET_LIGHT_BLUE = register("light_blue_wall_cabinet",
+            () -> new WallCabinetBlock(BlockBehaviour.Properties.copy(Blocks.LIGHT_BLUE_CONCRETE)));
+    public static final RegistryObject<Block> WALL_CABINET_YELLOW = register("yellow_wall_cabinet",
+            () -> new WallCabinetBlock(BlockBehaviour.Properties.copy(Blocks.YELLOW_CONCRETE)));
+    public static final RegistryObject<Block> WALL_CABINET_LIME = register("lime_wall_cabinet",
+            () -> new WallCabinetBlock(BlockBehaviour.Properties.copy(Blocks.LIME_CONCRETE)));
+    public static final RegistryObject<Block> WALL_CABINET_PINK = register("pink_wall_cabinet",
+            () -> new WallCabinetBlock(BlockBehaviour.Properties.copy(Blocks.PINK_CONCRETE)));
+    public static final RegistryObject<Block> WALL_CABINET_GRAY = register("gray_wall_cabinet",
+            () -> new WallCabinetBlock(BlockBehaviour.Properties.copy(Blocks.GRAY_CONCRETE)));
+    public static final RegistryObject<Block> WALL_CABINET_LIGHT_GRAY = register("light_gray_wall_cabinet",
+            () -> new WallCabinetBlock(BlockBehaviour.Properties.copy(Blocks.LIGHT_GRAY_CONCRETE)));
+    public static final RegistryObject<Block> WALL_CABINET_CYAN = register("cyan_wall_cabinet",
+            () -> new WallCabinetBlock(BlockBehaviour.Properties.copy(Blocks.CYAN_CONCRETE)));
+    public static final RegistryObject<Block> WALL_CABINET_PURPLE = register("purple_wall_cabinet",
+            () -> new WallCabinetBlock(BlockBehaviour.Properties.copy(Blocks.PURPLE_CONCRETE)));
+    public static final RegistryObject<Block> WALL_CABINET_BLUE = register("blue_wall_cabinet",
+            () -> new WallCabinetBlock(BlockBehaviour.Properties.copy(Blocks.BLUE_CONCRETE)));
+    public static final RegistryObject<Block> WALL_CABINET_BROWN = register("brown_wall_cabinet",
+            () -> new WallCabinetBlock(BlockBehaviour.Properties.copy(Blocks.BROWN_CONCRETE)));
+    public static final RegistryObject<Block> WALL_CABINET_GREEN = register("green_wall_cabinet",
+            () -> new WallCabinetBlock(BlockBehaviour.Properties.copy(Blocks.GREEN_CONCRETE)));
+    public static final RegistryObject<Block> WALL_CABINET_RED = register("red_wall_cabinet",
+            () -> new WallCabinetBlock(BlockBehaviour.Properties.copy(Blocks.RED_CONCRETE)));
+    public static final RegistryObject<Block> WALL_CABINET_BLACK = register("black_wall_cabinet",
+            () -> new WallCabinetBlock(BlockBehaviour.Properties.copy(Blocks.BLACK_CONCRETE)));
+
     //Sofas
     public static final RegistryObject<Block> SOFA_WHITE_MODERN = register("white_modern_sofa",
             () -> new ModernSofaBlock(BlockBehaviour.Properties.copy(Blocks.WHITE_CONCRETE)));
