@@ -761,6 +761,20 @@ public class ModBlocks {
     public static final RegistryObject<Block> CUP_BLACK = register("black_cup",
             () -> new CupBlock(BlockBehaviour.Properties.copy(Blocks.BLACK_STAINED_GLASS)));
 
+    //Bird Baths
+    public static final RegistryObject<Block> BIRD_BATH_STONE = register("stone_bird_bath",
+            () -> new BirdBathBlock(BlockBehaviour.Properties.copy(Blocks.STONE)));
+    public static final RegistryObject<Block> BIRD_BATH_ANDESITE = register("andesite_bird_bath",
+            () -> new BirdBathBlock(BlockBehaviour.Properties.copy(Blocks.ANDESITE)));
+    public static final RegistryObject<Block> BIRD_BATH_DIORITE = register("diorite_bird_bath",
+            () -> new BirdBathBlock(BlockBehaviour.Properties.copy(Blocks.DIORITE)));
+    public static final RegistryObject<Block> BIRD_BATH_GRANITE = register("granite_bird_bath",
+            () -> new BirdBathBlock(BlockBehaviour.Properties.copy(Blocks.GRANITE)));
+    public static final RegistryObject<Block> BIRD_BATH_BLACKSTONE = register("blackstone_bird_bath",
+            () -> new BirdBathBlock(BlockBehaviour.Properties.copy(Blocks.BLACKSTONE)));
+    public static final RegistryObject<Block> BIRD_BATH_DEEPSLATE = register("deepslate_bird_bath",
+            () -> new BirdBathBlock(BlockBehaviour.Properties.copy(Blocks.DEEPSLATE)));
+
     //Water Tanks
     public static final RegistryObject<Block> OAK_WATER_TANK = register("oak_water_tank",
             () -> new WaterTankBlock(BlockBehaviour.Properties.copy(Blocks.CAULDRON).noOcclusion()));

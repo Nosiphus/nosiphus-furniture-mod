@@ -379,6 +379,13 @@
 	"block.nfm.warped_water_tank": "Warped Water Tank",
 	"block.nfm.mangrove_water_tank": "Mangrove Water Tank",
 
+	"block.nfm.stone_bird_bath": "Stone Bird Bath",
+	"block.nfm.andesite_bird_bath": "Andesite Bird Bath",
+	"block.nfm.diorite_bird_bath": "Diorite Bird Bath",
+	"block.nfm.granite_bird_bath": "Granite Bird Bath",
+	"block.nfm.blackstone_bird_bath": "Blackstone Bird Bath",
+	"block.nfm.deepslate_bird_bath": "Deepslate Bird Bath",
+
 	"block.nfm.bin_light": "Bin (Light)",
 	"block.nfm.bin_dark": "Bin (Dark)",
 	"block.nfm.blender_light": "Blender (Light)",
