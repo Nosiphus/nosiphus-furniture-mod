@@ -422,12 +422,15 @@
 	"container.nfm.bin": "Bin",
     "container.nfm.cabinet": "Cabinet",
 	"container.nfm.desk_cabinet": "Desk Cabinet",
+	"container.nfm.dishwasher": "Dishwasher",
 	"container.nfm.kitchen_drawer": "Kitchen Drawer",
 	"container.nfm.microwave": "Microwave",
 	"container.nfm.oven": "Oven",
     "container.nfm.wall_cabinet": "Wall Cabinet",
 
 	"gui.button.nfm.bin.empty": "Empty",
+	"gui.button.nfm.dishwasher.start": "Start",
+	"gui.button.nfm.dishwasher.stop": "Stop",
     "gui.button.nfm.locked": "Locked",
     "gui.button.nfm.unlocked": "Unlocked",
     "gui.button.nfm.save": "Save",
@@ -445,6 +448,9 @@
 	"gui.tag_filter.nfm.festive": "Festive",
 	
 	"item.nfm.knife": "Knife",
+	"item.nfm.soap": "Soap",
+	"item.nfm.soapy_water": "Soapy Water",
+	"item.nfm.super_soapy_water": "Super Soapy Water",
 
 	"subtitle.nfm.open_bin": "Open Bin",
 	"subtitle.nfm.close_bin": "Close Bin",

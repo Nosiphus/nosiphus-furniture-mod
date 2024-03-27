@@ -11,6 +11,7 @@ import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.level.material.Material;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -858,6 +859,10 @@ public class ModBlocks {
             () -> new ChristmasTreeTopBlock(Block.Properties.copy(Blocks.DARK_OAK_LEAVES).noOcclusion(), () -> ModBlocks.CHRISTMAS_TREE_BOTTOM), block -> new BlockSupplierItem(new Item.Properties().tab(NosiphusFurnitureMod.GROUP), block.get(), ModBlocks.CHRISTMAS_TREE_BOTTOM));
     public static final RegistryObject<Block> WREATH = register("wreath",
             () -> new WreathBlock(BlockBehaviour.Properties.copy(Blocks.DARK_OAK_LEAVES).noOcclusion()));
+
+    //Fluid Blocks
+    public static final RegistryObject<Block> SOAPY_WATER = register("soapy_water",
+            () -> new LiquidBlock(ModFluids.SOAPY_WATER, BlockBehaviour.Properties.of(Material.WATER).noCollission().strength(100.0F).noLootTable()));
 
     //Methods
     private static ToIntFunction<BlockState> getLightValueLit(int lightValue) {
