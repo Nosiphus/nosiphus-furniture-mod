@@ -60,6 +60,10 @@ public class ModItems {
                             .alwaysEat()
                             .build())));
 
+    //Supplies
+    public static final RegistryObject<Item> INK_CARTRIDGE = register("ink_cartridge",
+            () -> new Item(new Item.Properties()));
+
     //Tools
     public static final RegistryObject<Item> CROWBAR = register("crowbar",
             () -> new SwordItem(Tiers.IRON, 5, -3.0F, (new Item.Properties())));
