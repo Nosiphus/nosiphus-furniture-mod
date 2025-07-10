@@ -17,6 +17,7 @@
 	{ "id": "nfm:dishwasher_light", "required": false },
     { "id": "nfm:dishwasher_dark", "required": false },
 	{ "id": "#nfm:digital_clocks", "required": false },
-	{ "id": "nfm:television_remote", "required": false }
+	{ "id": "nfm:television_remote", "required": false },
+	{ "id": "nfm:ink_cartridge", "required": false }
   ]
 }
