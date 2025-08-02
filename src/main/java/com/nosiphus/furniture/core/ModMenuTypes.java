@@ -24,6 +24,7 @@ public class ModMenuTypes {
     public static final RegistryObject<MenuType<DishwasherMenu>> DISHWASHER = registerMenuType(DishwasherMenu::new, "dishwasher");
     public static final RegistryObject<MenuType<MicrowaveMenu>> MICROWAVE = registerMenuType(MicrowaveMenu::new, "microwave");
     public static final RegistryObject<MenuType<OvenMenu>> OVEN = registerMenuType(OvenMenu::new, "oven");
+    public static final RegistryObject<MenuType<PrinterMenu>> PRINTER = registerMenuType(PrinterMenu::new, "printer");
     public static final RegistryObject<MenuType<WallCabinetMenu>> WALL_CABINET = register("wall_cabinet", (IContainerFactory<WallCabinetMenu>) (ID, inventory, data) -> {
         WallCabinetBlockEntity wallCabinetBlockEntity = (WallCabinetBlockEntity) inventory.player.level().getBlockEntity(data.readBlockPos());
         return new WallCabinetMenu(ID, inventory, wallCabinetBlockEntity);

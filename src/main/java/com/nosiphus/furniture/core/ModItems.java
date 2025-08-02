@@ -1,6 +1,7 @@
 package com.nosiphus.furniture.core;
 
 import com.nosiphus.furniture.Reference;
+import com.nosiphus.furniture.item.InkCartridgeItem;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.BucketItem;
 import net.minecraft.world.item.Item;
@@ -62,7 +63,7 @@ public class ModItems {
 
     //Supplies
     public static final RegistryObject<Item> INK_CARTRIDGE = register("ink_cartridge",
-            () -> new Item(new Item.Properties()));
+            () -> new InkCartridgeItem(new Item.Properties()));
 
     //Tools
     public static final RegistryObject<Item> CROWBAR = register("crowbar",
