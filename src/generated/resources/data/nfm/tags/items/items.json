@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
+	{ "id": "nfm:ink_cartridge", "required": false },
 	{ "id": "nfm:bread_slice", "required": false },
 	{ "id": "nfm:toast", "required": false },
 	{ "id": "nfm:knife", "required": false },

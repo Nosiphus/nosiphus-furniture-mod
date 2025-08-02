@@ -2,7 +2,7 @@
   "replace": false,
   "values": [
     { "id": "nfm:cathode_ray_tube_television", "required": false },
-	{ "id": "nfm:liquid_crystal_display_television", "required": false },
+	{ "id": "nfm:printer", "required": false },
     { "id": "#nfm:door_bells", "required": false },
 	{ "id": "nfm:fire_alarm", "required": false },
 	{ "id": "nfm:stereo", "required": false },
@@ -17,7 +17,7 @@
 	{ "id": "nfm:dishwasher_light", "required": false },
     { "id": "nfm:dishwasher_dark", "required": false },
 	{ "id": "#nfm:digital_clocks", "required": false },
-	{ "id": "nfm:television_remote", "required": false },
-	{ "id": "nfm:ink_cartridge", "required": false }
+	{ "id": "nfm:liquid_crystal_display_television", "required": false },
+	{ "id": "nfm:television_remote", "required": false }
   ]
 }

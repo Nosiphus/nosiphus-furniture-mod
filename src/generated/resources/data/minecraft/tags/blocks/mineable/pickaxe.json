@@ -34,6 +34,7 @@
     { "id": "nfm:oven_dark", "required": false },
     { "id": "nfm:oven_range_hood_light", "required": false },
     { "id": "nfm:oven_range_hood_dark", "required": false },
+	{ "id": "nfm:printer", "required": false },
     { "id": "nfm:sink_light", "required": false },
     { "id": "nfm:sink_dark", "required": false },
     { "id": "nfm:shower_light", "required": false },

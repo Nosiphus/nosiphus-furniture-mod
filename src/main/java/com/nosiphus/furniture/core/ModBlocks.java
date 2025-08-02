@@ -869,7 +869,7 @@ public class ModBlocks {
     public static final RegistryObject<Block> ELECTRIC_FENCE = register("electric_fence",
             () -> new ElectricFenceBlock(BlockBehaviour.Properties.copy(Blocks.ANVIL)));
 
-    //Appliances
+    //Appliances and Electronics
     public static final RegistryObject<Block> BIN_LIGHT = register("bin_light",
             () -> new BinBlock(BlockBehaviour.Properties.copy(Blocks.WHITE_CONCRETE).noOcclusion()));
     public static final RegistryObject<Block> BIN_DARK = register("bin_dark",
@@ -900,6 +900,8 @@ public class ModBlocks {
             () -> new OvenRangeHoodBlock(BlockBehaviour.Properties.copy(Blocks.WHITE_CONCRETE).lightLevel((getLightValueLit(14))).noOcclusion()));
     public static final RegistryObject<Block> OVEN_RANGE_HOOD_DARK = register("oven_range_hood_dark",
             () -> new OvenRangeHoodBlock(BlockBehaviour.Properties.copy(Blocks.GRAY_CONCRETE).lightLevel((getLightValueLit(14))).noOcclusion()));
+    public static final RegistryObject<Block> PRINTER = register("printer",
+            () -> new PrinterBlock(BlockBehaviour.Properties.copy(Blocks.GRAY_CONCRETE).noOcclusion()));
     public static final RegistryObject<Block> SINK_LIGHT = register("sink_light",
             () -> new SinkBlock(BlockBehaviour.Properties.copy(Blocks.WHITE_CONCRETE).noOcclusion()));
     public static final RegistryObject<Block> SINK_DARK = register("sink_dark",
