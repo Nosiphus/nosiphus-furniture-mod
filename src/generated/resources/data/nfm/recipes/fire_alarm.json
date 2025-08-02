@@ -13,10 +13,10 @@
       "item": "minecraft:note_block"
     },
 	"R": {
-      "item": "minecraft:redstone_dust"
+      "item": "minecraft:redstone"
     }
   },
   "result": {
-    "item": "nfm:yellow_bar_stool"
+    "item": "nfm:fire_alarm"
   }
 }

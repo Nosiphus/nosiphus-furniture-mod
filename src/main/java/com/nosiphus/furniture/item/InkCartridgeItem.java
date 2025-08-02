@@ -7,4 +7,5 @@ public class InkCartridgeItem extends Item {
     public InkCartridgeItem(Properties properties) {
         super(properties);
     }
+
 }

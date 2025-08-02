@@ -63,7 +63,7 @@ public class ModItems {
 
     //Supplies
     public static final RegistryObject<Item> INK_CARTRIDGE = register("ink_cartridge",
-            () -> new InkCartridgeItem(new Item.Properties()));
+            () -> new InkCartridgeItem(new Item.Properties().durability(10000)));
 
     //Tools
     public static final RegistryObject<Item> CROWBAR = register("crowbar",
