@@ -65,13 +65,8 @@ public class PrinterScreen extends AbstractContainerScreen<PrinterMenu> {
         this.renderTooltip(guiGraphics, mouseX, mouseY);
 
         if(isHovering(73, 30, 5, 18, mouseX, mouseY)) {
-            setTooltipForNextRenderPass(Component.literal(10000 - menu.getSlot(0).getItem().getDamageValue() + " / 10000"));
+            setTooltipForNextRenderPass(Component.literal(menu.getSlot(0).getItem().getMaxDamage() - menu.getSlot(0).getItem().getDamageValue() + " / 10000"));
         }
-
-        if(isHovering(79, 30, 5, 18, mouseX, mouseY)) {
-            //setTooltipForNextRenderPass(Component.literal());
-        }
-
     }
 
 }
