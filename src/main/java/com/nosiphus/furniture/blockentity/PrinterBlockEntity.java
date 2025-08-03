@@ -1,6 +1,7 @@
 package com.nosiphus.furniture.blockentity;
 
 import com.nosiphus.furniture.core.ModBlockEntities;
+import com.nosiphus.furniture.core.ModItems;
 import com.nosiphus.furniture.inventory.container.PrinterMenu;
 import com.nosiphus.furniture.item.crafting.PrintingRecipe;
 import net.minecraft.core.BlockPos;
@@ -164,19 +165,13 @@ public class PrinterBlockEntity extends BlockEntity implements MenuProvider {
     private static boolean canCopy(PrinterBlockEntity blockEntity, int inputSlot, int outputSlot) {
         ItemStack inputStack = blockEntity.itemHandler.getStackInSlot(inputSlot);
         ItemStack outputStack = blockEntity.itemHandler.getStackInSlot(outputSlot);
+        ItemStack inkStack = blockEntity.itemHandler.getStackInSlot(0);
 
-        if (inputStack.isEmpty()) {
-            return false;
-        }
+        boolean hasInkCartridge = !inkStack.isEmpty() && inkStack.getItem() == ModItems.INK_CARTRIDGE.get();
+        boolean canStackInOutput = outputStack.isEmpty() ||
+                (ItemStack.isSameItemSameTags(inputStack, outputStack) && outputStack.getCount() < outputStack.getMaxStackSize());
 
-        if (outputStack.isEmpty()) {
-            return true;
-        }
-
-        boolean sameItem = ItemStack.isSameItemSameTags(inputStack, outputStack);
-        boolean canStack = outputStack.getCount() < outputStack.getMaxStackSize();
-
-        return sameItem && canStack;
+        return !inputStack.isEmpty() && hasInkCartridge && canStackInOutput;
     }
 
     public boolean stillValid(Player player) {

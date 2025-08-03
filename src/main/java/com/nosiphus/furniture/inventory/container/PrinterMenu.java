@@ -33,7 +33,7 @@ public class PrinterMenu extends AbstractContainerMenu {
         this.data = data;
 
         this.blockEntity.getCapability(ForgeCapabilities.ITEM_HANDLER).ifPresent(iItemHandler -> {
-            //this.addSlot(new SlotItemHandler(iItemHandler, 0, 55, 30));
+            this.addSlot(new SlotItemHandler(iItemHandler, 0, 55, 30));
             this.addSlot(new SlotItemHandler(iItemHandler, 1, 80, 5));
             this.addSlot(new SlotItemHandler(iItemHandler, 2, 80, 61));
         });
