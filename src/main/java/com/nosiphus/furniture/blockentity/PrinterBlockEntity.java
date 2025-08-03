@@ -8,6 +8,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.Containers;
 import net.minecraft.world.MenuProvider;
 import net.minecraft.world.SimpleContainer;
@@ -43,6 +44,7 @@ public class PrinterBlockEntity extends BlockEntity implements MenuProvider {
     protected final ContainerData data;
     private int progress = 0;
     private int maxProgress = 100;
+    private int ticksPerDamage = 0;
 
     public PrinterBlockEntity(BlockPos pos, BlockState state) {
         super(ModBlockEntities.PRINTER.get(), pos, state);
@@ -133,8 +135,17 @@ public class PrinterBlockEntity extends BlockEntity implements MenuProvider {
             if(level.isClientSide()) {
                 return;
             }
-
             if(canCopy(blockEntity, 1, 2)) {
+                if (blockEntity.progress == 0) {
+                    blockEntity.setMaxProgressForCurrentCraft();
+                }
+                if (blockEntity.getTicksPerDamage() > 0 && blockEntity.progress % blockEntity.getTicksPerDamage() == 0) {
+                    ItemStack inkStack = blockEntity.itemHandler.getStackInSlot(0);
+                    if (!inkStack.isEmpty()) {
+                        inkStack.hurt(1, level.getRandom(), null);
+                        blockEntity.itemHandler.setStackInSlot(0, inkStack);
+                    }
+                }
                 blockEntity.progress++;
                 setChanged(level, pos, state);
                 if(blockEntity.progress >= blockEntity.maxProgress) {
@@ -145,6 +156,32 @@ public class PrinterBlockEntity extends BlockEntity implements MenuProvider {
                 setChanged(level, pos, state);
             }
         }
+    }
+
+    private void setMaxProgressForCurrentCraft() {
+        ItemStack inputStack = itemHandler.getStackInSlot(1);
+
+        int bookLength = getBookLength(inputStack);
+
+        this.maxProgress = bookLength * 20;
+
+        int totalInkCost = bookLength;
+        if (totalInkCost > 0) {
+            this.ticksPerDamage = this.maxProgress / totalInkCost;
+        } else {
+            this.ticksPerDamage = 0;
+        }
+    }
+
+    private int getBookLength(ItemStack stack) {
+        if (stack.hasTag() && stack.getTag().contains("pages")) {
+            return stack.getTag().getList("pages", 8).size();
+        }
+        return 1;
+    }
+
+    private int getTicksPerDamage() {
+        return this.ticksPerDamage;
     }
 
     private void resetProgress() {
