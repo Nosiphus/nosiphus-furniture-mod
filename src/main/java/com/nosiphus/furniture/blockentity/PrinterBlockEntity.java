@@ -157,9 +157,11 @@ public class PrinterBlockEntity extends BlockEntity implements MenuProvider {
         inventory.setItem(2, blockEntity.itemHandler.getStackInSlot(outputSlot));
         Optional<PrintingRecipe> recipe = level.getRecipeManager().getRecipeFor(PrintingRecipe.Type.INSTANCE, inventory, level);
         if (hasRecipe(blockEntity, inputSlot, outputSlot)) {
-            blockEntity.itemHandler.extractItem(inputSlot, 1, false);
-            blockEntity.itemHandler.setStackInSlot(outputSlot, new ItemStack(recipe.get().getResultItem(null).getItem(),
-                    blockEntity.itemHandler.getStackInSlot(outputSlot).getCount() + 1));
+            ItemStack inputStack = blockEntity.itemHandler.getStackInSlot(1);
+            ItemStack outputStack = blockEntity.itemHandler.getStackInSlot(outputSlot);
+            ItemStack newOutputStack = new ItemStack(inputStack.getItem(), outputStack.getCount() + 1);
+            newOutputStack.setTag(inputStack.getTag());
+            blockEntity.itemHandler.setStackInSlot(outputSlot, newOutputStack);
             blockEntity.resetProgress();
         }
     }
