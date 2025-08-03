@@ -41,8 +41,7 @@ public class PrinterBlockEntity extends BlockEntity implements MenuProvider {
 
     protected final ContainerData data;
     private int progress = 0;
-    private int maxProgress = 100;
-    private int ticksPerDamage = 0;
+    private int maxProgress = 1000;
 
     public PrinterBlockEntity(BlockPos pos, BlockState state) {
         super(ModBlockEntities.PRINTER.get(), pos, state);

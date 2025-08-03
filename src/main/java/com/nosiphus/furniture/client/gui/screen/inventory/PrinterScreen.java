@@ -3,6 +3,7 @@ package com.nosiphus.furniture.client.gui.screen.inventory;
 import com.mojang.blaze3d.systems.RenderSystem;
 import com.nosiphus.furniture.Reference;
 import com.nosiphus.furniture.blockentity.PrinterBlockEntity;
+import com.nosiphus.furniture.core.ModItems;
 import com.nosiphus.furniture.inventory.container.PrinterMenu;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
@@ -35,6 +36,13 @@ public class PrinterScreen extends AbstractContainerScreen<PrinterMenu> {
         int startX = (this.width - this.imageWidth) / 2;
         int startY = (this.height - this.imageHeight) / 2;
         guiGraphics.blit(TEXTURE, this.leftPos, this.topPos, 0, 0, this.imageWidth, this.imageHeight);
+        renderInkLevel(guiGraphics, startX, startY);
+    }
+
+    private void renderInkLevel(GuiGraphics guiGraphics, int x, int y) {
+        if(menu.getSlot(0).getItem().getItem() == ModItems.INK_CARTRIDGE.get()) {
+            guiGraphics.blit(TEXTURE, x + 74, y + 30 + (16 - menu.getRemainingInkLevel()), 179, (16 - menu.getRemainingInkLevel()), 3, menu.getRemainingInkLevel());
+        }
     }
 
     @Override
@@ -49,12 +57,13 @@ public class PrinterScreen extends AbstractContainerScreen<PrinterMenu> {
         super.render(guiGraphics, mouseX, mouseY, delta);
         this.renderTooltip(guiGraphics, mouseX, mouseY);
 
-        /*
-        if(isHovering(129, 39, 7, 55, mouseX, mouseY)) {
-            setTooltipForNextRenderPass(Component.literal(menu.getFluidStack().getAmount() + " / 64000"));
+        if(isHovering(73, 30, 5, 18, mouseX, mouseY)) {
+            setTooltipForNextRenderPass(Component.literal(10000 - menu.getSlot(0).getItem().getDamageValue() + " / 10000"));
         }
 
-         */
+        if(isHovering(79, 30, 5, 18, mouseX, mouseY)) {
+            //setTooltipForNextRenderPass(Component.literal());
+        }
 
     }
 

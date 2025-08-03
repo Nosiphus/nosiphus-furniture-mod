@@ -51,6 +51,31 @@ public class PrinterMenu extends AbstractContainerMenu {
             this.addSlot(new Slot(inventory, i, i * 18 + 8, 161));
         }
 
+        addDataSlots(data);
+
+    }
+
+    public boolean isPrinting() {
+        return data.get(0) > 0;
+    }
+
+    public int getRemainingInkLevel() {
+        int fullInkLevel = getSlot(0).getItem().getMaxDamage();
+        int damageValue = getSlot(0).getItem().getDamageValue();
+        int remainingInk = fullInkLevel - damageValue;
+        int inkLevelBarSize = 16;
+        if (fullInkLevel > 0) {
+            return (remainingInk * inkLevelBarSize) / fullInkLevel;
+        }
+        return 0;
+    }
+
+    public int getScaledProgress() {
+        int progress = this.data.get(0);
+        int maxProgress = this.data.get(1);
+        int progressBarSize = 16;
+
+        return maxProgress != 0 && progress != 0 ? progress * progressBarSize / maxProgress : 0;
     }
 
     public PrinterBlockEntity getBlockEntity() {
