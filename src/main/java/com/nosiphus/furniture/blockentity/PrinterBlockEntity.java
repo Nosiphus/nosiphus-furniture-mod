@@ -133,11 +133,11 @@ public class PrinterBlockEntity extends BlockEntity implements MenuProvider {
                 return;
             }
 
-            if(hasRecipe(blockEntity, 1, 2)) {
+            if(canCopy(blockEntity, 1, 2)) {
                 blockEntity.progress++;
                 setChanged(level, pos, state);
                 if(blockEntity.progress >= blockEntity.maxProgress) {
-                    craftItem(blockEntity, 1, 2);
+                    copyBook(blockEntity, 1, 2);
                 }
             } else {
                 blockEntity.resetProgress();
@@ -150,14 +150,9 @@ public class PrinterBlockEntity extends BlockEntity implements MenuProvider {
         this.progress = 0;
     }
 
-    private static void craftItem(PrinterBlockEntity blockEntity, int inputSlot, int outputSlot) {
-        Level level = blockEntity.level;
-        SimpleContainer inventory = new SimpleContainer(blockEntity.itemHandler.getSlots());
-        inventory.setItem(1, blockEntity.itemHandler.getStackInSlot(inputSlot));
-        inventory.setItem(2, blockEntity.itemHandler.getStackInSlot(outputSlot));
-        Optional<PrintingRecipe> recipe = level.getRecipeManager().getRecipeFor(PrintingRecipe.Type.INSTANCE, inventory, level);
-        if (hasRecipe(blockEntity, inputSlot, outputSlot)) {
-            ItemStack inputStack = blockEntity.itemHandler.getStackInSlot(1);
+    private static void copyBook(PrinterBlockEntity blockEntity, int inputSlot, int outputSlot) {
+        if (canCopy(blockEntity, inputSlot, outputSlot)) {
+            ItemStack inputStack = blockEntity.itemHandler.getStackInSlot(inputSlot);
             ItemStack outputStack = blockEntity.itemHandler.getStackInSlot(outputSlot);
             ItemStack newOutputStack = new ItemStack(inputStack.getItem(), outputStack.getCount() + 1);
             newOutputStack.setTag(inputStack.getTag());
@@ -166,22 +161,22 @@ public class PrinterBlockEntity extends BlockEntity implements MenuProvider {
         }
     }
 
-    private static boolean hasRecipe(PrinterBlockEntity blockEntity, int inputSlot, int outputSlot) {
-        Level level = blockEntity.level;
-        SimpleContainer inventory = new SimpleContainer(blockEntity.itemHandler.getSlots());
-        inventory.setItem(1, blockEntity.itemHandler.getStackInSlot(inputSlot));
-        inventory.setItem(2, blockEntity.itemHandler.getStackInSlot(outputSlot));
-        Optional<PrintingRecipe> recipe = level.getRecipeManager().getRecipeFor(PrintingRecipe.Type.INSTANCE, inventory, level);
-        return recipe.isPresent() && canInsertAmountIntoOutputSlot(inventory, outputSlot) &&
-                canInsertItemIntoOutputSlot(inventory, recipe.get().getResultItem(null));
-    }
+    private static boolean canCopy(PrinterBlockEntity blockEntity, int inputSlot, int outputSlot) {
+        ItemStack inputStack = blockEntity.itemHandler.getStackInSlot(inputSlot);
+        ItemStack outputStack = blockEntity.itemHandler.getStackInSlot(outputSlot);
 
-    private static boolean canInsertItemIntoOutputSlot(SimpleContainer inventory, ItemStack stack) {
-        return inventory.getItem(2).getItem() == stack.getItem() || inventory.getItem(2).isEmpty();
-    }
+        if (inputStack.isEmpty()) {
+            return false;
+        }
 
-    private static boolean canInsertAmountIntoOutputSlot(SimpleContainer inventory, int outputSlot) {
-        return inventory.getItem(2).getMaxStackSize() > inventory.getItem(2).getCount();
+        if (outputStack.isEmpty()) {
+            return true;
+        }
+
+        boolean sameItem = ItemStack.isSameItemSameTags(inputStack, outputStack);
+        boolean canStack = outputStack.getCount() < outputStack.getMaxStackSize();
+
+        return sameItem && canStack;
     }
 
     public boolean stillValid(Player player) {
