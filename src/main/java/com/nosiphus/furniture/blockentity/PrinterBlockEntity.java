@@ -3,12 +3,12 @@ package com.nosiphus.furniture.blockentity;
 import com.nosiphus.furniture.core.ModBlockEntities;
 import com.nosiphus.furniture.core.ModItems;
 import com.nosiphus.furniture.inventory.container.PrinterMenu;
-import com.nosiphus.furniture.item.crafting.PrintingRecipe;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.nbt.ListTag;
+import net.minecraft.nbt.Tag;
 import net.minecraft.network.chat.Component;
-import net.minecraft.util.RandomSource;
 import net.minecraft.world.Containers;
 import net.minecraft.world.MenuProvider;
 import net.minecraft.world.SimpleContainer;
@@ -27,8 +27,6 @@ import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.ItemStackHandler;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
-
-import java.util.Optional;
 
 public class PrinterBlockEntity extends BlockEntity implements MenuProvider {
 
@@ -137,19 +135,13 @@ public class PrinterBlockEntity extends BlockEntity implements MenuProvider {
             }
             if(canCopy(blockEntity, 1, 2)) {
                 if (blockEntity.progress == 0) {
-                    blockEntity.setMaxProgressForCurrentCraft();
-                }
-                if (blockEntity.getTicksPerDamage() > 0 && blockEntity.progress % blockEntity.getTicksPerDamage() == 0) {
-                    ItemStack inkStack = blockEntity.itemHandler.getStackInSlot(0);
-                    if (!inkStack.isEmpty()) {
-                        inkStack.hurt(1, level.getRandom(), null);
-                        blockEntity.itemHandler.setStackInSlot(0, inkStack);
-                    }
+                    int charCount = blockEntity.getBookCharacterCount(blockEntity.itemHandler.getStackInSlot(1));
+                    blockEntity.maxProgress = Math.max(20, charCount / 20);
                 }
                 blockEntity.progress++;
                 setChanged(level, pos, state);
                 if(blockEntity.progress >= blockEntity.maxProgress) {
-                    copyBook(blockEntity, 1, 2);
+                    blockEntity.copyBook(blockEntity, 1, 2);
                 }
             } else {
                 blockEntity.resetProgress();
@@ -158,45 +150,42 @@ public class PrinterBlockEntity extends BlockEntity implements MenuProvider {
         }
     }
 
-    private void setMaxProgressForCurrentCraft() {
-        ItemStack inputStack = itemHandler.getStackInSlot(1);
-
-        int bookLength = getBookLength(inputStack);
-
-        this.maxProgress = bookLength * 20;
-
-        int totalInkCost = bookLength;
-        if (totalInkCost > 0) {
-            this.ticksPerDamage = this.maxProgress / totalInkCost;
-        } else {
-            this.ticksPerDamage = 0;
+    private int getBookCharacterCount(ItemStack stack) {
+        if (stack.isEmpty() || !stack.hasTag()) {
+            return 0;
         }
-    }
 
-    private int getBookLength(ItemStack stack) {
-        if (stack.hasTag() && stack.getTag().contains("pages")) {
-            return stack.getTag().getList("pages", 8).size();
+        CompoundTag tag = stack.getTag();
+        if (tag.contains("pages", Tag.TAG_LIST)) {
+            int characterCount = 0;
+            ListTag pages = tag.getList("pages", Tag.TAG_STRING);
+            for (Tag pageTag : pages) {
+                String pageText = pageTag.getAsString();
+                characterCount += pageText.length();
+            }
+            return characterCount;
         }
-        return 1;
-    }
-
-    private int getTicksPerDamage() {
-        return this.ticksPerDamage;
+        return 0;
     }
 
     private void resetProgress() {
         this.progress = 0;
     }
 
-    private static void copyBook(PrinterBlockEntity blockEntity, int inputSlot, int outputSlot) {
-        if (canCopy(blockEntity, inputSlot, outputSlot)) {
-            ItemStack inputStack = blockEntity.itemHandler.getStackInSlot(inputSlot);
-            ItemStack outputStack = blockEntity.itemHandler.getStackInSlot(outputSlot);
-            ItemStack newOutputStack = new ItemStack(inputStack.getItem(), outputStack.getCount() + 1);
-            newOutputStack.setTag(inputStack.getTag());
-            blockEntity.itemHandler.setStackInSlot(outputSlot, newOutputStack);
-            blockEntity.resetProgress();
+    private void copyBook(PrinterBlockEntity blockEntity, int inputSlot, int outputSlot) {
+        ItemStack inputStack = blockEntity.itemHandler.getStackInSlot(inputSlot);
+        ItemStack outputStack = blockEntity.itemHandler.getStackInSlot(outputSlot);
+        int inkCost = getBookCharacterCount(inputStack);
+        if (inkCost > 0) {
+            ItemStack inkStack = blockEntity.itemHandler.getStackInSlot(0);
+            if (!inkStack.isEmpty()) {
+                inkStack.hurt(inkCost, level.getRandom(), null);
+            }
         }
+        ItemStack newOutputStack = new ItemStack(inputStack.getItem(), outputStack.getCount() + 1);
+        newOutputStack.setTag(inputStack.getTag());
+        blockEntity.itemHandler.setStackInSlot(outputSlot, newOutputStack);
+        blockEntity.resetProgress();
     }
 
     private static boolean canCopy(PrinterBlockEntity blockEntity, int inputSlot, int outputSlot) {
