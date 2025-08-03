@@ -74,8 +74,7 @@ public class PrinterMenu extends AbstractContainerMenu {
         int progress = this.data.get(0);
         int maxProgress = this.data.get(1);
         int progressBarSize = 16;
-
-        return maxProgress != 0 && progress != 0 ? progress * progressBarSize / maxProgress : 0;
+        return progress * progressBarSize / maxProgress;
     }
 
     public PrinterBlockEntity getBlockEntity() {

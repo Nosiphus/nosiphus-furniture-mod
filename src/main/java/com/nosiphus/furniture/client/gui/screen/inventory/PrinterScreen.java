@@ -37,11 +37,18 @@ public class PrinterScreen extends AbstractContainerScreen<PrinterMenu> {
         int startY = (this.height - this.imageHeight) / 2;
         guiGraphics.blit(TEXTURE, this.leftPos, this.topPos, 0, 0, this.imageWidth, this.imageHeight);
         renderInkLevel(guiGraphics, startX, startY);
+        renderProgressBar(guiGraphics, startX, startY);
     }
 
     private void renderInkLevel(GuiGraphics guiGraphics, int x, int y) {
         if(menu.getSlot(0).getItem().getItem() == ModItems.INK_CARTRIDGE.get()) {
             guiGraphics.blit(TEXTURE, x + 74, y + 30 + (16 - menu.getRemainingInkLevel()), 179, (16 - menu.getRemainingInkLevel()), 3, menu.getRemainingInkLevel());
+        }
+    }
+
+    private void renderProgressBar(GuiGraphics guiGraphics, int x, int y) {
+        if (menu.isPrinting()) {
+            guiGraphics.blit(TEXTURE, x + 80, y + 30 + (16 - menu.getScaledProgress()), 176, (16 - menu.getScaledProgress()), 3, menu.getScaledProgress());
         }
     }
 
