@@ -14,7 +14,7 @@ import net.minecraft.world.entity.player.Inventory;
 public class PrinterScreen extends AbstractContainerScreen<PrinterMenu> {
 
     private static final ResourceLocation TEXTURE = new ResourceLocation(Reference.MOD_ID, "textures/gui/printer.png");
-    public PrinterBlockEntity blockEntity = getMenu().getBlockEntity();
+    public PrinterBlockEntity blockEntity;
 
     public PrinterScreen(PrinterMenu menu, Inventory inventory, Component component) {
         super(menu, inventory, component);

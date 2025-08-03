@@ -1,0 +1,11 @@
+{
+  "type": "nfm:printing",
+  "ingredients": [
+    {
+      "item": "minecraft:written_book"
+    }
+  ],
+  "output": {
+    "item": "minecraft:written_book"
+  }
+}

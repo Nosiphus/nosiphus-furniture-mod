@@ -6,6 +6,8 @@ import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
+import net.minecraft.world.inventory.ContainerData;
+import net.minecraft.world.inventory.SimpleContainerData;
 import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
@@ -17,21 +19,21 @@ public class PrinterMenu extends AbstractContainerMenu {
 
     protected final PrinterBlockEntity blockEntity;
     private final Level level;
-    private boolean printing;
+    private final ContainerData data;
 
     public PrinterMenu(int id, Inventory inventory, FriendlyByteBuf extraData) {
-        this(id, inventory, inventory.player.level().getBlockEntity(extraData.readBlockPos()));
+        this(id, inventory, inventory.player.level().getBlockEntity(extraData.readBlockPos()), new SimpleContainerData(3));
     }
 
-    public PrinterMenu(int id, Inventory inventory, BlockEntity entity) {
+    public PrinterMenu(int id, Inventory inventory, BlockEntity entity, ContainerData data) {
         super(ModMenuTypes.PRINTER.get(), id);
         checkContainerSize(inventory, 3);
         blockEntity = (PrinterBlockEntity) entity;
         this.level = inventory.player.level();
-        this.printing = blockEntity.getPrinting();
+        this.data = data;
 
         this.blockEntity.getCapability(ForgeCapabilities.ITEM_HANDLER).ifPresent(iItemHandler -> {
-            this.addSlot(new SlotItemHandler(iItemHandler, 0, 55, 30));
+            //this.addSlot(new SlotItemHandler(iItemHandler, 0, 55, 30));
             this.addSlot(new SlotItemHandler(iItemHandler, 1, 80, 5));
             this.addSlot(new SlotItemHandler(iItemHandler, 2, 80, 61));
         });
@@ -53,14 +55,6 @@ public class PrinterMenu extends AbstractContainerMenu {
 
     public PrinterBlockEntity getBlockEntity() {
         return this.blockEntity;
-    }
-
-    public void setPrinting(boolean printing) {
-        this.printing = printing;
-    }
-
-    public boolean getPrinting() {
-        return printing;
     }
 
     @Override

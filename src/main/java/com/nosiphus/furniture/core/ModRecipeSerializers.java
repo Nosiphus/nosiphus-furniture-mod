@@ -4,6 +4,7 @@ import com.mrcrayfish.furniture.item.crafting.SimpleCookingSerializer;
 import com.nosiphus.furniture.Reference;
 import com.nosiphus.furniture.item.crafting.ChoppingRecipe;
 import com.nosiphus.furniture.item.crafting.CookingRecipe;
+import com.nosiphus.furniture.item.crafting.PrintingRecipe;
 import com.nosiphus.furniture.item.crafting.ToastingRecipe;
 import net.minecraft.world.item.crafting.Recipe;
 import net.minecraft.world.item.crafting.RecipeSerializer;
@@ -21,7 +22,8 @@ public class ModRecipeSerializers {
             () -> ChoppingRecipe.Serializer.INSTANCE);
     public static final RegistryObject<RecipeSerializer<CookingRecipe>> COOKING = RECIPE_SERIALIZER.register("cooking",
             () -> CookingRecipe.Serializer.INSTANCE);
-
+    public static final RegistryObject<RecipeSerializer<PrintingRecipe>> PRINTING = RECIPE_SERIALIZER.register("printing",
+            () -> PrintingRecipe.Serializer.INSTANCE);
     public static final RegistryObject<SimpleCookingSerializer<ToastingRecipe>> TOASTING = register("toasting", () -> new SimpleCookingSerializer<>(ToastingRecipe::new, 100));
 
     private static <T extends RecipeSerializer<? extends Recipe<?>>> RegistryObject<T> register(String name, Supplier<T> serializer) {
