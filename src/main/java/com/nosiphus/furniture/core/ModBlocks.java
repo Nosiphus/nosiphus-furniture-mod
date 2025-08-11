@@ -791,7 +791,9 @@ public class ModBlocks {
     public static final RegistryObject<Block> CASTLE_NETTING = register("castle_netting",
             () -> new IronBarsBlock(BlockBehaviour.Properties.copy(Blocks.WHITE_WOOL)));
 
-    //Cups and Plate
+    //Kitchenware
+    public static final RegistryObject<Block> COOKIE_JAR = register("cookie_jar",
+            () -> new CookieJarBlock(BlockBehaviour.Properties.copy(Blocks.GLASS)));
     public static final RegistryObject<Block> CUP_BEIGE = registerOptional("yogmod","beige_cup",
             () -> new CupBlock(BlockBehaviour.Properties.copy(com.nosiphus.yogmod.world.level.block.ModBlocks.BEIGE_STAINED_GLASS.get())));
     public static final RegistryObject<Block> CUP_WHITE = register("white_cup",
