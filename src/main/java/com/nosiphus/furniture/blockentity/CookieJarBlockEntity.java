@@ -40,11 +40,11 @@ public class CookieJarBlockEntity extends BlockEntity implements WorldlyContaine
         return this.cookieJar;
     }
 
-    public boolean addItem(ItemStack stack) {
-        if(this.cookieJar.get(0).isEmpty()) {
+    public boolean addItem(ItemStack stack, int cookieCount) {
+        if(this.cookieJar.get(cookieCount).isEmpty()) {
             ItemStack copy = stack.copy();
             copy.setCount(1);
-            this.cookieJar.set(0, copy);
+            this.cookieJar.set(cookieCount, copy);
             CompoundTag compoundTag = new CompoundTag();
             this.writeItems(compoundTag);
             BlockEntityUtil.sendUpdatePacket(this, compoundTag);
@@ -53,16 +53,16 @@ public class CookieJarBlockEntity extends BlockEntity implements WorldlyContaine
         return false;
     }
 
-    public void removeItem() {
-        if(!this.cookieJar.get(0).isEmpty()) {
+    public void removeItem(int cookieCount) {
+        if(!this.cookieJar.get(cookieCount).isEmpty()) {
             double posX = worldPosition.getX() + 0.5;
             double posY = worldPosition.getY() + 0.2;
             double posZ = worldPosition.getZ() + 0.5;
 
-            ItemEntity entity = new ItemEntity(this.level, posX, posY, posZ, this.cookieJar.get(0).copy());
+            ItemEntity entity = new ItemEntity(this.level, posX, posY, posZ, this.cookieJar.get(cookieCount).copy());
             this.level.addFreshEntity(entity);
 
-            this.cookieJar.set(0, ItemStack.EMPTY);
+            this.cookieJar.set(cookieCount, ItemStack.EMPTY);
 
             CompoundTag compoundTag = new CompoundTag();
             this.writeItems(compoundTag);
