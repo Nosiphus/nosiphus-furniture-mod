@@ -48,6 +48,7 @@ public class CookieJarBlockEntity extends BlockEntity implements WorldlyContaine
             CompoundTag compoundTag = new CompoundTag();
             this.writeItems(compoundTag);
             BlockEntityUtil.sendUpdatePacket(this, compoundTag);
+            setChanged();
             return true;
         }
         return false;
@@ -67,6 +68,7 @@ public class CookieJarBlockEntity extends BlockEntity implements WorldlyContaine
             CompoundTag compoundTag = new CompoundTag();
             this.writeItems(compoundTag);
             BlockEntityUtil.sendUpdatePacket(this, compoundTag);
+            setChanged();
         }
     }
 
@@ -103,7 +105,7 @@ public class CookieJarBlockEntity extends BlockEntity implements WorldlyContaine
         CompoundTag compoundTag = new CompoundTag();
         this.writeItems(compoundTag);
         BlockEntityUtil.sendUpdatePacket(this, compoundTag);
-
+        setChanged();
         return result;
     }
 
@@ -124,6 +126,7 @@ public class CookieJarBlockEntity extends BlockEntity implements WorldlyContaine
         CompoundTag compoundTag = new CompoundTag();
         this.writeItems(compoundTag);
         BlockEntityUtil.sendUpdatePacket(this, compoundTag);
+        setChanged();
     }
 
     @Override
@@ -206,6 +209,4 @@ public class CookieJarBlockEntity extends BlockEntity implements WorldlyContaine
         return true;
     }
 
-
-
-    }
+}

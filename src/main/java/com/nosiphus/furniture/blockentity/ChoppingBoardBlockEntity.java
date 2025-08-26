@@ -69,6 +69,7 @@ public class ChoppingBoardBlockEntity extends BlockEntity implements WorldlyCont
             CompoundTag compoundTag = new CompoundTag();
             this.writeItems(compoundTag);
             BlockEntityUtil.sendUpdatePacket(this, compoundTag);
+            setChanged();
             return true;
         }
         return false;
@@ -90,6 +91,7 @@ public class ChoppingBoardBlockEntity extends BlockEntity implements WorldlyCont
                 CompoundTag compoundTag = new CompoundTag();
                 this.writeItems(compoundTag);
                 BlockEntityUtil.sendUpdatePacket(this, compoundTag);
+                setChanged();
                 return true;
             }
         }
@@ -110,6 +112,7 @@ public class ChoppingBoardBlockEntity extends BlockEntity implements WorldlyCont
             CompoundTag compoundTag = new CompoundTag();
             this.writeItems(compoundTag);
             BlockEntityUtil.sendUpdatePacket(this, compoundTag);
+            setChanged();
         }
     }
 
@@ -151,7 +154,7 @@ public class ChoppingBoardBlockEntity extends BlockEntity implements WorldlyCont
         CompoundTag compoundTag = new CompoundTag();
         this.writeItems(compoundTag);
         BlockEntityUtil.sendUpdatePacket(this, compoundTag);
-
+        setChanged();
         return result;
     }
 
@@ -170,6 +173,7 @@ public class ChoppingBoardBlockEntity extends BlockEntity implements WorldlyCont
             CompoundTag compoundTag = new CompoundTag();
             this.writeItems(compoundTag);
             BlockEntityUtil.sendUpdatePacket(this, compoundTag);
+            setChanged();
         }
         inventory.set(index, stack);
         if(stack.getCount() > this.getMaxStackSize()) {
@@ -179,6 +183,7 @@ public class ChoppingBoardBlockEntity extends BlockEntity implements WorldlyCont
         CompoundTag compoundTag = new CompoundTag();
         this.writeItems(compoundTag);
         BlockEntityUtil.sendUpdatePacket(this, compoundTag);
+        setChanged();
     }
 
     @Override
