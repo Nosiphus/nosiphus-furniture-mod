@@ -91,15 +91,15 @@ public class CookieJarBlock extends FurnitureBlock implements EntityBlock
                 ItemStack heldItem = player.getItemInHand(hand);
                 int cookieCount = (int) blockEntity.getCookieJar().stream().filter(stack -> !stack.isEmpty()).count();
                 if(!heldItem.isEmpty()) {
-                    if(heldItem.is(Items.COOKIE) && cookieCount < 6) {
+                    if(heldItem.is(Items.COOKIE) && cookieCount < 9) {
                         if(blockEntity.addItem(heldItem, cookieCount)) {
                             if(!player.getAbilities().instabuild) {
                                 heldItem.shrink(1);
                             }
                         }
-                    } else if(heldItem.is(Items.COOKIE) && cookieCount == 6) {
+                    } else if(heldItem.is(Items.COOKIE) && cookieCount == 9) {
                         if(!level.isClientSide()) {
-                            blockEntity.removeItem(5);
+                            blockEntity.removeItem(8);
                         }
                     } else {
                         if(!level.isClientSide()) {

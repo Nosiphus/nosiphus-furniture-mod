@@ -19,14 +19,16 @@ public class CookieJarBlockEntityRenderer implements BlockEntityRenderer<CookieJ
     public void render(CookieJarBlockEntity blockEntity, float partialTicks, PoseStack poseStack, MultiBufferSource source, int light, int overlay) {
 
         NonNullList<ItemStack> cookieJar = blockEntity.getCookieJar();
-        ItemStack stack = cookieJar.get(0);
-        if(!stack.isEmpty()) {
-            poseStack.pushPose();
-            poseStack.translate(0.5, 0.0625, 0.5);
-            poseStack.mulPose(Axis.XP.rotationDegrees(90F));
-            poseStack.scale(0.375F, 0.375F, 0.375F);
-            Minecraft.getInstance().getItemRenderer().renderStatic(stack, ItemDisplayContext.FIXED, light, overlay, poseStack, source, blockEntity.getLevel(), 0);
-            poseStack.popPose();
+        for(int j = 0; j < cookieJar.size(); j++) {
+            ItemStack stack = cookieJar.get(j);
+            if(!stack.isEmpty()) {
+                poseStack.pushPose();
+                poseStack.translate(0.5, (j * 0.05) + 0.0625, 0.5);
+                poseStack.mulPose(Axis.XP.rotationDegrees(90F));
+                poseStack.scale(0.375F, 0.375F, 0.375F);
+                Minecraft.getInstance().getItemRenderer().renderStatic(stack, ItemDisplayContext.FIXED, light, overlay, poseStack, source, blockEntity.getLevel(), 0);
+                poseStack.popPose();
+            }
         }
 
     }

@@ -23,10 +23,10 @@ import javax.annotation.Nullable;
 
 public class CookieJarBlockEntity extends BlockEntity implements WorldlyContainer {
 
-    public static final int[] ALL_SLOTS = new int[]{0, 1, 2, 3, 4, 5};
-    public static final int[] JAR_SLOTS = new int[]{0, 1, 2, 3, 4, 5};
+    public static final int[] ALL_SLOTS = new int[]{0, 1, 2, 3, 4, 5, 6, 7, 8};
+    public static final int[] JAR_SLOTS = new int[]{0, 1, 2, 3, 4, 5, 6, 7, 8};
 
-    private final NonNullList<ItemStack> cookieJar = NonNullList.withSize(6, ItemStack.EMPTY);
+    private final NonNullList<ItemStack> cookieJar = NonNullList.withSize(9, ItemStack.EMPTY);
 
     protected CookieJarBlockEntity(BlockEntityType<?> type, BlockPos pos, BlockState state) {
         super(type, pos, state);
