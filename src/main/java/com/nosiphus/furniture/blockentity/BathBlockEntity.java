@@ -7,14 +7,13 @@ import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.fluids.FluidType;
 
-public class WaterTankBlockEntity extends FluidHandlerSyncedBlockEntity {
+public class BathBlockEntity extends FluidHandlerSyncedBlockEntity {
 
-    protected WaterTankBlockEntity(BlockEntityType<?> type, BlockPos pos, BlockState state, int capacity) {
+    protected BathBlockEntity(BlockEntityType<?> type, BlockPos pos, BlockState state, int capacity) {
         super(type, pos, state, capacity);
     }
 
-    public WaterTankBlockEntity(BlockPos pos, BlockState state) {
-        super(ModBlockEntities.WATER_TANK.get(), pos, state, FluidType.BUCKET_VOLUME * 20);
+    public BathBlockEntity(BlockPos pos, BlockState state) {
+        super(ModBlockEntities.BATH.get(), pos, state, FluidType.BUCKET_VOLUME * 20);
     }
-
 }

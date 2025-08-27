@@ -24,7 +24,7 @@ public class WaterTankBlockEntityRenderer implements BlockEntityRenderer<WaterTa
     public WaterTankBlockEntityRenderer(BlockEntityRendererProvider.Context context) {}
 
     @Override
-    public void render(WaterTankBlockEntity tileEntity, float partialTicks, PoseStack poseStack, MultiBufferSource source, int light, int i1)
+    public void render(WaterTankBlockEntity tileEntity, float partialTicks, PoseStack poseStack, MultiBufferSource source, int light, int overlay)
     {
         poseStack.pushPose();
         poseStack.translate(0.5, 0.5, 0.5);
