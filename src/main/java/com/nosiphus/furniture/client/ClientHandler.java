@@ -61,6 +61,7 @@ public class ClientHandler {
     }
 
     public static void onRegisterRenderers(EntityRenderersEvent.RegisterRenderers event) {
+        event.registerBlockEntityRenderer(ModBlockEntities.BATH.get(), BathBlockEntityRenderer::new);
         event.registerBlockEntityRenderer(ModBlockEntities.BIRD_BATH.get(), BirdBathBlockEntityRenderer::new);
         event.registerBlockEntityRenderer(ModBlockEntities.CHOPPING_BOARD.get(), ChoppingBoardBlockEntityRenderer::new);
         event.registerBlockEntityRenderer(ModBlockEntities.COOKIE_JAR.get(), CookieJarBlockEntityRenderer::new);

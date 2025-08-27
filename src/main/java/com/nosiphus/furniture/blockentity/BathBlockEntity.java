@@ -14,6 +14,7 @@ public class BathBlockEntity extends FluidHandlerSyncedBlockEntity {
     }
 
     public BathBlockEntity(BlockPos pos, BlockState state) {
-        super(ModBlockEntities.BATH.get(), pos, state, FluidType.BUCKET_VOLUME * 20);
+        super(ModBlockEntities.BATH.get(), pos, state, FluidType.BUCKET_VOLUME * 16);
     }
+
 }
