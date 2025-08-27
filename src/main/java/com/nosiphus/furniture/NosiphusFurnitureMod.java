@@ -1,5 +1,6 @@
 package com.nosiphus.furniture;
 
+import com.nosiphus.furniture.cfm.CFMModBlocks;
 import com.nosiphus.furniture.client.ClientHandler;
 import com.nosiphus.furniture.common.CommonHandler;
 import com.nosiphus.furniture.core.*;
