@@ -872,6 +872,10 @@ public class ModBlocks {
             () -> new ElectricFenceBlock(BlockBehaviour.Properties.copy(Blocks.ANVIL)));
 
     //Appliances and Electronics
+    public static final RegistryObject<Block> BATH_DARK = register("bath_dark",
+            () -> new BathBlock(BlockBehaviour.Properties.copy(Blocks.GRAY_CONCRETE)));
+    public static final RegistryObject<Block> BATH_LIGHT = register("bath_light",
+            () -> new BathBlock(BlockBehaviour.Properties.copy(Blocks.WHITE_CONCRETE)));
     public static final RegistryObject<Block> BIN_LIGHT = register("bin_light",
             () -> new BinBlock(BlockBehaviour.Properties.copy(Blocks.WHITE_CONCRETE).noOcclusion()));
     public static final RegistryObject<Block> BIN_DARK = register("bin_dark",
