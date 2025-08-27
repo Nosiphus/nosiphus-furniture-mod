@@ -1,19 +1,33 @@
 {
     "variants": {
-        "facing=north": {
-            "model": "nfm:block/christmas_tree",
+        "facing=north,type=top": {
+            "model": "nfm:block/christmas_tree_top",
             "y": 270
         },
-        "facing=east": {
-            "model": "nfm:block/christmas_tree",
-            "y": 0
+		"facing=east,type=top": {
+            "model": "nfm:block/christmas_tree_top"
         },
-        "facing=south": {
-            "model": "nfm:block/christmas_tree",
+		"facing=south,type=top": {
+            "model": "nfm:block/christmas_tree_top",
             "y": 90
         },
-        "facing=west": {
-            "model": "nfm:block/christmas_tree",
+		"facing=west,type=top": {
+            "model": "nfm:block/christmas_tree_top",
+            "y": 180
+        },
+		"facing=north,type=bottom": {
+            "model": "nfm:block/christmas_tree_bottom",
+            "y": 270
+        },
+		"facing=east,type=bottom": {
+            "model": "nfm:block/christmas_tree_bottom"
+        },
+		"facing=south,type=bottom": {
+            "model": "nfm:block/christmas_tree_bottom",
+            "y": 90
+        },
+		"facing=west,type=bottom": {
+            "model": "nfm:block/christmas_tree_bottom",
             "y": 180
         }
     }

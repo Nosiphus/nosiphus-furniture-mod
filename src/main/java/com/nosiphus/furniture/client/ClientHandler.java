@@ -41,8 +41,6 @@ public class ClientHandler {
 
     public static void onRegisterBlockColors(RegisterColorHandlersEvent.Block event) {
         event.register((state, reader, pos, i) -> FoliageColor.getEvergreenColor(),
-                ModBlocks.CHRISTMAS_TREE_BOTTOM.get());
-        event.register((state, reader, pos, i) -> FoliageColor.getEvergreenColor(),
                 ModBlocks.CHRISTMAS_TREE.get());
         event.register((state, reader, pos, i) -> reader != null && pos != null ? BiomeColors.getAverageFoliageColor(reader, pos) : FoliageColor.getDefaultColor(),
                 ModBlocks.WREATH.get());
