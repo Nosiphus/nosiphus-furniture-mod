@@ -1,5 +1,8 @@
 package com.nosiphus.furniture.client;
 
+import com.mrcrayfish.furniture.client.renderer.tileentity.KitchenSinkBlockEntityRenderer;
+import com.nosiphus.furniture.cfm.CFMModBlockEntities;
+import com.nosiphus.furniture.cfm.CFMModBlocks;
 import com.nosiphus.furniture.client.event.CreativeScreenEvents;
 import com.nosiphus.furniture.client.gui.screen.inventory.*;
 import com.nosiphus.furniture.client.renderer.SeatRenderer;
@@ -15,6 +18,8 @@ import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.level.FoliageColor;
+import net.minecraft.world.level.ItemLike;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.client.event.EntityRenderersEvent;
 import net.minecraftforge.client.event.RegisterColorHandlersEvent;
@@ -40,6 +45,8 @@ public class ClientHandler {
     }
 
     public static void onRegisterBlockColors(RegisterColorHandlersEvent.Block event) {
+        event.register((state, reader, pos, i) -> i == 1 ? 12303291 : -1, new Block[]{(Block)CFMModBlocks.CRATE_STRIPPED_CHERRY.get(), (Block)CFMModBlocks.KITCHEN_COUNTER_STRIPPED_CHERRY.get(), (Block)CFMModBlocks.KITCHEN_DRAWER_STRIPPED_CHERRY.get(), (Block)CFMModBlocks.KITCHEN_SINK_LIGHT_STRIPPED_CHERRY.get(), (Block)CFMModBlocks.KITCHEN_SINK_DARK_STRIPPED_CHERRY.get()});
+        event.register((state, reader, pos, i) -> i == 1 ? 10066329 : -1, new Block[]{(Block)CFMModBlocks.PARK_BENCH_STRIPPED_CHERRY.get()});
         event.register((state, reader, pos, i) -> FoliageColor.getEvergreenColor(),
                 ModBlocks.CHRISTMAS_TREE.get());
         event.register((state, reader, pos, i) -> reader != null && pos != null ? BiomeColors.getAverageFoliageColor(reader, pos) : FoliageColor.getDefaultColor(),
@@ -47,6 +54,8 @@ public class ClientHandler {
     }
 
     public static void onRegisterItemColors(RegisterColorHandlersEvent.Item event) {
+        event.register((stack, i) -> i == 1 ? 12303291 : -1, new ItemLike[]{(ItemLike) CFMModBlocks.CRATE_STRIPPED_CHERRY.get(), (ItemLike)CFMModBlocks.KITCHEN_COUNTER_STRIPPED_CHERRY.get(), (ItemLike)CFMModBlocks.KITCHEN_DRAWER_STRIPPED_CHERRY.get(), (ItemLike)CFMModBlocks.KITCHEN_SINK_LIGHT_STRIPPED_CHERRY.get(), (ItemLike)CFMModBlocks.KITCHEN_SINK_DARK_STRIPPED_CHERRY.get()});
+        event.register((stack, i) -> i == 1 ? 10066329 : -1, new ItemLike[]{(ItemLike) CFMModBlocks.PARK_BENCH_STRIPPED_CHERRY.get()});
         event.register((stack, i) -> {
             BlockState state = ((BlockItem)stack.getItem()).getBlock().defaultBlockState();
             return Minecraft.getInstance().getBlockColors().getColor(state, null, null, i);

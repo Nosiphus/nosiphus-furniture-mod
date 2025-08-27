@@ -3,6 +3,7 @@ package com.nosiphus.furniture.cfm;
 import com.mrcrayfish.furniture.Reference;
 import com.mrcrayfish.furniture.block.*;
 import com.mrcrayfish.furniture.core.ModItems;
+import com.nosiphus.furniture.block.ModernKitchenSinkBlock;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
@@ -116,10 +117,10 @@ public class CFMModBlocks {
         KITCHEN_COUNTER_STRIPPED_CHERRY = register("stripped_cherry_kitchen_counter", () -> new KitchenCounterBlock(Properties.copy(Blocks.CHERRY_PLANKS)));
         KITCHEN_DRAWER_CHERRY = register("cherry_kitchen_drawer", () -> new KitchenDrawerBlock(Properties.copy(Blocks.CHERRY_PLANKS)));
         KITCHEN_DRAWER_STRIPPED_CHERRY = register("stripped_cherry_kitchen_drawer", () -> new KitchenDrawerBlock(Properties.copy(Blocks.CHERRY_PLANKS)));
-        KITCHEN_SINK_LIGHT_CHERRY = register("cherry_kitchen_sink_light", () -> new KitchenSinkBlock(Properties.copy(Blocks.CHERRY_PLANKS), true));
-        KITCHEN_SINK_LIGHT_STRIPPED_CHERRY = register("stripped_cherry_kitchen_sink_light", () -> new KitchenSinkBlock(Properties.copy(Blocks.CHERRY_PLANKS), true));
-        KITCHEN_SINK_DARK_CHERRY = register("cherry_kitchen_sink_dark", () -> new KitchenSinkBlock(Properties.copy(Blocks.CHERRY_PLANKS), true));
-        KITCHEN_SINK_DARK_STRIPPED_CHERRY = register("stripped_cherry_kitchen_sink_dark", () -> new KitchenSinkBlock(Properties.copy(Blocks.CHERRY_PLANKS), true));
+        KITCHEN_SINK_LIGHT_CHERRY = register("cherry_kitchen_sink_light", () -> new ModernKitchenSinkBlock(Properties.copy(Blocks.CHERRY_PLANKS), true));
+        KITCHEN_SINK_LIGHT_STRIPPED_CHERRY = register("stripped_cherry_kitchen_sink_light", () -> new ModernKitchenSinkBlock(Properties.copy(Blocks.CHERRY_PLANKS), true));
+        KITCHEN_SINK_DARK_CHERRY = register("cherry_kitchen_sink_dark", () -> new ModernKitchenSinkBlock(Properties.copy(Blocks.CHERRY_PLANKS), true));
+        KITCHEN_SINK_DARK_STRIPPED_CHERRY = register("stripped_cherry_kitchen_sink_dark", () -> new ModernKitchenSinkBlock(Properties.copy(Blocks.CHERRY_PLANKS), true));
     }
 
 }

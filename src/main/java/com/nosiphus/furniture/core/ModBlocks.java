@@ -28,42 +28,6 @@ public class ModBlocks {
 
     public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, Reference.MOD_ID);
 
-    /*
-    //CFM - Cherry
-    public static final RegistryObject<Block> TABLE_CHERRY = register("cherry_table",
-            () -> new TableBlock(BlockBehaviour.Properties.copy(Blocks.CHERRY_PLANKS)));
-    public static final RegistryObject<Block> TABLE_STRIPPED_CHERRY = register("stripped_cherry_table",
-            () -> new TableBlock(BlockBehaviour.Properties.copy(Blocks.CHERRY_PLANKS)));
-    public static final RegistryObject<Block> CHAIR_CHERRY = register("cherry_chair",
-            () -> new ChairBlock(BlockBehaviour.Properties.copy(Blocks.CHERRY_PLANKS)));
-    public static final RegistryObject<Block> CHAIR_STRIPPED_CHERRY = register("stripped_cherry_chair",
-            () -> new ChairBlock(BlockBehaviour.Properties.copy(Blocks.CHERRY_PLANKS)));
-    public static final RegistryObject<Block> COFFEE_TABLE_CHERRY = register("cherry_coffee_table",
-            () -> new CoffeeTableBlock(BlockBehaviour.Properties.copy(Blocks.CHERRY_PLANKS)));
-    public static final RegistryObject<Block> COFFEE_TABLE_STRIPPED_CHERRY = register("stripped_cherry_coffee_table",
-            () -> new CoffeeTableBlock(BlockBehaviour.Properties.copy(Blocks.CHERRY_PLANKS)));
-    public static final RegistryObject<Block> CABINET_CHERRY = register("cherry_cabinet",
-            () -> new CabinetBlock(BlockBehaviour.Properties.copy(Blocks.CHERRY_PLANKS)));
-    public static final RegistryObject<Block> CABINET_STRIPPED_CHERRY = register("stripped_cherry_cabinet",
-            () -> new CabinetBlock(BlockBehaviour.Properties.copy(Blocks.CHERRY_PLANKS)));
-    public static final RegistryObject<Block> BEDSIDE_CABINET_CHERRY = register("cherry_bedside_cabinet",
-            () -> new BedsideCabinetBlock(BlockBehaviour.Properties.copy(Blocks.CHERRY_PLANKS)));
-    public static final RegistryObject<Block> BEDSIDE_CABINET_STRIPPED_CHERRY = register("stripped_cherry_bedside_cabinet",
-            () -> new BedsideCabinetBlock(BlockBehaviour.Properties.copy(Blocks.CHERRY_PLANKS)));
-    public static final RegistryObject<Block> DESK_CHERRY = register("cherry_desk",
-            () -> new DeskBlock(BlockBehaviour.Properties.copy(Blocks.CHERRY_PLANKS), MaterialType.CHERRY));
-    public static final RegistryObject<Block> DESK_STRIPPED_CHERRY = register("stripped_cherry_desk",
-            () -> new DeskBlock(BlockBehaviour.Properties.copy(Blocks.CHERRY_PLANKS), MaterialType.STRIPPED_CHERRY));
-    public static final RegistryObject<Block> DESK_CABINET_CHERRY = register("cherry_desk_cabinet",
-            () -> new DeskCabinetBlock(BlockBehaviour.Properties.copy(Blocks.CHERRY_PLANKS), MaterialType.CHERRY));
-    public static final RegistryObject<Block> DESK_CABINET_STRIPPED_CHERRY = register("stripped_cherry_desk_cabinet",
-            () -> new DeskCabinetBlock(BlockBehaviour.Properties.copy(Blocks.CHERRY_PLANKS), MaterialType.STRIPPED_CHERRY));
-
-     */
-
-
-
-
     //Tables
     public static final RegistryObject<Block> TABLE_STONE = register("stone_table",
             () -> new TableBlock(BlockBehaviour.Properties.copy(Blocks.STONE)));

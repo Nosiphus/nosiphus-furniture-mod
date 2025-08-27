@@ -1,5 +1,6 @@
 package com.nosiphus.furniture;
 
+import com.nosiphus.furniture.cfm.CFMModBlockEntities;
 import com.nosiphus.furniture.cfm.CFMModBlocks;
 import com.nosiphus.furniture.client.ClientHandler;
 import com.nosiphus.furniture.common.CommonHandler;
@@ -25,6 +26,7 @@ public class NosiphusFurnitureMod {
         IEventBus eventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
         CFMModBlocks.BLOCKS.register(eventBus);
+        CFMModBlockEntities.BLOCK_ENTITIES.register(eventBus);
 
         ModBlocks.BLOCKS.register(eventBus);
         ModBlockEntities.BLOCK_ENTITIES.register(eventBus);
