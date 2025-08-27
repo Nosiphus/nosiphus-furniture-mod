@@ -3,6 +3,8 @@ package com.nosiphus.furniture.cfm;
 import com.mrcrayfish.furniture.Reference;
 import com.mrcrayfish.furniture.block.*;
 import com.mrcrayfish.furniture.core.ModItems;
+import com.nosiphus.furniture.block.ModernDeskBlock;
+import com.nosiphus.furniture.block.ModernDeskCabinetBlock;
 import com.nosiphus.furniture.block.ModernKitchenSinkBlock;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
@@ -32,12 +34,10 @@ public class CFMModBlocks {
     public static final RegistryObject<Block> CABINET_STRIPPED_CHERRY;
     public static final RegistryObject<Block> BEDSIDE_CABINET_CHERRY;
     public static final RegistryObject<Block> BEDSIDE_CABINET_STRIPPED_CHERRY;
-    /*
     public static final RegistryObject<Block> DESK_CHERRY;
     public static final RegistryObject<Block> DESK_STRIPPED_CHERRY;
     public static final RegistryObject<Block> DESK_CABINET_CHERRY;
     public static final RegistryObject<Block> DESK_CABINET_STRIPPED_CHERRY;
-     */
     public static final RegistryObject<Block> BLINDS_CHERRY;
     public static final RegistryObject<Block> BLINDS_STRIPPED_CHERRY;
     public static final RegistryObject<Block> UPGRADED_FENCE_CHERRY;
@@ -94,12 +94,10 @@ public class CFMModBlocks {
         CABINET_STRIPPED_CHERRY = register("stripped_cherry_cabinet", () -> new CabinetBlock(Properties.copy(Blocks.CHERRY_PLANKS)));
         BEDSIDE_CABINET_CHERRY = register("cherry_bedside_cabinet", () -> new BedsideCabinetBlock(Properties.copy(Blocks.CHERRY_PLANKS)));
         BEDSIDE_CABINET_STRIPPED_CHERRY = register("stripped_cherry_bedside_cabinet", () -> new BedsideCabinetBlock(Properties.copy(Blocks.CHERRY_PLANKS)));
-        /*
-        DESK_CHERRY = register("cherry_desk", () -> new DeskBlock(Properties.copy(Blocks.CHERRY_PLANKS), DeskBlockMaterialType.CHERRY));
-        DESK_STRIPPED_CHERRY = register("stripped_cherry_desk", () -> new DeskBlock(Properties.copy(Blocks.CHERRY_PLANKS), DeskBlockMaterialType.STRIPPED_CHERRY));
-        DESK_CABINET_CHERRY = register("cherry_desk_cabinet", () -> new DeskCabinetBlock(Properties.copy(Blocks.CHERRY_PLANKS), DeskBlockMaterialType.CHERRY));
-        DESK_CABINET_STRIPPED_CHERRY = register("stripped_cherry_desk_cabinet", () -> new DeskCabinetBlock(Properties.copy(Blocks.CHERRY_PLANKS), DeskBlockMaterialType.STRIPPED_CHERRY));
-         */
+        DESK_CHERRY = register("cherry_desk", () -> new ModernDeskBlock(Properties.copy(Blocks.CHERRY_PLANKS), ModernDeskBlock.MaterialType.CHERRY));
+        DESK_STRIPPED_CHERRY = register("stripped_cherry_desk", () -> new ModernDeskBlock(Properties.copy(Blocks.CHERRY_PLANKS), ModernDeskBlock.MaterialType.STRIPPED_CHERRY));
+        DESK_CABINET_CHERRY = register("cherry_desk_cabinet", () -> new ModernDeskCabinetBlock(Properties.copy(Blocks.CHERRY_PLANKS), ModernDeskBlock.MaterialType.CHERRY));
+        DESK_CABINET_STRIPPED_CHERRY = register("stripped_cherry_desk_cabinet", () -> new ModernDeskCabinetBlock(Properties.copy(Blocks.CHERRY_PLANKS), ModernDeskBlock.MaterialType.STRIPPED_CHERRY));
         BLINDS_CHERRY = register("cherry_blinds", () -> new BlindsBlock(Properties.copy(Blocks.CHERRY_PLANKS)));
         BLINDS_STRIPPED_CHERRY = register("stripped_cherry_blinds", () -> new BlindsBlock(Properties.copy(Blocks.CHERRY_PLANKS)));
         UPGRADED_FENCE_CHERRY = register("cherry_upgraded_fence", () -> new UpgradedFenceBlock(Properties.copy(Blocks.CHERRY_PLANKS)));

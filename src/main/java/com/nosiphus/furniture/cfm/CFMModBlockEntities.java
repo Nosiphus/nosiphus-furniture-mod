@@ -19,7 +19,6 @@ public class CFMModBlockEntities {
 
     public static final RegistryObject<BlockEntityType<CabinetBlockEntity>> CFM_CABINET = register("cfm_cabinet", CabinetBlockEntity::new, () -> new Block[]{CFMModBlocks.CABINET_CHERRY.get(), CFMModBlocks.CABINET_STRIPPED_CHERRY.get()});
     public static final RegistryObject<BlockEntityType<BedsideCabinetBlockEntity>> CFM_BEDSIDE_CABINET = register("cfm_bedside_cabinet", BedsideCabinetBlockEntity::new, () -> new Block[]{CFMModBlocks.BEDSIDE_CABINET_CHERRY.get(), CFMModBlocks.BEDSIDE_CABINET_STRIPPED_CHERRY.get()});
-    //public static final RegistryObject<BlockEntityType<DeskCabinetBlockEntity>> CFM_DESK_CABINET = register("cfm_desk_cabinet", DeskCabinetBlockEntity::new, () -> new Block[]{CFMModBlocks.DESK_CABINET_CHERRY.get(), CFMModBlocks.DESK_CABINET_STRIPPED_CHERRY.get()});
     public static final RegistryObject<BlockEntityType<CrateBlockEntity>> CFM_CRATE = register("cfm_crate", CrateBlockEntity::new, () -> new Block[]{CFMModBlocks.CRATE_CHERRY.get(), CFMModBlocks.CRATE_STRIPPED_CHERRY.get()});
     public static final RegistryObject<BlockEntityType<MailBoxBlockEntity>> CFM_MAIL_BOX = register("cfm_mail_box", MailBoxBlockEntity::new, () -> new Block[]{CFMModBlocks.MAIL_BOX_CHERRY.get(), CFMModBlocks.MAIL_BOX_STRIPPED_CHERRY.get()});
     public static final RegistryObject<BlockEntityType<KitchenDrawerBlockEntity>> CFM_KITCHEN_DRAWER = register("cfm_kitchen_drawer", KitchenDrawerBlockEntity::new, () -> new Block[]{CFMModBlocks.KITCHEN_DRAWER_CHERRY.get(), CFMModBlocks.KITCHEN_DRAWER_STRIPPED_CHERRY.get()});
