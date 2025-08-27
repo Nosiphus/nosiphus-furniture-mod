@@ -872,10 +872,10 @@ public class ModBlocks {
             () -> new ElectricFenceBlock(BlockBehaviour.Properties.copy(Blocks.ANVIL)));
 
     //Appliances and Electronics
-    public static final RegistryObject<Block> BATH_DARK = register("bath_dark",
-            () -> new BathBlock(BlockBehaviour.Properties.copy(Blocks.GRAY_CONCRETE)));
     public static final RegistryObject<Block> BATH_LIGHT = register("bath_light",
             () -> new BathBlock(BlockBehaviour.Properties.copy(Blocks.WHITE_CONCRETE)));
+    public static final RegistryObject<Block> BATH_DARK = register("bath_dark",
+            () -> new BathBlock(BlockBehaviour.Properties.copy(Blocks.GRAY_CONCRETE)));
     public static final RegistryObject<Block> BIN_LIGHT = register("bin_light",
             () -> new BinBlock(BlockBehaviour.Properties.copy(Blocks.WHITE_CONCRETE).noOcclusion()));
     public static final RegistryObject<Block> BIN_DARK = register("bin_dark",
@@ -912,14 +912,10 @@ public class ModBlocks {
             () -> new SinkBlock(BlockBehaviour.Properties.copy(Blocks.WHITE_CONCRETE).noOcclusion()));
     public static final RegistryObject<Block> SINK_DARK = register("sink_dark",
             () -> new SinkBlock(BlockBehaviour.Properties.copy(Blocks.GRAY_CONCRETE).noOcclusion()));
-    public static final RegistryObject<Block> SHOWER_LIGHT_BOTTOM = registerNoItem("shower_light_bottom",
-            () -> new ShowerBottomBlock(Block.Properties.copy(Blocks.WHITE_CONCRETE).noOcclusion(), () -> ModBlocks.SHOWER_LIGHT));
     public static final RegistryObject<Block> SHOWER_LIGHT = register("shower_light",
-            () -> new ShowerTopBlock(Block.Properties.copy(Blocks.WHITE_CONCRETE).noOcclusion(), () -> ModBlocks.SHOWER_LIGHT_BOTTOM), block -> new BlockSupplierItem(new Item.Properties(), block.get(), ModBlocks.SHOWER_LIGHT_BOTTOM));
-    public static final RegistryObject<Block> SHOWER_DARK_BOTTOM = registerNoItem("shower_dark_bottom",
-            () -> new ShowerBottomBlock(Block.Properties.copy(Blocks.GRAY_CONCRETE).noOcclusion(), () -> ModBlocks.SHOWER_DARK));
+            () -> new ShowerBlock(BlockBehaviour.Properties.copy(Blocks.WHITE_CONCRETE)));
     public static final RegistryObject<Block> SHOWER_DARK = register("shower_dark",
-            () -> new ShowerTopBlock(Block.Properties.copy(Blocks.GRAY_CONCRETE).noOcclusion(), () -> ModBlocks.SHOWER_DARK_BOTTOM), block -> new BlockSupplierItem(new Item.Properties(), block.get(), ModBlocks.SHOWER_DARK_BOTTOM));
+            () -> new ShowerBlock(BlockBehaviour.Properties.copy(Blocks.GRAY_CONCRETE)));
     public static final RegistryObject<Block> SHOWER_HEAD_LIGHT = register("shower_head_light",
             () -> new ShowerHeadBlock(BlockBehaviour.Properties.copy(Blocks.WHITE_CONCRETE).noOcclusion()));
     public static final RegistryObject<Block> SHOWER_HEAD_DARK = register("shower_head_dark",

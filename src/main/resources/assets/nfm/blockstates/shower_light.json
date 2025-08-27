@@ -1,19 +1,33 @@
 {
     "variants": {
-        "facing=north": {
-            "model": "nfm:block/shower_light",
+        "facing=north,type=top": {
+            "model": "nfm:block/shower_light_top",
             "y": 270
         },
-        "facing=east": {
-            "model": "nfm:block/shower_light",
-            "y": 0
+		"facing=east,type=top": {
+            "model": "nfm:block/shower_light_top"
         },
-        "facing=south": {
-            "model": "nfm:block/shower_light",
+		"facing=south,type=top": {
+            "model": "nfm:block/shower_light_top",
             "y": 90
         },
-        "facing=west": {
-            "model": "nfm:block/shower_light",
+		"facing=west,type=top": {
+            "model": "nfm:block/shower_light_top",
+            "y": 180
+        },
+		"facing=north,type=bottom": {
+            "model": "nfm:block/shower_light_bottom",
+            "y": 270
+        },
+		"facing=east,type=bottom": {
+            "model": "nfm:block/shower_light_bottom"
+        },
+		"facing=south,type=bottom": {
+            "model": "nfm:block/shower_light_bottom",
+            "y": 90
+        },
+		"facing=west,type=bottom": {
+            "model": "nfm:block/shower_light_bottom",
             "y": 180
         }
     }
