@@ -2,6 +2,10 @@
   "replace": false,
   "values": [
     { "id": "#cfm:fence_gates/picket", "required": false },
-    { "id": "#cfm:fences/picket", "required": false }
+    { "id": "#cfm:fences/picket", "required": false },
+	{ "id": "cfm:cherry_park_bench", "required": false },
+    { "id": "cfm:stripped_cherry_park_bench", "required": false },
+	{ "id": "cfm:cherry_mail_box", "required": false },
+    { "id": "cfm:stripped_cherry_mail_box", "required": false }
   ]
 }

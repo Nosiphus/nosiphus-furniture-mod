@@ -1,0 +1,13 @@
+{
+  "replace": false,
+  "values": [
+	{ "id": "cfm:cherry_kitchen_counter", "required": false },
+    { "id": "cfm:stripped_cherry_kitchen_counter", "required": false },
+	{ "id": "cfm:cherry_kitchen_drawer", "required": false },
+    { "id": "cfm:stripped_cherry_kitchen_drawer", "required": false },
+	{ "id": "cfm:cherry_kitchen_sink_light", "required": false },
+    { "id": "cfm:stripped_cherry_kitchen_sink_light", "required": false },
+	{ "id": "cfm:cherry_kitchen_sink_dark", "required": false },
+    { "id": "cfm:stripped_cherry_kitchen_sink_dark", "required": false }
+  ]
+}

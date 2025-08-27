@@ -23,6 +23,9 @@ public class NosiphusFurnitureMod {
     public NosiphusFurnitureMod() {
 
         IEventBus eventBus = FMLJavaModLoadingContext.get().getModEventBus();
+
+        CFMModBlocks.BLOCKS.register(eventBus);
+
         ModBlocks.BLOCKS.register(eventBus);
         ModBlockEntities.BLOCK_ENTITIES.register(eventBus);
         ModCreativeTabs.CREATIVE_TABS.register(eventBus);
