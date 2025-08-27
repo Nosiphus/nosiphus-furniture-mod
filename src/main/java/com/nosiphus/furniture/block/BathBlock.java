@@ -187,7 +187,7 @@ public class BathBlock extends FurnitureHorizontalBlock implements EntityBlock
                     }
                 }
             }
-            return SeatEntity.create(level, pos, -0.1, playerEntity);
+            return SeatEntity.create(level, pos, 0.05, playerEntity);
         }
         return InteractionResult.SUCCESS;
     }
