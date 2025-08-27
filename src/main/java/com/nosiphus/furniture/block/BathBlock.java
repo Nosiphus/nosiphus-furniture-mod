@@ -5,6 +5,7 @@ import com.google.common.collect.ImmutableMap;
 import com.mrcrayfish.furniture.block.FurnitureHorizontalBlock;
 import com.mrcrayfish.furniture.util.VoxelShapeHelper;
 import com.nosiphus.furniture.blockentity.BathBlockEntity;
+import com.nosiphus.furniture.entity.SeatEntity;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.particles.ParticleTypes;
@@ -186,6 +187,7 @@ public class BathBlock extends FurnitureHorizontalBlock implements EntityBlock
                     }
                 }
             }
+            return SeatEntity.create(level, pos, -0.1, playerEntity);
         }
         return InteractionResult.SUCCESS;
     }
