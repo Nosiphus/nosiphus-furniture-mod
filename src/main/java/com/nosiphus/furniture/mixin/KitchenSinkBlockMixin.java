@@ -1,8 +1,8 @@
-package com.nosiphus.furniture.block;
+package com.nosiphus.furniture.mixin;
 
 import com.mrcrayfish.furniture.block.FurnitureHorizontalBlock;
-import com.mrcrayfish.furniture.util.VoxelShapeHelper;
-import com.nosiphus.furniture.blockentity.ModernKitchenSinkBlockEntity;
+import com.mrcrayfish.furniture.block.KitchenSinkBlock;
+import com.mrcrayfish.furniture.tileentity.KitchenSinkBlockEntity;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.particles.ParticleTypes;
@@ -17,88 +17,41 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.alchemy.PotionUtils;
 import net.minecraft.world.item.alchemy.Potions;
-import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.EntityBlock;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.phys.BlockHitResult;
-import net.minecraft.world.phys.shapes.CollisionContext;
-import net.minecraft.world.phys.shapes.VoxelShape;
 import net.minecraftforge.common.capabilities.ForgeCapabilities;
 import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.fluids.FluidType;
 import net.minecraftforge.fluids.FluidUtil;
 import net.minecraftforge.fluids.capability.IFluidHandler;
+import org.jetbrains.annotations.Nullable;
+import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Overwrite;
 
-import javax.annotation.Nullable;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+@Mixin(KitchenSinkBlock.class)
+public class KitchenSinkBlockMixin extends FurnitureHorizontalBlock implements EntityBlock {
 
-public class ModernKitchenSinkBlock extends FurnitureHorizontalBlock implements EntityBlock
-{
-
-    private final boolean bigSink;
-
-    public final Map<BlockState, VoxelShape> SHAPES = new HashMap<>();
-
-    public ModernKitchenSinkBlock(Properties properties, boolean bigSink)
-    {
+    public KitchenSinkBlockMixin(Properties properties) {
         super(properties);
-        this.bigSink = bigSink;
     }
 
-    private VoxelShape getShape(BlockState state)
-    {
-
-        if(SHAPES.containsKey(state))
-        {
-            return SHAPES.get(state);
-        }
-        List<VoxelShape> shapes = new ArrayList<>();
-        Direction direction = state.getValue(DIRECTION);
-        if(this.bigSink)
-        {
-            shapes.add(VoxelShapeHelper.getRotatedShapes(VoxelShapeHelper.rotate(Block.box(0.0, 0.0, 0.0, 16.0, 9.0, 15.0), Direction.SOUTH))[direction.get2DDataValue()]);
-            shapes.add(VoxelShapeHelper.getRotatedShapes(VoxelShapeHelper.rotate(Block.box(0.0, 9.0, 0.0, 16.0, 16.0, 16.0), Direction.SOUTH))[direction.get2DDataValue()]);
-        }
-        else
-        {
-            shapes.add(VoxelShapeHelper.getRotatedShapes(VoxelShapeHelper.rotate(Block.box(0.0, 0.0, 0.0, 16.0, 13.0, 15.0), Direction.SOUTH))[direction.get2DDataValue()]);
-            shapes.add(VoxelShapeHelper.getRotatedShapes(VoxelShapeHelper.rotate(Block.box(0.0, 13.0, 0.0, 16.0, 16.0, 16.0), Direction.SOUTH))[direction.get2DDataValue()]);
-        }
-
-        VoxelShape shape = VoxelShapeHelper.combineAll(shapes);
-        SHAPES.put(state, shape);
-        return shape;
-
-    }
-
-    @Override
-    public VoxelShape getShape(BlockState state, BlockGetter reader, BlockPos pos, CollisionContext context)
-    {
-        return this.getShape(state);
-    }
-
-    @Override
-    public VoxelShape getOcclusionShape(BlockState state, BlockGetter reader, BlockPos pos)
-    {
-        return this.getShape(state);
-    }
-
-    @Override
+    /**
+     * @author windowsxprules1
+     * @reason MrCrayFish's original code does not always save the water level to the sink when exiting the world.
+     */
+    @Overwrite
     public InteractionResult use(BlockState state, Level level, BlockPos pos, Player playerEntity, InteractionHand hand, BlockHitResult result)
     {
         if(!level.isClientSide())
         {
             BlockEntity blockEntity = level.getBlockEntity(pos);
             ItemStack heldItem = playerEntity.getItemInHand(hand);
-            if(blockEntity instanceof ModernKitchenSinkBlockEntity) {
+            if(blockEntity instanceof KitchenSinkBlockEntity) {
                 if(heldItem.getItem() == Items.GLASS_BOTTLE)
                 {
                     IFluidHandler handler = FluidUtil.getFluidHandler(level, pos, null).orElse(null);
@@ -173,11 +126,9 @@ public class ModernKitchenSinkBlock extends FurnitureHorizontalBlock implements 
         return level.getFluidState(pos).getType() == Fluids.WATER;
     }
 
-    @Nullable
-    @Override
-    public BlockEntity newBlockEntity(BlockPos pos, BlockState state)
-    {
-        return new ModernKitchenSinkBlockEntity(pos, state);
-    }
 
+    @Override
+    public @Nullable BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
+        return new KitchenSinkBlockEntity(pos, state);
+    }
 }

@@ -133,6 +133,7 @@ public class BirdBathBlock extends FurnitureBlock implements EntityBlock
                     if(handler.getFluidInTank(0).getAmount() != handler.getTankCapacity(0))
                     {
                         handler.fill(new FluidStack(Fluids.WATER, FluidType.BUCKET_VOLUME), IFluidHandler.FluidAction.EXECUTE);
+                        blockEntity.setChanged();
                         level.playSound(null, pos.getX() + 0.5, pos.getY() + 1.0, pos.getZ() + 0.5, SoundEvents.BUCKET_EMPTY, SoundSource.BLOCKS, 1.0F, 1.0F);
 
                         double posX = pos.getX() + 0.5 * 0.1;
