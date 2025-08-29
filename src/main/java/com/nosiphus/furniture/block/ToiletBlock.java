@@ -3,8 +3,8 @@ package com.nosiphus.furniture.block;
 import com.mrcrayfish.furniture.block.FurnitureHorizontalBlock;
 import com.mrcrayfish.furniture.entity.SeatEntity;
 import com.mrcrayfish.furniture.util.VoxelShapeHelper;
+import com.nosiphus.furniture.blockentity.BathBlockEntity;
 import com.nosiphus.furniture.blockentity.ToiletBlockEntity;
-import com.nosiphus.furniture.core.ModSounds;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.particles.ParticleTypes;
@@ -97,74 +97,75 @@ public class ToiletBlock extends FurnitureHorizontalBlock implements EntityBlock
     {
         if(!level.isClientSide())
         {
-            if(playerEntity.isCrouching()) {
-                level.playSound(null, pos, ModSounds.BLOCK_TOILET_FLUSH.get(), SoundSource.BLOCKS, 0.75F, 1.0F);
-            }
+            BlockEntity blockEntity = level.getBlockEntity(pos);
             ItemStack heldItem = playerEntity.getItemInHand(hand);
-            if(heldItem.getItem() == Items.GLASS_BOTTLE)
-            {
-                IFluidHandler handler = FluidUtil.getFluidHandler(level, pos, null).orElse(null);
-                if(handler.getFluidInTank(0).getAmount() > 0 && !level.isClientSide())
+            if(blockEntity instanceof ToiletBlockEntity) {
+                if(heldItem.getItem() == Items.GLASS_BOTTLE)
                 {
-                    if(!playerEntity.getAbilities().instabuild)
+                    IFluidHandler handler = FluidUtil.getFluidHandler(level, pos, null).orElse(null);
+                    if(handler.getFluidInTank(0).getAmount() > 0 && !level.isClientSide())
                     {
-                        ItemStack waterPotion = PotionUtils.setPotion(new ItemStack(Items.POTION), Potions.WATER);
-                        heldItem.shrink(1);
-                        if(heldItem.isEmpty())
+                        if(!playerEntity.getAbilities().instabuild)
                         {
-                            playerEntity.setItemInHand(hand, waterPotion);
+                            ItemStack waterPotion = PotionUtils.setPotion(new ItemStack(Items.POTION), Potions.WATER);
+                            heldItem.shrink(1);
+                            if(heldItem.isEmpty())
+                            {
+                                playerEntity.setItemInHand(hand, waterPotion);
+                            }
+                            else if(!playerEntity.getInventory().add(waterPotion))
+                            {
+                                playerEntity.drop(waterPotion, false);
+                            }
+                            else if(playerEntity instanceof ServerPlayer)
+                            {
+                                playerEntity.inventoryMenu.sendAllDataToRemote();
+                            }
                         }
-                        else if(!playerEntity.getInventory().add(waterPotion))
+
+                        level.playSound(null, pos, SoundEvents.BOTTLE_FILL, SoundSource.BLOCKS, 1.0F, 1.0F);
+                        handler.drain(FluidType.BUCKET_VOLUME, IFluidHandler.FluidAction.EXECUTE);
+                        blockEntity.setChanged();
+                    }
+                    return InteractionResult.sidedSuccess(level.isClientSide());
+                }
+
+                if(!heldItem.isEmpty() && heldItem.getCapability(ForgeCapabilities.FLUID_HANDLER_ITEM).isPresent())
+                {
+                    blockEntity.setChanged();
+                    return FluidUtil.interactWithFluidHandler(playerEntity, hand, level, pos, result.getDirection()) ? InteractionResult.SUCCESS : InteractionResult.PASS;
+                }
+
+                BlockPos waterPos = pos.below().below();
+                if(this.isWaterSource(level, waterPos))
+                {
+                    IFluidHandler handler = FluidUtil.getFluidHandler(level, pos, null).orElse(null);
+                    if(handler.getFluidInTank(0).getAmount() != handler.getTankCapacity(0))
+                    {
+                        handler.fill(new FluidStack(Fluids.WATER, FluidType.BUCKET_VOLUME), IFluidHandler.FluidAction.EXECUTE);
+                        blockEntity.setChanged();
+                        level.playSound(null, pos.getX() + 0.5, pos.getY() + 1.0, pos.getZ() + 0.5, SoundEvents.BUCKET_EMPTY, SoundSource.BLOCKS, 1.0F, 1.0F);
+
+                        Direction direction = state.getValue(DIRECTION);
+                        double posX = pos.getX() + 0.5 + direction.getNormal().getX() * 0.1;
+                        double posY = pos.getY() + 1.15;
+                        double posZ = pos.getZ() + 0.5 + direction.getNormal().getZ() * 0.1;
+                        ((ServerLevel) level).sendParticles(ParticleTypes.FALLING_WATER, posX, posY, posZ, 10, 0.01, 0.01, 0.01, 0);
+
+                        int adjacentSources = 0;
+                        adjacentSources += this.isWaterSource(level, waterPos.north()) ? 1 : 0;
+                        adjacentSources += this.isWaterSource(level, waterPos.east()) ? 1 : 0;
+                        adjacentSources += this.isWaterSource(level, waterPos.south()) ? 1 : 0;
+                        adjacentSources += this.isWaterSource(level, waterPos.west()) ? 1 : 0;
+                        if(adjacentSources < 2) //If it has less then two adjacent water sources, it is not infinite and thus it should be consumed
                         {
-                            playerEntity.drop(waterPotion, false);
-                        }
-                        else if(playerEntity instanceof ServerPlayer)
-                        {
-                            playerEntity.inventoryMenu.sendAllDataToRemote();
+                            level.setBlockAndUpdate(waterPos, Blocks.AIR.defaultBlockState());
+                            blockEntity.setChanged();
                         }
                     }
-
-                    level.playSound(null, pos, SoundEvents.BOTTLE_FILL, SoundSource.BLOCKS, 1.0F, 1.0F);
-                    handler.drain(FluidType.BUCKET_VOLUME, IFluidHandler.FluidAction.EXECUTE);
-                }
-                return InteractionResult.sidedSuccess(level.isClientSide());
-            }
-
-            if(!heldItem.isEmpty() && heldItem.getCapability(ForgeCapabilities.FLUID_HANDLER_ITEM).isPresent())
-            {
-                return FluidUtil.interactWithFluidHandler(playerEntity, hand, level, pos, result.getDirection()) ? InteractionResult.SUCCESS : InteractionResult.PASS;
-            }
-
-            if(heldItem.isEmpty() || !heldItem.isEmpty() && !heldItem.getCapability(ForgeCapabilities.FLUID_HANDLER_ITEM).isPresent()) {
-                return SeatEntity.create(level, pos, 0.4, playerEntity, state.getValue(DIRECTION));
-            }
-
-            BlockPos waterPos = pos.below().below();
-            if(this.isWaterSource(level, waterPos))
-            {
-                IFluidHandler handler = FluidUtil.getFluidHandler(level, pos, null).orElse(null);
-                if(handler.getFluidInTank(0).getAmount() != handler.getTankCapacity(0))
-                {
-                    handler.fill(new FluidStack(Fluids.WATER, FluidType.BUCKET_VOLUME), IFluidHandler.FluidAction.EXECUTE);
-                    level.playSound(null, pos.getX() + 0.5, pos.getY() + 1.0, pos.getZ() + 0.5, SoundEvents.BUCKET_EMPTY, SoundSource.BLOCKS, 1.0F, 1.0F);
-
-                    Direction direction = state.getValue(DIRECTION);
-                    double posX = pos.getX() + 0.5 + direction.getNormal().getX() * 0.1;
-                    double posY = pos.getY() + 1.15;
-                    double posZ = pos.getZ() + 0.5 + direction.getNormal().getZ() * 0.1;
-                    ((ServerLevel) level).sendParticles(ParticleTypes.FALLING_WATER, posX, posY, posZ, 10, 0.01, 0.01, 0.01, 0);
-
-                    int adjacentSources = 0;
-                    adjacentSources += this.isWaterSource(level, waterPos.north()) ? 1 : 0;
-                    adjacentSources += this.isWaterSource(level, waterPos.east()) ? 1 : 0;
-                    adjacentSources += this.isWaterSource(level, waterPos.south()) ? 1 : 0;
-                    adjacentSources += this.isWaterSource(level, waterPos.west()) ? 1 : 0;
-                    if(adjacentSources < 2) //If it has less then two adjacent water sources, it is not infinite and thus it should be consumed
-                    {
-                        level.setBlockAndUpdate(waterPos, Blocks.AIR.defaultBlockState());
-                    }
                 }
             }
+            return SeatEntity.create(level, pos, 0.4, playerEntity, state.getValue(DIRECTION));
         }
         return InteractionResult.SUCCESS;
     }

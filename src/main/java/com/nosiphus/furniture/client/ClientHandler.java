@@ -1,7 +1,5 @@
 package com.nosiphus.furniture.client;
 
-import com.mrcrayfish.furniture.client.renderer.tileentity.KitchenSinkBlockEntityRenderer;
-import com.nosiphus.furniture.cfm.CFMModBlockEntities;
 import com.nosiphus.furniture.cfm.CFMModBlocks;
 import com.nosiphus.furniture.client.event.CreativeScreenEvents;
 import com.nosiphus.furniture.client.gui.screen.inventory.*;
