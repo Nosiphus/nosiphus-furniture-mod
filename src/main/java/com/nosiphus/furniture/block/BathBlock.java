@@ -79,23 +79,26 @@ public class BathBlock extends FurnitureHorizontalBlock implements EntityBlock
         ImmutableMap.Builder<BlockState, VoxelShape> builder = new ImmutableMap.Builder<>();
         for (BlockState state : states) {
             Direction direction = state.getValue(DIRECTION);
+            Type type = state.getValue(TYPE);
             List<VoxelShape> shapes = new ArrayList<>();
 
-            if(state.getValue(TYPE) == Type.HEAD) {
-                shapes.add(HEAD_BOTTOM[direction.get2DDataValue()]);
-                shapes.add(HEAD_LEFT[direction.get2DDataValue()]);
-                shapes.add(HEAD_RIGHT[direction.get2DDataValue()]);
-                shapes.add(HEAD_FRONT[direction.get2DDataValue()]);
-                shapes.add(HEAD_TAP_BASE[direction.get2DDataValue()]);
-                shapes.add(HEAD_TAP_TOP[direction.get2DDataValue()]);
-                shapes.add(HEAD_TAP_HOLE[direction.get2DDataValue()]);
-                shapes.add(HEAD_HOT[direction.get2DDataValue()]);
-                shapes.add(HEAD_COLD[direction.get2DDataValue()]);
-            } else if (state.getValue(TYPE) == Type.BACK) {
-                shapes.add(BACK_BOTTOM[direction.get2DDataValue()]);
-                shapes.add(BACK_LEFT[direction.get2DDataValue()]);
-                shapes.add(BACK_RIGHT[direction.get2DDataValue()]);
-                shapes.add(BACK_BACK[direction.get2DDataValue()]);
+            switch(type)
+            {
+                case HEAD:
+                    shapes.add(HEAD_BOTTOM[direction.get2DDataValue()]);
+                    shapes.add(HEAD_LEFT[direction.get2DDataValue()]);
+                    shapes.add(HEAD_RIGHT[direction.get2DDataValue()]);
+                    shapes.add(HEAD_FRONT[direction.get2DDataValue()]);
+                    shapes.add(HEAD_TAP_BASE[direction.get2DDataValue()]);
+                    shapes.add(HEAD_TAP_TOP[direction.get2DDataValue()]);
+                    shapes.add(HEAD_TAP_HOLE[direction.get2DDataValue()]);
+                    shapes.add(HEAD_HOT[direction.get2DDataValue()]);
+                    shapes.add(HEAD_COLD[direction.get2DDataValue()]);
+                case BACK:
+                    shapes.add(BACK_BOTTOM[direction.get2DDataValue()]);
+                    shapes.add(BACK_LEFT[direction.get2DDataValue()]);
+                    shapes.add(BACK_RIGHT[direction.get2DDataValue()]);
+                    shapes.add(BACK_BACK[direction.get2DDataValue()]);
             }
 
             builder.put(state, VoxelShapeHelper.combineAll(shapes));

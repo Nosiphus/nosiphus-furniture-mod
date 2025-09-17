@@ -268,6 +268,10 @@ public class ModBlocks {
     public static final RegistryObject<Block> BEDSIDE_CABINET_BLACK_MODERN = register("black_modern_bedside_cabinet",
             () -> new BedsideCabinetBlock(BlockBehaviour.Properties.copy(Blocks.BLACK_CONCRETE)));
 
+    //Modern Beds
+    public static final RegistryObject<Block> MODERN_BED_WHITE = register("white_modern_bed",
+            () -> new ModernBedBlock(BlockBehaviour.Properties.copy(Blocks.WHITE_WOOL)));
+
     //Curtains
     public static final RegistryObject<Block> CURTAIN_BEIGE = registerOptional("yogmod","beige_curtain",
             () -> new CurtainBlock(BlockBehaviour.Properties.copy(com.nosiphus.yogmod.world.level.block.ModBlocks.BEIGE_WOOL.get())));

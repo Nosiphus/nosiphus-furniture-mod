@@ -196,8 +196,7 @@ public class ModernSofaBlock extends FurnitureHorizontalBlock
         builder.add(TYPE);
     }
 
-    public enum Type implements StringRepresentable
-    {
+    public enum Type implements StringRepresentable {
         SINGLE("single"),
         LEFT("left"),
         RIGHT("right"),
