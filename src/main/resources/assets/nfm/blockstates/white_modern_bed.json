@@ -1,0 +1,34 @@
+{
+    "variants": {
+        "facing=north,type=head": {
+            "model": "nfm:block/white_modern_bed_head"
+        },
+		"facing=east,type=head": {
+            "model": "nfm:block/white_modern_bed_head",
+			"y": 90
+        },
+		"facing=south,type=head": {
+            "model": "nfm:block/white_modern_bed_head",
+            "y": 180
+        },
+		"facing=west,type=head": {
+            "model": "nfm:block/white_modern_bed_head",
+            "y": 270
+        },
+		"facing=north,type=back": {
+            "model": "nfm:block/white_modern_bed_back"
+        },
+		"facing=east,type=back": {
+            "model": "nfm:block/white_modern_bed_back",
+			"y": 90
+        },
+		"facing=south,type=back": {
+            "model": "nfm:block/white_modern_bed_back",
+            "y": 180
+        },
+		"facing=west,type=back": {
+            "model": "nfm:block/white_modern_bed_back",
+            "y": 270
+        }
+    }
+}

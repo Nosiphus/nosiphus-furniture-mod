@@ -94,11 +94,13 @@ public class BathBlock extends FurnitureHorizontalBlock implements EntityBlock
                     shapes.add(HEAD_TAP_HOLE[direction.get2DDataValue()]);
                     shapes.add(HEAD_HOT[direction.get2DDataValue()]);
                     shapes.add(HEAD_COLD[direction.get2DDataValue()]);
+                    break;
                 case BACK:
                     shapes.add(BACK_BOTTOM[direction.get2DDataValue()]);
                     shapes.add(BACK_LEFT[direction.get2DDataValue()]);
                     shapes.add(BACK_RIGHT[direction.get2DDataValue()]);
                     shapes.add(BACK_BACK[direction.get2DDataValue()]);
+                    break;
             }
 
             builder.put(state, VoxelShapeHelper.combineAll(shapes));
