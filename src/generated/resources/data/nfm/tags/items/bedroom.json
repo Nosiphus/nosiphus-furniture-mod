@@ -11,6 +11,7 @@
 	{ "id": "#nfm:desks", "required": false },
     { "id": "#nfm:desk_cabinets", "required": false },
 	{ "id": "#nfm:digital_clocks", "required": false },
+	{ "id": "#nfm:modern_beds", "required": false },
 	{ "id": "#nfm:television_stands", "required": false },
 	{ "id": "nfm:television_remote", "required": false }
   ]

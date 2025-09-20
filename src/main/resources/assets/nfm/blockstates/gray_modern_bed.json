@@ -1,123 +1,123 @@
 {
     "variants": {
         "facing=north,connected=single,type=head": {
-            "model": "nfm:block/white_modern_bed_head_single"
+            "model": "nfm:block/gray_modern_bed_head_single"
         },
 		"facing=east,connected=single,type=head": {
-            "model": "nfm:block/white_modern_bed_head_single",
+            "model": "nfm:block/gray_modern_bed_head_single",
 			"y": 90
         },
 		"facing=south,connected=single,type=head": {
-            "model": "nfm:block/white_modern_bed_head_single",
+            "model": "nfm:block/gray_modern_bed_head_single",
             "y": 180
         },
 		"facing=west,connected=single,type=head": {
-            "model": "nfm:block/white_modern_bed_head_single",
+            "model": "nfm:block/gray_modern_bed_head_single",
             "y": 270
         },
 		"facing=north,connected=single,type=back": {
-            "model": "nfm:block/white_modern_bed_back_single"
+            "model": "nfm:block/gray_modern_bed_back_single"
         },
 		"facing=east,connected=single,type=back": {
-            "model": "nfm:block/white_modern_bed_back_single",
+            "model": "nfm:block/gray_modern_bed_back_single",
 			"y": 90
         },
 		"facing=south,connected=single,type=back": {
-            "model": "nfm:block/white_modern_bed_back_single",
+            "model": "nfm:block/gray_modern_bed_back_single",
             "y": 180
         },
 		"facing=west,connected=single,type=back": {
-            "model": "nfm:block/white_modern_bed_back_single",
+            "model": "nfm:block/gray_modern_bed_back_single",
             "y": 270
         },
 		"facing=north,connected=left,type=head": {
-            "model": "nfm:block/white_modern_bed_head_left"
+            "model": "nfm:block/gray_modern_bed_head_left"
         },
 		"facing=east,connected=left,type=head": {
-            "model": "nfm:block/white_modern_bed_head_left",
+            "model": "nfm:block/gray_modern_bed_head_left",
 			"y": 90
         },
 		"facing=south,connected=left,type=head": {
-            "model": "nfm:block/white_modern_bed_head_left",
+            "model": "nfm:block/gray_modern_bed_head_left",
             "y": 180
         },
 		"facing=west,connected=left,type=head": {
-            "model": "nfm:block/white_modern_bed_head_left",
+            "model": "nfm:block/gray_modern_bed_head_left",
             "y": 270
         },
 		"facing=north,connected=left,type=back": {
-            "model": "nfm:block/white_modern_bed_back_left"
+            "model": "nfm:block/gray_modern_bed_back_left"
         },
 		"facing=east,connected=left,type=back": {
-            "model": "nfm:block/white_modern_bed_back_left",
+            "model": "nfm:block/gray_modern_bed_back_left",
 			"y": 90
         },
 		"facing=south,connected=left,type=back": {
-            "model": "nfm:block/white_modern_bed_back_left",
+            "model": "nfm:block/gray_modern_bed_back_left",
             "y": 180
         },
 		"facing=west,connected=left,type=back": {
-            "model": "nfm:block/white_modern_bed_back_left",
+            "model": "nfm:block/gray_modern_bed_back_left",
             "y": 270
         },
 		"facing=north,connected=right,type=head": {
-            "model": "nfm:block/white_modern_bed_head_right"
+            "model": "nfm:block/gray_modern_bed_head_right"
         },
 		"facing=east,connected=right,type=head": {
-            "model": "nfm:block/white_modern_bed_head_right",
+            "model": "nfm:block/gray_modern_bed_head_right",
 			"y": 90
         },
 		"facing=south,connected=right,type=head": {
-            "model": "nfm:block/white_modern_bed_head_right",
+            "model": "nfm:block/gray_modern_bed_head_right",
             "y": 180
         },
 		"facing=west,connected=right,type=head": {
-            "model": "nfm:block/white_modern_bed_head_right",
+            "model": "nfm:block/gray_modern_bed_head_right",
             "y": 270
         },
 		"facing=north,connected=right,type=back": {
-            "model": "nfm:block/white_modern_bed_back_right"
+            "model": "nfm:block/gray_modern_bed_back_right"
         },
 		"facing=east,connected=right,type=back": {
-            "model": "nfm:block/white_modern_bed_back_right",
+            "model": "nfm:block/gray_modern_bed_back_right",
 			"y": 90
         },
 		"facing=south,connected=right,type=back": {
-            "model": "nfm:block/white_modern_bed_back_right",
+            "model": "nfm:block/gray_modern_bed_back_right",
             "y": 180
         },
 		"facing=west,connected=right,type=back": {
-            "model": "nfm:block/white_modern_bed_back_right",
+            "model": "nfm:block/gray_modern_bed_back_right",
             "y": 270
         },
 		"facing=north,connected=middle,type=head": {
-            "model": "nfm:block/white_modern_bed_head_middle"
+            "model": "nfm:block/gray_modern_bed_head_middle"
         },
 		"facing=east,connected=middle,type=head": {
-            "model": "nfm:block/white_modern_bed_head_middle",
+            "model": "nfm:block/gray_modern_bed_head_middle",
 			"y": 90
         },
 		"facing=south,connected=middle,type=head": {
-            "model": "nfm:block/white_modern_bed_head_middle",
+            "model": "nfm:block/gray_modern_bed_head_middle",
             "y": 180
         },
 		"facing=west,connected=middle,type=head": {
-            "model": "nfm:block/white_modern_bed_head_middle",
+            "model": "nfm:block/gray_modern_bed_head_middle",
             "y": 270
         },
 		"facing=north,connected=middle,type=back": {
-            "model": "nfm:block/white_modern_bed_back_middle"
+            "model": "nfm:block/gray_modern_bed_back_middle"
         },
 		"facing=east,connected=middle,type=back": {
-            "model": "nfm:block/white_modern_bed_back_middle",
+            "model": "nfm:block/gray_modern_bed_back_middle",
 			"y": 90
         },
 		"facing=south,connected=middle,type=back": {
-            "model": "nfm:block/white_modern_bed_back_middle",
+            "model": "nfm:block/gray_modern_bed_back_middle",
             "y": 180
         },
 		"facing=west,connected=middle,type=back": {
-            "model": "nfm:block/white_modern_bed_back_middle",
+            "model": "nfm:block/gray_modern_bed_back_middle",
             "y": 270
         }
     }
