@@ -6,6 +6,7 @@ import com.nosiphus.furniture.block.*;
 import com.nosiphus.furniture.block.yogmod.YogDigitalClockBlock;
 import com.nosiphus.furniture.block.yogmod.YogModernKitchenSinkBlock;
 import net.minecraft.world.item.BlockItem;
+import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
@@ -270,39 +271,39 @@ public class ModBlocks {
 
     //Modern Beds
     public static final RegistryObject<Block> MODERN_BED_BEIGE = registerOptional("yogmod","beige_modern_bed",
-            () -> new ModernBedBlock(BlockBehaviour.Properties.copy(com.nosiphus.yogmod.world.level.block.ModBlocks.BEIGE_WOOL.get())));
+            () -> new ModernBedBlock(DyeColor.YELLOW, BlockBehaviour.Properties.copy(com.nosiphus.yogmod.world.level.block.ModBlocks.BEIGE_WOOL.get())));
     public static final RegistryObject<Block> MODERN_BED_WHITE = register("white_modern_bed",
-            () -> new ModernBedBlock(BlockBehaviour.Properties.copy(Blocks.WHITE_WOOL)));
+            () -> new ModernBedBlock(DyeColor.WHITE, BlockBehaviour.Properties.copy(Blocks.WHITE_WOOL)));
     public static final RegistryObject<Block> MODERN_BED_ORANGE = register("orange_modern_bed",
-            () -> new ModernBedBlock(BlockBehaviour.Properties.copy(Blocks.ORANGE_WOOL)));
+            () -> new ModernBedBlock(DyeColor.ORANGE, BlockBehaviour.Properties.copy(Blocks.ORANGE_WOOL)));
     public static final RegistryObject<Block> MODERN_BED_MAGENTA = register("magenta_modern_bed",
-            () -> new ModernBedBlock(BlockBehaviour.Properties.copy(Blocks.MAGENTA_WOOL)));
+            () -> new ModernBedBlock(DyeColor.MAGENTA, BlockBehaviour.Properties.copy(Blocks.MAGENTA_WOOL)));
     public static final RegistryObject<Block> MODERN_BED_LIGHT_BLUE = register("light_blue_modern_bed",
-            () -> new ModernBedBlock(BlockBehaviour.Properties.copy(Blocks.LIGHT_BLUE_WOOL)));
+            () -> new ModernBedBlock(DyeColor.LIGHT_BLUE, BlockBehaviour.Properties.copy(Blocks.LIGHT_BLUE_WOOL)));
     public static final RegistryObject<Block> MODERN_BED_YELLOW = register("yellow_modern_bed",
-            () -> new ModernBedBlock(BlockBehaviour.Properties.copy(Blocks.YELLOW_WOOL)));
+            () -> new ModernBedBlock(DyeColor.YELLOW, BlockBehaviour.Properties.copy(Blocks.YELLOW_WOOL)));
     public static final RegistryObject<Block> MODERN_BED_LIME = register("lime_modern_bed",
-            () -> new ModernBedBlock(BlockBehaviour.Properties.copy(Blocks.LIME_WOOL)));
+            () -> new ModernBedBlock(DyeColor.LIME, BlockBehaviour.Properties.copy(Blocks.LIME_WOOL)));
     public static final RegistryObject<Block> MODERN_BED_PINK = register("pink_modern_bed",
-            () -> new ModernBedBlock(BlockBehaviour.Properties.copy(Blocks.PINK_WOOL)));
+            () -> new ModernBedBlock(DyeColor.PINK, BlockBehaviour.Properties.copy(Blocks.PINK_WOOL)));
     public static final RegistryObject<Block> MODERN_BED_GRAY = register("gray_modern_bed",
-            () -> new ModernBedBlock(BlockBehaviour.Properties.copy(Blocks.GRAY_WOOL)));
+            () -> new ModernBedBlock(DyeColor.GRAY, BlockBehaviour.Properties.copy(Blocks.GRAY_WOOL)));
     public static final RegistryObject<Block> MODERN_BED_LIGHT_GRAY = register("light_gray_modern_bed",
-            () -> new ModernBedBlock(BlockBehaviour.Properties.copy(Blocks.LIGHT_GRAY_WOOL)));
+            () -> new ModernBedBlock(DyeColor.LIGHT_GRAY, BlockBehaviour.Properties.copy(Blocks.LIGHT_GRAY_WOOL)));
     public static final RegistryObject<Block> MODERN_BED_CYAN = register("cyan_modern_bed",
-            () -> new ModernBedBlock(BlockBehaviour.Properties.copy(Blocks.CYAN_WOOL)));
+            () -> new ModernBedBlock(DyeColor.CYAN, BlockBehaviour.Properties.copy(Blocks.CYAN_WOOL)));
     public static final RegistryObject<Block> MODERN_BED_PURPLE = register("purple_modern_bed",
-            () -> new ModernBedBlock(BlockBehaviour.Properties.copy(Blocks.PURPLE_WOOL)));
+            () -> new ModernBedBlock(DyeColor.PURPLE, BlockBehaviour.Properties.copy(Blocks.PURPLE_WOOL)));
     public static final RegistryObject<Block> MODERN_BED_BLUE = register("blue_modern_bed",
-            () -> new ModernBedBlock(BlockBehaviour.Properties.copy(Blocks.BLUE_WOOL)));
+            () -> new ModernBedBlock(DyeColor.BLUE, BlockBehaviour.Properties.copy(Blocks.BLUE_WOOL)));
     public static final RegistryObject<Block> MODERN_BED_BROWN = register("brown_modern_bed",
-            () -> new ModernBedBlock(BlockBehaviour.Properties.copy(Blocks.BROWN_WOOL)));
+            () -> new ModernBedBlock(DyeColor.BROWN, BlockBehaviour.Properties.copy(Blocks.BROWN_WOOL)));
     public static final RegistryObject<Block> MODERN_BED_GREEN = register("green_modern_bed",
-            () -> new ModernBedBlock(BlockBehaviour.Properties.copy(Blocks.GREEN_WOOL)));
+            () -> new ModernBedBlock(DyeColor.GREEN, BlockBehaviour.Properties.copy(Blocks.GREEN_WOOL)));
     public static final RegistryObject<Block> MODERN_BED_RED = register("red_modern_bed",
-            () -> new ModernBedBlock(BlockBehaviour.Properties.copy(Blocks.RED_WOOL)));
+            () -> new ModernBedBlock(DyeColor.RED, BlockBehaviour.Properties.copy(Blocks.RED_WOOL)));
     public static final RegistryObject<Block> MODERN_BED_BLACK = register("black_modern_bed",
-            () -> new ModernBedBlock(BlockBehaviour.Properties.copy(Blocks.BLACK_WOOL)));
+            () -> new ModernBedBlock(DyeColor.BLACK, BlockBehaviour.Properties.copy(Blocks.BLACK_WOOL)));
 
     //Curtains
     public static final RegistryObject<Block> CURTAIN_BEIGE = registerOptional("yogmod","beige_curtain",

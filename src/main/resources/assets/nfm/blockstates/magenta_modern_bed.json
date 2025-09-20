@@ -1,122 +1,122 @@
 {
     "variants": {
-        "facing=north,connected=single,type=head": {
+        "facing=north,connected=single,part=head": {
             "model": "nfm:block/magenta_modern_bed_head_single"
         },
-		"facing=east,connected=single,type=head": {
+		"facing=east,connected=single,part=head": {
             "model": "nfm:block/magenta_modern_bed_head_single",
 			"y": 90
         },
-		"facing=south,connected=single,type=head": {
+		"facing=south,connected=single,part=head": {
             "model": "nfm:block/magenta_modern_bed_head_single",
             "y": 180
         },
-		"facing=west,connected=single,type=head": {
+		"facing=west,connected=single,part=head": {
             "model": "nfm:block/magenta_modern_bed_head_single",
             "y": 270
         },
-		"facing=north,connected=single,type=back": {
+		"facing=north,connected=single,part=foot": {
             "model": "nfm:block/magenta_modern_bed_back_single"
         },
-		"facing=east,connected=single,type=back": {
+		"facing=east,connected=single,part=foot": {
             "model": "nfm:block/magenta_modern_bed_back_single",
 			"y": 90
         },
-		"facing=south,connected=single,type=back": {
+		"facing=south,connected=single,part=foot": {
             "model": "nfm:block/magenta_modern_bed_back_single",
             "y": 180
         },
-		"facing=west,connected=single,type=back": {
+		"facing=west,connected=single,part=foot": {
             "model": "nfm:block/magenta_modern_bed_back_single",
             "y": 270
         },
-		"facing=north,connected=left,type=head": {
+		"facing=north,connected=left,part=head": {
             "model": "nfm:block/magenta_modern_bed_head_left"
         },
-		"facing=east,connected=left,type=head": {
+		"facing=east,connected=left,part=head": {
             "model": "nfm:block/magenta_modern_bed_head_left",
 			"y": 90
         },
-		"facing=south,connected=left,type=head": {
+		"facing=south,connected=left,part=head": {
             "model": "nfm:block/magenta_modern_bed_head_left",
             "y": 180
         },
-		"facing=west,connected=left,type=head": {
+		"facing=west,connected=left,part=head": {
             "model": "nfm:block/magenta_modern_bed_head_left",
             "y": 270
         },
-		"facing=north,connected=left,type=back": {
+		"facing=north,connected=left,part=foot": {
             "model": "nfm:block/magenta_modern_bed_back_left"
         },
-		"facing=east,connected=left,type=back": {
+		"facing=east,connected=left,part=foot": {
             "model": "nfm:block/magenta_modern_bed_back_left",
 			"y": 90
         },
-		"facing=south,connected=left,type=back": {
+		"facing=south,connected=left,part=foot": {
             "model": "nfm:block/magenta_modern_bed_back_left",
             "y": 180
         },
-		"facing=west,connected=left,type=back": {
+		"facing=west,connected=left,part=foot": {
             "model": "nfm:block/magenta_modern_bed_back_left",
             "y": 270
         },
-		"facing=north,connected=right,type=head": {
+		"facing=north,connected=right,part=head": {
             "model": "nfm:block/magenta_modern_bed_head_right"
         },
-		"facing=east,connected=right,type=head": {
+		"facing=east,connected=right,part=head": {
             "model": "nfm:block/magenta_modern_bed_head_right",
 			"y": 90
         },
-		"facing=south,connected=right,type=head": {
+		"facing=south,connected=right,part=head": {
             "model": "nfm:block/magenta_modern_bed_head_right",
             "y": 180
         },
-		"facing=west,connected=right,type=head": {
+		"facing=west,connected=right,part=head": {
             "model": "nfm:block/magenta_modern_bed_head_right",
             "y": 270
         },
-		"facing=north,connected=right,type=back": {
+		"facing=north,connected=right,part=foot": {
             "model": "nfm:block/magenta_modern_bed_back_right"
         },
-		"facing=east,connected=right,type=back": {
+		"facing=east,connected=right,part=foot": {
             "model": "nfm:block/magenta_modern_bed_back_right",
 			"y": 90
         },
-		"facing=south,connected=right,type=back": {
+		"facing=south,connected=right,part=foot": {
             "model": "nfm:block/magenta_modern_bed_back_right",
             "y": 180
         },
-		"facing=west,connected=right,type=back": {
+		"facing=west,connected=right,part=foot": {
             "model": "nfm:block/magenta_modern_bed_back_right",
             "y": 270
         },
-		"facing=north,connected=middle,type=head": {
+		"facing=north,connected=middle,part=head": {
             "model": "nfm:block/magenta_modern_bed_head_middle"
         },
-		"facing=east,connected=middle,type=head": {
+		"facing=east,connected=middle,part=head": {
             "model": "nfm:block/magenta_modern_bed_head_middle",
 			"y": 90
         },
-		"facing=south,connected=middle,type=head": {
+		"facing=south,connected=middle,part=head": {
             "model": "nfm:block/magenta_modern_bed_head_middle",
             "y": 180
         },
-		"facing=west,connected=middle,type=head": {
+		"facing=west,connected=middle,part=head": {
             "model": "nfm:block/magenta_modern_bed_head_middle",
             "y": 270
         },
-		"facing=north,connected=middle,type=back": {
+		"facing=north,connected=middle,part=foot": {
             "model": "nfm:block/magenta_modern_bed_back_middle"
         },
-		"facing=east,connected=middle,type=back": {
+		"facing=east,connected=middle,part=foot": {
             "model": "nfm:block/magenta_modern_bed_back_middle",
 			"y": 90
         },
-		"facing=south,connected=middle,type=back": {
+		"facing=south,connected=middle,part=foot": {
             "model": "nfm:block/magenta_modern_bed_back_middle",
             "y": 180
         },
-		"facing=west,connected=middle,type=back": {
+		"facing=west,connected=middle,part=foot": {
             "model": "nfm:block/magenta_modern_bed_back_middle",
             "y": 270
         }

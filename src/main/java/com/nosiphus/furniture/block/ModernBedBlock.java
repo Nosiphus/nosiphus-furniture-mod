@@ -2,21 +2,22 @@ package com.nosiphus.furniture.block;
 
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
-import com.mrcrayfish.furniture.block.FurnitureHorizontalBlock;
 import com.mrcrayfish.furniture.util.VoxelShapeHelper;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.util.StringRepresentable;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
+import net.minecraft.world.level.block.state.properties.BedPart;
+import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.block.state.properties.EnumProperty;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
@@ -25,17 +26,18 @@ import org.jetbrains.annotations.Nullable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ModernBedBlock extends FurnitureHorizontalBlock
+public class ModernBedBlock extends BedBlock implements EntityBlock
 {
     public final ImmutableMap<BlockState, VoxelShape> SHAPES;
 
     public static final EnumProperty<Connected> CONNECTED = EnumProperty.create("connected", Connected.class);
-    public static final EnumProperty<Type> TYPE = EnumProperty.create("type", Type.class);
+    private final DyeColor color;
 
-    public ModernBedBlock(Properties properties)
+    public ModernBedBlock(DyeColor color, Properties properties)
     {
-        super(properties);
-        this.registerDefaultState(this.getStateDefinition().any().setValue(DIRECTION, Direction.NORTH).setValue(CONNECTED, Connected.SINGLE).setValue(TYPE, Type.BACK));
+        super(color, properties);
+        this.color = color;
+        this.registerDefaultState(this.getStateDefinition().any().setValue(FACING, Direction.NORTH).setValue(CONNECTED, Connected.SINGLE).setValue(PART, BedPart.FOOT).setValue(OCCUPIED, false));
         SHAPES = this.generateShapes(this.getStateDefinition().getPossibleStates());
     }
 
@@ -103,15 +105,15 @@ public class ModernBedBlock extends FurnitureHorizontalBlock
 
         ImmutableMap.Builder<BlockState, VoxelShape> builder = new ImmutableMap.Builder<>();
         for (BlockState state : states) {
-            Direction direction = state.getValue(DIRECTION);
+            Direction direction = state.getValue(FACING);
             Connected connected = state.getValue(CONNECTED);
-            Type type = state.getValue(TYPE);
+            BedPart bedPart = state.getValue(PART);
             List<VoxelShape> shapes = new ArrayList<>();
 
             switch(connected) {
                 case SINGLE:
-                    switch(type) {
-                        case BACK:
+                    switch(bedPart) {
+                        case FOOT:
                             shapes.add(SINGLE_BACK_BASE[direction.get2DDataValue()]);
                             shapes.add(SINGLE_BACK_LEFT_SIDE[direction.get2DDataValue()]);
                             shapes.add(SINGLE_BACK_RIGHT_SIDE[direction.get2DDataValue()]);
@@ -131,8 +133,8 @@ public class ModernBedBlock extends FurnitureHorizontalBlock
                     }
                     break;
                 case LEFT:
-                    switch(type) {
-                        case BACK:
+                    switch(bedPart) {
+                        case FOOT:
                             shapes.add(LEFT_BACK_BASE[direction.get2DDataValue()]);
                             shapes.add(LEFT_BACK_LEFT_SIDE[direction.get2DDataValue()]);
                             shapes.add(LEFT_BACK_FOOT[direction.get2DDataValue()]);
@@ -150,8 +152,8 @@ public class ModernBedBlock extends FurnitureHorizontalBlock
                     }
                     break;
                 case RIGHT:
-                    switch(type) {
-                        case BACK:
+                    switch(bedPart) {
+                        case FOOT:
                             shapes.add(RIGHT_BACK_BASE[direction.get2DDataValue()]);
                             shapes.add(RIGHT_BACK_RIGHT_SIDE[direction.get2DDataValue()]);
                             shapes.add(RIGHT_BACK_FOOT[direction.get2DDataValue()]);
@@ -169,8 +171,8 @@ public class ModernBedBlock extends FurnitureHorizontalBlock
                     }
                     break;
                 case MIDDLE:
-                    switch(type) {
-                        case BACK:
+                    switch(bedPart) {
+                        case FOOT:
                             shapes.add(MIDDLE_BACK_BASE[direction.get2DDataValue()]);
                             shapes.add(MIDDLE_BACK_FOOT[direction.get2DDataValue()]);
                             shapes.add(MIDDLE_BACK_BLANKET[direction.get2DDataValue()]);
@@ -213,8 +215,8 @@ public class ModernBedBlock extends FurnitureHorizontalBlock
         Level level = context.getLevel();
         BlockPos headPos = context.getClickedPos().relative(direction);
         if(level.getBlockState(headPos).canBeReplaced(context) && level.getWorldBorder().isWithinBounds(headPos)) {
-            BlockState state = this.defaultBlockState().setValue(DIRECTION, direction);
-            return this.getModernBedState(state, context.getLevel(), context.getClickedPos(), state.getValue(DIRECTION));
+            BlockState state = this.defaultBlockState().setValue(FACING, direction);
+            return this.getModernBedState(state, context.getLevel(), context.getClickedPos(), state.getValue(FACING));
         }
         return null;
     }
@@ -223,8 +225,8 @@ public class ModernBedBlock extends FurnitureHorizontalBlock
     public void setPlacedBy(Level level, BlockPos pos, BlockState state, @Nullable LivingEntity entity, ItemStack stack) {
         super.setPlacedBy(level, pos, state, entity, stack);
         if(!level.isClientSide()) {
-            BlockPos headPos = pos.relative(state.getValue(DIRECTION));
-            level.setBlock(headPos, state.setValue(TYPE, ModernBedBlock.Type.HEAD), Block.UPDATE_ALL);
+            BlockPos headPos = pos.relative(state.getValue(FACING));
+            level.setBlock(headPos, state.setValue(PART, BedPart.HEAD), Block.UPDATE_ALL);
             level.blockUpdated(pos, Blocks.AIR);
             state.updateNeighbourShapes(level, pos, Block.UPDATE_ALL);
         }
@@ -236,11 +238,11 @@ public class ModernBedBlock extends FurnitureHorizontalBlock
         super.onRemove(state, level, pos, newState, isMoving);
         if(!state.is(newState.getBlock()))
         {
-            Direction direction = state.getValue(DIRECTION);
-            ModernBedBlock.Type type = state.getValue(TYPE);
-            BlockPos otherPos = pos.relative(type == ModernBedBlock.Type.HEAD ? direction.getOpposite() : direction);
+            Direction direction = state.getValue(FACING);
+            BedPart type = state.getValue(PART);
+            BlockPos otherPos = pos.relative(type == BedPart.HEAD ? direction.getOpposite() : direction);
             BlockState otherState = level.getBlockState(otherPos);
-            if(otherState.getBlock() instanceof ModernBedBlock && otherState.getValue(TYPE) != type)
+            if(otherState.getBlock() instanceof ModernBedBlock && otherState.getValue(PART) != type)
             {
                 level.removeBlock(otherPos, false);
             }
@@ -249,7 +251,7 @@ public class ModernBedBlock extends FurnitureHorizontalBlock
 
     @Override
     public BlockState updateShape(BlockState state, Direction direction, BlockState newState, LevelAccessor level, BlockPos pos, BlockPos newPos) {
-        return this.getModernBedState(state, level, pos, state.getValue(DIRECTION));
+        return this.getModernBedState(state, level, pos, state.getValue(FACING));
     }
 
     private BlockState getModernBedState(BlockState state, LevelAccessor level, BlockPos pos, Direction dir) {
@@ -269,7 +271,7 @@ public class ModernBedBlock extends FurnitureHorizontalBlock
     private boolean isModernBed(LevelAccessor level, BlockPos source, Direction direction, Direction targetDirection) {
         BlockState state = level.getBlockState(source.relative(direction));
         if(state.getBlock() == this) {
-            Direction bedDirection = state.getValue(DIRECTION);
+            Direction bedDirection = state.getValue(FACING);
             return bedDirection.equals(targetDirection);
         }
         return false;
@@ -280,7 +282,11 @@ public class ModernBedBlock extends FurnitureHorizontalBlock
     {
         super.createBlockStateDefinition(builder);
         builder.add(CONNECTED);
-        builder.add(TYPE);
+    }
+
+    @Override
+    public RenderShape getRenderShape(BlockState state) {
+        return RenderShape.MODEL;
     }
 
     public enum Connected implements StringRepresentable {
@@ -292,22 +298,6 @@ public class ModernBedBlock extends FurnitureHorizontalBlock
         private final String name;
 
         Connected(String name) {
-            this.name = name;
-        }
-
-        @Override
-        public String getSerializedName() {
-            return this.name;
-        }
-    }
-
-    public enum Type implements StringRepresentable {
-        HEAD("head"),
-        BACK("back");
-
-        private final String name;
-
-        Type(String name) {
             this.name = name;
         }
 
