@@ -1,5 +1,5 @@
 {
-    "parent": "nfm:block/modern_bed_back",
+    "parent": "nfm:block/modern_bed_back_left",
     "textures": {
         "color": "minecraft:block/white_wool"
     }
