@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " C ",
+    "CBC",
+    " C "
+  ],
+  "key": {
+    "B": {
+      "item": "minecraft:lime_bed"
+    },
+	"C": {
+      "item": "minecraft:gray_concrete"
+    }
+  },
+  "result": {
+    "item": "nfm:lime_modern_bed"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "   ",
+    "O Y",
+    "   "
+  ],
+  "key": {
+    "O": {
+      "item": "nfm:orange_modern_bed"
+    },
+	"Y": {
+      "item": "nfm:yellow_modern_bed"
+    }
+  },
+  "result": {
+    "item": "nfm:beige_modern_bed",
+	"count": 2
+  }
+}

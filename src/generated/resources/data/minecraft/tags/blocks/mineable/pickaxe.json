@@ -6,6 +6,7 @@
     { "id": "#nfm:coffee_tables", "required": false },
     { "id": "#nfm:cabinets", "required": false },
     { "id": "#nfm:bedside_cabinets", "required": false },
+	{ "id": "#nfm:beds", "required": false },
     { "id": "#nfm:desks", "required": false },
     { "id": "#nfm:desk_cabinets", "required": false },
     { "id": "#nfm:wall_cabinets", "required": false },
