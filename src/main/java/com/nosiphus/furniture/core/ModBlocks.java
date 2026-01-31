@@ -922,6 +922,10 @@ public class ModBlocks {
             () -> new BlenderBlock(BlockBehaviour.Properties.copy(Blocks.GRAY_CONCRETE).noOcclusion()));
     public static final RegistryObject<Block> CATHODE_RAY_TUBE_TELEVISION = register("cathode_ray_tube_television",
             () -> new CathodeRayTubeTelevisionBlock(BlockBehaviour.Properties.copy(Blocks.GRAY_CONCRETE)));
+    public static final RegistryObject<Block> COMPUTER_LIGHT = register("computer_light",
+            () -> new ComputerBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK)));
+    public static final RegistryObject<Block> COMPUTER_DARK = register("computer_dark",
+            () -> new ComputerBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK)));
     public static final RegistryObject<Block> DISHWASHER_LIGHT = register("dishwasher_light",
             () -> new DishwasherBlock(BlockBehaviour.Properties.copy(Blocks.WHITE_CONCRETE).noOcclusion()));
     public static final RegistryObject<Block> DISHWASHER_DARK = register("dishwasher_dark",

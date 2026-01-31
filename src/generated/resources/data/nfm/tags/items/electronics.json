@@ -2,6 +2,8 @@
   "replace": false,
   "values": [
     { "id": "nfm:cathode_ray_tube_television", "required": false },
+	{ "id": "nfm:computer_light", "required": false },
+	{ "id": "nfm:computer_dark", "required": false },
 	{ "id": "nfm:printer", "required": false },
     { "id": "#nfm:door_bells", "required": false },
 	{ "id": "nfm:fire_alarm", "required": false },

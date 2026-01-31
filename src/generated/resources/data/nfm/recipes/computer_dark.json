@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "CCC",
+    "CGC",
+    "CRC"
+  ],
+  "key": {
+    "C": {
+      "item": "minecraft:gray_concrete"
+    },
+	"G": {
+      "item": "minecraft:glass_pane"
+    },
+	"R": {
+      "item": "minecraft:redstone"
+    }
+  },
+  "result": {
+    "item": "nfm:computer_dark"
+  }
+}
