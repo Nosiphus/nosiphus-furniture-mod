@@ -1,8 +1,0 @@
-{
-    "parent": "cfm:block/desk_single",
-    "textures": {
-        "base": "minecraft:block/stone",
-        "top": "yogmod:block/beige_concrete",
-        "legs": "minecraft:block/stone"
-    }
-}

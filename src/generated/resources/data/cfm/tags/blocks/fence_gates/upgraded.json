@@ -1,7 +1,0 @@
-{
-  "replace": false,
-  "values": [
-    { "id": "cfm:cherry_upgraded_gate", "required": false },
-    { "id": "cfm:stripped_cherry_upgraded_gate", "required": false }
-  ]
-}

@@ -1,6 +1,0 @@
-{
-    "parent": "nfm:block/lamp",
-    "textures": {
-        "lampshade": "minecraft:block/light_blue_wool"
-    }
-}

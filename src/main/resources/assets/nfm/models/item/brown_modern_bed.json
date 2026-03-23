@@ -1,6 +1,0 @@
-{
-    "parent": "nfm:item/modern_bed",
-    "textures": {
-        "color": "minecraft:block/brown_wool"
-    }
-}

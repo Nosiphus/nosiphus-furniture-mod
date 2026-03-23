@@ -1,6 +1,0 @@
-{
-    "parent": "nfm:block/bath_back",
-    "textures": {
-        "1": "minecraft:block/white_concrete"
-    }
-}

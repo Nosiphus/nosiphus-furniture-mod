@@ -1,6 +1,0 @@
-{
-    "parent": "nfm:block/modern_bed_head_left",
-    "textures": {
-        "color": "minecraft:block/lime_wool"
-    }
-}

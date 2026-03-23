@@ -1,6 +1,0 @@
-{
-    "parent": "nfm:block/modern_bed_back_middle",
-    "textures": {
-        "color": "yogmod:block/beige_wool"
-    }
-}

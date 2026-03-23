@@ -1,7 +1,0 @@
-{
-	"parent": "nfm:block/toilet",
-	"textures": {
-		"handle": "minecraft:block/gray_concrete",
-		"porcelain": "minecraft:block/white_concrete"
-	}
-}

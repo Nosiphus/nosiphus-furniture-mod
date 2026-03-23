@@ -1,65 +1,42 @@
 package com.nosiphus.furniture;
 
-import com.nosiphus.furniture.cfm.CFMModBlockEntities;
-import com.nosiphus.furniture.cfm.CFMModBlocks;
-import com.nosiphus.furniture.client.ClientHandler;
-import com.nosiphus.furniture.common.CommonHandler;
-import com.nosiphus.furniture.core.*;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.eventbus.api.IEventBus;
-import net.minecraftforge.fml.DistExecutor;
-import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
-import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
-import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import com.mojang.logging.LogUtils;
+import net.neoforged.api.distmarker.Dist;
+import net.neoforged.bus.api.IEventBus;
+import net.neoforged.bus.api.SubscribeEvent;
+import net.neoforged.fml.ModContainer;
+import net.neoforged.fml.common.EventBusSubscriber;
+import net.neoforged.fml.common.Mod;
+import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
+import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
+import org.slf4j.Logger;
 
-@Mod(Reference.MOD_ID)
+@Mod("nfm")
 public class NosiphusFurnitureMod {
 
-    public static final Logger LOGGER = LogManager.getLogger("nfm");
-
-    public NosiphusFurnitureMod() {
-
-        IEventBus eventBus = FMLJavaModLoadingContext.get().getModEventBus();
-
-        CFMModBlocks.BLOCKS.register(eventBus);
-        CFMModBlockEntities.BLOCK_ENTITIES.register(eventBus);
-
-        ModBlocks.BLOCKS.register(eventBus);
-        ModBlockEntities.BLOCK_ENTITIES.register(eventBus);
-        ModCreativeTabs.CREATIVE_TABS.register(eventBus);
-        ModEntities.ENTITIES.register(eventBus);
-        ModFluids.FLUIDS.register(eventBus);
-        ModFluidTypes.FLUID_TYPES.register(eventBus);
-        ModItems.ITEMS.register(eventBus);
-        ModMenuTypes.MENU_TYPES.register(eventBus);
-        ModParticleTypes.PARTICLE_TYPES.register(eventBus);
-        ModRecipeSerializers.RECIPE_SERIALIZER.register(eventBus);
-        ModRecipeTypes.RECIPE_TYPES.register(eventBus);
-        ModSounds.SOUNDS.register(eventBus);
-        eventBus.addListener(this::onCommonSetup);
-        eventBus.addListener(this::onClientSetup);
-        MinecraftForge.EVENT_BUS.register(this);
-        DistExecutor.unsafeRunWhenOn(Dist.CLIENT, () -> () -> {
-            eventBus.addListener(ClientHandler::onRegisterBlockColors);
-            eventBus.addListener(ClientHandler::onRegisterItemColors);
-            eventBus.addListener(ClientHandler::onRegisterParticleFactories);
-            eventBus.addListener(ClientHandler::onRegisterRenderers);
-        });
+    private static final Logger LOGGER = LogUtils.getLogger();
+    public NosiphusFurnitureMod(IEventBus eventBus, ModContainer container) {
 
     }
 
-    private void onCommonSetup(FMLCommonSetupEvent event)
-    {
-        event.enqueueWork(CommonHandler::setup);
+    @EventBusSubscriber(modid = "nfm", value = Dist.CLIENT)
+    public static class ClientModEvents {
+
+        @SubscribeEvent
+        public static void onClientSetup(FMLClientSetupEvent event) {
+
+        }
+
     }
 
-    private void onClientSetup(FMLClientSetupEvent event)
-    {
-        event.enqueueWork(ClientHandler::setup);
+    @EventBusSubscriber(modid = "nfm")
+    public static class ModEvents {
+
+        @SubscribeEvent
+        public static void onCommonSetup(FMLCommonSetupEvent event) {
+
+        }
+
     }
 
 }

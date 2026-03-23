@@ -1,33 +1,25 @@
-When MrCrayFish upgraded the Furniture Mod from 1.12.2 to 1.16.5, he decided to take the mod in a new direction, and part of that direction meant leaving behind some of the older furniture. With his blessing, I have created an addon to readd some of that furniture. I have also extended these blocks to more closely follow certain changes the main mod has made.
 
-![White variants of furniture blocks](https://i.imgur.com/cKNaJyq.png "White Furniture Blocks")
+Installation information
+=======
 
-It presently contains:
+This template repository can be directly cloned to get you started with a new
+mod. Simply create a new repository cloned from this one, by following the
+instructions provided by [GitHub](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template).
 
-Modern Tables (All Colors)
-Modern Chairs (All Colors)
-Office Chairs (All Colors)
-Modern Coffee Tables (All Colors)
-Modern Cabinets (All Colors)
-Modern Bedside Cabinets (All Colors)
-Modern Desks (All Colors)
-Modern Desk Cabinets (All Colors)
-Modern Sofas (All Colors)
-Modern Kitchen Counters (All Colors)
-Modern Kitchen Sinks (All Colors)
-Bar Stools (All Colors)
-Microwaves (Light & Dark)
-Ovens (Light & Dark)
-Oven Rangehoods (Light & Dark)
-Sinks (Light & Dark)
-Shower (Light & Dark)
-Shower Heads (Light & Dark)
-Toilets (Light & Dark)
+Once you have your clone, simply open the repository in the IDE of your choice. The usual recommendation for an IDE is either IntelliJ IDEA or Eclipse.
 
-As a disclaimer, as the main mod receives updates, it is possible that I will remove certain blocks from this mod if they reappear in the main mod.
+If at any point you are missing libraries in your IDE, or you've run into problems you can
+run `gradlew --refresh-dependencies` to refresh the local cache. `gradlew clean` to reset everything 
+{this does not affect your code} and then start the process again.
 
-See https://github.com/MrCrayfish/MrCrayfishFurnitureMod/pull/723 for more information.
+Mapping Names:
+============
+By default, the MDK is configured to use the official mapping names from Mojang for methods and fields 
+in the Minecraft codebase. These names are covered by a specific license. All modders should be aware of this
+license. For the latest license text, refer to the mapping file itself, or the reference copy here:
+https://github.com/NeoForged/NeoForm/blob/main/Mojang.md
 
-CREDITS
-windowsxprules1 for code
-MrCrayFish for original model files
+Additional Resources: 
+==========
+Community Documentation: https://docs.neoforged.net/  
+NeoForged Discord: https://discord.neoforged.net/

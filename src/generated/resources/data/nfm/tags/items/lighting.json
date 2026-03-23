@@ -1,7 +1,0 @@
-{
-  "replace": false,
-  "values": [
-	{ "id": "#nfm:lamps", "required": false },
-	{ "id": "nfm:christmas_tree", "required": false }
-  ]
-}

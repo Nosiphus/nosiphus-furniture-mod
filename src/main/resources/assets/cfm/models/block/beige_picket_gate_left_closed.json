@@ -1,0 +1,8 @@
+{
+    "parent": "cfm:block/upgraded_gate_left_closed",
+    "textures": {
+        "hinge": "yogmod:block/beige_concrete",
+        "pole": "yogmod:block/beige_concrete",
+        "plank": "yogmod:block/beige_concrete"
+    }
+}

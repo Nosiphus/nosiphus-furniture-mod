@@ -1,6 +1,0 @@
-{
-  "replace": false,
-  "values": [
-    { "id": "cfm:cherry_hedge", "required": false }
-  ]
-}

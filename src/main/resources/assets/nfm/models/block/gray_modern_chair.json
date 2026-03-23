@@ -1,6 +1,0 @@
-{
-	"parent": "nfm:block/modern_chair",
-	"textures": {
-		"seat": "minecraft:block/gray_concrete"
-	}
-}
