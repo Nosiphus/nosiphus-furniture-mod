@@ -7,7 +7,6 @@ import com.mrcrayfish.furniture.world.level.block.entity.CrateBlockEntity;
 import com.mrcrayfish.furniture.world.phys.shapes.VoxelShapeHelper;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.LivingEntity;

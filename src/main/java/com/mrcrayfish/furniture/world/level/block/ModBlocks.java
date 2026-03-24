@@ -2,7 +2,6 @@ package com.mrcrayfish.furniture.world.level.block;
 
 import com.mrcrayfish.furniture.world.level.block.yogmod.YogCoolerBlock;
 import com.mrcrayfish.furniture.world.level.block.yogmod.YogTrampolineBlock;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.SoundType;
