@@ -43,7 +43,7 @@ public class CrateScreen extends AbstractContainerScreen<CrateMenu>
             PacketDistributor.sendToServer(new ServerboundLockCrate());
         }, ICONS_TEXTURE, 0, 0));
 
-        this.button.setTooltip(Tooltip.create(Component.translatable("gui.button.cfm.lock")));
+        //this.button.setTooltip(Tooltip.create(Component.translatable("gui.button.cfm.lock")));
         this.updateLockButton();
     }
 
@@ -61,7 +61,7 @@ public class CrateScreen extends AbstractContainerScreen<CrateMenu>
     {
         this.locked = this.menu.getBlockEntity().isLocked();
         this.button.setIcon(ICONS_TEXTURE, this.locked ? 0 : 16, 0);
-        this.button.setMessage(Component.translatable(this.locked ? "gui.button.cfm.locked" : "gui.button.cfm.unlocked"));
+        this.button.setTooltip(Tooltip.create(Component.translatable(this.locked ? "gui.button.cfm.locked" : "gui.button.cfm.unlocked")));
         UUID ownerUuid = this.menu.getBlockEntity().getOwner();
         this.button.visible = ownerUuid == null || this.playerId.equals(ownerUuid);
     }

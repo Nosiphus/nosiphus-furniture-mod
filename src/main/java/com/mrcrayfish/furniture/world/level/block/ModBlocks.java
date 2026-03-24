@@ -589,6 +589,97 @@ public class ModBlocks
     public static final DeferredBlock<Block> STRIPPED_WARPED_CRATE = BLOCKS.register("stripped_warped_crate",
             () -> new CrateBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.CHEST)));
 
+    // Park Benches
+    public static final DeferredBlock<Block> OAK_PARK_BENCH = BLOCKS.register("oak_park_bench",
+            () -> new ParkBenchBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS)));
+    public static final DeferredBlock<Block> SPRUCE_PARK_BENCH = BLOCKS.register("spruce_park_bench",
+            () -> new ParkBenchBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.SPRUCE_PLANKS)));
+    public static final DeferredBlock<Block> BIRCH_PARK_BENCH = BLOCKS.register("birch_park_bench",
+            () -> new ParkBenchBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.BIRCH_PLANKS)));
+    public static final DeferredBlock<Block> JUNGLE_PARK_BENCH = BLOCKS.register("jungle_park_bench",
+            () -> new ParkBenchBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.JUNGLE_PLANKS)));
+    public static final DeferredBlock<Block> ACACIA_PARK_BENCH = BLOCKS.register("acacia_park_bench",
+            () -> new ParkBenchBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.ACACIA_PLANKS)));
+    public static final DeferredBlock<Block> DARK_OAK_PARK_BENCH = BLOCKS.register("dark_oak_park_bench",
+            () -> new ParkBenchBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.DARK_OAK_PLANKS)));
+    public static final DeferredBlock<Block> MANGROVE_PARK_BENCH = BLOCKS.register("mangrove_park_bench",
+            () -> new ParkBenchBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.MANGROVE_PLANKS)));
+    public static final DeferredBlock<Block> CHERRY_PARK_BENCH = BLOCKS.register("cherry_park_bench",
+            () -> new ParkBenchBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.CHERRY_PLANKS)));
+    public static final DeferredBlock<Block> CRIMSON_PARK_BENCH = BLOCKS.register("crimson_park_bench",
+            () -> new ParkBenchBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.CRIMSON_PLANKS)));
+    public static final DeferredBlock<Block> WARPED_PARK_BENCH = BLOCKS.register("warped_park_bench",
+            () -> new ParkBenchBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.WARPED_PLANKS)));
+    public static final DeferredBlock<Block> STRIPPED_OAK_PARK_BENCH = BLOCKS.register("stripped_oak_park_bench",
+            () -> new ParkBenchBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS)));
+    public static final DeferredBlock<Block> STRIPPED_SPRUCE_PARK_BENCH = BLOCKS.register("stripped_spruce_park_bench",
+            () -> new ParkBenchBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.SPRUCE_PLANKS)));
+    public static final DeferredBlock<Block> STRIPPED_BIRCH_PARK_BENCH = BLOCKS.register("stripped_birch_park_bench",
+            () -> new ParkBenchBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.BIRCH_PLANKS)));
+    public static final DeferredBlock<Block> STRIPPED_JUNGLE_PARK_BENCH = BLOCKS.register("stripped_jungle_park_bench",
+            () -> new ParkBenchBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.JUNGLE_PLANKS)));
+    public static final DeferredBlock<Block> STRIPPED_ACACIA_PARK_BENCH = BLOCKS.register("stripped_acacia_park_bench",
+            () -> new ParkBenchBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.ACACIA_PLANKS)));
+    public static final DeferredBlock<Block> STRIPPED_DARK_OAK_PARK_BENCH = BLOCKS.register("stripped_dark_oak_park_bench",
+            () -> new ParkBenchBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.DARK_OAK_PLANKS)));
+    public static final DeferredBlock<Block> STRIPPED_MANGROVE_PARK_BENCH = BLOCKS.register("stripped_mangrove_park_bench",
+            () -> new ParkBenchBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.MANGROVE_PLANKS)));
+    public static final DeferredBlock<Block> STRIPPED_CHERRY_PARK_BENCH = BLOCKS.register("stripped_cherry_park_bench",
+            () -> new ParkBenchBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.CHERRY_PLANKS)));
+    public static final DeferredBlock<Block> STRIPPED_CRIMSON_PARK_BENCH = BLOCKS.register("stripped_crimson_park_bench",
+            () -> new ParkBenchBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.CRIMSON_PLANKS)));
+    public static final DeferredBlock<Block> STRIPPED_WARPED_PARK_BENCH = BLOCKS.register("stripped_warped_park_bench",
+            () -> new ParkBenchBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.WARPED_PLANKS)));
+
+    // Post Box
+    public static final DeferredBlock<Block> POST_BOX = BLOCKS.register("post_box",
+            () -> new PostBoxBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.ANVIL)));
+
+    // Mail Boxes
+    public static final DeferredBlock<Block> OAK_MAIL_BOX = BLOCKS.register("oak_mail_box",
+            () -> new MailBoxBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS)));
+    public static final DeferredBlock<Block> SPRUCE_MAIL_BOX = BLOCKS.register("spruce_mail_box",
+            () -> new MailBoxBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.SPRUCE_PLANKS)));
+    public static final DeferredBlock<Block> BIRCH_MAIL_BOX = BLOCKS.register("birch_mail_box",
+            () -> new MailBoxBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.BIRCH_PLANKS)));
+    public static final DeferredBlock<Block> JUNGLE_MAIL_BOX = BLOCKS.register("jungle_mail_box",
+            () -> new MailBoxBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.JUNGLE_PLANKS)));
+    public static final DeferredBlock<Block> ACACIA_MAIL_BOX = BLOCKS.register("acacia_mail_box",
+            () -> new MailBoxBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.ACACIA_PLANKS)));
+    public static final DeferredBlock<Block> DARK_OAK_MAIL_BOX = BLOCKS.register("dark_oak_mail_box",
+            () -> new MailBoxBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.DARK_OAK_PLANKS)));
+    public static final DeferredBlock<Block> MANGROVE_MAIL_BOX = BLOCKS.register("mangrove_mail_box",
+            () -> new MailBoxBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.MANGROVE_PLANKS)));
+    public static final DeferredBlock<Block> CHERRY_MAIL_BOX = BLOCKS.register("cherry_mail_box",
+            () -> new MailBoxBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.CHERRY_PLANKS)));
+    public static final DeferredBlock<Block> CRIMSON_MAIL_BOX = BLOCKS.register("crimson_mail_box",
+            () -> new MailBoxBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.CRIMSON_PLANKS)));
+    public static final DeferredBlock<Block> WARPED_MAIL_BOX = BLOCKS.register("warped_mail_box",
+            () -> new MailBoxBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.WARPED_PLANKS)));
+    public static final DeferredBlock<Block> STRIPPED_OAK_MAIL_BOX = BLOCKS.register("stripped_oak_mail_box",
+            () -> new MailBoxBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS)));
+    public static final DeferredBlock<Block> STRIPPED_SPRUCE_MAIL_BOX = BLOCKS.register("stripped_spruce_mail_box",
+            () -> new MailBoxBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.SPRUCE_PLANKS)));
+    public static final DeferredBlock<Block> STRIPPED_BIRCH_MAIL_BOX = BLOCKS.register("stripped_birch_mail_box",
+            () -> new MailBoxBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.BIRCH_PLANKS)));
+    public static final DeferredBlock<Block> STRIPPED_JUNGLE_MAIL_BOX = BLOCKS.register("stripped_jungle_mail_box",
+            () -> new MailBoxBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.JUNGLE_PLANKS)));
+    public static final DeferredBlock<Block> STRIPPED_ACACIA_MAIL_BOX = BLOCKS.register("stripped_acacia_mail_box",
+            () -> new MailBoxBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.ACACIA_PLANKS)));
+    public static final DeferredBlock<Block> STRIPPED_DARK_OAK_MAIL_BOX = BLOCKS.register("stripped_dark_oak_mail_box",
+            () -> new MailBoxBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.DARK_OAK_PLANKS)));
+    public static final DeferredBlock<Block> STRIPPED_MANGROVE_MAIL_BOX = BLOCKS.register("stripped_mangrove_mail_box",
+            () -> new MailBoxBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.MANGROVE_PLANKS)));
+    public static final DeferredBlock<Block> STRIPPED_CHERRY_MAIL_BOX = BLOCKS.register("stripped_cherry_mail_box",
+            () -> new MailBoxBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.CHERRY_PLANKS)));
+    public static final DeferredBlock<Block> STRIPPED_CRIMSON_MAIL_BOX = BLOCKS.register("stripped_crimson_mail_box",
+            () -> new MailBoxBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.CRIMSON_PLANKS)));
+    public static final DeferredBlock<Block> STRIPPED_WARPED_MAIL_BOX = BLOCKS.register("stripped_warped_mail_box",
+            () -> new MailBoxBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.WARPED_PLANKS)));
+
+
+
+
     // Methods
     @Nullable
     private static DeferredBlock<Block> registerOptional(String modID, String name, Supplier<Block> block) {

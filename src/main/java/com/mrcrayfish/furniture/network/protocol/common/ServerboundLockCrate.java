@@ -10,6 +10,9 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.neoforged.neoforge.network.handling.IPayloadContext;
 
+/**
+ * Author: MrCrayfish
+ */
 public record ServerboundLockCrate() implements CustomPacketPayload
 {
 

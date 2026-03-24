@@ -139,9 +139,11 @@ dependencies {
     // This maps to ./libs/coolmod-${mc_version}-${coolmod_version}.jar
     // The group id is ignored when searching -- in this case, it is "blank"
     // implementation "blank:coolmod-${mc_version}:${coolmod_version}"
-	implementation "curse.maven:badpackets-615134:6067146"
-    implementation "curse.maven:jei-238222:5846880"
-    implementation "curse.maven:wthit-forge-455982:6112977"
+    implementation "curse.maven:badpackets-615134:6067146"
+    implementation "curse.maven:framework-549225:7530361"
+    implementation "curse.maven:jei-238222:7420587"
+    implementation "curse.maven:refurbished-furniture-897116:7473565"
+    implementation "curse.maven:wthit-forge-455982:7546161"
 	implementation "curse.maven:yogmod-372408:6838349"
 
     // Example mod dependency using a file as dependency

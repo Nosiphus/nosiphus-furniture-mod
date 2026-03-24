@@ -511,7 +511,7 @@ public class ModItems
     public static final DeferredItem<BlockItem> PINK_PICKET_FENCE = addToTab(ITEMS.register("pink_picket_fence",
             () -> new BlockItem(ModBlocks.PINK_PICKET_FENCE.get(), new Item.Properties())));
 
-    // Picket Gate Items
+    // Picket Gates
     public static final DeferredItem<BlockItem> WHITE_PICKET_GATE = addToTab(ITEMS.register("white_picket_gate",
             () -> new BlockItem(ModBlocks.WHITE_PICKET_GATE.get(), new Item.Properties())));
     public static final DeferredItem<BlockItem> LIGHT_GRAY_PICKET_GATE = addToTab(ITEMS.register("light_gray_picket_gate",
@@ -588,6 +588,94 @@ public class ModItems
             () -> new BlockItem(ModBlocks.STRIPPED_CRIMSON_CRATE.get(), new Item.Properties())));
     public static final DeferredItem<BlockItem> STRIPPED_WARPED_CRATE = addToTab(ITEMS.register("stripped_warped_crate",
             () -> new BlockItem(ModBlocks.STRIPPED_WARPED_CRATE.get(), new Item.Properties())));
+
+    // Park Benches
+    public static final DeferredItem<BlockItem> OAK_PARK_BENCH = addToTab(ITEMS.register("oak_park_bench",
+            () -> new BlockItem(ModBlocks.OAK_PARK_BENCH.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> SPRUCE_PARK_BENCH = addToTab(ITEMS.register("spruce_park_bench",
+            () -> new BlockItem(ModBlocks.SPRUCE_PARK_BENCH.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> BIRCH_PARK_BENCH = addToTab(ITEMS.register("birch_park_bench",
+            () -> new BlockItem(ModBlocks.BIRCH_PARK_BENCH.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> JUNGLE_PARK_BENCH = addToTab(ITEMS.register("jungle_park_bench",
+            () -> new BlockItem(ModBlocks.JUNGLE_PARK_BENCH.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> ACACIA_PARK_BENCH = addToTab(ITEMS.register("acacia_park_bench",
+            () -> new BlockItem(ModBlocks.ACACIA_PARK_BENCH.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> DARK_OAK_PARK_BENCH = addToTab(ITEMS.register("dark_oak_park_bench",
+            () -> new BlockItem(ModBlocks.DARK_OAK_PARK_BENCH.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> MANGROVE_PARK_BENCH = addToTab(ITEMS.register("mangrove_park_bench",
+            () -> new BlockItem(ModBlocks.MANGROVE_PARK_BENCH.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> CHERRY_PARK_BENCH = addToTab(ITEMS.register("cherry_park_bench",
+            () -> new BlockItem(ModBlocks.CHERRY_PARK_BENCH.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> CRIMSON_PARK_BENCH = addToTab(ITEMS.register("crimson_park_bench",
+            () -> new BlockItem(ModBlocks.CRIMSON_PARK_BENCH.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> WARPED_PARK_BENCH = addToTab(ITEMS.register("warped_park_bench",
+            () -> new BlockItem(ModBlocks.WARPED_PARK_BENCH.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> STRIPPED_OAK_PARK_BENCH = addToTab(ITEMS.register("stripped_oak_park_bench",
+            () -> new BlockItem(ModBlocks.STRIPPED_OAK_PARK_BENCH.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> STRIPPED_SPRUCE_PARK_BENCH = addToTab(ITEMS.register("stripped_spruce_park_bench",
+            () -> new BlockItem(ModBlocks.STRIPPED_SPRUCE_PARK_BENCH.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> STRIPPED_BIRCH_PARK_BENCH = addToTab(ITEMS.register("stripped_birch_park_bench",
+            () -> new BlockItem(ModBlocks.STRIPPED_BIRCH_PARK_BENCH.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> STRIPPED_JUNGLE_PARK_BENCH = addToTab(ITEMS.register("stripped_jungle_park_bench",
+            () -> new BlockItem(ModBlocks.STRIPPED_JUNGLE_PARK_BENCH.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> STRIPPED_ACACIA_PARK_BENCH = addToTab(ITEMS.register("stripped_acacia_park_bench",
+            () -> new BlockItem(ModBlocks.STRIPPED_ACACIA_PARK_BENCH.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> STRIPPED_DARK_OAK_PARK_BENCH = addToTab(ITEMS.register("stripped_dark_oak_park_bench",
+            () -> new BlockItem(ModBlocks.STRIPPED_DARK_OAK_PARK_BENCH.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> STRIPPED_MANGROVE_PARK_BENCH = addToTab(ITEMS.register("stripped_mangrove_park_bench",
+            () -> new BlockItem(ModBlocks.STRIPPED_MANGROVE_PARK_BENCH.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> STRIPPED_CHERRY_PARK_BENCH = addToTab(ITEMS.register("stripped_cherry_park_bench",
+            () -> new BlockItem(ModBlocks.STRIPPED_CHERRY_PARK_BENCH.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> STRIPPED_CRIMSON_PARK_BENCH = addToTab(ITEMS.register("stripped_crimson_park_bench",
+            () -> new BlockItem(ModBlocks.STRIPPED_CRIMSON_PARK_BENCH.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> STRIPPED_WARPED_PARK_BENCH = addToTab(ITEMS.register("stripped_warped_park_bench",
+            () -> new BlockItem(ModBlocks.STRIPPED_WARPED_PARK_BENCH.get(), new Item.Properties())));
+
+    // Post Box
+    public static final DeferredItem<BlockItem> POST_BOX = addToTab(ITEMS.register("post_box",
+            () -> new BlockItem(ModBlocks.POST_BOX.get(), new Item.Properties())));
+
+    // Mail Boxes
+    public static final DeferredItem<BlockItem> OAK_MAIL_BOX = addToTab(ITEMS.register("oak_mail_box",
+            () -> new BlockItem(ModBlocks.OAK_MAIL_BOX.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> SPRUCE_MAIL_BOX = addToTab(ITEMS.register("spruce_mail_box",
+            () -> new BlockItem(ModBlocks.SPRUCE_MAIL_BOX.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> BIRCH_MAIL_BOX = addToTab(ITEMS.register("birch_mail_box",
+            () -> new BlockItem(ModBlocks.BIRCH_MAIL_BOX.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> JUNGLE_MAIL_BOX = addToTab(ITEMS.register("jungle_mail_box",
+            () -> new BlockItem(ModBlocks.JUNGLE_MAIL_BOX.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> ACACIA_MAIL_BOX = addToTab(ITEMS.register("acacia_mail_box",
+            () -> new BlockItem(ModBlocks.ACACIA_MAIL_BOX.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> DARK_OAK_MAIL_BOX = addToTab(ITEMS.register("dark_oak_mail_box",
+            () -> new BlockItem(ModBlocks.DARK_OAK_MAIL_BOX.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> MANGROVE_MAIL_BOX = addToTab(ITEMS.register("mangrove_mail_box",
+            () -> new BlockItem(ModBlocks.MANGROVE_MAIL_BOX.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> CHERRY_MAIL_BOX = addToTab(ITEMS.register("cherry_mail_box",
+            () -> new BlockItem(ModBlocks.CHERRY_MAIL_BOX.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> CRIMSON_MAIL_BOX = addToTab(ITEMS.register("crimson_mail_box",
+            () -> new BlockItem(ModBlocks.CRIMSON_MAIL_BOX.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> WARPED_MAIL_BOX = addToTab(ITEMS.register("warped_mail_box",
+            () -> new BlockItem(ModBlocks.WARPED_MAIL_BOX.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> STRIPPED_OAK_MAIL_BOX = addToTab(ITEMS.register("stripped_oak_mail_box",
+            () -> new BlockItem(ModBlocks.STRIPPED_OAK_MAIL_BOX.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> STRIPPED_SPRUCE_MAIL_BOX = addToTab(ITEMS.register("stripped_spruce_mail_box",
+            () -> new BlockItem(ModBlocks.STRIPPED_SPRUCE_MAIL_BOX.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> STRIPPED_BIRCH_MAIL_BOX = addToTab(ITEMS.register("stripped_birch_mail_box",
+            () -> new BlockItem(ModBlocks.STRIPPED_BIRCH_MAIL_BOX.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> STRIPPED_JUNGLE_MAIL_BOX = addToTab(ITEMS.register("stripped_jungle_mail_box",
+            () -> new BlockItem(ModBlocks.STRIPPED_JUNGLE_MAIL_BOX.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> STRIPPED_ACACIA_MAIL_BOX = addToTab(ITEMS.register("stripped_acacia_mail_box",
+            () -> new BlockItem(ModBlocks.STRIPPED_ACACIA_MAIL_BOX.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> STRIPPED_DARK_OAK_MAIL_BOX = addToTab(ITEMS.register("stripped_dark_oak_mail_box",
+            () -> new BlockItem(ModBlocks.STRIPPED_DARK_OAK_MAIL_BOX.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> STRIPPED_MANGROVE_MAIL_BOX = addToTab(ITEMS.register("stripped_mangrove_mail_box",
+            () -> new BlockItem(ModBlocks.STRIPPED_MANGROVE_MAIL_BOX.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> STRIPPED_CHERRY_MAIL_BOX = addToTab(ITEMS.register("stripped_cherry_mail_box",
+            () -> new BlockItem(ModBlocks.STRIPPED_CHERRY_MAIL_BOX.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> STRIPPED_CRIMSON_MAIL_BOX = addToTab(ITEMS.register("stripped_crimson_mail_box",
+            () -> new BlockItem(ModBlocks.STRIPPED_CRIMSON_MAIL_BOX.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> STRIPPED_WARPED_MAIL_BOX = addToTab(ITEMS.register("stripped_warped_mail_box",
+            () -> new BlockItem(ModBlocks.STRIPPED_WARPED_MAIL_BOX.get(), new Item.Properties())));
 
 
     // Methods

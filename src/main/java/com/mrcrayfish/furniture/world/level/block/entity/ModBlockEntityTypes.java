@@ -68,4 +68,19 @@ public class ModBlockEntityTypes
                     ModBlocks.STRIPPED_CRIMSON_DESK_CABINET.get(), ModBlocks.STRIPPED_WARPED_DESK_CABINET.get()
             ).build(null));
 
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<MailBoxBlockEntity>> MAIL_BOX =
+            BLOCK_ENTITY_TYPES.register("mail_box", () -> BlockEntityType.Builder.of(
+                    MailBoxBlockEntity::new,
+                    ModBlocks.OAK_MAIL_BOX.get(), ModBlocks.SPRUCE_MAIL_BOX.get(),
+                    ModBlocks.BIRCH_MAIL_BOX.get(), ModBlocks.JUNGLE_MAIL_BOX.get(),
+                    ModBlocks.ACACIA_MAIL_BOX.get(), ModBlocks.DARK_OAK_MAIL_BOX.get(),
+                    ModBlocks.MANGROVE_MAIL_BOX.get(), ModBlocks.CHERRY_MAIL_BOX.get(),
+                    ModBlocks.CRIMSON_MAIL_BOX.get(), ModBlocks.WARPED_MAIL_BOX.get(),
+                    ModBlocks.STRIPPED_OAK_MAIL_BOX.get(), ModBlocks.STRIPPED_SPRUCE_MAIL_BOX.get(),
+                    ModBlocks.STRIPPED_BIRCH_MAIL_BOX.get(), ModBlocks.STRIPPED_JUNGLE_MAIL_BOX.get(),
+                    ModBlocks.STRIPPED_ACACIA_MAIL_BOX.get(), ModBlocks.STRIPPED_DARK_OAK_MAIL_BOX.get(),
+                    ModBlocks.STRIPPED_MANGROVE_MAIL_BOX.get(), ModBlocks.STRIPPED_CHERRY_MAIL_BOX.get(),
+                    ModBlocks.STRIPPED_CRIMSON_MAIL_BOX.get(), ModBlocks.STRIPPED_WARPED_MAIL_BOX.get()
+            ).build(null));
+
 }
