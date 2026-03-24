@@ -89,6 +89,19 @@ public class ModBlockEntityTypes
                     ModBlocks.STRIPPED_CRIMSON_DESK_CABINET.get(), ModBlocks.STRIPPED_WARPED_DESK_CABINET.get()
             ).build(null));
 
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<GrillBlockEntity>> GRILL =
+            BLOCK_ENTITY_TYPES.register("grill", () -> BlockEntityType.Builder.of(
+                    GrillBlockEntity::new,
+                    ModBlocks.WHITE_GRILL.get(), ModBlocks.LIGHT_GRAY_GRILL.get(),
+                    ModBlocks.GRAY_GRILL.get(), ModBlocks.BLACK_GRILL.get(),
+                    ModBlocks.BROWN_GRILL.get(), ModBlocks.RED_GRILL.get(),
+                    ModBlocks.ORANGE_GRILL.get(), ModBlocks.YELLOW_GRILL.get(),
+                    ModBlocks.LIME_GRILL.get(), ModBlocks.GREEN_GRILL.get(),
+                    ModBlocks.CYAN_GRILL.get(), ModBlocks.LIGHT_BLUE_GRILL.get(),
+                    ModBlocks.BLUE_GRILL.get(), ModBlocks.PURPLE_GRILL.get(),
+                    ModBlocks.MAGENTA_GRILL.get(), ModBlocks.PINK_GRILL.get()
+            ).build(null));
+
     public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<MailBoxBlockEntity>> MAIL_BOX =
             BLOCK_ENTITY_TYPES.register("mail_box", () -> BlockEntityType.Builder.of(
                     MailBoxBlockEntity::new,

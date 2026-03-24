@@ -3,6 +3,8 @@ package com.mrcrayfish.furniture.world.item;
 import com.mrcrayfish.furniture.world.level.block.ModBlocks;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.SwordItem;
+import net.minecraft.world.item.Tiers;
 import net.neoforged.fml.ModList;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
@@ -774,6 +776,44 @@ public class ModItems
             () -> new BlockItem(ModBlocks.MAGENTA_COOLER.get(), new Item.Properties())));
     public static final DeferredItem<BlockItem> PINK_COOLER = addToTab(ITEMS.register("pink_cooler",
             () -> new BlockItem(ModBlocks.PINK_COOLER.get(), new Item.Properties())));
+
+    // Grills
+    public static final DeferredItem<BlockItem> WHITE_GRILL = addToTab(ITEMS.register("white_grill",
+            () -> new BlockItem(ModBlocks.WHITE_GRILL.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> LIGHT_GRAY_GRILL = addToTab(ITEMS.register("light_gray_grill",
+            () -> new BlockItem(ModBlocks.LIGHT_GRAY_GRILL.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> GRAY_GRILL = addToTab(ITEMS.register("gray_grill",
+            () -> new BlockItem(ModBlocks.GRAY_GRILL.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> BLACK_GRILL = addToTab(ITEMS.register("black_grill",
+            () -> new BlockItem(ModBlocks.BLACK_GRILL.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> BROWN_GRILL = addToTab(ITEMS.register("brown_grill",
+            () -> new BlockItem(ModBlocks.BROWN_GRILL.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> RED_GRILL = addToTab(ITEMS.register("red_grill",
+            () -> new BlockItem(ModBlocks.RED_GRILL.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> ORANGE_GRILL = addToTab(ITEMS.register("orange_grill",
+            () -> new BlockItem(ModBlocks.ORANGE_GRILL.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> YELLOW_GRILL = addToTab(ITEMS.register("yellow_grill",
+            () -> new BlockItem(ModBlocks.YELLOW_GRILL.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> LIME_GRILL = addToTab(ITEMS.register("lime_grill",
+            () -> new BlockItem(ModBlocks.LIME_GRILL.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> GREEN_GRILL = addToTab(ITEMS.register("green_grill",
+            () -> new BlockItem(ModBlocks.GREEN_GRILL.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> CYAN_GRILL = addToTab(ITEMS.register("cyan_grill",
+            () -> new BlockItem(ModBlocks.CYAN_GRILL.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> LIGHT_BLUE_GRILL = addToTab(ITEMS.register("light_blue_grill",
+            () -> new BlockItem(ModBlocks.LIGHT_BLUE_GRILL.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> BLUE_GRILL = addToTab(ITEMS.register("blue_grill",
+            () -> new BlockItem(ModBlocks.BLUE_GRILL.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> PURPLE_GRILL = addToTab(ITEMS.register("purple_grill",
+            () -> new BlockItem(ModBlocks.PURPLE_GRILL.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> MAGENTA_GRILL = addToTab(ITEMS.register("magenta_grill",
+            () -> new BlockItem(ModBlocks.MAGENTA_GRILL.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> PINK_GRILL = addToTab(ITEMS.register("pink_grill",
+            () -> new BlockItem(ModBlocks.PINK_GRILL.get(), new Item.Properties())));
+
+    // Items
+    public static final DeferredItem<Item> SPATULA = addToTab(ITEMS.register("spatula",
+            () -> new SwordItem(Tiers.IRON, new Item.Properties())));
 
 
     // Methods

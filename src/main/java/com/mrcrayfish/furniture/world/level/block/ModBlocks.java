@@ -778,6 +778,40 @@ public class ModBlocks
     public static final DeferredBlock<Block> PINK_COOLER = BLOCKS.register("pink_cooler",
             () -> new CoolerBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.PINK_CONCRETE)));
 
+    // Grills
+    public static final DeferredBlock<Block> WHITE_GRILL = BLOCKS.register("white_grill",
+            () -> new GrillBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK)));
+    public static final DeferredBlock<Block> LIGHT_GRAY_GRILL = BLOCKS.register("light_gray_grill",
+            () -> new GrillBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK)));
+    public static final DeferredBlock<Block> GRAY_GRILL = BLOCKS.register("gray_grill",
+            () -> new GrillBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK)));
+    public static final DeferredBlock<Block> BLACK_GRILL = BLOCKS.register("black_grill",
+            () -> new GrillBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK)));
+    public static final DeferredBlock<Block> BROWN_GRILL = BLOCKS.register("brown_grill",
+            () -> new GrillBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK)));
+    public static final DeferredBlock<Block> RED_GRILL = BLOCKS.register("red_grill",
+            () -> new GrillBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK)));
+    public static final DeferredBlock<Block> ORANGE_GRILL = BLOCKS.register("orange_grill",
+            () -> new GrillBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK)));
+    public static final DeferredBlock<Block> YELLOW_GRILL = BLOCKS.register("yellow_grill",
+            () -> new GrillBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK)));
+    public static final DeferredBlock<Block> LIME_GRILL = BLOCKS.register("lime_grill",
+            () -> new GrillBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK)));
+    public static final DeferredBlock<Block> GREEN_GRILL = BLOCKS.register("green_grill",
+            () -> new GrillBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK)));
+    public static final DeferredBlock<Block> CYAN_GRILL = BLOCKS.register("cyan_grill",
+            () -> new GrillBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK)));
+    public static final DeferredBlock<Block> LIGHT_BLUE_GRILL = BLOCKS.register("light_blue_grill",
+            () -> new GrillBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK)));
+    public static final DeferredBlock<Block> BLUE_GRILL = BLOCKS.register("blue_grill",
+            () -> new GrillBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK)));
+    public static final DeferredBlock<Block> PURPLE_GRILL = BLOCKS.register("purple_grill",
+            () -> new GrillBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK)));
+    public static final DeferredBlock<Block> MAGENTA_GRILL = BLOCKS.register("magenta_grill",
+            () -> new GrillBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK)));
+    public static final DeferredBlock<Block> PINK_GRILL = BLOCKS.register("pink_grill",
+            () -> new GrillBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK)));
+
 
     // Methods
     @Nullable

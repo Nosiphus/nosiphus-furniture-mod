@@ -6,15 +6,14 @@ import com.mrcrayfish.furniture.client.gui.screens.inventory.MailBoxScreen;
 import com.mrcrayfish.furniture.client.gui.screens.inventory.PostBoxScreen;
 import com.mrcrayfish.furniture.client.model.HedgeModel;
 import com.mrcrayfish.furniture.client.renderer.entity.SeatRenderer;
-import com.mrcrayfish.furniture.network.protocol.common.ServerboundLockCrate;
-import com.mrcrayfish.furniture.network.protocol.common.ServerboundOpenMailBox;
-import com.mrcrayfish.furniture.network.protocol.common.ServerboundSendMail;
-import com.mrcrayfish.furniture.network.protocol.common.ServerboundSetMailBoxName;
+import com.mrcrayfish.furniture.network.protocol.common.*;
 import com.mrcrayfish.furniture.sounds.ModSoundEvents;
 import com.mrcrayfish.furniture.world.entity.ModEntityTypes;
 import com.mrcrayfish.furniture.world.inventory.ModMenuTypes;
 import com.mrcrayfish.furniture.world.item.ModCreativeModeTabs;
 import com.mrcrayfish.furniture.world.item.ModItems;
+import com.mrcrayfish.furniture.world.item.crafting.ModRecipeSerializers;
+import com.mrcrayfish.furniture.world.item.crafting.ModRecipeTypes;
 import com.mrcrayfish.furniture.world.level.block.ModBlocks;
 import com.mrcrayfish.furniture.world.level.block.entity.ModBlockEntityTypes;
 import net.minecraft.client.Minecraft;
@@ -61,6 +60,8 @@ public class MrCrayFishFurnitureMod
         ModEntityTypes.ENTITY_TYPES.register(eventBus);
         ModItems.ITEMS.register(eventBus);
         ModMenuTypes.MENU_TYPES.register(eventBus);
+        ModRecipeSerializers.RECIPE_SERIALIZERS.register(eventBus);
+        ModRecipeTypes.RECIPE_TYPES.register(eventBus);
         ModSoundEvents.SOUND_EVENTS.register(eventBus);
 
         container.registerConfig(ModConfig.Type.CLIENT, FurnitureConfig.CLIENT_SPEC);
@@ -381,6 +382,12 @@ public class MrCrayFishFurnitureMod
         public static void registerPackets(final RegisterPayloadHandlersEvent event)
         {
             final PayloadRegistrar registrar = event.registrar("cfm").versioned("1");
+
+            registrar.playToClient(
+                    ClientboundFlipGrill.TYPE,
+                    ClientboundFlipGrill.STREAM_CODEC,
+                    ClientboundFlipGrill::handle
+            );
 
             registrar.playToServer(
                     ServerboundLockCrate.TYPE,
