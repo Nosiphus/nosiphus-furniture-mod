@@ -1,0 +1,34 @@
+package com.mrcrayfish.furniture.world.level.block;
+
+import net.minecraft.core.BlockPos;
+import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.phys.shapes.CollisionContext;
+import net.minecraft.world.phys.shapes.VoxelShape;
+
+/**
+ * Author: MrCrayfish
+ */
+public class RockPathBlock extends FurnitureWaterloggedBlock
+{
+    private static final VoxelShape SHAPE = Block.box(1, 0, 1, 15, 1, 15);
+
+    public RockPathBlock(Properties properties)
+    {
+        super(properties);
+        this.registerDefaultState(this.getStateDefinition().any().setValue(WATERLOGGED, false));
+    }
+
+    @Override
+    public VoxelShape getShape(BlockState state, BlockGetter reader, BlockPos pos, CollisionContext context)
+    {
+        return SHAPE;
+    }
+
+    @Override
+    public VoxelShape getOcclusionShape(BlockState state, BlockGetter reader, BlockPos pos)
+    {
+        return SHAPE;
+    }
+}

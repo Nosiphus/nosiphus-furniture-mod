@@ -677,6 +677,32 @@ public class ModItems
     public static final DeferredItem<BlockItem> STRIPPED_WARPED_MAIL_BOX = addToTab(ITEMS.register("stripped_warped_mail_box",
             () -> new BlockItem(ModBlocks.STRIPPED_WARPED_MAIL_BOX.get(), new Item.Properties())));
 
+    // Hedges
+    public static final DeferredItem<BlockItem> OAK_HEDGE = addToTab(ITEMS.register("oak_hedge",
+            () -> new BlockItem(ModBlocks.OAK_HEDGE.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> SPRUCE_HEDGE = addToTab(ITEMS.register("spruce_hedge",
+            () -> new BlockItem(ModBlocks.SPRUCE_HEDGE.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> BIRCH_HEDGE = addToTab(ITEMS.register("birch_hedge",
+            () -> new BlockItem(ModBlocks.BIRCH_HEDGE.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> JUNGLE_HEDGE = addToTab(ITEMS.register("jungle_hedge",
+            () -> new BlockItem(ModBlocks.JUNGLE_HEDGE.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> ACACIA_HEDGE = addToTab(ITEMS.register("acacia_hedge",
+            () -> new BlockItem(ModBlocks.ACACIA_HEDGE.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> DARK_OAK_HEDGE = addToTab(ITEMS.register("dark_oak_hedge",
+            () -> new BlockItem(ModBlocks.DARK_OAK_HEDGE.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> MANGROVE_HEDGE = addToTab(ITEMS.register("mangrove_hedge",
+            () -> new BlockItem(ModBlocks.MANGROVE_HEDGE.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> CHERRY_HEDGE = addToTab(ITEMS.register("cherry_hedge",
+            () -> new BlockItem(ModBlocks.CHERRY_HEDGE.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> AZALEA_HEDGE = addToTab(ITEMS.register("azalea_hedge",
+            () -> new BlockItem(ModBlocks.AZALEA_HEDGE.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> FLOWERING_AZALEA_HEDGE = addToTab(ITEMS.register("flowering_azalea_hedge",
+            () -> new BlockItem(ModBlocks.FLOWERING_AZALEA_HEDGE.get(), new Item.Properties())));
+
+    // Rock Path
+    public static final DeferredItem<BlockItem> ROCK_PATH = addToTab(ITEMS.register("rock_path",
+            () -> new BlockItem(ModBlocks.ROCK_PATH.get(), new Item.Properties())));
+
 
     // Methods
     @Nullable

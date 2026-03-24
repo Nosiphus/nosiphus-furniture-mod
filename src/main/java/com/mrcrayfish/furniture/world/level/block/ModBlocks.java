@@ -677,6 +677,32 @@ public class ModBlocks
     public static final DeferredBlock<Block> STRIPPED_WARPED_MAIL_BOX = BLOCKS.register("stripped_warped_mail_box",
             () -> new MailBoxBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.WARPED_PLANKS)));
 
+    // Hedges
+    public static final DeferredBlock<Block> OAK_HEDGE = BLOCKS.register("oak_hedge",
+            () -> new HedgeBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_LEAVES)));
+    public static final DeferredBlock<Block> SPRUCE_HEDGE = BLOCKS.register("spruce_hedge",
+            () -> new HedgeBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.SPRUCE_LEAVES)));
+    public static final DeferredBlock<Block> BIRCH_HEDGE = BLOCKS.register("birch_hedge",
+            () -> new HedgeBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.BIRCH_LEAVES)));
+    public static final DeferredBlock<Block> JUNGLE_HEDGE = BLOCKS.register("jungle_hedge",
+            () -> new HedgeBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.JUNGLE_LEAVES)));
+    public static final DeferredBlock<Block> ACACIA_HEDGE = BLOCKS.register("acacia_hedge",
+            () -> new HedgeBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.ACACIA_LEAVES)));
+    public static final DeferredBlock<Block> DARK_OAK_HEDGE = BLOCKS.register("dark_oak_hedge",
+            () -> new HedgeBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.DARK_OAK_LEAVES)));
+    public static final DeferredBlock<Block> MANGROVE_HEDGE = BLOCKS.register("mangrove_hedge",
+            () -> new HedgeBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.MANGROVE_LEAVES)));
+    public static final DeferredBlock<Block> CHERRY_HEDGE = BLOCKS.register("cherry_hedge",
+            () -> new HedgeBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.CHERRY_LEAVES)));
+    public static final DeferredBlock<Block> AZALEA_HEDGE = BLOCKS.register("azalea_hedge",
+            () -> new HedgeBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.AZALEA_LEAVES)));
+    public static final DeferredBlock<Block> FLOWERING_AZALEA_HEDGE = BLOCKS.register("flowering_azalea_hedge",
+            () -> new HedgeBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.FLOWERING_AZALEA_LEAVES)));
+
+    // Rock Path
+    public static final DeferredBlock<Block> ROCK_PATH = BLOCKS.register("rock_path",
+            () -> new RockPathBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE)));
+
 
 
 
