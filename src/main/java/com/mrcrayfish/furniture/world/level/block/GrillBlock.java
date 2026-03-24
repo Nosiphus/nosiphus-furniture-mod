@@ -15,6 +15,7 @@ import net.minecraft.world.InteractionResult;
 import net.minecraft.world.ItemInteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
@@ -74,7 +75,6 @@ public class GrillBlock extends FurnitureWaterloggedBlock implements EntityBlock
     @Override
     protected ItemInteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit)
     {
-        // We only care about the top of the grill
         if (hit.getDirection() != Direction.UP)
         {
             return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
@@ -82,12 +82,13 @@ public class GrillBlock extends FurnitureWaterloggedBlock implements EntityBlock
 
         if (level.getBlockEntity(pos) instanceof GrillBlockEntity blockEntity)
         {
-            // 1. Spatula Logic (Flipping)
+            int slotIndex = this.getPosition(hit, pos);
+
             if (stack.is(ModItems.SPATULA.get()))
             {
                 if (!level.isClientSide)
                 {
-                    blockEntity.flipItem(this.getPosition(hit, pos));
+                    blockEntity.flipItem(slotIndex);
                 }
                 return ItemInteractionResult.sidedSuccess(level.isClientSide);
             }
@@ -105,13 +106,15 @@ public class GrillBlock extends FurnitureWaterloggedBlock implements EntityBlock
                 return ItemInteractionResult.sidedSuccess(level.isClientSide);
             }
 
-            Optional<GrillCookingRecipe> optional = blockEntity.findMatchingRecipe(stack);
+            var optional = blockEntity.findMatchingRecipe(stack);
             if (optional.isPresent())
             {
                 if (!level.isClientSide)
                 {
-                    GrillCookingRecipe recipe = optional.get();
-                    if (blockEntity.addItem(stack, this.getPosition(hit, pos), recipe.getCookingTime(), recipe.getExperience(), (byte) player.getDirection().get2DDataValue()))
+                    var recipe = optional.get();
+                    byte rotation = (byte) player.getDirection().get2DDataValue();
+
+                    if (blockEntity.addItem(stack, slotIndex, recipe.getCookingTime(), recipe.getExperience(), rotation))
                     {
                         if (!player.getAbilities().instabuild)
                         {
