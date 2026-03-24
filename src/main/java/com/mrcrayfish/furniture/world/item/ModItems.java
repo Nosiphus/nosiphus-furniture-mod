@@ -739,6 +739,42 @@ public class ModItems
     public static final DeferredItem<BlockItem> PINK_TRAMPOLINE = addToTab(ITEMS.register("pink_trampoline",
             () -> new BlockItem(ModBlocks.PINK_TRAMPOLINE.get(), new Item.Properties())));
 
+    // Coolers
+    public static final DeferredItem<BlockItem> WHITE_COOLER = addToTab(ITEMS.register("white_cooler",
+            () -> new BlockItem(ModBlocks.WHITE_COOLER.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> LIGHT_GRAY_COOLER = addToTab(ITEMS.register("light_gray_cooler",
+            () -> new BlockItem(ModBlocks.LIGHT_GRAY_COOLER.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> GRAY_COOLER = addToTab(ITEMS.register("gray_cooler",
+            () -> new BlockItem(ModBlocks.GRAY_COOLER.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> BLACK_COOLER = addToTab(ITEMS.register("black_cooler",
+            () -> new BlockItem(ModBlocks.BLACK_COOLER.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> BROWN_COOLER = addToTab(ITEMS.register("brown_cooler",
+            () -> new BlockItem(ModBlocks.BROWN_COOLER.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> RED_COOLER = addToTab(ITEMS.register("red_cooler",
+            () -> new BlockItem(ModBlocks.RED_COOLER.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> ORANGE_COOLER = addToTab(ITEMS.register("orange_cooler",
+            () -> new BlockItem(ModBlocks.ORANGE_COOLER.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> BEIGE_COOLER = registerOptional("yogmod","beige_cooler",
+            () -> new BlockItem(ModBlocks.BEIGE_COOLER.get(), new Item.Properties()));
+    public static final DeferredItem<BlockItem> YELLOW_COOLER = addToTab(ITEMS.register("yellow_cooler",
+            () -> new BlockItem(ModBlocks.YELLOW_COOLER.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> LIME_COOLER = addToTab(ITEMS.register("lime_cooler",
+            () -> new BlockItem(ModBlocks.LIME_COOLER.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> GREEN_COOLER = addToTab(ITEMS.register("green_cooler",
+            () -> new BlockItem(ModBlocks.GREEN_COOLER.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> CYAN_COOLER = addToTab(ITEMS.register("cyan_cooler",
+            () -> new BlockItem(ModBlocks.CYAN_COOLER.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> LIGHT_BLUE_COOLER = addToTab(ITEMS.register("light_blue_cooler",
+            () -> new BlockItem(ModBlocks.LIGHT_BLUE_COOLER.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> BLUE_COOLER = addToTab(ITEMS.register("blue_cooler",
+            () -> new BlockItem(ModBlocks.BLUE_COOLER.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> PURPLE_COOLER = addToTab(ITEMS.register("purple_cooler",
+            () -> new BlockItem(ModBlocks.PURPLE_COOLER.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> MAGENTA_COOLER = addToTab(ITEMS.register("magenta_cooler",
+            () -> new BlockItem(ModBlocks.MAGENTA_COOLER.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> PINK_COOLER = addToTab(ITEMS.register("pink_cooler",
+            () -> new BlockItem(ModBlocks.PINK_COOLER.get(), new Item.Properties())));
+
 
     // Methods
     @Nullable

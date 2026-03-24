@@ -1,6 +1,7 @@
 package com.mrcrayfish.furniture.world.level.block.entity;
 
 import com.mrcrayfish.furniture.world.level.block.ModBlocks;
+import com.mrcrayfish.furniture.world.level.block.entity.yogmod.YogCoolerBlockEntity;
 import com.mrcrayfish.furniture.world.level.block.entity.yogmod.YogTrampolineBlockEntity;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.level.block.entity.BlockEntityType;
@@ -40,6 +41,25 @@ public class ModBlockEntityTypes
                     ModBlocks.STRIPPED_ACACIA_CABINET.get(), ModBlocks.STRIPPED_DARK_OAK_CABINET.get(),
                     ModBlocks.STRIPPED_MANGROVE_CABINET.get(), ModBlocks.STRIPPED_CHERRY_CABINET.get(),
                     ModBlocks.STRIPPED_CRIMSON_CABINET.get(), ModBlocks.STRIPPED_WARPED_CABINET.get()
+            ).build(null));
+
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<CoolerBlockEntity>> COOLER =
+            BLOCK_ENTITY_TYPES.register("cooler", () -> BlockEntityType.Builder.of(
+                    CoolerBlockEntity::new,
+                    ModBlocks.WHITE_COOLER.get(), ModBlocks.LIGHT_GRAY_COOLER.get(),
+                    ModBlocks.GRAY_COOLER.get(), ModBlocks.BLACK_COOLER.get(),
+                    ModBlocks.BROWN_COOLER.get(), ModBlocks.RED_COOLER.get(),
+                    ModBlocks.ORANGE_COOLER.get(), ModBlocks.YELLOW_COOLER.get(),
+                    ModBlocks.LIME_COOLER.get(), ModBlocks.GREEN_COOLER.get(),
+                    ModBlocks.CYAN_COOLER.get(), ModBlocks.LIGHT_BLUE_COOLER.get(),
+                    ModBlocks.BLUE_COOLER.get(), ModBlocks.PURPLE_COOLER.get(),
+                    ModBlocks.MAGENTA_COOLER.get(), ModBlocks.PINK_COOLER.get()
+            ).build(null));
+
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<YogCoolerBlockEntity>> YOG_COOLER =
+            BLOCK_ENTITY_TYPES.register("yog_cooler", () -> BlockEntityType.Builder.of(
+                    YogCoolerBlockEntity::new,
+                    ModBlocks.BEIGE_COOLER.get()
             ).build(null));
 
     public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<CrateBlockEntity>> CRATE =

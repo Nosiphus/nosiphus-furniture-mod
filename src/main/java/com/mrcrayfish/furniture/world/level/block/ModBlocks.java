@@ -1,5 +1,6 @@
 package com.mrcrayfish.furniture.world.level.block;
 
+import com.mrcrayfish.furniture.world.level.block.yogmod.YogCoolerBlock;
 import com.mrcrayfish.furniture.world.level.block.yogmod.YogTrampolineBlock;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
@@ -740,6 +741,42 @@ public class ModBlocks
             () -> new TrampolineBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.MAGENTA_CONCRETE)));
     public static final DeferredBlock<Block> PINK_TRAMPOLINE = BLOCKS.register("pink_trampoline",
             () -> new TrampolineBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.PINK_CONCRETE)));
+
+    // Coolers
+    public static final DeferredBlock<Block> WHITE_COOLER = BLOCKS.register("white_cooler",
+            () -> new CoolerBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.WHITE_CONCRETE)));
+    public static final DeferredBlock<Block> LIGHT_GRAY_COOLER = BLOCKS.register("light_gray_cooler",
+            () -> new CoolerBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.LIGHT_GRAY_CONCRETE)));
+    public static final DeferredBlock<Block> GRAY_COOLER = BLOCKS.register("gray_cooler",
+            () -> new CoolerBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.GRAY_CONCRETE)));
+    public static final DeferredBlock<Block> BLACK_COOLER = BLOCKS.register("black_cooler",
+            () -> new CoolerBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.BLACK_CONCRETE)));
+    public static final DeferredBlock<Block> BROWN_COOLER = BLOCKS.register("brown_cooler",
+            () -> new CoolerBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.BROWN_CONCRETE)));
+    public static final DeferredBlock<Block> RED_COOLER = BLOCKS.register("red_cooler",
+            () -> new CoolerBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.RED_CONCRETE)));
+    public static final DeferredBlock<Block> ORANGE_COOLER = BLOCKS.register("orange_cooler",
+            () -> new CoolerBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.ORANGE_CONCRETE)));
+    public static final DeferredBlock<Block> BEIGE_COOLER = registerOptional("yogmod","beige_cooler",
+            () -> new YogCoolerBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.YELLOW_CONCRETE)));
+    public static final DeferredBlock<Block> YELLOW_COOLER = BLOCKS.register("yellow_cooler",
+            () -> new CoolerBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.YELLOW_CONCRETE)));
+    public static final DeferredBlock<Block> LIME_COOLER = BLOCKS.register("lime_cooler",
+            () -> new CoolerBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.LIME_CONCRETE)));
+    public static final DeferredBlock<Block> GREEN_COOLER = BLOCKS.register("green_cooler",
+            () -> new CoolerBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.GREEN_CONCRETE)));
+    public static final DeferredBlock<Block> CYAN_COOLER = BLOCKS.register("cyan_cooler",
+            () -> new CoolerBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.CYAN_CONCRETE)));
+    public static final DeferredBlock<Block> LIGHT_BLUE_COOLER = BLOCKS.register("light_blue_cooler",
+            () -> new CoolerBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.LIGHT_BLUE_CONCRETE)));
+    public static final DeferredBlock<Block> BLUE_COOLER = BLOCKS.register("blue_cooler",
+            () -> new CoolerBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.BLUE_CONCRETE)));
+    public static final DeferredBlock<Block> PURPLE_COOLER = BLOCKS.register("purple_cooler",
+            () -> new CoolerBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.PURPLE_CONCRETE)));
+    public static final DeferredBlock<Block> MAGENTA_COOLER = BLOCKS.register("magenta_cooler",
+            () -> new CoolerBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.MAGENTA_CONCRETE)));
+    public static final DeferredBlock<Block> PINK_COOLER = BLOCKS.register("pink_cooler",
+            () -> new CoolerBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.PINK_CONCRETE)));
 
 
     // Methods
