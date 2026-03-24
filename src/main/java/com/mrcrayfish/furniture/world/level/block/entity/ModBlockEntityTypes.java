@@ -1,6 +1,7 @@
 package com.mrcrayfish.furniture.world.level.block.entity;
 
 import com.mrcrayfish.furniture.world.level.block.ModBlocks;
+import com.mrcrayfish.furniture.world.level.block.entity.yogmod.YogTrampolineBlockEntity;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.neoforged.neoforge.registries.DeferredHolder;
@@ -82,5 +83,26 @@ public class ModBlockEntityTypes
                     ModBlocks.STRIPPED_MANGROVE_MAIL_BOX.get(), ModBlocks.STRIPPED_CHERRY_MAIL_BOX.get(),
                     ModBlocks.STRIPPED_CRIMSON_MAIL_BOX.get(), ModBlocks.STRIPPED_WARPED_MAIL_BOX.get()
             ).build(null));
+
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<TrampolineBlockEntity>> TRAMPOLINE =
+            BLOCK_ENTITY_TYPES.register("trampoline", () -> BlockEntityType.Builder.of(
+                    TrampolineBlockEntity::new,
+                    ModBlocks.WHITE_TRAMPOLINE.get(), ModBlocks.LIGHT_GRAY_TRAMPOLINE.get(),
+                    ModBlocks.GRAY_TRAMPOLINE.get(), ModBlocks.BLACK_TRAMPOLINE.get(),
+                    ModBlocks.BROWN_TRAMPOLINE.get(), ModBlocks.RED_TRAMPOLINE.get(),
+                    ModBlocks.ORANGE_TRAMPOLINE.get(), ModBlocks.YELLOW_TRAMPOLINE.get(),
+                    ModBlocks.LIME_TRAMPOLINE.get(), ModBlocks.GREEN_TRAMPOLINE.get(),
+                    ModBlocks.CYAN_TRAMPOLINE.get(), ModBlocks.LIGHT_BLUE_TRAMPOLINE.get(),
+                    ModBlocks.BLUE_TRAMPOLINE.get(), ModBlocks.PURPLE_TRAMPOLINE.get(),
+                    ModBlocks.MAGENTA_TRAMPOLINE.get(), ModBlocks.PINK_TRAMPOLINE.get()
+            ).build(null));
+
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<YogTrampolineBlockEntity>> YOG_TRAMPOLINE =
+            BLOCK_ENTITY_TYPES.register("yog_trampoline", () -> BlockEntityType.Builder.of(
+                    YogTrampolineBlockEntity::new,
+                    ModBlocks.BEIGE_TRAMPOLINE.get()
+            ).build(null));
+
+
 
 }

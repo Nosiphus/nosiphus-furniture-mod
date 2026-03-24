@@ -703,6 +703,42 @@ public class ModItems
     public static final DeferredItem<BlockItem> ROCK_PATH = addToTab(ITEMS.register("rock_path",
             () -> new BlockItem(ModBlocks.ROCK_PATH.get(), new Item.Properties())));
 
+    // Trampolines
+    public static final DeferredItem<BlockItem> WHITE_TRAMPOLINE = addToTab(ITEMS.register("white_trampoline",
+            () -> new BlockItem(ModBlocks.WHITE_TRAMPOLINE.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> LIGHT_GRAY_TRAMPOLINE = addToTab(ITEMS.register("light_gray_trampoline",
+            () -> new BlockItem(ModBlocks.LIGHT_GRAY_TRAMPOLINE.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> GRAY_TRAMPOLINE = addToTab(ITEMS.register("gray_trampoline",
+            () -> new BlockItem(ModBlocks.GRAY_TRAMPOLINE.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> BLACK_TRAMPOLINE = addToTab(ITEMS.register("black_trampoline",
+            () -> new BlockItem(ModBlocks.BLACK_TRAMPOLINE.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> BROWN_TRAMPOLINE = addToTab(ITEMS.register("brown_trampoline",
+            () -> new BlockItem(ModBlocks.BROWN_TRAMPOLINE.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> RED_TRAMPOLINE = addToTab(ITEMS.register("red_trampoline",
+            () -> new BlockItem(ModBlocks.RED_TRAMPOLINE.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> ORANGE_TRAMPOLINE = addToTab(ITEMS.register("orange_trampoline",
+            () -> new BlockItem(ModBlocks.ORANGE_TRAMPOLINE.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> BEIGE_TRAMPOLINE = registerOptional("yogmod","beige_trampoline",
+            () -> new BlockItem(ModBlocks.BEIGE_TRAMPOLINE.get(), new Item.Properties()));
+    public static final DeferredItem<BlockItem> YELLOW_TRAMPOLINE = addToTab(ITEMS.register("yellow_trampoline",
+            () -> new BlockItem(ModBlocks.YELLOW_TRAMPOLINE.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> LIME_TRAMPOLINE = addToTab(ITEMS.register("lime_trampoline",
+            () -> new BlockItem(ModBlocks.LIME_TRAMPOLINE.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> GREEN_TRAMPOLINE = addToTab(ITEMS.register("green_trampoline",
+            () -> new BlockItem(ModBlocks.GREEN_TRAMPOLINE.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> CYAN_TRAMPOLINE = addToTab(ITEMS.register("cyan_trampoline",
+            () -> new BlockItem(ModBlocks.CYAN_TRAMPOLINE.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> LIGHT_BLUE_TRAMPOLINE = addToTab(ITEMS.register("light_blue_trampoline",
+            () -> new BlockItem(ModBlocks.LIGHT_BLUE_TRAMPOLINE.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> BLUE_TRAMPOLINE = addToTab(ITEMS.register("blue_trampoline",
+            () -> new BlockItem(ModBlocks.BLUE_TRAMPOLINE.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> PURPLE_TRAMPOLINE = addToTab(ITEMS.register("purple_trampoline",
+            () -> new BlockItem(ModBlocks.PURPLE_TRAMPOLINE.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> MAGENTA_TRAMPOLINE = addToTab(ITEMS.register("magenta_trampoline",
+            () -> new BlockItem(ModBlocks.MAGENTA_TRAMPOLINE.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> PINK_TRAMPOLINE = addToTab(ITEMS.register("pink_trampoline",
+            () -> new BlockItem(ModBlocks.PINK_TRAMPOLINE.get(), new Item.Properties())));
+
 
     // Methods
     @Nullable

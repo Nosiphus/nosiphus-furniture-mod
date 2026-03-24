@@ -1,5 +1,7 @@
 package com.mrcrayfish.furniture.world.level.block;
 
+import com.mrcrayfish.furniture.world.level.block.yogmod.YogTrampolineBlock;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.SoundType;
@@ -703,7 +705,41 @@ public class ModBlocks
     public static final DeferredBlock<Block> ROCK_PATH = BLOCKS.register("rock_path",
             () -> new RockPathBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE)));
 
-
+    // Trampolines
+    public static final DeferredBlock<Block> WHITE_TRAMPOLINE = BLOCKS.register("white_trampoline",
+            () -> new TrampolineBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.WHITE_CONCRETE)));
+    public static final DeferredBlock<Block> LIGHT_GRAY_TRAMPOLINE = BLOCKS.register("light_gray_trampoline",
+            () -> new TrampolineBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.LIGHT_GRAY_CONCRETE)));
+    public static final DeferredBlock<Block> GRAY_TRAMPOLINE = BLOCKS.register("gray_trampoline",
+            () -> new TrampolineBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.GRAY_CONCRETE)));
+    public static final DeferredBlock<Block> BLACK_TRAMPOLINE = BLOCKS.register("black_trampoline",
+            () -> new TrampolineBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.BLACK_CONCRETE)));
+    public static final DeferredBlock<Block> BROWN_TRAMPOLINE = BLOCKS.register("brown_trampoline",
+            () -> new TrampolineBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.BROWN_CONCRETE)));
+    public static final DeferredBlock<Block> RED_TRAMPOLINE = BLOCKS.register("red_trampoline",
+            () -> new TrampolineBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.RED_CONCRETE)));
+    public static final DeferredBlock<Block> ORANGE_TRAMPOLINE = BLOCKS.register("orange_trampoline",
+            () -> new TrampolineBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.ORANGE_CONCRETE)));
+    public static final DeferredBlock<Block> BEIGE_TRAMPOLINE = registerOptional("yogmod","beige_trampoline",
+            () -> new YogTrampolineBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.YELLOW_CONCRETE)));
+    public static final DeferredBlock<Block> YELLOW_TRAMPOLINE = BLOCKS.register("yellow_trampoline",
+            () -> new TrampolineBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.YELLOW_CONCRETE)));
+    public static final DeferredBlock<Block> LIME_TRAMPOLINE = BLOCKS.register("lime_trampoline",
+            () -> new TrampolineBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.LIME_CONCRETE)));
+    public static final DeferredBlock<Block> GREEN_TRAMPOLINE = BLOCKS.register("green_trampoline",
+            () -> new TrampolineBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.GREEN_CONCRETE)));
+    public static final DeferredBlock<Block> CYAN_TRAMPOLINE = BLOCKS.register("cyan_trampoline",
+            () -> new TrampolineBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.CYAN_CONCRETE)));
+    public static final DeferredBlock<Block> LIGHT_BLUE_TRAMPOLINE = BLOCKS.register("light_blue_trampoline",
+            () -> new TrampolineBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.LIGHT_BLUE_CONCRETE)));
+    public static final DeferredBlock<Block> BLUE_TRAMPOLINE = BLOCKS.register("blue_trampoline",
+            () -> new TrampolineBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.BLUE_CONCRETE)));
+    public static final DeferredBlock<Block> PURPLE_TRAMPOLINE = BLOCKS.register("purple_trampoline",
+            () -> new TrampolineBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.PURPLE_CONCRETE)));
+    public static final DeferredBlock<Block> MAGENTA_TRAMPOLINE = BLOCKS.register("magenta_trampoline",
+            () -> new TrampolineBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.MAGENTA_CONCRETE)));
+    public static final DeferredBlock<Block> PINK_TRAMPOLINE = BLOCKS.register("pink_trampoline",
+            () -> new TrampolineBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.PINK_CONCRETE)));
 
 
     // Methods
