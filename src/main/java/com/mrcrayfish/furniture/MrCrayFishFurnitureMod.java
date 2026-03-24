@@ -5,6 +5,7 @@ import com.mrcrayfish.furniture.client.gui.screens.inventory.CrateScreen;
 import com.mrcrayfish.furniture.client.gui.screens.inventory.MailBoxScreen;
 import com.mrcrayfish.furniture.client.gui.screens.inventory.PostBoxScreen;
 import com.mrcrayfish.furniture.client.model.HedgeModel;
+import com.mrcrayfish.furniture.client.renderer.blockentity.GrillBlockEntityRenderer;
 import com.mrcrayfish.furniture.client.renderer.entity.SeatRenderer;
 import com.mrcrayfish.furniture.network.protocol.common.*;
 import com.mrcrayfish.furniture.sounds.ModSoundEvents;
@@ -18,6 +19,7 @@ import com.mrcrayfish.furniture.world.level.block.ModBlocks;
 import com.mrcrayfish.furniture.world.level.block.entity.ModBlockEntityTypes;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.BiomeColors;
+import net.minecraft.client.renderer.blockentity.BlockEntityRenderers;
 import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.client.resources.model.BakedModel;
 import net.minecraft.client.resources.model.ModelResourceLocation;
@@ -416,7 +418,7 @@ public class MrCrayFishFurnitureMod
 
     private static void registerBlockEntityRenderers()
     {
-
+        BlockEntityRenderers.register(ModBlockEntityTypes.GRILL.get(), GrillBlockEntityRenderer::new);
     }
 
     private static void registerEntityRenderers()
