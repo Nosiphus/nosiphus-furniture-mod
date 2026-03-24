@@ -180,6 +180,9 @@ public class GrillBlockEntity extends BlockEntity implements WorldlyContainer
         {
             if(blockEntity.cookItems()) changed = true;
             blockEntity.remainingFuel--;
+
+            if(level.getGameTime() % 100 == 0) blockEntity.setChanged();
+
             if(blockEntity.remainingFuel == 0) changed = true;
         }
 
@@ -212,15 +215,18 @@ public class GrillBlockEntity extends BlockEntity implements WorldlyContainer
             if(!stack.isEmpty() && this.cookingTimes[i] < this.cookingTotalTimes[i])
             {
                 this.cookingTimes[i]++;
-                if(this.cookingTimes[i] == this.cookingTotalTimes[i] && this.flipped[i])
+                if(this.cookingTimes[i] == this.cookingTotalTimes[i])
                 {
-                    Optional<RecipeHolder<GrillCookingRecipe>> recipe = this.level.getRecipeManager()
-                            .getRecipeFor(ModRecipeTypes.GRILL_COOKING.get(), new SingleRecipeInput(stack), this.level);
-
-                    if(recipe.isPresent())
+                    changed = true;
+                    if(this.flipped[i])
                     {
-                        this.grill.set(i, recipe.get().value().getResultItem(this.level.registryAccess()).copy());
-                        changed = true;
+                        Optional<RecipeHolder<GrillCookingRecipe>> recipe = this.level.getRecipeManager()
+                                .getRecipeFor(ModRecipeTypes.GRILL_COOKING.get(), new SingleRecipeInput(stack), this.level);
+
+                        if(recipe.isPresent())
+                        {
+                            this.grill.set(i, recipe.get().value().getResultItem(this.level.registryAccess()).copy());
+                        }
                     }
                 }
             }
@@ -233,11 +239,18 @@ public class GrillBlockEntity extends BlockEntity implements WorldlyContainer
     {
         super.loadAdditional(compound, registries);
 
-        if(compound.contains("GrillItems", Tag.TAG_COMPOUND))
-            ContainerHelper.loadAllItems(compound.getCompound("GrillItems"), this.grill, registries);
+        for (int i = 0; i < this.grill.size(); i++) {
+            this.grill.set(i, ItemStack.EMPTY);
+        }
+        for (int i = 0; i < this.fuel.size(); i++) {
+            this.fuel.set(i, ItemStack.EMPTY);
+        }
 
-        if(compound.contains("FuelItems", Tag.TAG_COMPOUND))
-            ContainerHelper.loadAllItems(compound.getCompound("FuelItems"), this.fuel, registries);
+        if(compound.contains("Grill", Tag.TAG_COMPOUND))
+            ContainerHelper.loadAllItems(compound.getCompound("Grill"), this.grill, registries);
+
+        if(compound.contains("Fuel", Tag.TAG_COMPOUND))
+            ContainerHelper.loadAllItems(compound.getCompound("Fuel"), this.fuel, registries);
 
         this.remainingFuel = compound.getInt("RemainingFuel");
 
@@ -266,8 +279,8 @@ public class GrillBlockEntity extends BlockEntity implements WorldlyContainer
     {
         super.saveAdditional(compound, registries);
 
-        compound.put("GrillItems", ContainerHelper.saveAllItems(new CompoundTag(), this.grill, registries));
-        compound.put("FuelItems", ContainerHelper.saveAllItems(new CompoundTag(), this.fuel, registries));
+        compound.put("Grill", ContainerHelper.saveAllItems(new CompoundTag(), this.grill, registries));
+        compound.put("Fuel", ContainerHelper.saveAllItems(new CompoundTag(), this.fuel, registries));
 
         compound.putInt("RemainingFuel", this.remainingFuel);
         compound.putIntArray("CookingTimes", this.cookingTimes);
@@ -375,21 +388,21 @@ public class GrillBlockEntity extends BlockEntity implements WorldlyContainer
         this.markUpdated();
     }
 
-    @Override public boolean stillValid(Player p) { return Container.stillValidBlockEntity(this, p); }
+    @Override public boolean stillValid(Player player) { return Container.stillValidBlockEntity(this, player); }
     @Override public void clearContent() { fuel.clear(); grill.clear(); this.markUpdated(); }
     @Override public int[] getSlotsForFace(Direction side) { return side == Direction.DOWN ? GRILL_SLOTS : ALL_SLOTS; }
 
     @Override
-    public boolean canPlaceItemThroughFace(int i, ItemStack s, @Nullable Direction d)
+    public boolean canPlaceItemThroughFace(int i, ItemStack stack, @Nullable Direction direction)
     {
-        if(i < 9) return s.getBurnTime(RecipeType.SMELTING) > 0;
-        return this.level != null && this.level.getRecipeManager().getRecipeFor(ModRecipeTypes.GRILL_COOKING.get(), new SingleRecipeInput(s), this.level).isPresent();
+        if(i < 9) return stack.getBurnTime(RecipeType.SMELTING) > 0;
+        return this.level != null && this.level.getRecipeManager().getRecipeFor(ModRecipeTypes.GRILL_COOKING.get(), new SingleRecipeInput(stack), this.level).isPresent();
     }
 
     @Override
-    public boolean canTakeItemThroughFace(int i, ItemStack s, Direction d)
+    public boolean canTakeItemThroughFace(int i, ItemStack stack, Direction direction)
     {
-        if(d == Direction.DOWN && i >= 9)
+        if(direction == Direction.DOWN && i >= 9)
         {
             int idx = i - 9;
             return this.flipped[idx] && this.cookingTimes[idx] == this.cookingTotalTimes[idx];

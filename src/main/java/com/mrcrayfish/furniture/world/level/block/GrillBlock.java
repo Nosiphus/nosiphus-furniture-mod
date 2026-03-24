@@ -99,7 +99,10 @@ public class GrillBlock extends FurnitureWaterloggedBlock implements EntityBlock
                 {
                     if (blockEntity.addFuel(stack))
                     {
-                        stack.shrink(1);
+                        if (!player.getAbilities().instabuild)
+                        {
+                            stack.shrink(1);
+                        }
                         level.playSound(null, pos, SoundEvents.ANCIENT_DEBRIS_HIT, SoundSource.BLOCKS, 1.0F, 1.5F);
                     }
                 }

@@ -1,0 +1,13 @@
+{
+  "type": "cfm:grill_cooking",
+  "category": "food",
+  "cooking_category": "food",
+  "cookingtime": 600,
+  "experience": 0.35,
+  "ingredient": {
+    "item": "minecraft:porkchop"
+  },
+  "result": {
+    "id": "minecraft:cooked_porkchop"
+  }
+}
