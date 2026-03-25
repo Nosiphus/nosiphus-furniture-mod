@@ -1,0 +1,13 @@
+{
+  "type": "cfm:freezer_solidify",
+  "category": "misc",
+  "cooking_category": "blocks",
+  "cookingtime": 1000,
+  "experience": 1.0,
+  "ingredient": {
+    "item": "minecraft:water_bucket"
+  },
+  "result": {
+    "id": "minecraft:ice"
+  }
+}
