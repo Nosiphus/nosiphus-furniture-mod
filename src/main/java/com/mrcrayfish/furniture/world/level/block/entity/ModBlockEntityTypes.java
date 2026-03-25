@@ -1,8 +1,6 @@
 package com.mrcrayfish.furniture.world.level.block.entity;
 
 import com.mrcrayfish.furniture.world.level.block.ModBlocks;
-import com.mrcrayfish.furniture.world.level.block.entity.yogmod.YogCoolerBlockEntity;
-import com.mrcrayfish.furniture.world.level.block.entity.yogmod.YogTrampolineBlockEntity;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.neoforged.neoforge.registries.DeferredHolder;
@@ -49,17 +47,12 @@ public class ModBlockEntityTypes
                     ModBlocks.WHITE_COOLER.get(), ModBlocks.LIGHT_GRAY_COOLER.get(),
                     ModBlocks.GRAY_COOLER.get(), ModBlocks.BLACK_COOLER.get(),
                     ModBlocks.BROWN_COOLER.get(), ModBlocks.RED_COOLER.get(),
-                    ModBlocks.ORANGE_COOLER.get(), ModBlocks.YELLOW_COOLER.get(),
-                    ModBlocks.LIME_COOLER.get(), ModBlocks.GREEN_COOLER.get(),
-                    ModBlocks.CYAN_COOLER.get(), ModBlocks.LIGHT_BLUE_COOLER.get(),
-                    ModBlocks.BLUE_COOLER.get(), ModBlocks.PURPLE_COOLER.get(),
-                    ModBlocks.MAGENTA_COOLER.get(), ModBlocks.PINK_COOLER.get()
-            ).build(null));
-
-    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<YogCoolerBlockEntity>> YOG_COOLER =
-            BLOCK_ENTITY_TYPES.register("yog_cooler", () -> BlockEntityType.Builder.of(
-                    YogCoolerBlockEntity::new,
-                    ModBlocks.BEIGE_COOLER.get()
+                    ModBlocks.ORANGE_COOLER.get(), ModBlocks.BEIGE_COOLER.get(),
+                    ModBlocks.YELLOW_COOLER.get(), ModBlocks.LIME_COOLER.get(),
+                    ModBlocks.GREEN_COOLER.get(), ModBlocks.CYAN_COOLER.get(),
+                    ModBlocks.LIGHT_BLUE_COOLER.get(), ModBlocks.BLUE_COOLER.get(),
+                    ModBlocks.PURPLE_COOLER.get(), ModBlocks.MAGENTA_COOLER.get(),
+                    ModBlocks.PINK_COOLER.get()
             ).build(null));
 
     public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<CrateBlockEntity>> CRATE =
@@ -95,11 +88,12 @@ public class ModBlockEntityTypes
                     ModBlocks.WHITE_GRILL.get(), ModBlocks.LIGHT_GRAY_GRILL.get(),
                     ModBlocks.GRAY_GRILL.get(), ModBlocks.BLACK_GRILL.get(),
                     ModBlocks.BROWN_GRILL.get(), ModBlocks.RED_GRILL.get(),
-                    ModBlocks.ORANGE_GRILL.get(), ModBlocks.YELLOW_GRILL.get(),
-                    ModBlocks.LIME_GRILL.get(), ModBlocks.GREEN_GRILL.get(),
-                    ModBlocks.CYAN_GRILL.get(), ModBlocks.LIGHT_BLUE_GRILL.get(),
-                    ModBlocks.BLUE_GRILL.get(), ModBlocks.PURPLE_GRILL.get(),
-                    ModBlocks.MAGENTA_GRILL.get(), ModBlocks.PINK_GRILL.get()
+                    ModBlocks.ORANGE_GRILL.get(), ModBlocks.BEIGE_GRILL.get(),
+                    ModBlocks.YELLOW_GRILL.get(), ModBlocks.LIME_GRILL.get(),
+                    ModBlocks.GREEN_GRILL.get(), ModBlocks.CYAN_GRILL.get(),
+                    ModBlocks.LIGHT_BLUE_GRILL.get(), ModBlocks.BLUE_GRILL.get(),
+                    ModBlocks.PURPLE_GRILL.get(), ModBlocks.MAGENTA_GRILL.get(),
+                    ModBlocks.PINK_GRILL.get()
             ).build(null));
 
     public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<MailBoxBlockEntity>> MAIL_BOX =
@@ -123,19 +117,12 @@ public class ModBlockEntityTypes
                     ModBlocks.WHITE_TRAMPOLINE.get(), ModBlocks.LIGHT_GRAY_TRAMPOLINE.get(),
                     ModBlocks.GRAY_TRAMPOLINE.get(), ModBlocks.BLACK_TRAMPOLINE.get(),
                     ModBlocks.BROWN_TRAMPOLINE.get(), ModBlocks.RED_TRAMPOLINE.get(),
-                    ModBlocks.ORANGE_TRAMPOLINE.get(), ModBlocks.YELLOW_TRAMPOLINE.get(),
-                    ModBlocks.LIME_TRAMPOLINE.get(), ModBlocks.GREEN_TRAMPOLINE.get(),
-                    ModBlocks.CYAN_TRAMPOLINE.get(), ModBlocks.LIGHT_BLUE_TRAMPOLINE.get(),
-                    ModBlocks.BLUE_TRAMPOLINE.get(), ModBlocks.PURPLE_TRAMPOLINE.get(),
-                    ModBlocks.MAGENTA_TRAMPOLINE.get(), ModBlocks.PINK_TRAMPOLINE.get()
+                    ModBlocks.ORANGE_TRAMPOLINE.get(), ModBlocks.BEIGE_TRAMPOLINE.get(),
+                    ModBlocks.YELLOW_TRAMPOLINE.get(), ModBlocks.LIME_TRAMPOLINE.get(),
+                    ModBlocks.GREEN_TRAMPOLINE.get(), ModBlocks.CYAN_TRAMPOLINE.get(),
+                    ModBlocks.LIGHT_BLUE_TRAMPOLINE.get(), ModBlocks.BLUE_TRAMPOLINE.get(),
+                    ModBlocks.PURPLE_TRAMPOLINE.get(), ModBlocks.MAGENTA_TRAMPOLINE.get(),
+                    ModBlocks.PINK_TRAMPOLINE.get()
             ).build(null));
-
-    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<YogTrampolineBlockEntity>> YOG_TRAMPOLINE =
-            BLOCK_ENTITY_TYPES.register("yog_trampoline", () -> BlockEntityType.Builder.of(
-                    YogTrampolineBlockEntity::new,
-                    ModBlocks.BEIGE_TRAMPOLINE.get()
-            ).build(null));
-
-
 
 }

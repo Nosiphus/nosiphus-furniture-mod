@@ -1,7 +1,6 @@
 package com.mrcrayfish.furniture.world.level.block;
 
 import com.mrcrayfish.furniture.world.item.ModItems;
-import com.mrcrayfish.furniture.world.item.crafting.GrillCookingRecipe;
 import com.mrcrayfish.furniture.world.level.block.entity.GrillBlockEntity;
 import com.mrcrayfish.furniture.world.level.block.entity.ModBlockEntityTypes;
 import com.mrcrayfish.furniture.world.phys.shapes.VoxelShapeHelper;
@@ -15,7 +14,6 @@ import net.minecraft.world.InteractionResult;
 import net.minecraft.world.ItemInteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
@@ -32,7 +30,6 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 
 import javax.annotation.Nullable;
 import java.util.Arrays;
-import java.util.Optional;
 
 /**
  * Author: MrCrayfish
