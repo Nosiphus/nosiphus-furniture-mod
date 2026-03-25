@@ -62,7 +62,7 @@ public class MailBoxBlockEntity extends BasicLootBlockEntity
     public void setMailBoxName(String name)
     {
         this.name = name;
-        this.setChanged();
+        this.markUpdated();
     }
 
     public String getMailBoxName()
@@ -74,7 +74,7 @@ public class MailBoxBlockEntity extends BasicLootBlockEntity
     {
         this.ownerId = entity.getUUID();
         this.ownerName = entity.getName().getString();
-        this.setChanged();
+        this.markUpdated();
     }
 
     @Nullable
@@ -101,22 +101,26 @@ public class MailBoxBlockEntity extends BasicLootBlockEntity
             if(!player.getName().getString().equals(this.ownerName))
             {
                 this.ownerName = player.getName().getString();
-                this.setChanged();
+                this.markUpdated();
             }
         }
     }
 
     public void updateIdAndAttemptClaim(ServerPlayer player)
     {
+        boolean changed = false;
         if(this.id == null)
         {
             this.id = UUID.randomUUID();
+            changed = true;
         }
         if(this.ownerId == null)
         {
-            this.setOwner(player);
+            this.ownerId = player.getUUID();
+            this.ownerName = player.getName().getString();
+            changed = true;
         }
-        this.setChanged();
+        if(changed) this.markUpdated();
     }
 
     public static void serverTick(Level level, BlockPos pos, BlockState state, MailBoxBlockEntity blockEntity)
@@ -125,25 +129,26 @@ public class MailBoxBlockEntity extends BasicLootBlockEntity
         if(server == null || blockEntity.ownerId == null || blockEntity.id == null)
             return;
 
-        // Attempt to register the mail box if it was somehow removed
         if(!PostOffice.isRegistered(blockEntity.ownerId, blockEntity.id))
         {
             ServerPlayer player = server.getPlayerList().getPlayer(blockEntity.ownerId);
             if(player != null)
             {
-                PostOffice.registerMailBox(player, blockEntity.id, "Mail Box", blockEntity.worldPosition);
+                PostOffice.registerMailBox(player, blockEntity.id, blockEntity.name, blockEntity.worldPosition);
             }
         }
         else if(!blockEntity.isFull() && server.getTickCount() % FurnitureConfig.COMMON.pullMailInterval.get() == 0)
         {
             Supplier<Mail> supplier = PostOffice.getMailForPlayerMailBox(blockEntity.ownerId, blockEntity.id);
+            boolean addedMail = false;
             while(!blockEntity.isFull())
             {
                 Mail mail = supplier.get();
                 if(mail == null) break;
                 blockEntity.addItem(mail.getStack());
-                blockEntity.setChanged();
+                addedMail = true;
             }
+            if(addedMail) blockEntity.markUpdated();
         }
     }
 
@@ -220,41 +225,12 @@ public class MailBoxBlockEntity extends BasicLootBlockEntity
         }
     }
 
-    private void readData(CompoundTag compound)
+    public void markUpdated()
     {
-        if(compound.hasUUID("MailBoxUUID"))
+        this.setChanged();
+        if(this.level != null)
         {
-            this.id = compound.getUUID("MailBoxUUID");
+            this.level.sendBlockUpdated(this.worldPosition, this.getBlockState(), this.getBlockState(), 3);
         }
-        if(compound.contains("MailBoxName", Tag.TAG_STRING))
-        {
-            this.name = compound.getString("MailBoxName");
-        }
-        if(compound.contains("OwnerName", Tag.TAG_STRING))
-        {
-            this.ownerName = compound.getString("OwnerName");
-        }
-        if(compound.hasUUID("OwnerUUID"))
-        {
-            this.ownerId = compound.getUUID("OwnerUUID");
-        }
-    }
-
-    private CompoundTag writeData(CompoundTag compound)
-    {
-        if(this.id != null)
-        {
-            compound.putUUID("MailBoxUUID", this.id);
-        }
-        if(this.name != null)
-        {
-            compound.putString("MailBoxName", this.name);
-        }
-        if(this.ownerName != null && this.ownerId != null)
-        {
-            compound.putString("OwnerName", this.ownerName);
-            compound.putUUID("OwnerUUID", this.ownerId);
-        }
-        return compound;
     }
 }

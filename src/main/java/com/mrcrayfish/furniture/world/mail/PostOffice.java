@@ -1,7 +1,6 @@
 package com.mrcrayfish.furniture.world.mail;
 
 import com.mrcrayfish.furniture.FurnitureConfig;
-import com.mrcrayfish.furniture.world.level.block.entity.BlockEntityUtil;
 import com.mrcrayfish.furniture.world.level.block.entity.MailBoxBlockEntity;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.HolderLookup;
@@ -201,7 +200,7 @@ public class PostOffice extends SavedData
             if (level.getBlockEntity(mailBox.getPos()) instanceof MailBoxBlockEntity mailBoxBlockEntity)
             {
                 mailBoxBlockEntity.setMailBoxName(name);
-                BlockEntityUtil.sendUpdatePacket(mailBoxBlockEntity);
+                mailBoxBlockEntity.markUpdated();
             }
         }
         office.setDirty();

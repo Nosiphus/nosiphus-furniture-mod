@@ -84,6 +84,7 @@ public class CrateBlockEntity extends BasicLootBlockEntity
     public void setOwner(UUID uuid)
     {
         this.ownerUuid = uuid;
+        this.markUpdated();
     }
 
     public boolean isLocked()
@@ -94,7 +95,7 @@ public class CrateBlockEntity extends BasicLootBlockEntity
     public void setLocked(boolean locked)
     {
         this.locked = locked;
-        BlockEntityUtil.sendUpdatePacket(this);
+        this.markUpdated();
     }
 
     @Override
@@ -208,6 +209,15 @@ public class CrateBlockEntity extends BasicLootBlockEntity
         }
         compound.putBoolean("Locked", this.locked);
         return compound;
+    }
+
+    public void markUpdated()
+    {
+        this.setChanged();
+        if(this.level != null)
+        {
+            this.level.sendBlockUpdated(this.worldPosition, this.getBlockState(), this.getBlockState(), 3);
+        }
     }
 
     @Override

@@ -2,7 +2,6 @@ package com.mrcrayfish.furniture.world.level.block;
 
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
-import com.mrcrayfish.furniture.world.level.block.entity.BlockEntityUtil;
 import com.mrcrayfish.furniture.world.level.block.entity.MailBoxBlockEntity;
 import com.mrcrayfish.furniture.world.level.block.entity.ModBlockEntityTypes;
 import com.mrcrayfish.furniture.world.mail.Mail;
@@ -89,7 +88,7 @@ public class MailBoxBlock extends FurnitureHorizontalBlock implements EntityBloc
                 blockEntity.setOwner(serverPlayer);
                 blockEntity.setMailBoxName("Mail Box");
                 PostOffice.registerMailBox(serverPlayer, blockEntity.getId(), "Mail Box", pos);
-                BlockEntityUtil.sendUpdatePacket(blockEntity);
+                blockEntity.markUpdated();
             }
         }
     }
@@ -132,7 +131,7 @@ public class MailBoxBlock extends FurnitureHorizontalBlock implements EntityBloc
                 mailBox.updateIdAndAttemptClaim(serverPlayer);
                 mailBox.updateOwnerName(serverPlayer);
 
-                BlockEntityUtil.sendUpdatePacket(mailBox);
+                mailBox.markUpdated();
 
                 serverPlayer.openMenu(mailBox, pos);
             }

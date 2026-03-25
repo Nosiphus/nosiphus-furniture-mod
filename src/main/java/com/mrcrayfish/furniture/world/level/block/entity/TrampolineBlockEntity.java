@@ -38,15 +38,14 @@ public class TrampolineBlockEntity extends BlockEntity
         super.onLoad();
         if (this.level != null && !this.level.isClientSide)
         {
-            BlockEntityUtil.sendUpdatePacket(this);
+            this.markUpdated();
         }
     }
 
     public void setCount(int count)
     {
         this.count = count;
-        this.setChanged();
-        BlockEntityUtil.sendUpdatePacket(this);
+        this.markUpdated();
     }
 
     public int getCount()
@@ -116,23 +115,15 @@ public class TrampolineBlockEntity extends BlockEntity
     public void onDataPacket(Connection net, ClientboundBlockEntityDataPacket pkt, HolderLookup.Provider registries)
     {
         CompoundTag compound = pkt.getTag();
-        if (compound != null)
-        {
-            this.loadAdditional(compound, registries);
-        }
+        this.loadAdditional(compound, registries);
     }
 
-    private void readData(CompoundTag compound)
+    public void markUpdated()
     {
-        if(compound.contains("Count", Tag.TAG_INT))
+        this.setChanged();
+        if(this.level != null)
         {
-            this.count = compound.getInt("Count");
+            this.level.sendBlockUpdated(this.worldPosition, this.getBlockState(), this.getBlockState(), 3);
         }
-    }
-
-    private CompoundTag writeData(CompoundTag compound)
-    {
-        compound.putInt("Count", this.count);
-        return compound;
     }
 }
