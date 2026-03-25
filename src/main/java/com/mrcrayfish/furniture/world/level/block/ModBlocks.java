@@ -815,5 +815,273 @@ public class ModBlocks
     public static final DeferredBlock<Block> DIVING_BOARD = BLOCKS.register("diving_board",
             () -> new DivingBoardBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS)));
 
+    // Kitchen Counters
+    public static final DeferredBlock<Block> OAK_KITCHEN_COUNTER = BLOCKS.register("oak_kitchen_counter",
+            () -> new KitchenCounterBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS)));
+    public static final DeferredBlock<Block> SPRUCE_KITCHEN_COUNTER = BLOCKS.register("spruce_kitchen_counter",
+            () -> new KitchenCounterBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.SPRUCE_PLANKS)));
+    public static final DeferredBlock<Block> BIRCH_KITCHEN_COUNTER = BLOCKS.register("birch_kitchen_counter",
+            () -> new KitchenCounterBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.BIRCH_PLANKS)));
+    public static final DeferredBlock<Block> JUNGLE_KITCHEN_COUNTER = BLOCKS.register("jungle_kitchen_counter",
+            () -> new KitchenCounterBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.JUNGLE_PLANKS)));
+    public static final DeferredBlock<Block> ACACIA_KITCHEN_COUNTER = BLOCKS.register("acacia_kitchen_counter",
+            () -> new KitchenCounterBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.ACACIA_PLANKS)));
+    public static final DeferredBlock<Block> DARK_OAK_KITCHEN_COUNTER = BLOCKS.register("dark_oak_kitchen_counter",
+            () -> new KitchenCounterBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.DARK_OAK_PLANKS)));
+    public static final DeferredBlock<Block> MANGROVE_KITCHEN_COUNTER = BLOCKS.register("mangrove_kitchen_counter",
+            () -> new KitchenCounterBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.MANGROVE_PLANKS)));
+    public static final DeferredBlock<Block> CHERRY_KITCHEN_COUNTER = BLOCKS.register("cherry_kitchen_counter",
+            () -> new KitchenCounterBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.CHERRY_PLANKS)));
+    public static final DeferredBlock<Block> CRIMSON_KITCHEN_COUNTER = BLOCKS.register("crimson_kitchen_counter",
+            () -> new KitchenCounterBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.CRIMSON_PLANKS)));
+    public static final DeferredBlock<Block> WARPED_KITCHEN_COUNTER = BLOCKS.register("warped_kitchen_counter",
+            () -> new KitchenCounterBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.WARPED_PLANKS)));
+    public static final DeferredBlock<Block> STRIPPED_OAK_KITCHEN_COUNTER = BLOCKS.register("stripped_oak_kitchen_counter",
+            () -> new KitchenCounterBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS)));
+    public static final DeferredBlock<Block> STRIPPED_SPRUCE_KITCHEN_COUNTER = BLOCKS.register("stripped_spruce_kitchen_counter",
+            () -> new KitchenCounterBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.SPRUCE_PLANKS)));
+    public static final DeferredBlock<Block> STRIPPED_BIRCH_KITCHEN_COUNTER = BLOCKS.register("stripped_birch_kitchen_counter",
+            () -> new KitchenCounterBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.BIRCH_PLANKS)));
+    public static final DeferredBlock<Block> STRIPPED_JUNGLE_KITCHEN_COUNTER = BLOCKS.register("stripped_jungle_kitchen_counter",
+            () -> new KitchenCounterBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.JUNGLE_PLANKS)));
+    public static final DeferredBlock<Block> STRIPPED_ACACIA_KITCHEN_COUNTER = BLOCKS.register("stripped_acacia_kitchen_counter",
+            () -> new KitchenCounterBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.ACACIA_PLANKS)));
+    public static final DeferredBlock<Block> STRIPPED_DARK_OAK_KITCHEN_COUNTER = BLOCKS.register("stripped_dark_oak_kitchen_counter",
+            () -> new KitchenCounterBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.DARK_OAK_PLANKS)));
+    public static final DeferredBlock<Block> STRIPPED_MANGROVE_KITCHEN_COUNTER = BLOCKS.register("stripped_mangrove_kitchen_counter",
+            () -> new KitchenCounterBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.MANGROVE_PLANKS)));
+    public static final DeferredBlock<Block> STRIPPED_CHERRY_KITCHEN_COUNTER = BLOCKS.register("stripped_cherry_kitchen_counter",
+            () -> new KitchenCounterBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.CHERRY_PLANKS)));
+    public static final DeferredBlock<Block> STRIPPED_CRIMSON_KITCHEN_COUNTER = BLOCKS.register("stripped_crimson_kitchen_counter",
+            () -> new KitchenCounterBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.CRIMSON_PLANKS)));
+    public static final DeferredBlock<Block> STRIPPED_WARPED_KITCHEN_COUNTER = BLOCKS.register("stripped_warped_kitchen_counter",
+            () -> new KitchenCounterBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.WARPED_PLANKS)));
+    public static final DeferredBlock<Block> WHITE_KITCHEN_COUNTER = BLOCKS.register("white_kitchen_counter",
+            () -> new KitchenCounterBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.WHITE_CONCRETE)));
+    public static final DeferredBlock<Block> LIGHT_GRAY_KITCHEN_COUNTER = BLOCKS.register("light_gray_kitchen_counter",
+            () -> new KitchenCounterBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.LIGHT_GRAY_CONCRETE)));
+    public static final DeferredBlock<Block> GRAY_KITCHEN_COUNTER = BLOCKS.register("gray_kitchen_counter",
+            () -> new KitchenCounterBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.GRAY_CONCRETE)));
+    public static final DeferredBlock<Block> BLACK_KITCHEN_COUNTER = BLOCKS.register("black_kitchen_counter",
+            () -> new KitchenCounterBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.BLACK_CONCRETE)));
+    public static final DeferredBlock<Block> BROWN_KITCHEN_COUNTER = BLOCKS.register("brown_kitchen_counter",
+            () -> new KitchenCounterBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.BROWN_CONCRETE)));
+    public static final DeferredBlock<Block> RED_KITCHEN_COUNTER = BLOCKS.register("red_kitchen_counter",
+            () -> new KitchenCounterBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.RED_CONCRETE)));
+    public static final DeferredBlock<Block> ORANGE_KITCHEN_COUNTER = BLOCKS.register("orange_kitchen_counter",
+            () -> new KitchenCounterBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.ORANGE_CONCRETE)));
+    public static final DeferredBlock<Block> BEIGE_KITCHEN_COUNTER = BLOCKS.register("beige_kitchen_counter",
+            () -> new KitchenCounterBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.YELLOW_CONCRETE)));
+    public static final DeferredBlock<Block> YELLOW_KITCHEN_COUNTER = BLOCKS.register("yellow_kitchen_counter",
+            () -> new KitchenCounterBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.YELLOW_CONCRETE)));
+    public static final DeferredBlock<Block> LIME_KITCHEN_COUNTER = BLOCKS.register("lime_kitchen_counter",
+            () -> new KitchenCounterBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.LIME_CONCRETE)));
+    public static final DeferredBlock<Block> GREEN_KITCHEN_COUNTER = BLOCKS.register("green_kitchen_counter",
+            () -> new KitchenCounterBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.GREEN_CONCRETE)));
+    public static final DeferredBlock<Block> CYAN_KITCHEN_COUNTER = BLOCKS.register("cyan_kitchen_counter",
+            () -> new KitchenCounterBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.CYAN_CONCRETE)));
+    public static final DeferredBlock<Block> LIGHT_BLUE_KITCHEN_COUNTER = BLOCKS.register("light_blue_kitchen_counter",
+            () -> new KitchenCounterBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.LIGHT_BLUE_CONCRETE)));
+    public static final DeferredBlock<Block> BLUE_KITCHEN_COUNTER = BLOCKS.register("blue_kitchen_counter",
+            () -> new KitchenCounterBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.BLUE_CONCRETE)));
+    public static final DeferredBlock<Block> PURPLE_KITCHEN_COUNTER = BLOCKS.register("purple_kitchen_counter",
+            () -> new KitchenCounterBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.PURPLE_CONCRETE)));
+    public static final DeferredBlock<Block> MAGENTA_KITCHEN_COUNTER = BLOCKS.register("magenta_kitchen_counter",
+            () -> new KitchenCounterBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.MAGENTA_CONCRETE)));
+    public static final DeferredBlock<Block> PINK_KITCHEN_COUNTER = BLOCKS.register("pink_kitchen_counter",
+            () -> new KitchenCounterBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.PINK_CONCRETE)));
+
+    // Kitchen Drawers
+    public static final DeferredBlock<Block> OAK_KITCHEN_DRAWER = BLOCKS.register("oak_kitchen_drawer",
+            () -> new KitchenDrawerBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS)));
+    public static final DeferredBlock<Block> SPRUCE_KITCHEN_DRAWER = BLOCKS.register("spruce_kitchen_drawer",
+            () -> new KitchenDrawerBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.SPRUCE_PLANKS)));
+    public static final DeferredBlock<Block> BIRCH_KITCHEN_DRAWER = BLOCKS.register("birch_kitchen_drawer",
+            () -> new KitchenDrawerBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.BIRCH_PLANKS)));
+    public static final DeferredBlock<Block> JUNGLE_KITCHEN_DRAWER = BLOCKS.register("jungle_kitchen_drawer",
+            () -> new KitchenDrawerBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.JUNGLE_PLANKS)));
+    public static final DeferredBlock<Block> ACACIA_KITCHEN_DRAWER = BLOCKS.register("acacia_kitchen_drawer",
+            () -> new KitchenDrawerBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.ACACIA_PLANKS)));
+    public static final DeferredBlock<Block> DARK_OAK_KITCHEN_DRAWER = BLOCKS.register("dark_oak_kitchen_drawer",
+            () -> new KitchenDrawerBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.DARK_OAK_PLANKS)));
+    public static final DeferredBlock<Block> MANGROVE_KITCHEN_DRAWER = BLOCKS.register("mangrove_kitchen_drawer",
+            () -> new KitchenDrawerBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.MANGROVE_PLANKS)));
+    public static final DeferredBlock<Block> CHERRY_KITCHEN_DRAWER = BLOCKS.register("cherry_kitchen_drawer",
+            () -> new KitchenDrawerBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.CHERRY_PLANKS)));
+    public static final DeferredBlock<Block> CRIMSON_KITCHEN_DRAWER = BLOCKS.register("crimson_kitchen_drawer",
+            () -> new KitchenDrawerBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.CRIMSON_PLANKS)));
+    public static final DeferredBlock<Block> WARPED_KITCHEN_DRAWER = BLOCKS.register("warped_kitchen_drawer",
+            () -> new KitchenDrawerBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.WARPED_PLANKS)));
+    public static final DeferredBlock<Block> STRIPPED_OAK_KITCHEN_DRAWER = BLOCKS.register("stripped_oak_kitchen_drawer",
+            () -> new KitchenDrawerBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS)));
+    public static final DeferredBlock<Block> STRIPPED_SPRUCE_KITCHEN_DRAWER = BLOCKS.register("stripped_spruce_kitchen_drawer",
+            () -> new KitchenDrawerBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.SPRUCE_PLANKS)));
+    public static final DeferredBlock<Block> STRIPPED_BIRCH_KITCHEN_DRAWER = BLOCKS.register("stripped_birch_kitchen_drawer",
+            () -> new KitchenDrawerBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.BIRCH_PLANKS)));
+    public static final DeferredBlock<Block> STRIPPED_JUNGLE_KITCHEN_DRAWER = BLOCKS.register("stripped_jungle_kitchen_drawer",
+            () -> new KitchenDrawerBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.JUNGLE_PLANKS)));
+    public static final DeferredBlock<Block> STRIPPED_ACACIA_KITCHEN_DRAWER = BLOCKS.register("stripped_acacia_kitchen_drawer",
+            () -> new KitchenDrawerBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.ACACIA_PLANKS)));
+    public static final DeferredBlock<Block> STRIPPED_DARK_OAK_KITCHEN_DRAWER = BLOCKS.register("stripped_dark_oak_kitchen_drawer",
+            () -> new KitchenDrawerBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.DARK_OAK_PLANKS)));
+    public static final DeferredBlock<Block> STRIPPED_MANGROVE_KITCHEN_DRAWER = BLOCKS.register("stripped_mangrove_kitchen_drawer",
+            () -> new KitchenDrawerBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.MANGROVE_PLANKS)));
+    public static final DeferredBlock<Block> STRIPPED_CHERRY_KITCHEN_DRAWER = BLOCKS.register("stripped_cherry_kitchen_drawer",
+            () -> new KitchenDrawerBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.CHERRY_PLANKS)));
+    public static final DeferredBlock<Block> STRIPPED_CRIMSON_KITCHEN_DRAWER = BLOCKS.register("stripped_crimson_kitchen_drawer",
+            () -> new KitchenDrawerBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.CRIMSON_PLANKS)));
+    public static final DeferredBlock<Block> STRIPPED_WARPED_KITCHEN_DRAWER = BLOCKS.register("stripped_warped_kitchen_drawer",
+            () -> new KitchenDrawerBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.WARPED_PLANKS)));
+    public static final DeferredBlock<Block> WHITE_KITCHEN_DRAWER = BLOCKS.register("white_kitchen_drawer",
+            () -> new KitchenDrawerBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.WHITE_CONCRETE)));
+    public static final DeferredBlock<Block> LIGHT_GRAY_KITCHEN_DRAWER = BLOCKS.register("light_gray_kitchen_drawer",
+            () -> new KitchenDrawerBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.LIGHT_GRAY_CONCRETE)));
+    public static final DeferredBlock<Block> GRAY_KITCHEN_DRAWER = BLOCKS.register("gray_kitchen_drawer",
+            () -> new KitchenDrawerBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.GRAY_CONCRETE)));
+    public static final DeferredBlock<Block> BLACK_KITCHEN_DRAWER = BLOCKS.register("black_kitchen_drawer",
+            () -> new KitchenDrawerBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.BLACK_CONCRETE)));
+    public static final DeferredBlock<Block> BROWN_KITCHEN_DRAWER = BLOCKS.register("brown_kitchen_drawer",
+            () -> new KitchenDrawerBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.BROWN_CONCRETE)));
+    public static final DeferredBlock<Block> RED_KITCHEN_DRAWER = BLOCKS.register("red_kitchen_drawer",
+            () -> new KitchenDrawerBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.RED_CONCRETE)));
+    public static final DeferredBlock<Block> ORANGE_KITCHEN_DRAWER = BLOCKS.register("orange_kitchen_drawer",
+            () -> new KitchenDrawerBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.ORANGE_CONCRETE)));
+    public static final DeferredBlock<Block> BEIGE_KITCHEN_DRAWER = BLOCKS.register("beige_kitchen_drawer",
+            () -> new KitchenDrawerBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.YELLOW_CONCRETE)));
+    public static final DeferredBlock<Block> YELLOW_KITCHEN_DRAWER = BLOCKS.register("yellow_kitchen_drawer",
+            () -> new KitchenDrawerBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.YELLOW_CONCRETE)));
+    public static final DeferredBlock<Block> LIME_KITCHEN_DRAWER = BLOCKS.register("lime_kitchen_drawer",
+            () -> new KitchenDrawerBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.LIME_CONCRETE)));
+    public static final DeferredBlock<Block> GREEN_KITCHEN_DRAWER = BLOCKS.register("green_kitchen_drawer",
+            () -> new KitchenDrawerBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.GREEN_CONCRETE)));
+    public static final DeferredBlock<Block> CYAN_KITCHEN_DRAWER = BLOCKS.register("cyan_kitchen_drawer",
+            () -> new KitchenDrawerBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.CYAN_CONCRETE)));
+    public static final DeferredBlock<Block> LIGHT_BLUE_KITCHEN_DRAWER = BLOCKS.register("light_blue_kitchen_drawer",
+            () -> new KitchenDrawerBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.LIGHT_BLUE_CONCRETE)));
+    public static final DeferredBlock<Block> BLUE_KITCHEN_DRAWER = BLOCKS.register("blue_kitchen_drawer",
+            () -> new KitchenDrawerBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.BLUE_CONCRETE)));
+    public static final DeferredBlock<Block> PURPLE_KITCHEN_DRAWER = BLOCKS.register("purple_kitchen_drawer",
+            () -> new KitchenDrawerBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.PURPLE_CONCRETE)));
+    public static final DeferredBlock<Block> MAGENTA_KITCHEN_DRAWER = BLOCKS.register("magenta_kitchen_drawer",
+            () -> new KitchenDrawerBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.MAGENTA_CONCRETE)));
+    public static final DeferredBlock<Block> PINK_KITCHEN_DRAWER = BLOCKS.register("pink_kitchen_drawer",
+            () -> new KitchenDrawerBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.PINK_CONCRETE)));
+
+    // Kitchen Sinks
+    public static final DeferredBlock<Block> OAK_KITCHEN_SINK_LIGHT = BLOCKS.register("oak_kitchen_sink_light",
+            () -> new KitchenSinkBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS), true));
+    public static final DeferredBlock<Block> SPRUCE_KITCHEN_SINK_LIGHT = BLOCKS.register("spruce_kitchen_sink_light",
+            () -> new KitchenSinkBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.SPRUCE_PLANKS), true));
+    public static final DeferredBlock<Block> BIRCH_KITCHEN_SINK_LIGHT = BLOCKS.register("birch_kitchen_sink_light",
+            () -> new KitchenSinkBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.BIRCH_PLANKS), true));
+    public static final DeferredBlock<Block> JUNGLE_KITCHEN_SINK_LIGHT = BLOCKS.register("jungle_kitchen_sink_light",
+            () -> new KitchenSinkBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.JUNGLE_PLANKS), true));
+    public static final DeferredBlock<Block> ACACIA_KITCHEN_SINK_LIGHT = BLOCKS.register("acacia_kitchen_sink_light",
+            () -> new KitchenSinkBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.ACACIA_PLANKS), true));
+    public static final DeferredBlock<Block> DARK_OAK_KITCHEN_SINK_LIGHT = BLOCKS.register("dark_oak_kitchen_sink_light",
+            () -> new KitchenSinkBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.DARK_OAK_PLANKS), true));
+    public static final DeferredBlock<Block> MANGROVE_KITCHEN_SINK_LIGHT = BLOCKS.register("mangrove_kitchen_sink_light",
+            () -> new KitchenSinkBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.MANGROVE_PLANKS), true));
+    public static final DeferredBlock<Block> CHERRY_KITCHEN_SINK_LIGHT = BLOCKS.register("cherry_kitchen_sink_light",
+            () -> new KitchenSinkBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.CHERRY_PLANKS), true));
+    public static final DeferredBlock<Block> CRIMSON_KITCHEN_SINK_LIGHT = BLOCKS.register("crimson_kitchen_sink_light",
+            () -> new KitchenSinkBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.CRIMSON_PLANKS), true));
+    public static final DeferredBlock<Block> WARPED_KITCHEN_SINK_LIGHT = BLOCKS.register("warped_kitchen_sink_light",
+            () -> new KitchenSinkBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.WARPED_PLANKS), true));
+    public static final DeferredBlock<Block> STRIPPED_OAK_KITCHEN_SINK_LIGHT = BLOCKS.register("stripped_oak_kitchen_sink_light",
+            () -> new KitchenSinkBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS), true));
+    public static final DeferredBlock<Block> STRIPPED_SPRUCE_KITCHEN_SINK_LIGHT = BLOCKS.register("stripped_spruce_kitchen_sink_light",
+            () -> new KitchenSinkBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.SPRUCE_PLANKS), true));
+    public static final DeferredBlock<Block> STRIPPED_BIRCH_KITCHEN_SINK_LIGHT = BLOCKS.register("stripped_birch_kitchen_sink_light",
+            () -> new KitchenSinkBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.BIRCH_PLANKS), true));
+    public static final DeferredBlock<Block> STRIPPED_JUNGLE_KITCHEN_SINK_LIGHT = BLOCKS.register("stripped_jungle_kitchen_sink_light",
+            () -> new KitchenSinkBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.JUNGLE_PLANKS), true));
+    public static final DeferredBlock<Block> STRIPPED_ACACIA_KITCHEN_SINK_LIGHT = BLOCKS.register("stripped_acacia_kitchen_sink_light",
+            () -> new KitchenSinkBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.ACACIA_PLANKS), true));
+    public static final DeferredBlock<Block> STRIPPED_DARK_OAK_KITCHEN_SINK_LIGHT = BLOCKS.register("stripped_dark_oak_kitchen_sink_light",
+            () -> new KitchenSinkBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.DARK_OAK_PLANKS), true));
+    public static final DeferredBlock<Block> STRIPPED_MANGROVE_KITCHEN_SINK_LIGHT = BLOCKS.register("stripped_mangrove_kitchen_sink_light",
+            () -> new KitchenSinkBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.MANGROVE_PLANKS), true));
+    public static final DeferredBlock<Block> STRIPPED_CHERRY_KITCHEN_SINK_LIGHT = BLOCKS.register("stripped_cherry_kitchen_sink_light",
+            () -> new KitchenSinkBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.CHERRY_PLANKS), true));
+    public static final DeferredBlock<Block> STRIPPED_CRIMSON_KITCHEN_SINK_LIGHT = BLOCKS.register("stripped_crimson_kitchen_sink_light",
+            () -> new KitchenSinkBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.CRIMSON_PLANKS), true));
+    public static final DeferredBlock<Block> STRIPPED_WARPED_KITCHEN_SINK_LIGHT = BLOCKS.register("stripped_warped_kitchen_sink_light",
+            () -> new KitchenSinkBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.WARPED_PLANKS), true));
+    public static final DeferredBlock<Block> OAK_KITCHEN_SINK_DARK = BLOCKS.register("oak_kitchen_sink_dark",
+            () -> new KitchenSinkBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS), true));
+    public static final DeferredBlock<Block> SPRUCE_KITCHEN_SINK_DARK = BLOCKS.register("spruce_kitchen_sink_dark",
+            () -> new KitchenSinkBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.SPRUCE_PLANKS), true));
+    public static final DeferredBlock<Block> BIRCH_KITCHEN_SINK_DARK = BLOCKS.register("birch_kitchen_sink_dark",
+            () -> new KitchenSinkBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.BIRCH_PLANKS), true));
+    public static final DeferredBlock<Block> JUNGLE_KITCHEN_SINK_DARK = BLOCKS.register("jungle_kitchen_sink_dark",
+            () -> new KitchenSinkBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.JUNGLE_PLANKS), true));
+    public static final DeferredBlock<Block> ACACIA_KITCHEN_SINK_DARK = BLOCKS.register("acacia_kitchen_sink_dark",
+            () -> new KitchenSinkBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.ACACIA_PLANKS), true));
+    public static final DeferredBlock<Block> DARK_OAK_KITCHEN_SINK_DARK = BLOCKS.register("dark_oak_kitchen_sink_dark",
+            () -> new KitchenSinkBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.DARK_OAK_PLANKS), true));
+    public static final DeferredBlock<Block> MANGROVE_KITCHEN_SINK_DARK = BLOCKS.register("mangrove_kitchen_sink_dark",
+            () -> new KitchenSinkBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.MANGROVE_PLANKS), true));
+    public static final DeferredBlock<Block> CHERRY_KITCHEN_SINK_DARK = BLOCKS.register("cherry_kitchen_sink_dark",
+            () -> new KitchenSinkBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.CHERRY_PLANKS), true));
+    public static final DeferredBlock<Block> CRIMSON_KITCHEN_SINK_DARK = BLOCKS.register("crimson_kitchen_sink_dark",
+            () -> new KitchenSinkBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.CRIMSON_PLANKS), true));
+    public static final DeferredBlock<Block> WARPED_KITCHEN_SINK_DARK = BLOCKS.register("warped_kitchen_sink_dark",
+            () -> new KitchenSinkBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.WARPED_PLANKS), true));
+    public static final DeferredBlock<Block> STRIPPED_OAK_KITCHEN_SINK_DARK = BLOCKS.register("stripped_oak_kitchen_sink_dark",
+            () -> new KitchenSinkBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS), true));
+    public static final DeferredBlock<Block> STRIPPED_SPRUCE_KITCHEN_SINK_DARK = BLOCKS.register("stripped_spruce_kitchen_sink_dark",
+            () -> new KitchenSinkBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.SPRUCE_PLANKS), true));
+    public static final DeferredBlock<Block> STRIPPED_BIRCH_KITCHEN_SINK_DARK = BLOCKS.register("stripped_birch_kitchen_sink_dark",
+            () -> new KitchenSinkBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.BIRCH_PLANKS), true));
+    public static final DeferredBlock<Block> STRIPPED_JUNGLE_KITCHEN_SINK_DARK = BLOCKS.register("stripped_jungle_kitchen_sink_dark",
+            () -> new KitchenSinkBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.JUNGLE_PLANKS), true));
+    public static final DeferredBlock<Block> STRIPPED_ACACIA_KITCHEN_SINK_DARK = BLOCKS.register("stripped_acacia_kitchen_sink_dark",
+            () -> new KitchenSinkBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.ACACIA_PLANKS), true));
+    public static final DeferredBlock<Block> STRIPPED_DARK_OAK_KITCHEN_SINK_DARK = BLOCKS.register("stripped_dark_oak_kitchen_sink_dark",
+            () -> new KitchenSinkBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.DARK_OAK_PLANKS), true));
+    public static final DeferredBlock<Block> STRIPPED_MANGROVE_KITCHEN_SINK_DARK = BLOCKS.register("stripped_mangrove_kitchen_sink_dark",
+            () -> new KitchenSinkBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.MANGROVE_PLANKS), true));
+    public static final DeferredBlock<Block> STRIPPED_CHERRY_KITCHEN_SINK_DARK = BLOCKS.register("stripped_cherry_kitchen_sink_dark",
+            () -> new KitchenSinkBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.CHERRY_PLANKS), true));
+    public static final DeferredBlock<Block> STRIPPED_CRIMSON_KITCHEN_SINK_DARK = BLOCKS.register("stripped_crimson_kitchen_sink_dark",
+            () -> new KitchenSinkBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.CRIMSON_PLANKS), true));
+    public static final DeferredBlock<Block> STRIPPED_WARPED_KITCHEN_SINK_DARK = BLOCKS.register("stripped_warped_kitchen_sink_dark",
+            () -> new KitchenSinkBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.WARPED_PLANKS), true));
+    public static final DeferredBlock<Block> WHITE_KITCHEN_SINK = BLOCKS.register("white_kitchen_sink",
+            () -> new KitchenSinkBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.WHITE_CONCRETE), false));
+    public static final DeferredBlock<Block> LIGHT_GRAY_KITCHEN_SINK = BLOCKS.register("light_gray_kitchen_sink",
+            () -> new KitchenSinkBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.LIGHT_GRAY_CONCRETE), false));
+    public static final DeferredBlock<Block> GRAY_KITCHEN_SINK = BLOCKS.register("gray_kitchen_sink",
+            () -> new KitchenSinkBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.GRAY_CONCRETE), false));
+    public static final DeferredBlock<Block> BLACK_KITCHEN_SINK = BLOCKS.register("black_kitchen_sink",
+            () -> new KitchenSinkBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.BLACK_CONCRETE), false));
+    public static final DeferredBlock<Block> BROWN_KITCHEN_SINK = BLOCKS.register("brown_kitchen_sink",
+            () -> new KitchenSinkBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.BROWN_CONCRETE), false));
+    public static final DeferredBlock<Block> RED_KITCHEN_SINK = BLOCKS.register("red_kitchen_sink",
+            () -> new KitchenSinkBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.RED_CONCRETE), false));
+    public static final DeferredBlock<Block> ORANGE_KITCHEN_SINK = BLOCKS.register("orange_kitchen_sink",
+            () -> new KitchenSinkBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.ORANGE_CONCRETE), false));
+    public static final DeferredBlock<Block> BEIGE_KITCHEN_SINK = BLOCKS.register("beige_kitchen_sink",
+            () -> new KitchenSinkBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.YELLOW_CONCRETE), false));
+    public static final DeferredBlock<Block> YELLOW_KITCHEN_SINK = BLOCKS.register("yellow_kitchen_sink",
+            () -> new KitchenSinkBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.YELLOW_CONCRETE), false));
+    public static final DeferredBlock<Block> LIME_KITCHEN_SINK = BLOCKS.register("lime_kitchen_sink",
+            () -> new KitchenSinkBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.LIME_CONCRETE), false));
+    public static final DeferredBlock<Block> GREEN_KITCHEN_SINK = BLOCKS.register("green_kitchen_sink",
+            () -> new KitchenSinkBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.GREEN_CONCRETE), false));
+    public static final DeferredBlock<Block> CYAN_KITCHEN_SINK = BLOCKS.register("cyan_kitchen_sink",
+            () -> new KitchenSinkBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.CYAN_CONCRETE), false));
+    public static final DeferredBlock<Block> LIGHT_BLUE_KITCHEN_SINK = BLOCKS.register("light_blue_kitchen_sink",
+            () -> new KitchenSinkBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.LIGHT_BLUE_CONCRETE), false));
+    public static final DeferredBlock<Block> BLUE_KITCHEN_SINK = BLOCKS.register("blue_kitchen_sink",
+            () -> new KitchenSinkBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.BLUE_CONCRETE), false));
+    public static final DeferredBlock<Block> PURPLE_KITCHEN_SINK = BLOCKS.register("purple_kitchen_sink",
+            () -> new KitchenSinkBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.PURPLE_CONCRETE), false));
+    public static final DeferredBlock<Block> MAGENTA_KITCHEN_SINK = BLOCKS.register("magenta_kitchen_sink",
+            () -> new KitchenSinkBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.MAGENTA_CONCRETE), false));
+    public static final DeferredBlock<Block> PINK_KITCHEN_SINK = BLOCKS.register("pink_kitchen_sink",
+            () -> new KitchenSinkBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.PINK_CONCRETE), false));
+
 
 }

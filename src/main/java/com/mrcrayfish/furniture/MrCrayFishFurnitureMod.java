@@ -8,6 +8,7 @@ import com.mrcrayfish.furniture.client.gui.screens.inventory.PostBoxScreen;
 import com.mrcrayfish.furniture.client.model.HedgeModel;
 import com.mrcrayfish.furniture.client.renderer.blockentity.DoorMatBlockEntityRenderer;
 import com.mrcrayfish.furniture.client.renderer.blockentity.GrillBlockEntityRenderer;
+import com.mrcrayfish.furniture.client.renderer.blockentity.KitchenSinkBlockEntityRenderer;
 import com.mrcrayfish.furniture.client.renderer.entity.SeatRenderer;
 import com.mrcrayfish.furniture.network.protocol.common.*;
 import com.mrcrayfish.furniture.sounds.ModSoundEvents;
@@ -40,6 +41,8 @@ import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.config.ModConfig;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
+import net.neoforged.neoforge.capabilities.Capabilities;
+import net.neoforged.neoforge.capabilities.RegisterCapabilitiesEvent;
 import net.neoforged.neoforge.client.event.ModelEvent;
 import net.neoforged.neoforge.client.event.RegisterColorHandlersEvent;
 import net.neoforged.neoforge.client.event.RegisterMenuScreensEvent;
@@ -396,6 +399,13 @@ public class MrCrayFishFurnitureMod
         }
 
         @SubscribeEvent
+        public static void registerCapabilities(RegisterCapabilitiesEvent event)
+        {
+            event.registerBlockEntity(Capabilities.FluidHandler.BLOCK,
+                    ModBlockEntityTypes.KITCHEN_SINK.get(),(be, side) -> be.getTank());
+        }
+
+        @SubscribeEvent
         public static void registerPackets(final RegisterPayloadHandlersEvent event)
         {
             final PayloadRegistrar registrar = event.registrar("cfm").versioned("1");
@@ -443,6 +453,7 @@ public class MrCrayFishFurnitureMod
     {
         BlockEntityRenderers.register(ModBlockEntityTypes.DOOR_MAT.get(), DoorMatBlockEntityRenderer::new);
         BlockEntityRenderers.register(ModBlockEntityTypes.GRILL.get(), GrillBlockEntityRenderer::new);
+        BlockEntityRenderers.register(ModBlockEntityTypes.KITCHEN_SINK.get(), KitchenSinkBlockEntityRenderer::new);
     }
 
     private static void registerEntityRenderers()

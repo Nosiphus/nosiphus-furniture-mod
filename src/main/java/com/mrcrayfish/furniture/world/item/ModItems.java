@@ -5,12 +5,8 @@ import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.SwordItem;
 import net.minecraft.world.item.Tiers;
-import net.neoforged.fml.ModList;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
-
-import javax.annotation.Nullable;
-import java.util.function.Supplier;
 
 import static com.mrcrayfish.furniture.world.item.ModCreativeModeTabs.addToTab;
 
@@ -817,9 +813,277 @@ public class ModItems
     public static final DeferredItem<BlockItem> DOOR_MAT = addToTab(ITEMS.register("door_mat",
             () -> new DoorMatItem(ModBlocks.DOOR_MAT.get(), new Item.Properties())));
 
-    // Diving Boards
+    // Diving Board
     public static final DeferredItem<BlockItem> DIVING_BOARD = addToTab(ITEMS.register("diving_board",
             () -> new BlockItem(ModBlocks.DIVING_BOARD.get(), new Item.Properties())));
+
+    // Kitchen Counters
+    public static final DeferredItem<BlockItem> OAK_KITCHEN_COUNTER = addToTab(ITEMS.register("oak_kitchen_counter",
+            () -> new BlockItem(ModBlocks.OAK_KITCHEN_COUNTER.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> SPRUCE_KITCHEN_COUNTER = addToTab(ITEMS.register("spruce_kitchen_counter",
+            () -> new BlockItem(ModBlocks.SPRUCE_KITCHEN_COUNTER.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> BIRCH_KITCHEN_COUNTER = addToTab(ITEMS.register("birch_kitchen_counter",
+            () -> new BlockItem(ModBlocks.BIRCH_KITCHEN_COUNTER.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> JUNGLE_KITCHEN_COUNTER = addToTab(ITEMS.register("jungle_kitchen_counter",
+            () -> new BlockItem(ModBlocks.JUNGLE_KITCHEN_COUNTER.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> ACACIA_KITCHEN_COUNTER = addToTab(ITEMS.register("acacia_kitchen_counter",
+            () -> new BlockItem(ModBlocks.ACACIA_KITCHEN_COUNTER.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> DARK_OAK_KITCHEN_COUNTER = addToTab(ITEMS.register("dark_oak_kitchen_counter",
+            () -> new BlockItem(ModBlocks.DARK_OAK_KITCHEN_COUNTER.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> MANGROVE_KITCHEN_COUNTER = addToTab(ITEMS.register("mangrove_kitchen_counter",
+            () -> new BlockItem(ModBlocks.MANGROVE_KITCHEN_COUNTER.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> CHERRY_KITCHEN_COUNTER = addToTab(ITEMS.register("cherry_kitchen_counter",
+            () -> new BlockItem(ModBlocks.CHERRY_KITCHEN_COUNTER.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> CRIMSON_KITCHEN_COUNTER = addToTab(ITEMS.register("crimson_kitchen_counter",
+            () -> new BlockItem(ModBlocks.CRIMSON_KITCHEN_COUNTER.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> WARPED_KITCHEN_COUNTER = addToTab(ITEMS.register("warped_kitchen_counter",
+            () -> new BlockItem(ModBlocks.WARPED_KITCHEN_COUNTER.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> STRIPPED_OAK_KITCHEN_COUNTER = addToTab(ITEMS.register("stripped_oak_kitchen_counter",
+            () -> new BlockItem(ModBlocks.STRIPPED_OAK_KITCHEN_COUNTER.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> STRIPPED_SPRUCE_KITCHEN_COUNTER = addToTab(ITEMS.register("stripped_spruce_kitchen_counter",
+            () -> new BlockItem(ModBlocks.STRIPPED_SPRUCE_KITCHEN_COUNTER.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> STRIPPED_BIRCH_KITCHEN_COUNTER = addToTab(ITEMS.register("stripped_birch_kitchen_counter",
+            () -> new BlockItem(ModBlocks.STRIPPED_BIRCH_KITCHEN_COUNTER.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> STRIPPED_JUNGLE_KITCHEN_COUNTER = addToTab(ITEMS.register("stripped_jungle_kitchen_counter",
+            () -> new BlockItem(ModBlocks.STRIPPED_JUNGLE_KITCHEN_COUNTER.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> STRIPPED_ACACIA_KITCHEN_COUNTER = addToTab(ITEMS.register("stripped_acacia_kitchen_counter",
+            () -> new BlockItem(ModBlocks.STRIPPED_ACACIA_KITCHEN_COUNTER.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> STRIPPED_DARK_OAK_KITCHEN_COUNTER = addToTab(ITEMS.register("stripped_dark_oak_kitchen_counter",
+            () -> new BlockItem(ModBlocks.STRIPPED_DARK_OAK_KITCHEN_COUNTER.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> STRIPPED_MANGROVE_KITCHEN_COUNTER = addToTab(ITEMS.register("stripped_mangrove_kitchen_counter",
+            () -> new BlockItem(ModBlocks.STRIPPED_MANGROVE_KITCHEN_COUNTER.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> STRIPPED_CHERRY_KITCHEN_COUNTER = addToTab(ITEMS.register("stripped_cherry_kitchen_counter",
+            () -> new BlockItem(ModBlocks.STRIPPED_CHERRY_KITCHEN_COUNTER.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> STRIPPED_CRIMSON_KITCHEN_COUNTER = addToTab(ITEMS.register("stripped_crimson_kitchen_counter",
+            () -> new BlockItem(ModBlocks.STRIPPED_CRIMSON_KITCHEN_COUNTER.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> STRIPPED_WARPED_KITCHEN_COUNTER = addToTab(ITEMS.register("stripped_warped_kitchen_counter",
+            () -> new BlockItem(ModBlocks.STRIPPED_WARPED_KITCHEN_COUNTER.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> WHITE_KITCHEN_COUNTER = addToTab(ITEMS.register("white_kitchen_counter",
+            () -> new BlockItem(ModBlocks.WHITE_KITCHEN_COUNTER.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> LIGHT_GRAY_KITCHEN_COUNTER = addToTab(ITEMS.register("light_gray_kitchen_counter",
+            () -> new BlockItem(ModBlocks.LIGHT_GRAY_KITCHEN_COUNTER.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> GRAY_KITCHEN_COUNTER = addToTab(ITEMS.register("gray_kitchen_counter",
+            () -> new BlockItem(ModBlocks.GRAY_KITCHEN_COUNTER.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> BLACK_KITCHEN_COUNTER = addToTab(ITEMS.register("black_kitchen_counter",
+            () -> new BlockItem(ModBlocks.BLACK_KITCHEN_COUNTER.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> BROWN_KITCHEN_COUNTER = addToTab(ITEMS.register("brown_kitchen_counter",
+            () -> new BlockItem(ModBlocks.BROWN_KITCHEN_COUNTER.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> RED_KITCHEN_COUNTER = addToTab(ITEMS.register("red_kitchen_counter",
+            () -> new BlockItem(ModBlocks.RED_KITCHEN_COUNTER.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> ORANGE_KITCHEN_COUNTER = addToTab(ITEMS.register("orange_kitchen_counter",
+            () -> new BlockItem(ModBlocks.ORANGE_KITCHEN_COUNTER.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> BEIGE_KITCHEN_COUNTER = addToTab(ITEMS.register("beige_kitchen_counter",
+            () -> new BlockItem(ModBlocks.BEIGE_KITCHEN_COUNTER.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> YELLOW_KITCHEN_COUNTER = addToTab(ITEMS.register("yellow_kitchen_counter",
+            () -> new BlockItem(ModBlocks.YELLOW_KITCHEN_COUNTER.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> LIME_KITCHEN_COUNTER = addToTab(ITEMS.register("lime_kitchen_counter",
+            () -> new BlockItem(ModBlocks.LIME_KITCHEN_COUNTER.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> GREEN_KITCHEN_COUNTER = addToTab(ITEMS.register("green_kitchen_counter",
+            () -> new BlockItem(ModBlocks.GREEN_KITCHEN_COUNTER.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> CYAN_KITCHEN_COUNTER = addToTab(ITEMS.register("cyan_kitchen_counter",
+            () -> new BlockItem(ModBlocks.CYAN_KITCHEN_COUNTER.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> LIGHT_BLUE_KITCHEN_COUNTER = addToTab(ITEMS.register("light_blue_kitchen_counter",
+            () -> new BlockItem(ModBlocks.LIGHT_BLUE_KITCHEN_COUNTER.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> BLUE_KITCHEN_COUNTER = addToTab(ITEMS.register("blue_kitchen_counter",
+            () -> new BlockItem(ModBlocks.BLUE_KITCHEN_COUNTER.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> PURPLE_KITCHEN_COUNTER = addToTab(ITEMS.register("purple_kitchen_counter",
+            () -> new BlockItem(ModBlocks.PURPLE_KITCHEN_COUNTER.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> MAGENTA_KITCHEN_COUNTER = addToTab(ITEMS.register("magenta_kitchen_counter",
+            () -> new BlockItem(ModBlocks.MAGENTA_KITCHEN_COUNTER.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> PINK_KITCHEN_COUNTER = addToTab(ITEMS.register("pink_kitchen_counter",
+            () -> new BlockItem(ModBlocks.PINK_KITCHEN_COUNTER.get(), new Item.Properties())));
+
+    // Kitchen Drawers
+    public static final DeferredItem<BlockItem> OAK_KITCHEN_DRAWER = addToTab(ITEMS.register("oak_kitchen_drawer",
+            () -> new BlockItem(ModBlocks.OAK_KITCHEN_DRAWER.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> SPRUCE_KITCHEN_DRAWER = addToTab(ITEMS.register("spruce_kitchen_drawer",
+            () -> new BlockItem(ModBlocks.SPRUCE_KITCHEN_DRAWER.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> BIRCH_KITCHEN_DRAWER = addToTab(ITEMS.register("birch_kitchen_drawer",
+            () -> new BlockItem(ModBlocks.BIRCH_KITCHEN_DRAWER.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> JUNGLE_KITCHEN_DRAWER = addToTab(ITEMS.register("jungle_kitchen_drawer",
+            () -> new BlockItem(ModBlocks.JUNGLE_KITCHEN_DRAWER.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> ACACIA_KITCHEN_DRAWER = addToTab(ITEMS.register("acacia_kitchen_drawer",
+            () -> new BlockItem(ModBlocks.ACACIA_KITCHEN_DRAWER.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> DARK_OAK_KITCHEN_DRAWER = addToTab(ITEMS.register("dark_oak_kitchen_drawer",
+            () -> new BlockItem(ModBlocks.DARK_OAK_KITCHEN_DRAWER.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> MANGROVE_KITCHEN_DRAWER = addToTab(ITEMS.register("mangrove_kitchen_drawer",
+            () -> new BlockItem(ModBlocks.MANGROVE_KITCHEN_DRAWER.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> CHERRY_KITCHEN_DRAWER = addToTab(ITEMS.register("cherry_kitchen_drawer",
+            () -> new BlockItem(ModBlocks.CHERRY_KITCHEN_DRAWER.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> CRIMSON_KITCHEN_DRAWER = addToTab(ITEMS.register("crimson_kitchen_drawer",
+            () -> new BlockItem(ModBlocks.CRIMSON_KITCHEN_DRAWER.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> WARPED_KITCHEN_DRAWER = addToTab(ITEMS.register("warped_kitchen_drawer",
+            () -> new BlockItem(ModBlocks.WARPED_KITCHEN_DRAWER.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> STRIPPED_OAK_KITCHEN_DRAWER = addToTab(ITEMS.register("stripped_oak_kitchen_drawer",
+            () -> new BlockItem(ModBlocks.STRIPPED_OAK_KITCHEN_DRAWER.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> STRIPPED_SPRUCE_KITCHEN_DRAWER = addToTab(ITEMS.register("stripped_spruce_kitchen_drawer",
+            () -> new BlockItem(ModBlocks.STRIPPED_SPRUCE_KITCHEN_DRAWER.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> STRIPPED_BIRCH_KITCHEN_DRAWER = addToTab(ITEMS.register("stripped_birch_kitchen_drawer",
+            () -> new BlockItem(ModBlocks.STRIPPED_BIRCH_KITCHEN_DRAWER.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> STRIPPED_JUNGLE_KITCHEN_DRAWER = addToTab(ITEMS.register("stripped_jungle_kitchen_drawer",
+            () -> new BlockItem(ModBlocks.STRIPPED_JUNGLE_KITCHEN_DRAWER.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> STRIPPED_ACACIA_KITCHEN_DRAWER = addToTab(ITEMS.register("stripped_acacia_kitchen_drawer",
+            () -> new BlockItem(ModBlocks.STRIPPED_ACACIA_KITCHEN_DRAWER.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> STRIPPED_DARK_OAK_KITCHEN_DRAWER = addToTab(ITEMS.register("stripped_dark_oak_kitchen_drawer",
+            () -> new BlockItem(ModBlocks.STRIPPED_DARK_OAK_KITCHEN_DRAWER.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> STRIPPED_MANGROVE_KITCHEN_DRAWER = addToTab(ITEMS.register("stripped_mangrove_kitchen_drawer",
+            () -> new BlockItem(ModBlocks.STRIPPED_MANGROVE_KITCHEN_DRAWER.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> STRIPPED_CHERRY_KITCHEN_DRAWER = addToTab(ITEMS.register("stripped_cherry_kitchen_drawer",
+            () -> new BlockItem(ModBlocks.STRIPPED_CHERRY_KITCHEN_DRAWER.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> STRIPPED_CRIMSON_KITCHEN_DRAWER = addToTab(ITEMS.register("stripped_crimson_kitchen_drawer",
+            () -> new BlockItem(ModBlocks.STRIPPED_CRIMSON_KITCHEN_DRAWER.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> STRIPPED_WARPED_KITCHEN_DRAWER = addToTab(ITEMS.register("stripped_warped_kitchen_drawer",
+            () -> new BlockItem(ModBlocks.STRIPPED_WARPED_KITCHEN_DRAWER.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> WHITE_KITCHEN_DRAWER = addToTab(ITEMS.register("white_kitchen_drawer",
+            () -> new BlockItem(ModBlocks.WHITE_KITCHEN_DRAWER.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> LIGHT_GRAY_KITCHEN_DRAWER = addToTab(ITEMS.register("light_gray_kitchen_drawer",
+            () -> new BlockItem(ModBlocks.LIGHT_GRAY_KITCHEN_DRAWER.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> GRAY_KITCHEN_DRAWER = addToTab(ITEMS.register("gray_kitchen_drawer",
+            () -> new BlockItem(ModBlocks.GRAY_KITCHEN_DRAWER.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> BLACK_KITCHEN_DRAWER = addToTab(ITEMS.register("black_kitchen_drawer",
+            () -> new BlockItem(ModBlocks.BLACK_KITCHEN_DRAWER.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> BROWN_KITCHEN_DRAWER = addToTab(ITEMS.register("brown_kitchen_drawer",
+            () -> new BlockItem(ModBlocks.BROWN_KITCHEN_DRAWER.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> RED_KITCHEN_DRAWER = addToTab(ITEMS.register("red_kitchen_drawer",
+            () -> new BlockItem(ModBlocks.RED_KITCHEN_DRAWER.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> ORANGE_KITCHEN_DRAWER = addToTab(ITEMS.register("orange_kitchen_drawer",
+            () -> new BlockItem(ModBlocks.ORANGE_KITCHEN_DRAWER.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> BEIGE_KITCHEN_DRAWER = addToTab(ITEMS.register("beige_kitchen_drawer",
+            () -> new BlockItem(ModBlocks.BEIGE_KITCHEN_DRAWER.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> YELLOW_KITCHEN_DRAWER = addToTab(ITEMS.register("yellow_kitchen_drawer",
+            () -> new BlockItem(ModBlocks.YELLOW_KITCHEN_DRAWER.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> LIME_KITCHEN_DRAWER = addToTab(ITEMS.register("lime_kitchen_drawer",
+            () -> new BlockItem(ModBlocks.LIME_KITCHEN_DRAWER.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> GREEN_KITCHEN_DRAWER = addToTab(ITEMS.register("green_kitchen_drawer",
+            () -> new BlockItem(ModBlocks.GREEN_KITCHEN_DRAWER.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> CYAN_KITCHEN_DRAWER = addToTab(ITEMS.register("cyan_kitchen_drawer",
+            () -> new BlockItem(ModBlocks.CYAN_KITCHEN_DRAWER.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> LIGHT_BLUE_KITCHEN_DRAWER = addToTab(ITEMS.register("light_blue_kitchen_drawer",
+            () -> new BlockItem(ModBlocks.LIGHT_BLUE_KITCHEN_DRAWER.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> BLUE_KITCHEN_DRAWER = addToTab(ITEMS.register("blue_kitchen_drawer",
+            () -> new BlockItem(ModBlocks.BLUE_KITCHEN_DRAWER.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> PURPLE_KITCHEN_DRAWER = addToTab(ITEMS.register("purple_kitchen_drawer",
+            () -> new BlockItem(ModBlocks.PURPLE_KITCHEN_DRAWER.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> MAGENTA_KITCHEN_DRAWER = addToTab(ITEMS.register("magenta_kitchen_drawer",
+            () -> new BlockItem(ModBlocks.MAGENTA_KITCHEN_DRAWER.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> PINK_KITCHEN_DRAWER = addToTab(ITEMS.register("pink_kitchen_drawer",
+            () -> new BlockItem(ModBlocks.PINK_KITCHEN_DRAWER.get(), new Item.Properties())));
+
+    // Kitchen Sinks
+    public static final DeferredItem<BlockItem> OAK_KITCHEN_SINK_LIGHT = addToTab(ITEMS.register("oak_kitchen_sink_light",
+            () -> new BlockItem(ModBlocks.OAK_KITCHEN_SINK_LIGHT.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> SPRUCE_KITCHEN_SINK_LIGHT = addToTab(ITEMS.register("spruce_kitchen_sink_light",
+            () -> new BlockItem(ModBlocks.SPRUCE_KITCHEN_SINK_LIGHT.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> BIRCH_KITCHEN_SINK_LIGHT = addToTab(ITEMS.register("birch_kitchen_sink_light",
+            () -> new BlockItem(ModBlocks.BIRCH_KITCHEN_SINK_LIGHT.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> JUNGLE_KITCHEN_SINK_LIGHT = addToTab(ITEMS.register("jungle_kitchen_sink_light",
+            () -> new BlockItem(ModBlocks.JUNGLE_KITCHEN_SINK_LIGHT.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> ACACIA_KITCHEN_SINK_LIGHT = addToTab(ITEMS.register("acacia_kitchen_sink_light",
+            () -> new BlockItem(ModBlocks.ACACIA_KITCHEN_SINK_LIGHT.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> DARK_OAK_KITCHEN_SINK_LIGHT = addToTab(ITEMS.register("dark_oak_kitchen_sink_light",
+            () -> new BlockItem(ModBlocks.DARK_OAK_KITCHEN_SINK_LIGHT.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> MANGROVE_KITCHEN_SINK_LIGHT = addToTab(ITEMS.register("mangrove_kitchen_sink_light",
+            () -> new BlockItem(ModBlocks.MANGROVE_KITCHEN_SINK_LIGHT.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> CHERRY_KITCHEN_SINK_LIGHT = addToTab(ITEMS.register("cherry_kitchen_sink_light",
+            () -> new BlockItem(ModBlocks.CHERRY_KITCHEN_SINK_LIGHT.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> CRIMSON_KITCHEN_SINK_LIGHT = addToTab(ITEMS.register("crimson_kitchen_sink_light",
+            () -> new BlockItem(ModBlocks.CRIMSON_KITCHEN_SINK_LIGHT.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> WARPED_KITCHEN_SINK_LIGHT = addToTab(ITEMS.register("warped_kitchen_sink_light",
+            () -> new BlockItem(ModBlocks.WARPED_KITCHEN_SINK_LIGHT.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> STRIPPED_OAK_KITCHEN_SINK_LIGHT = addToTab(ITEMS.register("stripped_oak_kitchen_sink_light",
+            () -> new BlockItem(ModBlocks.STRIPPED_OAK_KITCHEN_SINK_LIGHT.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> STRIPPED_SPRUCE_KITCHEN_SINK_LIGHT = addToTab(ITEMS.register("stripped_spruce_kitchen_sink_light",
+            () -> new BlockItem(ModBlocks.STRIPPED_SPRUCE_KITCHEN_SINK_LIGHT.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> STRIPPED_BIRCH_KITCHEN_SINK_LIGHT = addToTab(ITEMS.register("stripped_birch_kitchen_sink_light",
+            () -> new BlockItem(ModBlocks.STRIPPED_BIRCH_KITCHEN_SINK_LIGHT.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> STRIPPED_JUNGLE_KITCHEN_SINK_LIGHT = addToTab(ITEMS.register("stripped_jungle_kitchen_sink_light",
+            () -> new BlockItem(ModBlocks.STRIPPED_JUNGLE_KITCHEN_SINK_LIGHT.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> STRIPPED_ACACIA_KITCHEN_SINK_LIGHT = addToTab(ITEMS.register("stripped_acacia_kitchen_sink_light",
+            () -> new BlockItem(ModBlocks.STRIPPED_ACACIA_KITCHEN_SINK_LIGHT.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> STRIPPED_DARK_OAK_KITCHEN_SINK_LIGHT = addToTab(ITEMS.register("stripped_dark_oak_kitchen_sink_light",
+            () -> new BlockItem(ModBlocks.STRIPPED_DARK_OAK_KITCHEN_SINK_LIGHT.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> STRIPPED_MANGROVE_KITCHEN_SINK_LIGHT = addToTab(ITEMS.register("stripped_mangrove_kitchen_sink_light",
+            () -> new BlockItem(ModBlocks.STRIPPED_MANGROVE_KITCHEN_SINK_LIGHT.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> STRIPPED_CHERRY_KITCHEN_SINK_LIGHT = addToTab(ITEMS.register("stripped_cherry_kitchen_sink_light",
+            () -> new BlockItem(ModBlocks.STRIPPED_CHERRY_KITCHEN_SINK_LIGHT.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> STRIPPED_CRIMSON_KITCHEN_SINK_LIGHT = addToTab(ITEMS.register("stripped_crimson_kitchen_sink_light",
+            () -> new BlockItem(ModBlocks.STRIPPED_CRIMSON_KITCHEN_SINK_LIGHT.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> STRIPPED_WARPED_KITCHEN_SINK_LIGHT = addToTab(ITEMS.register("stripped_warped_kitchen_sink_light",
+            () -> new BlockItem(ModBlocks.STRIPPED_WARPED_KITCHEN_SINK_LIGHT.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> OAK_KITCHEN_SINK_DARK = addToTab(ITEMS.register("oak_kitchen_sink_dark",
+            () -> new BlockItem(ModBlocks.OAK_KITCHEN_SINK_DARK.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> SPRUCE_KITCHEN_SINK_DARK = addToTab(ITEMS.register("spruce_kitchen_sink_dark",
+            () -> new BlockItem(ModBlocks.SPRUCE_KITCHEN_SINK_DARK.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> BIRCH_KITCHEN_SINK_DARK = addToTab(ITEMS.register("birch_kitchen_sink_dark",
+            () -> new BlockItem(ModBlocks.BIRCH_KITCHEN_SINK_DARK.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> JUNGLE_KITCHEN_SINK_DARK = addToTab(ITEMS.register("jungle_kitchen_sink_dark",
+            () -> new BlockItem(ModBlocks.JUNGLE_KITCHEN_SINK_DARK.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> ACACIA_KITCHEN_SINK_DARK = addToTab(ITEMS.register("acacia_kitchen_sink_dark",
+            () -> new BlockItem(ModBlocks.ACACIA_KITCHEN_SINK_DARK.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> DARK_OAK_KITCHEN_SINK_DARK = addToTab(ITEMS.register("dark_oak_kitchen_sink_dark",
+            () -> new BlockItem(ModBlocks.DARK_OAK_KITCHEN_SINK_DARK.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> MANGROVE_KITCHEN_SINK_DARK = addToTab(ITEMS.register("mangrove_kitchen_sink_dark",
+            () -> new BlockItem(ModBlocks.MANGROVE_KITCHEN_SINK_DARK.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> CHERRY_KITCHEN_SINK_DARK = addToTab(ITEMS.register("cherry_kitchen_sink_dark",
+            () -> new BlockItem(ModBlocks.CHERRY_KITCHEN_SINK_DARK.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> CRIMSON_KITCHEN_SINK_DARK = addToTab(ITEMS.register("crimson_kitchen_sink_dark",
+            () -> new BlockItem(ModBlocks.CRIMSON_KITCHEN_SINK_DARK.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> WARPED_KITCHEN_SINK_DARK = addToTab(ITEMS.register("warped_kitchen_sink_dark",
+            () -> new BlockItem(ModBlocks.WARPED_KITCHEN_SINK_DARK.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> STRIPPED_OAK_KITCHEN_SINK_DARK = addToTab(ITEMS.register("stripped_oak_kitchen_sink_dark",
+            () -> new BlockItem(ModBlocks.STRIPPED_OAK_KITCHEN_SINK_DARK.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> STRIPPED_SPRUCE_KITCHS_SINK_DARK = addToTab(ITEMS.register("stripped_spruce_kitchen_sink_dark",
+            () -> new BlockItem(ModBlocks.STRIPPED_SPRUCE_KITCHEN_SINK_DARK.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> STRIPPED_BIRCH_KITCHEN_SINK_DARK = addToTab(ITEMS.register("stripped_birch_kitchen_sink_dark",
+            () -> new BlockItem(ModBlocks.STRIPPED_BIRCH_KITCHEN_SINK_DARK.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> STRIPPED_JUNGLE_KITCHEN_SINK_DARK = addToTab(ITEMS.register("stripped_jungle_kitchen_sink_dark",
+            () -> new BlockItem(ModBlocks.STRIPPED_JUNGLE_KITCHEN_SINK_DARK.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> STRIPPED_ACACIA_KITCHEN_SINK_DARK = addToTab(ITEMS.register("stripped_acacia_kitchen_sink_dark",
+            () -> new BlockItem(ModBlocks.STRIPPED_ACACIA_KITCHEN_SINK_DARK.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> STRIPPED_DARK_OAK_KITCHEN_SINK_DARK = addToTab(ITEMS.register("stripped_dark_oak_kitchen_sink_dark",
+            () -> new BlockItem(ModBlocks.STRIPPED_DARK_OAK_KITCHEN_SINK_DARK.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> STRIPPED_MANGROVE_KITCHEN_SINK_DARK = addToTab(ITEMS.register("stripped_mangrove_kitchen_sink_dark",
+            () -> new BlockItem(ModBlocks.STRIPPED_MANGROVE_KITCHEN_SINK_DARK.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> STRIPPED_CHERRY_KITCHEN_SINK_DARK = addToTab(ITEMS.register("stripped_cherry_kitchen_sink_dark",
+            () -> new BlockItem(ModBlocks.STRIPPED_CHERRY_KITCHEN_SINK_DARK.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> STRIPPED_CRIMSON_KITCHEN_SINK_DARK = addToTab(ITEMS.register("stripped_crimson_kitchen_sink_dark",
+            () -> new BlockItem(ModBlocks.STRIPPED_CRIMSON_KITCHEN_SINK_DARK.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> STRIPPED_WARPED_KITCHEN_SINK_DARK = addToTab(ITEMS.register("stripped_warped_kitchen_sink_dark",
+            () -> new BlockItem(ModBlocks.STRIPPED_WARPED_KITCHEN_SINK_DARK.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> WHITE_KITCHEN_SINK = addToTab(ITEMS.register("white_kitchen_sink",
+            () -> new BlockItem(ModBlocks.WHITE_KITCHEN_SINK.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> LIGHT_GRAY_KITCHEN_SINK = addToTab(ITEMS.register("light_gray_kitchen_sink",
+            () -> new BlockItem(ModBlocks.LIGHT_GRAY_KITCHEN_SINK.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> GRAY_KITCHEN_SINK = addToTab(ITEMS.register("gray_kitchen_sink",
+            () -> new BlockItem(ModBlocks.GRAY_KITCHEN_SINK.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> BLACK_KITCHEN_SINK = addToTab(ITEMS.register("black_kitchen_sink",
+            () -> new BlockItem(ModBlocks.BLACK_KITCHEN_SINK.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> BROWN_KITCHEN_SINK = addToTab(ITEMS.register("brown_kitchen_sink",
+            () -> new BlockItem(ModBlocks.BROWN_KITCHEN_SINK.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> RED_KITCHEN_SINK = addToTab(ITEMS.register("red_kitchen_sink",
+            () -> new BlockItem(ModBlocks.RED_KITCHEN_SINK.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> ORANGE_KITCHEN_SINK = addToTab(ITEMS.register("orange_kitchen_sink",
+            () -> new BlockItem(ModBlocks.ORANGE_KITCHEN_SINK.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> BEIGE_KITCHEN_SINK = addToTab(ITEMS.register("beige_kitchen_sink",
+            () -> new BlockItem(ModBlocks.BEIGE_KITCHEN_SINK.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> YELLOW_KITCHEN_SINK = addToTab(ITEMS.register("yellow_kitchen_sink",
+            () -> new BlockItem(ModBlocks.YELLOW_KITCHEN_SINK.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> LIME_KITCHEN_SINK = addToTab(ITEMS.register("lime_kitchen_sink",
+            () -> new BlockItem(ModBlocks.LIME_KITCHEN_SINK.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> GREEN_KITCHEN_SINK = addToTab(ITEMS.register("green_kitchen_sink",
+            () -> new BlockItem(ModBlocks.GREEN_KITCHEN_SINK.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> CYAN_KITCHEN_SINK = addToTab(ITEMS.register("cyan_kitchen_sink",
+            () -> new BlockItem(ModBlocks.CYAN_KITCHEN_SINK.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> LIGHT_BLUE_KITCHEN_SINK = addToTab(ITEMS.register("light_blue_kitchen_sink",
+            () -> new BlockItem(ModBlocks.LIGHT_BLUE_KITCHEN_SINK.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> BLUE_KITCHEN_SINK = addToTab(ITEMS.register("blue_kitchen_sink",
+            () -> new BlockItem(ModBlocks.BLUE_KITCHEN_SINK.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> PURPLE_KITCHEN_SINK = addToTab(ITEMS.register("purple_kitchen_sink",
+            () -> new BlockItem(ModBlocks.PURPLE_KITCHEN_SINK.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> MAGENTA_KITCHEN_SINK = addToTab(ITEMS.register("magenta_kitchen_sink",
+            () -> new BlockItem(ModBlocks.MAGENTA_KITCHEN_SINK.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> PINK_KITCHEN_SINK = addToTab(ITEMS.register("pink_kitchen_sink",
+            () -> new BlockItem(ModBlocks.PINK_KITCHEN_SINK.get(), new Item.Properties())));
 
     // Items
     public static final DeferredItem<Item> SPATULA = addToTab(ITEMS.register("spatula",

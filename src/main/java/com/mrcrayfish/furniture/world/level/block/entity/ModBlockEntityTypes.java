@@ -102,6 +102,64 @@ public class ModBlockEntityTypes
                     ModBlocks.PINK_GRILL.get()
             ).build(null));
 
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<KitchenDrawerBlockEntity>> KITCHEN_DRAWER =
+            BLOCK_ENTITY_TYPES.register("kitchen_drawer", () -> BlockEntityType.Builder.of(
+                    KitchenDrawerBlockEntity::new,
+                    ModBlocks.OAK_KITCHEN_DRAWER.get(), ModBlocks.SPRUCE_KITCHEN_DRAWER.get(),
+                    ModBlocks.BIRCH_KITCHEN_DRAWER.get(), ModBlocks.JUNGLE_KITCHEN_DRAWER.get(),
+                    ModBlocks.ACACIA_KITCHEN_DRAWER.get(), ModBlocks.DARK_OAK_KITCHEN_DRAWER.get(),
+                    ModBlocks.MANGROVE_KITCHEN_DRAWER.get(), ModBlocks.CHERRY_KITCHEN_DRAWER.get(),
+                    ModBlocks.CRIMSON_KITCHEN_DRAWER.get(), ModBlocks.WARPED_KITCHEN_DRAWER.get(),
+                    ModBlocks.STRIPPED_OAK_KITCHEN_DRAWER.get(), ModBlocks.STRIPPED_SPRUCE_KITCHEN_DRAWER.get(),
+                    ModBlocks.STRIPPED_BIRCH_KITCHEN_DRAWER.get(), ModBlocks.STRIPPED_JUNGLE_KITCHEN_DRAWER.get(),
+                    ModBlocks.STRIPPED_ACACIA_KITCHEN_DRAWER.get(), ModBlocks.STRIPPED_DARK_OAK_KITCHEN_DRAWER.get(),
+                    ModBlocks.STRIPPED_MANGROVE_KITCHEN_DRAWER.get(), ModBlocks.STRIPPED_CHERRY_KITCHEN_DRAWER.get(),
+                    ModBlocks.STRIPPED_CRIMSON_KITCHEN_DRAWER.get(), ModBlocks.STRIPPED_WARPED_KITCHEN_DRAWER.get(),
+                    ModBlocks.WHITE_KITCHEN_DRAWER.get(), ModBlocks.LIGHT_GRAY_KITCHEN_DRAWER.get(),
+                    ModBlocks.GRAY_KITCHEN_DRAWER.get(), ModBlocks.BLACK_KITCHEN_DRAWER.get(),
+                    ModBlocks.BROWN_KITCHEN_DRAWER.get(), ModBlocks.RED_KITCHEN_DRAWER.get(),
+                    ModBlocks.ORANGE_KITCHEN_DRAWER.get(), ModBlocks.BEIGE_KITCHEN_DRAWER.get(),
+                    ModBlocks.YELLOW_KITCHEN_DRAWER.get(), ModBlocks.LIME_KITCHEN_DRAWER.get(),
+                    ModBlocks.GREEN_KITCHEN_DRAWER.get(), ModBlocks.CYAN_KITCHEN_DRAWER.get(),
+                    ModBlocks.LIGHT_BLUE_KITCHEN_DRAWER.get(), ModBlocks.BLUE_KITCHEN_DRAWER.get(),
+                    ModBlocks.PURPLE_KITCHEN_DRAWER.get(), ModBlocks.MAGENTA_KITCHEN_DRAWER.get(),
+                    ModBlocks.PINK_KITCHEN_DRAWER.get()
+            ).build(null));
+
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<KitchenSinkBlockEntity>> KITCHEN_SINK =
+            BLOCK_ENTITY_TYPES.register("kitchen_sink", () -> BlockEntityType.Builder.of(
+                    KitchenSinkBlockEntity::new,
+                    ModBlocks.OAK_KITCHEN_SINK_LIGHT.get(), ModBlocks.SPRUCE_KITCHEN_SINK_LIGHT.get(),
+                    ModBlocks.BIRCH_KITCHEN_SINK_LIGHT.get(), ModBlocks.JUNGLE_KITCHEN_SINK_LIGHT.get(),
+                    ModBlocks.ACACIA_KITCHEN_SINK_LIGHT.get(), ModBlocks.DARK_OAK_KITCHEN_SINK_LIGHT.get(),
+                    ModBlocks.MANGROVE_KITCHEN_SINK_LIGHT.get(), ModBlocks.CHERRY_KITCHEN_SINK_LIGHT.get(),
+                    ModBlocks.CRIMSON_KITCHEN_SINK_LIGHT.get(), ModBlocks.WARPED_KITCHEN_SINK_LIGHT.get(),
+                    ModBlocks.STRIPPED_OAK_KITCHEN_SINK_LIGHT.get(), ModBlocks.STRIPPED_SPRUCE_KITCHEN_SINK_LIGHT.get(),
+                    ModBlocks.STRIPPED_BIRCH_KITCHEN_SINK_LIGHT.get(), ModBlocks.STRIPPED_JUNGLE_KITCHEN_SINK_LIGHT.get(),
+                    ModBlocks.STRIPPED_ACACIA_KITCHEN_SINK_LIGHT.get(), ModBlocks.STRIPPED_DARK_OAK_KITCHEN_SINK_LIGHT.get(),
+                    ModBlocks.STRIPPED_MANGROVE_KITCHEN_SINK_LIGHT.get(), ModBlocks.STRIPPED_CHERRY_KITCHEN_SINK_LIGHT.get(),
+                    ModBlocks.STRIPPED_CRIMSON_KITCHEN_SINK_LIGHT.get(), ModBlocks.STRIPPED_WARPED_KITCHEN_SINK_LIGHT.get(),
+                    ModBlocks.OAK_KITCHEN_SINK_DARK.get(), ModBlocks.SPRUCE_KITCHEN_SINK_DARK.get(),
+                    ModBlocks.BIRCH_KITCHEN_SINK_DARK.get(), ModBlocks.JUNGLE_KITCHEN_SINK_DARK.get(),
+                    ModBlocks.ACACIA_KITCHEN_SINK_DARK.get(), ModBlocks.DARK_OAK_KITCHEN_SINK_DARK.get(),
+                    ModBlocks.MANGROVE_KITCHEN_SINK_DARK.get(), ModBlocks.CHERRY_KITCHEN_SINK_DARK.get(),
+                    ModBlocks.CRIMSON_KITCHEN_SINK_DARK.get(), ModBlocks.WARPED_KITCHEN_SINK_DARK.get(),
+                    ModBlocks.STRIPPED_OAK_KITCHEN_SINK_DARK.get(), ModBlocks.STRIPPED_SPRUCE_KITCHEN_SINK_DARK.get(),
+                    ModBlocks.STRIPPED_BIRCH_KITCHEN_SINK_DARK.get(), ModBlocks.STRIPPED_JUNGLE_KITCHEN_SINK_DARK.get(),
+                    ModBlocks.STRIPPED_ACACIA_KITCHEN_SINK_DARK.get(), ModBlocks.STRIPPED_DARK_OAK_KITCHEN_SINK_DARK.get(),
+                    ModBlocks.STRIPPED_MANGROVE_KITCHEN_SINK_DARK.get(), ModBlocks.STRIPPED_CHERRY_KITCHEN_SINK_DARK.get(),
+                    ModBlocks.STRIPPED_CRIMSON_KITCHEN_SINK_DARK.get(), ModBlocks.STRIPPED_WARPED_KITCHEN_SINK_DARK.get(),
+                    ModBlocks.WHITE_KITCHEN_SINK.get(), ModBlocks.LIGHT_GRAY_KITCHEN_SINK.get(),
+                    ModBlocks.GRAY_KITCHEN_SINK.get(), ModBlocks.BLACK_KITCHEN_SINK.get(),
+                    ModBlocks.BROWN_KITCHEN_SINK.get(), ModBlocks.RED_KITCHEN_SINK.get(),
+                    ModBlocks.ORANGE_KITCHEN_SINK.get(), ModBlocks.BEIGE_KITCHEN_SINK.get(),
+                    ModBlocks.YELLOW_KITCHEN_SINK.get(), ModBlocks.LIME_KITCHEN_SINK.get(),
+                    ModBlocks.GREEN_KITCHEN_SINK.get(), ModBlocks.CYAN_KITCHEN_SINK.get(),
+                    ModBlocks.LIGHT_BLUE_KITCHEN_SINK.get(), ModBlocks.BLUE_KITCHEN_SINK.get(),
+                    ModBlocks.PURPLE_KITCHEN_SINK.get(), ModBlocks.MAGENTA_KITCHEN_SINK.get(),
+                    ModBlocks.PINK_KITCHEN_SINK.get()
+            ).build(null));
+
     public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<MailBoxBlockEntity>> MAIL_BOX =
             BLOCK_ENTITY_TYPES.register("mail_box", () -> BlockEntityType.Builder.of(
                     MailBoxBlockEntity::new,
