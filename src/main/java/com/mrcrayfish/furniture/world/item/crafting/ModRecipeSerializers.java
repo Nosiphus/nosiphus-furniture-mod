@@ -13,6 +13,8 @@ public class ModRecipeSerializers
 {
     public static final DeferredRegister<RecipeSerializer<?>> RECIPE_SERIALIZERS = DeferredRegister.create(BuiltInRegistries.RECIPE_SERIALIZER, "cfm");
 
+    public static final DeferredHolder<RecipeSerializer<?>, SimpleCookingSerializer<FreezerSolidifyRecipe>> FREEZER_SOLIDIFY = RECIPE_SERIALIZERS.register("freezer_solidify",
+            () -> new SimpleCookingSerializer<>(FreezerSolidifyRecipe::new, 100));
     public static final DeferredHolder<RecipeSerializer<?>, SimpleCookingSerializer<GrillCookingRecipe>> GRILL_COOKING = RECIPE_SERIALIZERS.register("grill_cooking",
             () -> new SimpleCookingSerializer<>(GrillCookingRecipe::new, 100));
 }

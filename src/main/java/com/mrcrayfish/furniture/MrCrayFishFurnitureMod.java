@@ -3,6 +3,7 @@ package com.mrcrayfish.furniture;
 import com.mojang.logging.LogUtils;
 import com.mrcrayfish.furniture.client.gui.screens.DoorMatScreen;
 import com.mrcrayfish.furniture.client.gui.screens.inventory.CrateScreen;
+import com.mrcrayfish.furniture.client.gui.screens.inventory.FreezerScreen;
 import com.mrcrayfish.furniture.client.gui.screens.inventory.MailBoxScreen;
 import com.mrcrayfish.furniture.client.gui.screens.inventory.PostBoxScreen;
 import com.mrcrayfish.furniture.client.model.HedgeModel;
@@ -226,14 +227,12 @@ public class MrCrayFishFurnitureMod
                     ModBlocks.STRIPPED_WARPED_PARK_BENCH.get()
             );
 
-            /*
             event.register((state, reader, pos, i) -> i == 1 ? 0xCCCCCC : 0xFFFFFFFF,
                     ModBlocks.FRIDGE_LIGHT.get(),
                     ModBlocks.FREEZER_LIGHT.get(),
                     ModBlocks.FRIDGE_DARK.get(),
                     ModBlocks.FREEZER_DARK.get()
             );
-             */
 
             event.register((state, reader, pos, i) -> FoliageColor.getEvergreenColor(),
                     ModBlocks.SPRUCE_HEDGE.get());
@@ -358,14 +357,12 @@ public class MrCrayFishFurnitureMod
                     ModBlocks.STRIPPED_WARPED_PARK_BENCH.get()
             );
 
-            /*
             event.register((stack, i) -> i == 1 ? 0xCCCCCC : 0xFFFFFFFF,
                     ModBlocks.FRIDGE_LIGHT.get(),
                     ModBlocks.FREEZER_LIGHT.get(),
                     ModBlocks.FRIDGE_DARK.get(),
                     ModBlocks.FREEZER_DARK.get()
             );
-             */
 
             event.register((stack, i) -> {
                 BlockState state = ((BlockItem)stack.getItem()).getBlock().defaultBlockState();
@@ -386,6 +383,7 @@ public class MrCrayFishFurnitureMod
         public static void registerScreens(RegisterMenuScreensEvent event)
         {
             event.register(ModMenuTypes.CRATE.get(), CrateScreen::new);
+            event.register(ModMenuTypes.FREEZER.get(), FreezerScreen::new);
             event.register(ModMenuTypes.MAIL_BOX.get(), MailBoxScreen::new);
             event.register(ModMenuTypes.POST_BOX.get(), PostBoxScreen::new);
         }

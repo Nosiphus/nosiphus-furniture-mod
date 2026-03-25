@@ -1086,6 +1086,10 @@ public class ModItems
             () -> new BlockItem(ModBlocks.PINK_KITCHEN_SINK.get(), new Item.Properties())));
 
     // Appliances
+    public static final DeferredItem<BlockItem> FRIDGE_LIGHT = addToTab(ITEMS.register("fridge_light",
+            () -> new FridgeItem(ModBlocks.FRIDGE_LIGHT.get(), ModBlocks.FREEZER_LIGHT.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> FRIDGE_DARK = addToTab(ITEMS.register("fridge_dark",
+            () -> new FridgeItem(ModBlocks.FRIDGE_DARK.get(), ModBlocks.FREEZER_DARK.get(), new Item.Properties())));
 
     // Items
     public static final DeferredItem<Item> SPATULA = addToTab(ITEMS.register("spatula",

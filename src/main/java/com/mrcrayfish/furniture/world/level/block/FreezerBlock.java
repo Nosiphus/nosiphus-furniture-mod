@@ -3,6 +3,8 @@ package com.mrcrayfish.furniture.world.level.block;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
 import com.mrcrayfish.furniture.world.level.block.entity.BasicLootBlockEntity;
+import com.mrcrayfish.furniture.world.level.block.entity.FreezerBlockEntity;
+import com.mrcrayfish.furniture.world.level.block.entity.ModBlockEntityTypes;
 import com.mrcrayfish.furniture.world.phys.shapes.VoxelShapeHelper;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -94,19 +96,20 @@ public class FreezerBlock extends FurnitureHorizontalBlock implements EntityBloc
     }
 
     @Override
-    public InteractionResult use(BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult result)
+    protected InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult result)
     {
-        if(state.getValue(DIRECTION).getOpposite() == result.getDirection())
+        if (state.getValue(DIRECTION).getOpposite() == result.getDirection())
         {
-            if(!level.isClientSide())
+            if (!level.isClientSide && player instanceof ServerPlayer serverPlayer)
             {
-                if(level.getBlockEntity(pos) instanceof FreezerBlockEntity blockEntity)
+                if (level.getBlockEntity(pos) instanceof FreezerBlockEntity freezer)
                 {
-                    NetworkHooks.openScreen((ServerPlayer) player, blockEntity, pos);
+                    serverPlayer.openMenu(freezer, pos);
                 }
             }
+            return InteractionResult.sidedSuccess(level.isClientSide);
         }
-        return InteractionResult.SUCCESS;
+        return InteractionResult.PASS;
     }
 
     @Override
@@ -147,6 +150,7 @@ public class FreezerBlock extends FurnitureHorizontalBlock implements EntityBloc
             level.levelEvent(player, 2001, pos.above(), Block.getId(upState));
         }
         super.playerWillDestroy(level, pos, state, player);
+        return upState;
     }
 
     @Nullable
@@ -159,7 +163,7 @@ public class FreezerBlock extends FurnitureHorizontalBlock implements EntityBloc
     @Nullable
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level level, BlockState state, BlockEntityType<T> type)
     {
-        return createMailBoxTicker(level, type, ModBlockEntityType.FREEZER.get());
+        return createMailBoxTicker(level, type, ModBlockEntityTypes.FREEZER.get());
     }
 
     @Nullable

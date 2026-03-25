@@ -1,4 +1,4 @@
-package com.mrcrayfish.furniture.world.inventory;
+package com.mrcrayfish.furniture.world.inventory.slot;
 
 import com.mrcrayfish.furniture.world.level.block.IPortableInventory;
 import net.minecraft.world.Container;

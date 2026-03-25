@@ -12,6 +12,13 @@ public class ModRecipeTypes
 {
     public static final DeferredRegister<RecipeType<?>> RECIPE_TYPES = DeferredRegister.create(BuiltInRegistries.RECIPE_TYPE, "cfm");
 
+    public static final DeferredHolder<RecipeType<?>, RecipeType<FreezerSolidifyRecipe>> FREEZER_SOLIDIFY = RECIPE_TYPES.register("freezer_solidify",
+            () -> new RecipeType<FreezerSolidifyRecipe>() {
+                @Override
+                public String toString() {
+                    return "cfm:freezer_solidify";
+                }
+            });
     public static final DeferredHolder<RecipeType<?>, RecipeType<GrillCookingRecipe>> GRILL_COOKING = RECIPE_TYPES.register("grill_cooking",
             () -> new RecipeType<GrillCookingRecipe>() {
                 @Override

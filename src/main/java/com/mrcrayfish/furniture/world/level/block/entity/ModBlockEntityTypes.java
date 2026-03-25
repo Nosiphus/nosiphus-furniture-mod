@@ -88,6 +88,18 @@ public class ModBlockEntityTypes
                     ModBlocks.DOOR_MAT.get()
             ).build(null));
 
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<FreezerBlockEntity>> FREEZER =
+            BLOCK_ENTITY_TYPES.register("freezer", () -> BlockEntityType.Builder.of(
+                    FreezerBlockEntity::new,
+                    ModBlocks.FREEZER_LIGHT.get(), ModBlocks.FREEZER_DARK.get()
+            ).build(null));
+
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<FridgeBlockEntity>> FRIDGE =
+            BLOCK_ENTITY_TYPES.register("fridge", () -> BlockEntityType.Builder.of(
+                    FridgeBlockEntity::new,
+                    ModBlocks.FRIDGE_LIGHT.get(), ModBlocks.FRIDGE_DARK.get()
+            ).build(null));
+
     public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<GrillBlockEntity>> GRILL =
             BLOCK_ENTITY_TYPES.register("grill", () -> BlockEntityType.Builder.of(
                     GrillBlockEntity::new,

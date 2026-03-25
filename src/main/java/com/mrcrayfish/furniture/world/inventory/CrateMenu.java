@@ -1,5 +1,6 @@
 package com.mrcrayfish.furniture.world.inventory;
 
+import com.mrcrayfish.furniture.world.inventory.slot.PortableSlot;
 import com.mrcrayfish.furniture.world.level.block.entity.CrateBlockEntity;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;

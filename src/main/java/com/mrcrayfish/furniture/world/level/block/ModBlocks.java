@@ -1085,13 +1085,13 @@ public class ModBlocks
 
     // Appliances
     public static final DeferredBlock<Block> FREEZER_LIGHT = BLOCKS.register("freezer_light",
-            () -> new FreezerBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK)));
+        () -> new FreezerBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK).noOcclusion(), () -> ModBlocks.FRIDGE_LIGHT));
     public static final DeferredBlock<Block> FRIDGE_LIGHT = BLOCKS.register("fridge_light",
-            () -> new FridgeBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK)));
+            () -> new FridgeBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK).noOcclusion(), () -> ModBlocks.FREEZER_LIGHT));
     public static final DeferredBlock<Block> FREEZER_DARK = BLOCKS.register("freezer_dark",
-            () -> new FreezerBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK)));
+            () -> new FreezerBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK).noOcclusion(), () -> ModBlocks.FRIDGE_DARK));
     public static final DeferredBlock<Block> FRIDGE_DARK = BLOCKS.register("fridge_dark",
-            () -> new FridgeBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK)));
+            () -> new FridgeBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK).noOcclusion(), () -> ModBlocks.FREEZER_DARK));
 
 
 }

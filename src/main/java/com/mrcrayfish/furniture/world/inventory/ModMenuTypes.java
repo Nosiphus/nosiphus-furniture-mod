@@ -2,6 +2,7 @@ package com.mrcrayfish.furniture.world.inventory;
 
 import com.mrcrayfish.furniture.client.mail.MailBoxEntry;
 import com.mrcrayfish.furniture.world.level.block.entity.CrateBlockEntity;
+import com.mrcrayfish.furniture.world.level.block.entity.FreezerBlockEntity;
 import com.mrcrayfish.furniture.world.level.block.entity.MailBoxBlockEntity;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.registries.Registries;
@@ -27,6 +28,17 @@ public class ModMenuTypes {
                 CrateBlockEntity crate = (CrateBlockEntity) inv.player.level().getBlockEntity(pos);
                 boolean isLocked = crate != null && crate.isLocked();
                 return new CrateMenu(windowId, inv, crate, isLocked);
+            })
+    );
+
+    public static final DeferredHolder<MenuType<?>, MenuType<FreezerMenu>> FREEZER = MENU_TYPES.register("freezer",
+            () -> IMenuTypeExtension.create((windowId, inv, data) ->
+            {
+                BlockPos pos = data.readBlockPos();
+                if (inv.player.level().getBlockEntity(pos) instanceof FreezerBlockEntity freezer) {
+                    return new FreezerMenu(windowId, inv, freezer);
+                }
+                return null;
             })
     );
 
