@@ -1,6 +1,7 @@
 package com.mrcrayfish.furniture;
 
 import com.mojang.logging.LogUtils;
+import com.mrcrayfish.furniture.client.event.CreativeScreenEvents;
 import com.mrcrayfish.furniture.client.gui.screens.DoorMatScreen;
 import com.mrcrayfish.furniture.client.gui.screens.inventory.CrateScreen;
 import com.mrcrayfish.furniture.client.gui.screens.inventory.FreezerScreen;
@@ -47,6 +48,7 @@ import net.neoforged.neoforge.capabilities.RegisterCapabilitiesEvent;
 import net.neoforged.neoforge.client.event.ModelEvent;
 import net.neoforged.neoforge.client.event.RegisterColorHandlersEvent;
 import net.neoforged.neoforge.client.event.RegisterMenuScreensEvent;
+import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.network.event.RegisterPayloadHandlersEvent;
 import net.neoforged.neoforge.network.registration.PayloadRegistrar;
 import org.slf4j.Logger;
@@ -87,6 +89,7 @@ public class MrCrayFishFurnitureMod
         {
             registerBlockEntityRenderers();
             registerEntityRenderers();
+            NeoForge.EVENT_BUS.register(new CreativeScreenEvents());
         }
 
         @SubscribeEvent

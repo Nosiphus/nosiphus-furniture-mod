@@ -13,6 +13,14 @@ public class ModItemTags
     public static final TagKey<Item> UPGRADED_FENCE_GATES = tag("fence_gates/upgraded");
     public static final TagKey<Item> PICKET_FENCE_GATES = tag("fence_gates/picket");
     public static final TagKey<Item> HEDGES = tag("fences/hedge");
+    public static final TagKey<Item> TRAMPOLINE = tag("trampoline");
+
+    public static final TagKey<Item> BEDROOM = tag("bedroom");
+    public static final TagKey<Item> GENERAL = tag("general");
+    public static final TagKey<Item> ITEMS = tag("items");
+    public static final TagKey<Item> KITCHEN = tag("kitchen");
+    public static final TagKey<Item> OUTDOORS = tag("outdoors");
+    public static final TagKey<Item> STORAGE = tag("storage");
 
     private static TagKey<Item> tag(String name)
     {
