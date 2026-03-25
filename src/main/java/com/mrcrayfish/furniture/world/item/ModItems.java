@@ -1085,6 +1085,8 @@ public class ModItems
     public static final DeferredItem<BlockItem> PINK_KITCHEN_SINK = addToTab(ITEMS.register("pink_kitchen_sink",
             () -> new BlockItem(ModBlocks.PINK_KITCHEN_SINK.get(), new Item.Properties())));
 
+    // Appliances
+
     // Items
     public static final DeferredItem<Item> SPATULA = addToTab(ITEMS.register("spatula",
             () -> new SwordItem(Tiers.IRON, new Item.Properties())));

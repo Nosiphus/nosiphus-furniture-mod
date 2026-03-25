@@ -1083,5 +1083,15 @@ public class ModBlocks
     public static final DeferredBlock<Block> PINK_KITCHEN_SINK = BLOCKS.register("pink_kitchen_sink",
             () -> new KitchenSinkBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.PINK_CONCRETE), false));
 
+    // Appliances
+    public static final DeferredBlock<Block> FREEZER_LIGHT = BLOCKS.register("freezer_light",
+            () -> new FreezerBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK)));
+    public static final DeferredBlock<Block> FRIDGE_LIGHT = BLOCKS.register("fridge_light",
+            () -> new FridgeBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK)));
+    public static final DeferredBlock<Block> FREEZER_DARK = BLOCKS.register("freezer_dark",
+            () -> new FreezerBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK)));
+    public static final DeferredBlock<Block> FRIDGE_DARK = BLOCKS.register("fridge_dark",
+            () -> new FridgeBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK)));
+
 
 }
