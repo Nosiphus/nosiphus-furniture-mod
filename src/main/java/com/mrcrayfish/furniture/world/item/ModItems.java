@@ -813,6 +813,14 @@ public class ModItems
     public static final DeferredItem<BlockItem> PINK_GRILL = addToTab(ITEMS.register("pink_grill",
             () -> new BlockItem(ModBlocks.PINK_GRILL.get(), new Item.Properties())));
 
+    // Door Mat
+    public static final DeferredItem<BlockItem> DOOR_MAT = addToTab(ITEMS.register("door_mat",
+            () -> new DoorMatItem(ModBlocks.DOOR_MAT.get(), new Item.Properties())));
+
+    // Diving Boards
+    public static final DeferredItem<BlockItem> DIVING_BOARD = addToTab(ITEMS.register("diving_board",
+            () -> new BlockItem(ModBlocks.DIVING_BOARD.get(), new Item.Properties())));
+
     // Items
     public static final DeferredItem<Item> SPATULA = addToTab(ITEMS.register("spatula",
             () -> new SwordItem(Tiers.IRON, new Item.Properties())));

@@ -1,10 +1,12 @@
 package com.mrcrayfish.furniture;
 
 import com.mojang.logging.LogUtils;
+import com.mrcrayfish.furniture.client.gui.screens.DoorMatScreen;
 import com.mrcrayfish.furniture.client.gui.screens.inventory.CrateScreen;
 import com.mrcrayfish.furniture.client.gui.screens.inventory.MailBoxScreen;
 import com.mrcrayfish.furniture.client.gui.screens.inventory.PostBoxScreen;
 import com.mrcrayfish.furniture.client.model.HedgeModel;
+import com.mrcrayfish.furniture.client.renderer.blockentity.DoorMatBlockEntityRenderer;
 import com.mrcrayfish.furniture.client.renderer.blockentity.GrillBlockEntityRenderer;
 import com.mrcrayfish.furniture.client.renderer.entity.SeatRenderer;
 import com.mrcrayfish.furniture.network.protocol.common.*;
@@ -16,6 +18,7 @@ import com.mrcrayfish.furniture.world.item.ModItems;
 import com.mrcrayfish.furniture.world.item.crafting.ModRecipeSerializers;
 import com.mrcrayfish.furniture.world.item.crafting.ModRecipeTypes;
 import com.mrcrayfish.furniture.world.level.block.ModBlocks;
+import com.mrcrayfish.furniture.world.level.block.entity.DoorMatBlockEntity;
 import com.mrcrayfish.furniture.world.level.block.entity.ModBlockEntityTypes;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.BiomeColors;
@@ -23,8 +26,10 @@ import net.minecraft.client.renderer.blockentity.BlockEntityRenderers;
 import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.client.resources.model.BakedModel;
 import net.minecraft.client.resources.model.ModelResourceLocation;
+import net.minecraft.core.BlockPos;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.level.FoliageColor;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.IEventBus;
@@ -370,6 +375,14 @@ public class MrCrayFishFurnitureMod
             event.register(ModMenuTypes.POST_BOX.get(), PostBoxScreen::new);
         }
 
+        public static void showDoorMatScreen(Level level, BlockPos pos)
+        {
+            if(level.getBlockEntity(pos) instanceof DoorMatBlockEntity blockEntity)
+            {
+                Minecraft.getInstance().setScreen(new DoorMatScreen(blockEntity));
+            }
+        }
+
     }
 
     @EventBusSubscriber(modid = "cfm")
@@ -412,6 +425,12 @@ public class MrCrayFishFurnitureMod
             );
 
             registrar.playToServer(
+                    ServerboundSetDoorMat.TYPE,
+                    ServerboundSetDoorMat.STREAM_CODEC,
+                    ServerboundSetDoorMat::handle
+            );
+
+            registrar.playToServer(
                     ServerboundSetMailBoxName.TYPE,
                     ServerboundSetMailBoxName.STREAM_CODEC,
                     ServerboundSetMailBoxName::handle
@@ -422,6 +441,7 @@ public class MrCrayFishFurnitureMod
 
     private static void registerBlockEntityRenderers()
     {
+        BlockEntityRenderers.register(ModBlockEntityTypes.DOOR_MAT.get(), DoorMatBlockEntityRenderer::new);
         BlockEntityRenderers.register(ModBlockEntityTypes.GRILL.get(), GrillBlockEntityRenderer::new);
     }
 

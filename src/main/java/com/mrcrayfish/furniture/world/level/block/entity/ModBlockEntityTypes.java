@@ -82,6 +82,12 @@ public class ModBlockEntityTypes
                     ModBlocks.STRIPPED_CRIMSON_DESK_CABINET.get(), ModBlocks.STRIPPED_WARPED_DESK_CABINET.get()
             ).build(null));
 
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<DoorMatBlockEntity>> DOOR_MAT =
+            BLOCK_ENTITY_TYPES.register("door_mat", () -> BlockEntityType.Builder.of(
+                    DoorMatBlockEntity::new,
+                    ModBlocks.DOOR_MAT.get()
+            ).build(null));
+
     public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<GrillBlockEntity>> GRILL =
             BLOCK_ENTITY_TYPES.register("grill", () -> BlockEntityType.Builder.of(
                     GrillBlockEntity::new,

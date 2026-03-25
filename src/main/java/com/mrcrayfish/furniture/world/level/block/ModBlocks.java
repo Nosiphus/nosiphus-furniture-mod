@@ -807,5 +807,13 @@ public class ModBlocks
     public static final DeferredBlock<Block> PINK_GRILL = BLOCKS.register("pink_grill",
             () -> new GrillBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK)));
 
+    // Door Mat
+    public static final DeferredBlock<Block> DOOR_MAT = BLOCKS.register("door_mat",
+            () -> new DoorMatBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.HAY_BLOCK)));
+
+    // Diving Board
+    public static final DeferredBlock<Block> DIVING_BOARD = BLOCKS.register("diving_board",
+            () -> new DivingBoardBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS)));
+
 
 }

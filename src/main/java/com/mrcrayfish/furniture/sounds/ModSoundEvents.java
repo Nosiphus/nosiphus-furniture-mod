@@ -22,6 +22,8 @@ public class ModSoundEvents {
             () -> SoundEvent.createVariableRangeEvent(ResourceLocation.fromNamespaceAndPath("cfm", "block.cabinet.open")));
     public static final DeferredHolder<SoundEvent, SoundEvent> BLOCK_CABINET_CLOSE = SOUND_EVENTS.register("block.cabinet.close",
             () -> SoundEvent.createVariableRangeEvent(ResourceLocation.fromNamespaceAndPath("cfm", "block.cabinet.close")));
+    public static final DeferredHolder<SoundEvent, SoundEvent> BLOCK_DIVING_BOARD_BOUNCE = SOUND_EVENTS.register("block.diving_board.bounce",
+            () -> SoundEvent.createVariableRangeEvent(ResourceLocation.fromNamespaceAndPath("cfm", "block.diving_board.bounce")));
     public static final DeferredHolder<SoundEvent, SoundEvent> BLOCK_GRILL_FLIP = SOUND_EVENTS.register("block.grill.flip",
             () -> SoundEvent.createVariableRangeEvent(ResourceLocation.fromNamespaceAndPath("cfm", "block.grill.flip")));
     public static final DeferredHolder<SoundEvent, SoundEvent> BLOCK_GRILL_PLACE = SOUND_EVENTS.register("block.grill.place",
