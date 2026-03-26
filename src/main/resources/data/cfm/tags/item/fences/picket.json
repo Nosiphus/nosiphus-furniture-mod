@@ -1,0 +1,22 @@
+{
+  "replace": false,
+  "values": [
+    { "id": "cfm:white_picket_fence", "required": false },
+    { "id": "cfm:light_gray_picket_fence", "required": false },
+    { "id": "cfm:gray_picket_fence", "required": false },
+    { "id": "cfm:black_picket_fence", "required": false },
+    { "id": "cfm:brown_picket_fence", "required": false },
+    { "id": "cfm:red_picket_fence", "required": false },
+    { "id": "cfm:orange_picket_fence", "required": false },
+    { "id": "cfm:beige_picket_fence", "required": false },
+    { "id": "cfm:yellow_picket_fence", "required": false },
+    { "id": "cfm:lime_picket_fence", "required": false },
+    { "id": "cfm:green_picket_fence", "required": false },
+    { "id": "cfm:cyan_picket_fence", "required": false },
+    { "id": "cfm:light_blue_picket_fence", "required": false },
+    { "id": "cfm:blue_picket_fence", "required": false },
+    { "id": "cfm:purple_picket_fence", "required": false },
+    { "id": "cfm:magenta_picket_fence", "required": false },
+    { "id": "cfm:pink_picket_fence", "required": false }
+  ]
+}

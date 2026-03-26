@@ -1,0 +1,25 @@
+{
+  "replace": false,
+  "values": [
+    { "id": "cfm:oak_upgraded_fence", "required": false },
+    { "id": "cfm:spruce_upgraded_fence", "required": false },
+    { "id": "cfm:birch_upgraded_fence", "required": false },
+    { "id": "cfm:jungle_upgraded_fence", "required": false },
+    { "id": "cfm:acacia_upgraded_fence", "required": false },
+    { "id": "cfm:dark_oak_upgraded_fence", "required": false },
+    { "id": "cfm:mangrove_upgraded_fence", "required": false },
+    { "id": "cfm:cherry_upgraded_fence", "required": false },
+    { "id": "cfm:crimson_upgraded_fence", "required": false },
+    { "id": "cfm:warped_upgraded_fence", "required": false },
+    { "id": "cfm:stripped_oak_upgraded_fence", "required": false },
+    { "id": "cfm:stripped_spruce_upgraded_fence", "required": false },
+    { "id": "cfm:stripped_birch_upgraded_fence", "required": false },
+    { "id": "cfm:stripped_jungle_upgraded_fence", "required": false },
+    { "id": "cfm:stripped_acacia_upgraded_fence", "required": false },
+    { "id": "cfm:stripped_dark_oak_upgraded_fence", "required": false },
+    { "id": "cfm:stripped_mangrove_upgraded_fence", "required": false },
+    { "id": "cfm:stripped_cherry_upgraded_fence", "required": false },
+    { "id": "cfm:stripped_crimson_upgraded_fence", "required": false },
+    { "id": "cfm:stripped_warped_upgraded_fence", "required": false }
+  ]
+}
