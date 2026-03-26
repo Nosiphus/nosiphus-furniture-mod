@@ -1,9 +1,7 @@
 package com.nosiphus.furniture.world.level.block;
 
-import com.mrcrayfish.furniture.world.level.block.CabinetBlock;
-import com.mrcrayfish.furniture.world.level.block.ChairBlock;
-import com.mrcrayfish.furniture.world.level.block.CoffeeTableBlock;
-import com.mrcrayfish.furniture.world.level.block.TableBlock;
+import com.mrcrayfish.furniture.world.level.block.*;
+import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockBehaviour;
@@ -213,5 +211,91 @@ public class ModBlocks {
             () -> new CabinetBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.MAGENTA_CONCRETE)));
     public static final DeferredBlock<Block> PINK_MODERN_CABINET = BLOCKS.register("pink_modern_cabinet",
             () -> new CabinetBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.PINK_CONCRETE)));
+
+    // Bedside Cabinets
+    public static final DeferredBlock<Block> STONE_BEDSIDE_CABINET = BLOCKS.register("stone_bedside_cabinet",
+            () -> new BedsideCabinetBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE)));
+    public static final DeferredBlock<Block> ANDESITE_BEDSIDE_CABINET = BLOCKS.register("andesite_bedside_cabinet",
+            () -> new BedsideCabinetBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.ANDESITE)));
+    public static final DeferredBlock<Block> DIORITE_BEDSIDE_CABINET = BLOCKS.register("diorite_bedside_cabinet",
+            () -> new BedsideCabinetBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.DIORITE)));
+    public static final DeferredBlock<Block> GRANITE_BEDSIDE_CABINET = BLOCKS.register("granite_bedside_cabinet",
+            () -> new BedsideCabinetBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.GRANITE)));
+    public static final DeferredBlock<Block> BLACKSTONE_BEDSIDE_CABINET = BLOCKS.register("blackstone_bedside_cabinet",
+            () -> new BedsideCabinetBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.BLACKSTONE)));
+    public static final DeferredBlock<Block> DEEPSLATE_BEDSIDE_CABINET = BLOCKS.register("deepslate_bedside_cabinet",
+            () -> new BedsideCabinetBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.DEEPSLATE)));
+
+    // Modern Bedside Cabinets
+    public static final DeferredBlock<Block> WHITE_MODERN_BEDSIDE_CABINET = BLOCKS.register("white_modern_bedside_cabinet",
+            () -> new BedsideCabinetBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.WHITE_CONCRETE)));
+    public static final DeferredBlock<Block> LIGHT_GRAY_MODERN_BEDSIDE_CABINET = BLOCKS.register("light_gray_modern_bedside_cabinet",
+            () -> new BedsideCabinetBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.LIGHT_GRAY_CONCRETE)));
+    public static final DeferredBlock<Block> GRAY_MODERN_BEDSIDE_CABINET = BLOCKS.register("gray_modern_bedside_cabinet",
+            () -> new BedsideCabinetBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.GRAY_CONCRETE)));
+    public static final DeferredBlock<Block> BLACK_MODERN_BEDSIDE_CABINET = BLOCKS.register("black_modern_bedside_cabinet",
+            () -> new BedsideCabinetBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.BLACK_CONCRETE)));
+    public static final DeferredBlock<Block> BROWN_MODERN_BEDSIDE_CABINET = BLOCKS.register("brown_modern_bedside_cabinet",
+            () -> new BedsideCabinetBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.BROWN_CONCRETE)));
+    public static final DeferredBlock<Block> RED_MODERN_BEDSIDE_CABINET = BLOCKS.register("red_modern_bedside_cabinet",
+            () -> new BedsideCabinetBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.RED_CONCRETE)));
+    public static final DeferredBlock<Block> ORANGE_MODERN_BEDSIDE_CABINET = BLOCKS.register("orange_modern_bedside_cabinet",
+            () -> new BedsideCabinetBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.ORANGE_CONCRETE)));
+    public static final DeferredBlock<Block> BEIGE_MODERN_BEDSIDE_CABINET = BLOCKS.register("beige_modern_bedside_cabinet",
+            () -> new BedsideCabinetBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.YELLOW_CONCRETE)));
+    public static final DeferredBlock<Block> YELLOW_MODERN_BEDSIDE_CABINET = BLOCKS.register("yellow_modern_bedside_cabinet",
+            () -> new BedsideCabinetBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.YELLOW_CONCRETE)));
+    public static final DeferredBlock<Block> LIME_MODERN_BEDSIDE_CABINET = BLOCKS.register("lime_modern_bedside_cabinet",
+            () -> new BedsideCabinetBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.LIME_CONCRETE)));
+    public static final DeferredBlock<Block> GREEN_MODERN_BEDSIDE_CABINET = BLOCKS.register("green_modern_bedside_cabinet",
+            () -> new BedsideCabinetBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.GREEN_CONCRETE)));
+    public static final DeferredBlock<Block> CYAN_MODERN_BEDSIDE_CABINET = BLOCKS.register("cyan_modern_bedside_cabinet",
+            () -> new BedsideCabinetBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.CYAN_CONCRETE)));
+    public static final DeferredBlock<Block> LIGHT_BLUE_MODERN_BEDSIDE_CABINET = BLOCKS.register("light_blue_modern_bedside_cabinet",
+            () -> new BedsideCabinetBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.LIGHT_BLUE_CONCRETE)));
+    public static final DeferredBlock<Block> BLUE_MODERN_BEDSIDE_CABINET = BLOCKS.register("blue_modern_bedside_cabinet",
+            () -> new BedsideCabinetBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.BLUE_CONCRETE)));
+    public static final DeferredBlock<Block> PURPLE_MODERN_BEDSIDE_CABINET = BLOCKS.register("purple_modern_bedside_cabinet",
+            () -> new BedsideCabinetBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.PURPLE_CONCRETE)));
+    public static final DeferredBlock<Block> MAGENTA_MODERN_BEDSIDE_CABINET = BLOCKS.register("magenta_modern_bedside_cabinet",
+            () -> new BedsideCabinetBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.MAGENTA_CONCRETE)));
+    public static final DeferredBlock<Block> PINK_MODERN_BEDSIDE_CABINET = BLOCKS.register("pink_modern_bedside_cabinet",
+            () -> new BedsideCabinetBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.PINK_CONCRETE)));
+
+    // Modern Beds
+    public static final DeferredBlock<Block> WHITE_MODERN_BED = BLOCKS.register("white_modern_bed",
+            () -> new ModernBedBlock(DyeColor.WHITE, BlockBehaviour.Properties.ofFullCopy(Blocks.WHITE_WOOL)));
+    public static final DeferredBlock<Block> LIGHT_GRAY_MODERN_BED = BLOCKS.register("light_gray_modern_bed",
+            () -> new ModernBedBlock(DyeColor.LIGHT_GRAY, BlockBehaviour.Properties.ofFullCopy(Blocks.LIGHT_GRAY_WOOL)));
+    public static final DeferredBlock<Block> GRAY_MODERN_BED = BLOCKS.register("gray_modern_bed",
+            () -> new ModernBedBlock(DyeColor.GRAY, BlockBehaviour.Properties.ofFullCopy(Blocks.GRAY_WOOL)));
+    public static final DeferredBlock<Block> BLACK_MODERN_BED = BLOCKS.register("black_modern_bed",
+            () -> new ModernBedBlock(DyeColor.BLACK, BlockBehaviour.Properties.ofFullCopy(Blocks.BLACK_WOOL)));
+    public static final DeferredBlock<Block> BROWN_MODERN_BED = BLOCKS.register("brown_modern_bed",
+            () -> new ModernBedBlock(DyeColor.BROWN, BlockBehaviour.Properties.ofFullCopy(Blocks.BROWN_WOOL)));
+    public static final DeferredBlock<Block> RED_MODERN_BED = BLOCKS.register("red_modern_bed",
+            () -> new ModernBedBlock(DyeColor.RED, BlockBehaviour.Properties.ofFullCopy(Blocks.RED_WOOL)));
+    public static final DeferredBlock<Block> ORANGE_MODERN_BED = BLOCKS.register("orange_modern_bed",
+            () -> new ModernBedBlock(DyeColor.ORANGE, BlockBehaviour.Properties.ofFullCopy(Blocks.ORANGE_WOOL)));
+    public static final DeferredBlock<Block> BEIGE_MODERN_BED = BLOCKS.register("beige_modern_bed",
+            () -> new ModernBedBlock(DyeColor.YELLOW, BlockBehaviour.Properties.ofFullCopy(Blocks.YELLOW_WOOL)));
+    public static final DeferredBlock<Block> YELLOW_MODERN_BED = BLOCKS.register("yellow_modern_bed",
+            () -> new ModernBedBlock(DyeColor.YELLOW, BlockBehaviour.Properties.ofFullCopy(Blocks.YELLOW_WOOL)));
+    public static final DeferredBlock<Block> LIME_MODERN_BED = BLOCKS.register("lime_modern_bed",
+            () -> new ModernBedBlock(DyeColor.LIME, BlockBehaviour.Properties.ofFullCopy(Blocks.LIME_WOOL)));
+    public static final DeferredBlock<Block> GREEN_MODERN_BED = BLOCKS.register("green_modern_bed",
+            () -> new ModernBedBlock(DyeColor.GREEN, BlockBehaviour.Properties.ofFullCopy(Blocks.GREEN_WOOL)));
+    public static final DeferredBlock<Block> CYAN_MODERN_BED = BLOCKS.register("cyan_modern_bed",
+            () -> new ModernBedBlock(DyeColor.CYAN, BlockBehaviour.Properties.ofFullCopy(Blocks.CYAN_WOOL)));
+    public static final DeferredBlock<Block> LIGHT_BLUE_MODERN_BED = BLOCKS.register("light_blue_modern_bed",
+            () -> new ModernBedBlock(DyeColor.LIGHT_BLUE, BlockBehaviour.Properties.ofFullCopy(Blocks.LIGHT_BLUE_WOOL)));
+    public static final DeferredBlock<Block> BLUE_MODERN_BED = BLOCKS.register("blue_modern_bed",
+            () -> new ModernBedBlock(DyeColor.BLUE, BlockBehaviour.Properties.ofFullCopy(Blocks.BLUE_WOOL)));
+    public static final DeferredBlock<Block> PURPLE_MODERN_BED = BLOCKS.register("purple_modern_bed",
+            () -> new ModernBedBlock(DyeColor.PURPLE, BlockBehaviour.Properties.ofFullCopy(Blocks.PURPLE_WOOL)));
+    public static final DeferredBlock<Block> MAGENTA_MODERN_BED = BLOCKS.register("magenta_modern_bed",
+            () -> new ModernBedBlock(DyeColor.MAGENTA, BlockBehaviour.Properties.ofFullCopy(Blocks.MAGENTA_WOOL)));
+    public static final DeferredBlock<Block> PINK_MODERN_BED = BLOCKS.register("pink_modern_bed",
+            () -> new ModernBedBlock(DyeColor.PINK, BlockBehaviour.Properties.ofFullCopy(Blocks.PINK_WOOL)));
 
 }
