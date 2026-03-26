@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "upgraded_gate",
+  "key": {
+    "G": {
+      "tag": "c:fence_gates/wooden"
+    },
+    "L": {
+      "item": "minecraft:stripped_birch_log"
+    }
+  },
+  "pattern": [
+    "LGL"
+  ],
+  "result": {
+    "count": 2,
+    "id": "cfm:stripped_birch_upgraded_gate"
+  },
+  "show_notification": true
+}

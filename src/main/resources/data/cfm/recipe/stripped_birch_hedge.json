@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "hedge",
+  "key": {
+    "L": {
+      "item": "minecraft:stripped_birch_leaves"
+    }
+  },
+  "pattern": [
+    "LLL",
+    "LLL"
+  ],
+  "result": {
+    "count": 12,
+    "id": "cfm:stripped_birch_hedge"
+  },
+  "show_notification": true
+}

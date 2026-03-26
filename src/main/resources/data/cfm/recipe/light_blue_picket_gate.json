@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "picket_fence",
+  "key": {
+    "C": {
+      "item": "minecraft:light_blue_concrete"
+    },
+    "G": {
+      "tag": "c:fence_gates/wooden"
+    }
+  },
+  "pattern": [
+    "CGC"
+  ],
+  "result": {
+    "count": 2,
+    "id": "cfm:light_blue_picket_gate"
+  },
+  "show_notification": true
+}

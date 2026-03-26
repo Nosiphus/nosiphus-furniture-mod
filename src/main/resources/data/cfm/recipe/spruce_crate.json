@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "crate",
+  "key": {
+    "L": {
+      "item": "minecraft:spruce_log"
+    },
+    "P": {
+      "item": "minecraft:spruce_planks"
+    }
+  },
+  "pattern": [
+    "LPL",
+    "P P",
+    "LPL"
+  ],
+  "result": {
+    "count": 2,
+    "id": "cfm:spruce_crate"
+  },
+  "show_notification": true
+}

@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "mail_box",
+  "key": {
+    "C": {
+      "tag": "c:chests/wooden"
+    },
+    "F": {
+      "item": "cfm:crimson_upgraded_fence"
+    }
+  },
+  "pattern": [
+    "C",
+    "F",
+    "F"
+  ],
+  "result": {
+    "id": "cfm:crimson_mail_box"
+  },
+  "show_notification": true
+}

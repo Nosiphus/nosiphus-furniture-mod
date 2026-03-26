@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "upgraded_fence",
+  "key": {
+    "L": {
+      "item": "minecraft:acacia_log"
+    },
+    "S": {
+      "tag": "c:rods/wooden"
+    }
+  },
+  "pattern": [
+    "LSL",
+    "LSL"
+  ],
+  "result": {
+    "count": 12,
+    "id": "cfm:acacia_upgraded_fence"
+  },
+  "show_notification": true
+}

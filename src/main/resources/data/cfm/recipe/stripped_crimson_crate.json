@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "crate",
+  "key": {
+    "L": {
+      "item": "minecraft:stripped_crimson_stem"
+    },
+    "P": {
+      "item": "minecraft:stripped_crimson_planks"
+    }
+  },
+  "pattern": [
+    "LPL",
+    "P P",
+    "LPL"
+  ],
+  "result": {
+    "count": 2,
+    "id": "cfm:stripped_crimson_crate"
+  },
+  "show_notification": true
+}

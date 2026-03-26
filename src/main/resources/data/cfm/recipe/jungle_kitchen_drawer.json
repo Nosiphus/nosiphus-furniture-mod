@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "kitchen_drawer",
+  "key": {
+    "C": {
+      "tag": "c:chests/wooden"
+    },
+    "L": {
+      "item": "minecraft:jungle_log"
+    },
+    "P": {
+      "item": "minecraft:jungle_planks"
+    }
+  },
+  "pattern": [
+    "LLL",
+    "PCP",
+    "PPP"
+  ],
+  "result": {
+    "count": 4,
+    "id": "cfm:jungle_kitchen_drawer"
+  },
+  "show_notification": true
+}

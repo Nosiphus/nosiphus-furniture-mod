@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "table",
+  "key": {
+    "L": {
+      "item": "minecraft:mangrove_log"
+    },
+    "P": {
+      "item": "minecraft:mangrove_planks"
+    }
+  },
+  "pattern": [
+    "LLL",
+    " P ",
+    " P "
+  ],
+  "result": {
+    "count": 4,
+    "id": "cfm:mangrove_table"
+  },
+  "show_notification": true
+}

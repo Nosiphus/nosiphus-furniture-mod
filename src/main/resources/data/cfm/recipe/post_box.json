@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "I": {
+      "tag": "c:ingots/iron"
+    },
+    "S": {
+      "item": "minecraft:blue_shulker_box"
+    }
+  },
+  "pattern": [
+    "III",
+    "ISI",
+    "III"
+  ],
+  "result": {
+    "id": "cfm:post_box"
+  },
+  "show_notification": true
+}

@@ -1,0 +1,29 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "kitchen_drawer",
+  "key": {
+    "B": {
+      "tag": "c:chests/wooden"
+    },
+    "C": {
+      "item": "minecraft:pink_concrete"
+    },
+    "D": {
+      "tag": "c:dyes/pink"
+    },
+    "S": {
+      "item": "minecraft:terracotta"
+    }
+  },
+  "pattern": [
+    "SDS",
+    "CBC",
+    "CCC"
+  ],
+  "result": {
+    "count": 4,
+    "id": "cfm:pink_kitchen_drawer"
+  },
+  "show_notification": true
+}

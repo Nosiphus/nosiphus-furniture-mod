@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "picket_fence",
+  "key": {
+    "C": {
+      "item": "minecraft:gray_concrete"
+    },
+    "S": {
+      "tag": "c:rods/wooden"
+    }
+  },
+  "pattern": [
+    "CSC",
+    "CSC"
+  ],
+  "result": {
+    "count": 12,
+    "id": "cfm:gray_picket_fence"
+  },
+  "show_notification": true
+}

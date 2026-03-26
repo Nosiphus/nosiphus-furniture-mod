@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "trampoline",
+  "key": {
+    "I": {
+      "tag": "c:ingots/iron"
+    },
+    "S": {
+      "tag": "c:slimeballs"
+    },
+    "W": {
+      "item": "minecraft:cyan_wool"
+    }
+  },
+  "pattern": [
+    "WSW",
+    "I I",
+    "III"
+  ],
+  "result": {
+    "id": "cfm:cyan_trampoline"
+  },
+  "show_notification": true
+}

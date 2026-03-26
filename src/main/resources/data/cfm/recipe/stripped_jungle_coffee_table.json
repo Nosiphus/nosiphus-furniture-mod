@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "coffee_table",
+  "key": {
+    "L": {
+      "item": "minecraft:stripped_jungle_log"
+    },
+    "P": {
+      "item": "minecraft:stripped_jungle_planks"
+    }
+  },
+  "pattern": [
+    "LLL",
+    "P P"
+  ],
+  "result": {
+    "count": 4,
+    "id": "cfm:stripped_jungle_coffee_table"
+  },
+  "show_notification": true
+}

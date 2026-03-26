@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "crate",
+  "key": {
+    "L": {
+      "item": "minecraft:warped_stem"
+    },
+    "P": {
+      "item": "minecraft:warped_planks"
+    }
+  },
+  "pattern": [
+    "LPL",
+    "P P",
+    "LPL"
+  ],
+  "result": {
+    "count": 2,
+    "id": "cfm:warped_crate"
+  },
+  "show_notification": true
+}

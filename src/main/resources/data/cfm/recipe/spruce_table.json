@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "table",
+  "key": {
+    "L": {
+      "item": "minecraft:spruce_log"
+    },
+    "P": {
+      "item": "minecraft:spruce_planks"
+    }
+  },
+  "pattern": [
+    "LLL",
+    " P ",
+    " P "
+  ],
+  "result": {
+    "count": 4,
+    "id": "cfm:spruce_table"
+  },
+  "show_notification": true
+}

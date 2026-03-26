@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "kitchen_counter",
+  "key": {
+    "C": {
+      "item": "yogmod:beige_concrete"
+    },
+    "D": {
+      "item": "yogmod:beige_dye"
+    },
+    "S": {
+      "item": "minecraft:terracotta"
+    }
+  },
+  "pattern": [
+    "SDS",
+    "CCC",
+    "CCC"
+  ],
+  "result": {
+    "count": 8,
+    "id": "cfm:beige_kitchen_counter"
+  },
+  "show_notification": true
+}

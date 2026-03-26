@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "chair",
+  "key": {
+    "L": {
+      "item": "minecraft:stripped_warped_stem"
+    },
+    "P": {
+      "item": "minecraft:stripped_warped_planks"
+    }
+  },
+  "pattern": [
+    "L  ",
+    "LLL",
+    "P P"
+  ],
+  "result": {
+    "count": 4,
+    "id": "cfm:stripped_warped_chair"
+  },
+  "show_notification": true
+}
