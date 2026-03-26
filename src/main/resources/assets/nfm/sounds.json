@@ -1,0 +1,50 @@
+{
+	"block.bin.open": {
+        "subtitle": "subtitle.nfm.open_bin",
+        "sounds": [ "nfm:block/bins/open" ]
+    },
+    "block.bin.close": {
+        "subtitle": "subtitle.nfm.close_bin",
+        "sounds": [ "nfm:block/bins/close" ]
+    },
+    "block.chopping_board.knife_chop": {
+        "subtitle": "subtitle.nfm.knife_chop",
+        "sounds": [ "nfm:block/chopping_board/knife_chop" ]
+    },
+	"block.door_bell.ring": {
+        "subtitle": "subtitle.nfm.ring_door_bell",
+        "sounds": [ "nfm:block/door_bell/ring" ]
+    },
+	"block.electric_fence.zap": {
+        "subtitle": "subtitle.nfm.electric_fence_zap",
+        "sounds": [ "nfm:block/electric_fence/zap" ]
+    },
+	"block.fire_alarm.beep": {
+        "subtitle": "subtitle.nfm.fire_alarm_beep",
+        "sounds": [ "nfm:block/fire_alarm/beep" ]
+    },
+    "block.inflatable_castle.bounce": {
+        "subtitle": "subtitle.nfm.bounce_inflatable_castle",
+        "sounds": [ "nfm:block/inflatable_castle/bounce" ]
+    },
+	"block.microwave.finish": {
+        "subtitle": "subtitle.nfm.finish_microwave",
+        "sounds": [ "nfm:block/microwave/finish" ]
+    },
+    "block.microwave.running": {
+        "subtitle": "subtitle.nfm.running_microwave",
+        "sounds": [ "nfm:block/microwave/running" ]
+    },
+    "block.shower.running": {
+        "subtitle": "subtitle.nfm.running_shower",
+        "sounds": [ "nfm:block/shower/running" ]
+    },
+	"block.toilet.fart": {
+        "subtitle": "subtitle.nfm.fart",
+        "sounds": [ "nfm:block/toilet/fart" ]
+    },
+	"block.toilet.flush": {
+        "subtitle": "subtitle.nfm.toilet_flush",
+        "sounds": [ "nfm:block/toilet/flush" ]
+    }
+}

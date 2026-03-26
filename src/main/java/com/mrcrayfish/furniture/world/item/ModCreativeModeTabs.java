@@ -35,13 +35,4 @@ public class ModCreativeModeTabs {
         return itemLike;
     }
 
-    @Nullable
-    public static <T extends Item> DeferredItem<T> addToTabOptional(String modID, DeferredItem<T> itemLike) {
-        if(ModList.get().isLoaded(modID)) {
-            MOD_TAB_ITEMS.add(itemLike);
-            return itemLike;
-        }
-        return null;
-    }
-
 }

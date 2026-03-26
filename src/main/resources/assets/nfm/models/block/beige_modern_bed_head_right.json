@@ -1,0 +1,6 @@
+{
+    "parent": "nfm:block/modern_bed_head_right",
+    "textures": {
+        "color": "yogmod:block/beige_wool"
+    }
+}

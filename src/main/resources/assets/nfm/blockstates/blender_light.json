@@ -1,0 +1,21 @@
+{
+    "variants": {
+        "facing=east": {
+            "model": "nfm:block/blender_light",
+            "y": 0
+        },
+        "facing=south": {
+            "model": "nfm:block/blender_light",
+            "y": 90
+        },
+        "facing=west": {
+            "model": "nfm:block/blender_light",
+            "y": 180
+        },
+        "facing=north": {
+            "model": "nfm:block/blender_light",
+            "y": 270
+        }
+    }
+}
+

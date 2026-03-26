@@ -1,0 +1,16 @@
+{
+    "textures": {
+		"particle": "#table_top"
+	},
+    "elements": [
+        {
+            "from": [ 0.00, 6.00, 0.00 ], 
+            "to": [ 16.00, 8.00, 16.00 ], 
+            "faces": {
+                "south": { "texture": "#table_top", "uv": [ 0.00, 0.00, 16.00, 2.00 ], "cullface": "south" },
+                "up": { "texture": "#table_top", "uv": [ 0.00, 0.00, 16.00, 16.00 ], "cullface": "up" },
+                "down": { "texture": "#table_top", "uv": [ 0.00, 0.00, 16.00, 16.00 ] }
+            }
+        }
+    ]
+}

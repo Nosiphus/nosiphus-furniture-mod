@@ -1,0 +1,7 @@
+{
+    "parent": "nfm:block/door_bell_pressed",
+    "textures": {
+        "1": "minecraft:block/stripped_crimson_stem",
+        "2": "minecraft:block/white_concrete"
+    }
+}

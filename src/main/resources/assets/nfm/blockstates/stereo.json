@@ -1,0 +1,19 @@
+{
+    "variants": {
+        "facing=north": {
+            "model": "nfm:block/stereo",
+			"y": 270
+        },
+		"facing=east": {
+            "model": "nfm:block/stereo"
+        },
+		"facing=south": {
+            "model": "nfm:block/stereo",
+			"y": 90
+        },
+		"facing=west": {
+            "model": "nfm:block/stereo",
+			"y": 180
+        }
+    }
+}
