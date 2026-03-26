@@ -13,7 +13,7 @@
       "tag": "c:ingots/iron"
     },
     "P": {
-      "item": "minecraft:stripped_jungle_planks"
+      "item": "minecraft:jungle_planks"
     }
   },
   "pattern": [

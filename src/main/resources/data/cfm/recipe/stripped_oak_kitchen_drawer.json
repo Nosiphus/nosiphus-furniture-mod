@@ -10,7 +10,7 @@
       "item": "minecraft:stripped_oak_log"
     },
     "P": {
-      "item": "minecraft:stripped_oak_planks"
+      "item": "minecraft:oak_planks"
     }
   },
   "pattern": [
