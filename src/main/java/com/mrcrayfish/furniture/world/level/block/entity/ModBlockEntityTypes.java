@@ -38,7 +38,19 @@ public class ModBlockEntityTypes
                     ModBlocks.STRIPPED_BIRCH_CABINET.get(), ModBlocks.STRIPPED_JUNGLE_CABINET.get(),
                     ModBlocks.STRIPPED_ACACIA_CABINET.get(), ModBlocks.STRIPPED_DARK_OAK_CABINET.get(),
                     ModBlocks.STRIPPED_MANGROVE_CABINET.get(), ModBlocks.STRIPPED_CHERRY_CABINET.get(),
-                    ModBlocks.STRIPPED_CRIMSON_CABINET.get(), ModBlocks.STRIPPED_WARPED_CABINET.get()
+                    ModBlocks.STRIPPED_CRIMSON_CABINET.get(), ModBlocks.STRIPPED_WARPED_CABINET.get(),
+                    com.nosiphus.furniture.world.level.block.ModBlocks.STONE_CABINET.get(), com.nosiphus.furniture.world.level.block.ModBlocks.ANDESITE_CABINET.get(),
+                    com.nosiphus.furniture.world.level.block.ModBlocks.DIORITE_CABINET.get(), com.nosiphus.furniture.world.level.block.ModBlocks.GRANITE_CABINET.get(),
+                    com.nosiphus.furniture.world.level.block.ModBlocks.BLACKSTONE_CABINET.get(), com.nosiphus.furniture.world.level.block.ModBlocks.DEEPSLATE_CABINET.get(),
+                    com.nosiphus.furniture.world.level.block.ModBlocks.WHITE_MODERN_CABINET.get(), com.nosiphus.furniture.world.level.block.ModBlocks.LIGHT_GRAY_MODERN_CABINET.get(),
+                    com.nosiphus.furniture.world.level.block.ModBlocks.GRAY_MODERN_CABINET.get(), com.nosiphus.furniture.world.level.block.ModBlocks.BLACK_MODERN_CABINET.get(),
+                    com.nosiphus.furniture.world.level.block.ModBlocks.BROWN_MODERN_CABINET.get(), com.nosiphus.furniture.world.level.block.ModBlocks.RED_MODERN_CABINET.get(),
+                    com.nosiphus.furniture.world.level.block.ModBlocks.ORANGE_MODERN_CABINET.get(), com.nosiphus.furniture.world.level.block.ModBlocks.BEIGE_MODERN_CABINET.get(),
+                    com.nosiphus.furniture.world.level.block.ModBlocks.YELLOW_MODERN_CABINET.get(), com.nosiphus.furniture.world.level.block.ModBlocks.LIME_MODERN_CABINET.get(),
+                    com.nosiphus.furniture.world.level.block.ModBlocks.GREEN_MODERN_CABINET.get(), com.nosiphus.furniture.world.level.block.ModBlocks.CYAN_MODERN_CABINET.get(),
+                    com.nosiphus.furniture.world.level.block.ModBlocks.LIGHT_BLUE_MODERN_CABINET.get(), com.nosiphus.furniture.world.level.block.ModBlocks.BLUE_MODERN_CABINET.get(),
+                    com.nosiphus.furniture.world.level.block.ModBlocks.PURPLE_MODERN_CABINET.get(), com.nosiphus.furniture.world.level.block.ModBlocks.MAGENTA_MODERN_CABINET.get(),
+                    com.nosiphus.furniture.world.level.block.ModBlocks.PINK_MODERN_CABINET.get()
             ).build(null));
 
     public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<CoolerBlockEntity>> COOLER =

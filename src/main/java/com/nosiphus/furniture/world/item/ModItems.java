@@ -162,5 +162,55 @@ public class ModItems {
     public static final DeferredItem<BlockItem> PINK_MODERN_COFFEE_TABLE = addToTab(ITEMS.register("pink_modern_coffee_table",
             () -> new BlockItem(ModBlocks.PINK_MODERN_COFFEE_TABLE.get(), new Item.Properties())));
 
+    // Cabinets
+    public static final DeferredItem<BlockItem> STONE_CABINET = addToTab(ITEMS.register("stone_cabinet",
+            () -> new BlockItem(ModBlocks.STONE_CABINET.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> ANDESITE_CABINET = addToTab(ITEMS.register("andesite_cabinet",
+            () -> new BlockItem(ModBlocks.ANDESITE_CABINET.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> DIORITE_CABINET = addToTab(ITEMS.register("diorite_cabinet",
+            () -> new BlockItem(ModBlocks.DIORITE_CABINET.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> GRANITE_CABINET = addToTab(ITEMS.register("granite_cabinet",
+            () -> new BlockItem(ModBlocks.GRANITE_CABINET.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> BLACKSTONE_CABINET = addToTab(ITEMS.register("blackstone_cabinet",
+            () -> new BlockItem(ModBlocks.BLACKSTONE_CABINET.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> DEEPSLATE_CABINET = addToTab(ITEMS.register("deepslate_cabinet",
+            () -> new BlockItem(ModBlocks.DEEPSLATE_CABINET.get(), new Item.Properties())));
+
+    // Modern Cabinets
+    public static final DeferredItem<BlockItem> WHITE_MODERN_CABINET = addToTab(ITEMS.register("white_modern_cabinet",
+            () -> new BlockItem(ModBlocks.WHITE_MODERN_CABINET.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> LIGHT_GRAY_MODERN_CABINET = addToTab(ITEMS.register("light_gray_modern_cabinet",
+            () -> new BlockItem(ModBlocks.LIGHT_GRAY_MODERN_CABINET.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> GRAY_MODERN_CABINET = addToTab(ITEMS.register("gray_modern_cabinet",
+            () -> new BlockItem(ModBlocks.GRAY_MODERN_CABINET.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> BLACK_MODERN_CABINET = addToTab(ITEMS.register("black_modern_cabinet",
+            () -> new BlockItem(ModBlocks.BLACK_MODERN_CABINET.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> BROWN_MODERN_CABINET = addToTab(ITEMS.register("brown_modern_cabinet",
+            () -> new BlockItem(ModBlocks.BROWN_MODERN_CABINET.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> RED_MODERN_CABINET = addToTab(ITEMS.register("red_modern_cabinet",
+            () -> new BlockItem(ModBlocks.RED_MODERN_CABINET.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> ORANGE_MODERN_CABINET = addToTab(ITEMS.register("orange_modern_cabinet",
+            () -> new BlockItem(ModBlocks.ORANGE_MODERN_CABINET.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> BEIGE_MODERN_CABINET = addToTab(ITEMS.register("beige_modern_cabinet",
+            () -> new BlockItem(ModBlocks.BEIGE_MODERN_CABINET.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> YELLOW_MODERN_CABINET = addToTab(ITEMS.register("yellow_modern_cabinet",
+            () -> new BlockItem(ModBlocks.YELLOW_MODERN_CABINET.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> LIME_MODERN_CABINET = addToTab(ITEMS.register("lime_modern_cabinet",
+            () -> new BlockItem(ModBlocks.LIME_MODERN_CABINET.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> GREEN_MODERN_CABINET = addToTab(ITEMS.register("green_modern_cabinet",
+            () -> new BlockItem(ModBlocks.GREEN_MODERN_CABINET.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> CYAN_MODERN_CABINET = addToTab(ITEMS.register("cyan_modern_cabinet",
+            () -> new BlockItem(ModBlocks.CYAN_MODERN_CABINET.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> LIGHT_BLUE_MODERN_CABINET = addToTab(ITEMS.register("light_blue_modern_cabinet",
+            () -> new BlockItem(ModBlocks.LIGHT_BLUE_MODERN_CABINET.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> BLUE_MODERN_CABINET = addToTab(ITEMS.register("blue_modern_cabinet",
+            () -> new BlockItem(ModBlocks.BLUE_MODERN_CABINET.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> PURPLE_MODERN_CABINET = addToTab(ITEMS.register("purple_modern_cabinet",
+            () -> new BlockItem(ModBlocks.PURPLE_MODERN_CABINET.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> MAGENTA_MODERN_CABINET = addToTab(ITEMS.register("magenta_modern_cabinet",
+            () -> new BlockItem(ModBlocks.MAGENTA_MODERN_CABINET.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> PINK_MODERN_CABINET = addToTab(ITEMS.register("pink_modern_cabinet",
+            () -> new BlockItem(ModBlocks.PINK_MODERN_CABINET.get(), new Item.Properties())));
+
 
 }

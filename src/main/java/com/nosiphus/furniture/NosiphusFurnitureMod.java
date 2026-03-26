@@ -4,6 +4,7 @@ import com.mojang.logging.LogUtils;
 import com.nosiphus.furniture.world.item.ModCreativeModeTabs;
 import com.nosiphus.furniture.world.item.ModItems;
 import com.nosiphus.furniture.world.level.block.ModBlocks;
+import com.nosiphus.furniture.world.level.block.entity.ModBlockEntityTypes;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.bus.api.SubscribeEvent;
@@ -21,6 +22,7 @@ public class NosiphusFurnitureMod {
     public NosiphusFurnitureMod(IEventBus eventBus, ModContainer container) {
 
         ModBlocks.BLOCKS.register(eventBus);
+        ModBlockEntityTypes.BLOCK_ENTITY_TYPES.register(eventBus);
         ModCreativeModeTabs.CREATIVE_TABS.register(eventBus);
         ModItems.ITEMS.register(eventBus);
 
