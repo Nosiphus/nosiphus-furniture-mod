@@ -298,4 +298,40 @@ public class ModBlocks {
     public static final DeferredBlock<Block> PINK_MODERN_BED = BLOCKS.register("pink_modern_bed",
             () -> new ModernBedBlock(DyeColor.PINK, BlockBehaviour.Properties.ofFullCopy(Blocks.PINK_WOOL)));
 
+    // Curtains
+    public static final DeferredBlock<Block> WHITE_CURTAIN = BLOCKS.register("white_curtain",
+            () -> new CurtainBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.WHITE_WOOL)));
+    public static final DeferredBlock<Block> LIGHT_GRAY_CURTAIN = BLOCKS.register("light_gray_curtain",
+            () -> new CurtainBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.LIGHT_GRAY_WOOL)));
+    public static final DeferredBlock<Block> GRAY_CURTAIN = BLOCKS.register("gray_curtain",
+            () -> new CurtainBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.GRAY_WOOL)));
+    public static final DeferredBlock<Block> BLACK_CURTAIN = BLOCKS.register("black_curtain",
+            () -> new CurtainBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.BLACK_WOOL)));
+    public static final DeferredBlock<Block> BROWN_CURTAIN = BLOCKS.register("brown_curtain",
+            () -> new CurtainBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.BROWN_WOOL)));
+    public static final DeferredBlock<Block> RED_CURTAIN = BLOCKS.register("red_curtain",
+            () -> new CurtainBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.RED_WOOL)));
+    public static final DeferredBlock<Block> ORANGE_CURTAIN = BLOCKS.register("orange_curtain",
+            () -> new CurtainBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.ORANGE_WOOL)));
+    public static final DeferredBlock<Block> BEIGE_CURTAIN = BLOCKS.register("beige_curtain",
+            () -> new CurtainBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.YELLOW_WOOL)));
+    public static final DeferredBlock<Block> YELLOW_CURTAIN = BLOCKS.register("yellow_curtain",
+            () -> new CurtainBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.YELLOW_WOOL)));
+    public static final DeferredBlock<Block> LIME_CURTAIN = BLOCKS.register("lime_curtain",
+            () -> new CurtainBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.LIME_WOOL)));
+    public static final DeferredBlock<Block> GREEN_CURTAIN = BLOCKS.register("green_curtain",
+            () -> new CurtainBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.GREEN_WOOL)));
+    public static final DeferredBlock<Block> CYAN_CURTAIN = BLOCKS.register("cyan_curtain",
+            () -> new CurtainBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.CYAN_WOOL)));
+    public static final DeferredBlock<Block> LIGHT_BLUE_CURTAIN = BLOCKS.register("light_blue_curtain",
+            () -> new CurtainBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.LIGHT_BLUE_WOOL)));
+    public static final DeferredBlock<Block> BLUE_CURTAIN = BLOCKS.register("blue_curtain",
+            () -> new CurtainBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.BLUE_WOOL)));
+    public static final DeferredBlock<Block> PURPLE_CURTAIN = BLOCKS.register("purple_curtain",
+            () -> new CurtainBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.PURPLE_WOOL)));
+    public static final DeferredBlock<Block> MAGENTA_CURTAIN = BLOCKS.register("magenta_curtain",
+            () -> new CurtainBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.MAGENTA_WOOL)));
+    public static final DeferredBlock<Block> PINK_CURTAIN = BLOCKS.register("pink_curtain",
+            () -> new CurtainBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.PINK_WOOL)));
+
 }

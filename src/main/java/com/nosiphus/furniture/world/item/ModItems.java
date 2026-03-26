@@ -298,5 +298,40 @@ public class ModItems {
     public static final DeferredItem<BlockItem> PINK_MODERN_BED = addToTab(ITEMS.register("pink_modern_bed",
             () -> new BlockItem(ModBlocks.PINK_MODERN_BED.get(), new Item.Properties())));
 
+    // Curtains
+    public static final DeferredItem<BlockItem> WHITE_CURTAIN = addToTab(ITEMS.register("white_curtain",
+            () -> new BlockItem(ModBlocks.WHITE_CURTAIN.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> LIGHT_GRAY_CURTAIN = addToTab(ITEMS.register("light_gray_curtain",
+            () -> new BlockItem(ModBlocks.LIGHT_GRAY_CURTAIN.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> GRAY_CURTAIN = addToTab(ITEMS.register("gray_curtain",
+            () -> new BlockItem(ModBlocks.GRAY_CURTAIN.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> BLACK_CURTAIN = addToTab(ITEMS.register("black_curtain",
+            () -> new BlockItem(ModBlocks.BLACK_CURTAIN.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> BROWN_CURTAIN = addToTab(ITEMS.register("brown_curtain",
+            () -> new BlockItem(ModBlocks.BROWN_CURTAIN.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> RED_CURTAIN = addToTab(ITEMS.register("red_curtain",
+            () -> new BlockItem(ModBlocks.RED_CURTAIN.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> ORANGE_CURTAIN = addToTab(ITEMS.register("orange_curtain",
+            () -> new BlockItem(ModBlocks.ORANGE_CURTAIN.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> BEIGE_CURTAIN = addToTab(ITEMS.register("beige_curtain",
+            () -> new BlockItem(ModBlocks.BEIGE_CURTAIN.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> YELLOW_CURTAIN = addToTab(ITEMS.register("yellow_curtain",
+            () -> new BlockItem(ModBlocks.YELLOW_CURTAIN.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> LIME_CURTAIN = addToTab(ITEMS.register("lime_curtain",
+            () -> new BlockItem(ModBlocks.LIME_CURTAIN.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> GREEN_CURTAIN = addToTab(ITEMS.register("green_curtain",
+            () -> new BlockItem(ModBlocks.GREEN_CURTAIN.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> CYAN_CURTAIN = addToTab(ITEMS.register("cyan_curtain",
+            () -> new BlockItem(ModBlocks.CYAN_CURTAIN.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> LIGHT_BLUE_CURTAIN = addToTab(ITEMS.register("light_blue_curtain",
+            () -> new BlockItem(ModBlocks.LIGHT_BLUE_CURTAIN.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> BLUE_CURTAIN = addToTab(ITEMS.register("blue_curtain",
+            () -> new BlockItem(ModBlocks.BLUE_CURTAIN.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> PURPLE_CURTAIN = addToTab(ITEMS.register("purple_curtain",
+            () -> new BlockItem(ModBlocks.PURPLE_CURTAIN.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> MAGENTA_CURTAIN = addToTab(ITEMS.register("magenta_curtain",
+            () -> new BlockItem(ModBlocks.MAGENTA_CURTAIN.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> PINK_CURTAIN = addToTab(ITEMS.register("pink_curtain",
+            () -> new BlockItem(ModBlocks.PINK_CURTAIN.get(), new Item.Properties())));
 
 }
