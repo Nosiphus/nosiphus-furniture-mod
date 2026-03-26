@@ -169,6 +169,23 @@ public class DeskBlock extends FurnitureHorizontalBlock
         DIORITE,
         GRANITE,
         BLACKSTONE,
-        DEEPSLATE
+        DEEPSLATE,
+        WHITE_CONCRETE,
+        LIGHT_GRAY_CONCRETE,
+        GRAY_CONCRETE,
+        BLACK_CONCRETE,
+        BROWN_CONCRETE,
+        RED_CONCRETE,
+        ORANGE_CONCRETE,
+        BEIGE_CONCRETE,
+        YELLOW_CONCRETE,
+        LIME_CONCRETE,
+        GREEN_CONCRETE,
+        CYAN_CONCRETE,
+        LIGHT_BLUE_CONCRETE,
+        BLUE_CONCRETE,
+        PURPLE_CONCRETE,
+        MAGENTA_CONCRETE,
+        PINK_CONCRETE
     }
 }
