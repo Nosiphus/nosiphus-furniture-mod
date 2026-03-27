@@ -15,8 +15,13 @@ import com.nosiphus.furniture.world.level.block.ModBlocks;
 import com.nosiphus.furniture.world.level.block.entity.ModBlockEntityTypes;
 import com.nosiphus.furniture.world.level.material.ModFluidTypes;
 import com.nosiphus.furniture.world.level.material.ModFluids;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.renderer.BiomeColors;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderers;
 import net.minecraft.client.renderer.entity.EntityRenderers;
+import net.minecraft.world.item.BlockItem;
+import net.minecraft.world.level.FoliageColor;
+import net.minecraft.world.level.block.state.BlockState;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.bus.api.SubscribeEvent;
@@ -27,6 +32,7 @@ import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.neoforged.neoforge.capabilities.Capabilities;
 import net.neoforged.neoforge.capabilities.RegisterCapabilitiesEvent;
+import net.neoforged.neoforge.client.event.RegisterColorHandlersEvent;
 import net.neoforged.neoforge.client.event.RegisterMenuScreensEvent;
 import org.slf4j.Logger;
 
@@ -57,6 +63,22 @@ public class NosiphusFurnitureMod {
         public static void onClientSetup(FMLClientSetupEvent event) {
             registerBlockEntityRenderers();
             registerEntityRenderers();
+        }
+
+        @SubscribeEvent
+        public static void registerBlockColors(RegisterColorHandlersEvent.Block event) {
+            event.register((state, reader, pos, i) -> FoliageColor.getEvergreenColor(),
+                    ModBlocks.CHRISTMAS_TREE.get());
+            event.register((state, reader, pos, i) -> reader != null && pos != null ? BiomeColors.getAverageFoliageColor(reader, pos) : FoliageColor.getDefaultColor(),
+                    ModBlocks.WREATH.get());
+        }
+
+        @SubscribeEvent
+        public static void onRegisterItemColors(RegisterColorHandlersEvent.Item event) {
+            event.register((stack, i) -> {
+                BlockState state = ((BlockItem)stack.getItem()).getBlock().defaultBlockState();
+                return Minecraft.getInstance().getBlockColors().getColor(state, null, null, i);
+            }, ModBlocks.CHRISTMAS_TREE.get(), ModBlocks.WREATH.get());
         }
 
         @SubscribeEvent

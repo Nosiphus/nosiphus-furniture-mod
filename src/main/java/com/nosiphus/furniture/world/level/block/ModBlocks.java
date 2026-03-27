@@ -993,7 +993,7 @@ public class ModBlocks {
     public static final DeferredBlock<Block> ORANGE_DIGITAL_CLOCK = BLOCKS.register("orange_digital_clock",
             () -> new DigitalClockBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.ORANGE_CONCRETE)));
     public static final DeferredBlock<Block> BEIGE_DIGITAL_CLOCK = BLOCKS.register("beige_digital_clock",
-            () -> new YogDigitalClockBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.YELLOW_CONCRETE)));
+            () -> new DigitalClockBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.YELLOW_CONCRETE)));
     public static final DeferredBlock<Block> YELLOW_DIGITAL_CLOCK = BLOCKS.register("yellow_digital_clock",
             () -> new DigitalClockBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.YELLOW_CONCRETE)));
     public static final DeferredBlock<Block> LIME_DIGITAL_CLOCK = BLOCKS.register("lime_digital_clock",
@@ -1013,6 +1013,7 @@ public class ModBlocks {
     public static final DeferredBlock<Block> PINK_DIGITAL_CLOCK = BLOCKS.register("pink_digital_clock",
             () -> new DigitalClockBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.PINK_CONCRETE)));
 
+     */
     // Festive Blocks
     public static final DeferredBlock<Block> CANDLE = BLOCKS.register("candle",
             () -> new CandleBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.WHITE_CONCRETE).lightLevel(getLightValueLit(13)).noOcclusion()));
@@ -1021,8 +1022,6 @@ public class ModBlocks {
     public static final DeferredBlock<Block> WREATH = BLOCKS.register("wreath",
             () -> new WreathBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.DARK_OAK_LEAVES).noOcclusion()));
 
-
-     */
     // Fluids
     public static final DeferredBlock<LiquidBlock> SOAPY_WATER = BLOCKS.register("soapy_water",
             () -> new LiquidBlock(ModFluids.SOAPY_WATER.get(), BlockBehaviour.Properties.ofFullCopy(Blocks.WATER)));

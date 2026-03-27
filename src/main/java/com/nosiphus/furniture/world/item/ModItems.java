@@ -1007,6 +1007,7 @@ public class ModItems {
     public static final DeferredItem<BlockItem> PINK_DIGITAL_CLOCK = addToTab(ITEMS.register("pink_digital_clock",
             () -> new BlockItem(ModBlocks.PINK_DIGITAL_CLOCK.get(), new Item.Properties())));
 
+*/
     // Festive Blocks
     public static final DeferredItem<BlockItem> CANDLE = addToTab(ITEMS.register("candle",
             () -> new BlockItem(ModBlocks.CANDLE.get(), new Item.Properties())));
@@ -1014,8 +1015,6 @@ public class ModItems {
             () -> new BlockItem(ModBlocks.CHRISTMAS_TREE.get(), new Item.Properties())));
     public static final DeferredItem<BlockItem> WREATH = addToTab(ITEMS.register("wreath",
             () -> new BlockItem(ModBlocks.WREATH.get(), new Item.Properties())));
-
-     */
 
     // Food
     public static final DeferredItem<Item> BREAD_SLICE = addToTab(ITEMS.register("bread_slice",
