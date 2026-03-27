@@ -20,6 +20,18 @@ public class ModBlockEntityTypes {
                     ModBlocks.CHERRY_CHOPPING_BOARD.get(), ModBlocks.WARPED_CHOPPING_BOARD.get()
             ).build(null));
 
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<CookieJarBlockEntity>> COOKIE_JAR =
+            BLOCK_ENTITY_TYPES.register("cookie_jar", () -> BlockEntityType.Builder.of(
+                    CookieJarBlockEntity::new,
+                    ModBlocks.COOKIE_JAR.get()
+            ).build(null));
+
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<PlateBlockEntity>> PLATE =
+            BLOCK_ENTITY_TYPES.register("plate", () -> BlockEntityType.Builder.of(
+                    PlateBlockEntity::new,
+                    ModBlocks.PLATE.get()
+            ).build(null));
+
     public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<TelevisionStandBlockEntity>> TELEVISION_STAND =
             BLOCK_ENTITY_TYPES.register("television_stand", () -> BlockEntityType.Builder.of(
                     TelevisionStandBlockEntity::new,

@@ -830,7 +830,6 @@ public class ModBlocks {
     public static final DeferredBlock<Block> CASTLE_NETTING = BLOCKS.register("castle_netting",
             () -> new IronBarsBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.WHITE_WOOL)));
 
-    /*
     // Kitchenware
     public static final DeferredBlock<Block> COOKIE_JAR = BLOCKS.register("cookie_jar",
             () -> new CookieJarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.GLASS)));
@@ -849,7 +848,7 @@ public class ModBlocks {
     public static final DeferredBlock<Block> ORANGE_CUP = BLOCKS.register("orange_cup",
             () -> new CupBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.ORANGE_STAINED_GLASS)));
     public static final DeferredBlock<Block> BEIGE_CUP = BLOCKS.register("beige_cup",
-            () -> new CupBlock(BlockBehaviour.Properties.ofFullCopy(com.nosiphus.yogmod.world.level.block.ModBlocks.BEIGE_STAINED_GLASS.get())));
+            () -> new CupBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.YELLOW_STAINED_GLASS)));
     public static final DeferredBlock<Block> YELLOW_CUP = BLOCKS.register("yellow_cup",
             () -> new CupBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.YELLOW_STAINED_GLASS)));
     public static final DeferredBlock<Block> LIME_CUP = BLOCKS.register("lime_cup",
@@ -871,6 +870,7 @@ public class ModBlocks {
     public static final DeferredBlock<Block> PLATE = BLOCKS.register("plate",
             () -> new PlateBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.SMOOTH_QUARTZ)));
 
+        /*
     // Bird Baths
     public static final DeferredBlock<Block> STONE_BIRD_BATH = BLOCKS.register("stone_bird_bath",
             () -> new BirdBathBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE)));
