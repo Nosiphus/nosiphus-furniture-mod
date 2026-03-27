@@ -977,6 +977,7 @@ public class ModBlocks {
     public static final DeferredBlock<Block> WASHING_MACHINE_DARK = BLOCKS.register("washing_machine_dark",
             () -> new WashingMachineBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.GRAY_CONCRETE).noOcclusion()));
 
+     */
     // Digital Clocks
     public static final DeferredBlock<Block> WHITE_DIGITAL_CLOCK = BLOCKS.register("white_digital_clock",
             () -> new DigitalClockBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.WHITE_CONCRETE)));
@@ -1013,7 +1014,6 @@ public class ModBlocks {
     public static final DeferredBlock<Block> PINK_DIGITAL_CLOCK = BLOCKS.register("pink_digital_clock",
             () -> new DigitalClockBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.PINK_CONCRETE)));
 
-     */
     // Festive Blocks
     public static final DeferredBlock<Block> CANDLE = BLOCKS.register("candle",
             () -> new CandleBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.WHITE_CONCRETE).lightLevel(getLightValueLit(13)).noOcclusion()));

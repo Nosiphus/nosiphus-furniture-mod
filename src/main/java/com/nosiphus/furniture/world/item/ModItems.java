@@ -971,6 +971,7 @@ public class ModItems {
     public static final DeferredItem<BlockItem> WASHING_MACHINE_DARK = addToTab(ITEMS.register("washing_machine_dark",
             () -> new BlockItem(ModBlocks.WASHING_MACHINE_DARK.get(), new Item.Properties())));
 
+     */
     // Digital Clocks
     public static final DeferredItem<BlockItem> WHITE_DIGITAL_CLOCK = addToTab(ITEMS.register("white_digital_clock",
             () -> new BlockItem(ModBlocks.WHITE_DIGITAL_CLOCK.get(), new Item.Properties())));
@@ -1007,7 +1008,6 @@ public class ModItems {
     public static final DeferredItem<BlockItem> PINK_DIGITAL_CLOCK = addToTab(ITEMS.register("pink_digital_clock",
             () -> new BlockItem(ModBlocks.PINK_DIGITAL_CLOCK.get(), new Item.Properties())));
 
-*/
     // Festive Blocks
     public static final DeferredItem<BlockItem> CANDLE = addToTab(ITEMS.register("candle",
             () -> new BlockItem(ModBlocks.CANDLE.get(), new Item.Properties())));

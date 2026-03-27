@@ -34,6 +34,20 @@ public class ModBlockEntityTypes {
                     ModBlocks.COOKIE_JAR.get()
             ).build(null));
 
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<DigitalClockBlockEntity>> DIGITAL_CLOCK =
+            BLOCK_ENTITY_TYPES.register("digital_clock", () -> BlockEntityType.Builder.of(
+                    DigitalClockBlockEntity::new,
+                    ModBlocks.WHITE_DIGITAL_CLOCK.get(), ModBlocks.LIGHT_GRAY_DIGITAL_CLOCK.get(),
+                    ModBlocks.GRAY_DIGITAL_CLOCK.get(), ModBlocks.BLACK_DIGITAL_CLOCK.get(),
+                    ModBlocks.BROWN_DIGITAL_CLOCK.get(), ModBlocks.RED_DIGITAL_CLOCK.get(),
+                    ModBlocks.ORANGE_DIGITAL_CLOCK.get(), ModBlocks.BEIGE_DIGITAL_CLOCK.get(),
+                    ModBlocks.YELLOW_DIGITAL_CLOCK.get(), ModBlocks.LIME_DIGITAL_CLOCK.get(),
+                    ModBlocks.GREEN_DIGITAL_CLOCK.get(), ModBlocks.CYAN_DIGITAL_CLOCK.get(),
+                    ModBlocks.LIGHT_BLUE_DIGITAL_CLOCK.get(), ModBlocks.BLUE_DIGITAL_CLOCK.get(),
+                    ModBlocks.PURPLE_DIGITAL_CLOCK.get(), ModBlocks.MAGENTA_DIGITAL_CLOCK.get(),
+                    ModBlocks.PINK_DIGITAL_CLOCK.get()
+            ).build(null));
+
     public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<PlateBlockEntity>> PLATE =
             BLOCK_ENTITY_TYPES.register("plate", () -> BlockEntityType.Builder.of(
                     PlateBlockEntity::new,
