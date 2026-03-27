@@ -2,6 +2,7 @@ package com.nosiphus.furniture;
 
 import com.mojang.logging.LogUtils;
 import com.nosiphus.furniture.client.gui.screens.inventory.WallCabinetScreen;
+import com.nosiphus.furniture.client.renderer.blockentity.BirdBathBlockEntityRenderer;
 import com.nosiphus.furniture.client.renderer.blockentity.ChoppingBoardBlockEntityRenderer;
 import com.nosiphus.furniture.client.renderer.blockentity.CookieJarBlockEntityRenderer;
 import com.nosiphus.furniture.client.renderer.blockentity.PlateBlockEntityRenderer;
@@ -25,6 +26,8 @@ import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
+import net.neoforged.neoforge.capabilities.Capabilities;
+import net.neoforged.neoforge.capabilities.RegisterCapabilitiesEvent;
 import net.neoforged.neoforge.client.event.RegisterMenuScreensEvent;
 import org.slf4j.Logger;
 
@@ -71,10 +74,18 @@ public class NosiphusFurnitureMod {
 
         }
 
+        @SubscribeEvent
+        public static void registerCapabilities(RegisterCapabilitiesEvent event)
+        {
+            event.registerBlockEntity(Capabilities.FluidHandler.BLOCK,
+                    ModBlockEntityTypes.BIRD_BATH.get(),(be, side) -> be.getTank());
+        }
+
     }
 
     private static void registerBlockEntityRenderers()
     {
+        BlockEntityRenderers.register(ModBlockEntityTypes.BIRD_BATH.get(), BirdBathBlockEntityRenderer::new);
         BlockEntityRenderers.register(ModBlockEntityTypes.CHOPPING_BOARD.get(), ChoppingBoardBlockEntityRenderer::new);
         BlockEntityRenderers.register(ModBlockEntityTypes.COOKIE_JAR.get(), CookieJarBlockEntityRenderer::new);
         BlockEntityRenderers.register(ModBlockEntityTypes.PLATE.get(), PlateBlockEntityRenderer::new);

@@ -10,6 +10,14 @@ public class ModBlockEntityTypes {
 
     public static final DeferredRegister<BlockEntityType<?>> BLOCK_ENTITY_TYPES = DeferredRegister.create(Registries.BLOCK_ENTITY_TYPE, "nfm");
 
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<BirdBathBlockEntity>> BIRD_BATH =
+            BLOCK_ENTITY_TYPES.register("bird_bath", () -> BlockEntityType.Builder.of(
+                    BirdBathBlockEntity::new,
+                    ModBlocks.STONE_BIRD_BATH.get(), ModBlocks.ANDESITE_BIRD_BATH.get(),
+                    ModBlocks.DIORITE_BIRD_BATH.get(), ModBlocks.GRANITE_BIRD_BATH.get(),
+                    ModBlocks.BLACKSTONE_BIRD_BATH.get(), ModBlocks.DEEPSLATE_BIRD_BATH.get()
+            ).build(null));
+
     public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<ChoppingBoardBlockEntity>> CHOPPING_BOARD =
             BLOCK_ENTITY_TYPES.register("chopping_board", () -> BlockEntityType.Builder.of(
                     ChoppingBoardBlockEntity::new,

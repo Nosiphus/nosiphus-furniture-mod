@@ -867,7 +867,6 @@ public class ModItems {
     public static final DeferredItem<BlockItem> PLATE = addToTab(ITEMS.register("plate",
             () -> new BlockItem(ModBlocks.PLATE.get(), new Item.Properties())));
 
-        /*
     // Bird Baths
     public static final DeferredItem<BlockItem> STONE_BIRD_BATH = addToTab(ITEMS.register("stone_bird_bath",
             () -> new BlockItem(ModBlocks.STONE_BIRD_BATH.get(), new Item.Properties())));
@@ -882,6 +881,7 @@ public class ModItems {
     public static final DeferredItem<BlockItem> DEEPSLATE_BIRD_BATH = addToTab(ITEMS.register("deepslate_bird_bath",
             () -> new BlockItem(ModBlocks.DEEPSLATE_BIRD_BATH.get(), new Item.Properties())));
 
+    /*
     // Water Tanks
     public static final DeferredItem<BlockItem> OAK_WATER_TANK = addToTab(ITEMS.register("oak_water_tank",
             () -> new BlockItem(ModBlocks.OAK_WATER_TANK.get(), new Item.Properties())));

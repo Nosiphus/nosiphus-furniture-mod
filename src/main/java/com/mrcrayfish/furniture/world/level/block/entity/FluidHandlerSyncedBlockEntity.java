@@ -77,7 +77,6 @@ public abstract class FluidHandlerSyncedBlockEntity extends BlockEntity
     @Override
     public void onDataPacket(Connection net, ClientboundBlockEntityDataPacket pkt, HolderLookup.Provider registries)
     {
-        // Re-load the data on the client side when the packet arrives
         this.loadAdditional(pkt.getTag(), registries);
     }
 }

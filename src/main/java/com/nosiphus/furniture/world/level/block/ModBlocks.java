@@ -870,7 +870,6 @@ public class ModBlocks {
     public static final DeferredBlock<Block> PLATE = BLOCKS.register("plate",
             () -> new PlateBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.SMOOTH_QUARTZ)));
 
-        /*
     // Bird Baths
     public static final DeferredBlock<Block> STONE_BIRD_BATH = BLOCKS.register("stone_bird_bath",
             () -> new BirdBathBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE)));
@@ -885,6 +884,7 @@ public class ModBlocks {
     public static final DeferredBlock<Block> DEEPSLATE_BIRD_BATH = BLOCKS.register("deepslate_bird_bath",
             () -> new BirdBathBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.DEEPSLATE)));
 
+    /*
     // Water Tanks
     public static final DeferredBlock<Block> OAK_WATER_TANK = BLOCKS.register("oak_water_tank",
             () -> new WaterTankBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.CAULDRON).noOcclusion()));
