@@ -8,7 +8,7 @@ import net.neoforged.neoforge.fluids.FluidType;
 public class WaterTankBlockEntity extends FluidHandlerSyncedBlockEntity {
 
     public WaterTankBlockEntity(BlockPos pos, BlockState state) {
-        super(ModBlockEntityTypes.WATER_TANK.get(), pos, state, FluidType.BUCKET_VOLUME * 20);
+        super(ModBlockEntityTypes.WATER_TANK.get(), pos, state, FluidType.BUCKET_VOLUME * 24);
     }
 
 }

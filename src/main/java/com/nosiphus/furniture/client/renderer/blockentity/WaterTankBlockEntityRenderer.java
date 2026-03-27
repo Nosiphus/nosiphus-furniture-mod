@@ -35,7 +35,7 @@ public class WaterTankBlockEntityRenderer implements BlockEntityRenderer<WaterTa
         float y = 7.0F / 16.0F;
         float z = 1.8F / 16.0F;
         float width = 12.4F / 16.0F;
-        float maxHeight = 10.0F / 16.0F;
+        float maxHeight = 10.0F / 12.0F;
         float depth = 12.4F / 16.0F;
 
         this.drawFluid(tileEntity, poseStack, source, x, y, z, width, maxHeight, depth, light, overlay);
