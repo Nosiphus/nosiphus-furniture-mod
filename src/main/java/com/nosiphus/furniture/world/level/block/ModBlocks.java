@@ -908,11 +908,8 @@ public class ModBlocks {
             () -> new WaterTankBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.CAULDRON).noOcclusion()));
 
     // Appliances and Electronics
-    /*
     public static final DeferredBlock<Block> ELECTRIC_FENCE = BLOCKS.register("electric_fence",
             () -> new ElectricFenceBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.ANVIL)));
-
-     */
     public static final DeferredBlock<Block> BATH_LIGHT = BLOCKS.register("bath_light",
             () -> new BathBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.WHITE_CONCRETE)));
     public static final DeferredBlock<Block> BATH_DARK = BLOCKS.register("bath_dark",

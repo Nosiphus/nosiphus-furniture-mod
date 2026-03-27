@@ -902,11 +902,8 @@ public class ModItems {
             () -> new BlockItem(ModBlocks.WARPED_WATER_TANK.get(), new Item.Properties())));
 
     // Appliances and Electronics
-    /*
     public static final DeferredItem<BlockItem> ELECTRIC_FENCE = addToTab(ITEMS.register("electric_fence",
             () -> new BlockItem(ModBlocks.ELECTRIC_FENCE.get(), new Item.Properties())));
-
-     */
     public static final DeferredItem<BlockItem> BATH_LIGHT = addToTab(ITEMS.register("bath_light",
             () -> new BlockItem(ModBlocks.BATH_LIGHT.get(), new Item.Properties())));
     public static final DeferredItem<BlockItem> BATH_DARK = addToTab(ITEMS.register("bath_dark",
