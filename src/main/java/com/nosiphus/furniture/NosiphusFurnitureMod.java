@@ -13,6 +13,8 @@ import com.nosiphus.furniture.world.item.crafting.ModRecipeSerializers;
 import com.nosiphus.furniture.world.item.crafting.ModRecipeTypes;
 import com.nosiphus.furniture.world.level.block.ModBlocks;
 import com.nosiphus.furniture.world.level.block.entity.ModBlockEntityTypes;
+import com.nosiphus.furniture.world.level.material.ModFluidTypes;
+import com.nosiphus.furniture.world.level.material.ModFluids;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderers;
 import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.neoforged.api.distmarker.Dist;
@@ -38,6 +40,8 @@ public class NosiphusFurnitureMod {
         ModBlockEntityTypes.BLOCK_ENTITY_TYPES.register(eventBus);
         ModCreativeModeTabs.CREATIVE_TABS.register(eventBus);
         ModEntityTypes.ENTITY_TYPES.register(eventBus);
+        ModFluids.FLUIDS.register(eventBus);
+        ModFluidTypes.FLUID_TYPES.register(eventBus);
         ModItems.ITEMS.register(eventBus);
         ModMenuTypes.MENU_TYPES.register(eventBus);
         ModRecipeSerializers.RECIPE_SERIALIZERS.register(eventBus);

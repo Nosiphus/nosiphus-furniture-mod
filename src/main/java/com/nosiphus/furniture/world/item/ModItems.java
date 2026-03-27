@@ -1,11 +1,9 @@
 package com.nosiphus.furniture.world.item;
 
 import com.nosiphus.furniture.world.level.block.ModBlocks;
+import com.nosiphus.furniture.world.level.material.ModFluids;
 import net.minecraft.world.food.FoodProperties;
-import net.minecraft.world.item.BlockItem;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.SwordItem;
-import net.minecraft.world.item.Tiers;
+import net.minecraft.world.item.*;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
@@ -1052,15 +1050,12 @@ public class ModItems {
                     .attributes(SwordItem.createAttributes(Tiers.STONE, 1, -2.4F)))));
     public static final DeferredItem<Item> SOAP = addToTab(ITEMS.register("soap",
             () -> new Item(new Item.Properties())));
-    /*
     public static final DeferredItem<BucketItem> SOAPY_WATER_BUCKET = addToTab(ITEMS.register("soapy_water_bucket",
             () -> new BucketItem(ModFluids.SOAPY_WATER.get(), new Item.Properties().stacksTo(1))));
     public static final DeferredItem<BucketItem> SUPER_SOAPY_WATER_BUCKET = addToTab(ITEMS.register("super_soapy_water_bucket",
             () -> new BucketItem(ModFluids.SUPER_SOAPY_WATER.get(), new Item.Properties().stacksTo(1))));
     public static final DeferredItem<Item> TELEVISION_REMOTE = addToTab(ITEMS.register("television_remote",
             () -> new Item(new Item.Properties())));
-
-     */
 
 
 

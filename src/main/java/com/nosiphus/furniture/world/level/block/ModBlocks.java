@@ -1,10 +1,12 @@
 package com.nosiphus.furniture.world.level.block;
 
 import com.mrcrayfish.furniture.world.level.block.*;
+import com.nosiphus.furniture.world.level.material.ModFluids;
 import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.IronBarsBlock;
+import net.minecraft.world.level.block.LiquidBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
@@ -1019,13 +1021,13 @@ public class ModBlocks {
     public static final DeferredBlock<Block> WREATH = BLOCKS.register("wreath",
             () -> new WreathBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.DARK_OAK_LEAVES).noOcclusion()));
 
+
+     */
     // Fluids
     public static final DeferredBlock<LiquidBlock> SOAPY_WATER = BLOCKS.register("soapy_water",
             () -> new LiquidBlock(ModFluids.SOAPY_WATER.get(), BlockBehaviour.Properties.ofFullCopy(Blocks.WATER)));
     public static final DeferredBlock<LiquidBlock> SUPER_SOAPY_WATER = BLOCKS.register("super_soapy_water",
             () -> new LiquidBlock(ModFluids.SUPER_SOAPY_WATER.get(), BlockBehaviour.Properties.ofFullCopy(Blocks.WATER)));
-
-     */
 
     // Methods
     private static ToIntFunction<BlockState> getLightValueLit(int lightValue) {
