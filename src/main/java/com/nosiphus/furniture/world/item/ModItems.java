@@ -747,7 +747,6 @@ public class ModItems {
     public static final DeferredItem<BlockItem> WARPED_CHOPPING_BOARD = addToTab(ITEMS.register("warped_chopping_board",
             () -> new BlockItem(ModBlocks.WARPED_CHOPPING_BOARD.get(), new Item.Properties())));
 
-    /*
     // Door Bells
     public static final DeferredItem<BlockItem> OAK_DOOR_BELL = addToTab(ITEMS.register("oak_door_bell",
             () -> new BlockItem(ModBlocks.OAK_DOOR_BELL.get(), new Item.Properties())));
@@ -828,6 +827,7 @@ public class ModItems {
     public static final DeferredItem<BlockItem> CASTLE_NETTING = addToTab(ITEMS.register("castle_netting",
             () -> new BlockItem(ModBlocks.CASTLE_NETTING.get(), new Item.Properties())));
 
+    /*
     // Kitchenware
     public static final DeferredItem<BlockItem> COOKIE_JAR = addToTab(ITEMS.register("cookie_jar",
             () -> new BlockItem(ModBlocks.COOKIE_JAR.get(), new Item.Properties())));

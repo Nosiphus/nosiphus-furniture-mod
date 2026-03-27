@@ -5,6 +5,7 @@ import com.nosiphus.furniture.world.ChoppingBoardBlock;
 import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.IronBarsBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
@@ -749,49 +750,47 @@ public class ModBlocks {
     public static final DeferredBlock<Block> WARPED_CHOPPING_BOARD = BLOCKS.register("warped_chopping_board",
             () -> new ChoppingBoardBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.WARPED_PLANKS)));
 
-    /*
     // Door Bells
     public static final DeferredBlock<Block> OAK_DOOR_BELL = BLOCKS.register("oak_door_bell",
-            () -> new DoorBellBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_WOOD).noOcclusion()));
+            () -> new DoorBellBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS).noOcclusion()));
     public static final DeferredBlock<Block> SPRUCE_DOOR_BELL = BLOCKS.register("spruce_door_bell",
-            () -> new DoorBellBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.SPRUCE_WOOD).noOcclusion()));
+            () -> new DoorBellBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.SPRUCE_PLANKS).noOcclusion()));
     public static final DeferredBlock<Block> BIRCH_DOOR_BELL = BLOCKS.register("birch_door_bell",
-            () -> new DoorBellBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.BIRCH_WOOD).noOcclusion()));
+            () -> new DoorBellBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.BIRCH_PLANKS).noOcclusion()));
     public static final DeferredBlock<Block> JUNGLE_DOOR_BELL = BLOCKS.register("jungle_door_bell",
-            () -> new DoorBellBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.JUNGLE_WOOD).noOcclusion()));
+            () -> new DoorBellBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.JUNGLE_PLANKS).noOcclusion()));
     public static final DeferredBlock<Block> ACACIA_DOOR_BELL = BLOCKS.register("acacia_door_bell",
-            () -> new DoorBellBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.ACACIA_WOOD).noOcclusion()));
+            () -> new DoorBellBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.ACACIA_PLANKS).noOcclusion()));
     public static final DeferredBlock<Block> DARK_OAK_DOOR_BELL = BLOCKS.register("dark_oak_door_bell",
-            () -> new DoorBellBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.DARK_OAK_WOOD).noOcclusion()));
+            () -> new DoorBellBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.DARK_OAK_PLANKS).noOcclusion()));
     public static final DeferredBlock<Block> MANGROVE_DOOR_BELL = BLOCKS.register("mangrove_door_bell",
-            () -> new DoorBellBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.MANGROVE_WOOD).noOcclusion()));
+            () -> new DoorBellBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.MANGROVE_PLANKS).noOcclusion()));
     public static final DeferredBlock<Block> CHERRY_DOOR_BELL = BLOCKS.register("cherry_door_bell",
-            () -> new DoorBellBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.CHERRY_WOOD).noOcclusion()));
+            () -> new DoorBellBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.CHERRY_PLANKS).noOcclusion()));
     public static final DeferredBlock<Block> CRIMSON_DOOR_BELL = BLOCKS.register("crimson_door_bell",
-            () -> new DoorBellBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.CRIMSON_STEM).noOcclusion()));
+            () -> new DoorBellBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.CRIMSON_PLANKS).noOcclusion()));
     public static final DeferredBlock<Block> WARPED_DOOR_BELL = BLOCKS.register("warped_door_bell",
-            () -> new DoorBellBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.WARPED_STEM).noOcclusion()));
-
+            () -> new DoorBellBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.WARPED_PLANKS).noOcclusion()));
     public static final DeferredBlock<Block> STRIPPED_OAK_DOOR_BELL = BLOCKS.register("stripped_oak_door_bell",
-            () -> new DoorBellBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STRIPPED_OAK_WOOD).noOcclusion()));
+            () -> new DoorBellBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS).noOcclusion()));
     public static final DeferredBlock<Block> STRIPPED_SPRUCE_DOOR_BELL = BLOCKS.register("stripped_spruce_door_bell",
-            () -> new DoorBellBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STRIPPED_SPRUCE_WOOD).noOcclusion()));
+            () -> new DoorBellBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.SPRUCE_PLANKS).noOcclusion()));
     public static final DeferredBlock<Block> STRIPPED_BIRCH_DOOR_BELL = BLOCKS.register("stripped_birch_door_bell",
-            () -> new DoorBellBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STRIPPED_BIRCH_WOOD).noOcclusion()));
+            () -> new DoorBellBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.BIRCH_PLANKS).noOcclusion()));
     public static final DeferredBlock<Block> STRIPPED_JUNGLE_DOOR_BELL = BLOCKS.register("stripped_jungle_door_bell",
-            () -> new DoorBellBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STRIPPED_JUNGLE_WOOD).noOcclusion()));
+            () -> new DoorBellBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.JUNGLE_PLANKS).noOcclusion()));
     public static final DeferredBlock<Block> STRIPPED_ACACIA_DOOR_BELL = BLOCKS.register("stripped_acacia_door_bell",
-            () -> new DoorBellBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STRIPPED_ACACIA_WOOD).noOcclusion()));
+            () -> new DoorBellBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.ACACIA_PLANKS).noOcclusion()));
     public static final DeferredBlock<Block> STRIPPED_DARK_OAK_DOOR_BELL = BLOCKS.register("stripped_dark_oak_door_bell",
-            () -> new DoorBellBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STRIPPED_DARK_OAK_WOOD).noOcclusion()));
+            () -> new DoorBellBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.DARK_OAK_PLANKS).noOcclusion()));
     public static final DeferredBlock<Block> STRIPPED_MANGROVE_DOOR_BELL = BLOCKS.register("stripped_mangrove_door_bell",
-            () -> new DoorBellBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STRIPPED_MANGROVE_WOOD).noOcclusion()));
+            () -> new DoorBellBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.MANGROVE_PLANKS).noOcclusion()));
     public static final DeferredBlock<Block> STRIPPED_CHERRY_DOOR_BELL = BLOCKS.register("stripped_cherry_door_bell",
-            () -> new DoorBellBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STRIPPED_CHERRY_WOOD).noOcclusion()));
+            () -> new DoorBellBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.CHERRY_PLANKS).noOcclusion()));
     public static final DeferredBlock<Block> STRIPPED_CRIMSON_DOOR_BELL = BLOCKS.register("stripped_crimson_door_bell",
-            () -> new DoorBellBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STRIPPED_CRIMSON_STEM).noOcclusion()));
+            () -> new DoorBellBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.CRIMSON_PLANKS).noOcclusion()));
     public static final DeferredBlock<Block> STRIPPED_WARPED_DOOR_BELL = BLOCKS.register("stripped_warped_door_bell",
-            () -> new DoorBellBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STRIPPED_WARPED_STEM).noOcclusion()));
+            () -> new DoorBellBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.WARPED_PLANKS).noOcclusion()));
 
     // Inflatable Castles
     public static final DeferredBlock<Block> WHITE_INFLATABLE_CASTLE = BLOCKS.register("white_inflatable_castle",
@@ -809,7 +808,7 @@ public class ModBlocks {
     public static final DeferredBlock<Block> ORANGE_INFLATABLE_CASTLE = BLOCKS.register("orange_inflatable_castle",
             () -> new InflatableCastleBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.ORANGE_WOOL)));
     public static final DeferredBlock<Block> BEIGE_INFLATABLE_CASTLE = BLOCKS.register("beige_inflatable_castle",
-            () -> new InflatableCastleBlock(BlockBehaviour.Properties.ofFullCopy(com.nosiphus.yogmod.world.level.block.ModBlocks.BEIGE_WOOL.get())));
+            () -> new InflatableCastleBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.YELLOW_WOOL)));
     public static final DeferredBlock<Block> YELLOW_INFLATABLE_CASTLE = BLOCKS.register("yellow_inflatable_castle",
             () -> new InflatableCastleBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.YELLOW_WOOL)));
     public static final DeferredBlock<Block> LIME_INFLATABLE_CASTLE = BLOCKS.register("lime_inflatable_castle",
@@ -831,6 +830,7 @@ public class ModBlocks {
     public static final DeferredBlock<Block> CASTLE_NETTING = BLOCKS.register("castle_netting",
             () -> new IronBarsBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.WHITE_WOOL)));
 
+    /*
     // Kitchenware
     public static final DeferredBlock<Block> COOKIE_JAR = BLOCKS.register("cookie_jar",
             () -> new CookieJarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.GLASS)));
