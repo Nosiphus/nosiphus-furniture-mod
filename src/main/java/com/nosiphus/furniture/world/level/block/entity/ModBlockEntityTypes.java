@@ -68,4 +68,14 @@ public class ModBlockEntityTypes {
                     ModBlocks.PINK_WALL_CABINET.get()
             ).build(null));
 
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<WaterTankBlockEntity>> WATER_TANK =
+            BLOCK_ENTITY_TYPES.register("water_tank", () -> BlockEntityType.Builder.of(
+                    WaterTankBlockEntity::new,
+                    ModBlocks.OAK_WATER_TANK.get(), ModBlocks.SPRUCE_WATER_TANK.get(),
+                    ModBlocks.BIRCH_WATER_TANK.get(), ModBlocks.JUNGLE_WATER_TANK.get(),
+                    ModBlocks.ACACIA_WATER_TANK.get(), ModBlocks.DARK_OAK_WATER_TANK.get(),
+                    ModBlocks.MANGROVE_WATER_TANK.get(), ModBlocks.CHERRY_WATER_TANK.get(),
+                    ModBlocks.CHERRY_WATER_TANK.get(), ModBlocks.WARPED_WATER_TANK.get()
+            ).build(null));
+
 }

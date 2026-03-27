@@ -2,10 +2,7 @@ package com.nosiphus.furniture;
 
 import com.mojang.logging.LogUtils;
 import com.nosiphus.furniture.client.gui.screens.inventory.WallCabinetScreen;
-import com.nosiphus.furniture.client.renderer.blockentity.BirdBathBlockEntityRenderer;
-import com.nosiphus.furniture.client.renderer.blockentity.ChoppingBoardBlockEntityRenderer;
-import com.nosiphus.furniture.client.renderer.blockentity.CookieJarBlockEntityRenderer;
-import com.nosiphus.furniture.client.renderer.blockentity.PlateBlockEntityRenderer;
+import com.nosiphus.furniture.client.renderer.blockentity.*;
 import com.nosiphus.furniture.client.renderer.entity.SeatRenderer;
 import com.nosiphus.furniture.sounds.ModSoundEvents;
 import com.nosiphus.furniture.world.entity.ModEntityTypes;
@@ -79,6 +76,8 @@ public class NosiphusFurnitureMod {
         {
             event.registerBlockEntity(Capabilities.FluidHandler.BLOCK,
                     ModBlockEntityTypes.BIRD_BATH.get(),(be, side) -> be.getTank());
+            event.registerBlockEntity(Capabilities.FluidHandler.BLOCK,
+                    ModBlockEntityTypes.WATER_TANK.get(),(wt, side) -> wt.getTank());
         }
 
     }
@@ -89,6 +88,7 @@ public class NosiphusFurnitureMod {
         BlockEntityRenderers.register(ModBlockEntityTypes.CHOPPING_BOARD.get(), ChoppingBoardBlockEntityRenderer::new);
         BlockEntityRenderers.register(ModBlockEntityTypes.COOKIE_JAR.get(), CookieJarBlockEntityRenderer::new);
         BlockEntityRenderers.register(ModBlockEntityTypes.PLATE.get(), PlateBlockEntityRenderer::new);
+        BlockEntityRenderers.register(ModBlockEntityTypes.WATER_TANK.get(), WaterTankBlockEntityRenderer::new);
     }
 
     private static void registerEntityRenderers()

@@ -1,4 +1,4 @@
-package com.nosiphus.furniture.world;
+package com.nosiphus.furniture.world.level.block;
 
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;

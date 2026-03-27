@@ -1,7 +1,6 @@
 package com.nosiphus.furniture.world.level.block;
 
 import com.mrcrayfish.furniture.world.level.block.*;
-import com.nosiphus.furniture.world.ChoppingBoardBlock;
 import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
@@ -884,7 +883,6 @@ public class ModBlocks {
     public static final DeferredBlock<Block> DEEPSLATE_BIRD_BATH = BLOCKS.register("deepslate_bird_bath",
             () -> new BirdBathBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.DEEPSLATE)));
 
-    /*
     // Water Tanks
     public static final DeferredBlock<Block> OAK_WATER_TANK = BLOCKS.register("oak_water_tank",
             () -> new WaterTankBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.CAULDRON).noOcclusion()));
@@ -906,7 +904,7 @@ public class ModBlocks {
             () -> new WaterTankBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.CAULDRON).noOcclusion()));
     public static final DeferredBlock<Block> WARPED_WATER_TANK = BLOCKS.register("warped_water_tank",
             () -> new WaterTankBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.CAULDRON).noOcclusion()));
-
+    /*
     // Appliances and Electronics
     public static final DeferredBlock<Block> ELECTRIC_FENCE = BLOCKS.register("electric_fence",
             () -> new ElectricFenceBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.ANVIL)));

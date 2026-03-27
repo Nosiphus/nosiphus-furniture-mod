@@ -881,7 +881,6 @@ public class ModItems {
     public static final DeferredItem<BlockItem> DEEPSLATE_BIRD_BATH = addToTab(ITEMS.register("deepslate_bird_bath",
             () -> new BlockItem(ModBlocks.DEEPSLATE_BIRD_BATH.get(), new Item.Properties())));
 
-    /*
     // Water Tanks
     public static final DeferredItem<BlockItem> OAK_WATER_TANK = addToTab(ITEMS.register("oak_water_tank",
             () -> new BlockItem(ModBlocks.OAK_WATER_TANK.get(), new Item.Properties())));
@@ -903,7 +902,7 @@ public class ModItems {
             () -> new BlockItem(ModBlocks.CRIMSON_WATER_TANK.get(), new Item.Properties())));
     public static final DeferredItem<BlockItem> WARPED_WATER_TANK = addToTab(ITEMS.register("warped_water_tank",
             () -> new BlockItem(ModBlocks.WARPED_WATER_TANK.get(), new Item.Properties())));
-
+    /*
     // Appliances and Electronics
     public static final DeferredItem<BlockItem> ELECTRIC_FENCE = addToTab(ITEMS.register("electric_fence",
             () -> new BlockItem(ModBlocks.ELECTRIC_FENCE.get(), new Item.Properties())));
