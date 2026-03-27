@@ -1,7 +1,7 @@
-package com.mrcrayfish.furniture.world.level.block.entity;
+package com.nosiphus.furniture.world.level.block.entity;
 
 import com.mrcrayfish.furniture.sounds.ModSoundEvents;
-import com.mrcrayfish.furniture.world.level.block.CabinetBlock;
+import com.mrcrayfish.furniture.world.level.block.entity.BasicLootBlockEntity;
 import com.nosiphus.furniture.world.level.block.TelevisionStandBlock;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Vec3i;
@@ -13,18 +13,17 @@ import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.ChestMenu;
 import net.minecraft.world.inventory.MenuType;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 
 /**
  * Author: MrCrayfish
  */
-public class CabinetBlockEntity extends BasicLootBlockEntity
+public class TelevisionStandBlockEntity extends BasicLootBlockEntity
 {
 
-    public CabinetBlockEntity(BlockPos pos, BlockState state)
+    public TelevisionStandBlockEntity(BlockPos pos, BlockState state)
     {
-        super(ModBlockEntityTypes.CABINET.get(), pos, state);
+        super(ModBlockEntityTypes.TELEVISION_STAND.get(), pos, state);
     }
 
     @Override
@@ -61,7 +60,7 @@ public class CabinetBlockEntity extends BasicLootBlockEntity
 
     private void playDoorSound(BlockState state, SoundEvent event)
     {
-        Vec3i directionVec = state.getValue(CabinetBlock.DIRECTION).getNormal();
+        Vec3i directionVec = state.getValue(TelevisionStandBlock.DIRECTION).getNormal();
         double x = this.worldPosition.getX() + 0.5D + directionVec.getX() / 2.0D;
         double y = this.worldPosition.getY() + 0.5D + directionVec.getY() / 2.0D;
         double z = this.worldPosition.getZ() + 0.5D + directionVec.getZ() / 2.0D;
@@ -77,7 +76,7 @@ public class CabinetBlockEntity extends BasicLootBlockEntity
         Level level = this.getLevel();
         if(level != null)
         {
-            level.setBlock(this.getBlockPos(), state.setValue(CabinetBlock.OPEN, open), 3);
+            level.setBlock(this.getBlockPos(), state.setValue(TelevisionStandBlock.OPEN, open), 3);
         }
     }
 }

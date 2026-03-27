@@ -10,6 +10,20 @@ public class ModBlockEntityTypes {
 
     public static final DeferredRegister<BlockEntityType<?>> BLOCK_ENTITY_TYPES = DeferredRegister.create(Registries.BLOCK_ENTITY_TYPE, "nfm");
 
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<TelevisionStandBlockEntity>> TELEVISION_STAND =
+            BLOCK_ENTITY_TYPES.register("television_stand", () -> BlockEntityType.Builder.of(
+                    TelevisionStandBlockEntity::new,
+                    ModBlocks.WHITE_TELEVISION_STAND.get(), ModBlocks.LIGHT_GRAY_TELEVISION_STAND.get(),
+                    ModBlocks.GRAY_TELEVISION_STAND.get(), ModBlocks.BLACK_TELEVISION_STAND.get(),
+                    ModBlocks.BROWN_TELEVISION_STAND.get(), ModBlocks.RED_TELEVISION_STAND.get(),
+                    ModBlocks.ORANGE_TELEVISION_STAND.get(), ModBlocks.BEIGE_TELEVISION_STAND.get(),
+                    ModBlocks.YELLOW_TELEVISION_STAND.get(), ModBlocks.LIME_TELEVISION_STAND.get(),
+                    ModBlocks.GREEN_TELEVISION_STAND.get(), ModBlocks.CYAN_TELEVISION_STAND.get(),
+                    ModBlocks.LIGHT_BLUE_TELEVISION_STAND.get(), ModBlocks.BLUE_TELEVISION_STAND.get(),
+                    ModBlocks.PURPLE_TELEVISION_STAND.get(), ModBlocks.MAGENTA_TELEVISION_STAND.get(),
+                    ModBlocks.PINK_TELEVISION_STAND.get()
+            ).build(null));
+
     public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<WallCabinetBlockEntity>> WALL_CABINET =
             BLOCK_ENTITY_TYPES.register("wall_cabinet", () -> BlockEntityType.Builder.of(
                     WallCabinetBlockEntity::new,
