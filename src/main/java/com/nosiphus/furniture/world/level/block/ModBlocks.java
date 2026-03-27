@@ -906,14 +906,18 @@ public class ModBlocks {
             () -> new WaterTankBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.CAULDRON).noOcclusion()));
     public static final DeferredBlock<Block> WARPED_WATER_TANK = BLOCKS.register("warped_water_tank",
             () -> new WaterTankBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.CAULDRON).noOcclusion()));
-    /*
+
     // Appliances and Electronics
+    /*
     public static final DeferredBlock<Block> ELECTRIC_FENCE = BLOCKS.register("electric_fence",
             () -> new ElectricFenceBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.ANVIL)));
+
+     */
     public static final DeferredBlock<Block> BATH_LIGHT = BLOCKS.register("bath_light",
             () -> new BathBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.WHITE_CONCRETE)));
     public static final DeferredBlock<Block> BATH_DARK = BLOCKS.register("bath_dark",
             () -> new BathBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.GRAY_CONCRETE)));
+    /*
     public static final DeferredBlock<Block> BIN_LIGHT = BLOCKS.register("bin_light",
             () -> new BinBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.WHITE_CONCRETE).noOcclusion()));
     public static final DeferredBlock<Block> BIN_DARK = BLOCKS.register("bin_dark",
@@ -978,6 +982,7 @@ public class ModBlocks {
             () -> new WashingMachineBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.GRAY_CONCRETE).noOcclusion()));
 
      */
+
     // Digital Clocks
     public static final DeferredBlock<Block> WHITE_DIGITAL_CLOCK = BLOCKS.register("white_digital_clock",
             () -> new DigitalClockBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.WHITE_CONCRETE)));

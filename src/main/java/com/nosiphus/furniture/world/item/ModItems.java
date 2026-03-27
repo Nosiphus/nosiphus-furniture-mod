@@ -900,14 +900,18 @@ public class ModItems {
             () -> new BlockItem(ModBlocks.CRIMSON_WATER_TANK.get(), new Item.Properties())));
     public static final DeferredItem<BlockItem> WARPED_WATER_TANK = addToTab(ITEMS.register("warped_water_tank",
             () -> new BlockItem(ModBlocks.WARPED_WATER_TANK.get(), new Item.Properties())));
-    /*
+
     // Appliances and Electronics
+    /*
     public static final DeferredItem<BlockItem> ELECTRIC_FENCE = addToTab(ITEMS.register("electric_fence",
             () -> new BlockItem(ModBlocks.ELECTRIC_FENCE.get(), new Item.Properties())));
+
+     */
     public static final DeferredItem<BlockItem> BATH_LIGHT = addToTab(ITEMS.register("bath_light",
             () -> new BlockItem(ModBlocks.BATH_LIGHT.get(), new Item.Properties())));
     public static final DeferredItem<BlockItem> BATH_DARK = addToTab(ITEMS.register("bath_dark",
             () -> new BlockItem(ModBlocks.BATH_DARK.get(), new Item.Properties())));
+    /*
     public static final DeferredItem<BlockItem> BIN_LIGHT = addToTab(ITEMS.register("bin_light",
             () -> new BlockItem(ModBlocks.BIN_LIGHT.get(), new Item.Properties())));
     public static final DeferredItem<BlockItem> BIN_DARK = addToTab(ITEMS.register("bin_dark",
@@ -972,6 +976,7 @@ public class ModItems {
             () -> new BlockItem(ModBlocks.WASHING_MACHINE_DARK.get(), new Item.Properties())));
 
      */
+
     // Digital Clocks
     public static final DeferredItem<BlockItem> WHITE_DIGITAL_CLOCK = addToTab(ITEMS.register("white_digital_clock",
             () -> new BlockItem(ModBlocks.WHITE_DIGITAL_CLOCK.get(), new Item.Properties())));

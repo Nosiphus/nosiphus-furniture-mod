@@ -101,15 +101,18 @@ public class NosiphusFurnitureMod {
         public static void registerCapabilities(RegisterCapabilitiesEvent event)
         {
             event.registerBlockEntity(Capabilities.FluidHandler.BLOCK,
-                    ModBlockEntityTypes.BIRD_BATH.get(),(be, side) -> be.getTank());
+                    ModBlockEntityTypes.BATH.get(),(bath, side) -> bath.getTank());
             event.registerBlockEntity(Capabilities.FluidHandler.BLOCK,
-                    ModBlockEntityTypes.WATER_TANK.get(),(wt, side) -> wt.getTank());
+                    ModBlockEntityTypes.BIRD_BATH.get(),(birdBath, side) -> birdBath.getTank());
+            event.registerBlockEntity(Capabilities.FluidHandler.BLOCK,
+                    ModBlockEntityTypes.WATER_TANK.get(),(waterTank, side) -> waterTank.getTank());
         }
 
     }
 
     private static void registerBlockEntityRenderers()
     {
+        BlockEntityRenderers.register(ModBlockEntityTypes.BATH.get(), BathBlockEntityRenderer::new);
         BlockEntityRenderers.register(ModBlockEntityTypes.BIRD_BATH.get(), BirdBathBlockEntityRenderer::new);
         BlockEntityRenderers.register(ModBlockEntityTypes.CHOPPING_BOARD.get(), ChoppingBoardBlockEntityRenderer::new);
         BlockEntityRenderers.register(ModBlockEntityTypes.COOKIE_JAR.get(), CookieJarBlockEntityRenderer::new);

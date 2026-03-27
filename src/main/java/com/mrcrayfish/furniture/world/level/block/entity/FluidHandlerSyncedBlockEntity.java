@@ -37,7 +37,7 @@ public abstract class FluidHandlerSyncedBlockEntity extends BlockEntity
         return this.tank;
     }
 
-    protected void markUpdated()
+    public void markUpdated()
     {
         this.setChanged();
         if(this.level != null)

@@ -10,6 +10,12 @@ public class ModBlockEntityTypes {
 
     public static final DeferredRegister<BlockEntityType<?>> BLOCK_ENTITY_TYPES = DeferredRegister.create(Registries.BLOCK_ENTITY_TYPE, "nfm");
 
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<BathBlockEntity>> BATH =
+            BLOCK_ENTITY_TYPES.register("bath", () -> BlockEntityType.Builder.of(
+                    BathBlockEntity::new,
+                    ModBlocks.BATH_LIGHT.get(), ModBlocks.BATH_DARK.get()
+            ).build(null));
+
     public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<BirdBathBlockEntity>> BIRD_BATH =
             BLOCK_ENTITY_TYPES.register("bird_bath", () -> BlockEntityType.Builder.of(
                     BirdBathBlockEntity::new,
