@@ -2,7 +2,10 @@ package com.nosiphus.furniture.world.item;
 
 import com.nosiphus.furniture.world.level.block.ModBlocks;
 import net.minecraft.world.food.FoodProperties;
-import net.minecraft.world.item.*;
+import net.minecraft.world.item.BlockItem;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.SwordItem;
+import net.minecraft.world.item.Tiers;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
@@ -542,7 +545,6 @@ public class ModItems {
     public static final DeferredItem<BlockItem> PINK_TELEVISION_STAND = addToTab(ITEMS.register("pink_television_stand",
             () -> new BlockItem(ModBlocks.PINK_TELEVISION_STAND.get(), new Item.Properties())));
 
-    /*
     // Lamps
     public static final DeferredItem<BlockItem> WHITE_LAMP = addToTab(ITEMS.register("white_lamp",
             () -> new BlockItem(ModBlocks.WHITE_LAMP.get(), new Item.Properties())));
@@ -745,6 +747,7 @@ public class ModItems {
     public static final DeferredItem<BlockItem> WARPED_CHOPPING_BOARD = addToTab(ITEMS.register("warped_chopping_board",
             () -> new BlockItem(ModBlocks.WARPED_CHOPPING_BOARD.get(), new Item.Properties())));
 
+    /*
     // Door Bells
     public static final DeferredItem<BlockItem> OAK_DOOR_BELL = addToTab(ITEMS.register("oak_door_bell",
             () -> new BlockItem(ModBlocks.OAK_DOOR_BELL.get(), new Item.Properties())));
@@ -1015,6 +1018,8 @@ public class ModItems {
     public static final DeferredItem<BlockItem> WREATH = addToTab(ITEMS.register("wreath",
             () -> new BlockItem(ModBlocks.WREATH.get(), new Item.Properties())));
 
+     */
+
     // Food
     public static final DeferredItem<Item> BREAD_SLICE = addToTab(ITEMS.register("bread_slice",
             () -> new Item(new Item.Properties().food(new FoodProperties.Builder()
@@ -1048,6 +1053,7 @@ public class ModItems {
                     .attributes(SwordItem.createAttributes(Tiers.STONE, 1, -2.4F)))));
     public static final DeferredItem<Item> SOAP = addToTab(ITEMS.register("soap",
             () -> new Item(new Item.Properties())));
+    /*
     public static final DeferredItem<BucketItem> SOAPY_WATER_BUCKET = addToTab(ITEMS.register("soapy_water_bucket",
             () -> new BucketItem(ModFluids.SOAPY_WATER.get(), new Item.Properties().stacksTo(1))));
     public static final DeferredItem<BucketItem> SUPER_SOAPY_WATER_BUCKET = addToTab(ITEMS.register("super_soapy_water_bucket",
@@ -1056,5 +1062,7 @@ public class ModItems {
             () -> new Item(new Item.Properties())));
 
      */
+
+
 
 }

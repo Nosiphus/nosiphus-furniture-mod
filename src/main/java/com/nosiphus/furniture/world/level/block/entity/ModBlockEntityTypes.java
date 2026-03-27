@@ -10,6 +10,16 @@ public class ModBlockEntityTypes {
 
     public static final DeferredRegister<BlockEntityType<?>> BLOCK_ENTITY_TYPES = DeferredRegister.create(Registries.BLOCK_ENTITY_TYPE, "nfm");
 
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<ChoppingBoardBlockEntity>> CHOPPING_BOARD =
+            BLOCK_ENTITY_TYPES.register("chopping_board", () -> BlockEntityType.Builder.of(
+                    ChoppingBoardBlockEntity::new,
+                    ModBlocks.OAK_CHOPPING_BOARD.get(), ModBlocks.SPRUCE_CHOPPING_BOARD.get(),
+                    ModBlocks.BIRCH_CHOPPING_BOARD.get(), ModBlocks.JUNGLE_CHOPPING_BOARD.get(),
+                    ModBlocks.ACACIA_CHOPPING_BOARD.get(), ModBlocks.DARK_OAK_CHOPPING_BOARD.get(),
+                    ModBlocks.MANGROVE_CHOPPING_BOARD.get(), ModBlocks.CHERRY_CHOPPING_BOARD.get(),
+                    ModBlocks.CHERRY_CHOPPING_BOARD.get(), ModBlocks.WARPED_CHOPPING_BOARD.get()
+            ).build(null));
+
     public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<TelevisionStandBlockEntity>> TELEVISION_STAND =
             BLOCK_ENTITY_TYPES.register("television_stand", () -> BlockEntityType.Builder.of(
                     TelevisionStandBlockEntity::new,

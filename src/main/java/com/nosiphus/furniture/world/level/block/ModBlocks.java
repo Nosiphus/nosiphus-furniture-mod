@@ -1,11 +1,10 @@
 package com.nosiphus.furniture.world.level.block;
 
 import com.mrcrayfish.furniture.world.level.block.*;
+import com.nosiphus.furniture.world.ChoppingBoardBlock;
 import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.IronBarsBlock;
-import net.minecraft.world.level.block.LiquidBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
@@ -548,7 +547,6 @@ public class ModBlocks {
     public static final DeferredBlock<Block> PINK_TELEVISION_STAND = BLOCKS.register("pink_television_stand",
             () -> new TelevisionStandBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.PINK_CONCRETE)));
 
-    /*
     // Lamps
     public static final DeferredBlock<Block> WHITE_LAMP = BLOCKS.register("white_lamp",
             () -> new LampBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.WHITE_WOOL).lightLevel(getLightValueLit(15))));
@@ -659,39 +657,39 @@ public class ModBlocks {
 
     // Modern Kitchen Sinks
     public static final DeferredBlock<Block> WHITE_MODERN_KITCHEN_SINK = BLOCKS.register("white_modern_kitchen_sink",
-            () -> new ModernKitchenSinkBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.WHITE_CONCRETE), false));
+            () -> new KitchenSinkBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.WHITE_CONCRETE), false));
     public static final DeferredBlock<Block> LIGHT_GRAY_MODERN_KITCHEN_SINK = BLOCKS.register("light_gray_modern_kitchen_sink",
-            () -> new ModernKitchenSinkBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.LIGHT_GRAY_CONCRETE), false));
+            () -> new KitchenSinkBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.LIGHT_GRAY_CONCRETE), false));
     public static final DeferredBlock<Block> GRAY_MODERN_KITCHEN_SINK = BLOCKS.register("gray_modern_kitchen_sink",
-            () -> new ModernKitchenSinkBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.GRAY_CONCRETE), false));
+            () -> new KitchenSinkBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.GRAY_CONCRETE), false));
     public static final DeferredBlock<Block> BLACK_MODERN_KITCHEN_SINK = BLOCKS.register("black_modern_kitchen_sink",
-            () -> new ModernKitchenSinkBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.BLACK_CONCRETE), false));
+            () -> new KitchenSinkBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.BLACK_CONCRETE), false));
     public static final DeferredBlock<Block> BROWN_MODERN_KITCHEN_SINK = BLOCKS.register("brown_modern_kitchen_sink",
-            () -> new ModernKitchenSinkBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.BROWN_CONCRETE), false));
+            () -> new KitchenSinkBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.BROWN_CONCRETE), false));
     public static final DeferredBlock<Block> RED_MODERN_KITCHEN_SINK = BLOCKS.register("red_modern_kitchen_sink",
-            () -> new ModernKitchenSinkBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.RED_CONCRETE), false));
+            () -> new KitchenSinkBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.RED_CONCRETE), false));
     public static final DeferredBlock<Block> ORANGE_MODERN_KITCHEN_SINK = BLOCKS.register("orange_modern_kitchen_sink",
-            () -> new ModernKitchenSinkBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.ORANGE_CONCRETE), false));
+            () -> new KitchenSinkBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.ORANGE_CONCRETE), false));
     public static final DeferredBlock<Block> BEIGE_MODERN_KITCHEN_SINK = BLOCKS.register("beige_modern_kitchen_sink",
-            () -> new YogModernKitchenSinkBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.YELLOW_CONCRETE), false));
+            () -> new KitchenSinkBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.YELLOW_CONCRETE), false));
     public static final DeferredBlock<Block> YELLOW_MODERN_KITCHEN_SINK = BLOCKS.register("yellow_modern_kitchen_sink",
-            () -> new ModernKitchenSinkBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.YELLOW_CONCRETE), false));
+            () -> new KitchenSinkBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.YELLOW_CONCRETE), false));
     public static final DeferredBlock<Block> LIME_MODERN_KITCHEN_SINK = BLOCKS.register("lime_modern_kitchen_sink",
-            () -> new ModernKitchenSinkBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.LIME_CONCRETE), false));
+            () -> new KitchenSinkBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.LIME_CONCRETE), false));
     public static final DeferredBlock<Block> GREEN_MODERN_KITCHEN_SINK = BLOCKS.register("green_modern_kitchen_sink",
-            () -> new ModernKitchenSinkBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.GREEN_CONCRETE), false));
+            () -> new KitchenSinkBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.GREEN_CONCRETE), false));
     public static final DeferredBlock<Block> CYAN_MODERN_KITCHEN_SINK = BLOCKS.register("cyan_modern_kitchen_sink",
-            () -> new ModernKitchenSinkBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.CYAN_CONCRETE), false));
+            () -> new KitchenSinkBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.CYAN_CONCRETE), false));
     public static final DeferredBlock<Block> LIGHT_BLUE_MODERN_KITCHEN_SINK = BLOCKS.register("light_blue_modern_kitchen_sink",
-            () -> new ModernKitchenSinkBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.LIGHT_BLUE_CONCRETE), false));
+            () -> new KitchenSinkBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.LIGHT_BLUE_CONCRETE), false));
     public static final DeferredBlock<Block> BLUE_MODERN_KITCHEN_SINK = BLOCKS.register("blue_modern_kitchen_sink",
-            () -> new ModernKitchenSinkBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.BLUE_CONCRETE), false));
+            () -> new KitchenSinkBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.BLUE_CONCRETE), false));
     public static final DeferredBlock<Block> PURPLE_MODERN_KITCHEN_SINK = BLOCKS.register("purple_modern_kitchen_sink",
-            () -> new ModernKitchenSinkBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.PURPLE_CONCRETE), false));
+            () -> new KitchenSinkBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.PURPLE_CONCRETE), false));
     public static final DeferredBlock<Block> MAGENTA_MODERN_KITCHEN_SINK = BLOCKS.register("magenta_modern_kitchen_sink",
-            () -> new ModernKitchenSinkBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.MAGENTA_CONCRETE), false));
+            () -> new KitchenSinkBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.MAGENTA_CONCRETE), false));
     public static final DeferredBlock<Block> PINK_MODERN_KITCHEN_SINK = BLOCKS.register("pink_modern_kitchen_sink",
-            () -> new ModernKitchenSinkBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.PINK_CONCRETE), false));
+            () -> new KitchenSinkBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.PINK_CONCRETE), false));
 
     // Bar Stools
     public static final DeferredBlock<Block> WHITE_BAR_STOOL = BLOCKS.register("white_bar_stool",
@@ -751,6 +749,7 @@ public class ModBlocks {
     public static final DeferredBlock<Block> WARPED_CHOPPING_BOARD = BLOCKS.register("warped_chopping_board",
             () -> new ChoppingBoardBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.WARPED_PLANKS)));
 
+    /*
     // Door Bells
     public static final DeferredBlock<Block> OAK_DOOR_BELL = BLOCKS.register("oak_door_bell",
             () -> new DoorBellBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_WOOD).noOcclusion()));

@@ -1,0 +1,13 @@
+{
+  "type": "nfm:toasting",
+  "category": "food",
+  "cooking_category": "food",
+  "cookingtime": 300,
+  "experience": 0.20,
+  "ingredient": {
+    "item": "nfm:bread_slice"
+  },
+  "result": {
+    "id": "nfm:toast"
+  }
+}

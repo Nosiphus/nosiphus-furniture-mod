@@ -2,7 +2,6 @@ package com.mrcrayfish.furniture.world.level.block.entity;
 
 import com.mrcrayfish.furniture.sounds.ModSoundEvents;
 import com.mrcrayfish.furniture.world.level.block.CabinetBlock;
-import com.nosiphus.furniture.world.level.block.TelevisionStandBlock;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Vec3i;
 import net.minecraft.network.chat.Component;
@@ -13,7 +12,6 @@ import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.ChestMenu;
 import net.minecraft.world.inventory.MenuType;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 
 /**

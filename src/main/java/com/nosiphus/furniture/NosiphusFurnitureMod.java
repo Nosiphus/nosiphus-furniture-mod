@@ -1,16 +1,20 @@
 package com.nosiphus.furniture;
 
 import com.mojang.logging.LogUtils;
-import com.mrcrayfish.furniture.client.gui.screens.inventory.CrateScreen;
-import com.mrcrayfish.furniture.client.gui.screens.inventory.FreezerScreen;
-import com.mrcrayfish.furniture.client.gui.screens.inventory.MailBoxScreen;
-import com.mrcrayfish.furniture.client.gui.screens.inventory.PostBoxScreen;
 import com.nosiphus.furniture.client.gui.screens.inventory.WallCabinetScreen;
+import com.nosiphus.furniture.client.renderer.blockentity.ChoppingBoardBlockEntityRenderer;
+import com.nosiphus.furniture.client.renderer.entity.SeatRenderer;
+import com.nosiphus.furniture.sounds.ModSoundEvents;
+import com.nosiphus.furniture.world.entity.ModEntityTypes;
 import com.nosiphus.furniture.world.inventory.ModMenuTypes;
 import com.nosiphus.furniture.world.item.ModCreativeModeTabs;
 import com.nosiphus.furniture.world.item.ModItems;
+import com.nosiphus.furniture.world.item.crafting.ModRecipeSerializers;
+import com.nosiphus.furniture.world.item.crafting.ModRecipeTypes;
 import com.nosiphus.furniture.world.level.block.ModBlocks;
 import com.nosiphus.furniture.world.level.block.entity.ModBlockEntityTypes;
+import net.minecraft.client.renderer.blockentity.BlockEntityRenderers;
+import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.bus.api.SubscribeEvent;
@@ -31,8 +35,12 @@ public class NosiphusFurnitureMod {
         ModBlocks.BLOCKS.register(eventBus);
         ModBlockEntityTypes.BLOCK_ENTITY_TYPES.register(eventBus);
         ModCreativeModeTabs.CREATIVE_TABS.register(eventBus);
+        ModEntityTypes.ENTITY_TYPES.register(eventBus);
         ModItems.ITEMS.register(eventBus);
         ModMenuTypes.MENU_TYPES.register(eventBus);
+        ModRecipeSerializers.RECIPE_SERIALIZERS.register(eventBus);
+        ModRecipeTypes.RECIPE_TYPES.register(eventBus);
+        ModSoundEvents.SOUND_EVENTS.register(eventBus);
 
     }
 
@@ -41,7 +49,8 @@ public class NosiphusFurnitureMod {
 
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event) {
-
+            registerBlockEntityRenderers();
+            registerEntityRenderers();
         }
 
         @SubscribeEvent
@@ -60,6 +69,16 @@ public class NosiphusFurnitureMod {
 
         }
 
+    }
+
+    private static void registerBlockEntityRenderers()
+    {
+        BlockEntityRenderers.register(ModBlockEntityTypes.CHOPPING_BOARD.get(), ChoppingBoardBlockEntityRenderer::new);
+    }
+
+    private static void registerEntityRenderers()
+    {
+        EntityRenderers.register(ModEntityTypes.SEAT.get(), SeatRenderer::new);
     }
 
 }

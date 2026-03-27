@@ -168,7 +168,16 @@ public class ModBlockEntityTypes
                     ModBlocks.GREEN_KITCHEN_DRAWER.get(), ModBlocks.CYAN_KITCHEN_DRAWER.get(),
                     ModBlocks.LIGHT_BLUE_KITCHEN_DRAWER.get(), ModBlocks.BLUE_KITCHEN_DRAWER.get(),
                     ModBlocks.PURPLE_KITCHEN_DRAWER.get(), ModBlocks.MAGENTA_KITCHEN_DRAWER.get(),
-                    ModBlocks.PINK_KITCHEN_DRAWER.get()
+                    ModBlocks.PINK_KITCHEN_DRAWER.get(),
+                    com.nosiphus.furniture.world.level.block.ModBlocks.WHITE_MODERN_KITCHEN_DRAWER.get(), com.nosiphus.furniture.world.level.block.ModBlocks.LIGHT_GRAY_MODERN_KITCHEN_DRAWER.get(),
+                    com.nosiphus.furniture.world.level.block.ModBlocks.GRAY_MODERN_KITCHEN_DRAWER.get(), com.nosiphus.furniture.world.level.block.ModBlocks.BLACK_MODERN_KITCHEN_DRAWER.get(),
+                    com.nosiphus.furniture.world.level.block.ModBlocks.BROWN_MODERN_KITCHEN_DRAWER.get(), com.nosiphus.furniture.world.level.block.ModBlocks.RED_MODERN_KITCHEN_DRAWER.get(),
+                    com.nosiphus.furniture.world.level.block.ModBlocks.ORANGE_MODERN_KITCHEN_DRAWER.get(), com.nosiphus.furniture.world.level.block.ModBlocks.BEIGE_MODERN_KITCHEN_DRAWER.get(),
+                    com.nosiphus.furniture.world.level.block.ModBlocks.YELLOW_MODERN_KITCHEN_DRAWER.get(), com.nosiphus.furniture.world.level.block.ModBlocks.LIME_MODERN_KITCHEN_DRAWER.get(),
+                    com.nosiphus.furniture.world.level.block.ModBlocks.GREEN_MODERN_KITCHEN_DRAWER.get(), com.nosiphus.furniture.world.level.block.ModBlocks.CYAN_MODERN_KITCHEN_DRAWER.get(),
+                    com.nosiphus.furniture.world.level.block.ModBlocks.LIGHT_BLUE_MODERN_KITCHEN_DRAWER.get(), com.nosiphus.furniture.world.level.block.ModBlocks.BLUE_MODERN_KITCHEN_DRAWER.get(),
+                    com.nosiphus.furniture.world.level.block.ModBlocks.PURPLE_MODERN_KITCHEN_DRAWER.get(), com.nosiphus.furniture.world.level.block.ModBlocks.MAGENTA_MODERN_KITCHEN_DRAWER.get(),
+                    com.nosiphus.furniture.world.level.block.ModBlocks.PINK_MODERN_KITCHEN_DRAWER.get()
             ).build(null));
 
     public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<KitchenSinkBlockEntity>> KITCHEN_SINK =
@@ -202,7 +211,16 @@ public class ModBlockEntityTypes
                     ModBlocks.GREEN_KITCHEN_SINK.get(), ModBlocks.CYAN_KITCHEN_SINK.get(),
                     ModBlocks.LIGHT_BLUE_KITCHEN_SINK.get(), ModBlocks.BLUE_KITCHEN_SINK.get(),
                     ModBlocks.PURPLE_KITCHEN_SINK.get(), ModBlocks.MAGENTA_KITCHEN_SINK.get(),
-                    ModBlocks.PINK_KITCHEN_SINK.get()
+                    ModBlocks.PINK_KITCHEN_SINK.get(),
+                    com.nosiphus.furniture.world.level.block.ModBlocks.WHITE_MODERN_KITCHEN_SINK.get(), com.nosiphus.furniture.world.level.block.ModBlocks.LIGHT_GRAY_MODERN_KITCHEN_SINK.get(),
+                    com.nosiphus.furniture.world.level.block.ModBlocks.GRAY_MODERN_KITCHEN_SINK.get(), com.nosiphus.furniture.world.level.block.ModBlocks.BLACK_MODERN_KITCHEN_SINK.get(),
+                    com.nosiphus.furniture.world.level.block.ModBlocks.BROWN_MODERN_KITCHEN_SINK.get(), com.nosiphus.furniture.world.level.block.ModBlocks.RED_MODERN_KITCHEN_SINK.get(),
+                    com.nosiphus.furniture.world.level.block.ModBlocks.ORANGE_MODERN_KITCHEN_SINK.get(), com.nosiphus.furniture.world.level.block.ModBlocks.BEIGE_MODERN_KITCHEN_SINK.get(),
+                    com.nosiphus.furniture.world.level.block.ModBlocks.YELLOW_MODERN_KITCHEN_SINK.get(), com.nosiphus.furniture.world.level.block.ModBlocks.LIME_MODERN_KITCHEN_SINK.get(),
+                    com.nosiphus.furniture.world.level.block.ModBlocks.GREEN_MODERN_KITCHEN_SINK.get(), com.nosiphus.furniture.world.level.block.ModBlocks.CYAN_MODERN_KITCHEN_SINK.get(),
+                    com.nosiphus.furniture.world.level.block.ModBlocks.LIGHT_BLUE_MODERN_KITCHEN_SINK.get(), com.nosiphus.furniture.world.level.block.ModBlocks.BLUE_MODERN_KITCHEN_SINK.get(),
+                    com.nosiphus.furniture.world.level.block.ModBlocks.PURPLE_MODERN_KITCHEN_SINK.get(), com.nosiphus.furniture.world.level.block.ModBlocks.MAGENTA_MODERN_KITCHEN_SINK.get(),
+                    com.nosiphus.furniture.world.level.block.ModBlocks.PINK_MODERN_KITCHEN_SINK.get()
             ).build(null));
 
     public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<MailBoxBlockEntity>> MAIL_BOX =

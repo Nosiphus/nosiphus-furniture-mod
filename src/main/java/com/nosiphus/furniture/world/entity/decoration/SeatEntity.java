@@ -1,0 +1,101 @@
+package com.nosiphus.furniture.world.entity.decoration;
+
+import com.nosiphus.furniture.world.entity.ModEntityTypes;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.network.protocol.Packet;
+import net.minecraft.network.protocol.game.ClientGamePacketListener;
+import net.minecraft.network.protocol.game.ClientboundAddEntityPacket;
+import net.minecraft.network.syncher.SynchedEntityData;
+import net.minecraft.server.level.ServerEntity;
+import net.minecraft.world.InteractionResult;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.entity.vehicle.DismountHelper;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.phys.AABB;
+import net.minecraft.world.phys.Vec3;
+
+import java.util.List;
+
+public class SeatEntity extends Entity {
+
+    public SeatEntity(EntityType<?> type, Level level) {
+        super(type, level);
+        this.noPhysics = true;
+    }
+
+    private SeatEntity(Level level, BlockPos source, double yOffset) {
+        this(ModEntityTypes.SEAT.get(), level);
+        this.setPos(source.getX() + 0.5, source.getY() + yOffset, source.getZ() + 0.5);
+    }
+
+    @Override
+    public void tick() {
+        super.tick();
+        if(!this.level().isClientSide) {
+            if(this.getPassengers().isEmpty() || this.level().isEmptyBlock(this.blockPosition())) {
+                this.remove(RemovalReason.DISCARDED);
+                this.level().updateNeighbourForOutputSignal(this.blockPosition(), this.level().getBlockState(this.blockPosition()).getBlock());
+            }
+        }
+    }
+
+    @Override
+    protected void defineSynchedData(SynchedEntityData.Builder builder) {}
+
+    @Override
+    protected void readAdditionalSaveData(CompoundTag compound) {}
+
+    @Override
+    protected void addAdditionalSaveData(CompoundTag compound) {}
+
+    @Override
+    public void onPassengerTurned(Entity entity) {
+        this.setYRot(entity.getYRot());
+        this.yRotO = this.getYRot();
+    }
+
+    @Override
+    public Vec3 getPassengerRidingPosition(Entity passenger) {
+        return new Vec3(this.getX(), this.getY(), this.getZ());
+    }
+
+    @Override
+    protected boolean canRide(Entity entity) {
+        return true;
+    }
+
+    @Override
+    public Packet<ClientGamePacketListener> getAddEntityPacket(ServerEntity entity) {
+        return new ClientboundAddEntityPacket(this, entity);
+    }
+
+    public static InteractionResult create(Level level, BlockPos pos, double yOffset, Player player) {
+        if(!level.isClientSide()) {
+            List<SeatEntity> seats = level.getEntitiesOfClass(SeatEntity.class, new AABB(pos.getX(), pos.getY(), pos.getZ(), pos.getX() + 1.0, pos.getY() + 1.0, pos.getZ() + 1.0));
+            if(seats.isEmpty()) {
+                SeatEntity seat = new SeatEntity(level, pos, yOffset);
+                level.addFreshEntity(seat);
+                player.startRiding(seat, false);
+            }
+        }
+        return InteractionResult.SUCCESS;
+    }
+
+    @Override
+    public Vec3 getDismountLocationForPassenger(LivingEntity entity) {
+        Direction original = this.getDirection();
+        Direction[] offsets = {original, original.getClockWise(), original.getCounterClockWise(), original.getOpposite()};
+        for(Direction dir : offsets) {
+            Vec3 safeVec = DismountHelper.findSafeDismountLocation(entity.getType(), this.level(), this.blockPosition().relative(dir), false);
+            if(safeVec != null) {
+                return safeVec.add(0, 0.25, 0);
+            }
+        }
+        return super.getDismountLocationForPassenger(entity);
+    }
+}
