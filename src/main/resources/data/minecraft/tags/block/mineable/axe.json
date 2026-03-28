@@ -404,6 +404,11 @@
     { "id": "cfm:stripped_mangrove_kitchen_sink_dark", "required": false },
     { "id": "cfm:stripped_cherry_kitchen_sink_dark", "required": false },
     { "id": "cfm:stripped_crimson_kitchen_sink_dark", "required": false },
-    { "id": "cfm:stripped_warped_kitchen_sink_dark", "required": false }
+    { "id": "cfm:stripped_warped_kitchen_sink_dark", "required": false },
+	{ "id": "#nfm:chopping_boards", "required": false },
+	{ "id": "#nfm:curtains", "required": false },
+	{ "id": "#nfm:door_bells", "required": false },
+	{ "id": "nfm:christmas_tree", "required": false },
+	{ "id": "nfm:wreath", "required": false }
   ]
 }
