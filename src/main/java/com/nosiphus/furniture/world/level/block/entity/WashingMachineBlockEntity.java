@@ -1,6 +1,5 @@
 package com.nosiphus.furniture.world.level.block.entity;
 
-import com.nosiphus.furniture.network.protocol.common.ClientboundDishwasherSync;
 import com.nosiphus.furniture.network.protocol.common.ClientboundWashingMachineSync;
 import com.nosiphus.furniture.world.inventory.WashingMachineMenu;
 import com.nosiphus.furniture.world.level.material.ModFluids;
