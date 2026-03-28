@@ -151,11 +151,12 @@ public class PrinterBlockEntity extends BlockEntity implements MenuProvider {
     private void copyBook() {
         ItemStack input = itemHandler.getStackInSlot(1);
         ItemStack output = itemHandler.getStackInSlot(2);
-        int inkCost = Math.max(1, getBookCharacterCount(input) / 100);
+        
+        int inkCost = Math.max(1, getBookCharacterCount(input));
 
         ItemStack inkStack = itemHandler.getStackInSlot(0);
         if (!inkStack.isEmpty()) {
-            inkStack.hurtAndBreak(inkCost, (ServerLevel) this.level, null, item -> {});
+            inkStack.hurtAndBreak(inkCost, (ServerLevel)this.level, null, item -> {});
         }
 
         ItemStack copy = input.copy();
@@ -166,6 +167,9 @@ public class PrinterBlockEntity extends BlockEntity implements MenuProvider {
         } else {
             output.grow(1);
         }
+
+        this.progress = 0;
+        this.markUpdated();
     }
 
     private boolean canCopy() {
@@ -173,8 +177,15 @@ public class PrinterBlockEntity extends BlockEntity implements MenuProvider {
         ItemStack input = itemHandler.getStackInSlot(1);
         ItemStack output = itemHandler.getStackInSlot(2);
 
-        boolean hasInk = !ink.isEmpty() && ink.is(ModItems.INK_CARTRIDGE.get());
-        if (!hasInk || input.isEmpty()) return false;
+        if (input.isEmpty() || ink.isEmpty() || !ink.is(ModItems.INK_CARTRIDGE.get())) {
+            return false;
+        }
+
+        int charCount = getBookCharacterCount(input);
+        int remainingInk = ink.getMaxDamage() - ink.getDamageValue();
+        if (remainingInk < charCount) {
+            return false;
+        }
 
         if (output.isEmpty()) return true;
         return ItemStack.isSameItemSameComponents(input, output) && output.getCount() < output.getMaxStackSize();
