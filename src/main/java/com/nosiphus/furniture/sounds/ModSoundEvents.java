@@ -10,6 +10,10 @@ public class ModSoundEvents
 {
     public static final DeferredRegister<SoundEvent> SOUND_EVENTS = DeferredRegister.create(Registries.SOUND_EVENT, "nfm");
 
+    public static final DeferredHolder<SoundEvent, SoundEvent> BLOCK_BIN_OPEN = SOUND_EVENTS.register("block.bin.open",
+            () -> SoundEvent.createVariableRangeEvent(ResourceLocation.fromNamespaceAndPath("nfm", "block.bin.open")));
+    public static final DeferredHolder<SoundEvent, SoundEvent> BLOCK_BIN_CLOSE = SOUND_EVENTS.register("block.bin.close",
+            () -> SoundEvent.createVariableRangeEvent(ResourceLocation.fromNamespaceAndPath("nfm", "block.bin.close")));
     public static final DeferredHolder<SoundEvent, SoundEvent> BLOCK_CHOPPING_BOARD_KNIFE_CHOP = SOUND_EVENTS.register("block.chopping_board.knife_chop",
             () -> SoundEvent.createVariableRangeEvent(ResourceLocation.fromNamespaceAndPath("nfm", "block.chopping_board.knife_chop")));
     public static final DeferredHolder<SoundEvent, SoundEvent> BLOCK_DOOR_BELL_RING = SOUND_EVENTS.register("block.door_bell.ring",

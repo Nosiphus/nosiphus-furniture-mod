@@ -1,9 +1,11 @@
 package com.nosiphus.furniture;
 
 import com.mojang.logging.LogUtils;
+import com.nosiphus.furniture.client.gui.screens.inventory.BinScreen;
 import com.nosiphus.furniture.client.gui.screens.inventory.WallCabinetScreen;
 import com.nosiphus.furniture.client.renderer.blockentity.*;
 import com.nosiphus.furniture.client.renderer.entity.SeatRenderer;
+import com.nosiphus.furniture.network.protocol.common.ServerboundEmptyBin;
 import com.nosiphus.furniture.sounds.ModSoundEvents;
 import com.nosiphus.furniture.world.entity.ModEntityTypes;
 import com.nosiphus.furniture.world.inventory.ModMenuTypes;
@@ -34,6 +36,8 @@ import net.neoforged.neoforge.capabilities.Capabilities;
 import net.neoforged.neoforge.capabilities.RegisterCapabilitiesEvent;
 import net.neoforged.neoforge.client.event.RegisterColorHandlersEvent;
 import net.neoforged.neoforge.client.event.RegisterMenuScreensEvent;
+import net.neoforged.neoforge.network.event.RegisterPayloadHandlersEvent;
+import net.neoforged.neoforge.network.registration.PayloadRegistrar;
 import org.slf4j.Logger;
 
 @Mod("nfm")
@@ -84,6 +88,7 @@ public class NosiphusFurnitureMod {
         @SubscribeEvent
         public static void registerScreens(RegisterMenuScreensEvent event)
         {
+            event.register(ModMenuTypes.BIN.get(), BinScreen::new);
             event.register(ModMenuTypes.WALL_CABINET.get(), WallCabinetScreen::new);
         }
 
@@ -106,6 +111,27 @@ public class NosiphusFurnitureMod {
                     ModBlockEntityTypes.BIRD_BATH.get(),(birdBath, side) -> birdBath.getTank());
             event.registerBlockEntity(Capabilities.FluidHandler.BLOCK,
                     ModBlockEntityTypes.WATER_TANK.get(),(waterTank, side) -> waterTank.getTank());
+        }
+
+        @SubscribeEvent
+        public static void registerPackets(final RegisterPayloadHandlersEvent event)
+        {
+            final PayloadRegistrar registrar = event.registrar("nfm").versioned("1");
+
+            /*
+            registrar.playToClient(
+                    ClientboundFlipGrill.TYPE,
+                    ClientboundFlipGrill.STREAM_CODEC,
+                    ClientboundFlipGrill::handle
+            );
+
+             */
+
+            registrar.playToServer(
+                    ServerboundEmptyBin.TYPE,
+                    ServerboundEmptyBin.STREAM_CODEC,
+                    ServerboundEmptyBin::handle
+            );
         }
 
     }

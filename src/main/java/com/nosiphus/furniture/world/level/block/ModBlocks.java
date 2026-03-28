@@ -914,11 +914,11 @@ public class ModBlocks {
             () -> new BathBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.WHITE_CONCRETE)));
     public static final DeferredBlock<Block> BATH_DARK = BLOCKS.register("bath_dark",
             () -> new BathBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.GRAY_CONCRETE)));
-    /*
     public static final DeferredBlock<Block> BIN_LIGHT = BLOCKS.register("bin_light",
             () -> new BinBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.WHITE_CONCRETE).noOcclusion()));
     public static final DeferredBlock<Block> BIN_DARK = BLOCKS.register("bin_dark",
             () -> new BinBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.GRAY_CONCRETE).noOcclusion()));
+    /*
     public static final DeferredBlock<Block> BLENDER_LIGHT = BLOCKS.register("blender_light",
             () -> new BlenderBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.WHITE_CONCRETE).noOcclusion()));
     public static final DeferredBlock<Block> BLENDER_DARK = BLOCKS.register("blender_dark",

@@ -16,6 +16,12 @@ public class ModBlockEntityTypes {
                     ModBlocks.BATH_LIGHT.get(), ModBlocks.BATH_DARK.get()
             ).build(null));
 
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<BinBlockEntity>> BIN =
+            BLOCK_ENTITY_TYPES.register("bin", () -> BlockEntityType.Builder.of(
+                    BinBlockEntity::new,
+                    ModBlocks.BIN_LIGHT.get(), ModBlocks.BIN_DARK.get()
+            ).build(null));
+
     public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<BirdBathBlockEntity>> BIRD_BATH =
             BLOCK_ENTITY_TYPES.register("bird_bath", () -> BlockEntityType.Builder.of(
                     BirdBathBlockEntity::new,

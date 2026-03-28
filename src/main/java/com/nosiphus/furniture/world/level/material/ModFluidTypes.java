@@ -2,7 +2,6 @@ package com.nosiphus.furniture.world.level.material;
 
 import com.mojang.blaze3d.shaders.FogShape;
 import com.mojang.blaze3d.systems.RenderSystem;
-import com.nosiphus.furniture.NosiphusFurnitureMod;
 import net.minecraft.client.Camera;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.multiplayer.ClientLevel;

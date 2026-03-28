@@ -908,11 +908,11 @@ public class ModItems {
             () -> new BlockItem(ModBlocks.BATH_LIGHT.get(), new Item.Properties())));
     public static final DeferredItem<BlockItem> BATH_DARK = addToTab(ITEMS.register("bath_dark",
             () -> new BlockItem(ModBlocks.BATH_DARK.get(), new Item.Properties())));
-    /*
     public static final DeferredItem<BlockItem> BIN_LIGHT = addToTab(ITEMS.register("bin_light",
             () -> new BlockItem(ModBlocks.BIN_LIGHT.get(), new Item.Properties())));
     public static final DeferredItem<BlockItem> BIN_DARK = addToTab(ITEMS.register("bin_dark",
             () -> new BlockItem(ModBlocks.BIN_DARK.get(), new Item.Properties())));
+    /*
     public static final DeferredItem<BlockItem> BLENDER_LIGHT = addToTab(ITEMS.register("blender_light",
             () -> new BlockItem(ModBlocks.BLENDER_LIGHT.get(), new Item.Properties())));
     public static final DeferredItem<BlockItem> BLENDER_DARK = addToTab(ITEMS.register("blender_dark",
