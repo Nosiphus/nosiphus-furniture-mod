@@ -1,6 +1,6 @@
 package com.nosiphus.furniture.client.gui.screens.inventory;
 
-import com.nosiphus.furniture.network.protocol.common.ServerboundEmptyBin;
+import com.nosiphus.furniture.network.protocol.common.ServerboundBinEmpty;
 import com.nosiphus.furniture.world.inventory.BinMenu;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.components.Button;
@@ -26,7 +26,7 @@ public class BinScreen extends AbstractContainerScreen<BinMenu> {
         super.init();
         this.titleLabelX = (this.imageWidth - this.font.width(this.title)) / 2;
         this.addRenderableWidget(Button.builder(Component.translatable("gui.button.nfm.bin.empty"), (button) -> {
-            PacketDistributor.sendToServer(new ServerboundEmptyBin(this.getMenu().getBlockEntity().getBlockPos()));
+            PacketDistributor.sendToServer(new ServerboundBinEmpty(this.getMenu().getBlockEntity().getBlockPos()));
             button.setFocused(false);
         }).bounds(this.leftPos + 128, this.topPos + 48, 40, 20).build());
     }

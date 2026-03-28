@@ -962,9 +962,9 @@ public class ModBlocks {
             () -> new ShowerHeadBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.WHITE_CONCRETE).noOcclusion()));
     public static final DeferredBlock<Block> SHOWER_HEAD_DARK = BLOCKS.register("shower_head_dark",
             () -> new ShowerHeadBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.GRAY_CONCRETE).noOcclusion()));
-    /*
     public static final DeferredBlock<Block> STEREO = BLOCKS.register("stereo",
             () -> new StereoBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.BLACK_CONCRETE)));
+    /*
     public static final DeferredBlock<Block> TOASTER_LIGHT = BLOCKS.register("toaster_light",
             () -> new ToasterBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.WHITE_CONCRETE).noOcclusion()));
     public static final DeferredBlock<Block> TOASTER_DARK = BLOCKS.register("toaster_dark",

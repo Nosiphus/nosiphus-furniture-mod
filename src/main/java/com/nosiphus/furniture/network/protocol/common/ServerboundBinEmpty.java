@@ -8,15 +8,15 @@ import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
 import net.minecraft.resources.ResourceLocation;
 import net.neoforged.neoforge.network.handling.IPayloadContext;
 
-public record ServerboundEmptyBin(BlockPos pos) implements CustomPacketPayload {
+public record ServerboundBinEmpty(BlockPos pos) implements CustomPacketPayload {
 
-    public static final Type<ServerboundEmptyBin> TYPE = new Type<>(
+    public static final Type<ServerboundBinEmpty> TYPE = new Type<>(
             ResourceLocation.fromNamespaceAndPath("nfm", "empty_bin")
     );
 
-    public static final StreamCodec<FriendlyByteBuf, ServerboundEmptyBin> STREAM_CODEC = StreamCodec.composite(
-            BlockPos.STREAM_CODEC, ServerboundEmptyBin::pos,
-            ServerboundEmptyBin::new
+    public static final StreamCodec<FriendlyByteBuf, ServerboundBinEmpty> STREAM_CODEC = StreamCodec.composite(
+            BlockPos.STREAM_CODEC, ServerboundBinEmpty::pos,
+            ServerboundBinEmpty::new
     );
 
     @Override

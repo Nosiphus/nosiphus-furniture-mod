@@ -108,6 +108,12 @@ public class ModBlockEntityTypes {
                     ModBlocks.SINK_LIGHT.get(), ModBlocks.SINK_DARK.get()
             ).build(null));
 
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<StereoBlockEntity>> STEREO =
+            BLOCK_ENTITY_TYPES.register("stereo", () -> BlockEntityType.Builder.of(
+                    StereoBlockEntity::new,
+                    ModBlocks.STEREO.get()
+            ).build(null));
+
     public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<TelevisionStandBlockEntity>> TELEVISION_STAND =
             BLOCK_ENTITY_TYPES.register("television_stand", () -> BlockEntityType.Builder.of(
                     TelevisionStandBlockEntity::new,
