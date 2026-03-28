@@ -1,0 +1,12 @@
+{
+  "replace": false,
+  "values": [
+    { "id": "#nfm:tables", "required": false },
+    { "id": "#nfm:chairs", "required": false },
+    { "id": "#nfm:coffee_tables", "required": false },
+	{ "id": "#nfm:sofas", "required": false },
+	{ "id": "#nfm:bar_stools", "required": false },
+	{ "id": "#nfm:desks", "required": false },
+    { "id": "#nfm:desk_cabinets", "required": false }
+  ]
+}

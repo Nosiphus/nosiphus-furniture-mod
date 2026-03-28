@@ -1,0 +1,8 @@
+{
+  "replace": false,
+  "values": [
+    { "id": "nfm:christmas_tree", "required": false },
+	{ "id": "nfm:candle", "required": false },
+	{ "id": "nfm:wreath", "required": false }
+  ]
+}

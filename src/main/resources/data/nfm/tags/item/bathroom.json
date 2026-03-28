@@ -1,0 +1,18 @@
+{
+  "replace": false,
+  "values": [
+    { "id": "nfm:toilet_light", "required": false },
+    { "id": "nfm:toilet_dark", "required": false },
+	{ "id": "nfm:sink_light", "required": false },
+    { "id": "nfm:sink_dark", "required": false },
+	{ "id": "#nfm:wall_cabinets", "required": false },
+	{ "id": "nfm:bath_light", "required": false },
+    { "id": "nfm:bath_dark", "required": false },
+	{ "id": "nfm:shower_light", "required": false },
+    { "id": "nfm:shower_dark", "required": false },
+    { "id": "nfm:shower_head_light", "required": false },
+    { "id": "nfm:shower_head_dark", "required": false },
+	{ "id": "nfm:bin_light", "required": false },
+	{ "id": "nfm:bin_dark", "required": false }
+  ]
+}
