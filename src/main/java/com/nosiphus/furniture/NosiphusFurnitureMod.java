@@ -2,6 +2,8 @@ package com.nosiphus.furniture;
 
 import com.mojang.logging.LogUtils;
 import com.nosiphus.furniture.client.gui.screens.inventory.*;
+import com.nosiphus.furniture.client.particle.ModParticleTypes;
+import com.nosiphus.furniture.client.particle.ShowerParticle;
 import com.nosiphus.furniture.client.renderer.blockentity.*;
 import com.nosiphus.furniture.client.renderer.entity.SeatRenderer;
 import com.nosiphus.furniture.network.protocol.common.ClientboundDishwasherSync;
@@ -36,6 +38,7 @@ import net.neoforged.neoforge.capabilities.Capabilities;
 import net.neoforged.neoforge.capabilities.RegisterCapabilitiesEvent;
 import net.neoforged.neoforge.client.event.RegisterColorHandlersEvent;
 import net.neoforged.neoforge.client.event.RegisterMenuScreensEvent;
+import net.neoforged.neoforge.client.event.RegisterParticleProvidersEvent;
 import net.neoforged.neoforge.network.event.RegisterPayloadHandlersEvent;
 import net.neoforged.neoforge.network.registration.PayloadRegistrar;
 import org.slf4j.Logger;
@@ -54,6 +57,7 @@ public class NosiphusFurnitureMod {
         ModFluidTypes.FLUID_TYPES.register(eventBus);
         ModItems.ITEMS.register(eventBus);
         ModMenuTypes.MENU_TYPES.register(eventBus);
+        ModParticleTypes.PARTICLE_TYPES.register(eventBus);
         ModRecipeSerializers.RECIPE_SERIALIZERS.register(eventBus);
         ModRecipeTypes.RECIPE_TYPES.register(eventBus);
         ModSoundEvents.SOUND_EVENTS.register(eventBus);
@@ -83,6 +87,11 @@ public class NosiphusFurnitureMod {
                 BlockState state = ((BlockItem)stack.getItem()).getBlock().defaultBlockState();
                 return Minecraft.getInstance().getBlockColors().getColor(state, null, null, i);
             }, ModBlocks.CHRISTMAS_TREE.get(), ModBlocks.WREATH.get());
+        }
+
+        @SubscribeEvent
+        public static void registerParticleProviders(RegisterParticleProvidersEvent event) {
+            event.registerSpriteSet(ModParticleTypes.SHOWER.get(), ShowerParticle.Provider::new);
         }
 
         @SubscribeEvent
@@ -116,6 +125,8 @@ public class NosiphusFurnitureMod {
             event.registerBlockEntity(Capabilities.FluidHandler.BLOCK,
                     ModBlockEntityTypes.DISHWASHER.get(),(dishwasher, side) -> dishwasher.getTank());
             event.registerBlockEntity(Capabilities.FluidHandler.BLOCK,
+                    ModBlockEntityTypes.SINK.get(),(sink, side) -> sink.getTank());
+            event.registerBlockEntity(Capabilities.FluidHandler.BLOCK,
                     ModBlockEntityTypes.WATER_TANK.get(),(waterTank, side) -> waterTank.getTank());
         }
 
@@ -147,6 +158,7 @@ public class NosiphusFurnitureMod {
         BlockEntityRenderers.register(ModBlockEntityTypes.COOKIE_JAR.get(), CookieJarBlockEntityRenderer::new);
         BlockEntityRenderers.register(ModBlockEntityTypes.DIGITAL_CLOCK.get(), DigitalClockBlockEntityRenderer::new);
         BlockEntityRenderers.register(ModBlockEntityTypes.PLATE.get(), PlateBlockEntityRenderer::new);
+        BlockEntityRenderers.register(ModBlockEntityTypes.SINK.get(), SinkBlockEntityRenderer::new);
         BlockEntityRenderers.register(ModBlockEntityTypes.WATER_TANK.get(), WaterTankBlockEntityRenderer::new);
     }
 

@@ -151,7 +151,7 @@ public class PrinterBlockEntity extends BlockEntity implements MenuProvider {
     private void copyBook() {
         ItemStack input = itemHandler.getStackInSlot(1);
         ItemStack output = itemHandler.getStackInSlot(2);
-        
+
         int inkCost = Math.max(1, getBookCharacterCount(input));
 
         ItemStack inkStack = itemHandler.getStackInSlot(0);

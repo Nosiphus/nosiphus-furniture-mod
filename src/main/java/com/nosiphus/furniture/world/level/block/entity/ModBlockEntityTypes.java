@@ -96,6 +96,18 @@ public class ModBlockEntityTypes {
                     ModBlocks.PRINTER.get()
             ).build(null));
 
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<ShowerHeadBlockEntity>> SHOWER_HEAD =
+            BLOCK_ENTITY_TYPES.register("shower_head", () -> BlockEntityType.Builder.of(
+                    ShowerHeadBlockEntity::new,
+                    ModBlocks.SHOWER_HEAD_LIGHT.get(), ModBlocks.SHOWER_HEAD_DARK.get()
+            ).build(null));
+
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<SinkBlockEntity>> SINK =
+            BLOCK_ENTITY_TYPES.register("sink", () -> BlockEntityType.Builder.of(
+                    SinkBlockEntity::new,
+                    ModBlocks.SINK_LIGHT.get(), ModBlocks.SINK_DARK.get()
+            ).build(null));
+
     public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<TelevisionStandBlockEntity>> TELEVISION_STAND =
             BLOCK_ENTITY_TYPES.register("television_stand", () -> BlockEntityType.Builder.of(
                     TelevisionStandBlockEntity::new,

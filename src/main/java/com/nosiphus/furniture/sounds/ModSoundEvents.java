@@ -28,4 +28,6 @@ public class ModSoundEvents
             () -> SoundEvent.createVariableRangeEvent(ResourceLocation.fromNamespaceAndPath("nfm", "block.microwave.finish")));
     public static final DeferredHolder<SoundEvent, SoundEvent> BLOCK_MICROWAVE_RUNNING = SOUND_EVENTS.register("block.microwave.running",
             () -> SoundEvent.createVariableRangeEvent(ResourceLocation.fromNamespaceAndPath("nfm", "block.microwave.running")));
+    public static final DeferredHolder<SoundEvent, SoundEvent> BLOCK_SHOWER_RUNNING = SOUND_EVENTS.register("block.shower.running",
+            () -> SoundEvent.createVariableRangeEvent(ResourceLocation.fromNamespaceAndPath("nfm", "block.shower.running")));
 }

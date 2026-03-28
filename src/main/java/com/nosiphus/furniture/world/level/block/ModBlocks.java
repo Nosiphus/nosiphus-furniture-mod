@@ -950,7 +950,6 @@ public class ModBlocks {
             () -> new OvenRangeHoodBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.GRAY_CONCRETE).lightLevel(getLightValueLit(14)).noOcclusion()));
     public static final DeferredBlock<Block> PRINTER = BLOCKS.register("printer",
             () -> new PrinterBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.GRAY_CONCRETE).noOcclusion()));
-    /*
     public static final DeferredBlock<Block> SINK_LIGHT = BLOCKS.register("sink_light",
             () -> new SinkBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.WHITE_CONCRETE).noOcclusion()));
     public static final DeferredBlock<Block> SINK_DARK = BLOCKS.register("sink_dark",
@@ -963,6 +962,7 @@ public class ModBlocks {
             () -> new ShowerHeadBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.WHITE_CONCRETE).noOcclusion()));
     public static final DeferredBlock<Block> SHOWER_HEAD_DARK = BLOCKS.register("shower_head_dark",
             () -> new ShowerHeadBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.GRAY_CONCRETE).noOcclusion()));
+    /*
     public static final DeferredBlock<Block> STEREO = BLOCKS.register("stereo",
             () -> new StereoBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.BLACK_CONCRETE)));
     public static final DeferredBlock<Block> TOASTER_LIGHT = BLOCKS.register("toaster_light",

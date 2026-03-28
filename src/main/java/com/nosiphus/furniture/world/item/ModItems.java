@@ -944,7 +944,6 @@ public class ModItems {
             () -> new BlockItem(ModBlocks.OVEN_RANGE_HOOD_DARK.get(), new Item.Properties())));
     public static final DeferredItem<BlockItem> PRINTER = addToTab(ITEMS.register("printer",
             () -> new BlockItem(ModBlocks.PRINTER.get(), new Item.Properties())));
-    /*
     public static final DeferredItem<BlockItem> SINK_LIGHT = addToTab(ITEMS.register("sink_light",
             () -> new BlockItem(ModBlocks.SINK_LIGHT.get(), new Item.Properties())));
     public static final DeferredItem<BlockItem> SINK_DARK = addToTab(ITEMS.register("sink_dark",
@@ -957,6 +956,7 @@ public class ModItems {
             () -> new BlockItem(ModBlocks.SHOWER_HEAD_LIGHT.get(), new Item.Properties())));
     public static final DeferredItem<BlockItem> SHOWER_HEAD_DARK = addToTab(ITEMS.register("shower_head_dark",
             () -> new BlockItem(ModBlocks.SHOWER_HEAD_DARK.get(), new Item.Properties())));
+    /*
     public static final DeferredItem<BlockItem> STEREO = addToTab(ITEMS.register("stereo",
             () -> new BlockItem(ModBlocks.STEREO.get(), new Item.Properties())));
     public static final DeferredItem<BlockItem> TOASTER_LIGHT = addToTab(ITEMS.register("toaster_light",
