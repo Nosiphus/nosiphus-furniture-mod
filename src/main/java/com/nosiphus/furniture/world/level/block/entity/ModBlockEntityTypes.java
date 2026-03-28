@@ -90,6 +90,12 @@ public class ModBlockEntityTypes {
                     ModBlocks.PLATE.get()
             ).build(null));
 
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<PrinterBlockEntity>> PRINTER =
+            BLOCK_ENTITY_TYPES.register("printer", () -> BlockEntityType.Builder.of(
+                    PrinterBlockEntity::new,
+                    ModBlocks.PRINTER.get()
+            ).build(null));
+
     public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<TelevisionStandBlockEntity>> TELEVISION_STAND =
             BLOCK_ENTITY_TYPES.register("television_stand", () -> BlockEntityType.Builder.of(
                     TelevisionStandBlockEntity::new,

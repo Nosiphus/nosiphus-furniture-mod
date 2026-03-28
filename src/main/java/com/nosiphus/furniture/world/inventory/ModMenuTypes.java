@@ -33,6 +33,10 @@ public class ModMenuTypes {
             () -> IMenuTypeExtension.create(OvenMenu::new)
     );
 
+    public static final DeferredHolder<MenuType<?>, MenuType<PrinterMenu>> PRINTER = MENU_TYPES.register("printer",
+            () -> IMenuTypeExtension.create(PrinterMenu::new)
+    );
+
     public static final DeferredHolder<MenuType<?>, MenuType<WallCabinetMenu>> WALL_CABINET = MENU_TYPES.register("wall_cabinet",
             () -> IMenuTypeExtension.create((windowId, inv, data) ->
             {

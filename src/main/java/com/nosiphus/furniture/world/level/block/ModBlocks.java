@@ -944,13 +944,13 @@ public class ModBlocks {
             () -> new OvenBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.WHITE_CONCRETE).noOcclusion()));
     public static final DeferredBlock<Block> OVEN_DARK = BLOCKS.register("oven_dark",
             () -> new OvenBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.GRAY_CONCRETE).noOcclusion()));
-    /*
     public static final DeferredBlock<Block> OVEN_RANGE_HOOD_LIGHT = BLOCKS.register("oven_range_hood_light",
             () -> new OvenRangeHoodBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.WHITE_CONCRETE).lightLevel(getLightValueLit(14)).noOcclusion()));
     public static final DeferredBlock<Block> OVEN_RANGE_HOOD_DARK = BLOCKS.register("oven_range_hood_dark",
             () -> new OvenRangeHoodBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.GRAY_CONCRETE).lightLevel(getLightValueLit(14)).noOcclusion()));
     public static final DeferredBlock<Block> PRINTER = BLOCKS.register("printer",
             () -> new PrinterBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.GRAY_CONCRETE).noOcclusion()));
+    /*
     public static final DeferredBlock<Block> SINK_LIGHT = BLOCKS.register("sink_light",
             () -> new SinkBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.WHITE_CONCRETE).noOcclusion()));
     public static final DeferredBlock<Block> SINK_DARK = BLOCKS.register("sink_dark",
