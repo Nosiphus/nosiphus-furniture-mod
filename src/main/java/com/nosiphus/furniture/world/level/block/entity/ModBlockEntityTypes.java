@@ -78,6 +78,12 @@ public class ModBlockEntityTypes {
                     ModBlocks.MICROWAVE_LIGHT.get(), ModBlocks.MICROWAVE_DARK.get()
             ).build(null));
 
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<OvenBlockEntity>> OVEN =
+            BLOCK_ENTITY_TYPES.register("oven", () -> BlockEntityType.Builder.of(
+                    OvenBlockEntity::new,
+                    ModBlocks.OVEN_LIGHT.get(), ModBlocks.OVEN_DARK.get()
+            ).build(null));
+
     public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<PlateBlockEntity>> PLATE =
             BLOCK_ENTITY_TYPES.register("plate", () -> BlockEntityType.Builder.of(
                     PlateBlockEntity::new,

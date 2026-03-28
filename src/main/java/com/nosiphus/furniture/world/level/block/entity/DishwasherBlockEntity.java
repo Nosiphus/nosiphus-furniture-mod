@@ -1,8 +1,8 @@
 package com.nosiphus.furniture.world.level.block.entity;
 
 import com.nosiphus.furniture.network.protocol.common.ClientboundDishwasherSync;
-import com.nosiphus.furniture.world.level.material.ModFluids;
 import com.nosiphus.furniture.world.inventory.DishwasherMenu;
+import com.nosiphus.furniture.world.level.material.ModFluids;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.nbt.CompoundTag;

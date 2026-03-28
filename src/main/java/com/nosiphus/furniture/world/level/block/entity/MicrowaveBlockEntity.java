@@ -1,9 +1,9 @@
 package com.nosiphus.furniture.world.level.block.entity;
 
 import com.nosiphus.furniture.sounds.ModSoundEvents;
-import com.nosiphus.furniture.world.item.crafting.ModRecipeTypes;
-import com.nosiphus.furniture.world.item.crafting.CookingRecipe;
 import com.nosiphus.furniture.world.inventory.MicrowaveMenu;
+import com.nosiphus.furniture.world.item.crafting.CookingRecipe;
+import com.nosiphus.furniture.world.item.crafting.ModRecipeTypes;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.particles.ParticleTypes;

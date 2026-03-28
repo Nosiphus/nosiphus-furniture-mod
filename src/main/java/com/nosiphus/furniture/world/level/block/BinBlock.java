@@ -8,7 +8,6 @@ import com.nosiphus.furniture.sounds.ModSoundEvents;
 import com.nosiphus.furniture.world.level.block.entity.BinBlockEntity;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.BlockGetter;

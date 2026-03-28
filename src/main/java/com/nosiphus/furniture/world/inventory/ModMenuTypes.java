@@ -1,6 +1,7 @@
 package com.nosiphus.furniture.world.inventory;
 
-import com.nosiphus.furniture.world.level.block.entity.*;
+import com.nosiphus.furniture.world.level.block.entity.BinBlockEntity;
+import com.nosiphus.furniture.world.level.block.entity.WallCabinetBlockEntity;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.inventory.MenuType;
@@ -26,6 +27,10 @@ public class ModMenuTypes {
 
     public static final DeferredHolder<MenuType<?>, MenuType<MicrowaveMenu>> MICROWAVE = MENU_TYPES.register("microwave",
             () -> IMenuTypeExtension.create(MicrowaveMenu::new)
+    );
+
+    public static final DeferredHolder<MenuType<?>, MenuType<OvenMenu>> OVEN = MENU_TYPES.register("oven",
+            () -> IMenuTypeExtension.create(OvenMenu::new)
     );
 
     public static final DeferredHolder<MenuType<?>, MenuType<WallCabinetMenu>> WALL_CABINET = MENU_TYPES.register("wall_cabinet",

@@ -934,11 +934,11 @@ public class ModItems {
             () -> new BlockItem(ModBlocks.MICROWAVE_LIGHT.get(), new Item.Properties())));
     public static final DeferredItem<BlockItem> MICROWAVE_DARK = addToTab(ITEMS.register("microwave_dark",
             () -> new BlockItem(ModBlocks.MICROWAVE_DARK.get(), new Item.Properties())));
-    /*
     public static final DeferredItem<BlockItem> OVEN_LIGHT = addToTab(ITEMS.register("oven_light",
             () -> new BlockItem(ModBlocks.OVEN_LIGHT.get(), new Item.Properties())));
     public static final DeferredItem<BlockItem> OVEN_DARK = addToTab(ITEMS.register("oven_dark",
             () -> new BlockItem(ModBlocks.OVEN_DARK.get(), new Item.Properties())));
+    /*
     public static final DeferredItem<BlockItem> OVEN_RANGE_HOOD_LIGHT = addToTab(ITEMS.register("oven_range_hood_light",
             () -> new BlockItem(ModBlocks.OVEN_RANGE_HOOD_LIGHT.get(), new Item.Properties())));
     public static final DeferredItem<BlockItem> OVEN_RANGE_HOOD_DARK = addToTab(ITEMS.register("oven_range_hood_dark",

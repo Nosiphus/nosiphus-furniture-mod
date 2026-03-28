@@ -940,11 +940,11 @@ public class ModBlocks {
             () -> new MicrowaveBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.WHITE_CONCRETE).noOcclusion()));
     public static final DeferredBlock<Block> MICROWAVE_DARK = BLOCKS.register("microwave_dark",
             () -> new MicrowaveBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.GRAY_CONCRETE).noOcclusion()));
-    /*
     public static final DeferredBlock<Block> OVEN_LIGHT = BLOCKS.register("oven_light",
             () -> new OvenBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.WHITE_CONCRETE).noOcclusion()));
     public static final DeferredBlock<Block> OVEN_DARK = BLOCKS.register("oven_dark",
             () -> new OvenBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.GRAY_CONCRETE).noOcclusion()));
+    /*
     public static final DeferredBlock<Block> OVEN_RANGE_HOOD_LIGHT = BLOCKS.register("oven_range_hood_light",
             () -> new OvenRangeHoodBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.WHITE_CONCRETE).lightLevel(getLightValueLit(14)).noOcclusion()));
     public static final DeferredBlock<Block> OVEN_RANGE_HOOD_DARK = BLOCKS.register("oven_range_hood_dark",

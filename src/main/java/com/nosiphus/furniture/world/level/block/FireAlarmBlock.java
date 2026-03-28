@@ -8,7 +8,6 @@ import com.nosiphus.furniture.world.level.block.entity.FireAlarmBlockEntity;
 import com.nosiphus.furniture.world.level.block.entity.ModBlockEntityTypes;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.BlockGetter;
