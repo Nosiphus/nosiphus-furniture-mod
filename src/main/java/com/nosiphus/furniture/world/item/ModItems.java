@@ -912,7 +912,6 @@ public class ModItems {
             () -> new BlockItem(ModBlocks.BIN_LIGHT.get(), new Item.Properties())));
     public static final DeferredItem<BlockItem> BIN_DARK = addToTab(ITEMS.register("bin_dark",
             () -> new BlockItem(ModBlocks.BIN_DARK.get(), new Item.Properties())));
-    /*
     public static final DeferredItem<BlockItem> BLENDER_LIGHT = addToTab(ITEMS.register("blender_light",
             () -> new BlockItem(ModBlocks.BLENDER_LIGHT.get(), new Item.Properties())));
     public static final DeferredItem<BlockItem> BLENDER_DARK = addToTab(ITEMS.register("blender_dark",
@@ -923,6 +922,7 @@ public class ModItems {
             () -> new BlockItem(ModBlocks.COMPUTER_LIGHT.get(), new Item.Properties())));
     public static final DeferredItem<BlockItem> COMPUTER_DARK = addToTab(ITEMS.register("computer_dark",
             () -> new BlockItem(ModBlocks.COMPUTER_DARK.get(), new Item.Properties())));
+    /*
     public static final DeferredItem<BlockItem> DISHWASHER_LIGHT = addToTab(ITEMS.register("dishwasher_light",
             () -> new BlockItem(ModBlocks.DISHWASHER_LIGHT.get(), new Item.Properties())));
     public static final DeferredItem<BlockItem> DISHWASHER_DARK = addToTab(ITEMS.register("dishwasher_dark",
@@ -971,7 +971,6 @@ public class ModItems {
             () -> new BlockItem(ModBlocks.WASHING_MACHINE_LIGHT.get(), new Item.Properties())));
     public static final DeferredItem<BlockItem> WASHING_MACHINE_DARK = addToTab(ITEMS.register("washing_machine_dark",
             () -> new BlockItem(ModBlocks.WASHING_MACHINE_DARK.get(), new Item.Properties())));
-
      */
 
     // Digital Clocks

@@ -918,7 +918,6 @@ public class ModBlocks {
             () -> new BinBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.WHITE_CONCRETE).noOcclusion()));
     public static final DeferredBlock<Block> BIN_DARK = BLOCKS.register("bin_dark",
             () -> new BinBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.GRAY_CONCRETE).noOcclusion()));
-    /*
     public static final DeferredBlock<Block> BLENDER_LIGHT = BLOCKS.register("blender_light",
             () -> new BlenderBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.WHITE_CONCRETE).noOcclusion()));
     public static final DeferredBlock<Block> BLENDER_DARK = BLOCKS.register("blender_dark",
@@ -929,6 +928,7 @@ public class ModBlocks {
             () -> new ComputerBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK)));
     public static final DeferredBlock<Block> COMPUTER_DARK = BLOCKS.register("computer_dark",
             () -> new ComputerBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK)));
+    /*
     public static final DeferredBlock<Block> DISHWASHER_LIGHT = BLOCKS.register("dishwasher_light",
             () -> new DishwasherBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.WHITE_CONCRETE).noOcclusion()));
     public static final DeferredBlock<Block> DISHWASHER_DARK = BLOCKS.register("dishwasher_dark",

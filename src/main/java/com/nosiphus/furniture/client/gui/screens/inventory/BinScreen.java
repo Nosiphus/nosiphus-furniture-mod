@@ -27,6 +27,7 @@ public class BinScreen extends AbstractContainerScreen<BinMenu> {
         this.titleLabelX = (this.imageWidth - this.font.width(this.title)) / 2;
         this.addRenderableWidget(Button.builder(Component.translatable("gui.button.nfm.bin.empty"), (button) -> {
             PacketDistributor.sendToServer(new ServerboundEmptyBin(this.getMenu().getBlockEntity().getBlockPos()));
+            button.setFocused(false);
         }).bounds(this.leftPos + 128, this.topPos + 48, 40, 20).build());
     }
 
