@@ -19,4 +19,11 @@ public class ModRecipeTypes
                     return "nfm:chopping";
                 }
             });
+    public static final DeferredHolder<RecipeType<?>, RecipeType<CookingRecipe>> COOKING = RECIPE_TYPES.register("cooking",
+            () -> new RecipeType<CookingRecipe>() {
+                @Override
+                public String toString() {
+                    return "nfm:cooking";
+                }
+            });
 }

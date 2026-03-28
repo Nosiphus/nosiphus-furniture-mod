@@ -1,11 +1,9 @@
 {
   "type": "nfm:cooking",
-  "ingredients": [
-    {
-      "item": "minecraft:salmon"
-    }
-  ],
-  "output": {
-    "item": "minecraft:cooked_salmon"
+  "base": {
+    "item": "minecraft:salmon"
+  },
+  "result": {
+    "id": "minecraft:cooked_salmon"
   }
 }

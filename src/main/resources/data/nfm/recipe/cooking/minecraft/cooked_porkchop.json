@@ -1,11 +1,9 @@
 {
   "type": "nfm:cooking",
-  "ingredients": [
-    {
-      "item": "minecraft:porkchop"
-    }
-  ],
-  "output": {
-    "item": "minecraft:cooked_porkchop"
+  "base": {
+    "item": "minecraft:porkchop"
+  },
+  "result": {
+    "id": "minecraft:cooked_porkchop"
   }
 }

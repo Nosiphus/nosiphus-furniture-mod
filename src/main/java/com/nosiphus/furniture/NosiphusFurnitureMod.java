@@ -3,6 +3,7 @@ package com.nosiphus.furniture;
 import com.mojang.logging.LogUtils;
 import com.nosiphus.furniture.client.gui.screens.inventory.BinScreen;
 import com.nosiphus.furniture.client.gui.screens.inventory.DishwasherScreen;
+import com.nosiphus.furniture.client.gui.screens.inventory.MicrowaveScreen;
 import com.nosiphus.furniture.client.gui.screens.inventory.WallCabinetScreen;
 import com.nosiphus.furniture.client.renderer.blockentity.*;
 import com.nosiphus.furniture.client.renderer.entity.SeatRenderer;
@@ -92,6 +93,7 @@ public class NosiphusFurnitureMod {
         {
             event.register(ModMenuTypes.BIN.get(), BinScreen::new);
             event.register(ModMenuTypes.DISHWASHER.get(), DishwasherScreen::new);
+            event.register(ModMenuTypes.MICROWAVE.get(), MicrowaveScreen::new);
             event.register(ModMenuTypes.WALL_CABINET.get(), WallCabinetScreen::new);
         }
 

@@ -1,11 +1,9 @@
 {
   "type": "nfm:cooking",
-  "ingredients": [
-    {
-      "item": "minecraft:cod"
-    }
-  ],
-  "output": {
-    "item": "minecraft:cooked_cod"
+  "base": {
+    "item": "minecraft:cod"
+  },
+  "result": {
+    "id": "minecraft:cooked_cod"
   }
 }

@@ -1,11 +1,9 @@
 {
   "type": "nfm:cooking",
-  "ingredients": [
-    {
-      "item": "minecraft:chicken"
-    }
-  ],
-  "output": {
-    "item": "minecraft:cooked_chicken"
+  "base": {
+    "item": "minecraft:chicken"
+  },
+  "result": {
+    "id": "minecraft:cooked_chicken"
   }
 }

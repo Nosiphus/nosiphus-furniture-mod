@@ -24,4 +24,8 @@ public class ModSoundEvents
             () -> SoundEvent.createVariableRangeEvent(ResourceLocation.fromNamespaceAndPath("nfm", "block.fire_alarm.beep")));
     public static final DeferredHolder<SoundEvent, SoundEvent> BLOCK_INFLATABLE_CASTLE_BOUNCE = SOUND_EVENTS.register("block.inflatable_castle.bounce",
             () -> SoundEvent.createVariableRangeEvent(ResourceLocation.fromNamespaceAndPath("nfm", "block.inflatable_castle.bounce")));
+    public static final DeferredHolder<SoundEvent, SoundEvent> BLOCK_MICROWAVE_FINISH = SOUND_EVENTS.register("block.microwave.finish",
+            () -> SoundEvent.createVariableRangeEvent(ResourceLocation.fromNamespaceAndPath("nfm", "block.microwave.finish")));
+    public static final DeferredHolder<SoundEvent, SoundEvent> BLOCK_MICROWAVE_RUNNING = SOUND_EVENTS.register("block.microwave.running",
+            () -> SoundEvent.createVariableRangeEvent(ResourceLocation.fromNamespaceAndPath("nfm", "block.microwave.running")));
 }

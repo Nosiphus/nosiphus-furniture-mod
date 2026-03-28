@@ -11,4 +11,6 @@ public class ModRecipeSerializers
 
     public static final DeferredHolder<RecipeSerializer<?>, RecipeSerializer<ChoppingRecipe>> CHOPPING =
             RECIPE_SERIALIZERS.register("chopping", ChoppingRecipe.Serializer::new);
+    public static final DeferredHolder<RecipeSerializer<?>, RecipeSerializer<CookingRecipe>> COOKING =
+            RECIPE_SERIALIZERS.register("cooking", CookingRecipe.Serializer::new);
 }

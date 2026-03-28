@@ -936,11 +936,11 @@ public class ModBlocks {
             () -> new FireAlarmBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.WHITE_CONCRETE)));
     public static final DeferredBlock<Block> LIQUID_CRYSTAL_DISPLAY_TELEVISION = BLOCKS.register("liquid_crystal_display_television",
             () -> new LiquidCrystalDisplayTelevisionBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.GRAY_CONCRETE)));
-    /*
     public static final DeferredBlock<Block> MICROWAVE_LIGHT = BLOCKS.register("microwave_light",
             () -> new MicrowaveBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.WHITE_CONCRETE).noOcclusion()));
     public static final DeferredBlock<Block> MICROWAVE_DARK = BLOCKS.register("microwave_dark",
             () -> new MicrowaveBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.GRAY_CONCRETE).noOcclusion()));
+    /*
     public static final DeferredBlock<Block> OVEN_LIGHT = BLOCKS.register("oven_light",
             () -> new OvenBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.WHITE_CONCRETE).noOcclusion()));
     public static final DeferredBlock<Block> OVEN_DARK = BLOCKS.register("oven_dark",

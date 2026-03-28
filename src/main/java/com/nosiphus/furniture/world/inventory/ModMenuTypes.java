@@ -22,12 +22,10 @@ public class ModMenuTypes {
     );
 
     public static final DeferredHolder<MenuType<?>, MenuType<DishwasherMenu>> DISHWASHER = MENU_TYPES.register("dishwasher",
-            () -> IMenuTypeExtension.create((windowId, inv, data) ->
-            {
-                BlockPos pos = data.readBlockPos();
-                DishwasherBlockEntity dishwasher = (DishwasherBlockEntity) inv.player.level().getBlockEntity(pos);
-                return new DishwasherMenu(windowId, inv, dishwasher);
-            })
+            () -> IMenuTypeExtension.create(DishwasherMenu::new));
+
+    public static final DeferredHolder<MenuType<?>, MenuType<MicrowaveMenu>> MICROWAVE = MENU_TYPES.register("microwave",
+            () -> IMenuTypeExtension.create(MicrowaveMenu::new)
     );
 
     public static final DeferredHolder<MenuType<?>, MenuType<WallCabinetMenu>> WALL_CABINET = MENU_TYPES.register("wall_cabinet",

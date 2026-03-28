@@ -1,11 +1,9 @@
 {
   "type": "nfm:cooking",
-  "ingredients": [
-    {
-      "item": "minecraft:beef"
-    }
-  ],
-  "output": {
-    "item": "minecraft:cooked_beef"
+  "base": {
+    "item": "minecraft:beef"
+  },
+  "result": {
+    "id": "minecraft:cooked_beef"
   }
 }
