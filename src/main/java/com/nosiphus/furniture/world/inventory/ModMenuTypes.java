@@ -23,7 +23,8 @@ public class ModMenuTypes {
     );
 
     public static final DeferredHolder<MenuType<?>, MenuType<DishwasherMenu>> DISHWASHER = MENU_TYPES.register("dishwasher",
-            () -> IMenuTypeExtension.create(DishwasherMenu::new));
+            () -> IMenuTypeExtension.create(DishwasherMenu::new)
+    );
 
     public static final DeferredHolder<MenuType<?>, MenuType<MicrowaveMenu>> MICROWAVE = MENU_TYPES.register("microwave",
             () -> IMenuTypeExtension.create(MicrowaveMenu::new)
@@ -44,6 +45,10 @@ public class ModMenuTypes {
                 WallCabinetBlockEntity wallCabinet = (WallCabinetBlockEntity) inv.player.level().getBlockEntity(pos);
                 return new WallCabinetMenu(windowId, inv, wallCabinet);
             })
+    );
+
+    public static final DeferredHolder<MenuType<?>, MenuType<WashingMachineMenu>> WASHING_MACHINE = MENU_TYPES.register("washing_machine",
+            () -> IMenuTypeExtension.create(WashingMachineMenu::new)
     );
 
 }

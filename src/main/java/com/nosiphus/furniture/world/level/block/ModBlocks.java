@@ -964,7 +964,6 @@ public class ModBlocks {
             () -> new ShowerHeadBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.GRAY_CONCRETE).noOcclusion()));
     public static final DeferredBlock<Block> STEREO = BLOCKS.register("stereo",
             () -> new StereoBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.BLACK_CONCRETE)));
-    /*
     public static final DeferredBlock<Block> TOASTER_LIGHT = BLOCKS.register("toaster_light",
             () -> new ToasterBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.WHITE_CONCRETE).noOcclusion()));
     public static final DeferredBlock<Block> TOASTER_DARK = BLOCKS.register("toaster_dark",
@@ -977,8 +976,6 @@ public class ModBlocks {
             () -> new WashingMachineBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.WHITE_CONCRETE).noOcclusion()));
     public static final DeferredBlock<Block> WASHING_MACHINE_DARK = BLOCKS.register("washing_machine_dark",
             () -> new WashingMachineBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.GRAY_CONCRETE).noOcclusion()));
-
-     */
 
     // Digital Clocks
     public static final DeferredBlock<Block> WHITE_DIGITAL_CLOCK = BLOCKS.register("white_digital_clock",

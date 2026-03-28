@@ -114,6 +114,18 @@ public class ModBlockEntityTypes {
                     ModBlocks.STEREO.get()
             ).build(null));
 
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<ToasterBlockEntity>> TOASTER =
+            BLOCK_ENTITY_TYPES.register("toaster", () -> BlockEntityType.Builder.of(
+                    ToasterBlockEntity::new,
+                    ModBlocks.TOASTER_LIGHT.get(), ModBlocks.TOASTER_DARK.get()
+            ).build(null));
+
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<ToiletBlockEntity>> TOILET =
+            BLOCK_ENTITY_TYPES.register("toilet", () -> BlockEntityType.Builder.of(
+                    ToiletBlockEntity::new,
+                    ModBlocks.TOILET_LIGHT.get(), ModBlocks.TOILET_DARK.get()
+            ).build(null));
+
     public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<TelevisionStandBlockEntity>> TELEVISION_STAND =
             BLOCK_ENTITY_TYPES.register("television_stand", () -> BlockEntityType.Builder.of(
                     TelevisionStandBlockEntity::new,
@@ -140,6 +152,12 @@ public class ModBlockEntityTypes {
                     ModBlocks.LIGHT_BLUE_WALL_CABINET.get(), ModBlocks.BLUE_WALL_CABINET.get(),
                     ModBlocks.PURPLE_WALL_CABINET.get(), ModBlocks.MAGENTA_WALL_CABINET.get(),
                     ModBlocks.PINK_WALL_CABINET.get()
+            ).build(null));
+
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<WashingMachineBlockEntity>> WASHING_MACHINE =
+            BLOCK_ENTITY_TYPES.register("washing_machine", () -> BlockEntityType.Builder.of(
+                    WashingMachineBlockEntity::new,
+                    ModBlocks.WASHING_MACHINE_LIGHT.get(), ModBlocks.WASHING_MACHINE_DARK.get()
             ).build(null));
 
     public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<WaterTankBlockEntity>> WATER_TANK =

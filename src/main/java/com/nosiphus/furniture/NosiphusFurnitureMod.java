@@ -7,6 +7,7 @@ import com.nosiphus.furniture.client.particle.ShowerParticle;
 import com.nosiphus.furniture.client.renderer.blockentity.*;
 import com.nosiphus.furniture.client.renderer.entity.SeatRenderer;
 import com.nosiphus.furniture.network.protocol.common.ClientboundDishwasherSync;
+import com.nosiphus.furniture.network.protocol.common.ClientboundWashingMachineSync;
 import com.nosiphus.furniture.network.protocol.common.ServerboundBinEmpty;
 import com.nosiphus.furniture.sounds.ModSoundEvents;
 import com.nosiphus.furniture.world.entity.ModEntityTypes;
@@ -103,6 +104,7 @@ public class NosiphusFurnitureMod {
             event.register(ModMenuTypes.OVEN.get(), OvenScreen::new);
             event.register(ModMenuTypes.PRINTER.get(),  PrinterScreen::new);
             event.register(ModMenuTypes.WALL_CABINET.get(), WallCabinetScreen::new);
+            event.register(ModMenuTypes.WASHING_MACHINE.get(), WashingMachineScreen::new);
         }
 
     }
@@ -127,6 +129,10 @@ public class NosiphusFurnitureMod {
             event.registerBlockEntity(Capabilities.FluidHandler.BLOCK,
                     ModBlockEntityTypes.SINK.get(),(sink, side) -> sink.getTank());
             event.registerBlockEntity(Capabilities.FluidHandler.BLOCK,
+                    ModBlockEntityTypes.TOILET.get(),(toilet, side) -> toilet.getTank());
+            event.registerBlockEntity(Capabilities.FluidHandler.BLOCK,
+                    ModBlockEntityTypes.WASHING_MACHINE.get(),(washingMachine, side) -> washingMachine.getTank());
+            event.registerBlockEntity(Capabilities.FluidHandler.BLOCK,
                     ModBlockEntityTypes.WATER_TANK.get(),(waterTank, side) -> waterTank.getTank());
         }
 
@@ -139,6 +145,12 @@ public class NosiphusFurnitureMod {
                     ClientboundDishwasherSync.TYPE,
                     ClientboundDishwasherSync.STREAM_CODEC,
                     ClientboundDishwasherSync::handle
+            );
+
+            registrar.playToClient(
+                    ClientboundWashingMachineSync.TYPE,
+                    ClientboundWashingMachineSync.STREAM_CODEC,
+                    ClientboundWashingMachineSync::handle
             );
 
             registrar.playToServer(
@@ -159,6 +171,8 @@ public class NosiphusFurnitureMod {
         BlockEntityRenderers.register(ModBlockEntityTypes.DIGITAL_CLOCK.get(), DigitalClockBlockEntityRenderer::new);
         BlockEntityRenderers.register(ModBlockEntityTypes.PLATE.get(), PlateBlockEntityRenderer::new);
         BlockEntityRenderers.register(ModBlockEntityTypes.SINK.get(), SinkBlockEntityRenderer::new);
+        BlockEntityRenderers.register(ModBlockEntityTypes.TOASTER.get(), ToasterBlockEntityRenderer::new);
+        BlockEntityRenderers.register(ModBlockEntityTypes.TOILET.get(), ToiletBlockEntityRenderer::new);
         BlockEntityRenderers.register(ModBlockEntityTypes.WATER_TANK.get(), WaterTankBlockEntityRenderer::new);
     }
 

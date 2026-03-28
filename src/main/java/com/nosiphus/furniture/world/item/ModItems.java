@@ -958,7 +958,6 @@ public class ModItems {
             () -> new BlockItem(ModBlocks.SHOWER_HEAD_DARK.get(), new Item.Properties())));
     public static final DeferredItem<BlockItem> STEREO = addToTab(ITEMS.register("stereo",
             () -> new BlockItem(ModBlocks.STEREO.get(), new Item.Properties())));
-    /*
     public static final DeferredItem<BlockItem> TOASTER_LIGHT = addToTab(ITEMS.register("toaster_light",
             () -> new BlockItem(ModBlocks.TOASTER_LIGHT.get(), new Item.Properties())));
     public static final DeferredItem<BlockItem> TOASTER_DARK = addToTab(ITEMS.register("toaster_dark",
@@ -971,7 +970,6 @@ public class ModItems {
             () -> new BlockItem(ModBlocks.WASHING_MACHINE_LIGHT.get(), new Item.Properties())));
     public static final DeferredItem<BlockItem> WASHING_MACHINE_DARK = addToTab(ITEMS.register("washing_machine_dark",
             () -> new BlockItem(ModBlocks.WASHING_MACHINE_DARK.get(), new Item.Properties())));
-     */
 
     // Digital Clocks
     public static final DeferredItem<BlockItem> WHITE_DIGITAL_CLOCK = addToTab(ITEMS.register("white_digital_clock",

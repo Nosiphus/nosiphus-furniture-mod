@@ -26,4 +26,11 @@ public class ModRecipeTypes
                     return "nfm:cooking";
                 }
             });
+    public static final DeferredHolder<RecipeType<?>, RecipeType<ToastingRecipe>> TOASTING = RECIPE_TYPES.register("toasting",
+            () -> new RecipeType<ToastingRecipe>() {
+                @Override
+                public String toString() {
+                    return "nfm:toasting";
+                }
+            });
 }
