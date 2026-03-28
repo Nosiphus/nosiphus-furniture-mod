@@ -33,7 +33,7 @@ public class ToiletBlockEntityRenderer implements BlockEntityRenderer<ToiletBloc
         poseStack.mulPose(Axis.YP.rotationDegrees(-direction.toYRot()));
         poseStack.translate(-0.5, -0.5, -0.5);
 
-        this.drawFluid(tileEntity, poseStack, source, 3.2f/16f, 6.4f/16f, 4f/16f, 10.4f/16f, 2.8f/16f, 8f/16f, light);
+        this.drawFluid(tileEntity, poseStack, source, 4.0f/16f, 6.4f/16f, 3.2f/16f, 8.0f/16f, 2.8f/16f, 8f/16f, light);
 
         poseStack.popPose();
     }
@@ -51,9 +51,9 @@ public class ToiletBlockEntityRenderer implements BlockEntityRenderer<ToiletBloc
             float currentHeight = height * fillLevel;
 
             float minU = sprite.getU0();
-            float maxU = sprite.getU1();
+            float maxU = Math.min(minU + (sprite.getU1() - minU) * depth, sprite.getU1());
             float minV = sprite.getV0();
-            float maxV = sprite.getV1();
+            float maxV = Math.min(minV + (sprite.getV1() - minV) * width, sprite.getV1());
 
             int color = fluidType.getTintColor(fluidStack);
             float r = (color >> 16 & 255) / 255.0F;

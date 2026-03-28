@@ -71,7 +71,7 @@ public class ToasterBlockEntity extends BlockEntity implements WorldlyContainer 
 
     public boolean addItem(ItemStack stack, int position, int cookTime, float experience) {
         if (this.toaster.get(position).isEmpty()) {
-            this.toaster.set(position, stack.consumeAndReturn(1, null));
+            this.toaster.set(position, stack.copyWithCount(1));
             this.resetPosition(position, cookTime, experience);
             this.markUpdated();
             return true;
@@ -188,6 +188,7 @@ public class ToasterBlockEntity extends BlockEntity implements WorldlyContainer 
     @Override
     protected void loadAdditional(CompoundTag tag, HolderLookup.Provider registries) {
         super.loadAdditional(tag, registries);
+        this.toaster.clear();
         ContainerHelper.loadAllItems(tag, this.toaster, registries);
 
         if (tag.contains("CookingTimes", Tag.TAG_INT_ARRAY)) {
@@ -212,7 +213,9 @@ public class ToasterBlockEntity extends BlockEntity implements WorldlyContainer 
 
     @Override
     public CompoundTag getUpdateTag(HolderLookup.Provider registries) {
-        return this.saveWithoutMetadata(registries);
+        CompoundTag tag = new CompoundTag();
+        this.saveAdditional(tag, registries);
+        return tag;
     }
 
     @Override

@@ -114,7 +114,7 @@ public class ToasterBlock extends FurnitureHorizontalBlock implements EntityBloc
 
     @Override
     protected ItemInteractionResult useItemOn(ItemStack heldItem, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hitResult) {
-        if (hitResult.getDirection() == Direction.UP && level.getBlockEntity(pos) instanceof ToasterBlockEntity toaster) {
+        if (level.getBlockEntity(pos) instanceof ToasterBlockEntity toaster) {
             if (!heldItem.isEmpty()) {
                 var input = new SingleRecipeInput(heldItem);
                 var recipeOptional = level.getRecipeManager().getRecipeFor(ModRecipeTypes.TOASTING.get(), input, level);
@@ -122,7 +122,6 @@ public class ToasterBlock extends FurnitureHorizontalBlock implements EntityBloc
                 if (recipeOptional.isPresent()) {
                     var recipe = recipeOptional.get().value();
                     int slot = this.getSlotFromHit(hitResult, pos, state);
-
                     if (toaster.addItem(heldItem, slot, recipe.getCookingTime(), recipe.getExperience())) {
                         if (!player.getAbilities().instabuild) {
                             heldItem.shrink(1);
@@ -147,7 +146,7 @@ public class ToasterBlock extends FurnitureHorizontalBlock implements EntityBloc
                 return InteractionResult.sidedSuccess(level.isClientSide);
             }
         }
-        return InteractionResult.SUCCESS;
+        return InteractionResult.PASS;
     }
 
     private int getSlotFromHit(BlockHitResult hit, BlockPos pos, BlockState state) {
@@ -155,12 +154,13 @@ public class ToasterBlock extends FurnitureHorizontalBlock implements EntityBloc
         double hitX = hit.getLocation().x - (double) pos.getX();
         double hitZ = hit.getLocation().z - (double) pos.getZ();
 
-        // Slot logic depends on which axis the toaster is sitting on
-        if (facing.getAxis() == Direction.Axis.X) {
-            return hitZ > 0.5 ? 0 : 1;
-        } else {
-            return hitX > 0.5 ? 1 : 0;
-        }
+        return switch (facing) {
+            case NORTH -> hitZ < 0.5 ? 0 : 1;
+            case SOUTH -> hitZ > 0.5 ? 0 : 1;
+            case EAST  -> hitX < 0.5 ? 0 : 1;
+            case WEST  -> hitX > 0.5 ? 0 : 1;
+            default    -> 0;
+        };
     }
 
     @Nullable

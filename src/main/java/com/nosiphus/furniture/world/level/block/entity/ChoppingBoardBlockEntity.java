@@ -41,7 +41,7 @@ public class ChoppingBoardBlockEntity extends BlockEntity implements WorldlyCont
 
     public boolean addItem(ItemStack stack) {
         if (this.inventory.get(0).isEmpty()) {
-            this.inventory.set(0, stack.split(1));
+            this.inventory.set(0, stack.copyWithCount(1));
             this.markUpdated();
             return true;
         }

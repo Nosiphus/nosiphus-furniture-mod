@@ -101,9 +101,11 @@ public class ChoppingBoardBlock extends FurnitureHorizontalBlock implements Enti
             if (!heldStack.isEmpty()) {
                 if (!level.isClientSide()) {
                     if (blockEntity.addItem(heldStack)) {
+                        if (!player.getAbilities().instabuild) {
+                            heldStack.shrink(1);
+                        }
                         return ItemInteractionResult.SUCCESS;
                     }
-                    blockEntity.removeItem();
                 }
                 return ItemInteractionResult.SUCCESS;
             }
