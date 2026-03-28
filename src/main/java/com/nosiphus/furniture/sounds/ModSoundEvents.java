@@ -20,6 +20,8 @@ public class ModSoundEvents
             () -> SoundEvent.createVariableRangeEvent(ResourceLocation.fromNamespaceAndPath("nfm", "block.door_bell.ring")));
     public static final DeferredHolder<SoundEvent, SoundEvent> BLOCK_ELECTRIC_FENCE_ZAP = SOUND_EVENTS.register("block.electric_fence.zap",
             () -> SoundEvent.createVariableRangeEvent(ResourceLocation.fromNamespaceAndPath("nfm", "block.electric_fence.zap")));
+    public static final DeferredHolder<SoundEvent, SoundEvent> BLOCK_FIRE_ALARM_BEEP = SOUND_EVENTS.register("block.fire_alarm.beep",
+            () -> SoundEvent.createVariableRangeEvent(ResourceLocation.fromNamespaceAndPath("nfm", "block.fire_alarm.beep")));
     public static final DeferredHolder<SoundEvent, SoundEvent> BLOCK_INFLATABLE_CASTLE_BOUNCE = SOUND_EVENTS.register("block.inflatable_castle.bounce",
             () -> SoundEvent.createVariableRangeEvent(ResourceLocation.fromNamespaceAndPath("nfm", "block.inflatable_castle.bounce")));
 }

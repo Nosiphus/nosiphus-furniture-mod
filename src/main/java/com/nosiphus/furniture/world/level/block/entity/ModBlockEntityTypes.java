@@ -66,6 +66,12 @@ public class ModBlockEntityTypes {
                     ModBlocks.DISHWASHER_LIGHT.get(), ModBlocks.DISHWASHER_DARK.get()
             ).build(null));
 
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<FireAlarmBlockEntity>> FIRE_ALARM =
+            BLOCK_ENTITY_TYPES.register("fire_alarm", () -> BlockEntityType.Builder.of(
+                    FireAlarmBlockEntity::new,
+                    ModBlocks.FIRE_ALARM.get()
+            ).build(null));
+
     public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<PlateBlockEntity>> PLATE =
             BLOCK_ENTITY_TYPES.register("plate", () -> BlockEntityType.Builder.of(
                     PlateBlockEntity::new,

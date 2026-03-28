@@ -926,11 +926,11 @@ public class ModItems {
             () -> new BlockItem(ModBlocks.DISHWASHER_LIGHT.get(), new Item.Properties())));
     public static final DeferredItem<BlockItem> DISHWASHER_DARK = addToTab(ITEMS.register("dishwasher_dark",
             () -> new BlockItem(ModBlocks.DISHWASHER_DARK.get(), new Item.Properties())));
-    /*
     public static final DeferredItem<BlockItem> FIRE_ALARM = addToTab(ITEMS.register("fire_alarm",
             () -> new BlockItem(ModBlocks.FIRE_ALARM.get(), new Item.Properties())));
     public static final DeferredItem<BlockItem> LIQUID_CRYSTAL_DISPLAY_TELEVISION = addToTab(ITEMS.register("liquid_crystal_display_television",
             () -> new BlockItem(ModBlocks.LIQUID_CRYSTAL_DISPLAY_TELEVISION.get(), new Item.Properties())));
+    /*
     public static final DeferredItem<BlockItem> MICROWAVE_LIGHT = addToTab(ITEMS.register("microwave_light",
             () -> new BlockItem(ModBlocks.MICROWAVE_LIGHT.get(), new Item.Properties())));
     public static final DeferredItem<BlockItem> MICROWAVE_DARK = addToTab(ITEMS.register("microwave_dark",
