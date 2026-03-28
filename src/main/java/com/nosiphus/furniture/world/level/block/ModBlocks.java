@@ -928,11 +928,11 @@ public class ModBlocks {
             () -> new ComputerBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK)));
     public static final DeferredBlock<Block> COMPUTER_DARK = BLOCKS.register("computer_dark",
             () -> new ComputerBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK)));
-    /*
     public static final DeferredBlock<Block> DISHWASHER_LIGHT = BLOCKS.register("dishwasher_light",
             () -> new DishwasherBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.WHITE_CONCRETE).noOcclusion()));
     public static final DeferredBlock<Block> DISHWASHER_DARK = BLOCKS.register("dishwasher_dark",
             () -> new DishwasherBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.GRAY_CONCRETE).noOcclusion()));
+    /*
     public static final DeferredBlock<Block> FIRE_ALARM = BLOCKS.register("fire_alarm",
             () -> new FireAlarmBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.WHITE_CONCRETE)));
     public static final DeferredBlock<Block> LIQUID_CRYSTAL_DISPLAY_TELEVISION = BLOCKS.register("liquid_crystal_display_television",

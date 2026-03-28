@@ -2,9 +2,11 @@ package com.nosiphus.furniture;
 
 import com.mojang.logging.LogUtils;
 import com.nosiphus.furniture.client.gui.screens.inventory.BinScreen;
+import com.nosiphus.furniture.client.gui.screens.inventory.DishwasherScreen;
 import com.nosiphus.furniture.client.gui.screens.inventory.WallCabinetScreen;
 import com.nosiphus.furniture.client.renderer.blockentity.*;
 import com.nosiphus.furniture.client.renderer.entity.SeatRenderer;
+import com.nosiphus.furniture.network.protocol.common.ClientboundDishwasherSync;
 import com.nosiphus.furniture.network.protocol.common.ServerboundEmptyBin;
 import com.nosiphus.furniture.sounds.ModSoundEvents;
 import com.nosiphus.furniture.world.entity.ModEntityTypes;
@@ -89,6 +91,7 @@ public class NosiphusFurnitureMod {
         public static void registerScreens(RegisterMenuScreensEvent event)
         {
             event.register(ModMenuTypes.BIN.get(), BinScreen::new);
+            event.register(ModMenuTypes.DISHWASHER.get(), DishwasherScreen::new);
             event.register(ModMenuTypes.WALL_CABINET.get(), WallCabinetScreen::new);
         }
 
@@ -110,6 +113,8 @@ public class NosiphusFurnitureMod {
             event.registerBlockEntity(Capabilities.FluidHandler.BLOCK,
                     ModBlockEntityTypes.BIRD_BATH.get(),(birdBath, side) -> birdBath.getTank());
             event.registerBlockEntity(Capabilities.FluidHandler.BLOCK,
+                    ModBlockEntityTypes.DISHWASHER.get(),(dishwasher, side) -> dishwasher.getTank());
+            event.registerBlockEntity(Capabilities.FluidHandler.BLOCK,
                     ModBlockEntityTypes.WATER_TANK.get(),(waterTank, side) -> waterTank.getTank());
         }
 
@@ -118,14 +123,11 @@ public class NosiphusFurnitureMod {
         {
             final PayloadRegistrar registrar = event.registrar("nfm").versioned("1");
 
-            /*
             registrar.playToClient(
-                    ClientboundFlipGrill.TYPE,
-                    ClientboundFlipGrill.STREAM_CODEC,
-                    ClientboundFlipGrill::handle
+                    ClientboundDishwasherSync.TYPE,
+                    ClientboundDishwasherSync.STREAM_CODEC,
+                    ClientboundDishwasherSync::handle
             );
-
-             */
 
             registrar.playToServer(
                     ServerboundEmptyBin.TYPE,

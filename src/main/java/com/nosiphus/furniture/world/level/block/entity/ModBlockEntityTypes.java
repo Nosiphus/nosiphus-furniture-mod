@@ -60,6 +60,12 @@ public class ModBlockEntityTypes {
                     ModBlocks.PINK_DIGITAL_CLOCK.get()
             ).build(null));
 
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<DishwasherBlockEntity>> DISHWASHER =
+            BLOCK_ENTITY_TYPES.register("dishwasher", () -> BlockEntityType.Builder.of(
+                    DishwasherBlockEntity::new,
+                    ModBlocks.DISHWASHER_LIGHT.get(), ModBlocks.DISHWASHER_DARK.get()
+            ).build(null));
+
     public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<PlateBlockEntity>> PLATE =
             BLOCK_ENTITY_TYPES.register("plate", () -> BlockEntityType.Builder.of(
                     PlateBlockEntity::new,

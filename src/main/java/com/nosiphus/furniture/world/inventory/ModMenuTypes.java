@@ -1,7 +1,6 @@
 package com.nosiphus.furniture.world.inventory;
 
-import com.nosiphus.furniture.world.level.block.entity.BinBlockEntity;
-import com.nosiphus.furniture.world.level.block.entity.WallCabinetBlockEntity;
+import com.nosiphus.furniture.world.level.block.entity.*;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.inventory.MenuType;
@@ -19,6 +18,15 @@ public class ModMenuTypes {
                 BlockPos pos = data.readBlockPos();
                 BinBlockEntity bin = (BinBlockEntity) inv.player.level().getBlockEntity(pos);
                 return new BinMenu(windowId, inv, bin);
+            })
+    );
+
+    public static final DeferredHolder<MenuType<?>, MenuType<DishwasherMenu>> DISHWASHER = MENU_TYPES.register("dishwasher",
+            () -> IMenuTypeExtension.create((windowId, inv, data) ->
+            {
+                BlockPos pos = data.readBlockPos();
+                DishwasherBlockEntity dishwasher = (DishwasherBlockEntity) inv.player.level().getBlockEntity(pos);
+                return new DishwasherMenu(windowId, inv, dishwasher);
             })
     );
 
