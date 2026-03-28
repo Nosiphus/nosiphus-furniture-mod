@@ -36,11 +36,11 @@ MrCrayfish's Furniture Mod is all about adding functioning furniture and decorat
 file="META-INF/accesstransformer.cfg"
 
 [[dependencies.${mod_id}]]
-modId="yogmod"
-type="required"
-versionRange="[${neo_version},)"
-ordering="NONE"
-side="BOTH"
+    modId="yogmod"
+    type="required"
+    versionRange="[2025.08.02,)"
+    ordering="NONE"
+    side="BOTH"
 
 [[dependencies.${mod_id}]]
     modId="neoforge"
@@ -57,22 +57,22 @@ side="BOTH"
     side="BOTH"
 
 [[dependencies.cfm]]
-modId="yogmod"
-type="required"
-versionRange="[${neo_version},)"
-ordering="NONE"
-side="BOTH"
+    modId="yogmod"
+    type="required"
+    versionRange="[2025.08.02,)"
+    ordering="NONE"
+    side="BOTH"
 
 [[dependencies.cfm]]
-modId="neoforge"
-type="required"
-versionRange="[${neo_version},)"
-ordering="NONE"
-side="BOTH"
+    modId="neoforge"
+    type="required"
+    versionRange="[${neo_version},)"
+    ordering="NONE"
+    side="BOTH"
 
 [[dependencies.cfm]]
-modId="minecraft"
-type="required"
-versionRange="${minecraft_version_range}"
-ordering="NONE"
-side="BOTH"
+    modId="minecraft"
+    type="required"
+    versionRange="${minecraft_version_range}"
+    ordering="NONE"
+    side="BOTH"
