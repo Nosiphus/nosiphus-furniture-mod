@@ -1,0 +1,20 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "group": "coffee_table",
+    "pattern": [
+        "LLL",
+        "P P"
+    ],
+    "key": {
+        "L": {
+            "item": "minecraft:stone"
+        },
+        "P": {
+            "item": "minecraft:cobblestone"
+        }
+    },
+    "result": {
+        "count": 4,
+        "id": "nfm:stone_coffee_table"
+    }
+}

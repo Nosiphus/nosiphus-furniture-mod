@@ -1,0 +1,16 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "SSS",
+        " S ",
+        " S "
+    ],
+    "key": {
+        "S": {
+            "item": "minecraft:diorite"
+        }
+    },
+    "result": {
+        "id": "nfm:diorite_bird_bath"
+    }
+}

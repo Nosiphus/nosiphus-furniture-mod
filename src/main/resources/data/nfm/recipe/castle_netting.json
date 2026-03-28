@@ -1,0 +1,17 @@
+{
+    "result": {
+        "count": 16,
+        "id": "nfm:castle_netting"
+    },
+    "pattern": [
+        "SSS",
+        "SSS",
+        "SSS"
+    ],
+    "type": "minecraft:crafting_shaped",
+    "key": {
+        "S": {
+            "item": "minecraft:string"
+        }
+    }
+}

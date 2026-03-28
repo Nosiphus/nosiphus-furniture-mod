@@ -1,0 +1,21 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "group": "table",
+    "pattern": [
+        "LLL",
+        " P ",
+        " P "
+    ],
+    "key": {
+        "L": {
+            "item": "minecraft:polished_blackstone"
+        },
+        "P": {
+            "item": "minecraft:blackstone"
+        }
+    },
+    "result": {
+        "count": 4,
+        "id": "nfm:blackstone_table"
+    }
+}
