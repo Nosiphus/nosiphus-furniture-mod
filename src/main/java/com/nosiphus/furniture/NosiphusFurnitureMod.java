@@ -1,6 +1,7 @@
 package com.nosiphus.furniture;
 
 import com.mojang.logging.LogUtils;
+import com.nosiphus.furniture.client.event.CreativeScreenEvents;
 import com.nosiphus.furniture.client.gui.screens.inventory.*;
 import com.nosiphus.furniture.client.particle.ModParticleTypes;
 import com.nosiphus.furniture.client.particle.ShowerParticle;
@@ -40,6 +41,7 @@ import net.neoforged.neoforge.capabilities.RegisterCapabilitiesEvent;
 import net.neoforged.neoforge.client.event.RegisterColorHandlersEvent;
 import net.neoforged.neoforge.client.event.RegisterMenuScreensEvent;
 import net.neoforged.neoforge.client.event.RegisterParticleProvidersEvent;
+import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.network.event.RegisterPayloadHandlersEvent;
 import net.neoforged.neoforge.network.registration.PayloadRegistrar;
 import org.slf4j.Logger;
@@ -72,6 +74,7 @@ public class NosiphusFurnitureMod {
         public static void onClientSetup(FMLClientSetupEvent event) {
             registerBlockEntityRenderers();
             registerEntityRenderers();
+            NeoForge.EVENT_BUS.register(new CreativeScreenEvents());
         }
 
         @SubscribeEvent
