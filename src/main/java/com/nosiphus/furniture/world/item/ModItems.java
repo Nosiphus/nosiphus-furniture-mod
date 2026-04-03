@@ -4,6 +4,7 @@ import com.nosiphus.furniture.world.level.block.ModBlocks;
 import com.nosiphus.furniture.world.level.material.ModFluids;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.*;
+import net.neoforged.fml.ModList;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
@@ -42,8 +43,8 @@ public class ModItems {
             () -> new BlockItem(ModBlocks.RED_MODERN_TABLE.get(), new Item.Properties())));
     public static final DeferredItem<BlockItem> ORANGE_MODERN_TABLE = addToTab(ITEMS.register("orange_modern_table",
             () -> new BlockItem(ModBlocks.ORANGE_MODERN_TABLE.get(), new Item.Properties())));
-    public static final DeferredItem<BlockItem> BEIGE_MODERN_TABLE = addToTab(ITEMS.register("beige_modern_table",
-            () -> new BlockItem(ModBlocks.BEIGE_MODERN_TABLE.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> BEIGE_MODERN_TABLE = ModList.get().isLoaded("yogmod") ? addToTab(ITEMS.register("beige_modern_table",
+            () -> new BlockItem(ModBlocks.BEIGE_MODERN_TABLE.get(), new Item.Properties()))) : null;
     public static final DeferredItem<BlockItem> YELLOW_MODERN_TABLE = addToTab(ITEMS.register("yellow_modern_table",
             () -> new BlockItem(ModBlocks.YELLOW_MODERN_TABLE.get(), new Item.Properties())));
     public static final DeferredItem<BlockItem> LIME_MODERN_TABLE = addToTab(ITEMS.register("lime_modern_table",
@@ -92,8 +93,8 @@ public class ModItems {
             () -> new BlockItem(ModBlocks.RED_MODERN_CHAIR.get(), new Item.Properties())));
     public static final DeferredItem<BlockItem> ORANGE_MODERN_CHAIR = addToTab(ITEMS.register("orange_modern_chair",
             () -> new BlockItem(ModBlocks.ORANGE_MODERN_CHAIR.get(), new Item.Properties())));
-    public static final DeferredItem<BlockItem> BEIGE_MODERN_CHAIR = addToTab(ITEMS.register("beige_modern_chair",
-            () -> new BlockItem(ModBlocks.BEIGE_MODERN_CHAIR.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> BEIGE_MODERN_CHAIR = ModList.get().isLoaded("yogmod") ? addToTab(ITEMS.register("beige_modern_chair",
+            () -> new BlockItem(ModBlocks.BEIGE_MODERN_CHAIR.get(), new Item.Properties()))) : null;
     public static final DeferredItem<BlockItem> YELLOW_MODERN_CHAIR = addToTab(ITEMS.register("yellow_modern_chair",
             () -> new BlockItem(ModBlocks.YELLOW_MODERN_CHAIR.get(), new Item.Properties())));
     public static final DeferredItem<BlockItem> LIME_MODERN_CHAIR = addToTab(ITEMS.register("lime_modern_chair",
@@ -142,8 +143,8 @@ public class ModItems {
             () -> new BlockItem(ModBlocks.RED_MODERN_COFFEE_TABLE.get(), new Item.Properties())));
     public static final DeferredItem<BlockItem> ORANGE_MODERN_COFFEE_TABLE = addToTab(ITEMS.register("orange_modern_coffee_table",
             () -> new BlockItem(ModBlocks.ORANGE_MODERN_COFFEE_TABLE.get(), new Item.Properties())));
-    public static final DeferredItem<BlockItem> BEIGE_MODERN_COFFEE_TABLE = addToTab(ITEMS.register("beige_modern_coffee_table",
-            () -> new BlockItem(ModBlocks.BEIGE_MODERN_COFFEE_TABLE.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> BEIGE_MODERN_COFFEE_TABLE = ModList.get().isLoaded("yogmod") ? addToTab(ITEMS.register("beige_modern_coffee_table",
+            () -> new BlockItem(ModBlocks.BEIGE_MODERN_COFFEE_TABLE.get(), new Item.Properties()))) : null;
     public static final DeferredItem<BlockItem> YELLOW_MODERN_COFFEE_TABLE = addToTab(ITEMS.register("yellow_modern_coffee_table",
             () -> new BlockItem(ModBlocks.YELLOW_MODERN_COFFEE_TABLE.get(), new Item.Properties())));
     public static final DeferredItem<BlockItem> LIME_MODERN_COFFEE_TABLE = addToTab(ITEMS.register("lime_modern_coffee_table",
@@ -192,8 +193,8 @@ public class ModItems {
             () -> new BlockItem(ModBlocks.RED_MODERN_CABINET.get(), new Item.Properties())));
     public static final DeferredItem<BlockItem> ORANGE_MODERN_CABINET = addToTab(ITEMS.register("orange_modern_cabinet",
             () -> new BlockItem(ModBlocks.ORANGE_MODERN_CABINET.get(), new Item.Properties())));
-    public static final DeferredItem<BlockItem> BEIGE_MODERN_CABINET = addToTab(ITEMS.register("beige_modern_cabinet",
-            () -> new BlockItem(ModBlocks.BEIGE_MODERN_CABINET.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> BEIGE_MODERN_CABINET = ModList.get().isLoaded("yogmod") ? addToTab(ITEMS.register("beige_modern_cabinet",
+            () -> new BlockItem(ModBlocks.BEIGE_MODERN_CABINET.get(), new Item.Properties()))) : null;
     public static final DeferredItem<BlockItem> YELLOW_MODERN_CABINET = addToTab(ITEMS.register("yellow_modern_cabinet",
             () -> new BlockItem(ModBlocks.YELLOW_MODERN_CABINET.get(), new Item.Properties())));
     public static final DeferredItem<BlockItem> LIME_MODERN_CABINET = addToTab(ITEMS.register("lime_modern_cabinet",
@@ -242,8 +243,8 @@ public class ModItems {
             () -> new BlockItem(ModBlocks.RED_MODERN_BEDSIDE_CABINET.get(), new Item.Properties())));
     public static final DeferredItem<BlockItem> ORANGE_MODERN_BEDSIDE_CABINET = addToTab(ITEMS.register("orange_modern_bedside_cabinet",
             () -> new BlockItem(ModBlocks.ORANGE_MODERN_BEDSIDE_CABINET.get(), new Item.Properties())));
-    public static final DeferredItem<BlockItem> BEIGE_MODERN_BEDSIDE_CABINET = addToTab(ITEMS.register("beige_modern_bedside_cabinet",
-            () -> new BlockItem(ModBlocks.BEIGE_MODERN_BEDSIDE_CABINET.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> BEIGE_MODERN_BEDSIDE_CABINET = ModList.get().isLoaded("yogmod") ? addToTab(ITEMS.register("beige_modern_bedside_cabinet",
+            () -> new BlockItem(ModBlocks.BEIGE_MODERN_BEDSIDE_CABINET.get(), new Item.Properties()))) : null;
     public static final DeferredItem<BlockItem> YELLOW_MODERN_BEDSIDE_CABINET = addToTab(ITEMS.register("yellow_modern_bedside_cabinet",
             () -> new BlockItem(ModBlocks.YELLOW_MODERN_BEDSIDE_CABINET.get(), new Item.Properties())));
     public static final DeferredItem<BlockItem> LIME_MODERN_BEDSIDE_CABINET = addToTab(ITEMS.register("lime_modern_bedside_cabinet",
@@ -278,8 +279,8 @@ public class ModItems {
             () -> new BlockItem(ModBlocks.RED_MODERN_BED.get(), new Item.Properties())));
     public static final DeferredItem<BlockItem> ORANGE_MODERN_BED = addToTab(ITEMS.register("orange_modern_bed",
             () -> new BlockItem(ModBlocks.ORANGE_MODERN_BED.get(), new Item.Properties())));
-    public static final DeferredItem<BlockItem> BEIGE_MODERN_BED = addToTab(ITEMS.register("beige_modern_bed",
-            () -> new BlockItem(ModBlocks.BEIGE_MODERN_BED.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> BEIGE_MODERN_BED = ModList.get().isLoaded("yogmod") ? addToTab(ITEMS.register("beige_modern_bed",
+            () -> new BlockItem(ModBlocks.BEIGE_MODERN_BED.get(), new Item.Properties()))) : null;
     public static final DeferredItem<BlockItem> YELLOW_MODERN_BED = addToTab(ITEMS.register("yellow_modern_bed",
             () -> new BlockItem(ModBlocks.YELLOW_MODERN_BED.get(), new Item.Properties())));
     public static final DeferredItem<BlockItem> LIME_MODERN_BED = addToTab(ITEMS.register("lime_modern_bed",
@@ -314,8 +315,8 @@ public class ModItems {
             () -> new BlockItem(ModBlocks.RED_CURTAIN.get(), new Item.Properties())));
     public static final DeferredItem<BlockItem> ORANGE_CURTAIN = addToTab(ITEMS.register("orange_curtain",
             () -> new BlockItem(ModBlocks.ORANGE_CURTAIN.get(), new Item.Properties())));
-    public static final DeferredItem<BlockItem> BEIGE_CURTAIN = addToTab(ITEMS.register("beige_curtain",
-            () -> new BlockItem(ModBlocks.BEIGE_CURTAIN.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> BEIGE_CURTAIN = ModList.get().isLoaded("yogmod") ? addToTab(ITEMS.register("beige_curtain",
+            () -> new BlockItem(ModBlocks.BEIGE_CURTAIN.get(), new Item.Properties()))) : null;
     public static final DeferredItem<BlockItem> YELLOW_CURTAIN = addToTab(ITEMS.register("yellow_curtain",
             () -> new BlockItem(ModBlocks.YELLOW_CURTAIN.get(), new Item.Properties())));
     public static final DeferredItem<BlockItem> LIME_CURTAIN = addToTab(ITEMS.register("lime_curtain",
@@ -364,8 +365,8 @@ public class ModItems {
             () -> new BlockItem(ModBlocks.RED_MODERN_DESK.get(), new Item.Properties())));
     public static final DeferredItem<BlockItem> ORANGE_MODERN_DESK = addToTab(ITEMS.register("orange_modern_desk",
             () -> new BlockItem(ModBlocks.ORANGE_MODERN_DESK.get(), new Item.Properties())));
-    public static final DeferredItem<BlockItem> BEIGE_MODERN_DESK = addToTab(ITEMS.register("beige_modern_desk",
-            () -> new BlockItem(ModBlocks.BEIGE_MODERN_DESK.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> BEIGE_MODERN_DESK = ModList.get().isLoaded("yogmod") ? addToTab(ITEMS.register("beige_modern_desk",
+            () -> new BlockItem(ModBlocks.BEIGE_MODERN_DESK.get(), new Item.Properties()))) : null;
     public static final DeferredItem<BlockItem> YELLOW_MODERN_DESK = addToTab(ITEMS.register("yellow_modern_desk",
             () -> new BlockItem(ModBlocks.YELLOW_MODERN_DESK.get(), new Item.Properties())));
     public static final DeferredItem<BlockItem> LIME_MODERN_DESK = addToTab(ITEMS.register("lime_modern_desk",
@@ -414,8 +415,8 @@ public class ModItems {
             () -> new BlockItem(ModBlocks.RED_MODERN_DESK_CABINET.get(), new Item.Properties())));
     public static final DeferredItem<BlockItem> ORANGE_MODERN_DESK_CABINET = addToTab(ITEMS.register("orange_modern_desk_cabinet",
             () -> new BlockItem(ModBlocks.ORANGE_MODERN_DESK_CABINET.get(), new Item.Properties())));
-    public static final DeferredItem<BlockItem> BEIGE_MODERN_DESK_CABINET = addToTab(ITEMS.register("beige_modern_desk_cabinet",
-            () -> new BlockItem(ModBlocks.BEIGE_MODERN_DESK_CABINET.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> BEIGE_MODERN_DESK_CABINET = ModList.get().isLoaded("yogmod") ? addToTab(ITEMS.register("beige_modern_desk_cabinet",
+            () -> new BlockItem(ModBlocks.BEIGE_MODERN_DESK_CABINET.get(), new Item.Properties()))) : null;
     public static final DeferredItem<BlockItem> YELLOW_MODERN_DESK_CABINET = addToTab(ITEMS.register("yellow_modern_desk_cabinet",
             () -> new BlockItem(ModBlocks.YELLOW_MODERN_DESK_CABINET.get(), new Item.Properties())));
     public static final DeferredItem<BlockItem> LIME_MODERN_DESK_CABINET = addToTab(ITEMS.register("lime_modern_desk_cabinet",
@@ -450,8 +451,8 @@ public class ModItems {
             () -> new BlockItem(ModBlocks.RED_WALL_CABINET.get(), new Item.Properties())));
     public static final DeferredItem<BlockItem> ORANGE_WALL_CABINET = addToTab(ITEMS.register("orange_wall_cabinet",
             () -> new BlockItem(ModBlocks.ORANGE_WALL_CABINET.get(), new Item.Properties())));
-    public static final DeferredItem<BlockItem> BEIGE_WALL_CABINET = addToTab(ITEMS.register("beige_wall_cabinet",
-            () -> new BlockItem(ModBlocks.BEIGE_WALL_CABINET.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> BEIGE_WALL_CABINET = ModList.get().isLoaded("yogmod") ? addToTab(ITEMS.register("beige_wall_cabinet",
+            () -> new BlockItem(ModBlocks.BEIGE_WALL_CABINET.get(), new Item.Properties()))) : null;
     public static final DeferredItem<BlockItem> YELLOW_WALL_CABINET = addToTab(ITEMS.register("yellow_wall_cabinet",
             () -> new BlockItem(ModBlocks.YELLOW_WALL_CABINET.get(), new Item.Properties())));
     public static final DeferredItem<BlockItem> LIME_WALL_CABINET = addToTab(ITEMS.register("lime_wall_cabinet",
@@ -486,8 +487,8 @@ public class ModItems {
             () -> new BlockItem(ModBlocks.RED_MODERN_SOFA.get(), new Item.Properties())));
     public static final DeferredItem<BlockItem> ORANGE_MODERN_SOFA = addToTab(ITEMS.register("orange_modern_sofa",
             () -> new BlockItem(ModBlocks.ORANGE_MODERN_SOFA.get(), new Item.Properties())));
-    public static final DeferredItem<BlockItem> BEIGE_MODERN_SOFA = addToTab(ITEMS.register("beige_modern_sofa",
-            () -> new BlockItem(ModBlocks.BEIGE_MODERN_SOFA.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> BEIGE_MODERN_SOFA = ModList.get().isLoaded("yogmod") ? addToTab(ITEMS.register("beige_modern_sofa",
+            () -> new BlockItem(ModBlocks.BEIGE_MODERN_SOFA.get(), new Item.Properties()))) : null;
     public static final DeferredItem<BlockItem> YELLOW_MODERN_SOFA = addToTab(ITEMS.register("yellow_modern_sofa",
             () -> new BlockItem(ModBlocks.YELLOW_MODERN_SOFA.get(), new Item.Properties())));
     public static final DeferredItem<BlockItem> LIME_MODERN_SOFA = addToTab(ITEMS.register("lime_modern_sofa",
@@ -522,8 +523,8 @@ public class ModItems {
             () -> new BlockItem(ModBlocks.RED_TELEVISION_STAND.get(), new Item.Properties())));
     public static final DeferredItem<BlockItem> ORANGE_TELEVISION_STAND = addToTab(ITEMS.register("orange_television_stand",
             () -> new BlockItem(ModBlocks.ORANGE_TELEVISION_STAND.get(), new Item.Properties())));
-    public static final DeferredItem<BlockItem> BEIGE_TELEVISION_STAND = addToTab(ITEMS.register("beige_television_stand",
-            () -> new BlockItem(ModBlocks.BEIGE_TELEVISION_STAND.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> BEIGE_TELEVISION_STAND = ModList.get().isLoaded("yogmod") ? addToTab(ITEMS.register("beige_television_stand",
+            () -> new BlockItem(ModBlocks.BEIGE_TELEVISION_STAND.get(), new Item.Properties()))) : null;
     public static final DeferredItem<BlockItem> YELLOW_TELEVISION_STAND = addToTab(ITEMS.register("yellow_television_stand",
             () -> new BlockItem(ModBlocks.YELLOW_TELEVISION_STAND.get(), new Item.Properties())));
     public static final DeferredItem<BlockItem> LIME_TELEVISION_STAND = addToTab(ITEMS.register("lime_television_stand",
@@ -558,8 +559,8 @@ public class ModItems {
             () -> new BlockItem(ModBlocks.RED_LAMP.get(), new Item.Properties())));
     public static final DeferredItem<BlockItem> ORANGE_LAMP = addToTab(ITEMS.register("orange_lamp",
             () -> new BlockItem(ModBlocks.ORANGE_LAMP.get(), new Item.Properties())));
-    public static final DeferredItem<BlockItem> BEIGE_LAMP = addToTab(ITEMS.register("beige_lamp",
-            () -> new BlockItem(ModBlocks.BEIGE_LAMP.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> BEIGE_LAMP = ModList.get().isLoaded("yogmod") ? addToTab(ITEMS.register("beige_lamp",
+            () -> new BlockItem(ModBlocks.BEIGE_LAMP.get(), new Item.Properties()))) : null;
     public static final DeferredItem<BlockItem> YELLOW_LAMP = addToTab(ITEMS.register("yellow_lamp",
             () -> new BlockItem(ModBlocks.YELLOW_LAMP.get(), new Item.Properties())));
     public static final DeferredItem<BlockItem> LIME_LAMP = addToTab(ITEMS.register("lime_lamp",
@@ -594,8 +595,8 @@ public class ModItems {
             () -> new BlockItem(ModBlocks.RED_MODERN_KITCHEN_COUNTER.get(), new Item.Properties())));
     public static final DeferredItem<BlockItem> ORANGE_MODERN_KITCHEN_COUNTER = addToTab(ITEMS.register("orange_modern_kitchen_counter",
             () -> new BlockItem(ModBlocks.ORANGE_MODERN_KITCHEN_COUNTER.get(), new Item.Properties())));
-    public static final DeferredItem<BlockItem> BEIGE_MODERN_KITCHEN_COUNTER = addToTab(ITEMS.register("beige_modern_kitchen_counter",
-            () -> new BlockItem(ModBlocks.BEIGE_MODERN_KITCHEN_COUNTER.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> BEIGE_MODERN_KITCHEN_COUNTER = ModList.get().isLoaded("yogmod") ? addToTab(ITEMS.register("beige_modern_kitchen_counter",
+            () -> new BlockItem(ModBlocks.BEIGE_MODERN_KITCHEN_COUNTER.get(), new Item.Properties()))) : null;
     public static final DeferredItem<BlockItem> YELLOW_MODERN_KITCHEN_COUNTER = addToTab(ITEMS.register("yellow_modern_kitchen_counter",
             () -> new BlockItem(ModBlocks.YELLOW_MODERN_KITCHEN_COUNTER.get(), new Item.Properties())));
     public static final DeferredItem<BlockItem> LIME_MODERN_KITCHEN_COUNTER = addToTab(ITEMS.register("lime_modern_kitchen_counter",
@@ -630,8 +631,8 @@ public class ModItems {
             () -> new BlockItem(ModBlocks.RED_MODERN_KITCHEN_DRAWER.get(), new Item.Properties())));
     public static final DeferredItem<BlockItem> ORANGE_MODERN_KITCHEN_DRAWER = addToTab(ITEMS.register("orange_modern_kitchen_drawer",
             () -> new BlockItem(ModBlocks.ORANGE_MODERN_KITCHEN_DRAWER.get(), new Item.Properties())));
-    public static final DeferredItem<BlockItem> BEIGE_MODERN_KITCHEN_DRAWER = addToTab(ITEMS.register("beige_modern_kitchen_drawer",
-            () -> new BlockItem(ModBlocks.BEIGE_MODERN_KITCHEN_DRAWER.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> BEIGE_MODERN_KITCHEN_DRAWER = ModList.get().isLoaded("yogmod") ? addToTab(ITEMS.register("beige_modern_kitchen_drawer",
+            () -> new BlockItem(ModBlocks.BEIGE_MODERN_KITCHEN_DRAWER.get(), new Item.Properties()))) : null;
     public static final DeferredItem<BlockItem> YELLOW_MODERN_KITCHEN_DRAWER = addToTab(ITEMS.register("yellow_modern_kitchen_drawer",
             () -> new BlockItem(ModBlocks.YELLOW_MODERN_KITCHEN_DRAWER.get(), new Item.Properties())));
     public static final DeferredItem<BlockItem> LIME_MODERN_KITCHEN_DRAWER = addToTab(ITEMS.register("lime_modern_kitchen_drawer",
@@ -666,8 +667,8 @@ public class ModItems {
             () -> new BlockItem(ModBlocks.RED_MODERN_KITCHEN_SINK.get(), new Item.Properties())));
     public static final DeferredItem<BlockItem> ORANGE_MODERN_KITCHEN_SINK = addToTab(ITEMS.register("orange_modern_kitchen_sink",
             () -> new BlockItem(ModBlocks.ORANGE_MODERN_KITCHEN_SINK.get(), new Item.Properties())));
-    public static final DeferredItem<BlockItem> BEIGE_MODERN_KITCHEN_SINK = addToTab(ITEMS.register("beige_modern_kitchen_sink",
-            () -> new BlockItem(ModBlocks.BEIGE_MODERN_KITCHEN_SINK.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> BEIGE_MODERN_KITCHEN_SINK = ModList.get().isLoaded("yogmod") ? addToTab(ITEMS.register("beige_modern_kitchen_sink",
+            () -> new BlockItem(ModBlocks.BEIGE_MODERN_KITCHEN_SINK.get(), new Item.Properties()))) : null;
     public static final DeferredItem<BlockItem> YELLOW_MODERN_KITCHEN_SINK = addToTab(ITEMS.register("yellow_modern_kitchen_sink",
             () -> new BlockItem(ModBlocks.YELLOW_MODERN_KITCHEN_SINK.get(), new Item.Properties())));
     public static final DeferredItem<BlockItem> LIME_MODERN_KITCHEN_SINK = addToTab(ITEMS.register("lime_modern_kitchen_sink",
@@ -702,8 +703,8 @@ public class ModItems {
             () -> new BlockItem(ModBlocks.RED_BAR_STOOL.get(), new Item.Properties())));
     public static final DeferredItem<BlockItem> ORANGE_BAR_STOOL = addToTab(ITEMS.register("orange_bar_stool",
             () -> new BlockItem(ModBlocks.ORANGE_BAR_STOOL.get(), new Item.Properties())));
-    public static final DeferredItem<BlockItem> BEIGE_BAR_STOOL = addToTab(ITEMS.register("beige_bar_stool",
-            () -> new BlockItem(ModBlocks.BEIGE_BAR_STOOL.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> BEIGE_BAR_STOOL = ModList.get().isLoaded("yogmod") ? addToTab(ITEMS.register("beige_bar_stool",
+            () -> new BlockItem(ModBlocks.BEIGE_BAR_STOOL.get(), new Item.Properties()))) : null;
     public static final DeferredItem<BlockItem> YELLOW_BAR_STOOL = addToTab(ITEMS.register("yellow_bar_stool",
             () -> new BlockItem(ModBlocks.YELLOW_BAR_STOOL.get(), new Item.Properties())));
     public static final DeferredItem<BlockItem> LIME_BAR_STOOL = addToTab(ITEMS.register("lime_bar_stool",
@@ -802,8 +803,8 @@ public class ModItems {
             () -> new BlockItem(ModBlocks.RED_INFLATABLE_CASTLE.get(), new Item.Properties())));
     public static final DeferredItem<BlockItem> ORANGE_INFLATABLE_CASTLE = addToTab(ITEMS.register("orange_inflatable_castle",
             () -> new BlockItem(ModBlocks.ORANGE_INFLATABLE_CASTLE.get(), new Item.Properties())));
-    public static final DeferredItem<BlockItem> BEIGE_INFLATABLE_CASTLE = addToTab(ITEMS.register("beige_inflatable_castle",
-            () -> new BlockItem(ModBlocks.BEIGE_INFLATABLE_CASTLE.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> BEIGE_INFLATABLE_CASTLE = ModList.get().isLoaded("yogmod") ? addToTab(ITEMS.register("beige_inflatable_castle",
+            () -> new BlockItem(ModBlocks.BEIGE_INFLATABLE_CASTLE.get(), new Item.Properties()))) : null;
     public static final DeferredItem<BlockItem> YELLOW_INFLATABLE_CASTLE = addToTab(ITEMS.register("yellow_inflatable_castle",
             () -> new BlockItem(ModBlocks.YELLOW_INFLATABLE_CASTLE.get(), new Item.Properties())));
     public static final DeferredItem<BlockItem> LIME_INFLATABLE_CASTLE = addToTab(ITEMS.register("lime_inflatable_castle",
@@ -842,8 +843,8 @@ public class ModItems {
             () -> new BlockItem(ModBlocks.RED_CUP.get(), new Item.Properties())));
     public static final DeferredItem<BlockItem> ORANGE_CUP = addToTab(ITEMS.register("orange_cup",
             () -> new BlockItem(ModBlocks.ORANGE_CUP.get(), new Item.Properties())));
-    public static final DeferredItem<BlockItem> BEIGE_CUP = addToTab(ITEMS.register("beige_cup",
-            () -> new BlockItem(ModBlocks.BEIGE_CUP.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> BEIGE_CUP = ModList.get().isLoaded("yogmod") ? addToTab(ITEMS.register("beige_cup",
+            () -> new BlockItem(ModBlocks.BEIGE_CUP.get(), new Item.Properties()))) : null;
     public static final DeferredItem<BlockItem> YELLOW_CUP = addToTab(ITEMS.register("yellow_cup",
             () -> new BlockItem(ModBlocks.YELLOW_CUP.get(), new Item.Properties())));
     public static final DeferredItem<BlockItem> LIME_CUP = addToTab(ITEMS.register("lime_cup",
@@ -986,8 +987,8 @@ public class ModItems {
             () -> new BlockItem(ModBlocks.RED_DIGITAL_CLOCK.get(), new Item.Properties())));
     public static final DeferredItem<BlockItem> ORANGE_DIGITAL_CLOCK = addToTab(ITEMS.register("orange_digital_clock",
             () -> new BlockItem(ModBlocks.ORANGE_DIGITAL_CLOCK.get(), new Item.Properties())));
-    public static final DeferredItem<BlockItem> BEIGE_DIGITAL_CLOCK = addToTab(ITEMS.register("beige_digital_clock",
-            () -> new BlockItem(ModBlocks.BEIGE_DIGITAL_CLOCK.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> BEIGE_DIGITAL_CLOCK = ModList.get().isLoaded("yogmod") ? addToTab(ITEMS.register("beige_digital_clock",
+            () -> new BlockItem(ModBlocks.BEIGE_DIGITAL_CLOCK.get(), new Item.Properties()))) : null;
     public static final DeferredItem<BlockItem> YELLOW_DIGITAL_CLOCK = addToTab(ITEMS.register("yellow_digital_clock",
             () -> new BlockItem(ModBlocks.YELLOW_DIGITAL_CLOCK.get(), new Item.Properties())));
     public static final DeferredItem<BlockItem> LIME_DIGITAL_CLOCK = addToTab(ITEMS.register("lime_digital_clock",

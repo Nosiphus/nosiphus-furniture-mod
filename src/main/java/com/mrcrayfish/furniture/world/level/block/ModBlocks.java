@@ -5,6 +5,7 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
+import net.neoforged.fml.ModList;
 import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
@@ -320,10 +321,10 @@ public class ModBlocks
             () -> new SofaBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS)));
     public static final DeferredBlock<Block> RED_SOFA = BLOCKS.register("red_sofa",
             () -> new SofaBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS)));
-    public static final DeferredBlock<Block> ORANGE_SOFA = BLOCKS.register("orange_sofa",
+    public static final DeferredBlock<Block> ORANGE_SOFA = BLOCKS.register("orange_social_sofa",
             () -> new SofaBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS)));
-    public static final DeferredBlock<Block> BEIGE_SOFA = BLOCKS.register("beige_sofa",
-            () -> new SofaBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS)));
+    public static final DeferredBlock<Block> BEIGE_SOFA = ModList.get().isLoaded("yogmod") ? BLOCKS.register("beige_sofa",
+            () -> new SofaBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS))) : null;
     public static final DeferredBlock<Block> YELLOW_SOFA = BLOCKS.register("yellow_sofa",
             () -> new SofaBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS)));
     public static final DeferredBlock<Block> LIME_SOFA = BLOCKS.register("lime_sofa",
@@ -486,8 +487,8 @@ public class ModBlocks
             () -> new UpgradedFenceBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.RED_CONCRETE).instrument(NoteBlockInstrument.BASS).sound(SoundType.WOOD)));
     public static final DeferredBlock<Block> ORANGE_PICKET_FENCE = BLOCKS.register("orange_picket_fence",
             () -> new UpgradedFenceBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.ORANGE_CONCRETE).instrument(NoteBlockInstrument.BASS).sound(SoundType.WOOD)));
-    public static final DeferredBlock<Block> BEIGE_PICKET_FENCE = BLOCKS.register("beige_picket_fence",
-            () -> new UpgradedFenceBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.YELLOW_CONCRETE).instrument(NoteBlockInstrument.BASS).sound(SoundType.WOOD)));
+    public static final DeferredBlock<Block> BEIGE_PICKET_FENCE = ModList.get().isLoaded("yogmod") ? BLOCKS.register("beige_picket_fence",
+            () -> new UpgradedFenceBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.YELLOW_CONCRETE).instrument(NoteBlockInstrument.BASS).sound(SoundType.WOOD))) : null;
     public static final DeferredBlock<Block> YELLOW_PICKET_FENCE = BLOCKS.register("yellow_picket_fence",
             () -> new UpgradedFenceBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.YELLOW_CONCRETE).instrument(NoteBlockInstrument.BASS).sound(SoundType.WOOD)));
     public static final DeferredBlock<Block> LIME_PICKET_FENCE = BLOCKS.register("lime_picket_fence",
@@ -522,8 +523,8 @@ public class ModBlocks
             () -> new UpgradedGateBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.RED_CONCRETE).instrument(NoteBlockInstrument.BASS).sound(SoundType.WOOD)));
     public static final DeferredBlock<Block> ORANGE_PICKET_GATE = BLOCKS.register("orange_picket_gate",
             () -> new UpgradedGateBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.ORANGE_CONCRETE).instrument(NoteBlockInstrument.BASS).sound(SoundType.WOOD)));
-    public static final DeferredBlock<Block> BEIGE_PICKET_GATE = BLOCKS.register("beige_picket_gate",
-            () -> new UpgradedGateBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.YELLOW_CONCRETE).instrument(NoteBlockInstrument.BASS).sound(SoundType.WOOD)));
+    public static final DeferredBlock<Block> BEIGE_PICKET_GATE = ModList.get().isLoaded("yogmod") ? BLOCKS.register("beige_picket_gate",
+            () -> new UpgradedGateBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.YELLOW_CONCRETE).instrument(NoteBlockInstrument.BASS).sound(SoundType.WOOD))) : null;
     public static final DeferredBlock<Block> YELLOW_PICKET_GATE = BLOCKS.register("yellow_picket_gate",
             () -> new UpgradedGateBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.YELLOW_CONCRETE).instrument(NoteBlockInstrument.BASS).sound(SoundType.WOOD)));
     public static final DeferredBlock<Block> LIME_PICKET_GATE = BLOCKS.register("lime_picket_gate",
@@ -714,8 +715,8 @@ public class ModBlocks
             () -> new TrampolineBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.RED_CONCRETE)));
     public static final DeferredBlock<Block> ORANGE_TRAMPOLINE = BLOCKS.register("orange_trampoline",
             () -> new TrampolineBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.ORANGE_CONCRETE)));
-    public static final DeferredBlock<Block> BEIGE_TRAMPOLINE = BLOCKS.register("beige_trampoline",
-            () -> new TrampolineBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.YELLOW_CONCRETE)));
+    public static final DeferredBlock<Block> BEIGE_TRAMPOLINE = ModList.get().isLoaded("yogmod") ? BLOCKS.register("beige_trampoline",
+            () -> new TrampolineBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.YELLOW_CONCRETE))) : null;
     public static final DeferredBlock<Block> YELLOW_TRAMPOLINE = BLOCKS.register("yellow_trampoline",
             () -> new TrampolineBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.YELLOW_CONCRETE)));
     public static final DeferredBlock<Block> LIME_TRAMPOLINE = BLOCKS.register("lime_trampoline",
@@ -750,8 +751,8 @@ public class ModBlocks
             () -> new CoolerBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.RED_CONCRETE)));
     public static final DeferredBlock<Block> ORANGE_COOLER = BLOCKS.register("orange_cooler",
             () -> new CoolerBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.ORANGE_CONCRETE)));
-    public static final DeferredBlock<Block> BEIGE_COOLER = BLOCKS.register("beige_cooler",
-            () -> new CoolerBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.YELLOW_CONCRETE)));
+    public static final DeferredBlock<Block> BEIGE_COOLER = ModList.get().isLoaded("yogmod") ? BLOCKS.register("beige_cooler",
+            () -> new CoolerBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.YELLOW_CONCRETE))) : null;
     public static final DeferredBlock<Block> YELLOW_COOLER = BLOCKS.register("yellow_cooler",
             () -> new CoolerBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.YELLOW_CONCRETE)));
     public static final DeferredBlock<Block> LIME_COOLER = BLOCKS.register("lime_cooler",
@@ -786,8 +787,8 @@ public class ModBlocks
             () -> new GrillBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK)));
     public static final DeferredBlock<Block> ORANGE_GRILL = BLOCKS.register("orange_grill",
             () -> new GrillBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK)));
-    public static final DeferredBlock<Block> BEIGE_GRILL = BLOCKS.register("beige_grill",
-            () -> new GrillBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK)));
+    public static final DeferredBlock<Block> BEIGE_GRILL = ModList.get().isLoaded("yogmod") ? BLOCKS.register("beige_grill",
+            () -> new GrillBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK))) : null;
     public static final DeferredBlock<Block> YELLOW_GRILL = BLOCKS.register("yellow_grill",
             () -> new GrillBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK)));
     public static final DeferredBlock<Block> LIME_GRILL = BLOCKS.register("lime_grill",
@@ -870,8 +871,8 @@ public class ModBlocks
             () -> new KitchenCounterBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.RED_CONCRETE)));
     public static final DeferredBlock<Block> ORANGE_KITCHEN_COUNTER = BLOCKS.register("orange_kitchen_counter",
             () -> new KitchenCounterBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.ORANGE_CONCRETE)));
-    public static final DeferredBlock<Block> BEIGE_KITCHEN_COUNTER = BLOCKS.register("beige_kitchen_counter",
-            () -> new KitchenCounterBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.YELLOW_CONCRETE)));
+    public static final DeferredBlock<Block> BEIGE_KITCHEN_COUNTER = ModList.get().isLoaded("yogmod") ? BLOCKS.register("beige_kitchen_counter",
+            () -> new KitchenCounterBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.YELLOW_CONCRETE))) : null;
     public static final DeferredBlock<Block> YELLOW_KITCHEN_COUNTER = BLOCKS.register("yellow_kitchen_counter",
             () -> new KitchenCounterBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.YELLOW_CONCRETE)));
     public static final DeferredBlock<Block> LIME_KITCHEN_COUNTER = BLOCKS.register("lime_kitchen_counter",
@@ -946,8 +947,8 @@ public class ModBlocks
             () -> new KitchenDrawerBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.RED_CONCRETE)));
     public static final DeferredBlock<Block> ORANGE_KITCHEN_DRAWER = BLOCKS.register("orange_kitchen_drawer",
             () -> new KitchenDrawerBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.ORANGE_CONCRETE)));
-    public static final DeferredBlock<Block> BEIGE_KITCHEN_DRAWER = BLOCKS.register("beige_kitchen_drawer",
-            () -> new KitchenDrawerBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.YELLOW_CONCRETE)));
+    public static final DeferredBlock<Block> BEIGE_KITCHEN_DRAWER = ModList.get().isLoaded("yogmod") ? BLOCKS.register("beige_kitchen_drawer",
+            () -> new KitchenDrawerBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.YELLOW_CONCRETE))) : null;
     public static final DeferredBlock<Block> YELLOW_KITCHEN_DRAWER = BLOCKS.register("yellow_kitchen_drawer",
             () -> new KitchenDrawerBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.YELLOW_CONCRETE)));
     public static final DeferredBlock<Block> LIME_KITCHEN_DRAWER = BLOCKS.register("lime_kitchen_drawer",
@@ -1062,8 +1063,8 @@ public class ModBlocks
             () -> new KitchenSinkBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.RED_CONCRETE), false));
     public static final DeferredBlock<Block> ORANGE_KITCHEN_SINK = BLOCKS.register("orange_kitchen_sink",
             () -> new KitchenSinkBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.ORANGE_CONCRETE), false));
-    public static final DeferredBlock<Block> BEIGE_KITCHEN_SINK = BLOCKS.register("beige_kitchen_sink",
-            () -> new KitchenSinkBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.YELLOW_CONCRETE), false));
+    public static final DeferredBlock<Block> BEIGE_KITCHEN_SINK = ModList.get().isLoaded("yogmod") ? BLOCKS.register("beige_kitchen_sink",
+            () -> new KitchenSinkBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.YELLOW_CONCRETE), false)) : null;
     public static final DeferredBlock<Block> YELLOW_KITCHEN_SINK = BLOCKS.register("yellow_kitchen_sink",
             () -> new KitchenSinkBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.YELLOW_CONCRETE), false));
     public static final DeferredBlock<Block> LIME_KITCHEN_SINK = BLOCKS.register("lime_kitchen_sink",

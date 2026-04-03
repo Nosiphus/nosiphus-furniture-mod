@@ -10,6 +10,7 @@ import net.minecraft.world.level.block.LiquidBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import net.neoforged.fml.ModList;
 import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
@@ -48,8 +49,8 @@ public class ModBlocks {
             () -> new ModernTableBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.RED_CONCRETE)));
     public static final DeferredBlock<Block> ORANGE_MODERN_TABLE = BLOCKS.register("orange_modern_table",
             () -> new ModernTableBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.ORANGE_CONCRETE)));
-    public static final DeferredBlock<Block> BEIGE_MODERN_TABLE = BLOCKS.register("beige_modern_table",
-            () -> new ModernTableBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.YELLOW_CONCRETE)));
+    public static final DeferredBlock<Block> BEIGE_MODERN_TABLE = ModList.get().isLoaded("yogmod") ? BLOCKS.register("beige_modern_table",
+            () -> new ModernTableBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.YELLOW_CONCRETE))) : null;
     public static final DeferredBlock<Block> YELLOW_MODERN_TABLE = BLOCKS.register("yellow_modern_table",
             () -> new ModernTableBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.YELLOW_CONCRETE)));
     public static final DeferredBlock<Block> LIME_MODERN_TABLE = BLOCKS.register("lime_modern_table",
@@ -98,8 +99,8 @@ public class ModBlocks {
             () -> new ModernChairBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.RED_CONCRETE)));
     public static final DeferredBlock<Block> ORANGE_MODERN_CHAIR = BLOCKS.register("orange_modern_chair",
             () -> new ModernChairBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.ORANGE_CONCRETE)));
-    public static final DeferredBlock<Block> BEIGE_MODERN_CHAIR = BLOCKS.register("beige_modern_chair",
-            () -> new ModernChairBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.YELLOW_CONCRETE)));
+    public static final DeferredBlock<Block> BEIGE_MODERN_CHAIR = ModList.get().isLoaded("yogmod") ? BLOCKS.register("beige_modern_chair",
+            () -> new ModernChairBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.YELLOW_CONCRETE))) : null;
     public static final DeferredBlock<Block> YELLOW_MODERN_CHAIR = BLOCKS.register("yellow_modern_chair",
             () -> new ModernChairBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.YELLOW_CONCRETE)));
     public static final DeferredBlock<Block> LIME_MODERN_CHAIR = BLOCKS.register("lime_modern_chair",
@@ -148,8 +149,8 @@ public class ModBlocks {
             () -> new ModernCoffeeTableBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.RED_CONCRETE)));
     public static final DeferredBlock<Block> ORANGE_MODERN_COFFEE_TABLE = BLOCKS.register("orange_modern_coffee_table",
             () -> new ModernCoffeeTableBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.ORANGE_CONCRETE)));
-    public static final DeferredBlock<Block> BEIGE_MODERN_COFFEE_TABLE = BLOCKS.register("beige_modern_coffee_table",
-            () -> new ModernCoffeeTableBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.YELLOW_CONCRETE)));
+    public static final DeferredBlock<Block> BEIGE_MODERN_COFFEE_TABLE = ModList.get().isLoaded("yogmod") ? BLOCKS.register("beige_modern_coffee_table",
+            () -> new ModernCoffeeTableBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.YELLOW_CONCRETE))) : null;
     public static final DeferredBlock<Block> YELLOW_MODERN_COFFEE_TABLE = BLOCKS.register("yellow_modern_coffee_table",
             () -> new ModernCoffeeTableBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.YELLOW_CONCRETE)));
     public static final DeferredBlock<Block> LIME_MODERN_COFFEE_TABLE = BLOCKS.register("lime_modern_coffee_table",
@@ -198,8 +199,8 @@ public class ModBlocks {
             () -> new CabinetBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.RED_CONCRETE)));
     public static final DeferredBlock<Block> ORANGE_MODERN_CABINET = BLOCKS.register("orange_modern_cabinet",
             () -> new CabinetBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.ORANGE_CONCRETE)));
-    public static final DeferredBlock<Block> BEIGE_MODERN_CABINET = BLOCKS.register("beige_modern_cabinet",
-            () -> new CabinetBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.YELLOW_CONCRETE)));
+    public static final DeferredBlock<Block> BEIGE_MODERN_CABINET = ModList.get().isLoaded("yogmod") ? BLOCKS.register("beige_modern_cabinet",
+            () -> new CabinetBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.YELLOW_CONCRETE))) : null;
     public static final DeferredBlock<Block> YELLOW_MODERN_CABINET = BLOCKS.register("yellow_modern_cabinet",
             () -> new CabinetBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.YELLOW_CONCRETE)));
     public static final DeferredBlock<Block> LIME_MODERN_CABINET = BLOCKS.register("lime_modern_cabinet",
@@ -248,8 +249,8 @@ public class ModBlocks {
             () -> new BedsideCabinetBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.RED_CONCRETE)));
     public static final DeferredBlock<Block> ORANGE_MODERN_BEDSIDE_CABINET = BLOCKS.register("orange_modern_bedside_cabinet",
             () -> new BedsideCabinetBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.ORANGE_CONCRETE)));
-    public static final DeferredBlock<Block> BEIGE_MODERN_BEDSIDE_CABINET = BLOCKS.register("beige_modern_bedside_cabinet",
-            () -> new BedsideCabinetBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.YELLOW_CONCRETE)));
+    public static final DeferredBlock<Block> BEIGE_MODERN_BEDSIDE_CABINET = ModList.get().isLoaded("yogmod") ? BLOCKS.register("beige_modern_bedside_cabinet",
+            () -> new BedsideCabinetBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.YELLOW_CONCRETE))) : null;
     public static final DeferredBlock<Block> YELLOW_MODERN_BEDSIDE_CABINET = BLOCKS.register("yellow_modern_bedside_cabinet",
             () -> new BedsideCabinetBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.YELLOW_CONCRETE)));
     public static final DeferredBlock<Block> LIME_MODERN_BEDSIDE_CABINET = BLOCKS.register("lime_modern_bedside_cabinet",
@@ -284,8 +285,8 @@ public class ModBlocks {
             () -> new ModernBedBlock(DyeColor.RED, BlockBehaviour.Properties.ofFullCopy(Blocks.RED_WOOL)));
     public static final DeferredBlock<Block> ORANGE_MODERN_BED = BLOCKS.register("orange_modern_bed",
             () -> new ModernBedBlock(DyeColor.ORANGE, BlockBehaviour.Properties.ofFullCopy(Blocks.ORANGE_WOOL)));
-    public static final DeferredBlock<Block> BEIGE_MODERN_BED = BLOCKS.register("beige_modern_bed",
-            () -> new ModernBedBlock(DyeColor.YELLOW, BlockBehaviour.Properties.ofFullCopy(Blocks.YELLOW_WOOL)));
+    public static final DeferredBlock<Block> BEIGE_MODERN_BED = ModList.get().isLoaded("yogmod") ? BLOCKS.register("beige_modern_bed",
+            () -> new ModernBedBlock(DyeColor.YELLOW, BlockBehaviour.Properties.ofFullCopy(Blocks.YELLOW_WOOL))) : null;
     public static final DeferredBlock<Block> YELLOW_MODERN_BED = BLOCKS.register("yellow_modern_bed",
             () -> new ModernBedBlock(DyeColor.YELLOW, BlockBehaviour.Properties.ofFullCopy(Blocks.YELLOW_WOOL)));
     public static final DeferredBlock<Block> LIME_MODERN_BED = BLOCKS.register("lime_modern_bed",
@@ -320,8 +321,8 @@ public class ModBlocks {
             () -> new CurtainBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.RED_WOOL)));
     public static final DeferredBlock<Block> ORANGE_CURTAIN = BLOCKS.register("orange_curtain",
             () -> new CurtainBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.ORANGE_WOOL)));
-    public static final DeferredBlock<Block> BEIGE_CURTAIN = BLOCKS.register("beige_curtain",
-            () -> new CurtainBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.YELLOW_WOOL)));
+    public static final DeferredBlock<Block> BEIGE_CURTAIN = ModList.get().isLoaded("yogmod") ? BLOCKS.register("beige_curtain",
+            () -> new CurtainBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.YELLOW_WOOL))) : null;
     public static final DeferredBlock<Block> YELLOW_CURTAIN = BLOCKS.register("yellow_curtain",
             () -> new CurtainBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.YELLOW_WOOL)));
     public static final DeferredBlock<Block> LIME_CURTAIN = BLOCKS.register("lime_curtain",
@@ -370,8 +371,8 @@ public class ModBlocks {
             () -> new DeskBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.RED_CONCRETE), DeskBlock.MaterialType.RED_CONCRETE));
     public static final DeferredBlock<Block> ORANGE_MODERN_DESK = BLOCKS.register("orange_modern_desk",
             () -> new DeskBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.ORANGE_CONCRETE), DeskBlock.MaterialType.ORANGE_CONCRETE));
-    public static final DeferredBlock<Block> BEIGE_MODERN_DESK = BLOCKS.register("beige_modern_desk",
-            () -> new DeskBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.YELLOW_CONCRETE), DeskBlock.MaterialType.BEIGE_CONCRETE));
+    public static final DeferredBlock<Block> BEIGE_MODERN_DESK = ModList.get().isLoaded("yogmod") ? BLOCKS.register("beige_modern_desk",
+            () -> new DeskBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.YELLOW_CONCRETE), DeskBlock.MaterialType.BEIGE_CONCRETE)) : null;
     public static final DeferredBlock<Block> YELLOW_MODERN_DESK = BLOCKS.register("yellow_modern_desk",
             () -> new DeskBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.YELLOW_CONCRETE), DeskBlock.MaterialType.YELLOW_CONCRETE));
     public static final DeferredBlock<Block> LIME_MODERN_DESK = BLOCKS.register("lime_modern_desk",
@@ -420,8 +421,8 @@ public class ModBlocks {
             () -> new DeskCabinetBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.RED_CONCRETE), DeskBlock.MaterialType.RED_CONCRETE));
     public static final DeferredBlock<Block> ORANGE_MODERN_DESK_CABINET = BLOCKS.register("orange_modern_desk_cabinet",
             () -> new DeskCabinetBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.ORANGE_CONCRETE), DeskBlock.MaterialType.ORANGE_CONCRETE));
-    public static final DeferredBlock<Block> BEIGE_MODERN_DESK_CABINET = BLOCKS.register("beige_modern_desk_cabinet",
-            () -> new DeskCabinetBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.YELLOW_CONCRETE), DeskBlock.MaterialType.BEIGE_CONCRETE));
+    public static final DeferredBlock<Block> BEIGE_MODERN_DESK_CABINET = ModList.get().isLoaded("yogmod") ? BLOCKS.register("beige_modern_desk_cabinet",
+            () -> new DeskCabinetBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.YELLOW_CONCRETE), DeskBlock.MaterialType.BEIGE_CONCRETE)) : null;
     public static final DeferredBlock<Block> YELLOW_MODERN_DESK_CABINET = BLOCKS.register("yellow_modern_desk_cabinet",
             () -> new DeskCabinetBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.YELLOW_CONCRETE), DeskBlock.MaterialType.YELLOW_CONCRETE));
     public static final DeferredBlock<Block> LIME_MODERN_DESK_CABINET = BLOCKS.register("lime_modern_desk_cabinet",
@@ -456,8 +457,8 @@ public class ModBlocks {
             () -> new WallCabinetBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.RED_CONCRETE)));
     public static final DeferredBlock<Block> ORANGE_WALL_CABINET = BLOCKS.register("orange_wall_cabinet",
             () -> new WallCabinetBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.ORANGE_CONCRETE)));
-    public static final DeferredBlock<Block> BEIGE_WALL_CABINET = BLOCKS.register("beige_wall_cabinet",
-            () -> new WallCabinetBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.YELLOW_CONCRETE)));
+    public static final DeferredBlock<Block> BEIGE_WALL_CABINET = ModList.get().isLoaded("yogmod") ? BLOCKS.register("beige_wall_cabinet",
+            () -> new WallCabinetBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.YELLOW_CONCRETE))) : null;
     public static final DeferredBlock<Block> YELLOW_WALL_CABINET = BLOCKS.register("yellow_wall_cabinet",
             () -> new WallCabinetBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.YELLOW_CONCRETE)));
     public static final DeferredBlock<Block> LIME_WALL_CABINET = BLOCKS.register("lime_wall_cabinet",
@@ -492,8 +493,8 @@ public class ModBlocks {
             () -> new ModernSofaBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.RED_WOOL)));
     public static final DeferredBlock<Block> ORANGE_MODERN_SOFA = BLOCKS.register("orange_modern_sofa",
             () -> new ModernSofaBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.ORANGE_WOOL)));
-    public static final DeferredBlock<Block> BEIGE_MODERN_SOFA = BLOCKS.register("beige_modern_sofa",
-            () -> new ModernSofaBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.YELLOW_WOOL)));
+    public static final DeferredBlock<Block> BEIGE_MODERN_SOFA = ModList.get().isLoaded("yogmod") ? BLOCKS.register("beige_modern_sofa",
+            () -> new ModernSofaBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.YELLOW_WOOL))) : null;
     public static final DeferredBlock<Block> YELLOW_MODERN_SOFA = BLOCKS.register("yellow_modern_sofa",
             () -> new ModernSofaBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.YELLOW_WOOL)));
     public static final DeferredBlock<Block> LIME_MODERN_SOFA = BLOCKS.register("lime_modern_sofa",
@@ -528,8 +529,8 @@ public class ModBlocks {
             () -> new TelevisionStandBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.RED_CONCRETE)));
     public static final DeferredBlock<Block> ORANGE_TELEVISION_STAND = BLOCKS.register("orange_television_stand",
             () -> new TelevisionStandBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.ORANGE_CONCRETE)));
-    public static final DeferredBlock<Block> BEIGE_TELEVISION_STAND = BLOCKS.register("beige_television_stand",
-            () -> new TelevisionStandBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.YELLOW_CONCRETE)));
+    public static final DeferredBlock<Block> BEIGE_TELEVISION_STAND = ModList.get().isLoaded("yogmod") ? BLOCKS.register("beige_television_stand",
+            () -> new TelevisionStandBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.YELLOW_CONCRETE))) : null;
     public static final DeferredBlock<Block> YELLOW_TELEVISION_STAND = BLOCKS.register("yellow_television_stand",
             () -> new TelevisionStandBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.YELLOW_CONCRETE)));
     public static final DeferredBlock<Block> LIME_TELEVISION_STAND = BLOCKS.register("lime_television_stand",
@@ -564,8 +565,8 @@ public class ModBlocks {
             () -> new LampBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.RED_WOOL).lightLevel(getLightValueLit(15))));
     public static final DeferredBlock<Block> ORANGE_LAMP = BLOCKS.register("orange_lamp",
             () -> new LampBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.ORANGE_WOOL).lightLevel(getLightValueLit(15))));
-    public static final DeferredBlock<Block> BEIGE_LAMP = BLOCKS.register("beige_lamp",
-            () -> new LampBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.YELLOW_CONCRETE).lightLevel(getLightValueLit(15))));
+    public static final DeferredBlock<Block> BEIGE_LAMP = ModList.get().isLoaded("yogmod") ? BLOCKS.register("beige_lamp",
+            () -> new LampBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.YELLOW_CONCRETE).lightLevel(getLightValueLit(15)))) : null;
     public static final DeferredBlock<Block> YELLOW_LAMP = BLOCKS.register("yellow_lamp",
             () -> new LampBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.YELLOW_WOOL).lightLevel(getLightValueLit(15))));
     public static final DeferredBlock<Block> LIME_LAMP = BLOCKS.register("lime_lamp",
@@ -600,8 +601,8 @@ public class ModBlocks {
             () -> new KitchenCounterBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.RED_CONCRETE)));
     public static final DeferredBlock<Block> ORANGE_MODERN_KITCHEN_COUNTER = BLOCKS.register("orange_modern_kitchen_counter",
             () -> new KitchenCounterBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.ORANGE_CONCRETE)));
-    public static final DeferredBlock<Block> BEIGE_MODERN_KITCHEN_COUNTER = BLOCKS.register("beige_modern_kitchen_counter",
-            () -> new KitchenCounterBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.YELLOW_CONCRETE)));
+    public static final DeferredBlock<Block> BEIGE_MODERN_KITCHEN_COUNTER = ModList.get().isLoaded("yogmod") ? BLOCKS.register("beige_modern_kitchen_counter",
+            () -> new KitchenCounterBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.YELLOW_CONCRETE))) : null;
     public static final DeferredBlock<Block> YELLOW_MODERN_KITCHEN_COUNTER = BLOCKS.register("yellow_modern_kitchen_counter",
             () -> new KitchenCounterBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.YELLOW_CONCRETE)));
     public static final DeferredBlock<Block> LIME_MODERN_KITCHEN_COUNTER = BLOCKS.register("lime_modern_kitchen_counter",
@@ -636,8 +637,8 @@ public class ModBlocks {
             () -> new KitchenDrawerBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.RED_CONCRETE)));
     public static final DeferredBlock<Block> ORANGE_MODERN_KITCHEN_DRAWER = BLOCKS.register("orange_modern_kitchen_drawer",
             () -> new KitchenDrawerBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.ORANGE_CONCRETE)));
-    public static final DeferredBlock<Block> BEIGE_MODERN_KITCHEN_DRAWER = BLOCKS.register("beige_modern_kitchen_drawer",
-            () -> new KitchenDrawerBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.YELLOW_CONCRETE)));
+    public static final DeferredBlock<Block> BEIGE_MODERN_KITCHEN_DRAWER = ModList.get().isLoaded("yogmod") ? BLOCKS.register("beige_modern_kitchen_drawer",
+            () -> new KitchenDrawerBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.YELLOW_CONCRETE))) : null;
     public static final DeferredBlock<Block> YELLOW_MODERN_KITCHEN_DRAWER = BLOCKS.register("yellow_modern_kitchen_drawer",
             () -> new KitchenDrawerBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.YELLOW_CONCRETE)));
     public static final DeferredBlock<Block> LIME_MODERN_KITCHEN_DRAWER = BLOCKS.register("lime_modern_kitchen_drawer",
@@ -672,8 +673,8 @@ public class ModBlocks {
             () -> new KitchenSinkBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.RED_CONCRETE), false));
     public static final DeferredBlock<Block> ORANGE_MODERN_KITCHEN_SINK = BLOCKS.register("orange_modern_kitchen_sink",
             () -> new KitchenSinkBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.ORANGE_CONCRETE), false));
-    public static final DeferredBlock<Block> BEIGE_MODERN_KITCHEN_SINK = BLOCKS.register("beige_modern_kitchen_sink",
-            () -> new KitchenSinkBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.YELLOW_CONCRETE), false));
+    public static final DeferredBlock<Block> BEIGE_MODERN_KITCHEN_SINK = ModList.get().isLoaded("yogmod") ? BLOCKS.register("beige_modern_kitchen_sink",
+            () -> new KitchenSinkBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.YELLOW_CONCRETE), false)) : null;
     public static final DeferredBlock<Block> YELLOW_MODERN_KITCHEN_SINK = BLOCKS.register("yellow_modern_kitchen_sink",
             () -> new KitchenSinkBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.YELLOW_CONCRETE), false));
     public static final DeferredBlock<Block> LIME_MODERN_KITCHEN_SINK = BLOCKS.register("lime_modern_kitchen_sink",
@@ -708,8 +709,8 @@ public class ModBlocks {
             () -> new BarStoolBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.RED_CONCRETE)));
     public static final DeferredBlock<Block> ORANGE_BAR_STOOL = BLOCKS.register("orange_bar_stool",
             () -> new BarStoolBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.ORANGE_CONCRETE)));
-    public static final DeferredBlock<Block> BEIGE_BAR_STOOL = BLOCKS.register("beige_bar_stool",
-            () -> new BarStoolBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.YELLOW_CONCRETE)));
+    public static final DeferredBlock<Block> BEIGE_BAR_STOOL = ModList.get().isLoaded("yogmod") ? BLOCKS.register("beige_bar_stool",
+            () -> new BarStoolBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.YELLOW_CONCRETE))) : null;
     public static final DeferredBlock<Block> YELLOW_BAR_STOOL = BLOCKS.register("yellow_bar_stool",
             () -> new BarStoolBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.YELLOW_CONCRETE)));
     public static final DeferredBlock<Block> LIME_BAR_STOOL = BLOCKS.register("lime_bar_stool",
@@ -808,8 +809,8 @@ public class ModBlocks {
             () -> new InflatableCastleBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.RED_WOOL)));
     public static final DeferredBlock<Block> ORANGE_INFLATABLE_CASTLE = BLOCKS.register("orange_inflatable_castle",
             () -> new InflatableCastleBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.ORANGE_WOOL)));
-    public static final DeferredBlock<Block> BEIGE_INFLATABLE_CASTLE = BLOCKS.register("beige_inflatable_castle",
-            () -> new InflatableCastleBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.YELLOW_WOOL)));
+    public static final DeferredBlock<Block> BEIGE_INFLATABLE_CASTLE = ModList.get().isLoaded("yogmod") ? BLOCKS.register("beige_inflatable_castle",
+            () -> new InflatableCastleBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.YELLOW_WOOL))) : null;
     public static final DeferredBlock<Block> YELLOW_INFLATABLE_CASTLE = BLOCKS.register("yellow_inflatable_castle",
             () -> new InflatableCastleBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.YELLOW_WOOL)));
     public static final DeferredBlock<Block> LIME_INFLATABLE_CASTLE = BLOCKS.register("lime_inflatable_castle",
@@ -848,8 +849,8 @@ public class ModBlocks {
             () -> new CupBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.RED_STAINED_GLASS)));
     public static final DeferredBlock<Block> ORANGE_CUP = BLOCKS.register("orange_cup",
             () -> new CupBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.ORANGE_STAINED_GLASS)));
-    public static final DeferredBlock<Block> BEIGE_CUP = BLOCKS.register("beige_cup",
-            () -> new CupBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.YELLOW_STAINED_GLASS)));
+    public static final DeferredBlock<Block> BEIGE_CUP = ModList.get().isLoaded("yogmod") ? BLOCKS.register("beige_cup",
+            () -> new CupBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.YELLOW_STAINED_GLASS))) : null;
     public static final DeferredBlock<Block> YELLOW_CUP = BLOCKS.register("yellow_cup",
             () -> new CupBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.YELLOW_STAINED_GLASS)));
     public static final DeferredBlock<Block> LIME_CUP = BLOCKS.register("lime_cup",
@@ -899,7 +900,7 @@ public class ModBlocks {
     public static final DeferredBlock<Block> DARK_OAK_WATER_TANK = BLOCKS.register("dark_oak_water_tank",
             () -> new WaterTankBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.CAULDRON).noOcclusion()));
     public static final DeferredBlock<Block> MANGROVE_WATER_TANK = BLOCKS.register("mangrove_water_tank",
-            () -> new WaterTankBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.CAULDRON).noOcclusion()));
+            () -> new WaterTankBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.MANGROVE_PLANKS).noOcclusion()));
     public static final DeferredBlock<Block> CHERRY_WATER_TANK = BLOCKS.register("cherry_water_tank",
             () -> new WaterTankBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.CAULDRON).noOcclusion()));
     public static final DeferredBlock<Block> CRIMSON_WATER_TANK = BLOCKS.register("crimson_water_tank",
@@ -992,8 +993,8 @@ public class ModBlocks {
             () -> new DigitalClockBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.RED_CONCRETE)));
     public static final DeferredBlock<Block> ORANGE_DIGITAL_CLOCK = BLOCKS.register("orange_digital_clock",
             () -> new DigitalClockBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.ORANGE_CONCRETE)));
-    public static final DeferredBlock<Block> BEIGE_DIGITAL_CLOCK = BLOCKS.register("beige_digital_clock",
-            () -> new DigitalClockBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.YELLOW_CONCRETE)));
+    public static final DeferredBlock<Block> BEIGE_DIGITAL_CLOCK = ModList.get().isLoaded("yogmod") ? BLOCKS.register("beige_digital_clock",
+            () -> new DigitalClockBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.YELLOW_CONCRETE))) : null;
     public static final DeferredBlock<Block> YELLOW_DIGITAL_CLOCK = BLOCKS.register("yellow_digital_clock",
             () -> new DigitalClockBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.YELLOW_CONCRETE)));
     public static final DeferredBlock<Block> LIME_DIGITAL_CLOCK = BLOCKS.register("lime_digital_clock",

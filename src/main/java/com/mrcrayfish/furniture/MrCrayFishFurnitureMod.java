@@ -33,6 +33,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.level.FoliageColor;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.IEventBus;
@@ -51,11 +52,14 @@ import net.neoforged.neoforge.client.event.RegisterMenuScreensEvent;
 import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.network.event.RegisterPayloadHandlersEvent;
 import net.neoforged.neoforge.network.registration.PayloadRegistrar;
+import net.neoforged.neoforge.registries.DeferredHolder;
 import org.slf4j.Logger;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
+import java.util.stream.Stream;
 
 @Mod("cfm")
 public class MrCrayFishFurnitureMod
@@ -116,42 +120,45 @@ public class MrCrayFishFurnitureMod
 
         @SubscribeEvent
         public static void registerBlockColors(RegisterColorHandlersEvent.Block event) {
-            event.register((state, reader, pos, i) -> i == 1 ? 0xFFCCCCCC : 0xFFFFFFFF,
-                    ModBlocks.WHITE_PICKET_FENCE.get(),
-                    ModBlocks.LIGHT_GRAY_PICKET_FENCE.get(),
-                    ModBlocks.GRAY_PICKET_FENCE.get(),
-                    ModBlocks.BLACK_PICKET_FENCE.get(),
-                    ModBlocks.BROWN_PICKET_FENCE.get(),
-                    ModBlocks.RED_PICKET_FENCE.get(),
-                    ModBlocks.ORANGE_PICKET_FENCE.get(),
-                    ModBlocks.BEIGE_PICKET_FENCE.get(),
-                    ModBlocks.YELLOW_PICKET_FENCE.get(),
-                    ModBlocks.LIME_PICKET_FENCE.get(),
-                    ModBlocks.GREEN_PICKET_FENCE.get(),
-                    ModBlocks.CYAN_PICKET_FENCE.get(),
-                    ModBlocks.LIGHT_BLUE_PICKET_FENCE.get(),
-                    ModBlocks.BLUE_PICKET_FENCE.get(),
-                    ModBlocks.PURPLE_PICKET_FENCE.get(),
-                    ModBlocks.MAGENTA_PICKET_FENCE.get(),
-                    ModBlocks.PINK_PICKET_FENCE.get(),
-                    ModBlocks.WHITE_PICKET_GATE.get(),
-                    ModBlocks.LIGHT_GRAY_PICKET_GATE.get(),
-                    ModBlocks.GRAY_PICKET_GATE.get(),
-                    ModBlocks.BLACK_PICKET_GATE.get(),
-                    ModBlocks.BROWN_PICKET_GATE.get(),
-                    ModBlocks.RED_PICKET_GATE.get(),
-                    ModBlocks.ORANGE_PICKET_GATE.get(),
-                    ModBlocks.BEIGE_PICKET_GATE.get(),
-                    ModBlocks.YELLOW_PICKET_GATE.get(),
-                    ModBlocks.LIME_PICKET_GATE.get(),
-                    ModBlocks.GREEN_PICKET_GATE.get(),
-                    ModBlocks.CYAN_PICKET_GATE.get(),
-                    ModBlocks.LIGHT_BLUE_PICKET_GATE.get(),
-                    ModBlocks.BLUE_PICKET_GATE.get(),
-                    ModBlocks.PURPLE_PICKET_GATE.get(),
-                    ModBlocks.MAGENTA_PICKET_GATE.get(),
-                    ModBlocks.PINK_PICKET_GATE.get(),
-                    ModBlocks.POST_BOX.get()
+            event.register((state, reader, pos, i) -> i == 1 ? 0xFFCCCCCC : 0xFFFFFFFF, Stream.of(
+                    ModBlocks.WHITE_PICKET_FENCE,
+                            ModBlocks.LIGHT_GRAY_PICKET_FENCE,
+                            ModBlocks.GRAY_PICKET_FENCE,
+                            ModBlocks.BLACK_PICKET_FENCE,
+                            ModBlocks.BROWN_PICKET_FENCE,
+                            ModBlocks.RED_PICKET_FENCE,
+                            ModBlocks.ORANGE_PICKET_FENCE,
+                            ModBlocks.BEIGE_PICKET_FENCE,
+                            ModBlocks.YELLOW_PICKET_FENCE,
+                            ModBlocks.LIME_PICKET_FENCE,
+                            ModBlocks.GREEN_PICKET_FENCE,
+                            ModBlocks.CYAN_PICKET_FENCE,
+                            ModBlocks.LIGHT_BLUE_PICKET_FENCE,
+                            ModBlocks.BLUE_PICKET_FENCE,
+                            ModBlocks.PURPLE_PICKET_FENCE,
+                            ModBlocks.MAGENTA_PICKET_FENCE,
+                            ModBlocks.PINK_PICKET_FENCE,
+                            ModBlocks.WHITE_PICKET_GATE,
+                            ModBlocks.LIGHT_GRAY_PICKET_GATE,
+                            ModBlocks.GRAY_PICKET_GATE,
+                            ModBlocks.BLACK_PICKET_GATE,
+                            ModBlocks.BROWN_PICKET_GATE,
+                            ModBlocks.RED_PICKET_GATE,
+                            ModBlocks.ORANGE_PICKET_GATE,
+                            ModBlocks.BEIGE_PICKET_GATE,
+                            ModBlocks.YELLOW_PICKET_GATE,
+                            ModBlocks.LIME_PICKET_GATE,
+                            ModBlocks.GREEN_PICKET_GATE,
+                            ModBlocks.CYAN_PICKET_GATE,
+                            ModBlocks.LIGHT_BLUE_PICKET_GATE,
+                            ModBlocks.BLUE_PICKET_GATE,
+                            ModBlocks.PURPLE_PICKET_GATE,
+                            ModBlocks.MAGENTA_PICKET_GATE,
+                            ModBlocks.PINK_PICKET_GATE,
+                            ModBlocks.POST_BOX
+                    ).filter(Objects::nonNull)
+                    .map(DeferredHolder::get)
+                    .toArray(Block[]::new)
             );
 
             event.register((state, reader, pos, i) -> i == 1 ? 0xBBBBBB : 0xFFFFFFFF,
@@ -256,42 +263,45 @@ public class MrCrayFishFurnitureMod
         @SubscribeEvent
         public static void registerItemColors(RegisterColorHandlersEvent.Item event)
         {
-            event.register((stack, i) -> i == 1 ? 0xCCCCCC : 0xFFFFFFFF,
-                    ModBlocks.WHITE_PICKET_FENCE.get(),
-                    ModBlocks.LIGHT_GRAY_PICKET_FENCE.get(),
-                    ModBlocks.GRAY_PICKET_FENCE.get(),
-                    ModBlocks.BLACK_PICKET_FENCE.get(),
-                    ModBlocks.BROWN_PICKET_FENCE.get(),
-                    ModBlocks.RED_PICKET_FENCE.get(),
-                    ModBlocks.ORANGE_PICKET_FENCE.get(),
-                    ModBlocks.BEIGE_PICKET_FENCE.get(),
-                    ModBlocks.YELLOW_PICKET_FENCE.get(),
-                    ModBlocks.LIME_PICKET_FENCE.get(),
-                    ModBlocks.GREEN_PICKET_FENCE.get(),
-                    ModBlocks.CYAN_PICKET_FENCE.get(),
-                    ModBlocks.LIGHT_BLUE_PICKET_FENCE.get(),
-                    ModBlocks.BLUE_PICKET_FENCE.get(),
-                    ModBlocks.PURPLE_PICKET_FENCE.get(),
-                    ModBlocks.MAGENTA_PICKET_FENCE.get(),
-                    ModBlocks.PINK_PICKET_FENCE.get(),
-                    ModBlocks.WHITE_PICKET_GATE.get(),
-                    ModBlocks.LIGHT_GRAY_PICKET_GATE.get(),
-                    ModBlocks.GRAY_PICKET_GATE.get(),
-                    ModBlocks.BLACK_PICKET_GATE.get(),
-                    ModBlocks.BROWN_PICKET_GATE.get(),
-                    ModBlocks.RED_PICKET_GATE.get(),
-                    ModBlocks.ORANGE_PICKET_GATE.get(),
-                    ModBlocks.BEIGE_PICKET_GATE.get(),
-                    ModBlocks.YELLOW_PICKET_GATE.get(),
-                    ModBlocks.LIME_PICKET_GATE.get(),
-                    ModBlocks.GREEN_PICKET_GATE.get(),
-                    ModBlocks.CYAN_PICKET_GATE.get(),
-                    ModBlocks.LIGHT_BLUE_PICKET_GATE.get(),
-                    ModBlocks.BLUE_PICKET_GATE.get(),
-                    ModBlocks.PURPLE_PICKET_GATE.get(),
-                    ModBlocks.MAGENTA_PICKET_GATE.get(),
-                    ModBlocks.PINK_PICKET_GATE.get(),
-                    ModBlocks.POST_BOX.get()
+            event.register((stack, i) -> i == 1 ? 0xCCCCCC : 0xFFFFFFFF, Stream.of(
+                    ModBlocks.WHITE_PICKET_FENCE,
+                            ModBlocks.LIGHT_GRAY_PICKET_FENCE,
+                            ModBlocks.GRAY_PICKET_FENCE,
+                            ModBlocks.BLACK_PICKET_FENCE,
+                            ModBlocks.BROWN_PICKET_FENCE,
+                            ModBlocks.RED_PICKET_FENCE,
+                            ModBlocks.ORANGE_PICKET_FENCE,
+                            ModBlocks.BEIGE_PICKET_FENCE,
+                            ModBlocks.YELLOW_PICKET_FENCE,
+                            ModBlocks.LIME_PICKET_FENCE,
+                            ModBlocks.GREEN_PICKET_FENCE,
+                            ModBlocks.CYAN_PICKET_FENCE,
+                            ModBlocks.LIGHT_BLUE_PICKET_FENCE,
+                            ModBlocks.BLUE_PICKET_FENCE,
+                            ModBlocks.PURPLE_PICKET_FENCE,
+                            ModBlocks.MAGENTA_PICKET_FENCE,
+                            ModBlocks.PINK_PICKET_FENCE,
+                            ModBlocks.WHITE_PICKET_GATE,
+                            ModBlocks.LIGHT_GRAY_PICKET_GATE,
+                            ModBlocks.GRAY_PICKET_GATE,
+                            ModBlocks.BLACK_PICKET_GATE,
+                            ModBlocks.BROWN_PICKET_GATE,
+                            ModBlocks.RED_PICKET_GATE,
+                            ModBlocks.ORANGE_PICKET_GATE,
+                            ModBlocks.BEIGE_PICKET_GATE,
+                            ModBlocks.YELLOW_PICKET_GATE,
+                            ModBlocks.LIME_PICKET_GATE,
+                            ModBlocks.GREEN_PICKET_GATE,
+                            ModBlocks.CYAN_PICKET_GATE,
+                            ModBlocks.LIGHT_BLUE_PICKET_GATE,
+                            ModBlocks.BLUE_PICKET_GATE,
+                            ModBlocks.PURPLE_PICKET_GATE,
+                            ModBlocks.MAGENTA_PICKET_GATE,
+                            ModBlocks.PINK_PICKET_GATE,
+                            ModBlocks.POST_BOX
+                    ).filter(Objects::nonNull)
+                    .map(DeferredHolder::get)
+                    .toArray(Block[]::new)
             );
 
             event.register((stack, i) -> i == 1 ? 0xBBBBBB : 0xFFFFFFFF,
