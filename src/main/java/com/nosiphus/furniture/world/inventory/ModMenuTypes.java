@@ -59,5 +59,8 @@ public class ModMenuTypes {
     public static final DeferredHolder<MenuType<?>, MenuType<ComputerMenu>> COMPUTER = MENU_TYPES.register("computer",
             () -> IMenuTypeExtension.create(ComputerMenu::new)
     );
+    public static final DeferredHolder<MenuType<?>, MenuType<CathodeRayTubeTelevisionMenu>> CATHODE_RAY_TUBE_TELEVISION = MENU_TYPES.register("cathode_ray_tube_television",
+            () -> IMenuTypeExtension.create(CathodeRayTubeTelevisionMenu::new)
+    );
 
 }
