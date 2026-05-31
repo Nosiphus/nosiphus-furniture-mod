@@ -219,5 +219,10 @@ public class ModBlockEntityTypes {
                     ComputerBlockEntity::new,
                     ModBlocks.COMPUTER_LIGHT.get(), ModBlocks.COMPUTER_DARK.get()
             ).build(null));
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<CathodeRayTubeTelevisionBlockEntity>> CATHODE_RAY_TUBE_TELEVISION =
+            BLOCK_ENTITY_TYPES.register("cathode_ray_tube_television", () -> BlockEntityType.Builder.of(
+                    CathodeRayTubeTelevisionBlockEntity::new,
+                    ModBlocks.CATHODE_RAY_TUBE_TELEVISION.get()
+            ).build(null));
 
 }
