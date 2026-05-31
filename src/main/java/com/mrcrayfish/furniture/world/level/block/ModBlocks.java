@@ -321,7 +321,7 @@ public class ModBlocks
             () -> new SofaBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS)));
     public static final DeferredBlock<Block> RED_SOFA = BLOCKS.register("red_sofa",
             () -> new SofaBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS)));
-    public static final DeferredBlock<Block> ORANGE_SOFA = BLOCKS.register("orange_social_sofa",
+    public static final DeferredBlock<Block> ORANGE_SOFA = BLOCKS.register("orange_sofa",
             () -> new SofaBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS)));
     public static final DeferredBlock<Block> BEIGE_SOFA = ModList.get().isLoaded("yogmod") ? BLOCKS.register("beige_sofa",
             () -> new SofaBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS))) : null;
