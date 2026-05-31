@@ -36,6 +36,10 @@ public class LiquidCrystalDisplayTelevisionMenu extends AbstractContainerMenu {
         return blockEntity.getChannel();
     }
 
+    public String getGifUrl() {
+        return blockEntity.getGifUrl();
+    }
+
     @Override
     public ItemStack quickMoveStack(Player player, int index) {
         return ItemStack.EMPTY;
