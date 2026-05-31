@@ -3,6 +3,7 @@ package com.nosiphus.furniture;
 import com.mojang.logging.LogUtils;
 import com.nosiphus.furniture.client.event.CreativeScreenEvents;
 import com.nosiphus.furniture.client.gui.screens.inventory.*;
+import com.nosiphus.furniture.network.protocol.common.ServerboundLcdTvUpdate;
 import com.nosiphus.furniture.client.particle.ModParticleTypes;
 import com.nosiphus.furniture.client.particle.ShowerParticle;
 import com.nosiphus.furniture.client.renderer.blockentity.*;
@@ -108,6 +109,7 @@ public class NosiphusFurnitureMod {
             event.register(ModMenuTypes.PRINTER.get(),  PrinterScreen::new);
             event.register(ModMenuTypes.WALL_CABINET.get(), WallCabinetScreen::new);
             event.register(ModMenuTypes.WASHING_MACHINE.get(), WashingMachineScreen::new);
+            event.register(ModMenuTypes.LIQUID_CRYSTAL_DISPLAY_TELEVISION.get(), LiquidCrystalDisplayTelevisionScreen::new);
         }
 
     }
@@ -160,6 +162,12 @@ public class NosiphusFurnitureMod {
                     ServerboundBinEmpty.TYPE,
                     ServerboundBinEmpty.STREAM_CODEC,
                     ServerboundBinEmpty::handle
+            );
+
+            registrar.playToServer(
+                    ServerboundLcdTvUpdate.TYPE,
+                    ServerboundLcdTvUpdate.STREAM_CODEC,
+                    ServerboundLcdTvUpdate::handle
             );
         }
 
