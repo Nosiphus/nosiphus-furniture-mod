@@ -214,5 +214,10 @@ public class ModBlockEntityTypes {
                     LiquidCrystalDisplayTelevisionBlockEntity::new,
                     ModBlocks.LIQUID_CRYSTAL_DISPLAY_TELEVISION.get()
             ).build(null));
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<ComputerBlockEntity>> COMPUTER =
+            BLOCK_ENTITY_TYPES.register("computer", () -> BlockEntityType.Builder.of(
+                    ComputerBlockEntity::new,
+                    ModBlocks.COMPUTER_LIGHT.get(), ModBlocks.COMPUTER_DARK.get()
+            ).build(null));
 
 }
