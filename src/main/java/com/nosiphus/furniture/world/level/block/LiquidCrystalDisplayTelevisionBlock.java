@@ -4,30 +4,47 @@ import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
 import com.mrcrayfish.furniture.world.level.block.FurnitureHorizontalBlock;
 import com.mrcrayfish.furniture.world.phys.shapes.VoxelShapeHelper;
+import com.nosiphus.furniture.world.level.block.entity.LiquidCrystalDisplayTelevisionBlockEntity;
+import com.nosiphus.furniture.world.level.block.entity.ModBlockEntityTypes;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.world.InteractionResult;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.EntityBlock;
+import net.minecraft.world.level.block.RenderShape;
+import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
+import net.minecraft.world.level.block.state.properties.IntegerProperty;
+import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
+import javax.annotation.Nullable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class LiquidCrystalDisplayTelevisionBlock extends FurnitureHorizontalBlock
+public class LiquidCrystalDisplayTelevisionBlock extends FurnitureHorizontalBlock implements EntityBlock
 {
     public static final BooleanProperty MOUNTED = BooleanProperty.create("mounted");
+    public static final BooleanProperty POWER = BooleanProperty.create("power");
+    public static final IntegerProperty CHANNEL = IntegerProperty.create("channel", 0, 3);
 
     public final ImmutableMap<BlockState, VoxelShape> SHAPES;
 
     public LiquidCrystalDisplayTelevisionBlock(Properties properties)
     {
         super(properties);
-        this.registerDefaultState(this.getStateDefinition().any().setValue(DIRECTION, Direction.EAST).setValue(MOUNTED, false));
+        this.registerDefaultState(this.getStateDefinition().any()
+                .setValue(DIRECTION, Direction.EAST)
+                .setValue(MOUNTED, false)
+                .setValue(POWER, false)
+                .setValue(CHANNEL, 0));
         SHAPES = this.generateShapes(this.getStateDefinition().getPossibleStates());
     }
 
@@ -112,6 +129,11 @@ public class LiquidCrystalDisplayTelevisionBlock extends FurnitureHorizontalBloc
     }
 
     @Override
+    public RenderShape getRenderShape(BlockState state) {
+        return RenderShape.MODEL;
+    }
+
+    @Override
     public BlockState getStateForPlacement(BlockPlaceContext context) {
         BlockState state = super.getStateForPlacement(context);
         Direction facing = context.getClickedFace();
@@ -122,10 +144,25 @@ public class LiquidCrystalDisplayTelevisionBlock extends FurnitureHorizontalBloc
     }
 
     @Override
+    protected InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hitResult) {
+        if (!level.isClientSide()) {
+            if (level.getBlockEntity(pos) instanceof LiquidCrystalDisplayTelevisionBlockEntity blockEntity) {
+                player.openMenu(blockEntity, pos);
+            }
+        }
+        return InteractionResult.sidedSuccess(level.isClientSide());
+    }
+
+    @Nullable
+    @Override
+    public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
+        return new LiquidCrystalDisplayTelevisionBlockEntity(pos, state);
+    }
+
+    @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder)
     {
         super.createBlockStateDefinition(builder);
-        builder.add(MOUNTED);
+        builder.add(MOUNTED, POWER, CHANNEL);
     }
-
 }
