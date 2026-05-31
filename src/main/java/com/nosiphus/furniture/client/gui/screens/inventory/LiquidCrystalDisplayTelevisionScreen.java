@@ -1,9 +1,11 @@
 package com.nosiphus.furniture.client.gui.screens.inventory;
 
 import com.nosiphus.furniture.network.protocol.common.ServerboundLcdTvUpdate;
+import com.nosiphus.furniture.network.protocol.common.ServerboundLcdTvSetGif;
 import com.nosiphus.furniture.world.inventory.LiquidCrystalDisplayTelevisionMenu;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.components.Button;
+import net.minecraft.client.gui.components.EditBox;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.player.Inventory;
@@ -13,13 +15,7 @@ public class LiquidCrystalDisplayTelevisionScreen extends AbstractContainerScree
 
     // GUI dimensions - no texture needed, purely programmatic
     private static final int GUI_WIDTH = 176;
-    private static final int GUI_HEIGHT = 120;
-
-    // Colors for channel buttons
-    private static final int COLOR_RED    = 0xFFAA0000;
-    private static final int COLOR_GREEN  = 0xFF00AA00;
-    private static final int COLOR_BLUE   = 0xFF0000AA;
-    private static final int COLOR_YELLOW = 0xFFAAAA00;
+    private static final int GUI_HEIGHT = 160;
 
     // Channel names
     private static final String[] CHANNEL_NAMES = {"Ch 1", "Ch 2", "Ch 3", "Ch 4"};
@@ -29,6 +25,9 @@ public class LiquidCrystalDisplayTelevisionScreen extends AbstractContainerScree
         0xFF5555FF, // Blue
         0xFFFFFF55  // Yellow
     };
+
+    private EditBox gifUrlBox;
+    private String gifStatus = "";
 
     public LiquidCrystalDisplayTelevisionScreen(LiquidCrystalDisplayTelevisionMenu menu, Inventory inventory, Component component) {
         super(menu, inventory, component);
@@ -63,6 +62,23 @@ public class LiquidCrystalDisplayTelevisionScreen extends AbstractContainerScree
                         this.menu.getBlockEntity().getBlockPos(), power, channelIndex));
             }).bounds(startX + 8 + i * 40, startY + 45, 36, 20).build());
         }
+
+        // GIF URL label + text field
+        this.gifUrlBox = new EditBox(this.font,
+                startX + 8, startY + 95, GUI_WIDTH - 16 - 52, 18,
+                Component.literal("GIF URL"));
+        this.gifUrlBox.setMaxLength(512);
+        this.gifUrlBox.setValue(this.menu.getGifUrl());
+        this.gifUrlBox.setHint(Component.literal("Paste GIF URL here..."));
+        this.addRenderableWidget(this.gifUrlBox);
+
+        // "Set GIF" button
+        this.addRenderableWidget(Button.builder(Component.literal("Set GIF"), btn -> {
+            String url = this.gifUrlBox.getValue().trim();
+            PacketDistributor.sendToServer(new ServerboundLcdTvSetGif(
+                    this.menu.getBlockEntity().getBlockPos(), url));
+            this.gifStatus = url.isEmpty() ? "Cleared." : "Sent!";
+        }).bounds(startX + GUI_WIDTH - 52, startY + 95, 48, 18).build());
     }
 
     private Component getPowerLabel() {
@@ -94,6 +110,16 @@ public class LiquidCrystalDisplayTelevisionScreen extends AbstractContainerScree
             graphics.drawString(this.font,
                     Component.literal("TV is OFF"),
                     this.leftPos + 14, this.topPos + 79, 0xFF888888, false);
+        }
+
+        // GIF URL label
+        graphics.drawString(this.font, Component.literal("GIF URL:"),
+                this.leftPos + 8, this.topPos + 85, 0xFFAAAAAA, false);
+
+        // Status line
+        if (!this.gifStatus.isEmpty()) {
+            graphics.drawString(this.font, Component.literal(this.gifStatus),
+                    this.leftPos + 8, this.topPos + 118, 0xFF55FF55, false);
         }
     }
 
