@@ -1,5 +1,6 @@
 package com.nosiphus.furniture.client.renderer.blockentity;
 
+import com.mojang.blaze3d.platform.NativeImage;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.texture.DynamicTexture;
 import net.minecraft.resources.ResourceLocation;
@@ -127,8 +128,7 @@ public class GifFrameCache {
                         try {
                             for (int i = 0; i < bufferedFrames.size(); i++) {
                                 BufferedImage img = bufferedFrames.get(i);
-                                net.minecraft.client.renderer.texture.NativeImage nativeImage =
-                                        convertToNativeImage(img);
+                                NativeImage nativeImage = convertToNativeImage(img);
 
                                 DynamicTexture dynTex = new DynamicTexture(nativeImage);
                                 long id = ++textureCounter;
@@ -171,12 +171,10 @@ public class GifFrameCache {
     /**
      * Convert a BufferedImage (any type) to a NativeImage in RGBA format.
      */
-    private static net.minecraft.client.renderer.texture.NativeImage convertToNativeImage(BufferedImage img) {
+    private static NativeImage convertToNativeImage(BufferedImage img) {
         int width = img.getWidth();
         int height = img.getHeight();
-        net.minecraft.client.renderer.texture.NativeImage nativeImage =
-                new net.minecraft.client.renderer.texture.NativeImage(
-                        net.minecraft.client.renderer.texture.NativeImage.Format.RGBA, width, height, false);
+        NativeImage nativeImage = new NativeImage(NativeImage.Format.RGBA, width, height, false);
 
         for (int y = 0; y < height; y++) {
             for (int x = 0; x < width; x++) {
