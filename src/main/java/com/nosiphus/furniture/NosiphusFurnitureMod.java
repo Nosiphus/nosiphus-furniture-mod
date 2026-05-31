@@ -4,6 +4,7 @@ import com.mojang.logging.LogUtils;
 import com.nosiphus.furniture.client.event.CreativeScreenEvents;
 import com.nosiphus.furniture.client.gui.screens.inventory.*;
 import com.nosiphus.furniture.network.protocol.common.ServerboundLcdTvUpdate;
+import com.nosiphus.furniture.network.protocol.common.ServerboundLcdTvSetGif;
 import com.nosiphus.furniture.client.particle.ModParticleTypes;
 import com.nosiphus.furniture.client.particle.ShowerParticle;
 import com.nosiphus.furniture.client.renderer.blockentity.*;
@@ -169,6 +170,12 @@ public class NosiphusFurnitureMod {
                     ServerboundLcdTvUpdate.STREAM_CODEC,
                     ServerboundLcdTvUpdate::handle
             );
+
+            registrar.playToServer(
+                    ServerboundLcdTvSetGif.TYPE,
+                    ServerboundLcdTvSetGif.STREAM_CODEC,
+                    ServerboundLcdTvSetGif::handle
+            );
         }
 
     }
@@ -185,6 +192,7 @@ public class NosiphusFurnitureMod {
         BlockEntityRenderers.register(ModBlockEntityTypes.TOASTER.get(), ToasterBlockEntityRenderer::new);
         BlockEntityRenderers.register(ModBlockEntityTypes.TOILET.get(), ToiletBlockEntityRenderer::new);
         BlockEntityRenderers.register(ModBlockEntityTypes.WATER_TANK.get(), WaterTankBlockEntityRenderer::new);
+        BlockEntityRenderers.register(ModBlockEntityTypes.LIQUID_CRYSTAL_DISPLAY_TELEVISION.get(), LiquidCrystalDisplayTelevisionRenderer::new);
     }
 
     private static void registerEntityRenderers()
