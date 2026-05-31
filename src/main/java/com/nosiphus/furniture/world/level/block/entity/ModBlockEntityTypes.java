@@ -208,4 +208,11 @@ public class ModBlockEntityTypes {
                     ModBlocks.CHERRY_WATER_TANK.get(), ModBlocks.WARPED_WATER_TANK.get()
             ).build(null));
 
+
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<LiquidCrystalDisplayTelevisionBlockEntity>> LIQUID_CRYSTAL_DISPLAY_TELEVISION =
+            BLOCK_ENTITY_TYPES.register("liquid_crystal_display_television", () -> BlockEntityType.Builder.of(
+                    LiquidCrystalDisplayTelevisionBlockEntity::new,
+                    ModBlocks.LIQUID_CRYSTAL_DISPLAY_TELEVISION.get()
+            ).build(null));
+
 }
