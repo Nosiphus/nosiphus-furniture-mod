@@ -5,6 +5,8 @@ import com.nosiphus.furniture.client.event.CreativeScreenEvents;
 import com.nosiphus.furniture.client.gui.screens.inventory.*;
 import com.nosiphus.furniture.network.protocol.common.ServerboundLcdTvUpdate;
 import com.nosiphus.furniture.network.protocol.common.ServerboundLcdTvSetGif;
+import com.nosiphus.furniture.network.protocol.common.ServerboundComputerUpdate;
+import com.nosiphus.furniture.network.protocol.common.ServerboundComputerSetGif;
 import com.nosiphus.furniture.client.particle.ModParticleTypes;
 import com.nosiphus.furniture.client.particle.ShowerParticle;
 import com.nosiphus.furniture.client.renderer.blockentity.*;
@@ -111,6 +113,7 @@ public class NosiphusFurnitureMod {
             event.register(ModMenuTypes.WALL_CABINET.get(), WallCabinetScreen::new);
             event.register(ModMenuTypes.WASHING_MACHINE.get(), WashingMachineScreen::new);
             event.register(ModMenuTypes.LIQUID_CRYSTAL_DISPLAY_TELEVISION.get(), LiquidCrystalDisplayTelevisionScreen::new);
+            event.register(ModMenuTypes.COMPUTER.get(), ComputerScreen::new);
         }
 
     }
@@ -176,6 +179,18 @@ public class NosiphusFurnitureMod {
                     ServerboundLcdTvSetGif.STREAM_CODEC,
                     ServerboundLcdTvSetGif::handle
             );
+
+            registrar.playToServer(
+                    ServerboundComputerUpdate.TYPE,
+                    ServerboundComputerUpdate.STREAM_CODEC,
+                    ServerboundComputerUpdate::handle
+            );
+
+            registrar.playToServer(
+                    ServerboundComputerSetGif.TYPE,
+                    ServerboundComputerSetGif.STREAM_CODEC,
+                    ServerboundComputerSetGif::handle
+            );
         }
 
     }
@@ -193,6 +208,7 @@ public class NosiphusFurnitureMod {
         BlockEntityRenderers.register(ModBlockEntityTypes.TOILET.get(), ToiletBlockEntityRenderer::new);
         BlockEntityRenderers.register(ModBlockEntityTypes.WATER_TANK.get(), WaterTankBlockEntityRenderer::new);
         BlockEntityRenderers.register(ModBlockEntityTypes.LIQUID_CRYSTAL_DISPLAY_TELEVISION.get(), LiquidCrystalDisplayTelevisionRenderer::new);
+        BlockEntityRenderers.register(ModBlockEntityTypes.COMPUTER.get(), ComputerBlockEntityRenderer::new);
     }
 
     private static void registerEntityRenderers()
