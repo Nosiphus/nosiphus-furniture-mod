@@ -1,5 +1,6 @@
 package com.nosiphus.furniture.world.inventory;
 
+import com.nosiphus.furniture.world.inventory.ComputerMenu;
 import com.nosiphus.furniture.world.inventory.LiquidCrystalDisplayTelevisionMenu;
 import com.nosiphus.furniture.world.level.block.entity.BinBlockEntity;
 import com.nosiphus.furniture.world.level.block.entity.WallCabinetBlockEntity;
@@ -54,6 +55,9 @@ public class ModMenuTypes {
 
     public static final DeferredHolder<MenuType<?>, MenuType<LiquidCrystalDisplayTelevisionMenu>> LIQUID_CRYSTAL_DISPLAY_TELEVISION = MENU_TYPES.register("liquid_crystal_display_television",
             () -> IMenuTypeExtension.create(LiquidCrystalDisplayTelevisionMenu::new)
+    );
+    public static final DeferredHolder<MenuType<?>, MenuType<ComputerMenu>> COMPUTER = MENU_TYPES.register("computer",
+            () -> IMenuTypeExtension.create(ComputerMenu::new)
     );
 
 }
