@@ -1,5 +1,6 @@
 package com.nosiphus.furniture.world.inventory;
 
+import com.nosiphus.furniture.world.inventory.LiquidCrystalDisplayTelevisionMenu;
 import com.nosiphus.furniture.world.level.block.entity.BinBlockEntity;
 import com.nosiphus.furniture.world.level.block.entity.WallCabinetBlockEntity;
 import net.minecraft.core.BlockPos;
@@ -49,6 +50,10 @@ public class ModMenuTypes {
 
     public static final DeferredHolder<MenuType<?>, MenuType<WashingMachineMenu>> WASHING_MACHINE = MENU_TYPES.register("washing_machine",
             () -> IMenuTypeExtension.create(WashingMachineMenu::new)
+    );
+
+    public static final DeferredHolder<MenuType<?>, MenuType<LiquidCrystalDisplayTelevisionMenu>> LIQUID_CRYSTAL_DISPLAY_TELEVISION = MENU_TYPES.register("liquid_crystal_display_television",
+            () -> IMenuTypeExtension.create(LiquidCrystalDisplayTelevisionMenu::new)
     );
 
 }
