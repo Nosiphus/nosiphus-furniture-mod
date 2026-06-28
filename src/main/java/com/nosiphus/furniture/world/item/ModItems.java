@@ -880,6 +880,20 @@ public class ModItems {
     public static final DeferredItem<BlockItem> DEEPSLATE_BIRD_BATH = addToTab(ITEMS.register("deepslate_bird_bath",
             () -> new BlockItem(ModBlocks.DEEPSLATE_BIRD_BATH.get(), new Item.Properties())));
 
+    // Taps
+    public static final DeferredItem<BlockItem> STONE_TAP = addToTab(ITEMS.register("stone_tap",
+            () -> new BlockItem(ModBlocks.STONE_TAP.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> ANDESITE_TAP = addToTab(ITEMS.register("andesite_tap",
+            () -> new BlockItem(ModBlocks.ANDESITE_TAP.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> DIORITE_TAP = addToTab(ITEMS.register("diorite_tap",
+            () -> new BlockItem(ModBlocks.DIORITE_TAP.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> GRANITE_TAP = addToTab(ITEMS.register("granite_tap",
+            () -> new BlockItem(ModBlocks.GRANITE_TAP.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> BLACKSTONE_TAP = addToTab(ITEMS.register("blackstone_tap",
+            () -> new BlockItem(ModBlocks.BLACKSTONE_TAP.get(), new Item.Properties())));
+    public static final DeferredItem<BlockItem> DEEPSLATE_TAP = addToTab(ITEMS.register("deepslate_tap",
+            () -> new BlockItem(ModBlocks.DEEPSLATE_TAP.get(), new Item.Properties())));
+
     // Water Tanks
     public static final DeferredItem<BlockItem> OAK_WATER_TANK = addToTab(ITEMS.register("oak_water_tank",
             () -> new BlockItem(ModBlocks.OAK_WATER_TANK.get(), new Item.Properties())));

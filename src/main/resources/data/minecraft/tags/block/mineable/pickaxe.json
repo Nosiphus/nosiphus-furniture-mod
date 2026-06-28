@@ -127,6 +127,7 @@
     { "id": "#nfm:bar_stools", "required": false },
     { "id": "#nfm:water_tanks", "required": false },
     { "id": "nfm:plate", "required": false },
+	{ "id": "#nfm:taps", "required": false },
     { "id": "#nfm:bird_baths", "required": false },
 	{ "id": "nfm:bath_light", "required": false },
     { "id": "nfm:bath_dark", "required": false },

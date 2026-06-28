@@ -437,6 +437,13 @@
 	"block.nfm.granite_bird_bath": "Granite Bird Bath",
 	"block.nfm.blackstone_bird_bath": "Blackstone Bird Bath",
 	"block.nfm.deepslate_bird_bath": "Deepslate Bird Bath",
+	
+	"block.nfm.stone_tap": "Stone Tap",
+	"block.nfm.andesite_tap": "Andesite Tap",
+	"block.nfm.diorite_tap": "Diorite Tap",
+	"block.nfm.granite_tap": "Granite Tap",
+	"block.nfm.blackstone_tap": "Blackstone Tap",
+	"block.nfm.deepslate_tap": "Deepslate Tap",
 
 	"block.nfm.bath_light": "Bath (Light)",
 	"block.nfm.bath_dark": "Bath (Dark)",

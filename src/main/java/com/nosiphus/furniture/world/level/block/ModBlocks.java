@@ -886,6 +886,21 @@ public class ModBlocks {
     public static final DeferredBlock<Block> DEEPSLATE_BIRD_BATH = BLOCKS.register("deepslate_bird_bath",
             () -> new BirdBathBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.DEEPSLATE)));
 
+    // Taps
+    public static final DeferredBlock<Block> STONE_TAP = BLOCKS.register("stone_tap",
+            () -> new TapBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE)));
+    public static final DeferredBlock<Block> ANDESITE_TAP = BLOCKS.register("andesite_tap",
+            () -> new TapBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.ANDESITE)));
+    public static final DeferredBlock<Block> DIORITE_TAP = BLOCKS.register("diorite_tap",
+            () -> new TapBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.DIORITE)));
+    public static final DeferredBlock<Block> GRANITE_TAP = BLOCKS.register("granite_tap",
+            () -> new TapBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.GRANITE)));
+    public static final DeferredBlock<Block> BLACKSTONE_TAP = BLOCKS.register("blackstone_tap",
+            () -> new TapBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.BLACKSTONE)));
+    public static final DeferredBlock<Block> DEEPSLATE_TAP = BLOCKS.register("deepslate_tap",
+            () -> new TapBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.DEEPSLATE)));
+
+
     // Water Tanks
     public static final DeferredBlock<Block> OAK_WATER_TANK = BLOCKS.register("oak_water_tank",
             () -> new WaterTankBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.CAULDRON).noOcclusion()));

@@ -6,6 +6,7 @@
 	{ "id": "nfm:electric_fence", "required": false },
 	{ "id": "#nfm:inflatable_castles", "required": false },
 	{ "id": "nfm:castle_netting", "required": false },
+	{ "id": "#nfm:taps", "required": false },
 	{ "id": "#nfm:water_tanks", "required": false },
 	{ "id": "nfm:sausage", "required": false },
 	{ "id": "nfm:cooked_sausage", "required": false },
