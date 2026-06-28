@@ -900,7 +900,6 @@ public class ModBlocks {
     public static final DeferredBlock<Block> DEEPSLATE_TAP = BLOCKS.register("deepslate_tap",
             () -> new TapBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.DEEPSLATE)));
 
-
     // Water Tanks
     public static final DeferredBlock<Block> OAK_WATER_TANK = BLOCKS.register("oak_water_tank",
             () -> new WaterTankBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.CAULDRON).noOcclusion()));
