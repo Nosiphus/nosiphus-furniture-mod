@@ -130,6 +130,14 @@ public class ModBlockEntityTypes {
                     ModBlocks.STEREO.get()
             ).build(null));
 
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<TapBlockEntity>> TAP =
+            BLOCK_ENTITY_TYPES.register("tap", () -> BlockEntityType.Builder.of(
+                    TapBlockEntity::new,
+                    ModBlocks.STONE_TAP.get(), ModBlocks.ANDESITE_TAP.get(),
+                    ModBlocks.DIORITE_TAP.get(), ModBlocks.GRANITE_TAP.get(),
+                    ModBlocks.BLACKSTONE_TAP.get(), ModBlocks.DEEPSLATE_TAP.get()
+            ).build(null));
+
     public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<ToasterBlockEntity>> TOASTER =
             BLOCK_ENTITY_TYPES.register("toaster", () -> BlockEntityType.Builder.of(
                     ToasterBlockEntity::new,

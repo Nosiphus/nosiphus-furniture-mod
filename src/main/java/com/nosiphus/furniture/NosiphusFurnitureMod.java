@@ -132,6 +132,8 @@ public class NosiphusFurnitureMod {
             event.registerBlockEntity(Capabilities.FluidHandler.BLOCK,
                     ModBlockEntityTypes.SINK.get(),(sink, side) -> sink.getTank());
             event.registerBlockEntity(Capabilities.FluidHandler.BLOCK,
+                    ModBlockEntityTypes.TAP.get(), (tap, side) -> tap.getTank());
+            event.registerBlockEntity(Capabilities.FluidHandler.BLOCK,
                     ModBlockEntityTypes.TOILET.get(),(toilet, side) -> toilet.getTank());
             event.registerBlockEntity(Capabilities.FluidHandler.BLOCK,
                     ModBlockEntityTypes.WASHING_MACHINE.get(),(washingMachine, side) -> washingMachine.getTank());
