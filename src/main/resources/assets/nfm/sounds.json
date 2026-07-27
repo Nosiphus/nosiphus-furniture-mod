@@ -39,6 +39,10 @@
         "subtitle": "subtitle.nfm.running_shower",
         "sounds": [ "nfm:block/shower/running" ]
     },
+    "block.tap.running": {
+        "subtitle": "subtitle.nfm.running_tap",
+        "sounds": [ "nfm:block/tap/running" ]
+    },
 	"block.toilet.fart": {
         "subtitle": "subtitle.nfm.fart",
         "sounds": [ "nfm:block/toilet/fart" ]

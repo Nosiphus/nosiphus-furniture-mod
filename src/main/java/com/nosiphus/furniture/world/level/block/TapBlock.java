@@ -4,6 +4,7 @@ import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
 import com.mrcrayfish.furniture.world.level.block.FurnitureHorizontalBlock;
 import com.mrcrayfish.furniture.world.phys.shapes.VoxelShapeHelper;
+import com.nosiphus.furniture.sounds.ModSoundEvents;
 import com.nosiphus.furniture.world.level.block.entity.TapBlockEntity;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -108,7 +109,7 @@ public class TapBlock extends FurnitureHorizontalBlock implements EntityBlock
                             }
                         }
 
-                        level.playSound(null, pos, SoundEvents.BOTTLE_FILL, SoundSource.BLOCKS, 1.0F, 1.0F);
+                        level.playSound(null, pos, ModSoundEvents.BLOCK_TAP_RUNNING.get(), SoundSource.BLOCKS, 1.0F, 1.0F);
                         handler.drain(250, IFluidHandler.FluidAction.EXECUTE);
                         tap.markUpdated();
                     }
@@ -147,7 +148,7 @@ public class TapBlock extends FurnitureHorizontalBlock implements EntityBlock
                         Direction dir = state.getValue(DIRECTION);
                         ((ServerLevel) level).sendParticles(ParticleTypes.FALLING_WATER,
                                 pos.getX() + 0.5 + dir.getNormal().getX() * 0.1,
-                                pos.getY() + 1.15,
+                                pos.getY() + 0.0,
                                 pos.getZ() + 0.5 + dir.getNormal().getZ() * 0.1,
                                 10, 0.01, 0.01, 0.01, 0);
 
