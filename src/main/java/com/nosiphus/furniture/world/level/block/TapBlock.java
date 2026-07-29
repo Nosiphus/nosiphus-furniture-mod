@@ -109,7 +109,7 @@ public class TapBlock extends FurnitureHorizontalBlock implements EntityBlock
                             }
                         }
 
-                        level.playSound(null, pos, ModSoundEvents.BLOCK_TAP_RUNNING.get(), SoundSource.BLOCKS, 1.0F, 1.0F);
+                        level.playSound(null, pos, SoundEvents.BOTTLE_FILL, SoundSource.BLOCKS, 1.0F, 1.0F);
                         handler.drain(250, IFluidHandler.FluidAction.EXECUTE);
                         tap.markUpdated();
                     }
