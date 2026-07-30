@@ -4,21 +4,30 @@ import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
 import com.mrcrayfish.furniture.world.level.block.FurnitureHorizontalBlock;
 import com.mrcrayfish.furniture.world.phys.shapes.VoxelShapeHelper;
+import com.nosiphus.furniture.world.level.block.entity.CathodeRayTubeTelevisionBlockEntity;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.world.InteractionResult;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.EntityBlock;
+import net.minecraft.world.level.block.RenderShape;
+import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
+import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
+import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class CathodeRayTubeTelevisionBlock extends FurnitureHorizontalBlock
+public class CathodeRayTubeTelevisionBlock extends FurnitureHorizontalBlock implements EntityBlock
 {
     public static final BooleanProperty POWERED = BooleanProperty.create("powered");
     public static final IntegerProperty CHANNEL = IntegerProperty.create("channel", 0, 2);
@@ -81,4 +90,26 @@ public class CathodeRayTubeTelevisionBlock extends FurnitureHorizontalBlock
         builder.add(POWERED, CHANNEL);
     }
 
+    @Override
+    protected RenderShape getRenderShape(BlockState state) {
+        return RenderShape.MODEL;
+    }
+
+    @Override
+    protected InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hitResult) {
+        if(player.isShiftKeyDown()) {
+            if(state.getValue(POWERED)) {
+                level.setBlockAndUpdate(pos, state.setValue(POWERED, false));
+            } else {
+                level.setBlockAndUpdate(pos, state.setValue(POWERED, true));
+            }
+        }
+        return InteractionResult.SUCCESS;
+    }
+
+    @Nullable
+    @Override
+    public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
+        return new CathodeRayTubeTelevisionBlockEntity(pos, state);
+    }
 }

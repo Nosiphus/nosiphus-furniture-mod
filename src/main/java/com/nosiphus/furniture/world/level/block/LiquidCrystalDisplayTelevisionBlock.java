@@ -4,11 +4,15 @@ import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
 import com.mrcrayfish.furniture.world.level.block.FurnitureHorizontalBlock;
 import com.mrcrayfish.furniture.world.phys.shapes.VoxelShapeHelper;
+import com.nosiphus.furniture.world.level.block.entity.LiquidCrystalDisplayTelevisionBlockEntity;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.EntityBlock;
+import net.minecraft.world.level.block.RenderShape;
+import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
@@ -16,10 +20,11 @@ import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
+import javax.annotation.Nullable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class LiquidCrystalDisplayTelevisionBlock extends FurnitureHorizontalBlock
+public class LiquidCrystalDisplayTelevisionBlock extends FurnitureHorizontalBlock implements EntityBlock
 {
     public static final BooleanProperty MOUNTED = BooleanProperty.create("mounted");
     public static final BooleanProperty POWERED = BooleanProperty.create("powered");
@@ -129,6 +134,17 @@ public class LiquidCrystalDisplayTelevisionBlock extends FurnitureHorizontalBloc
     {
         super.createBlockStateDefinition(builder);
         builder.add(MOUNTED, POWERED, CHANNEL);
+    }
+
+    @Override
+    public RenderShape getRenderShape(BlockState state) {
+        return RenderShape.MODEL;
+    }
+
+    @Nullable
+    @Override
+    public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
+        return new LiquidCrystalDisplayTelevisionBlockEntity(pos, state);
     }
 
 }
