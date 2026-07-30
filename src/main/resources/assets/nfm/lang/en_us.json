@@ -507,6 +507,7 @@
 	"container.nfm.bedside_cabinet": "Bedside Cabinet",
 	"container.nfm.bin": "Bin",
 	"container.nfm.cabinet": "Cabinet",
+	"container.nfm.cathode_ray_tube_television": "Cathode Ray Tube Television",
 	"container.nfm.desk_cabinet": "Desk Cabinet",
 	"container.nfm.dishwasher": "Dishwasher",
 	"container.nfm.kitchen_drawer": "Kitchen Drawer",
@@ -523,6 +524,8 @@
 	"fluid_type.nfm.super_soapy_water": "Super Soapy Water",
 
 	"gui.button.nfm.bin.empty": "Empty",
+
+	"gui.field.nfm.tv.url": "URL",
 
 	"gui.tag_filter.nfm.general": "General",
 	"gui.tag_filter.nfm.storage": "Storage",

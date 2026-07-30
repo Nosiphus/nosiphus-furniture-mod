@@ -21,8 +21,8 @@ public class CathodeRayTubeTelevisionScreen extends AbstractContainerScreen<Cath
 
     public CathodeRayTubeTelevisionScreen(CathodeRayTubeTelevisionMenu menu, Inventory inventory, Component component) {
         super(menu, inventory, component);
-        this.imageWidth = 176;
-        this.imageHeight = 35;
+        this.imageWidth = 210;
+        this.imageHeight = 130;
     }
 
     @Override
@@ -35,7 +35,7 @@ public class CathodeRayTubeTelevisionScreen extends AbstractContainerScreen<Cath
                 this.topPos + 45,
                 180,
                 18,
-                Component.translatable("gui.cfm.tv.url_field")
+                Component.translatable("gui.field.nfm.tv.url")
         );
         this.urlInput.setMaxLength(256);
         this.urlInput.setValue(tv.getChannelUrl(this.selectedChannel));
@@ -73,7 +73,7 @@ public class CathodeRayTubeTelevisionScreen extends AbstractContainerScreen<Cath
     @Override
     public void render(GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTick) {
         super.render(guiGraphics, mouseX, mouseY, partialTick);
-        guiGraphics.drawString(this.font, this.title, this.leftPos + 15, this.topPos + 6, 0x404040, false);
+        //guiGraphics.drawString(this.font, this.title, this.leftPos + 15, this.topPos + 6, 0x404040, false);
         this.renderTooltip(guiGraphics, mouseX, mouseY);
     }
 }
