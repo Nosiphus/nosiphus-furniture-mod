@@ -9,6 +9,9 @@ import net.minecraft.core.Direction;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.StateDefinition;
+import net.minecraft.world.level.block.state.properties.BooleanProperty;
+import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
@@ -17,12 +20,15 @@ import java.util.List;
 
 public class CathodeRayTubeTelevisionBlock extends FurnitureHorizontalBlock
 {
+    public static final BooleanProperty POWERED = BooleanProperty.create("powered");
+    public static final IntegerProperty CHANNEL = IntegerProperty.create("channel", 0, 2);
+
     public final ImmutableMap<BlockState, VoxelShape> SHAPES;
 
     public CathodeRayTubeTelevisionBlock(Properties properties)
     {
         super(properties);
-        this.registerDefaultState(this.getStateDefinition().any().setValue(DIRECTION, Direction.NORTH));
+        this.registerDefaultState(this.getStateDefinition().any().setValue(DIRECTION, Direction.NORTH).setValue(POWERED, false).setValue(CHANNEL, 0));
         SHAPES = this.generateShapes(this.getStateDefinition().getPossibleStates());
     }
 
@@ -66,6 +72,13 @@ public class CathodeRayTubeTelevisionBlock extends FurnitureHorizontalBlock
     @Override
     public VoxelShape getOcclusionShape(BlockState state, BlockGetter reader, BlockPos pos) {
         return SHAPES.get(state);
+    }
+
+    @Override
+    protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder)
+    {
+        super.createBlockStateDefinition(builder);
+        builder.add(POWERED, CHANNEL);
     }
 
 }
