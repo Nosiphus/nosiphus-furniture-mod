@@ -1,16 +1,24 @@
 package com.nosiphus.furniture.world.level.block.entity;
 
+import com.nosiphus.furniture.world.inventory.CathodeRayTubeTelevisionMenu;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.network.chat.Component;
 import net.minecraft.network.protocol.Packet;
 import net.minecraft.network.protocol.game.ClientGamePacketListener;
 import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
+import net.minecraft.world.Container;
+import net.minecraft.world.MenuProvider;
+import net.minecraft.world.entity.player.Inventory;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
+import org.jetbrains.annotations.Nullable;
 
-public class CathodeRayTubeTelevisionBlockEntity extends BlockEntity {
+public class CathodeRayTubeTelevisionBlockEntity extends BlockEntity implements MenuProvider {
 
     private final String[] channelUrls = new String[]{"", "", ""};
 
@@ -70,4 +78,17 @@ public class CathodeRayTubeTelevisionBlockEntity extends BlockEntity {
         }
     }
 
+    public boolean stillValid(Player player) {
+        return Container.stillValidBlockEntity(this, player);
+    }
+
+    @Override
+    public Component getDisplayName() {
+        return Component.translatable("container.nfm.cathode_ray_tube_television");
+    }
+
+    @Override
+    public @Nullable AbstractContainerMenu createMenu(int id, Inventory inventory, Player player) {
+        return new CathodeRayTubeTelevisionMenu(id, inventory, this);
+    }
 }

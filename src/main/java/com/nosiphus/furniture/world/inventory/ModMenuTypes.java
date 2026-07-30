@@ -22,6 +22,9 @@ public class ModMenuTypes {
             })
     );
 
+    public static final DeferredHolder<MenuType<?>, MenuType<CathodeRayTubeTelevisionMenu>> CATHODE_RAY_TUBE_TELEVISION = MENU_TYPES.register("cathode_ray_tube_television",
+            () -> IMenuTypeExtension.create(CathodeRayTubeTelevisionMenu::new));
+
     public static final DeferredHolder<MenuType<?>, MenuType<DishwasherMenu>> DISHWASHER = MENU_TYPES.register("dishwasher",
             () -> IMenuTypeExtension.create(DishwasherMenu::new)
     );
