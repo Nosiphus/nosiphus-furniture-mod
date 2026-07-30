@@ -105,6 +105,7 @@ public class NosiphusFurnitureMod {
         public static void registerScreens(RegisterMenuScreensEvent event)
         {
             event.register(ModMenuTypes.BIN.get(), BinScreen::new);
+            event.register(ModMenuTypes.CATHODE_RAY_TUBE_TELEVISION.get(), CathodeRayTubeTelevisionScreen::new);
             event.register(ModMenuTypes.DISHWASHER.get(), DishwasherScreen::new);
             event.register(ModMenuTypes.MICROWAVE.get(), MicrowaveScreen::new);
             event.register(ModMenuTypes.OVEN.get(), OvenScreen::new);
