@@ -1,9 +1,11 @@
 package com.nosiphus.furniture.network.protocol.common;
 
+import com.nosiphus.furniture.FurnitureConfig;
 import com.nosiphus.furniture.network.protocol.UrlValidator;
 import com.nosiphus.furniture.world.level.block.entity.CathodeRayTubeTelevisionBlockEntity;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.FriendlyByteBuf;
+import net.minecraft.network.chat.Component;
 import net.minecraft.network.codec.ByteBufCodecs;
 import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
@@ -31,6 +33,16 @@ public record ServerboundTVURLSync(BlockPos pos, int channel, String url) implem
     public static void handle(ServerboundTVURLSync payload, IPayloadContext context) {
         context.enqueueWork(() -> {
             if (context.player() instanceof ServerPlayer player) {
+
+                boolean isSingleplayer = player.getServer() != null && player.getServer().isSingleplayer();
+                boolean isOp = player.hasPermissions(2);
+                boolean opRequired = FurnitureConfig.COMMON.requireOpToSetUrls.get();
+
+                if (opRequired && !isSingleplayer && !isOp) {
+                    player.sendSystemMessage(Component.literal("Only server operators can set TV URLs on this server."));
+                    return;
+                }
+
                 if (player.level().isLoaded(payload.pos()) &&
                         player.level().getBlockEntity(payload.pos()) instanceof CathodeRayTubeTelevisionBlockEntity tv) {
 
@@ -43,6 +55,8 @@ public record ServerboundTVURLSync(BlockPos pos, int channel, String url) implem
 
                     if (UrlValidator.isTrustedUrl(inputUrl)) {
                         tv.setChannelUrl(payload.channel(), inputUrl);
+                    } else {
+                        player.sendSystemMessage(Component.literal("URL rejected: Must be HTTPS and listed on the server allowlist."));
                     }
                 }
             }

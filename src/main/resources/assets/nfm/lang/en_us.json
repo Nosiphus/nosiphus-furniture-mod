@@ -504,6 +504,7 @@
 
 	"block.nfm.electric_fence": "Electric Fence",
 
+	"configgui.nfm.requireOpToSetUrls": "Operator permissions to change GIFs",
 	"configgui.nfm.trustedUrls": "Trusted URLs for GIFs",
 
 	"container.nfm.bedside_cabinet": "Bedside Cabinet",

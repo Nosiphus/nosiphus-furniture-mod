@@ -16,10 +16,17 @@ public class FurnitureConfig {
     public static class Common
     {
         public final ModConfigSpec.ConfigValue<List<? extends String>> trustedUrls;
+        public final ModConfigSpec.BooleanValue requireOpToSetUrls;
 
         Common(ModConfigSpec.Builder builder)
         {
-            builder.comment("Allowed URL configuration settings").push("trusted_urls");
+            builder.comment("Television GIF security settings").push("trusted_urls");
+
+            this.requireOpToSetUrls = builder
+                    .comment("If enabled, on servers only operators will be able to set GIFs on TVs.")
+                    .translation("configgui.nfm.requireOpToSetUrls")
+                    .define("requireOpToSetUrls", true);
+
             this.trustedUrls = builder
                     .comment("GIFs on screens will only permitted from the following URLs. HTTPS required.")
                     .translation("configgui.nfm.trustedUrls")
