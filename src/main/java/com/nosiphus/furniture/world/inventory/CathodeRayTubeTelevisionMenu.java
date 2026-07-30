@@ -15,6 +15,12 @@ public class CathodeRayTubeTelevisionMenu extends AbstractContainerMenu {
 
     public CathodeRayTubeTelevisionMenu(int id, Inventory inventory, FriendlyByteBuf extraData) {
         this(id, inventory, getBlockEntity(inventory, extraData));
+
+        if (this.blockEntity != null) {
+            this.blockEntity.setChannelUrl(0, extraData.readUtf());
+            this.blockEntity.setChannelUrl(1, extraData.readUtf());
+            this.blockEntity.setChannelUrl(2, extraData.readUtf());
+        }
     }
 
     public CathodeRayTubeTelevisionMenu(int id, Inventory inventory, CathodeRayTubeTelevisionBlockEntity blockEntity) {

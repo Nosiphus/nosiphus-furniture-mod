@@ -105,8 +105,13 @@ public class CathodeRayTubeTelevisionBlock extends FurnitureHorizontalBlock impl
             }
         } else {
             if (!level.isClientSide()) {
-                if (level.getBlockEntity(pos) instanceof CathodeRayTubeTelevisionBlockEntity blockEntity) {
-                    player.openMenu(blockEntity, pos);
+                if (level.getBlockEntity(pos) instanceof CathodeRayTubeTelevisionBlockEntity tv) {
+                    player.openMenu(tv, buf -> {
+                        buf.writeBlockPos(pos);
+                        buf.writeUtf(tv.getChannelUrl(0));
+                        buf.writeUtf(tv.getChannelUrl(1));
+                        buf.writeUtf(tv.getChannelUrl(2));
+                    });
                 }
             }
             return InteractionResult.sidedSuccess(level.isClientSide());

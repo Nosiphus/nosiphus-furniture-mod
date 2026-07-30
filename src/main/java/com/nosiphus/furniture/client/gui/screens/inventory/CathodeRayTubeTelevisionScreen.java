@@ -28,6 +28,7 @@ public class CathodeRayTubeTelevisionScreen extends AbstractContainerScreen<Cath
     @Override
     protected void init() {
         super.init();
+        this.inventoryLabelY = -1000;
         CathodeRayTubeTelevisionBlockEntity tv = this.menu.getBlockEntity();
         this.urlInput = new EditBox(
                 this.font,
@@ -71,9 +72,16 @@ public class CathodeRayTubeTelevisionScreen extends AbstractContainerScreen<Cath
     }
 
     @Override
-    public void render(GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTick) {
-        super.render(guiGraphics, mouseX, mouseY, partialTick);
-        //guiGraphics.drawString(this.font, this.title, this.leftPos + 15, this.topPos + 6, 0x404040, false);
-        this.renderTooltip(guiGraphics, mouseX, mouseY);
+    protected void renderLabels(GuiGraphics graphics, int mouseX, int mouseY) {
+        int titleWidth = this.font.width(this.title);
+        int centeredX = (this.imageWidth - titleWidth) / 2;
+        graphics.drawString(this.font, this.title, centeredX, 6, 0x404040, false);
+    }
+
+    @Override
+    public void render(GuiGraphics graphics, int mouseX, int mouseY, float partialTick) {
+        super.render(graphics, mouseX, mouseY, partialTick);
+        //graphics.drawString(this.font, this.title, this.leftPos + 15, this.topPos + 6, 0x404040, false);
+        this.renderTooltip(graphics, mouseX, mouseY);
     }
 }
