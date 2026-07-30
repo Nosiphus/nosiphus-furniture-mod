@@ -108,7 +108,8 @@ public class GifFrameCache {
             URLConnection conn = url.openConnection();
             conn.setConnectTimeout(TIMEOUT_MS);
             conn.setReadTimeout(TIMEOUT_MS);
-            conn.setRequestProperty("User-Agent", "Minecraft-Mod/1.21.1");
+            conn.setRequestProperty("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36");
+            conn.setRequestProperty("Accept", "image/gif,image/webp,image/apng,image/*,*/*;q=0.8");
 
             String contentType = conn.getContentType();
             if (contentType != null && !contentType.toLowerCase().contains("image")) {
