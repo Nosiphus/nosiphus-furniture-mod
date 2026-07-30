@@ -35,6 +35,12 @@ public class ModBlockEntityTypes {
                     ModBlocks.BLACKSTONE_BIRD_BATH.get(), ModBlocks.DEEPSLATE_BIRD_BATH.get()
             ).build(null));
 
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<CathodeRayTubeTelevisionBlockEntity>> CATHODE_RAY_TUBE_TELEVISION =
+            BLOCK_ENTITY_TYPES.register("cathode_ray_tube_television", () -> BlockEntityType.Builder.of(
+                    CathodeRayTubeTelevisionBlockEntity::new,
+                    ModBlocks.CATHODE_RAY_TUBE_TELEVISION.get()
+            ).build(null));
+
     public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<ChoppingBoardBlockEntity>> CHOPPING_BOARD =
             BLOCK_ENTITY_TYPES.register("chopping_board", () -> BlockEntityType.Builder.of(
                     ChoppingBoardBlockEntity::new,
@@ -86,6 +92,12 @@ public class ModBlockEntityTypes {
             BLOCK_ENTITY_TYPES.register("fire_alarm", () -> BlockEntityType.Builder.of(
                     FireAlarmBlockEntity::new,
                     ModBlocks.FIRE_ALARM.get()
+            ).build(null));
+
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<LiquidCrystalDisplayTelevisionBlockEntity>> LIQUID_CRYSTAL_DISPLAY_TELEVISION =
+            BLOCK_ENTITY_TYPES.register("liquid_crystal_display_television", () -> BlockEntityType.Builder.of(
+                    LiquidCrystalDisplayTelevisionBlockEntity::new,
+                    ModBlocks.LIQUID_CRYSTAL_DISPLAY_TELEVISION.get()
             ).build(null));
 
     public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<MicrowaveBlockEntity>> MICROWAVE =
