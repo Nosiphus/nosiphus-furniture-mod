@@ -182,6 +182,7 @@ public class NosiphusFurnitureMod {
     {
         BlockEntityRenderers.register(ModBlockEntityTypes.BATH.get(), BathBlockEntityRenderer::new);
         BlockEntityRenderers.register(ModBlockEntityTypes.BIRD_BATH.get(), BirdBathBlockEntityRenderer::new);
+        BlockEntityRenderers.register(ModBlockEntityTypes.CATHODE_RAY_TUBE_TELEVISION.get(), CathodeRayTubeTelevisionBlockEntityRenderer::new);
         BlockEntityRenderers.register(ModBlockEntityTypes.CHOPPING_BOARD.get(), ChoppingBoardBlockEntityRenderer::new);
         BlockEntityRenderers.register(ModBlockEntityTypes.COOKIE_JAR.get(), CookieJarBlockEntityRenderer::new);
         BlockEntityRenderers.register(ModBlockEntityTypes.DIGITAL_CLOCK.get(), DigitalClockBlockEntityRenderer::new);
