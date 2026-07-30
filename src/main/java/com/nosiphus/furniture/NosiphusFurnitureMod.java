@@ -10,6 +10,7 @@ import com.nosiphus.furniture.client.renderer.entity.SeatRenderer;
 import com.nosiphus.furniture.network.protocol.common.ClientboundDishwasherSync;
 import com.nosiphus.furniture.network.protocol.common.ClientboundWashingMachineSync;
 import com.nosiphus.furniture.network.protocol.common.ServerboundBinEmpty;
+import com.nosiphus.furniture.network.protocol.common.ServerboundTVURLSync;
 import com.nosiphus.furniture.sounds.ModSoundEvents;
 import com.nosiphus.furniture.world.entity.ModEntityTypes;
 import com.nosiphus.furniture.world.inventory.ModMenuTypes;
@@ -166,6 +167,12 @@ public class NosiphusFurnitureMod {
                     ServerboundBinEmpty.TYPE,
                     ServerboundBinEmpty.STREAM_CODEC,
                     ServerboundBinEmpty::handle
+            );
+
+            registrar.playToServer(
+                    ServerboundTVURLSync.TYPE,
+                    ServerboundTVURLSync.STREAM_CODEC,
+                    ServerboundTVURLSync::handle
             );
         }
 
