@@ -6,8 +6,8 @@ import java.net.URI;
 import java.util.List;
 
 public class UrlValidator {
-
-    public static boolean isTrustedUrl(String urlString) {
+    public static boolean isTrustedUrl(String urlString)
+    {
         if (urlString == null || urlString.isBlank()) {
             return false;
         }
@@ -25,13 +25,19 @@ public class UrlValidator {
             if (scheme == null || !scheme.equalsIgnoreCase("https") || host == null) {
                 return false;
             }
-
-            String normalizedInputUrl = uri.toString().toLowerCase();
-
+            String inputHost = host.toLowerCase();
             List<? extends String> allowedUrls = FurnitureConfig.COMMON.trustedUrls.get();
             for (String allowed : allowedUrls) {
-                String allowedTrimmed = allowed.trim().toLowerCase();
-                if (normalizedInputUrl.startsWith(allowedTrimmed) || host.endsWith(allowedTrimmed)) {
+                String allowedHost = extractHost(allowed.trim().toLowerCase());
+                if (allowedHost == null || allowedHost.isEmpty()) {
+                    continue;
+                }
+                if (inputHost.equals(allowedHost) || inputHost.endsWith("." + allowedHost) || allowedHost.endsWith("." + inputHost)) {
+                    return true;
+                }
+                String inputRoot = getRootDomain(inputHost);
+                String allowedRoot = getRootDomain(allowedHost);
+                if (!inputRoot.isEmpty() && inputRoot.equalsIgnoreCase(allowedRoot)) {
                     return true;
                 }
             }
@@ -39,5 +45,27 @@ public class UrlValidator {
             return false;
         }
         return false;
+    }
+
+    private static String extractHost(String urlOrHost)
+    {
+        if (!urlOrHost.startsWith("http://") && !urlOrHost.startsWith("https://")) {
+            urlOrHost = "https://" + urlOrHost;
+        } try {
+            URI uri = URI.create(urlOrHost);
+            return uri.getHost() != null ? uri.getHost() : "";
+        }
+        catch (Exception e) {
+            return "";
+        }
+    }
+
+    private static String getRootDomain(String host) {
+        if (host == null || host.isEmpty()) return "";
+        String[] parts = host.split("\\.");
+        if (parts.length >= 2) {
+            return parts[parts.length - 2] + "." + parts[parts.length - 1];
+        }
+        return host;
     }
 }

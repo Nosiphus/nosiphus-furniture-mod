@@ -33,8 +33,16 @@ public record ServerboundTVURLSync(BlockPos pos, int channel, String url) implem
             if (context.player() instanceof ServerPlayer player) {
                 if (player.level().isLoaded(payload.pos()) &&
                         player.level().getBlockEntity(payload.pos()) instanceof CathodeRayTubeTelevisionBlockEntity tv) {
-                    if (payload.url().isEmpty() || UrlValidator.isTrustedUrl(payload.url())) {
-                        tv.setChannelUrl(payload.channel(), payload.url());
+
+                    String inputUrl = payload.url().trim();
+
+                    if (inputUrl.isEmpty()) {
+                        tv.setChannelUrl(payload.channel(), "");
+                        return;
+                    }
+
+                    if (UrlValidator.isTrustedUrl(inputUrl)) {
+                        tv.setChannelUrl(payload.channel(), inputUrl);
                     }
                 }
             }
