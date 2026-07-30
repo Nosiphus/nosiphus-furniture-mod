@@ -53,4 +53,21 @@ public class CathodeRayTubeTelevisionBlockEntity extends BlockEntity {
         return ClientboundBlockEntityDataPacket.create(this);
     }
 
+    public String getChannelUrl(int channel) {
+        if (channel >= 0 && channel < this.channelUrls.length) {
+            return this.channelUrls[channel];
+        }
+        return "";
+    }
+
+    public void setChannelUrl(int channel, String url) {
+        if (channel >= 0 && channel < this.channelUrls.length) {
+            this.channelUrls[channel] = url != null ? url : "";
+            this.markUpdated();
+            if (this.level != null && !this.level.isClientSide()) {
+                this.level.sendBlockUpdated(this.worldPosition, getBlockState(), getBlockState(), 3);
+            }
+        }
+    }
+
 }
