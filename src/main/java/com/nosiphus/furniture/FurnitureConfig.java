@@ -22,13 +22,13 @@ public class FurnitureConfig {
             builder.comment("Allowed URL configuration settings").push("trusted_urls");
             this.trustedUrls = builder
                     .comment("GIFs on screens will only permitted from the following URLs. HTTPS required.")
-                    .translation("nfm.configgui.trustedUrls")
+                    .translation("configgui.nfm.trustedUrls")
                     .defineListAllowEmpty(
                             List.of("allowed_urls"),
                             () -> List.of(
-                                    "https://i.imgur.com/",
-                                    "https://media.giphy.com/",
-                                    "https://cdn.discordapp.com/"
+                                    "https://imgur.com/",
+                                    "https://giphy.com/",
+                                    "https://discordapp.com/"
                             ),
                             element -> element instanceof String && isValidUrlFormat((String) element)
                     );

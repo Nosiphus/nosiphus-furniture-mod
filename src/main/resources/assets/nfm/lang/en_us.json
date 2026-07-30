@@ -504,6 +504,8 @@
 
 	"block.nfm.electric_fence": "Electric Fence",
 
+	"configgui.nfm.trustedUrls": "Trusted URLs for GIFs",
+
 	"container.nfm.bedside_cabinet": "Bedside Cabinet",
 	"container.nfm.bin": "Bin",
 	"container.nfm.cabinet": "Cabinet",
