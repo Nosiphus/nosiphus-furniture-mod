@@ -8,7 +8,10 @@ import net.minecraft.resources.ResourceLocation;
 
 import javax.imageio.ImageIO;
 import javax.imageio.ImageReader;
+import javax.imageio.metadata.IIOMetadata;
+import javax.imageio.metadata.IIOMetadataNode;
 import javax.imageio.stream.ImageInputStream;
+import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -18,6 +21,7 @@ import java.net.URI;
 import java.net.URL;
 import java.net.URLConnection;
 import java.util.*;
+import java.util.List;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -149,6 +153,7 @@ public class GifFrameCache {
                             "nfm", "textures/dynamic/gif_" + Math.abs(urlString.hashCode()) + "_" + i);
 
                     DynamicTexture texture = new DynamicTexture(raw.nativeImage());
+                    texture.upload();
                     Minecraft.getInstance().getTextureManager().register(loc, texture);
                     registeredFrames.add(new GifFrame(loc, raw.delayTicks()));
                 }
@@ -174,18 +179,76 @@ public class GifFrameCache {
             reader.setInput(in);
 
             int count = Math.min(reader.getNumImages(true), MAX_FRAMES);
+
+            int masterWidth = reader.getWidth(0);
+            int masterHeight = reader.getHeight(0);
+            
+            BufferedImage masterCanvas = new BufferedImage(masterWidth, masterHeight, BufferedImage.TYPE_INT_ARGB);
+            Graphics2D g2d = masterCanvas.createGraphics();
+
+            String disposalMethod = "none";
+            int xOffset = 0, yOffset = 0;
+
             for (int i = 0; i < count; i++) {
-                BufferedImage bImg = reader.read(i);
-                NativeImage nativeImage = convertToNativeImage(bImg);
-                frames.add(new RawFrameData(nativeImage, 2)); // Default 2 tick delay
+                BufferedImage rawFrame = reader.read(i);
+                IIOMetadata metadata = reader.getImageMetadata(i);
+
+                int delayTicks = 2;
+
+                if (metadata != null) {
+                    IIOMetadataNode root = (IIOMetadataNode) metadata.getAsTree("javax_imageio_gif_image_1.0");
+                    IIOMetadataNode gce = getChildNode(root, "GraphicControlExtension");
+
+                    if (gce != null) {
+                        disposalMethod = gce.getAttribute("disposalMethod");
+                        String delayTime = gce.getAttribute("delayTime");
+                        if (delayTime != null && !delayTime.isEmpty()) {
+                            int ms = Integer.parseInt(delayTime) * 10;
+                            delayTicks = Math.max(1, ms / 50);
+                        }
+                    }
+
+                    IIOMetadataNode descriptor = getChildNode(root, "ImageDescriptor");
+                    if (descriptor != null) {
+                        String left = descriptor.getAttribute("imageLeftPosition");
+                        String top = descriptor.getAttribute("imageTopPosition");
+                        xOffset = (left != null && !left.isEmpty()) ? Integer.parseInt(left) : 0;
+                        yOffset = (top != null && !top.isEmpty()) ? Integer.parseInt(top) : 0;
+                    }
+                }
+
+                g2d.drawImage(rawFrame, xOffset, yOffset, null);
+
+                NativeImage nativeImage = convertToNativeImage(masterCanvas);
+                frames.add(new RawFrameData(nativeImage, delayTicks));
+
+                if ("restoreToBackgroundColor".equalsIgnoreCase(disposalMethod)) {
+                    g2d.setComposite(AlphaComposite.Clear);
+                    g2d.fillRect(xOffset, yOffset, rawFrame.getWidth(), rawFrame.getHeight());
+                    g2d.setComposite(AlphaComposite.SrcOver);
+                }
             }
+
+            g2d.dispose();
             reader.dispose();
-        } catch (Exception ignored) {}
+        } catch (Exception e) {
+            System.err.println("[NFM] Error decoding GIF frames: " + e.getMessage());
+        }
         return frames;
     }
 
+    private static IIOMetadataNode getChildNode(IIOMetadataNode root, String nodeName) {
+        if (root == null) return null;
+        for (int i = 0; i < root.getLength(); i++) {
+            if (root.item(i).getNodeName().equalsIgnoreCase(nodeName)) {
+                return (IIOMetadataNode) root.item(i);
+            }
+        }
+        return null;
+    }
+
     private NativeImage convertToNativeImage(BufferedImage bImg) {
-        NativeImage nativeImage = new NativeImage(bImg.getWidth(), bImg.getHeight(), true);
+        NativeImage nativeImage = new NativeImage(bImg.getWidth(), bImg.getHeight(), false);
         for (int y = 0; y < bImg.getHeight(); y++) {
             for (int x = 0; x < bImg.getWidth(); x++) {
                 int argb = bImg.getRGB(x, y);
@@ -193,7 +256,8 @@ public class GifFrameCache {
                 int r = (argb >> 16) & 0xFF;
                 int g = (argb >> 8) & 0xFF;
                 int b = argb & 0xFF;
-                nativeImage.setPixelRGBA(x, y, (a << 24) | (b << 16) | (g << 8) | r);
+
+                nativeImage.setPixelRGBA(x, y, (255 << 24) | (b << 16) | (g << 8) | r);
             }
         }
         return nativeImage;
