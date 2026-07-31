@@ -23,13 +23,18 @@ public class CathodeRayTubeTelevisionBlockEntityRenderer implements BlockEntityR
     @Override
     public void render(CathodeRayTubeTelevisionBlockEntity tv, float partialTick, PoseStack poseStack, MultiBufferSource buffer, int combinedLight, int combinedOverlay) {
         if (tv.getLevel() == null) return;
-        int activeChannel = 0;
+        BlockState state = tv.getBlockState();
+        if (!state.getValue(CathodeRayTubeTelevisionBlock.POWERED)) {
+            return;
+        }
+        int activeChannel = state.hasProperty(CathodeRayTubeTelevisionBlock.CHANNEL)
+                ? state.getValue(CathodeRayTubeTelevisionBlock.CHANNEL)
+                : 0;
         String customUrl = tv.getChannelUrl(activeChannel);
         if (customUrl == null || customUrl.isBlank()) return;
         long gameTime = tv.getLevel().getGameTime();
         ResourceLocation renderTexture = GifFrameCache.getInstance().getTexture(customUrl, gameTime);
         if (renderTexture == null) return;
-        BlockState state = tv.getBlockState();
         Direction facing = state.hasProperty(CathodeRayTubeTelevisionBlock.DIRECTION)
                 ? state.getValue(CathodeRayTubeTelevisionBlock.DIRECTION)
                 : Direction.NORTH;
@@ -46,7 +51,7 @@ public class CathodeRayTubeTelevisionBlockEntityRenderer implements BlockEntityR
         double zOffset = -0.401D;
         poseStack.translate(0.0D, -0.0875D, zOffset);
         int fullbrightLight = LightTexture.FULL_BRIGHT;
-        VertexConsumer builder = buffer.getBuffer(RenderType.entityTranslucent(renderTexture));
+        VertexConsumer builder = buffer.getBuffer(RenderType.entityCutout(renderTexture));
         Matrix4f matrix = poseStack.last().pose();
         float width = 0.625F;
         float height = 0.625F;

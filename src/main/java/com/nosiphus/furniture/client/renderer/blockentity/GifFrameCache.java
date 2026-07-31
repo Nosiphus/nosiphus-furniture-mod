@@ -182,7 +182,7 @@ public class GifFrameCache {
 
             int masterWidth = reader.getWidth(0);
             int masterHeight = reader.getHeight(0);
-            
+
             BufferedImage masterCanvas = new BufferedImage(masterWidth, masterHeight, BufferedImage.TYPE_INT_ARGB);
             Graphics2D g2d = masterCanvas.createGraphics();
 
