@@ -29,6 +29,9 @@ public class ModMenuTypes {
             () -> IMenuTypeExtension.create(DishwasherMenu::new)
     );
 
+    public static final DeferredHolder<MenuType<?>, MenuType<LiquidCrystalDisplayTelevisionMenu>> LIQUID_CRYSTAL_DISPLAY_TELEVISION = MENU_TYPES.register("liquid_crystal_display_television",
+            () -> IMenuTypeExtension.create(LiquidCrystalDisplayTelevisionMenu::new));
+
     public static final DeferredHolder<MenuType<?>, MenuType<MicrowaveMenu>> MICROWAVE = MENU_TYPES.register("microwave",
             () -> IMenuTypeExtension.create(MicrowaveMenu::new)
     );

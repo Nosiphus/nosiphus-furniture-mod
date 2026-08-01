@@ -7,8 +7,11 @@ import com.mrcrayfish.furniture.world.phys.shapes.VoxelShapeHelper;
 import com.nosiphus.furniture.world.level.block.entity.LiquidCrystalDisplayTelevisionBlockEntity;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.world.InteractionResult;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.EntityBlock;
 import net.minecraft.world.level.block.RenderShape;
@@ -17,6 +20,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
+import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
@@ -139,6 +143,30 @@ public class LiquidCrystalDisplayTelevisionBlock extends FurnitureHorizontalBloc
     @Override
     public RenderShape getRenderShape(BlockState state) {
         return RenderShape.MODEL;
+    }
+
+    @Override
+    protected InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hitResult) {
+        if(player.isShiftKeyDown()) {
+            if(state.getValue(POWERED)) {
+                level.setBlockAndUpdate(pos, state.setValue(POWERED, false));
+            } else {
+                level.setBlockAndUpdate(pos, state.setValue(POWERED, true));
+            }
+        } else {
+            if (!level.isClientSide()) {
+                if (level.getBlockEntity(pos) instanceof LiquidCrystalDisplayTelevisionBlockEntity tv) {
+                    player.openMenu(tv, buf -> {
+                        buf.writeBlockPos(pos);
+                        buf.writeUtf(tv.getChannelUrl(0));
+                        buf.writeUtf(tv.getChannelUrl(1));
+                        buf.writeUtf(tv.getChannelUrl(2));
+                    });
+                }
+            }
+            return InteractionResult.sidedSuccess(level.isClientSide());
+        }
+        return InteractionResult.SUCCESS;
     }
 
     @Nullable

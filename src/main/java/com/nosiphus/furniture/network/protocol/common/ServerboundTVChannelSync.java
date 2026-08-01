@@ -1,6 +1,7 @@
 package com.nosiphus.furniture.network.protocol.common;
 
 import com.nosiphus.furniture.world.level.block.CathodeRayTubeTelevisionBlock;
+import com.nosiphus.furniture.world.level.block.LiquidCrystalDisplayTelevisionBlock;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.network.codec.ByteBufCodecs;
@@ -9,6 +10,7 @@ import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.neoforged.neoforge.network.handling.IPayloadContext;
 
 public record ServerboundTVChannelSync(BlockPos pos, int channel) implements CustomPacketPayload {
@@ -32,8 +34,14 @@ public record ServerboundTVChannelSync(BlockPos pos, int channel) implements Cus
             if (context.player() instanceof ServerPlayer player) {
                 if (player.level().isLoaded(payload.pos())) {
                     BlockState state = player.level().getBlockState(payload.pos());
-                    if (state.hasProperty(CathodeRayTubeTelevisionBlock.CHANNEL) && payload.channel() >= 0 && payload.channel() <= 2) {
-                        player.level().setBlock(payload.pos(), state.setValue(CathodeRayTubeTelevisionBlock.CHANNEL, payload.channel()), 3);
+                    IntegerProperty channelProperty = null;
+                    if (state.hasProperty(CathodeRayTubeTelevisionBlock.CHANNEL)) {
+                        channelProperty = CathodeRayTubeTelevisionBlock.CHANNEL;
+                    } else if (state.hasProperty(LiquidCrystalDisplayTelevisionBlock.CHANNEL)) {
+                        channelProperty = LiquidCrystalDisplayTelevisionBlock.CHANNEL;
+                    }
+                    if (channelProperty != null && payload.channel() >= 0 && payload.channel() <= 2) {
+                        player.level().setBlock(payload.pos(), state.setValue(channelProperty, payload.channel()), 3);
                     }
                 }
             }

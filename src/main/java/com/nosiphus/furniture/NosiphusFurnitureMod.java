@@ -106,6 +106,7 @@ public class NosiphusFurnitureMod {
             event.register(ModMenuTypes.BIN.get(), BinScreen::new);
             event.register(ModMenuTypes.CATHODE_RAY_TUBE_TELEVISION.get(), CathodeRayTubeTelevisionScreen::new);
             event.register(ModMenuTypes.DISHWASHER.get(), DishwasherScreen::new);
+            event.register(ModMenuTypes.LIQUID_CRYSTAL_DISPLAY_TELEVISION.get(), LiquidCrystalDisplayTelevisionScreen::new);
             event.register(ModMenuTypes.MICROWAVE.get(), MicrowaveScreen::new);
             event.register(ModMenuTypes.OVEN.get(), OvenScreen::new);
             event.register(ModMenuTypes.PRINTER.get(),  PrinterScreen::new);
@@ -195,6 +196,7 @@ public class NosiphusFurnitureMod {
         BlockEntityRenderers.register(ModBlockEntityTypes.CHOPPING_BOARD.get(), ChoppingBoardBlockEntityRenderer::new);
         BlockEntityRenderers.register(ModBlockEntityTypes.COOKIE_JAR.get(), CookieJarBlockEntityRenderer::new);
         BlockEntityRenderers.register(ModBlockEntityTypes.DIGITAL_CLOCK.get(), DigitalClockBlockEntityRenderer::new);
+        BlockEntityRenderers.register(ModBlockEntityTypes.LIQUID_CRYSTAL_DISPLAY_TELEVISION.get(), LiquidCrystalDisplayTelevisionBlockEntityRenderer::new);
         BlockEntityRenderers.register(ModBlockEntityTypes.PLATE.get(), PlateBlockEntityRenderer::new);
         BlockEntityRenderers.register(ModBlockEntityTypes.SINK.get(), SinkBlockEntityRenderer::new);
         BlockEntityRenderers.register(ModBlockEntityTypes.TOASTER.get(), ToasterBlockEntityRenderer::new);
