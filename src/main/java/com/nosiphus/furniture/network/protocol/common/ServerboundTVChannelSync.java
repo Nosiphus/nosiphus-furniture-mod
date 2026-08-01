@@ -1,7 +1,6 @@
 package com.nosiphus.furniture.network.protocol.common;
 
 import com.nosiphus.furniture.world.level.block.CathodeRayTubeTelevisionBlock;
-import com.nosiphus.furniture.world.level.block.entity.CathodeRayTubeTelevisionBlockEntity;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.network.codec.ByteBufCodecs;

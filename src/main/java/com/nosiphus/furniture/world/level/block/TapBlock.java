@@ -4,7 +4,6 @@ import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
 import com.mrcrayfish.furniture.world.level.block.FurnitureHorizontalBlock;
 import com.mrcrayfish.furniture.world.phys.shapes.VoxelShapeHelper;
-import com.nosiphus.furniture.sounds.ModSoundEvents;
 import com.nosiphus.furniture.world.level.block.entity.TapBlockEntity;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
