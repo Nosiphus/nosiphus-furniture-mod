@@ -1,5 +1,6 @@
 package com.nosiphus.furniture.world.level.block.entity;
 
+import com.nosiphus.furniture.client.renderer.blockentity.GifFrameCache;
 import com.nosiphus.furniture.world.inventory.CathodeRayTubeTelevisionMenu;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.HolderLookup;
@@ -30,6 +31,19 @@ public class CathodeRayTubeTelevisionBlockEntity extends BlockEntity implements 
         this.setChanged();
         if (this.level != null) {
             this.level.sendBlockUpdated(this.worldPosition, this.getBlockState(), this.getBlockState(), Block.UPDATE_ALL);
+        }
+    }
+
+    @Override
+    public void setRemoved() {
+        super.setRemoved();
+        if (this.level != null && this.level.isClientSide()) {
+            for (int i = 0; i < 3; i++) {
+                String url = getChannelUrl(i);
+                if (url != null && !url.isBlank()) {
+                    GifFrameCache.getInstance().releaseUrlIfUnused(url);
+                }
+            }
         }
     }
 

@@ -16,10 +16,10 @@ import java.awt.image.BufferedImage;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
+import java.net.HttpURLConnection;
 import java.net.InetAddress;
 import java.net.URI;
 import java.net.URL;
-import java.net.URLConnection;
 import java.util.*;
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
@@ -30,9 +30,11 @@ public class GifFrameCache {
     private static final GifFrameCache INSTANCE = new GifFrameCache();
     public static GifFrameCache getInstance() { return INSTANCE; }
 
-    private static final int MAX_FILE_SIZE = 10 * 1024 * 1024; // 10 MB
+    private static final int MAX_FILE_SIZE = 10 * 1024 * 1024;
     private static final int TIMEOUT_MS = 5000;
     private static final int MAX_FRAMES = 150;
+    private static final int MAX_DIMENSION = 1920;
+    private static final int MAX_CACHE_ENTRIES = 25;
 
     private final Map<String, GifData> gifCache = new ConcurrentHashMap<>();
     private final Set<String> loadingUrls = Collections.newSetFromMap(new ConcurrentHashMap<>());
@@ -42,12 +44,15 @@ public class GifFrameCache {
 
     public static class GifData {
         private final List<GifFrame> frames;
+        private int refCount = 0;
+        private long lastAccessTime = System.currentTimeMillis();
 
         public GifData(List<GifFrame> frames) {
             this.frames = frames;
         }
 
         public ResourceLocation getFrame(long gameTime) {
+            this.lastAccessTime = System.currentTimeMillis();
             if (frames.isEmpty()) return null;
             if (frames.size() == 1) return frames.get(0).textureLocation();
 
@@ -66,12 +71,18 @@ public class GifFrameCache {
             return frames.get(0).textureLocation();
         }
 
+        public synchronized void incrementRef() { this.refCount++; }
+        public synchronized void decrementRef() { this.refCount = Math.max(0, this.refCount - 1); }
+        public synchronized int getRefCount() { return this.refCount; }
+
         public void release() {
             Minecraft mc = Minecraft.getInstance();
-            for (GifFrame frame : frames) {
-                mc.getTextureManager().release(frame.textureLocation());
-            }
-            frames.clear();
+            mc.execute(() -> {
+                for (GifFrame frame : frames) {
+                    mc.getTextureManager().release(frame.textureLocation());
+                }
+                frames.clear();
+            });
         }
     }
 
@@ -92,6 +103,40 @@ public class GifFrameCache {
         return null;
     }
 
+    public void releaseUrlIfUnused(String url) {
+        if (url == null || url.isBlank()) return;
+        GifData data = gifCache.get(url);
+        if (data != null) {
+            data.decrementRef();
+            if (data.getRefCount() <= 0) {
+                data.release();
+                gifCache.remove(url);
+            }
+        }
+    }
+
+    private void evictOldestIfNecessary() {
+        if (gifCache.size() < MAX_CACHE_ENTRIES) return;
+
+        String oldestUrl = null;
+        long oldestTime = Long.MAX_VALUE;
+
+        for (Map.Entry<String, GifData> entry : gifCache.entrySet()) {
+            GifData data = entry.getValue();
+            if (data.getRefCount() <= 0 && data.lastAccessTime < oldestTime) {
+                oldestTime = data.lastAccessTime;
+                oldestUrl = entry.getKey();
+            }
+        }
+
+        if (oldestUrl != null) {
+            GifData evicted = gifCache.remove(oldestUrl);
+            if (evicted != null) {
+                evicted.release();
+            }
+        }
+    }
+
     private void loadGifAsync(String urlString) {
         try {
             URI uri = URI.create(urlString);
@@ -109,7 +154,8 @@ public class GifFrameCache {
             }
 
             URL url = uri.toURL();
-            URLConnection conn = url.openConnection();
+            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+            conn.setInstanceFollowRedirects(false); // Security: Prevent SSRF redirect loops
             conn.setConnectTimeout(TIMEOUT_MS);
             conn.setReadTimeout(TIMEOUT_MS);
             conn.setRequestProperty("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36");
@@ -158,6 +204,7 @@ public class GifFrameCache {
                     registeredFrames.add(new GifFrame(loc, raw.delayTicks()));
                 }
 
+                evictOldestIfNecessary();
                 gifCache.put(urlString, new GifData(registeredFrames));
                 loadingUrls.remove(urlString);
             });
@@ -182,6 +229,12 @@ public class GifFrameCache {
 
             int masterWidth = reader.getWidth(0);
             int masterHeight = reader.getHeight(0);
+
+            if (masterWidth > MAX_DIMENSION || masterHeight > MAX_DIMENSION || masterWidth <= 0 || masterHeight <= 0) {
+                System.err.println("[NFM] Rejected GIF: Resolution exceeds safety cap (" + masterWidth + "x" + masterHeight + ")");
+                reader.dispose();
+                return frames;
+            }
 
             BufferedImage masterCanvas = new BufferedImage(masterWidth, masterHeight, BufferedImage.TYPE_INT_ARGB);
             Graphics2D g2d = masterCanvas.createGraphics();
@@ -232,6 +285,10 @@ public class GifFrameCache {
             g2d.dispose();
             reader.dispose();
         } catch (Exception e) {
+            for (RawFrameData f : frames) {
+                f.nativeImage().close();
+            }
+            frames.clear();
             System.err.println("[NFM] Error decoding GIF frames: " + e.getMessage());
         }
         return frames;
@@ -252,7 +309,6 @@ public class GifFrameCache {
         for (int y = 0; y < bImg.getHeight(); y++) {
             for (int x = 0; x < bImg.getWidth(); x++) {
                 int argb = bImg.getRGB(x, y);
-                int a = (argb >> 24) & 0xFF;
                 int r = (argb >> 16) & 0xFF;
                 int g = (argb >> 8) & 0xFF;
                 int b = argb & 0xFF;
@@ -261,6 +317,15 @@ public class GifFrameCache {
             }
         }
         return nativeImage;
+    }
+
+    public void clearAll() {
+        for (GifData data : gifCache.values()) {
+            data.release();
+        }
+        gifCache.clear();
+        loadingUrls.clear();
+        failedUrls.clear();
     }
 
     private void failUrl(String url, String reason) {

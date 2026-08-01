@@ -37,6 +37,7 @@ import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.neoforged.neoforge.capabilities.Capabilities;
 import net.neoforged.neoforge.capabilities.RegisterCapabilitiesEvent;
+import net.neoforged.neoforge.client.event.ClientPlayerNetworkEvent;
 import net.neoforged.neoforge.client.event.RegisterColorHandlersEvent;
 import net.neoforged.neoforge.client.event.RegisterMenuScreensEvent;
 import net.neoforged.neoforge.client.event.RegisterParticleProvidersEvent;
@@ -110,6 +111,11 @@ public class NosiphusFurnitureMod {
             event.register(ModMenuTypes.PRINTER.get(),  PrinterScreen::new);
             event.register(ModMenuTypes.WALL_CABINET.get(), WallCabinetScreen::new);
             event.register(ModMenuTypes.WASHING_MACHINE.get(), WashingMachineScreen::new);
+        }
+
+        @SubscribeEvent
+        public static void onLoggingOut(ClientPlayerNetworkEvent.LoggingOut event) {
+            GifFrameCache.getInstance().clearAll();
         }
 
     }
