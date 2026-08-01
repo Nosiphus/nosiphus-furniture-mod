@@ -10,14 +10,11 @@ import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.gui.components.EditBox;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.network.chat.Component;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.level.block.state.BlockState;
 import net.neoforged.neoforge.network.PacketDistributor;
 
 public class CathodeRayTubeTelevisionScreen extends AbstractContainerScreen<CathodeRayTubeTelevisionMenu> {
-
-    private static final ResourceLocation TEXTURE = ResourceLocation.fromNamespaceAndPath("nfm", "textures/gui/value_container.png");
 
     private EditBox urlInput;
     private int selectedChannel = 0;
@@ -86,9 +83,7 @@ public class CathodeRayTubeTelevisionScreen extends AbstractContainerScreen<Cath
     }
 
     @Override
-    protected void renderBg(GuiGraphics graphics, float partialTick, int mouseX, int mouseY) {
-        graphics.blit(TEXTURE, this.leftPos, this.topPos, 0, 0, this.imageWidth, this.imageHeight);
-    }
+    protected void renderBg(GuiGraphics graphics, float partialTick, int mouseX, int mouseY) {}
 
     @Override
     protected void renderLabels(GuiGraphics graphics, int mouseX, int mouseY) {
