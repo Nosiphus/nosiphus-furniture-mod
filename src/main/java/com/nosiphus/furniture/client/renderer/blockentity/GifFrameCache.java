@@ -26,7 +26,6 @@ import java.util.*;
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ConcurrentHashMap;
-import javax.net.ssl.HttpsURLConnection;
 
 public class GifFrameCache {
 
