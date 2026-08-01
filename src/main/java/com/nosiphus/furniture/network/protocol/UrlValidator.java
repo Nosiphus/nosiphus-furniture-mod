@@ -1,5 +1,6 @@
 package com.nosiphus.furniture.network.protocol;
 
+import com.google.common.net.InternetDomainName;
 import com.nosiphus.furniture.FurnitureConfig;
 
 import java.net.URI;
@@ -32,12 +33,7 @@ public class UrlValidator {
                 if (allowedHost == null || allowedHost.isEmpty()) {
                     continue;
                 }
-                if (inputHost.equals(allowedHost) || inputHost.endsWith("." + allowedHost) || allowedHost.endsWith("." + inputHost)) {
-                    return true;
-                }
-                String inputRoot = getRootDomain(inputHost);
-                String allowedRoot = getRootDomain(allowedHost);
-                if (!inputRoot.isEmpty() && inputRoot.equalsIgnoreCase(allowedRoot)) {
+                if (hostMatches(inputHost, allowedHost)) {
                     return true;
                 }
             }
@@ -45,6 +41,43 @@ public class UrlValidator {
             return false;
         }
         return false;
+    }
+
+    // Trust the host if it equals the allowed host or is a subdomain of it.
+    // The previous code also accepted `allowedHost.endsWith("." + inputHost)`,
+    // which let anyone register a two-label domain (e.g. `y.com`) whose name
+    // was a suffix of an allowed host (`giphy.com`) and get in. Dropped.
+    //
+    // The old fallback used a naive last-two-labels root-domain check that
+    // treated `co.uk` as a root and matched `evil.co.uk` against `bbc.co.uk`.
+    // Replaced with Guava's Public Suffix List check via
+    // `InternetDomainName.topPrivateDomain()` (Guava is already on the
+    // NeoForge classpath).
+    private static boolean hostMatches(String inputHost, String allowedHost) {
+        if (inputHost.equals(allowedHost)) {
+            return true;
+        }
+        if (inputHost.endsWith("." + allowedHost)) {
+            return true;
+        }
+        String inputRoot = topPrivateDomainOrNull(inputHost);
+        String allowedRoot = topPrivateDomainOrNull(allowedHost);
+        return inputRoot != null && inputRoot.equals(allowedRoot);
+    }
+
+    private static String topPrivateDomainOrNull(String host) {
+        try {
+            InternetDomainName name = InternetDomainName.from(host);
+            if (name.isUnderPublicSuffix()) {
+                return name.topPrivateDomain().toString();
+            }
+            if (name.isPublicSuffix()) {
+                return null;
+            }
+            return name.toString();
+        } catch (IllegalArgumentException | IllegalStateException e) {
+            return null;
+        }
     }
 
     private static String extractHost(String urlOrHost)
@@ -58,14 +91,5 @@ public class UrlValidator {
         catch (Exception e) {
             return "";
         }
-    }
-
-    private static String getRootDomain(String host) {
-        if (host == null || host.isEmpty()) return "";
-        String[] parts = host.split("\\.");
-        if (parts.length >= 2) {
-            return parts[parts.length - 2] + "." + parts[parts.length - 1];
-        }
-        return host;
     }
 }
