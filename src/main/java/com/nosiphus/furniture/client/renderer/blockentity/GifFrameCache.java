@@ -20,10 +20,13 @@ import java.net.HttpURLConnection;
 import java.net.InetAddress;
 import java.net.URI;
 import java.net.URL;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.*;
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ConcurrentHashMap;
+import javax.net.ssl.HttpsURLConnection;
 
 public class GifFrameCache {
 
@@ -35,10 +38,19 @@ public class GifFrameCache {
     private static final int MAX_FRAMES = 150;
     private static final int MAX_DIMENSION = 1920;
     private static final int MAX_CACHE_ENTRIES = 25;
+    private static final int MAX_FAILED_URLS = 1000;
 
     private final Map<String, GifData> gifCache = new ConcurrentHashMap<>();
     private final Set<String> loadingUrls = Collections.newSetFromMap(new ConcurrentHashMap<>());
-    private final Set<String> failedUrls = Collections.newSetFromMap(new ConcurrentHashMap<>());
+    // Bounded LRU. Set-of-strings from a LinkedHashMap with access-order and
+    // an eviction hook so the failure list can't grow unbounded when a player
+    // cycles random URLs on TVs.
+    private final Set<String> failedUrls = Collections.newSetFromMap(
+            Collections.synchronizedMap(new LinkedHashMap<String, Boolean>(64, 0.75f, true) {
+                @Override protected boolean removeEldestEntry(Map.Entry<String, Boolean> eldest) {
+                    return size() > MAX_FAILED_URLS;
+                }
+            }));
 
     public record GifFrame(ResourceLocation textureLocation, int delayTicks) {}
 
@@ -115,8 +127,11 @@ public class GifFrameCache {
         }
     }
 
-    private void evictOldestIfNecessary() {
-        if (gifCache.size() < MAX_CACHE_ENTRIES) return;
+    // Returns true if we should try to insert, false if the cache is full
+    // and could not be shrunk (all in-use). Previously the eviction was
+    // best-effort and the map could grow past MAX_CACHE_ENTRIES.
+    private boolean evictOldestIfNecessary() {
+        if (gifCache.size() < MAX_CACHE_ENTRIES) return true;
 
         String oldestUrl = null;
         long oldestTime = Long.MAX_VALUE;
@@ -134,6 +149,57 @@ public class GifFrameCache {
             if (evicted != null) {
                 evicted.release();
             }
+            return true;
+        }
+        return false;
+    }
+
+    // Broader coverage than InetAddress's built-in checks. Adds carrier-grade
+    // NAT (100.64.0.0/10), IPv6 unique-local (fc00::/7), multicast, and the
+    // 0.0.0.0/8 "this network" block. The built-ins already cover loopback,
+    // link-local (which includes 169.254/16 metadata endpoints), site-local
+    // and IPv6 loopback/link-local.
+    private static boolean isPrivateOrRestricted(InetAddress addr) {
+        if (addr.isLoopbackAddress()
+                || addr.isSiteLocalAddress()
+                || addr.isLinkLocalAddress()
+                || addr.isAnyLocalAddress()
+                || addr.isMulticastAddress()) {
+            return true;
+        }
+        byte[] b = addr.getAddress();
+        if (b.length == 4) {
+            int o0 = b[0] & 0xFF;
+            int o1 = b[1] & 0xFF;
+            // Carrier-grade NAT: 100.64.0.0/10
+            if (o0 == 100 && (o1 & 0xC0) == 64) return true;
+            // "This network": 0.0.0.0/8
+            if (o0 == 0) return true;
+            // Reserved for future use: 240.0.0.0/4 (excluding broadcast)
+            if (o0 >= 240) return true;
+        } else if (b.length == 16) {
+            int o0 = b[0] & 0xFF;
+            // IPv6 unique local: fc00::/7
+            if ((o0 & 0xFE) == 0xFC) return true;
+        }
+        return false;
+    }
+
+    // Stable, collision-resistant per-URL key for ResourceLocation paths.
+    // Previously used Math.abs(urlString.hashCode()) which collides trivially
+    // (well-known Java string-hash collisions), causing one TV's texture to
+    // overwrite another's registration and render the wrong GIF.
+    private static String urlHashKey(String url) {
+        try {
+            MessageDigest sha = MessageDigest.getInstance("SHA-256");
+            byte[] digest = sha.digest(url.getBytes(java.nio.charset.StandardCharsets.UTF_8));
+            StringBuilder sb = new StringBuilder(24);
+            for (int i = 0; i < 12; i++) {
+                sb.append(String.format("%02x", digest[i]));
+            }
+            return sb.toString();
+        } catch (NoSuchAlgorithmException e) {
+            return Integer.toHexString(url.hashCode() & 0x7fffffff);
         }
     }
 
@@ -146,24 +212,74 @@ public class GifFrameCache {
                 return;
             }
 
-            InetAddress hostAddress = InetAddress.getByName(uri.getHost());
-            if (hostAddress.isLoopbackAddress() || hostAddress.isSiteLocalAddress()
-                    || hostAddress.isLinkLocalAddress() || hostAddress.isAnyLocalAddress()) {
-                failUrl(urlString, "Rejected: Resolves to private/loopback IP address.");
+            String hostName = uri.getHost();
+            if (hostName == null || hostName.isEmpty()) {
+                failUrl(urlString, "Rejected: Missing host.");
                 return;
             }
 
-            URL url = uri.toURL();
-            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+            // Resolve once; check EVERY returned address. Previously only the
+            // first address was checked and openConnection() re-resolved DNS,
+            // which enabled DNS-rebinding SSRF and dual-stack bypasses where
+            // one of several returned IPs was private.
+            InetAddress[] resolved = InetAddress.getAllByName(hostName);
+            if (resolved.length == 0) {
+                failUrl(urlString, "Rejected: DNS returned no addresses.");
+                return;
+            }
+            for (InetAddress addr : resolved) {
+                if (isPrivateOrRestricted(addr)) {
+                    failUrl(urlString, "Rejected: Resolves to private/restricted IP (" + addr.getHostAddress() + ").");
+                    return;
+                }
+            }
+
+            // Pin the connection to the exact IP we validated so the socket
+            // cannot re-resolve to a different address. The Host and (for
+            // HTTPS) SNI/hostname-verifier still see the original hostname
+            // so virtual-hosting and cert validation continue to work.
+            InetAddress pinned = resolved[0];
+            String ipLiteral = pinned instanceof java.net.Inet6Address
+                    ? "[" + pinned.getHostAddress() + "]"
+                    : pinned.getHostAddress();
+            int port = uri.getPort() == -1 ? 443 : uri.getPort();
+            String path = uri.getRawPath() == null || uri.getRawPath().isEmpty() ? "/" : uri.getRawPath();
+            if (uri.getRawQuery() != null) path = path + "?" + uri.getRawQuery();
+            URL pinnedUrl = new URL("https", ipLiteral, port, path);
+
+            HttpURLConnection conn = (HttpURLConnection) pinnedUrl.openConnection();
+            if (conn instanceof HttpsURLConnection https) {
+                https.setHostnameVerifier((h, session) ->
+                        javax.net.ssl.HttpsURLConnection.getDefaultHostnameVerifier()
+                                .verify(hostName, session));
+            }
             conn.setInstanceFollowRedirects(false); // Security: Prevent SSRF redirect loops
             conn.setConnectTimeout(TIMEOUT_MS);
             conn.setReadTimeout(TIMEOUT_MS);
+            conn.setRequestProperty("Host", hostName + (port == 443 ? "" : ":" + port));
             conn.setRequestProperty("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36");
             conn.setRequestProperty("Accept", "image/gif,image/webp,image/apng,image/*,*/*;q=0.8");
 
+            int status = conn.getResponseCode();
+            if (status != 200) {
+                failUrl(urlString, "Rejected: HTTP status " + status);
+                return;
+            }
+
+            // Fail-closed on missing/mismatched Content-Type. Previously null
+            // Content-Type passed and .contains("image") matched unrelated
+            // types like text/x-image-descriptor.
             String contentType = conn.getContentType();
-            if (contentType != null && !contentType.toLowerCase().contains("image")) {
+            if (contentType == null || !contentType.toLowerCase().startsWith("image/")) {
                 failUrl(urlString, "Rejected: Invalid Content-Type (" + contentType + ")");
+                return;
+            }
+
+            // Early-reject if the server declared an oversize body before we
+            // spend bandwidth reading it.
+            long declaredLen = conn.getContentLengthLong();
+            if (declaredLen > MAX_FILE_SIZE) {
+                failUrl(urlString, "Rejected: Content-Length exceeds 10MB.");
                 return;
             }
 
@@ -192,11 +308,20 @@ public class GifFrameCache {
             }
 
             Minecraft.getInstance().execute(() -> {
+                // Refuse the insert if the cache is full and no in-use slot
+                // could be freed, rather than silently exceeding the cap.
+                if (!evictOldestIfNecessary()) {
+                    for (RawFrameData raw : rawFrames) raw.nativeImage().close();
+                    loadingUrls.remove(urlString);
+                    return;
+                }
+
+                String key = urlHashKey(urlString);
                 List<GifFrame> registeredFrames = new ArrayList<>();
                 for (int i = 0; i < rawFrames.size(); i++) {
                     RawFrameData raw = rawFrames.get(i);
                     ResourceLocation loc = ResourceLocation.fromNamespaceAndPath(
-                            "nfm", "textures/dynamic/gif_" + Math.abs(urlString.hashCode()) + "_" + i);
+                            "nfm", "textures/dynamic/gif_" + key + "_" + i);
 
                     DynamicTexture texture = new DynamicTexture(raw.nativeImage());
                     texture.upload();
@@ -204,7 +329,6 @@ public class GifFrameCache {
                     registeredFrames.add(new GifFrame(loc, raw.delayTicks()));
                 }
 
-                evictOldestIfNecessary();
                 gifCache.put(urlString, new GifData(registeredFrames));
                 loadingUrls.remove(urlString);
             });

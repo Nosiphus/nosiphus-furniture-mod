@@ -17,13 +17,20 @@ import net.neoforged.neoforge.network.handling.IPayloadContext;
 
 public record ServerboundTVURLSync(BlockPos pos, int channel, String url) implements CustomPacketPayload {
 
+    // Cap URL length at wire-decode time. ByteBufCodecs.STRING_UTF8 defaults
+    // to Short.MAX_VALUE (32,767) chars so without an explicit limit here a
+    // malicious client can persist a ~32KB blob per channel on any reachable
+    // TV block.
+    public static final int MAX_URL_LEN = 512;
+    public static final int MAX_CHANNEL = 2;
+
     public static final Type<ServerboundTVURLSync> TYPE =
             new Type<>(ResourceLocation.fromNamespaceAndPath("nfm", "serverbound_tv_url_sync"));
 
     public static final StreamCodec<FriendlyByteBuf, ServerboundTVURLSync> STREAM_CODEC = StreamCodec.composite(
             BlockPos.STREAM_CODEC, ServerboundTVURLSync::pos,
             ByteBufCodecs.VAR_INT, ServerboundTVURLSync::channel,
-            ByteBufCodecs.STRING_UTF8, ServerboundTVURLSync::url,
+            ByteBufCodecs.stringUtf8(MAX_URL_LEN), ServerboundTVURLSync::url,
             ServerboundTVURLSync::new
     );
 
@@ -42,6 +49,14 @@ public record ServerboundTVURLSync(BlockPos pos, int channel, String url) implem
 
                 if (opRequired && !isSingleplayer && !isOp) {
                     player.sendSystemMessage(Component.literal("Only server operators can set TV URLs on this server."));
+                    return;
+                }
+
+                // Mirror the channel range check in ServerboundTVChannelSync;
+                // otherwise a malicious client can call setChannelUrl with an
+                // arbitrary index and blow up (or write out-of-bounds) on any
+                // TV BlockEntity.
+                if (payload.channel() < 0 || payload.channel() > MAX_CHANNEL) {
                     return;
                 }
 
