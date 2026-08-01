@@ -218,10 +218,7 @@ public class GifFrameCache {
                 return;
             }
 
-            // Resolve once; check EVERY returned address. Previously only the
-            // first address was checked and openConnection() re-resolved DNS,
-            // which enabled DNS-rebinding SSRF and dual-stack bypasses where
-            // one of several returned IPs was private.
+            // Resolve DNS and validate ALL returned IP addresses to block private/loopback SSRF
             InetAddress[] resolved = InetAddress.getAllByName(hostName);
             if (resolved.length == 0) {
                 failUrl(urlString, "Rejected: DNS returned no addresses.");
@@ -234,29 +231,12 @@ public class GifFrameCache {
                 }
             }
 
-            // Pin the connection to the exact IP we validated so the socket
-            // cannot re-resolve to a different address. The Host and (for
-            // HTTPS) SNI/hostname-verifier still see the original hostname
-            // so virtual-hosting and cert validation continue to work.
-            InetAddress pinned = resolved[0];
-            String ipLiteral = pinned instanceof java.net.Inet6Address
-                    ? "[" + pinned.getHostAddress() + "]"
-                    : pinned.getHostAddress();
-            int port = uri.getPort() == -1 ? 443 : uri.getPort();
-            String path = uri.getRawPath() == null || uri.getRawPath().isEmpty() ? "/" : uri.getRawPath();
-            if (uri.getRawQuery() != null) path = path + "?" + uri.getRawQuery();
-            URL pinnedUrl = new URL("https", ipLiteral, port, path);
-
-            HttpURLConnection conn = (HttpURLConnection) pinnedUrl.openConnection();
-            if (conn instanceof HttpsURLConnection https) {
-                https.setHostnameVerifier((h, session) ->
-                        javax.net.ssl.HttpsURLConnection.getDefaultHostnameVerifier()
-                                .verify(hostName, session));
-            }
+            // Connect directly to the URI's standard URL so TLS SNI handshakes and CDN virtual hosting work reliably
+            URL url = uri.toURL();
+            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
             conn.setInstanceFollowRedirects(false); // Security: Prevent SSRF redirect loops
             conn.setConnectTimeout(TIMEOUT_MS);
             conn.setReadTimeout(TIMEOUT_MS);
-            conn.setRequestProperty("Host", hostName + (port == 443 ? "" : ":" + port));
             conn.setRequestProperty("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36");
             conn.setRequestProperty("Accept", "image/gif,image/webp,image/apng,image/*,*/*;q=0.8");
 
