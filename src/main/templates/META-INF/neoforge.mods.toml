@@ -10,7 +10,7 @@ displayName="${mod_name}"
 #updateJSONURL="https://change.me.example.invalid/updates.json"
 displayURL="https://www.nosiphus.com/"
 #logoFile="examplemod.png"
-credits="MrCrayFish, Nosiphus, Ocelot"
+credits="MrCrayFish, Nosiphus, Ocelot, meappy"
 authors="Nosiphus"
 description='''
 Nosiphus Furniture Mod is an addon to MrCrayFish's Furniture Mod that readds old furniture.
