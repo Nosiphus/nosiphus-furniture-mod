@@ -48,13 +48,14 @@ public class LiquidCrystalDisplayTelevisionBlockEntityRenderer implements BlockE
             default    -> 0.0F;
         };
         poseStack.mulPose(Axis.YP.rotationDegrees(rotation));
-        double zOffset = -0.401D;
-        poseStack.translate(0.0D, -0.0875D, zOffset);
+        boolean mounted = state.getValue(LiquidCrystalDisplayTelevisionBlock.MOUNTED);
+        double zOffset = mounted ? 0.34475D : -0.03225D;
+        poseStack.translate(0.0D, 0.125D, zOffset);
         int fullbrightLight = LightTexture.FULL_BRIGHT;
         VertexConsumer builder = buffer.getBuffer(RenderType.entityCutout(renderTexture));
         Matrix4f matrix = poseStack.last().pose();
-        float width = 0.625F;
-        float height = 0.625F;
+        float width = 1.375F;
+        float height = 0.75F;
         float minX = -width / 2.0F;
         float maxX = width / 2.0F;
         float minY = -height / 2.0F;
