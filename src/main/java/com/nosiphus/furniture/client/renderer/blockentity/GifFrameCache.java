@@ -44,6 +44,7 @@ public class GifFrameCache {
     private static final int MAX_FRAMES = 150;
     private static final int MAX_DIMENSION = 1920;
     private static final int MAX_CACHE_ENTRIES = 25;
+    private static final long MAX_CACHE_BYTES = 256L * 1024L * 1024L; // 256 MB native RAM cap
     private static final int MAX_FAILED_URLS = 1000;
 
     private final Map<String, GifData> gifCache = new ConcurrentHashMap<>();
@@ -62,11 +63,13 @@ public class GifFrameCache {
 
     public static class GifData {
         private final List<GifFrame> frames;
+        private final long estimatedSizeBytes;
         private int refCount = 0;
-        private long lastAccessTime = System.currentTimeMillis();
+        private volatile long lastAccessTime = System.currentTimeMillis();
 
-        public GifData(List<GifFrame> frames) {
+        public GifData(List<GifFrame> frames, long estimatedSizeBytes) {
             this.frames = frames;
+            this.estimatedSizeBytes = estimatedSizeBytes;
         }
 
         public ResourceLocation getFrame(long gameTime) {
@@ -92,6 +95,7 @@ public class GifFrameCache {
         public synchronized void incrementRef() { this.refCount++; }
         public synchronized void decrementRef() { this.refCount = Math.max(0, this.refCount - 1); }
         public synchronized int getRefCount() { return this.refCount; }
+        public long getEstimatedSizeBytes() { return this.estimatedSizeBytes; }
 
         public void release() {
             Minecraft mc = Minecraft.getInstance();
@@ -133,31 +137,40 @@ public class GifFrameCache {
         }
     }
 
+    private long getTotalCachedBytes() {
+        long total = 0;
+        for (GifData data : gifCache.values()) {
+            total += data.getEstimatedSizeBytes();
+        }
+        return total;
+    }
+
     // Returns true if we should try to insert, false if the cache is full
     // and could not be shrunk (all in-use). Previously the eviction was
     // best-effort and the map could grow past MAX_CACHE_ENTRIES.
-    private boolean evictOldestIfNecessary() {
-        if (gifCache.size() < MAX_CACHE_ENTRIES) return true;
+    private boolean evictOldestIfNecessary(long incomingSizeBytes) {
+        while ((gifCache.size() >= MAX_CACHE_ENTRIES || (getTotalCachedBytes() + incomingSizeBytes) > MAX_CACHE_BYTES) && !gifCache.isEmpty()) {
+            String oldestUrl = null;
+            long oldestTime = Long.MAX_VALUE;
 
-        String oldestUrl = null;
-        long oldestTime = Long.MAX_VALUE;
+            for (Map.Entry<String, GifData> entry : gifCache.entrySet()) {
+                GifData data = entry.getValue();
+                if (data.getRefCount() <= 0 && data.lastAccessTime < oldestTime) {
+                    oldestTime = data.lastAccessTime;
+                    oldestUrl = entry.getKey();
+                }
+            }
 
-        for (Map.Entry<String, GifData> entry : gifCache.entrySet()) {
-            GifData data = entry.getValue();
-            if (data.getRefCount() <= 0 && data.lastAccessTime < oldestTime) {
-                oldestTime = data.lastAccessTime;
-                oldestUrl = entry.getKey();
+            if (oldestUrl != null) {
+                GifData evicted = gifCache.remove(oldestUrl);
+                if (evicted != null) {
+                    evicted.release();
+                }
+            } else {
+                return false;
             }
         }
-
-        if (oldestUrl != null) {
-            GifData evicted = gifCache.remove(oldestUrl);
-            if (evicted != null) {
-                evicted.release();
-            }
-            return true;
-        }
-        return false;
+        return true;
     }
 
     // Broader coverage than InetAddress's built-in checks. Adds carrier-grade
@@ -306,10 +319,18 @@ public class GifFrameCache {
                 return;
             }
 
+            // Calculate estimated native RGBA memory usage for this GIF
+            long estimatedGifBytes = 0;
+            for (RawFrameData f : rawFrames) {
+                estimatedGifBytes += (long) f.nativeImage().getWidth() * f.nativeImage().getHeight() * 4L;
+            }
+
+            final long finalGifBytes = estimatedGifBytes;
+
             Minecraft.getInstance().execute(() -> {
                 // Refuse the insert if the cache is full and no in-use slot
                 // could be freed, rather than silently exceeding the cap.
-                if (!evictOldestIfNecessary()) {
+                if (!evictOldestIfNecessary(finalGifBytes)) {
                     for (RawFrameData raw : rawFrames) raw.nativeImage().close();
                     loadingUrls.remove(urlString);
                     return;
@@ -328,7 +349,7 @@ public class GifFrameCache {
                     registeredFrames.add(new GifFrame(loc, raw.delayTicks()));
                 }
 
-                gifCache.put(urlString, new GifData(registeredFrames));
+                gifCache.put(urlString, new GifData(registeredFrames, finalGifBytes));
                 loadingUrls.remove(urlString);
             });
 
@@ -362,7 +383,6 @@ public class GifFrameCache {
 
             if (masterWidth > MAX_DIMENSION || masterHeight > MAX_DIMENSION || masterWidth <= 0 || masterHeight <= 0) {
                 System.err.println("[NFM] Rejected GIF: Resolution exceeds safety cap (" + masterWidth + "x" + masterHeight + ")");
-                reader.dispose();
                 return frames;
             }
 
@@ -386,7 +406,7 @@ public class GifFrameCache {
                         disposalMethod = gce.getAttribute("disposalMethod");
                         String delayTime = gce.getAttribute("delayTime");
                         if (delayTime != null && !delayTime.isEmpty()) {
-                            int ms = Integer.parseInt(delayTime) * 10;
+                            int ms = safeParseInt(delayTime, 2) * 10;
                             delayTicks = Math.max(1, ms / 50);
                         }
                     }
@@ -395,8 +415,11 @@ public class GifFrameCache {
                     if (descriptor != null) {
                         String left = descriptor.getAttribute("imageLeftPosition");
                         String top = descriptor.getAttribute("imageTopPosition");
-                        xOffset = (left != null && !left.isEmpty()) ? Integer.parseInt(left) : 0;
-                        yOffset = (top != null && !top.isEmpty()) ? Integer.parseInt(top) : 0;
+                        xOffset = safeParseInt(left, 0);
+                        yOffset = safeParseInt(top, 0);
+
+                        xOffset = Math.max(0, Math.min(xOffset, masterWidth));
+                        yOffset = Math.max(0, Math.min(yOffset, masterHeight));
                     }
                 }
 
@@ -422,6 +445,15 @@ public class GifFrameCache {
             if (reader != null) reader.dispose();
         }
         return frames;
+    }
+
+    private static int safeParseInt(String val, int fallback) {
+        if (val == null || val.isBlank()) return fallback;
+        try {
+            return Integer.parseInt(val);
+        } catch (NumberFormatException e) {
+            return fallback;
+        }
     }
 
     private static IIOMetadataNode getChildNode(IIOMetadataNode root, String nodeName) {
@@ -459,7 +491,12 @@ public class GifFrameCache {
     }
 
     private void failUrl(String url, String reason) {
-        System.err.println("[NFM] " + reason + " -> " + url);
+        String redactedUrl = url;
+        int queryIdx = url.indexOf('?');
+        if (queryIdx != -1) {
+            redactedUrl = url.substring(0, queryIdx) + "?[redacted]";
+        }
+        System.err.println("[NFM] " + reason + " -> " + redactedUrl);
         failedUrls.add(url);
         loadingUrls.remove(url);
     }
