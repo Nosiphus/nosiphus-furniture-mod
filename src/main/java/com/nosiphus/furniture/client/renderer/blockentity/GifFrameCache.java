@@ -11,13 +11,20 @@ import javax.imageio.ImageReader;
 import javax.imageio.metadata.IIOMetadata;
 import javax.imageio.metadata.IIOMetadataNode;
 import javax.imageio.stream.ImageInputStream;
+import javax.net.ssl.HttpsURLConnection;
+import javax.net.ssl.SNIHostName;
+import javax.net.ssl.SSLParameters;
+import javax.net.ssl.SSLSocket;
+import javax.net.ssl.SSLSocketFactory;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
+import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.InetAddress;
+import java.net.Socket;
 import java.net.URI;
 import java.net.URL;
 import java.security.MessageDigest;
@@ -170,16 +177,22 @@ public class GifFrameCache {
         if (b.length == 4) {
             int o0 = b[0] & 0xFF;
             int o1 = b[1] & 0xFF;
-            // Carrier-grade NAT: 100.64.0.0/10
-            if (o0 == 100 && (o1 & 0xC0) == 64) return true;
-            // "This network": 0.0.0.0/8
-            if (o0 == 0) return true;
-            // Reserved for future use: 240.0.0.0/4 (excluding broadcast)
-            if (o0 >= 240) return true;
+            if (o0 == 100 && (o1 & 0xC0) == 64) return true; // Carrier-grade NAT: 100.64.0.0/10
+            if (o0 == 0) return true; // "This network": 0.0.0.0/8
+            if (o0 >= 240) return true; // Reserved: 240.0.0.0/4
         } else if (b.length == 16) {
+            // Unwrap IPv4-mapped IPv6 addresses (::ffff:x.x.x.x)
+            boolean isMapped = true;
+            for (int i = 0; i < 10; i++) {
+                if (b[i] != 0) { isMapped = false; break; }
+            }
+            if (isMapped && (b[10] & 0xFF) == 0xFF && (b[11] & 0xFF) == 0xFF) {
+                try {
+                    return isPrivateOrRestricted(InetAddress.getByAddress(Arrays.copyOfRange(b, 12, 16)));
+                } catch (Exception ignored) {}
+            }
             int o0 = b[0] & 0xFF;
-            // IPv6 unique local: fc00::/7
-            if ((o0 & 0xFE) == 0xFC) return true;
+            if ((o0 & 0xFE) == 0xFC) return true; // IPv6 unique local: fc00::/7
         }
         return false;
     }
@@ -203,6 +216,7 @@ public class GifFrameCache {
     }
 
     private void loadGifAsync(String urlString) {
+        HttpURLConnection conn = null;
         try {
             URI uri = URI.create(urlString);
 
@@ -230,14 +244,20 @@ public class GifFrameCache {
                 }
             }
 
-            // Connect directly to the URI's standard URL so TLS SNI handshakes and CDN virtual hosting work reliably
+            // Open standard URL connection to preserve native SNI and TLS certificate verification
             URL url = uri.toURL();
-            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+            conn = (HttpURLConnection) url.openConnection();
             conn.setInstanceFollowRedirects(false); // Security: Prevent SSRF redirect loops
             conn.setConnectTimeout(TIMEOUT_MS);
             conn.setReadTimeout(TIMEOUT_MS);
             conn.setRequestProperty("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36");
             conn.setRequestProperty("Accept", "image/gif,image/webp,image/apng,image/*,*/*;q=0.8");
+
+            // Pin socket creation to the validated IP to defeat DNS-rebinding TOCTOU attacks
+            if (conn instanceof HttpsURLConnection https) {
+                SSLSocketFactory defaultFactory = (SSLSocketFactory) SSLSocketFactory.getDefault();
+                https.setSSLSocketFactory(new PinnedSSLSocketFactory(defaultFactory, resolved[0], hostName));
+            }
 
             int status = conn.getResponseCode();
             if (status != 200) {
@@ -312,8 +332,13 @@ public class GifFrameCache {
                 loadingUrls.remove(urlString);
             });
 
-        } catch (Exception e) {
-            failUrl(urlString, "Exception: " + e.getMessage());
+        } catch (Throwable t) {
+            failUrl(urlString, "Exception: " + t.getMessage());
+        } finally {
+            if (conn != null) {
+                conn.disconnect();
+            }
+            loadingUrls.remove(urlString);
         }
     }
 
@@ -321,11 +346,13 @@ public class GifFrameCache {
 
     private List<RawFrameData> decodeRawFrames(byte[] imageBytes) {
         List<RawFrameData> frames = new ArrayList<>();
+        ImageReader reader = null;
+        Graphics2D g2d = null;
         try (ImageInputStream in = ImageIO.createImageInputStream(new ByteArrayInputStream(imageBytes))) {
             Iterator<ImageReader> readers = ImageIO.getImageReaders(in);
             if (!readers.hasNext()) return frames;
 
-            ImageReader reader = readers.next();
+            reader = readers.next();
             reader.setInput(in);
 
             int count = Math.min(reader.getNumImages(true), MAX_FRAMES);
@@ -340,7 +367,7 @@ public class GifFrameCache {
             }
 
             BufferedImage masterCanvas = new BufferedImage(masterWidth, masterHeight, BufferedImage.TYPE_INT_ARGB);
-            Graphics2D g2d = masterCanvas.createGraphics();
+            g2d = masterCanvas.createGraphics();
 
             String disposalMethod = "none";
             int xOffset = 0, yOffset = 0;
@@ -384,15 +411,15 @@ public class GifFrameCache {
                     g2d.setComposite(AlphaComposite.SrcOver);
                 }
             }
-
-            g2d.dispose();
-            reader.dispose();
         } catch (Exception e) {
             for (RawFrameData f : frames) {
                 f.nativeImage().close();
             }
             frames.clear();
             System.err.println("[NFM] Error decoding GIF frames: " + e.getMessage());
+        } finally {
+            if (g2d != null) g2d.dispose();
+            if (reader != null) reader.dispose();
         }
         return frames;
     }
@@ -435,5 +462,56 @@ public class GifFrameCache {
         System.err.println("[NFM] " + reason + " -> " + url);
         failedUrls.add(url);
         loadingUrls.remove(url);
+    }
+
+    /**
+     * Custom SSLSocketFactory that connects directly to a pre-validated IP address
+     * while retaining the original host name for SNI TLS negotiation and certificate validation.
+     */
+    private static class PinnedSSLSocketFactory extends SSLSocketFactory {
+        private final SSLSocketFactory delegate;
+        private final InetAddress pinnedAddress;
+        private final String hostName;
+
+        public PinnedSSLSocketFactory(SSLSocketFactory delegate, InetAddress pinnedAddress, String hostName) {
+            this.delegate = delegate;
+            this.pinnedAddress = pinnedAddress;
+            this.hostName = hostName;
+        }
+
+        @Override public String[] getDefaultCipherSuites() { return delegate.getDefaultCipherSuites(); }
+        @Override public String[] getSupportedCipherSuites() { return delegate.getSupportedCipherSuites(); }
+
+        @Override
+        public Socket createSocket(Socket s, String host, int port, boolean autoClose) throws IOException {
+            return configureSocket((SSLSocket) delegate.createSocket(s, host, port, autoClose));
+        }
+
+        @Override
+        public Socket createSocket(String host, int port) throws IOException {
+            return configureSocket((SSLSocket) delegate.createSocket(pinnedAddress, port));
+        }
+
+        @Override
+        public Socket createSocket(String host, int port, InetAddress localHost, int localPort) throws IOException {
+            return configureSocket((SSLSocket) delegate.createSocket(pinnedAddress, port, localHost, localPort));
+        }
+
+        @Override
+        public Socket createSocket(InetAddress host, int port) throws IOException {
+            return configureSocket((SSLSocket) delegate.createSocket(pinnedAddress, port));
+        }
+
+        @Override
+        public Socket createSocket(InetAddress host, int port, InetAddress localHost, int localPort) throws IOException {
+            return configureSocket((SSLSocket) delegate.createSocket(pinnedAddress, port, localHost, localPort));
+        }
+
+        private Socket configureSocket(SSLSocket socket) throws IOException {
+            SSLParameters params = socket.getSSLParameters();
+            params.setServerNames(List.of(new SNIHostName(hostName)));
+            socket.setSSLParameters(params);
+            return socket;
+        }
     }
 }
