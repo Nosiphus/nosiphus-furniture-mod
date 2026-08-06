@@ -547,6 +547,7 @@ public class GifFrameCache {
         private Socket configureSocket(SSLSocket socket) throws IOException {
             SSLParameters params = socket.getSSLParameters();
             params.setServerNames(List.of(new SNIHostName(hostName)));
+            params.setEndpointIdentificationAlgorithm("HTTPS"); // enforce hostname verification
             socket.setSSLParameters(params);
             return socket;
         }
