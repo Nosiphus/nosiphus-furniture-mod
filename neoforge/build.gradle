@@ -1,0 +1,96 @@
+plugins {
+    id 'multiloader-loader'
+    id 'net.neoforged.moddev'
+	id 'me.modmuss50.mod-publish-plugin' version '0.5.1'
+}
+
+dependencies {
+    compileOnly "mezz.jei:jei-${minecraft_version}-neoforge-api:${jei_version}"
+    runtimeOnly "mezz.jei:jei-${minecraft_version}-neoforge:${jei_version}"
+    compileOnly "mcp.mobius.waila:wthit:neo-${wthit_version}"
+    runtimeOnly "mcp.mobius.waila:wthit:neo-${wthit_version}"
+    runtimeOnly "lol.bai:badpackets:neo-${badpackets_version}"
+	implementation "curse.maven:yogmod-372408:8613131"
+
+    runtimeOnly "curse.maven:catalogue-459701:6926815"
+}
+
+neoForge {
+    version = neoforge_version
+    // Automatically enable neoforge AccessTransformers if the file exists
+    def at = project(':common').file('src/main/resources/META-INF/accesstransformer.cfg')
+    if (at.exists()) {
+        accessTransformers.from(at.absolutePath)
+    }
+    parchment {
+        minecraftVersion = parchment_minecraft
+        mappingsVersion = parchment_version
+    }
+    runs {
+        configureEach {
+            systemProperty('neoforge.enabledGameTestNamespaces', mod_id)
+            ideName = "NeoForge ${it.name.capitalize()} (${project.path})" // Unify the run config names with fabric
+        }
+        client {
+            client()
+        }
+        data {
+            data()
+
+            // DataGen can be run by - "./gradlew :neoforge:runData" in Terminal.
+            // Specify the modid for data generation, where to output the resulting resource, and where to look for existing resources.
+            programArguments.addAll '--mod', project.mod_id, '--all', '--output', file('src/generated/resources/').getAbsolutePath(), '--existing', file('src/main/resources/').getAbsolutePath()
+
+        }
+        server {
+            server()
+        }
+    }
+    mods {
+        "${mod_id}" {
+            sourceSet sourceSets.main
+        }
+    }
+}
+
+sourceSets.main.resources { srcDir 'src/generated/resources' }
+
+publishMods {
+    file = tasks.jar.archiveFile
+
+    changelog = providers.environmentVariable("RELEASE_CHANGELOG").orElse("No changelog provided.")
+    type = STABLE
+
+    curseforge {
+        accessToken = providers.environmentVariable("CURSEFORGE_TOKEN")
+        projectId = "593876"
+        minecraftVersions.add("1.21.1")
+        clientRequired = true
+        serverRequired = true
+        modLoaders.add("neoforge")
+
+        displayName = "NeoForge - ${project.version} - ${project.minecraft_version}"
+
+        optional {
+            slug = "yogmod"
+        }
+		optional {
+            slug = "jei"
+        }
+		optional {
+            slug = "wthit-forge"
+        }
+    }
+}
+
+tasks.named('jar') {
+    archiveFileName = "cfm+${project.mod_id}-neoforge-${project.version}-${project.minecraft_version}.jar"
+}
+
+tasks.named('sourcesJar') {
+    archiveFileName = "cfm+${project.mod_id}-neoforge-${project.version}-${project.minecraft_version}-sources.jar"
+}
+
+tasks.named('javadocJar') {
+    archiveFileName = "cfm+${project.mod_id}-neoforge-${project.version}-${project.minecraft_version}-javadoc.jar"
+}

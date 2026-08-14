@@ -1,0 +1,98 @@
+plugins {
+    id 'multiloader-loader'
+    id 'fabric-loom'
+	id 'me.modmuss50.mod-publish-plugin' version '0.5.1'
+}
+
+dependencies {
+    minecraft "com.mojang:minecraft:${minecraft_version}"
+    mappings loom.layered {
+        officialMojangMappings()
+        parchment("org.parchmentmc.data:parchment-${parchment_minecraft}:${parchment_version}@zip")
+    }
+    modImplementation "net.fabricmc:fabric-loader:${fabric_loader_version}"
+    modImplementation "net.fabricmc.fabric-api:fabric-api:${fabric_version}"
+	
+	modCompileOnly "mezz.jei:jei-${minecraft_version}-fabric-api:${jei_version}"
+    modLocalRuntime "mezz.jei:jei-${minecraft_version}-fabric:${jei_version}"
+    modCompileOnly "mcp.mobius.waila:wthit:fabric-${wthit_version}"
+    modLocalRuntime "mcp.mobius.waila:wthit:fabric-${wthit_version}"
+    modLocalRuntime "lol.bai:badpackets:fabric-${badpackets_version}"
+	modImplementation "curse.maven:yogmod-372408:8613130"
+
+    modLocalRuntime "curse.maven:modmenu-308702:7808443"
+    modLocalRuntime "curse.maven:text-placeholder-api-1037459:6131327"
+    modLocalRuntime "curse.maven:catalogue-459701:6926812"
+
+    include project(":nfm-stub")
+}
+
+loom {
+    def aw = project(':common').file("src/main/resources/cfm+nfm.accesswidener")
+    if (aw.exists()) {
+        accessWidenerPath.set(aw)
+    }
+    mixin {
+        useLegacyMixinAp = false
+    }
+    runs {
+        client {
+            client()
+            setConfigName('Fabric Client')
+            ideConfigGenerated(true)
+            runDir('runs/client')
+        }
+        server {
+            server()
+            setConfigName('Fabric Server')
+            ideConfigGenerated(true)
+            runDir('runs/server')
+        }
+    }
+}
+
+publishMods {
+    file = tasks.remapJar.archiveFile
+
+    changelog = providers.environmentVariable("RELEASE_CHANGELOG").orElse("No changelog provided.")
+    type = STABLE
+
+    curseforge {
+        accessToken = providers.environmentVariable("CURSEFORGE_TOKEN")
+        projectId = "593876"
+        minecraftVersions.add("1.21.1")
+        clientRequired = true
+        serverRequired = true
+        modLoaders.add("fabric")
+
+        displayName = "Fabric - ${project.version} - ${project.minecraft_version}"
+		
+		optional {
+            slug = "yogmod"
+        }
+		optional {
+            slug = "jei"
+        }
+		optional {
+            slug = "wthit"
+        }
+    }
+}
+
+tasks.named('remapJar') {
+    archiveFileName = "cfm+${project.mod_id}-fabric-${project.version}-${project.minecraft_version}.jar"
+}
+
+tasks.named('remapSourcesJar') {
+    archiveFileName = "cfm+${project.mod_id}-fabric-${project.version}-${project.minecraft_version}-sources.jar"
+}
+
+tasks.named('javadocJar') {
+    archiveFileName = "cfm+${project.mod_id}-fabric-${project.version}-${project.minecraft_version}-javadoc.jar"
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.compilerArgs += [
+            "-Amixin.config=cfm.fabric.mixins.json,nfm.fabric.mixins.json"
+    ]
+}

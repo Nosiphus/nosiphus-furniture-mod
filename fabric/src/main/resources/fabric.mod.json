@@ -1,0 +1,48 @@
+{
+    "schemaVersion": 1,
+    "id": "cfm",
+    "accessWidener": "cfm+nfm.accesswidener",
+    "version": "${version}",
+    "name": "MrCrayFish's Furniture Mod",
+    "description": "MrCrayfish's Furniture Mod is all about adding functioning furniture and decorations. This mod currently adds over eighty unique blocks and is continuely growing with new updates. Ported by Nosiphus as part of Nosiphus Furniture Mod.",
+    "authors": [
+        "MrCrayFish, Nosiphus"
+    ],
+    "contributors": [
+        "The people who helped me when I first started creating mods. I wouldn't be here without them!"
+    ],
+    "contact": {
+        "homepage": "https://www.curseforge.com/minecraft/mc-mods/nosiphus-furniture-mod",
+        "sources": "https://github.com/Nosiphus/nosiphus-furniture-mod",
+        "issues": "https://github.com/Nosiphus/nosiphus-furniture-mod/issues"
+    },
+    "license": "${license}",
+    "icon": "cfm.png",
+    "environment": "*",
+    "entrypoints": {
+        "main": [
+            "com.mrcrayfish.furniture.MrCrayFishFurnitureModFabric",
+			"com.nosiphus.furniture.NosiphusFurnitureModFabric"
+        ],
+        "client": [
+            "com.mrcrayfish.furniture.MrCrayFishFurnitureModFabricClient",
+			"com.nosiphus.furniture.NosiphusFurnitureModFabricClient"
+        ]
+    },
+    "mixins": [
+        "cfm.mixins.json",
+        "cfm.fabric.mixins.json",
+		"nfm.mixins.json",
+		"nfm.fabric.mixins.json"
+    ],
+    "depends": {
+        "fabricloader": ">=${fabric_loader_version}",
+        "fabric-api": "*",
+        "minecraft": "${minecraft_version}",
+        "java": ">=${java_version}"
+    },
+    "suggests": {
+        "another-mod": "*"
+    }
+}
+  
