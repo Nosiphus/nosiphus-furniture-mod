@@ -24,62 +24,58 @@ public class CathodeRayTubeTelevisionBlockEntityRenderer implements BlockEntityR
     public void render(CathodeRayTubeTelevisionBlockEntity tv, float partialTick, PoseStack poseStack, MultiBufferSource buffer, int combinedLight, int combinedOverlay) {
         if (tv.getLevel() == null) return;
         BlockState state = tv.getBlockState();
-        if (!state.getValue(CathodeRayTubeTelevisionBlock.POWERED)) {
-            return;
-        }
-        int activeChannel = state.hasProperty(CathodeRayTubeTelevisionBlock.CHANNEL)
-                ? state.getValue(CathodeRayTubeTelevisionBlock.CHANNEL)
-                : 0;
+        if (!state.getValue(CathodeRayTubeTelevisionBlock.POWERED)) return;
+
+        int activeChannel = state.hasProperty(CathodeRayTubeTelevisionBlock.CHANNEL) ? state.getValue(CathodeRayTubeTelevisionBlock.CHANNEL) : 0;
         String customUrl = tv.getChannelUrl(activeChannel);
         if (customUrl == null || customUrl.isBlank()) return;
+
         long gameTime = tv.getLevel().getGameTime();
         ResourceLocation renderTexture = GifFrameCache.getInstance().getTexture(customUrl, gameTime);
         if (renderTexture == null) return;
-        Direction facing = state.hasProperty(CathodeRayTubeTelevisionBlock.DIRECTION)
-                ? state.getValue(CathodeRayTubeTelevisionBlock.DIRECTION)
-                : Direction.NORTH;
+
+        Direction facing = state.hasProperty(CathodeRayTubeTelevisionBlock.DIRECTION) ? state.getValue(CathodeRayTubeTelevisionBlock.DIRECTION) : Direction.NORTH;
+
         poseStack.pushPose();
         poseStack.translate(0.5D, 0.5D, 0.5D);
+
         float rotation = switch (facing) {
             case SOUTH -> 180.0F;
-            case WEST  -> 270.0F;
-            case EAST  -> 90.0F;
+            case WEST -> 270.0F;
+            case EAST -> 90.0F;
             case NORTH -> 0.0F;
-            default    -> 0.0F;
+            default -> 0.0F;
         };
         poseStack.mulPose(Axis.YP.rotationDegrees(rotation));
+
         double baseZOffset = 0.38D;
         boolean isEastOrWest = (facing == Direction.EAST || facing == Direction.WEST);
         double zOffset = isEastOrWest ? -baseZOffset : baseZOffset;
         poseStack.translate(0.0D, -0.0875D, zOffset);
-        int fullbrightLight = LightTexture.FULL_BRIGHT;
+
         VertexConsumer builder = buffer.getBuffer(RenderType.entityCutout(renderTexture));
         Matrix4f matrix = poseStack.last().pose();
+
         float width = 0.625F;
         float height = 0.625F;
         float minX = -width / 2.0F;
         float maxX = width / 2.0F;
         float minY = -height / 2.0F;
         float maxY = height / 2.0F;
-        renderQuad(builder, matrix, minX, maxX, minY, maxY, fullbrightLight, OverlayTexture.NO_OVERLAY, false, isEastOrWest);
-        renderQuad(builder, matrix, minX, maxX, minY, maxY, fullbrightLight, OverlayTexture.NO_OVERLAY, true, isEastOrWest);
+
+        float minU = isEastOrWest ? 0.0F : 1.0F;
+        float maxU = isEastOrWest ? 1.0F : 0.0F;
+
+        builder.addVertex(matrix, minX, maxY, 0.0F).setColor(255, 255, 255, 255).setUv(maxU, 0.0F).setOverlay(OverlayTexture.NO_OVERLAY).setLight(LightTexture.FULL_BRIGHT).setNormal(0.0F, 0.0F, 1.0F);
+        builder.addVertex(matrix, minX, minY, 0.0F).setColor(255, 255, 255, 255).setUv(maxU, 1.0F).setOverlay(OverlayTexture.NO_OVERLAY).setLight(LightTexture.FULL_BRIGHT).setNormal(0.0F, 0.0F, 1.0F);
+        builder.addVertex(matrix, maxX, minY, 0.0F).setColor(255, 255, 255, 255).setUv(minU, 1.0F).setOverlay(OverlayTexture.NO_OVERLAY).setLight(LightTexture.FULL_BRIGHT).setNormal(0.0F, 0.0F, 1.0F);
+        builder.addVertex(matrix, maxX, maxY, 0.0F).setColor(255, 255, 255, 255).setUv(minU, 0.0F).setOverlay(OverlayTexture.NO_OVERLAY).setLight(LightTexture.FULL_BRIGHT).setNormal(0.0F, 0.0F, 1.0F);
+
+        builder.addVertex(matrix, maxX, maxY, 0.0F).setColor(255, 255, 255, 255).setUv(minU, 0.0F).setOverlay(OverlayTexture.NO_OVERLAY).setLight(LightTexture.FULL_BRIGHT).setNormal(0.0F, 0.0F, -1.0F);
+        builder.addVertex(matrix, maxX, minY, 0.0F).setColor(255, 255, 255, 255).setUv(minU, 1.0F).setOverlay(OverlayTexture.NO_OVERLAY).setLight(LightTexture.FULL_BRIGHT).setNormal(0.0F, 0.0F, -1.0F);
+        builder.addVertex(matrix, minX, minY, 0.0F).setColor(255, 255, 255, 255).setUv(maxU, 1.0F).setOverlay(OverlayTexture.NO_OVERLAY).setLight(LightTexture.FULL_BRIGHT).setNormal(0.0F, 0.0F, -1.0F);
+        builder.addVertex(matrix, minX, maxY, 0.0F).setColor(255, 255, 255, 255).setUv(maxU, 0.0F).setOverlay(OverlayTexture.NO_OVERLAY).setLight(LightTexture.FULL_BRIGHT).setNormal(0.0F, 0.0F, -1.0F);
+
         poseStack.popPose();
-    }
-
-    private static void renderQuad(VertexConsumer builder, Matrix4f matrix, float minX, float maxX, float minY, float maxY, int combinedLight, int combinedOverlay, boolean reverseWinding, boolean flipX) {
-        float minU = flipX ? 0.0F : 1.0F;
-        float maxU = flipX ? 1.0F : 0.0F;
-
-        if (!reverseWinding) {
-            builder.addVertex(matrix, minX, maxY, 0.0F).setColor(255, 255, 255, 255).setUv(minU, 0.0F).setOverlay(combinedOverlay).setLight(combinedLight).setNormal(0.0F, 0.0F, 1.0F);
-            builder.addVertex(matrix, minX, minY, 0.0F).setColor(255, 255, 255, 255).setUv(minU, 1.0F).setOverlay(combinedOverlay).setLight(combinedLight).setNormal(0.0F, 0.0F, 1.0F);
-            builder.addVertex(matrix, maxX, minY, 0.0F).setColor(255, 255, 255, 255).setUv(maxU, 1.0F).setOverlay(combinedOverlay).setLight(combinedLight).setNormal(0.0F, 0.0F, 1.0F);
-            builder.addVertex(matrix, maxX, maxY, 0.0F).setColor(255, 255, 255, 255).setUv(maxU, 0.0F).setOverlay(combinedOverlay).setLight(combinedLight).setNormal(0.0F, 0.0F, 1.0F);
-        } else {
-            builder.addVertex(matrix, maxX, maxY, 0.0F).setColor(255, 255, 255, 255).setUv(maxU, 0.0F).setOverlay(combinedOverlay).setLight(combinedLight).setNormal(0.0F, 0.0F, -1.0F);
-            builder.addVertex(matrix, maxX, minY, 0.0F).setColor(255, 255, 255, 255).setUv(maxU, 1.0F).setOverlay(combinedOverlay).setLight(combinedLight).setNormal(0.0F, 0.0F, -1.0F);
-            builder.addVertex(matrix, minX, minY, 0.0F).setColor(255, 255, 255, 255).setUv(minU, 1.0F).setOverlay(combinedOverlay).setLight(combinedLight).setNormal(0.0F, 0.0F, -1.0F);
-            builder.addVertex(matrix, minX, maxY, 0.0F).setColor(255, 255, 255, 255).setUv(minU, 0.0F).setOverlay(combinedOverlay).setLight(combinedLight).setNormal(0.0F, 0.0F, -1.0F);
-        }
     }
 }

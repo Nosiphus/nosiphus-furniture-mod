@@ -15,65 +15,87 @@ import javax.net.ssl.*;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.*;
+import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.*;
 import java.util.List;
-import java.util.concurrent.CompletableFuture;
-import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.*;
 
+/*
+ * Manages downloading, decoding, caching, and releasing animated GIFs for TVs.
+ *
+ * This class ensures that GIFs loaded from the internet are safe to display, don't
+ * overload the game's memory, and are properly cleaned up from OpenGL when worlds unload.
+ */
 public class GifFrameCache {
 
     private static final GifFrameCache INSTANCE = new GifFrameCache();
     public static GifFrameCache getInstance() { return INSTANCE; }
 
-    private static final int MAX_FILE_SIZE = 10 * 1024 * 1024;
-    private static final int TIMEOUT_MS = 5000;
-    private static final int MAX_FRAMES = 150;
-    private static final int MAX_DIMENSION = 1920;
-    private static final int MAX_CACHE_ENTRIES = 25;
-    private static final long MAX_CACHE_BYTES = 256L * 1024L * 1024L; // 256 MB native RAM cap
-    private static final int MAX_FAILED_URLS = 1000;
+    // Safety limits for downloads, frames, and memory consumption
+    private static final int MAX_FILE_SIZE = 10 * 1024 * 1024;             // 10 MB maximum download size
+    private static final int TIMEOUT_MS = 5000;                           // 5-second network timeout
+    private static final int MAX_FRAMES = 150;                            // Hard limit on total frame count per GIF
+    private static final int MAX_DIMENSION = 1920;                        // Resolution limit in pixels (width or height)
+    private static final long MAX_SINGLE_GIF_BYTES = 64L * 1024L * 1024L; // 64 MB native RAM ceiling for a single decoded GIF
+    private static final int MAX_CACHE_ENTRIES = 25;                      // Maximum number of distinct GIFs kept in memory
+    private static final long MAX_CACHE_BYTES = 256L * 1024L * 1024L;     // 256 MB overall cache budget
+    private static final int MAX_FAILED_URLS = 1000;                      // Bounded history of broken/rejected links
+    private static final long IN_USE_LEASE_MS = 15_000L;                  // 15-second grace period before an inactive GIF can be purged
+
+    // A small dedicated thread pool for web downloads so we never block Minecraft's worker threads
+    private final ExecutorService networkExecutor = Executors.newFixedThreadPool(3, r -> {
+        Thread t = new Thread(r, "NFM-Gif-Loader");
+        t.setDaemon(true);
+        return t;
+    });
 
     private final Map<String, GifData> gifCache = new ConcurrentHashMap<>();
     private final Set<String> loadingUrls = Collections.newSetFromMap(new ConcurrentHashMap<>());
-    // Bounded LRU. Set-of-strings from a LinkedHashMap with access-order and
-    // an eviction hook so the failure list can't grow unbounded when a player
-    // cycles random URLs on TVs.
+
+    // Tracks broken or invalid URLs so we don't spam network requests if a link fails
     private final Set<String> failedUrls = Collections.newSetFromMap(
-            Collections.synchronizedMap(new LinkedHashMap<String, Boolean>(64, 0.75f, true) {
-                @Override protected boolean removeEldestEntry(Map.Entry<String, Boolean> eldest) {
+            Collections.synchronizedMap(new LinkedHashMap<>(64, 0.75f, true) {
+                @Override
+                protected boolean removeEldestEntry(Map.Entry<String, Boolean> eldest) {
                     return size() > MAX_FAILED_URLS;
                 }
             }));
 
+    // Holds a single texture frame and the number of ticks it should remain visible on screen
     public record GifFrame(ResourceLocation textureLocation, int delayTicks) {}
 
+    // Holds the decoded sequence of frames along with active reference counts and memory tracking
     public static class GifData {
-        private final List<GifFrame> frames;
+        private final GifFrame[] frames;
+        private final int totalTicks;
         private final long estimatedSizeBytes;
         private int refCount = 0;
         private volatile long lastAccessTime = System.currentTimeMillis();
+        private volatile boolean released = false;
 
-        public GifData(List<GifFrame> frames, long estimatedSizeBytes) {
-            this.frames = frames;
+        public GifData(List<GifFrame> frameList, long estimatedSizeBytes) {
+            this.frames = frameList.toArray(new GifFrame[0]);
             this.estimatedSizeBytes = estimatedSizeBytes;
+
+            int sum = 0;
+            for (GifFrame frame : this.frames) {
+                sum += frame.delayTicks();
+            }
+            this.totalTicks = sum <= 0 ? 20 : sum;
         }
 
+        // Calculates which frame index to display based on the current world game time
         public ResourceLocation getFrame(long gameTime) {
             this.lastAccessTime = System.currentTimeMillis();
-            if (frames.isEmpty()) return null;
-            if (frames.size() == 1) return frames.get(0).textureLocation();
+            if (released || frames.length == 0) return null;
+            if (frames.length == 1) return frames[0].textureLocation();
 
-            int totalTicks = 0;
-            for (GifFrame frame : frames) totalTicks += frame.delayTicks();
-            if (totalTicks <= 0) totalTicks = 20;
-
-            long currentTick = gameTime % totalTicks;
+            long currentTick = Math.floorMod(gameTime, totalTicks);
             int accumulated = 0;
             for (GifFrame frame : frames) {
                 accumulated += frame.delayTicks();
@@ -81,25 +103,29 @@ public class GifFrameCache {
                     return frame.textureLocation();
                 }
             }
-            return frames.get(0).textureLocation();
+            return frames[0].textureLocation();
         }
 
         public synchronized void incrementRef() { this.refCount++; }
         public synchronized void decrementRef() { this.refCount = Math.max(0, this.refCount - 1); }
         public synchronized int getRefCount() { return this.refCount; }
+        public long getLastAccessTime() { return this.lastAccessTime; }
         public long getEstimatedSizeBytes() { return this.estimatedSizeBytes; }
 
-        public void release() {
+        // Deletes the texture sheets from OpenGL memory on the client render thread
+        public synchronized void release() {
+            if (released) return;
+            this.released = true;
             Minecraft mc = Minecraft.getInstance();
             mc.execute(() -> {
                 for (GifFrame frame : frames) {
                     mc.getTextureManager().release(frame.textureLocation());
                 }
-                frames.clear();
             });
         }
     }
 
+    // Called by the block entity renderer every frame to retrieve the active texture ID
     public ResourceLocation getTexture(String url, long gameTime) {
         if (url == null || url.isBlank() || failedUrls.contains(url)) {
             return null;
@@ -107,24 +133,40 @@ public class GifFrameCache {
 
         GifData cachedData = gifCache.get(url);
         if (cachedData != null) {
-            return cachedData.getFrame(gameTime);
+            ResourceLocation frameLoc = cachedData.getFrame(gameTime);
+            if (frameLoc != null) {
+                return frameLoc;
+            }
         }
 
+        // If the URL is valid and not already downloading, start pulling it in the background
         if (UrlValidator.isTrustedUrl(url) && loadingUrls.add(url)) {
-            CompletableFuture.runAsync(() -> loadGifAsync(url));
+            networkExecutor.submit(() -> loadGifAsync(url));
         }
 
         return null;
     }
 
+    // Increments the active reference counter when a TV block entity tunes into a channel
+    public void bindUrl(String url) {
+        if (url == null || url.isBlank()) return;
+        GifData data = gifCache.get(url);
+        if (data != null) {
+            data.incrementRef();
+        }
+    }
+
+    // Decrements the reference counter when a TV block entity unloads, powers off, or changes channels
     public void releaseUrlIfUnused(String url) {
         if (url == null || url.isBlank()) return;
         GifData data = gifCache.get(url);
         if (data != null) {
             data.decrementRef();
-            if (data.getRefCount() <= 0) {
-                data.release();
+            long now = System.currentTimeMillis();
+            // If nothing is using it and it's outside the active viewing grace window, drop it immediately
+            if (data.getRefCount() <= 0 && (now - data.getLastAccessTime() > IN_USE_LEASE_MS)) {
                 gifCache.remove(url);
+                data.release();
             }
         }
     }
@@ -137,18 +179,18 @@ public class GifFrameCache {
         return total;
     }
 
-    // Returns true if we should try to insert, false if the cache is full
-    // and could not be shrunk (all in-use). Previously the eviction was
-    // best-effort and the map could grow past MAX_CACHE_ENTRIES.
+    // Cleans out old, unreferenced GIFs from memory if we hit our cache or memory ceiling
     private boolean evictOldestIfNecessary(long incomingSizeBytes) {
+        long now = System.currentTimeMillis();
+
         while ((gifCache.size() >= MAX_CACHE_ENTRIES || (getTotalCachedBytes() + incomingSizeBytes) > MAX_CACHE_BYTES) && !gifCache.isEmpty()) {
             String oldestUrl = null;
             long oldestTime = Long.MAX_VALUE;
 
             for (Map.Entry<String, GifData> entry : gifCache.entrySet()) {
                 GifData data = entry.getValue();
-                if (data.getRefCount() <= 0 && data.lastAccessTime < oldestTime) {
-                    oldestTime = data.lastAccessTime;
+                if (data.getRefCount() <= 0 && (now - data.getLastAccessTime() > IN_USE_LEASE_MS) && data.getLastAccessTime() < oldestTime) {
+                    oldestTime = data.getLastAccessTime();
                     oldestUrl = entry.getKey();
                 }
             }
@@ -159,17 +201,13 @@ public class GifFrameCache {
                     evicted.release();
                 }
             } else {
-                return false;
+                return false; // Everything currently in memory is actively being used
             }
         }
         return true;
     }
 
-    // Broader coverage than InetAddress's built-in checks. Adds carrier-grade
-    // NAT (100.64.0.0/10), IPv6 unique-local (fc00::/7), multicast, and the
-    // 0.0.0.0/8 "this network" block. The built-ins already cover loopback,
-    // link-local (which includes 169.254/16 metadata endpoints), site-local
-    // and IPv6 loopback/link-local.
+    // Blocks requests to internal LANs, loopbacks, router gateways, and reserved subnets
     private static boolean isPrivateOrRestricted(InetAddress addr) {
         if (addr.isLoopbackAddress()
                 || addr.isSiteLocalAddress()
@@ -182,11 +220,15 @@ public class GifFrameCache {
         if (b.length == 4) {
             int o0 = b[0] & 0xFF;
             int o1 = b[1] & 0xFF;
-            if (o0 == 100 && (o1 & 0xC0) == 64) return true; // Carrier-grade NAT: 100.64.0.0/10
-            if (o0 == 0) return true; // "This network": 0.0.0.0/8
-            if (o0 >= 240) return true; // Reserved: 240.0.0.0/4
+            if (o0 == 0) return true;                                // 0.0.0.0/8
+            if (o0 == 100 && (o1 & 0xC0) == 64) return true;         // 100.64.0.0/10 (Carrier-grade NAT)
+            if (o0 == 192 && o1 == 0) return true;                   // 192.0.0.0/24 & 192.0.2.0/24 (TEST-NET-1)
+            if (o0 == 198 && (o1 == 18 || o1 == 19)) return true;    // 198.18.0.0/15 (Benchmarking)
+            if (o0 == 198 && o1 == 51) return true;                  // 198.51.100.0/24 (TEST-NET-2)
+            if (o0 == 203 && o1 == 0) return true;                   // 203.0.113.0/24 (TEST-NET-3)
+            if (o0 >= 240) return true;                              // 240.0.0.0/4 (Reserved / Class E)
         } else if (b.length == 16) {
-            // Unwrap IPv4-mapped IPv6 addresses (::ffff:x.x.x.x)
+            // Unwrap IPv4-mapped IPv6 addresses so we can run them against IPv4 checks
             boolean isMapped = true;
             for (int i = 0; i < 10; i++) {
                 if (b[i] != 0) { isMapped = false; break; }
@@ -196,30 +238,28 @@ public class GifFrameCache {
                     return isPrivateOrRestricted(InetAddress.getByAddress(Arrays.copyOfRange(b, 12, 16)));
                 } catch (Exception ignored) {}
             }
-            int o0 = b[0] & 0xFF;
-            if ((o0 & 0xFE) == 0xFC) return true; // IPv6 unique local: fc00::/7
+            int b0 = b[0] & 0xFF;
+            if ((b0 & 0xFE) == 0xFC) return true;                    // fc00::/7 (Unique local IPv6)
         }
         return false;
     }
 
-    // Stable, collision-resistant per-URL key for ResourceLocation paths.
-    // Previously used Math.abs(urlString.hashCode()) which collides trivially
-    // (well-known Java string-hash collisions), causing one TV's texture to
-    // overwrite another's registration and render the wrong GIF.
+    // Creates a short SHA-256 hash string from the URL to use inside the ResourceLocation path
     private static String urlHashKey(String url) {
         try {
             MessageDigest sha = MessageDigest.getInstance("SHA-256");
-            byte[] digest = sha.digest(url.getBytes(java.nio.charset.StandardCharsets.UTF_8));
+            byte[] digest = sha.digest(url.getBytes(StandardCharsets.UTF_8));
             StringBuilder sb = new StringBuilder(24);
             for (int i = 0; i < 12; i++) {
                 sb.append(String.format("%02x", digest[i]));
             }
             return sb.toString();
         } catch (NoSuchAlgorithmException e) {
-            return Integer.toHexString(url.hashCode() & 0x7fffffff);
+            return Integer.toHexString(url.hashCode() & 0x7FFFFFFF);
         }
     }
 
+    // Handles the actual background HTTP download, security validation, and frame registration
     private void loadGifAsync(String urlString) {
         HttpURLConnection conn = null;
         try {
@@ -230,13 +270,19 @@ public class GifFrameCache {
                 return;
             }
 
+            int port = uri.getPort();
+            if (port != -1 && port != 443) {
+                failUrl(urlString, "Rejected: Non-standard HTTPS port (" + port + ")");
+                return;
+            }
+
             String hostName = uri.getHost();
             if (hostName == null || hostName.isEmpty()) {
                 failUrl(urlString, "Rejected: Missing host.");
                 return;
             }
 
-            // Resolve DNS and validate ALL returned IP addresses to block private/loopback SSRF
+            // Resolve host IP and ensure it does not point to a local/restricted address
             InetAddress[] resolved = InetAddress.getAllByName(hostName);
             if (resolved.length == 0) {
                 failUrl(urlString, "Rejected: DNS returned no addresses.");
@@ -249,16 +295,15 @@ public class GifFrameCache {
                 }
             }
 
-            // Open standard URL connection to preserve native SNI and TLS certificate verification
             URL url = uri.toURL();
             conn = (HttpURLConnection) url.openConnection();
-            conn.setInstanceFollowRedirects(false); // Security: Prevent SSRF redirect loops
+            conn.setInstanceFollowRedirects(false); // Refuse HTTP redirects to prevent redirection to private IPs
             conn.setConnectTimeout(TIMEOUT_MS);
             conn.setReadTimeout(TIMEOUT_MS);
-            conn.setRequestProperty("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36");
-            conn.setRequestProperty("Accept", "image/gif,image/webp,image/apng,image/*,*/*;q=0.8");
+            conn.setRequestProperty("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) NosiphusFurnitureMod/1.0");
+            conn.setRequestProperty("Accept", "image/gif");
 
-            // Pin socket creation to the validated IP to defeat DNS-rebinding TOCTOU attacks
+            // Pin connection directly to our verified IP to prevent DNS rebinding attacks
             if (conn instanceof HttpsURLConnection https) {
                 SSLSocketFactory defaultFactory = (SSLSocketFactory) SSLSocketFactory.getDefault();
                 https.setSSLSocketFactory(new PinnedSSLSocketFactory(defaultFactory, resolved[0], hostName));
@@ -270,48 +315,35 @@ public class GifFrameCache {
                 return;
             }
 
-            // Fail-closed on missing/mismatched Content-Type. Previously null
-            // Content-Type passed and .contains("image") matched unrelated
-            // types like text/x-image-descriptor.
             String contentType = conn.getContentType();
-            if (contentType == null || !contentType.toLowerCase().startsWith("image/")) {
-                failUrl(urlString, "Rejected: Invalid Content-Type (" + contentType + ")");
+            if (contentType == null || !contentType.toLowerCase().startsWith("image/gif")) {
+                failUrl(urlString, "Rejected: Invalid Content-Type (" + contentType + "), expected image/gif");
                 return;
             }
 
-            // Early-reject if the server declared an oversize body before we
-            // spend bandwidth reading it.
             long declaredLen = conn.getContentLengthLong();
             if (declaredLen > MAX_FILE_SIZE) {
                 failUrl(urlString, "Rejected: Content-Length exceeds 10MB.");
                 return;
             }
 
-            ByteArrayOutputStream baos = new ByteArrayOutputStream();
-            byte[] buffer = new byte[8192];
-            int bytesRead;
-            int totalBytes = 0;
-
+            // Read the image stream while enforcing the 10 MB ceiling
+            byte[] imageBytes;
             try (InputStream is = conn.getInputStream()) {
-                while ((bytesRead = is.read(buffer)) != -1) {
-                    totalBytes += bytesRead;
-                    if (totalBytes > MAX_FILE_SIZE) {
-                        failUrl(urlString, "Rejected: Exceeds 10MB limit.");
-                        return;
-                    }
-                    baos.write(buffer, 0, bytesRead);
+                imageBytes = is.readNBytes(MAX_FILE_SIZE + 1);
+                if (imageBytes.length > MAX_FILE_SIZE) {
+                    failUrl(urlString, "Rejected: Exceeds 10MB limit.");
+                    return;
                 }
             }
 
-            byte[] imageBytes = baos.toByteArray();
             List<RawFrameData> rawFrames = decodeRawFrames(imageBytes);
-
             if (rawFrames.isEmpty()) {
-                failUrl(urlString, "Failed to decode frames.");
+                failUrl(urlString, "Failed to decode GIF frames.");
                 return;
             }
 
-            // Calculate estimated native RGBA memory usage for this GIF
+            // Calculate native uncompressed memory allocation for this animation
             long estimatedGifBytes = 0;
             for (RawFrameData f : rawFrames) {
                 estimatedGifBytes += (long) f.nativeImage().getWidth() * f.nativeImage().getHeight() * 4L;
@@ -319,9 +351,8 @@ public class GifFrameCache {
 
             final long finalGifBytes = estimatedGifBytes;
 
+            // Upload the decoded textures on the main render thread
             Minecraft.getInstance().execute(() -> {
-                // Refuse the insert if the cache is full and no in-use slot
-                // could be freed, rather than silently exceeding the cap.
                 if (!evictOldestIfNecessary(finalGifBytes)) {
                     for (RawFrameData raw : rawFrames) raw.nativeImage().close();
                     loadingUrls.remove(urlString);
@@ -329,7 +360,8 @@ public class GifFrameCache {
                 }
 
                 String key = urlHashKey(urlString);
-                List<GifFrame> registeredFrames = new ArrayList<>();
+                List<GifFrame> registeredFrames = new ArrayList<>(rawFrames.size());
+
                 for (int i = 0; i < rawFrames.size(); i++) {
                     RawFrameData raw = rawFrames.get(i);
                     ResourceLocation loc = ResourceLocation.fromNamespaceAndPath(
@@ -357,10 +389,13 @@ public class GifFrameCache {
 
     private record RawFrameData(NativeImage nativeImage, int delayTicks) {}
 
+    // Decodes individual frames and composites them onto a shared canvas
     private List<RawFrameData> decodeRawFrames(byte[] imageBytes) {
         List<RawFrameData> frames = new ArrayList<>();
         ImageReader reader = null;
         Graphics2D g2d = null;
+        long totalAllocatedMemory = 0;
+
         try (ImageInputStream in = ImageIO.createImageInputStream(new ByteArrayInputStream(imageBytes))) {
             Iterator<ImageReader> readers = ImageIO.getImageReaders(in);
             if (!readers.hasNext()) return frames;
@@ -369,12 +404,11 @@ public class GifFrameCache {
             reader.setInput(in);
 
             int count = Math.min(reader.getNumImages(true), MAX_FRAMES);
-
             int masterWidth = reader.getWidth(0);
             int masterHeight = reader.getHeight(0);
 
             if (masterWidth > MAX_DIMENSION || masterHeight > MAX_DIMENSION || masterWidth <= 0 || masterHeight <= 0) {
-                System.err.println("[NFM] Rejected GIF: Resolution exceeds safety cap (" + masterWidth + "x" + masterHeight + ")");
+                System.err.println("[NFM] Rejected GIF: Dimensions exceed bounds (" + masterWidth + "x" + masterHeight + ")");
                 return frames;
             }
 
@@ -388,38 +422,43 @@ public class GifFrameCache {
                 BufferedImage rawFrame = reader.read(i);
                 IIOMetadata metadata = reader.getImageMetadata(i);
 
-                int delayTicks = 2;
+                int delayTicks = 2; // Default fallback to 100ms per frame
 
                 if (metadata != null) {
-                    IIOMetadataNode root = (IIOMetadataNode) metadata.getAsTree("javax_imageio_gif_image_1.0");
-                    IIOMetadataNode gce = getChildNode(root, "GraphicControlExtension");
-
-                    if (gce != null) {
-                        disposalMethod = gce.getAttribute("disposalMethod");
-                        String delayTime = gce.getAttribute("delayTime");
-                        if (delayTime != null && !delayTime.isEmpty()) {
-                            int ms = safeParseInt(delayTime, 2) * 10;
-                            delayTicks = Math.max(1, ms / 50);
+                    try {
+                        IIOMetadataNode root = (IIOMetadataNode) metadata.getAsTree("javax_imageio_gif_image_1.0");
+                        IIOMetadataNode gce = getChildNode(root, "GraphicControlExtension");
+                        if (gce != null) {
+                            disposalMethod = gce.getAttribute("disposalMethod");
+                            String delayTime = gce.getAttribute("delayTime");
+                            if (delayTime != null && !delayTime.isEmpty()) {
+                                int ms = safeParseInt(delayTime, 2) * 10;
+                                delayTicks = Math.max(1, ms / 50); // Convert milliseconds to 50ms game ticks
+                            }
                         }
-                    }
 
-                    IIOMetadataNode descriptor = getChildNode(root, "ImageDescriptor");
-                    if (descriptor != null) {
-                        String left = descriptor.getAttribute("imageLeftPosition");
-                        String top = descriptor.getAttribute("imageTopPosition");
-                        xOffset = safeParseInt(left, 0);
-                        yOffset = safeParseInt(top, 0);
-
-                        xOffset = Math.max(0, Math.min(xOffset, masterWidth));
-                        yOffset = Math.max(0, Math.min(yOffset, masterHeight));
-                    }
+                        IIOMetadataNode descriptor = getChildNode(root, "ImageDescriptor");
+                        if (descriptor != null) {
+                            xOffset = Math.max(0, Math.min(safeParseInt(descriptor.getAttribute("imageLeftPosition"), 0), masterWidth));
+                            yOffset = Math.max(0, Math.min(safeParseInt(descriptor.getAttribute("imageTopPosition"), 0), masterHeight));
+                        }
+                    } catch (Exception ignored) {}
                 }
 
                 g2d.drawImage(rawFrame, xOffset, yOffset, null);
 
+                // Stop decoding early if the uncompressed frames exceed our per-GIF memory limit
+                long frameBytes = (long) masterWidth * masterHeight * 4L;
+                totalAllocatedMemory += frameBytes;
+                if (totalAllocatedMemory > MAX_SINGLE_GIF_BYTES) {
+                    System.err.println("[NFM] Aborted GIF decoding: Total uncompressed size exceeded " + (MAX_SINGLE_GIF_BYTES / 1024 / 1024) + "MB limit.");
+                    break;
+                }
+
                 NativeImage nativeImage = convertToNativeImage(masterCanvas);
                 frames.add(new RawFrameData(nativeImage, delayTicks));
 
+                // Clear background if the frame specifies background disposal
                 if ("restoreToBackgroundColor".equalsIgnoreCase(disposalMethod)) {
                     g2d.setComposite(AlphaComposite.Clear);
                     g2d.fillRect(xOffset, yOffset, rawFrame.getWidth(), rawFrame.getHeight());
@@ -458,6 +497,7 @@ public class GifFrameCache {
         return null;
     }
 
+    // Converts a standard AWT BufferedImage into a Blaze3D NativeImage
     private NativeImage convertToNativeImage(BufferedImage bImg) {
         NativeImage nativeImage = new NativeImage(bImg.getWidth(), bImg.getHeight(), false);
         for (int y = 0; y < bImg.getHeight(); y++) {
@@ -482,21 +522,20 @@ public class GifFrameCache {
         failedUrls.clear();
     }
 
+    // Logs network failures while stripping path and query details to protect user privacy
     private void failUrl(String url, String reason) {
-        String redactedUrl = url;
-        int queryIdx = url.indexOf('?');
-        if (queryIdx != -1) {
-            redactedUrl = url.substring(0, queryIdx) + "?[redacted]";
-        }
-        System.err.println("[NFM] " + reason + " -> " + redactedUrl);
+        String sanitizedUrl = url;
+        try {
+            URI uri = URI.create(url);
+            sanitizedUrl = uri.getScheme() + "://" + uri.getHost() + "/[redacted]";
+        } catch (Exception ignored) {}
+
+        System.err.println("[NFM] " + reason + " -> " + sanitizedUrl);
         failedUrls.add(url);
         loadingUrls.remove(url);
     }
 
-    /**
-     * Custom SSLSocketFactory that connects directly to a pre-validated IP address
-     * while retaining the original host name for SNI TLS negotiation and certificate validation.
-     */
+    // Pins socket connections to our pre-verified IP while preserving the domain name for TLS validation
     private static class PinnedSSLSocketFactory extends SSLSocketFactory {
         private final SSLSocketFactory delegate;
         private final InetAddress pinnedAddress;
@@ -539,7 +578,7 @@ public class GifFrameCache {
         private Socket configureSocket(SSLSocket socket) throws IOException {
             SSLParameters params = socket.getSSLParameters();
             params.setServerNames(List.of(new SNIHostName(hostName)));
-            params.setEndpointIdentificationAlgorithm("HTTPS"); // enforce hostname verification
+            params.setEndpointIdentificationAlgorithm("HTTPS"); // Enforces hostname verification by requiring HTTPS
             socket.setSSLParameters(params);
             return socket;
         }
