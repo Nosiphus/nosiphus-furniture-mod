@@ -63,7 +63,6 @@ public interface IPlatformHelper {
     int getFreezerFuelTime(ItemStack stack, int defaultFuelTime);
     void fireItemSolidifyEvent(Player player, ItemStack stack);
     int getBurnTime(ItemStack stack, @Nullable RecipeType<?> recipeType);
-    void sendToTrackingChunk(ServerLevel level, BlockPos pos, Message message);
     ItemStack getCraftingRemainingItem(ItemStack stack);
     void openMenu(ServerPlayer player, MenuProvider provider, BlockPos pos);
     void openMenu(ServerPlayer player, MenuProvider provider, Consumer<FriendlyByteBuf> extraDataWriter);

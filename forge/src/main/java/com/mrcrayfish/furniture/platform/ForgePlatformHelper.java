@@ -140,17 +140,6 @@ public class ForgePlatformHelper implements IPlatformHelper {
     }
 
     @Override
-    public void sendToTrackingChunk(ServerLevel level, BlockPos pos, Message message) {
-        FriendlyByteBuf buf = new FriendlyByteBuf(Unpooled.buffer());
-        message.encode(buf);
-        ClientboundCustomPayloadPacket packet = new ClientboundCustomPayloadPacket(message.getId(), buf);
-        ChunkPos chunkPos = new ChunkPos(pos);
-        ((ServerChunkCache) level.getChunkSource()).chunkMap.getPlayers(chunkPos, false).forEach(player -> {
-            player.connection.send(packet);
-        });
-    }
-
-    @Override
     public ItemStack getCraftingRemainingItem(ItemStack stack) {
         if (stack.hasCraftingRemainingItem()) {
             return stack.getCraftingRemainingItem();

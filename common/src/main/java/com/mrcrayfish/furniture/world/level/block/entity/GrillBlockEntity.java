@@ -112,9 +112,9 @@ public class GrillBlockEntity extends BlockEntity implements WorldlyContainer
 
                 this.markUpdated();
 
-                if(this.level instanceof ServerLevel serverLevel)
+                if (this.level instanceof ServerLevel)
                 {
-                    Services.PLATFORM.sendToTrackingChunk(serverLevel, this.worldPosition, new S2CMessageFlipGrill(this.worldPosition, position));
+                    Services.NETWORK.sendToTracking(this, new S2CMessageFlipGrill(this.worldPosition, position));
                 }
 
                 this.level.playSound(null, this.worldPosition, ModSoundEvents.BLOCK_GRILL_FLIP.get(), SoundSource.BLOCKS, 0.75F, 1.0F);

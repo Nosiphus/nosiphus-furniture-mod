@@ -113,15 +113,6 @@ public class FabricPlatformHelper implements IPlatformHelper {
     }
 
     @Override
-    public void sendToTrackingChunk(ServerLevel level, BlockPos pos, Message message) {
-        FriendlyByteBuf buf = new FriendlyByteBuf(Unpooled.buffer());
-        message.encode(buf);
-        for (ServerPlayer player : PlayerLookup.tracking(level, pos)) {
-            ServerPlayNetworking.send(player, message.getId(), buf);
-        }
-    }
-
-    @Override
     public ItemStack getCraftingRemainingItem(ItemStack stack) {
         if (stack.getItem().hasCraftingRemainingItem()) {
             return new ItemStack(stack.getItem().getCraftingRemainingItem());
