@@ -132,13 +132,13 @@ publishMods {
 }
 
 tasks.named('jar') {
-    archiveFileName = "${project.mod_id}-forge-${project.version}-${project.minecraft_version}.jar"
+    archiveFileName = "cfm+${project.mod_id}-forge-${project.version}-${project.minecraft_version}.jar"
 }
 
 tasks.named('sourcesJar') {
-    archiveFileName = "${project.mod_id}-forge-${project.version}-${project.minecraft_version}-sources.jar"
+    archiveFileName = "cfm+${project.mod_id}-forge-${project.version}-${project.minecraft_version}-sources.jar"
 }
 
 tasks.named('javadocJar') {
-    archiveFileName = "${project.mod_id}-forge-${project.version}-${project.minecraft_version}-javadoc.jar"
+    archiveFileName = "cfm+${project.mod_id}-forge-${project.version}-${project.minecraft_version}-javadoc.jar"
 }
