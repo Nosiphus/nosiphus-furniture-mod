@@ -99,4 +99,13 @@ public class SeatEntity extends Entity {
         }
         return super.getDismountLocationForPassenger(entity);
     }
+
+    @Override
+    public void positionRider(Entity entity, Entity.MoveFunction function)
+    {
+        if (this.hasPassenger(entity))
+        {
+            function.accept(entity, this.getX(), this.getY() + entity.getMyRidingOffset() - 0.25, this.getZ());
+        }
+    }
 }

@@ -120,8 +120,11 @@ public class SeatEntity extends Entity
     @Override
     public void positionRider(Entity entity, Entity.MoveFunction function)
     {
-        super.positionRider(entity, function);
-        this.clampYaw(entity);
+        if (this.hasPassenger(entity))
+        {
+            function.accept(entity, this.getX(), this.getY() + entity.getMyRidingOffset() - 0.25, this.getZ());
+            this.clampYaw(entity);
+        }
     }
 
     @Override
