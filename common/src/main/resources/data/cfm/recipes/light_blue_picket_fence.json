@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "picket_fence",
+  "key": {
+    "C": {
+      "item": "minecraft:light_blue_concrete"
+    },
+    "S": {
+      "tag": "forge:rods/wooden"
+    }
+  },
+  "pattern": [
+    "CSC",
+    "CSC"
+  ],
+  "result": {
+    "count": 12,
+    "item": "cfm:light_blue_picket_fence"
+  },
+  "show_notification": true
+}

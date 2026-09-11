@@ -1,0 +1,36 @@
+{
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "yogmod"
+    }
+  ],
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:all_mods_loaded",
+      "values": [
+        "yogmod"
+      ]
+    }
+  ],
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "STS",
+    "SCS",
+    "   "
+  ],
+  "key": {
+    "S": {
+      "item": "minecraft:stone"
+    },
+    "C": {
+      "tag": "forge:chests/wooden"
+    },
+    "T": {
+      "item": "nfm:beige_modern_table"
+    }
+  },
+  "result": {
+    "item": "nfm:beige_television_stand"
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "replace": false,
+  "values": [
+    { "id": "cfm:white_trampoline", "required": false },
+    { "id": "cfm:light_gray_trampoline", "required": false },
+    { "id": "cfm:gray_trampoline", "required": false },
+    { "id": "cfm:black_trampoline", "required": false },
+    { "id": "cfm:brown_trampoline", "required": false },
+    { "id": "cfm:red_trampoline", "required": false },
+    { "id": "cfm:orange_trampoline", "required": false },
+    { "id": "cfm:beige_trampoline", "required": false },
+    { "id": "cfm:yellow_trampoline", "required": false },
+    { "id": "cfm:lime_trampoline", "required": false },
+    { "id": "cfm:green_trampoline", "required": false },
+    { "id": "cfm:cyan_trampoline", "required": false },
+    { "id": "cfm:light_blue_trampoline", "required": false },
+    { "id": "cfm:blue_trampoline", "required": false },
+    { "id": "cfm:purple_trampoline", "required": false },
+    { "id": "cfm:magenta_trampoline", "required": false },
+    { "id": "cfm:pink_trampoline", "required": false }
+  ]
+}

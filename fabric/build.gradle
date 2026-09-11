@@ -1,0 +1,94 @@
+plugins {
+    id 'multiloader-loader'
+    id 'fabric-loom'
+	id 'me.modmuss50.mod-publish-plugin' version '0.5.1'
+}
+dependencies {
+    minecraft "com.mojang:minecraft:${minecraft_version}"
+    mappings loom.layered {
+        officialMojangMappings()
+        parchment("org.parchmentmc.data:parchment-${parchment_minecraft}:${parchment_version}@zip")
+    }
+    modImplementation "net.fabricmc:fabric-loader:${fabric_loader_version}"
+    modImplementation "net.fabricmc.fabric-api:fabric-api:${fabric_version}"
+    implementation group: 'com.google.code.findbugs', name: 'jsr305', version: '3.0.1'
+	
+	modCompileOnly "mezz.jei:jei-${minecraft_version}-fabric-api:${jei_version}"
+    modLocalRuntime "mezz.jei:jei-${minecraft_version}-fabric:${jei_version}"
+    modCompileOnly "mcp.mobius.waila:wthit:fabric-${wthit_version}"
+    modLocalRuntime "mcp.mobius.waila:wthit:fabric-${wthit_version}"
+    modLocalRuntime "lol.bai:badpackets:fabric-${badpackets_version}"
+    modImplementation "curse.maven:yogmod-372408:8812348"
+
+    modLocalRuntime "curse.maven:modmenu-308702:5162837"
+    modLocalRuntime "curse.maven:text-placeholder-api-1037459:6131409"
+
+    include project(":nfm-stub")
+}
+
+loom {
+    def aw = project(":common").file("src/main/resources/${mod_id}.accesswidener")
+    if (aw.exists()) {
+        accessWidenerPath.set(aw)
+    }
+    mixin {
+        defaultRefmapName.set("${mod_id}.refmap.json")
+    }
+    runs {
+        client {
+            client()
+            setConfigName("Fabric Client")
+            ideConfigGenerated(true)
+            runDir("runs/client")
+        }
+        server {
+            server()
+            setConfigName("Fabric Server")
+            ideConfigGenerated(true)
+            runDir("runs/server")
+        }
+    }
+}
+
+publishMods {
+    file = tasks.remapJar.archiveFile
+
+    changelog = providers.environmentVariable("RELEASE_CHANGELOG").orElse("No changelog provided.")
+    type = STABLE
+
+    curseforge {
+        accessToken = providers.environmentVariable("CURSEFORGE_TOKEN")
+        projectId = "593876"
+        minecraftVersions.add("1.20.1")
+        clientRequired = true
+        serverRequired = true
+        modLoaders.add("fabric")
+
+        displayName = "Fabric - ${project.version} - ${project.minecraft_version}"
+		
+		optional {
+            slug = "yogmod"
+        }
+		optional {
+            slug = "jei"
+        }
+		optional {
+            slug = "wthit"
+        }
+        incompatible {
+            slug = "mrcrayfish-furniture-mod"
+        }
+    }
+}
+
+tasks.named('remapJar') {
+    archiveFileName = "${project.mod_id}-fabric-${project.version}-${project.minecraft_version}.jar"
+}
+
+tasks.named('remapSourcesJar') {
+    archiveFileName = "${project.mod_id}-fabric-${project.version}-${project.minecraft_version}-sources.jar"
+}
+
+tasks.named('javadocJar') {
+    archiveFileName = "${project.mod_id}-fabric-${project.version}-${project.minecraft_version}-javadoc.jar"
+}

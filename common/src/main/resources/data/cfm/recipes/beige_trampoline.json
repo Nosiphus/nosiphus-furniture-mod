@@ -1,0 +1,31 @@
+{
+  "neoforge:conditions": [
+	{
+		"type": "neoforge:mod_loaded",
+		"modid": "yogmod"
+	}
+  ],
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "trampoline",
+  "key": {
+    "I": {
+      "tag": "forge:ingots/iron"
+    },
+    "S": {
+      "tag": "forge:slimeballs"
+    },
+    "W": {
+      "item": "yogmod:beige_wool"
+    }
+  },
+  "pattern": [
+    "WSW",
+    "I I",
+    "III"
+  ],
+  "result": {
+    "item": "cfm:beige_trampoline"
+  },
+  "show_notification": true
+}

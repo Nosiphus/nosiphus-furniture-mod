@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "desk",
+  "key": {
+    "L": {
+      "item": "minecraft:stripped_warped_stem"
+    },
+    "P": {
+      "item": "minecraft:warped_planks"
+    }
+  },
+  "pattern": [
+    "LLL",
+    "P P",
+    "P P"
+  ],
+  "result": {
+    "count": 2,
+    "item": "cfm:stripped_warped_desk"
+  },
+  "show_notification": true
+}

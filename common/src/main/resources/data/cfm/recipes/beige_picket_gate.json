@@ -1,0 +1,27 @@
+{
+  "neoforge:conditions": [
+	{
+		"type": "neoforge:mod_loaded",
+		"modid": "yogmod"
+	}
+  ],
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "picket_fence",
+  "key": {
+    "C": {
+      "item": "yogmod:beige_concrete"
+    },
+    "G": {
+      "tag": "forge:fence_gates/wooden"
+    }
+  },
+  "pattern": [
+    "CGC"
+  ],
+  "result": {
+    "count": 2,
+    "item": "cfm:beige_picket_gate"
+  },
+  "show_notification": true
+}

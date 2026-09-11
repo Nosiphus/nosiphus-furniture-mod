@@ -1,0 +1,6 @@
+{
+    "parent": "cfm:block/kitchen_sink_alt",
+    "textures": {
+        "sink": "yogmod:block/beige_terracotta"
+    }
+}

@@ -1,0 +1,6 @@
+{
+  "replace": false,
+  "values": [
+    { "id": "#minecraft:fence_gates", "required": false }
+  ]
+}

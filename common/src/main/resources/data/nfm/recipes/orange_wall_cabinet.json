@@ -1,0 +1,19 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "CCC",
+        "CHC",
+        "CCC"
+    ],
+    "key": {
+        "C": {
+            "item": "minecraft:orange_concrete"
+        },
+        "H": {
+            "tag": "forge:chests/wooden"
+        }
+    },
+    "result": {
+        "item": "nfm:orange_wall_cabinet"
+    }
+}

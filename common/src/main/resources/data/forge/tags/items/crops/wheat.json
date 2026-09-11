@@ -1,0 +1,6 @@
+{
+  "replace": false,
+  "values": [
+    { "id": "minecraft:wheat", "required": false }
+  ]
+}

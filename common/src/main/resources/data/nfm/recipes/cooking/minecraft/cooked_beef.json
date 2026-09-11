@@ -1,0 +1,9 @@
+{
+  "type": "nfm:cooking",
+  "base": {
+    "item": "minecraft:beef"
+  },
+  "result": {
+    "item": "minecraft:cooked_beef"
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "cabinet",
+  "key": {
+    "L": {
+      "item": "minecraft:stripped_crimson_stem"
+    },
+    "P": {
+      "item": "minecraft:crimson_planks"
+    }
+  },
+  "pattern": [
+    "PPL",
+    "P L",
+    "PPL"
+  ],
+  "result": {
+    "count": 2,
+    "item": "cfm:stripped_crimson_cabinet"
+  },
+  "show_notification": true
+}

@@ -1,6 +1,0 @@
-{
-  "replace": false,
-  "values": [
-    { "id": "nfm:electric_fence", "required": false }
-  ]
-}

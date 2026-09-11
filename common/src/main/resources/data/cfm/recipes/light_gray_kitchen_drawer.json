@@ -1,0 +1,29 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "kitchen_drawer",
+  "key": {
+    "B": {
+      "tag": "forge:chests/wooden"
+    },
+    "C": {
+      "item": "minecraft:light_gray_concrete"
+    },
+    "D": {
+      "tag": "forge:dyes/light_gray"
+    },
+    "S": {
+      "item": "minecraft:terracotta"
+    }
+  },
+  "pattern": [
+    "SDS",
+    "CBC",
+    "CCC"
+  ],
+  "result": {
+    "count": 4,
+    "item": "cfm:light_gray_kitchen_drawer"
+  },
+  "show_notification": true
+}

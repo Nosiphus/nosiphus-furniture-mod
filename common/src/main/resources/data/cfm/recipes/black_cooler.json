@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "trampoline",
+  "key": {
+    "C": {
+      "tag": "forge:chests/wooden"
+    },
+    "T": {
+      "item": "minecraft:black_terracotta"
+    },
+    "W": {
+      "item": "minecraft:black_concrete"
+    }
+  },
+  "pattern": [
+    "TTT",
+    "WCW",
+    "TTT"
+  ],
+  "result": {
+    "count": 2,
+    "item": "cfm:black_cooler"
+  },
+  "show_notification": true
+}

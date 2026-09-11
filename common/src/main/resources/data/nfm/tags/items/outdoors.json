@@ -1,0 +1,16 @@
+{
+  "replace": false,
+  "values": [
+	{ "id": "#nfm:bird_baths", "required": false },
+	{ "id": "#nfm:door_bells", "required": false },
+	{ "id": "nfm:electric_fence", "required": false },
+	{ "id": "#nfm:inflatable_castles", "required": false },
+	{ "id": "nfm:castle_netting", "required": false },
+	{ "id": "#nfm:taps", "required": false },
+	{ "id": "#nfm:water_tanks", "required": false },
+	{ "id": "nfm:sausage", "required": false },
+	{ "id": "nfm:cooked_sausage", "required": false },
+	{ "id": "nfm:kebab", "required": false },
+	{ "id": "nfm:cooked_kebab", "required": false }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "kitchen_drawer",
+  "key": {
+    "B": {
+      "tag": "forge:chests/wooden"
+    },
+    "C": {
+      "item": "minecraft:orange_concrete"
+    },
+    "D": {
+      "tag": "forge:dyes/orange"
+    },
+    "S": {
+      "item": "minecraft:terracotta"
+    }
+  },
+  "pattern": [
+    "SDS",
+    "CBC",
+    "CCC"
+  ],
+  "result": {
+    "count": 4,
+    "item": "cfm:orange_kitchen_drawer"
+  },
+  "show_notification": true
+}

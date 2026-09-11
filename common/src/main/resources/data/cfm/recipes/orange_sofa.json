@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "sofa",
+  "key": {
+    "L": {
+      "tag": "minecraft:logs"
+    },
+    "W": {
+      "item": "minecraft:orange_wool"
+    }
+  },
+  "pattern": [
+    "W  ",
+    "WWW",
+    "LLL"
+  ],
+  "result": {
+    "count": 2,
+    "item": "cfm:orange_sofa"
+  },
+  "show_notification": true
+}

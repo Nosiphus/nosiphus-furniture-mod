@@ -1,0 +1,6 @@
+{
+    "parent": "cfm:block/cooler_closed",
+    "textures": {
+        "color": "yogmod:block/beige_terracotta"
+    }
+}

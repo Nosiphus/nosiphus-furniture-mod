@@ -1,0 +1,11 @@
+{
+  "replace": false,
+  "values": [
+    { "id": "nfm:stone_tap", "required": false },
+    { "id": "nfm:andesite_tap", "required": false },
+    { "id": "nfm:diorite_tap", "required": false },
+    { "id": "nfm:granite_tap", "required": false },
+    { "id": "nfm:blackstone_tap", "required": false },
+    { "id": "nfm:deepslate_tap", "required": false }
+  ]
+}

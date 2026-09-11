@@ -1,0 +1,46 @@
+name: Publish Forge Release
+
+on:
+  workflow_dispatch:
+    inputs:
+      changelog:
+        description: 'Forge release changelog'
+        required: false
+        default: 'Forge updates and bug fixes.'
+      release_type:
+        description: 'Release channel'
+        required: true
+        default: 'STABLE'
+        type: choice
+        options:
+          - STABLE
+          - BETA
+          - ALPHA
+
+jobs:
+  publish-neoforge:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup JDK 17
+        uses: actions/setup-java@v4
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v4
+
+      - name: Make gradlew executable
+        run: chmod +x gradlew
+
+      - name: Publish Forge Mod
+        env:
+          CURSEFORGE_TOKEN: ${{ secrets.CURSEFORGE_TOKEN }}
+          RELEASE_CHANGELOG: ${{ inputs.changelog }}
+        # Runs the publishMods task specifically on the :forge subproject
+        run: ./gradlew :forge:publishMods

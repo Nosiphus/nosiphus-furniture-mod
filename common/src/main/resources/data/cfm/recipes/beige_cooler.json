@@ -1,0 +1,32 @@
+{
+  "neoforge:conditions": [
+	{
+		"type": "neoforge:mod_loaded",
+		"modid": "yogmod"
+	}
+  ],
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "trampoline",
+  "key": {
+    "C": {
+      "tag": "forge:chests/wooden"
+    },
+    "T": {
+      "item": "yogmod:beige_terracotta"
+    },
+    "W": {
+      "item": "yogmod:beige_concrete"
+    }
+  },
+  "pattern": [
+    "TTT",
+    "WCW",
+    "TTT"
+  ],
+  "result": {
+    "count": 2,
+    "item": "cfm:beige_cooler"
+  },
+  "show_notification": true
+}

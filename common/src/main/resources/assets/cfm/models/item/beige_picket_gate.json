@@ -1,0 +1,8 @@
+{
+    "parent": "cfm:item/upgraded_gate",
+    "textures": {
+        "hinge": "yogmod:block/beige_concrete",
+        "pole": "yogmod:block/beige_concrete",
+        "plank": "yogmod:block/beige_concrete"
+    }
+}

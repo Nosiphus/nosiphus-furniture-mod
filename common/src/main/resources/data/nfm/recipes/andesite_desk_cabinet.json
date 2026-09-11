@@ -1,0 +1,21 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "group": "desk_cabinet",
+    "pattern": [
+        "LLL",
+        "PPP",
+        "P P"
+    ],
+    "key": {
+        "L": {
+            "item": "minecraft:polished_andesite"
+        },
+        "P": {
+            "item": "minecraft:andesite"
+        }
+    },
+    "result": {
+        "count": 2,
+        "item": "nfm:andesite_desk_cabinet"
+    }
+}

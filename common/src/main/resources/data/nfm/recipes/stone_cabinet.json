@@ -1,0 +1,21 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "group": "cabinet",
+    "pattern": [
+        "PPL",
+        "P L",
+        "PPL"
+    ],
+    "key": {
+        "L": {
+            "item": "minecraft:stone"
+        },
+        "P": {
+            "item": "minecraft:cobblestone"
+        }
+    },
+    "result": {
+        "count": 2,
+        "item": "nfm:stone_cabinet"
+    }
+}

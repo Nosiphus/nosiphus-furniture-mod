@@ -1,0 +1,8 @@
+{
+  "replace": false,
+  "values": [
+    { "id": "#cfm:fences/picket", "required": false },
+    { "id": "#cfm:fences/upgraded", "required": false },
+	{ "id": "nfm:electric_fence", "required": false }
+  ]
+}

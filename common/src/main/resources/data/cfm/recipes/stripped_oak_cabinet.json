@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "cabinet",
+  "key": {
+    "L": {
+      "item": "minecraft:stripped_oak_log"
+    },
+    "P": {
+      "item": "minecraft:oak_planks"
+    }
+  },
+  "pattern": [
+    "PPL",
+    "P L",
+    "PPL"
+  ],
+  "result": {
+    "count": 2,
+    "item": "cfm:stripped_oak_cabinet"
+  },
+  "show_notification": true
+}

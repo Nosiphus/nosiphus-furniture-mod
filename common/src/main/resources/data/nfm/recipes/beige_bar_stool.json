@@ -1,0 +1,36 @@
+{
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "yogmod"
+    }
+  ],
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:all_mods_loaded",
+      "values": [
+        "yogmod"
+      ]
+    }
+  ],
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "WWW",
+    "CCC",
+    "L L"
+  ],
+  "key": {
+    "W": {
+      "item": "yogmod:beige_wool"
+    },
+    "C": {
+      "item": "minecraft:gray_concrete"
+    },
+    "L": {
+      "item": "minecraft:white_concrete"
+    }
+  },
+  "result": {
+    "item": "nfm:beige_bar_stool"
+  }
+}

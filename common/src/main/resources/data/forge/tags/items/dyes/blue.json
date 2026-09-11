@@ -1,0 +1,8 @@
+{
+  "replace": false,
+  "values": [
+    { "id": "#forge:dyes/blue", "required": false },
+    { "id": "#c:blue_dyes", "required": false },
+    { "id": "minecraft:blue_dye", "required": false }
+  ]
+}

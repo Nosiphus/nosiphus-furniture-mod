@@ -1,0 +1,17 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "  B",
+        " B ",
+        "B  "
+    ],
+    "key": {
+        "B": {
+            "item": "minecraft:beef"
+        }
+    },
+    "result": {
+        "count": 16,
+        "item": "nfm:sausage"
+    }
+}

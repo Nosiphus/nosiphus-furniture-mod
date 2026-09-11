@@ -1,0 +1,35 @@
+{
+  "neoforge:conditions": [
+	{
+		"type": "neoforge:mod_loaded",
+		"modid": "yogmod"
+	}
+  ],
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "kitchen_drawer",
+  "key": {
+    "B": {
+      "tag": "forge:chests/wooden"
+    },
+    "C": {
+      "item": "yogmod:beige_concrete"
+    },
+    "D": {
+      "tag": "forge:dyes/beige"
+    },
+    "S": {
+      "item": "minecraft:terracotta"
+    }
+  },
+  "pattern": [
+    "SDS",
+    "CBC",
+    "CCC"
+  ],
+  "result": {
+    "count": 4,
+    "item": "cfm:beige_kitchen_drawer"
+  },
+  "show_notification": true
+}

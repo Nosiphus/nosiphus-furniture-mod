@@ -1,0 +1,29 @@
+{
+  "neoforge:conditions": [
+	{
+		"type": "neoforge:mod_loaded",
+		"modid": "yogmod"
+	}
+  ],
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "sofa",
+  "key": {
+    "L": {
+      "tag": "minecraft:logs"
+    },
+    "W": {
+      "item": "yogmod:beige_wool"
+    }
+  },
+  "pattern": [
+    "W  ",
+    "WWW",
+    "LLL"
+  ],
+  "result": {
+    "count": 2,
+    "item": "cfm:beige_sofa"
+  },
+  "show_notification": true
+}

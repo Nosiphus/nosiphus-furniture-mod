@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "id": "nfm",
+  "version": "${version}",
+  "name": "Nosiphus Furniture Mod",
+  "description": "Nosiphus Furniture Mod is an addon to MrCrayFish's Furniture Mod that readds old furniture.",
+  "authors": [
+    "MrCrayFish, Nosiphus"
+  ],
+  "contributors": [
+    "Ocelot, meappy"
+  ],
+  "contact": {
+    "homepage": "https://www.curseforge.com/minecraft/mc-mods/nosiphus-furniture-mod",
+    "sources": "https://github.com/Nosiphus/nosiphus-furniture-mod",
+    "issues": "https://github.com/Nosiphus/nosiphus-furniture-mod/issues"
+  },
+  "license": "GPLv3",
+  "icon": "nfm.png",
+  "environment": "*"
+}

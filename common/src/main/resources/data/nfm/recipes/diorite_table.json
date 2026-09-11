@@ -1,0 +1,21 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "group": "table",
+    "pattern": [
+        "LLL",
+        " P ",
+        " P "
+    ],
+    "key": {
+        "L": {
+            "item": "minecraft:polished_diorite"
+        },
+        "P": {
+            "item": "minecraft:diorite"
+        }
+    },
+    "result": {
+        "count": 4,
+        "item": "nfm:diorite_table"
+    }
+}

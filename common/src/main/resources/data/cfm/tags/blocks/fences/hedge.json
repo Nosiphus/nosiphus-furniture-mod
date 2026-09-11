@@ -1,0 +1,15 @@
+{
+  "replace": false,
+  "values": [
+    { "id": "cfm:oak_hedge", "required": false },
+    { "id": "cfm:spruce_hedge", "required": false },
+    { "id": "cfm:birch_hedge", "required": false },
+    { "id": "cfm:jungle_hedge", "required": false },
+    { "id": "cfm:acacia_hedge", "required": false },
+    { "id": "cfm:dark_oak_hedge", "required": false },
+    { "id": "cfm:mangrove_hedge", "required": false },
+    { "id": "cfm:cherry_hedge", "required": false },
+    { "id": "cfm:azalea_hedge", "required": false },
+    { "id": "cfm:flowering_azalea_hedge", "required": false }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "neoforge:conditions": [
+	{
+		"type": "neoforge:mod_loaded",
+		"modid": "yogmod"
+	}
+  ],
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "grill",
+  "key": {
+    "B": {
+      "item": "minecraft:iron_bars"
+    },
+    "I": {
+      "tag": "forge:ingots/iron"
+    },
+    "T": {
+      "item": "yogmod:beige_terracotta"
+    }
+  },
+  "pattern": [
+    "TBT",
+    "I I",
+    "I I"
+  ],
+  "result": {
+    "item": "cfm:beige_grill"
+  },
+  "show_notification": true
+}

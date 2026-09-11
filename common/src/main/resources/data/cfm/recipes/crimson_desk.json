@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "desk",
+  "key": {
+    "L": {
+      "item": "minecraft:crimson_stem"
+    },
+    "P": {
+      "item": "minecraft:crimson_planks"
+    }
+  },
+  "pattern": [
+    "LLL",
+    "P P",
+    "P P"
+  ],
+  "result": {
+    "count": 2,
+    "item": "cfm:crimson_desk"
+  },
+  "show_notification": true
+}

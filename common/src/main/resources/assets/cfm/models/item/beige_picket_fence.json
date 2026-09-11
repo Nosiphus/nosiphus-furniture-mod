@@ -1,0 +1,7 @@
+{
+    "parent": "cfm:item/upgraded_fence",
+    "textures": {
+        "plank": "yogmod:block/beige_concrete",
+        "middle": "yogmod:block/beige_concrete"
+    }
+}

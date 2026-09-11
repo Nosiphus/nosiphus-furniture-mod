@@ -1,0 +1,9 @@
+{
+  "type": "nfm:cooking",
+  "base": {
+    "item": "minecraft:potato"
+  },
+  "result": {
+    "item": "minecraft:baked_potato"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "nfm:soapy_water",
+    "nfm:soapy_water_flowing",
+    "nfm:super_soapy_water",
+    "nfm:super_soapy_water_flowing"
+  ]
+}

@@ -1,0 +1,9 @@
+accessWidener v1 named
+
+# Allow public construction
+accessible method net/minecraft/world/inventory/MenuType <init> (Lnet/minecraft/world/inventory/MenuType$MenuSupplier;Lnet/minecraft/world/flag/FeatureFlagSet;)V
+accessible class net/minecraft/world/inventory/MenuType$MenuSupplier
+accessible class net/minecraft/world/item/crafting/SimpleCookingSerializer$CookieBaker
+accessible method net/minecraft/world/level/block/IronBarsBlock <init> (Lnet/minecraft/world/level/block/state/BlockBehaviour$Properties;)V
+accessible method net/minecraft/world/level/block/LiquidBlock <init> (Lnet/minecraft/world/level/material/FlowingFluid;Lnet/minecraft/world/level/block/state/BlockBehaviour$Properties;)V
+accessible class net/minecraft/world/level/block/entity/BlockEntityType$BlockEntitySupplier
