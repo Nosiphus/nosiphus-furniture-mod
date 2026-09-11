@@ -92,3 +92,9 @@ tasks.named('remapSourcesJar') {
 tasks.named('javadocJar') {
     archiveFileName = "cfm+${project.mod_id}-fabric-${project.version}-${project.minecraft_version}-javadoc.jar"
 }
+
+tasks.withType(JavaCompile).configureEach {
+    options.compilerArgs += [
+            "-Amixin.config=cfm.fabric.mixins.json,nfm.fabric.mixins.json"
+    ]
+}

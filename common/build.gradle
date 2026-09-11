@@ -18,6 +18,7 @@ legacyForge {
 dependencies {
     compileOnly group: 'org.spongepowered', name: 'mixin', version: '0.8.5'
     implementation group: 'com.google.code.findbugs', name: 'jsr305', version: '3.0.1'
+    annotationProcessor("org.spongepowered:mixin:0.8.5-SNAPSHOT:processor")
 	
 	compileOnly "mezz.jei:jei-${minecraft_version}-common:${jei_version}"
     compileOnly "mcp.mobius.waila:wthit:forge-${wthit_version}"
