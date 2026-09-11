@@ -5,9 +5,7 @@
   "refmap": "cfm.refmap.json",
   "compatibilityLevel": "JAVA_17",
   "mixins": [],
-  "client": [
-    "CreativeModeInventoryScreenAccessor"
-  ],
+  "client": [],
   "server": [],
   "injectors": {
     "defaultRequire": 1

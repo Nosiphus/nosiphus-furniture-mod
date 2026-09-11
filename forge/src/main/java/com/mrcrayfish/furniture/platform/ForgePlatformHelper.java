@@ -33,6 +33,7 @@ import net.minecraftforge.common.extensions.IForgeMenuType;
 import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.loading.FMLLoader;
+import net.minecraftforge.fml.util.ObfuscationReflectionHelper;
 import net.minecraftforge.network.NetworkHooks;
 import org.jetbrains.annotations.Nullable;
 
@@ -65,13 +66,24 @@ public class ForgePlatformHelper implements IPlatformHelper {
     private static Field getSelectedTabField() {
         if (selectedTabField == null) {
             try {
-                selectedTabField = Arrays.stream(CreativeModeInventoryScreen.class.getDeclaredFields())
-                        .filter(f -> java.lang.reflect.Modifier.isStatic(f.getModifiers()) && f.getType() == CreativeModeTab.class)
-                        .findFirst()
-                        .orElseThrow(() -> new NoSuchFieldException("Could not find static CreativeModeTab field in CreativeModeInventoryScreen"));
+                selectedTabField = CreativeModeInventoryScreen.class.getDeclaredField("f_98528_");
+            } catch (NoSuchFieldException e) {
+                try {
+                    selectedTabField = CreativeModeInventoryScreen.class.getDeclaredField("selectedTab");
+                } catch (NoSuchFieldException ex) {
+                    for (Field field : CreativeModeInventoryScreen.class.getDeclaredFields()) {
+                        if (java.lang.reflect.Modifier.isStatic(field.getModifiers()) && field.getType() == CreativeModeTab.class) {
+                            selectedTabField = field;
+                            break;
+                        }
+                    }
+                }
+            }
+
+            if (selectedTabField != null) {
                 selectedTabField.setAccessible(true);
-            } catch (Exception e) {
-                throw new RuntimeException("Failed to locate selectedTab field", e);
+            } else {
+                throw new RuntimeException("Unable to locate selectedTab field in CreativeModeInventoryScreen");
             }
         }
         return selectedTabField;
@@ -81,7 +93,7 @@ public class ForgePlatformHelper implements IPlatformHelper {
     public CreativeModeTab getSelectedCreativeTab(CreativeModeInventoryScreen screen) {
         try {
             return (CreativeModeTab) getSelectedTabField().get(null);
-        } catch (IllegalAccessException e) {
+        } catch (Exception e) {
             throw new RuntimeException("Failed to read selectedTab from CreativeModeInventoryScreen", e);
         }
     }

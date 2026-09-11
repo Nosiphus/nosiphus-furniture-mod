@@ -6,12 +6,6 @@ plugins {
 	id 'me.modmuss50.mod-publish-plugin' version '0.5.1'
 }
 
-mixin {
-    add sourceSets.main, "${mod_id}.refmap.json"
-    config "${mod_id}.mixins.json"
-    config "${mod_id}.forge.mixins.json"
-}
-
 minecraft {
     mappings channel: 'parchment', version: "${parchment_minecraft}-${parchment_version}-${minecraft_version}"
 
