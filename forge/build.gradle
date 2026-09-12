@@ -130,6 +130,9 @@ publishMods {
 		optional {
             slug = "wthit-forge"
         }
+		optional {
+            slug = "every-compat"
+        }
         incompatible {
             slug = "mrcrayfish-furniture-mod"
         }
