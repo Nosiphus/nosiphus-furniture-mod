@@ -81,6 +81,14 @@ dependencies {
     runtimeOnly fg.deobf("curse.maven:catalogue-459701:4766090")
 }
 
+mixin {
+    add sourceSets.main, "cfm.refmap.json"
+    config "cfm.mixins.json"
+    config "cfm.forge.mixins.json"
+    config "${mod_id}.mixins.json"
+    config "${mod_id}.forge.mixins.json"
+}
+
 tasks.named('jar', Jar) {
     duplicatesStrategy = DuplicatesStrategy.EXCLUDE
     finalizedBy 'reobfJar'

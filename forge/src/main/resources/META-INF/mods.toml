@@ -55,3 +55,10 @@ side = "BOTH"
 
 [[accessTransformers]]
 file = "META-INF/accesstransformer.cfg"
+
+mixinConfigs = [
+    "cfm.mixins.json",
+    "cfm.forge.mixins.json",
+    "nfm.mixins.json",
+    "nfm.forge.mixins.json"
+]
