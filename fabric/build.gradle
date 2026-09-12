@@ -18,6 +18,8 @@ dependencies {
     modCompileOnly "mcp.mobius.waila:wthit:fabric-${wthit_version}"
     modLocalRuntime "mcp.mobius.waila:wthit:fabric-${wthit_version}"
     modLocalRuntime "lol.bai:badpackets:fabric-${badpackets_version}"
+    modImplementation("net.mehvahdjukaar:everycomp-fabric:${everycomp_version}:fabric") { transitive = false }
+    modImplementation("net.mehvahdjukaar:moonlight-fabric:${moonlight_version}:fabric") { transitive = false }
     modImplementation "curse.maven:yogmod-372408:8812348"
 
     modLocalRuntime "curse.maven:modmenu-308702:5162837"

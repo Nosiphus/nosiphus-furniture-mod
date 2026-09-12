@@ -30,5 +30,6 @@ subprojects {
                 includeGroup "lol.bai"
             }
         }
+        maven { url = "https://registry.somethingcatchy.net/repository/maven-releases/" }
     }
 }

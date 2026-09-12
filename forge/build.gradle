@@ -75,6 +75,9 @@ dependencies {
     implementation fg.deobf("lol.bai:badpackets:forge-${badpackets_version}")
     implementation fg.deobf("curse.maven:yogmod-372408:8812354")
 
+    implementation fg.deobf("net.mehvahdjukaar:everycomp-forge:${everycomp_version}:forge") { transitive = false }
+    implementation fg.deobf("net.mehvahdjukaar:moonlight-forge:${moonlight_version}:forge") { transitive = false }
+
     runtimeOnly fg.deobf("curse.maven:catalogue-459701:4766090")
 }
 
