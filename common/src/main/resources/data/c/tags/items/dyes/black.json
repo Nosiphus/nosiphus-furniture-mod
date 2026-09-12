@@ -1,13 +1,6 @@
 {
   "replace": false,
   "values": [
-    {
-      "id": "#c:black_dyes",
-      "required": false
-    },
-    {
-      "id": "minecraft:black_dye",
-      "required": false
-    }
+    { "id": "#forge:dyes/black", "required": false }
   ]
 }

@@ -10,7 +10,7 @@
             "item": "minecraft:stone_button"
         },
         "I": {
-            "item": "minecraft:iron_ingot"
+            "tag": "forge:ingots/iron"
         },
         "C": {
             "item": "minecraft:gray_concrete"

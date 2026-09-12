@@ -2,6 +2,5 @@
   "replace": false,
   "values": [
     { "id": "#forge:crops/wheat", "required": false },
-    { "id": "minecraft:wheat", "required": false }
   ]
 }

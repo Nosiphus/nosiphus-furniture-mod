@@ -1,13 +1,6 @@
 {
   "replace": false,
   "values": [
-    {
-      "id": "#c:light_blue_dyes",
-      "required": false
-    },
-    {
-      "id": "minecraft:light_blue_dye",
-      "required": false
-    }
+    { "id": "#forge:dyes/light_blue", "required": false }
   ]
 }

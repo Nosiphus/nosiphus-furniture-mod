@@ -21,7 +21,7 @@
   ],
   "key": {
     "I": {
-      "item": "minecraft:iron_ingot"
+      "tag": "forge:ingots/iron"
     },
     "D": {
       "item": "yogmod:beige_dye"

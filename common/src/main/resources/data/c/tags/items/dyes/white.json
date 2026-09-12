@@ -1,13 +1,6 @@
 {
   "replace": false,
   "values": [
-    {
-      "id": "#c:white_dyes",
-      "required": false
-    },
-    {
-      "id": "minecraft:white_dye",
-      "required": false
-    }
+    { "id": "#forge:dyes/white", "required": false }
   ]
 }
