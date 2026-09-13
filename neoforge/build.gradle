@@ -12,6 +12,9 @@ dependencies {
     runtimeOnly "lol.bai:badpackets:neo-${badpackets_version}"
 	implementation "curse.maven:yogmod-372408:8613131"
 
+    implementation("net.mehvahdjukaar:everycomp-neoforge:${everycomp_version}:neoforge") { transitive = false }
+    implementation("net.mehvahdjukaar:moonlight-neoforge:${moonlight_version}:neoforge") { transitive = false }
+
     runtimeOnly "curse.maven:catalogue-459701:6926815"
 }
 
@@ -81,6 +84,9 @@ publishMods {
         }
 		optional {
             slug = "wthit-forge"
+        }
+        optional {
+            slug = "every-compat"
         }
     }
 }

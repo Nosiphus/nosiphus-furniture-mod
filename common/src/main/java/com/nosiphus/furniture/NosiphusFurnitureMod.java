@@ -1,6 +1,8 @@
 package com.nosiphus.furniture;
 
 import com.nosiphus.furniture.client.particle.ModParticleTypes;
+import com.nosiphus.furniture.integration.everycomp.EveryCompatAddon;
+import com.nosiphus.furniture.platform.Services;
 import com.nosiphus.furniture.sounds.ModSoundEvents;
 import com.nosiphus.furniture.world.entity.ModEntityTypes;
 import com.nosiphus.furniture.world.inventory.ModMenuTypes;
@@ -30,6 +32,10 @@ public class NosiphusFurnitureMod {
         ModRecipeSerializers.init();
         ModRecipeTypes.init();
         ModSoundEvents.init();
+
+        if(Services.PLATFORM.isModLoaded("everycomp")) {
+            EveryCompatAddon.init();
+        }
     }
 
 }

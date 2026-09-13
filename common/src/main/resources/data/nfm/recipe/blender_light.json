@@ -7,7 +7,7 @@
     ],
     "key": {
         "I": {
-            "item": "minecraft:iron_ingot"
+            "tag": "c:ingots/iron"
         },
         "G": {
             "item": "minecraft:glass_pane"

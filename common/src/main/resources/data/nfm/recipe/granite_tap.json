@@ -10,7 +10,7 @@
             "item": "minecraft:granite"
         },
 		"I": {
-            "item": "minecraft:iron_ingot"
+            "tag": "c:ingots/iron"
         }
     },
     "result": {

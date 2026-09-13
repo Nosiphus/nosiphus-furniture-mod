@@ -1,5 +1,7 @@
 package com.mrcrayfish.furniture;
 
+import com.mrcrayfish.furniture.integration.everycomp.EveryCompatAddon;
+import com.mrcrayfish.furniture.platform.Services;
 import com.mrcrayfish.furniture.sounds.ModSoundEvents;
 import com.mrcrayfish.furniture.world.entity.ModEntityTypes;
 import com.mrcrayfish.furniture.world.inventory.ModMenuTypes;
@@ -26,5 +28,9 @@ public class MrCrayFishFurnitureMod {
         ModRecipeSerializers.init();
         ModRecipeTypes.init();
         ModSoundEvents.init();
+
+        if(Services.PLATFORM.isModLoaded("everycomp")) {
+            EveryCompatAddon.init();
+        }
     }
 }

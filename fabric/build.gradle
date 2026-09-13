@@ -20,6 +20,9 @@ dependencies {
     modLocalRuntime "lol.bai:badpackets:fabric-${badpackets_version}"
 	modImplementation "curse.maven:yogmod-372408:8613130"
 
+    modImplementation("net.mehvahdjukaar:everycomp-fabric:${everycomp_version}:fabric") { transitive = false }
+    modImplementation("net.mehvahdjukaar:moonlight-fabric:${moonlight_version}:fabric") { transitive = false }
+
     modLocalRuntime "curse.maven:modmenu-308702:7808443"
     modLocalRuntime "curse.maven:text-placeholder-api-1037459:6131327"
     modLocalRuntime "curse.maven:catalogue-459701:6926812"
@@ -75,6 +78,9 @@ publishMods {
         }
 		optional {
             slug = "wthit"
+        }
+        optional {
+            slug = "every-compat"
         }
     }
 }
