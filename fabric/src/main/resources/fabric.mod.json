@@ -3,6 +3,9 @@
     "id": "cfm",
     "accessWidener": "cfm+nfm.accesswidener",
     "version": "${version}",
+    "provides": [
+        "nfm"
+    ],
     "name": "MrCrayFish's Furniture Mod",
     "description": "MrCrayfish's Furniture Mod is all about adding functioning furniture and decorations. This mod currently adds over eighty unique blocks and is continuely growing with new updates. Ported by Nosiphus as part of Nosiphus Furniture Mod.",
     "authors": [
