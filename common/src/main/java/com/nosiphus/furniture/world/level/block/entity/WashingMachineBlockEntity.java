@@ -132,7 +132,7 @@ public class WashingMachineBlockEntity extends FluidHandlerSyncedBlockEntity imp
     }
 
     @Override
-    protected void saveAdditional(CompoundTag tag) {
+    public void saveAdditional(CompoundTag tag) {
         super.saveAdditional(tag);
         ContainerHelper.saveAllItems(tag, this.inventory);
         tag.putBoolean("Washing", this.washing);

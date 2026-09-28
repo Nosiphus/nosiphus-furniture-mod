@@ -36,6 +36,14 @@ public class ModItems {
         return registerOptional(name, "yogmod", () -> new BlockItem(blockSupplier.get(), new Item.Properties()));
     }
 
+    private static Supplier<CupItem> registerCupItem(String name, Supplier<? extends Block> blockSupplier) {
+        return register(name, () -> new CupItem(blockSupplier.get(), new Item.Properties()));
+    }
+
+    private static Supplier<CupItem> registerOptionalCupItem(String name, Supplier<? extends Block> blockSupplier) {
+        return registerOptional(name, "yogmod", () -> new CupItem(blockSupplier.get(), new Item.Properties()));
+    }
+
     // Tables
     public static final Supplier<BlockItem> STONE_TABLE = registerBlockItem("stone_table", ModBlocks.STONE_TABLE);
     public static final Supplier<BlockItem> ANDESITE_TABLE = registerBlockItem("andesite_table", ModBlocks.ANDESITE_TABLE);
@@ -471,23 +479,23 @@ public class ModItems {
 
     // Kitchenware
     public static final Supplier<BlockItem> COOKIE_JAR = registerBlockItem("cookie_jar", ModBlocks.COOKIE_JAR);
-    public static final Supplier<BlockItem> WHITE_CUP = registerBlockItem("white_cup", ModBlocks.WHITE_CUP);
-    public static final Supplier<BlockItem> LIGHT_GRAY_CUP = registerBlockItem("light_gray_cup", ModBlocks.LIGHT_GRAY_CUP);
-    public static final Supplier<BlockItem> GRAY_CUP = registerBlockItem("gray_cup", ModBlocks.GRAY_CUP);
-    public static final Supplier<BlockItem> BLACK_CUP = registerBlockItem("black_cup", ModBlocks.BLACK_CUP);
-    public static final Supplier<BlockItem> BROWN_CUP = registerBlockItem("brown_cup", ModBlocks.BROWN_CUP);
-    public static final Supplier<BlockItem> RED_CUP = registerBlockItem("red_cup", ModBlocks.RED_CUP);
-    public static final Supplier<BlockItem> ORANGE_CUP = registerBlockItem("orange_cup", ModBlocks.ORANGE_CUP);
-    public static final Supplier<BlockItem> BEIGE_CUP = registerOptionalBlockItem("beige_cup", ModBlocks.BEIGE_CUP);
-    public static final Supplier<BlockItem> YELLOW_CUP = registerBlockItem("yellow_cup", ModBlocks.YELLOW_CUP);
-    public static final Supplier<BlockItem> LIME_CUP = registerBlockItem("lime_cup", ModBlocks.LIME_CUP);
-    public static final Supplier<BlockItem> GREEN_CUP = registerBlockItem("green_cup", ModBlocks.GREEN_CUP);
-    public static final Supplier<BlockItem> CYAN_CUP = registerBlockItem("cyan_cup", ModBlocks.CYAN_CUP);
-    public static final Supplier<BlockItem> LIGHT_BLUE_CUP = registerBlockItem("light_blue_cup", ModBlocks.LIGHT_BLUE_CUP);
-    public static final Supplier<BlockItem> BLUE_CUP = registerBlockItem("blue_cup", ModBlocks.BLUE_CUP);
-    public static final Supplier<BlockItem> PURPLE_CUP = registerBlockItem("purple_cup", ModBlocks.PURPLE_CUP);
-    public static final Supplier<BlockItem> MAGENTA_CUP = registerBlockItem("magenta_cup", ModBlocks.MAGENTA_CUP);
-    public static final Supplier<BlockItem> PINK_CUP = registerBlockItem("pink_cup", ModBlocks.PINK_CUP);
+    public static final Supplier<CupItem> WHITE_CUP = registerCupItem("white_cup", ModBlocks.WHITE_CUP);
+    public static final Supplier<CupItem> LIGHT_GRAY_CUP = registerCupItem("light_gray_cup", ModBlocks.LIGHT_GRAY_CUP);
+    public static final Supplier<CupItem> GRAY_CUP = registerCupItem("gray_cup", ModBlocks.GRAY_CUP);
+    public static final Supplier<CupItem> BLACK_CUP = registerCupItem("black_cup", ModBlocks.BLACK_CUP);
+    public static final Supplier<CupItem> BROWN_CUP = registerCupItem("brown_cup", ModBlocks.BROWN_CUP);
+    public static final Supplier<CupItem> RED_CUP = registerCupItem("red_cup", ModBlocks.RED_CUP);
+    public static final Supplier<CupItem> ORANGE_CUP = registerCupItem("orange_cup", ModBlocks.ORANGE_CUP);
+    public static final Supplier<CupItem> BEIGE_CUP = registerOptionalCupItem("beige_cup", ModBlocks.BEIGE_CUP);
+    public static final Supplier<CupItem> YELLOW_CUP = registerCupItem("yellow_cup", ModBlocks.YELLOW_CUP);
+    public static final Supplier<CupItem> LIME_CUP = registerCupItem("lime_cup", ModBlocks.LIME_CUP);
+    public static final Supplier<CupItem> GREEN_CUP = registerCupItem("green_cup", ModBlocks.GREEN_CUP);
+    public static final Supplier<CupItem> CYAN_CUP = registerCupItem("cyan_cup", ModBlocks.CYAN_CUP);
+    public static final Supplier<CupItem> LIGHT_BLUE_CUP = registerCupItem("light_blue_cup", ModBlocks.LIGHT_BLUE_CUP);
+    public static final Supplier<CupItem> BLUE_CUP = registerCupItem("blue_cup", ModBlocks.BLUE_CUP);
+    public static final Supplier<CupItem> PURPLE_CUP = registerCupItem("purple_cup", ModBlocks.PURPLE_CUP);
+    public static final Supplier<CupItem> MAGENTA_CUP = registerCupItem("magenta_cup", ModBlocks.MAGENTA_CUP);
+    public static final Supplier<CupItem> PINK_CUP = registerCupItem("pink_cup", ModBlocks.PINK_CUP);
     public static final Supplier<BlockItem> PLATE = registerBlockItem("plate", ModBlocks.PLATE);
 
     // Bird Baths

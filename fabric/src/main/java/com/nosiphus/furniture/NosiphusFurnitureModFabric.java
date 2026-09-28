@@ -25,6 +25,7 @@ public class NosiphusFurnitureModFabric implements ModInitializer {
     public static void registerFluidStorages() {
         registerTank(ModBlockEntityTypes.BATH);
         registerTank(ModBlockEntityTypes.BIRD_BATH);
+        registerTank(ModBlockEntityTypes.CUP);
         registerTank(ModBlockEntityTypes.DISHWASHER);
         registerTank(ModBlockEntityTypes.SINK);
         registerTank(ModBlockEntityTypes.TAP);

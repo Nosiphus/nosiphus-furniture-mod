@@ -62,6 +62,31 @@ public class ModBlockEntityTypes {
                     ModBlocks.COOKIE_JAR.get()
             ).build(null));
 
+    public static final Supplier<BlockEntityType<CupBlockEntity>> CUP =
+            register("cup", () -> BlockEntityType.Builder.of(CupBlockEntity::new,
+                    Stream.of(
+                                    ModBlocks.WHITE_CUP,
+                                    ModBlocks.LIGHT_GRAY_CUP,
+                                    ModBlocks.GRAY_CUP,
+                                    ModBlocks.BLACK_CUP,
+                                    ModBlocks.BROWN_CUP,
+                                    ModBlocks.RED_CUP,
+                                    ModBlocks.ORANGE_CUP,
+                                    Services.PLATFORM.isModLoaded("yogmod") ? ModBlocks.BEIGE_CUP : null,
+                                    ModBlocks.YELLOW_CUP,
+                                    ModBlocks.LIME_CUP,
+                                    ModBlocks.GREEN_CUP,
+                                    ModBlocks.CYAN_CUP,
+                                    ModBlocks.LIGHT_BLUE_CUP,
+                                    ModBlocks.BLUE_CUP,
+                                    ModBlocks.PURPLE_CUP,
+                                    ModBlocks.MAGENTA_CUP,
+                                    ModBlocks.PINK_CUP
+                            ).filter(Objects::nonNull)
+                            .map(Supplier::get)
+                            .toArray(Block[]::new)
+            ).build(null));
+
     public static final Supplier<BlockEntityType<DigitalClockBlockEntity>> DIGITAL_CLOCK =
             register("digital_clock", () -> BlockEntityType.Builder.of(DigitalClockBlockEntity::new,
                     Stream.of(
