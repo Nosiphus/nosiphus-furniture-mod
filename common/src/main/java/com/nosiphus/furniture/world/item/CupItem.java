@@ -152,6 +152,23 @@ public class CupItem extends BlockItem {
         return 0;
     }
 
+    public static void setFluid(ItemStack stack, Fluid fluid, int amount) {
+        if (fluid == Fluids.EMPTY || amount <= 0) {
+            CompoundTag tag = stack.getTagElement("BlockEntityTag");
+            if (tag != null) {
+                tag.remove("FluidName");
+                tag.remove("FluidAmount");
+                if (tag.isEmpty()) {
+                    stack.removeTagKey("BlockEntityTag");
+                }
+            }
+        } else {
+            CompoundTag tag = stack.getOrCreateTagElement("BlockEntityTag");
+            tag.putString("FluidName", BuiltInRegistries.FLUID.getKey(fluid).toString());
+            tag.putInt("FluidAmount", amount);
+        }
+    }
+
     public static ItemStack drainCupItem(ItemStack stack, int amount) {
         CompoundTag beTag = stack.getTagElement("BlockEntityTag");
         if (beTag != null) {

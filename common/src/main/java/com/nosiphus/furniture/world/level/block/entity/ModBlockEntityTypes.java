@@ -40,6 +40,12 @@ public class ModBlockEntityTypes {
                     ModBlocks.BLACKSTONE_BIRD_BATH.get(), ModBlocks.DEEPSLATE_BIRD_BATH.get()
             ).build(null));
 
+    public static final Supplier<BlockEntityType<BlenderBlockEntity>> BLENDER =
+            register("blender", () -> BlockEntityType.Builder.of(
+                    BlenderBlockEntity::new,
+                    ModBlocks.BLENDER_LIGHT.get(), ModBlocks.BLENDER_DARK.get()
+            ).build(null));
+
     public static final Supplier<BlockEntityType<CathodeRayTubeTelevisionBlockEntity>> CATHODE_RAY_TUBE_TELEVISION =
             register("cathode_ray_tube_television", () -> BlockEntityType.Builder.of(
                     CathodeRayTubeTelevisionBlockEntity::new,

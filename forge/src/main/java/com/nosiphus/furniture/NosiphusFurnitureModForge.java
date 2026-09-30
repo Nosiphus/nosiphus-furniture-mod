@@ -190,6 +190,7 @@ public class NosiphusFurnitureModForge {
                 var type = be.getType();
                 if (type == ModBlockEntityTypes.BATH.get()
                         || type == ModBlockEntityTypes.BIRD_BATH.get()
+                        || type == ModBlockEntityTypes.BLENDER.get()
                         || type == ModBlockEntityTypes.CUP.get()
                         || type == ModBlockEntityTypes.DISHWASHER.get()
                         || type == ModBlockEntityTypes.SINK.get()
