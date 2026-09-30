@@ -13,6 +13,7 @@ import com.nosiphus.furniture.world.entity.ModEntityTypes;
 import com.nosiphus.furniture.world.inventory.ModMenuTypes;
 import com.nosiphus.furniture.world.item.ModCreativeModeTabsFabric;
 import com.nosiphus.furniture.world.level.block.ModBlocks;
+import com.nosiphus.furniture.world.level.block.entity.CupBlockEntity;
 import com.nosiphus.furniture.world.level.block.entity.ModBlockEntityTypes;
 import com.nosiphus.furniture.world.level.fluid.ModFluids;
 import net.fabricmc.api.ClientModInitializer;
@@ -129,6 +130,7 @@ public class NosiphusFurnitureModFabricClient implements ClientModInitializer {
         BlockEntityRenderers.register(ModBlockEntityTypes.CATHODE_RAY_TUBE_TELEVISION.get(), CathodeRayTubeTelevisionBlockEntityRenderer::new);
         BlockEntityRenderers.register(ModBlockEntityTypes.CHOPPING_BOARD.get(), ChoppingBoardBlockEntityRenderer::new);
         BlockEntityRenderers.register(ModBlockEntityTypes.COOKIE_JAR.get(), CookieJarBlockEntityRenderer::new);
+        BlockEntityRenderers.register(ModBlockEntityTypes.CUP.get(), CupBlockEntityRenderer::new);
         BlockEntityRenderers.register(ModBlockEntityTypes.DIGITAL_CLOCK.get(), DigitalClockBlockEntityRenderer::new);
         BlockEntityRenderers.register(ModBlockEntityTypes.LIQUID_CRYSTAL_DISPLAY_TELEVISION.get(), LiquidCrystalDisplayTelevisionBlockEntityRenderer::new);
         BlockEntityRenderers.register(ModBlockEntityTypes.PLATE.get(), PlateBlockEntityRenderer::new);
