@@ -4,6 +4,7 @@ import com.mojang.blaze3d.systems.RenderSystem;
 import com.nosiphus.furniture.client.ModFluidRenderers;
 import com.nosiphus.furniture.client.event.CreativeScreenEventsFabric;
 import com.nosiphus.furniture.client.gui.screens.inventory.*;
+import com.nosiphus.furniture.client.model.inventory.ModItemStackRenderer;
 import com.nosiphus.furniture.client.particle.ModParticleTypes;
 import com.nosiphus.furniture.client.particle.ShowerParticle;
 import com.nosiphus.furniture.client.renderer.blockentity.*;
@@ -11,14 +12,15 @@ import com.nosiphus.furniture.client.renderer.entity.SeatRenderer;
 import com.nosiphus.furniture.network.PacketHandlerFabricClient;
 import com.nosiphus.furniture.world.entity.ModEntityTypes;
 import com.nosiphus.furniture.world.inventory.ModMenuTypes;
+import com.nosiphus.furniture.world.item.CupItem;
 import com.nosiphus.furniture.world.item.ModCreativeModeTabsFabric;
 import com.nosiphus.furniture.world.level.block.ModBlocks;
-import com.nosiphus.furniture.world.level.block.entity.CupBlockEntity;
 import com.nosiphus.furniture.world.level.block.entity.ModBlockEntityTypes;
 import com.nosiphus.furniture.world.level.fluid.ModFluids;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.client.particle.v1.ParticleFactoryRegistry;
+import net.fabricmc.fabric.api.client.rendering.v1.BuiltinItemRendererRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.ColorProviderRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.HudRenderCallback;
@@ -28,8 +30,10 @@ import net.minecraft.client.renderer.BiomeColors;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderers;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.BlockItem;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.level.FoliageColor;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
@@ -83,6 +87,12 @@ public class NosiphusFurnitureModFabricClient implements ClientModInitializer {
                 RenderSystem.disableBlend();
             }
         });
+
+        for (Item item : BuiltInRegistries.ITEM) {
+            if (item instanceof CupItem) {
+                BuiltinItemRendererRegistry.INSTANCE.register(item, ModItemStackRenderer.INSTANCE::renderByItem);
+            }
+        }
 
         List<Block> translucentBlocks = new ArrayList<>();
         List<Block> cutoutMippedBlocks = new ArrayList<>();

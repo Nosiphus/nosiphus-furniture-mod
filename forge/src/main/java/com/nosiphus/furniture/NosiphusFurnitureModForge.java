@@ -11,6 +11,7 @@ import com.nosiphus.furniture.network.PacketHandlerForge;
 import com.nosiphus.furniture.platform.ForgeRegistryHelper;
 import com.nosiphus.furniture.world.entity.ModEntityTypes;
 import com.nosiphus.furniture.world.inventory.ModMenuTypes;
+import com.nosiphus.furniture.world.item.CupItem;
 import com.nosiphus.furniture.world.item.ModCreativeModeTabsForge;
 import com.nosiphus.furniture.world.level.block.ModBlocks;
 import com.nosiphus.furniture.world.level.block.entity.ModBlockEntityTypes;
@@ -22,16 +23,22 @@ import net.minecraft.client.renderer.BiomeColors;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderers;
+import net.minecraft.client.resources.model.BakedModel;
+import net.minecraft.client.resources.model.ModelResourceLocation;
 import net.minecraft.core.Direction;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.BlockItem;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.level.FoliageColor;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.EntityRenderersEvent;
+import net.minecraftforge.client.event.ModelEvent;
 import net.minecraftforge.client.event.RegisterColorHandlersEvent;
 import net.minecraftforge.client.event.RegisterParticleProvidersEvent;
+import net.minecraftforge.client.model.BakedModelWrapper;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.capabilities.ForgeCapabilities;
@@ -52,6 +59,8 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import java.util.Map;
 
 @Mod(NosiphusFurnitureMod.MOD_ID)
 public class NosiphusFurnitureModForge {
@@ -108,6 +117,28 @@ public class NosiphusFurnitureModForge {
                 ItemBlockRenderTypes.setRenderLayer(ModFluids.SUPER_SOAPY_WATER_FLOWING.get(), RenderType.translucent());
                 ItemBlockRenderTypes.setRenderLayer(ModBlocks.SUPER_SOAPY_WATER.get(), RenderType.translucent());
             });
+        }
+
+        @SubscribeEvent
+        public static void onModifyBakingResult(ModelEvent.ModifyBakingResult event) {
+            Map<ResourceLocation, BakedModel> models = event.getModels();
+
+            for (Item item : BuiltInRegistries.ITEM) {
+                if (item instanceof CupItem) {
+                    ResourceLocation itemKey = BuiltInRegistries.ITEM.getKey(item);
+                    ModelResourceLocation modelLoc = new ModelResourceLocation(itemKey, "inventory");
+
+                    BakedModel existingModel = models.get(modelLoc);
+                    if (existingModel != null) {
+                        models.put(modelLoc, new BakedModelWrapper<>(existingModel) {
+                            @Override
+                            public boolean isCustomRenderer() {
+                                return true;
+                            }
+                        });
+                    }
+                }
+            }
         }
 
         @SubscribeEvent
