@@ -47,27 +47,35 @@ public class CupBlockEntityRenderer implements BlockEntityRenderer<CupBlockEntit
         Matrix4f matrix = poseStack.last().pose();
 
         drawQuad(builder, matrix, minX, maxX, maxY, maxY, minZ, maxZ, sprite, r, g, b, a, packedLight, packedOverlay, Direction.UP);
+        drawQuad(builder, matrix, minX, maxX, minY, minY, minZ, maxZ, sprite, r, g, b, a, packedLight, packedOverlay, Direction.DOWN);
 
-        drawQuad(builder, matrix, minX, minX, minY, maxY, minZ, maxZ, sprite, r, g, b, a, packedLight, packedOverlay, Direction.WEST);
-        drawQuad(builder, matrix, maxX, maxX, minY, maxY, minZ, maxZ, sprite, r, g, b, a, packedLight, packedOverlay, Direction.EAST);
         drawQuad(builder, matrix, minX, maxX, minY, maxY, minZ, minZ, sprite, r, g, b, a, packedLight, packedOverlay, Direction.NORTH);
         drawQuad(builder, matrix, minX, maxX, minY, maxY, maxZ, maxZ, sprite, r, g, b, a, packedLight, packedOverlay, Direction.SOUTH);
+        drawQuad(builder, matrix, minX, minX, minY, maxY, minZ, maxZ, sprite, r, g, b, a, packedLight, packedOverlay, Direction.WEST);
+        drawQuad(builder, matrix, maxX, maxX, minY, maxY, minZ, maxZ, sprite, r, g, b, a, packedLight, packedOverlay, Direction.EAST);
     }
 
     private void drawQuad(VertexConsumer builder, Matrix4f matrix, float x1, float x2, float y1, float y2, float z1, float z2,
                           TextureAtlasSprite sprite, float r, float g, float b, float a,
                           int light, int overlay, Direction face) {
 
-        float u1 = sprite.getU(x1 * 16.0F);
-        float u2 = sprite.getU(x2 * 16.0F);
+        float u1, u2, v1, v2;
 
-        float v1, v2;
         if (face == Direction.UP || face == Direction.DOWN) {
+            u1 = sprite.getU(x1 * 16.0F);
+            u2 = sprite.getU(x2 * 16.0F);
             v1 = sprite.getV(z1 * 16.0F);
             v2 = sprite.getV(z2 * 16.0F);
+        } else if (face == Direction.NORTH || face == Direction.SOUTH) {
+            u1 = sprite.getU(x1 * 16.0F);
+            u2 = sprite.getU(x2 * 16.0F);
+            v1 = sprite.getV((1.0F - y2) * 16.0F);
+            v2 = sprite.getV((1.0F - y1) * 16.0F);
         } else {
-            v1 = sprite.getV(y1 * 16.0F);
-            v2 = sprite.getV(y2 * 16.0F);
+            u1 = sprite.getU(z1 * 16.0F);
+            u2 = sprite.getU(z2 * 16.0F);
+            v1 = sprite.getV((1.0F - y2) * 16.0F);
+            v2 = sprite.getV((1.0F - y1) * 16.0F);
         }
 
         switch (face) {
@@ -77,11 +85,17 @@ public class CupBlockEntityRenderer implements BlockEntityRenderer<CupBlockEntit
                 builder.vertex(matrix, x2, y2, z1).color(r, g, b, a).uv(u2, v1).overlayCoords(overlay).uv2(light).normal(0, 1, 0).endVertex();
                 builder.vertex(matrix, x1, y2, z1).color(r, g, b, a).uv(u1, v1).overlayCoords(overlay).uv2(light).normal(0, 1, 0).endVertex();
             }
+            case DOWN -> {
+                builder.vertex(matrix, x1, y1, z1).color(r, g, b, a).uv(u1, v1).overlayCoords(overlay).uv2(light).normal(0, -1, 0).endVertex();
+                builder.vertex(matrix, x2, y1, z1).color(r, g, b, a).uv(u2, v1).overlayCoords(overlay).uv2(light).normal(0, -1, 0).endVertex();
+                builder.vertex(matrix, x2, y1, z2).color(r, g, b, a).uv(u2, v2).overlayCoords(overlay).uv2(light).normal(0, -1, 0).endVertex();
+                builder.vertex(matrix, x1, y1, z2).color(r, g, b, a).uv(u1, v2).overlayCoords(overlay).uv2(light).normal(0, -1, 0).endVertex();
+            }
             case NORTH -> {
-                builder.vertex(matrix, x2, y2, z1).color(r, g, b, a).uv(u2, v1).overlayCoords(overlay).uv2(light).normal(0, 0, -1).endVertex();
-                builder.vertex(matrix, x2, y1, z1).color(r, g, b, a).uv(u2, v2).overlayCoords(overlay).uv2(light).normal(0, 0, -1).endVertex();
-                builder.vertex(matrix, x1, y1, z1).color(r, g, b, a).uv(u1, v2).overlayCoords(overlay).uv2(light).normal(0, 0, -1).endVertex();
-                builder.vertex(matrix, x1, y2, z1).color(r, g, b, a).uv(u1, v1).overlayCoords(overlay).uv2(light).normal(0, 0, -1).endVertex();
+                builder.vertex(matrix, x2, y2, z1).color(r, g, b, a).uv(u1, v1).overlayCoords(overlay).uv2(light).normal(0, 0, -1).endVertex();
+                builder.vertex(matrix, x2, y1, z1).color(r, g, b, a).uv(u1, v2).overlayCoords(overlay).uv2(light).normal(0, 0, -1).endVertex();
+                builder.vertex(matrix, x1, y1, z1).color(r, g, b, a).uv(u2, v2).overlayCoords(overlay).uv2(light).normal(0, 0, -1).endVertex();
+                builder.vertex(matrix, x1, y2, z1).color(r, g, b, a).uv(u2, v1).overlayCoords(overlay).uv2(light).normal(0, 0, -1).endVertex();
             }
             case SOUTH -> {
                 builder.vertex(matrix, x1, y2, z2).color(r, g, b, a).uv(u1, v1).overlayCoords(overlay).uv2(light).normal(0, 0, 1).endVertex();
@@ -96,10 +110,10 @@ public class CupBlockEntityRenderer implements BlockEntityRenderer<CupBlockEntit
                 builder.vertex(matrix, x1, y2, z2).color(r, g, b, a).uv(u2, v1).overlayCoords(overlay).uv2(light).normal(-1, 0, 0).endVertex();
             }
             case EAST -> {
-                builder.vertex(matrix, x2, y2, z2).color(r, g, b, a).uv(u2, v1).overlayCoords(overlay).uv2(light).normal(1, 0, 0).endVertex();
-                builder.vertex(matrix, x2, y1, z2).color(r, g, b, a).uv(u2, v2).overlayCoords(overlay).uv2(light).normal(1, 0, 0).endVertex();
-                builder.vertex(matrix, x2, y1, z1).color(r, g, b, a).uv(u1, v2).overlayCoords(overlay).uv2(light).normal(1, 0, 0).endVertex();
-                builder.vertex(matrix, x2, y2, z1).color(r, g, b, a).uv(u1, v1).overlayCoords(overlay).uv2(light).normal(1, 0, 0).endVertex();
+                builder.vertex(matrix, x2, y2, z2).color(r, g, b, a).uv(u1, v1).overlayCoords(overlay).uv2(light).normal(1, 0, 0).endVertex();
+                builder.vertex(matrix, x2, y1, z2).color(r, g, b, a).uv(u1, v2).overlayCoords(overlay).uv2(light).normal(1, 0, 0).endVertex();
+                builder.vertex(matrix, x2, y1, z1).color(r, g, b, a).uv(u2, v2).overlayCoords(overlay).uv2(light).normal(1, 0, 0).endVertex();
+                builder.vertex(matrix, x2, y2, z1).color(r, g, b, a).uv(u2, v1).overlayCoords(overlay).uv2(light).normal(1, 0, 0).endVertex();
             }
         }
     }
