@@ -11,9 +11,12 @@ import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.MenuType;
+import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.CreativeModeTab;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Block;
 
 import java.util.function.Consumer;
 
@@ -61,5 +64,6 @@ public interface IPlatformHelper {
     interface MenuFactory<T extends AbstractContainerMenu> {
         T create(int windowId, Inventory inventory, FriendlyByteBuf buf);
     }
+    BlockItem createCupItem(Block block, Item.Properties properties);
 
 }

@@ -3,6 +3,7 @@ package com.nosiphus.furniture;
 import com.mrcrayfish.furniture.platform.ForgeFluidHelper;
 import com.mrcrayfish.furniture.world.level.block.entity.FluidHandlerSyncedBlockEntity;
 import com.nosiphus.furniture.client.gui.screens.inventory.*;
+import com.nosiphus.furniture.client.model.inventory.CupItemModelForge;
 import com.nosiphus.furniture.client.particle.ModParticleTypes;
 import com.nosiphus.furniture.client.particle.ShowerParticle;
 import com.nosiphus.furniture.client.renderer.blockentity.*;
@@ -130,12 +131,7 @@ public class NosiphusFurnitureModForge {
 
                     BakedModel existingModel = models.get(modelLoc);
                     if (existingModel != null) {
-                        models.put(modelLoc, new BakedModelWrapper<>(existingModel) {
-                            @Override
-                            public boolean isCustomRenderer() {
-                                return true;
-                            }
-                        });
+                        models.put(modelLoc, new CupItemModelForge(existingModel));
                     }
                 }
             }

@@ -1,6 +1,7 @@
 package com.nosiphus.furniture.platform;
 
 import com.nosiphus.furniture.platform.services.IPlatformHelper;
+import com.nosiphus.furniture.world.item.CupItemForge;
 import net.minecraft.client.gui.screens.inventory.CreativeModeInventoryScreen;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.FriendlyByteBuf;
@@ -8,7 +9,10 @@ import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.MenuProvider;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.MenuType;
+import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.CreativeModeTab;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.level.block.Block;
 import net.minecraftforge.common.extensions.IForgeMenuType;
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.loading.FMLLoader;
@@ -99,5 +103,10 @@ public class ForgePlatformHelper implements IPlatformHelper {
     @Override
     public <T extends AbstractContainerMenu> MenuType<T> createMenuType(MenuFactory<T> factory) {
         return IForgeMenuType.create(factory::create);
+    }
+
+    @Override
+    public BlockItem createCupItem(Block block, Item.Properties properties) {
+        return new CupItemForge(block, properties);
     }
 }

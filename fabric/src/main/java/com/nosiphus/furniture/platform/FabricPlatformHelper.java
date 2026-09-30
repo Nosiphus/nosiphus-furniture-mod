@@ -3,6 +3,7 @@ package com.nosiphus.furniture.platform;
 import com.mrcrayfish.furniture.mixin.AbstractContainerScreenAccessor;
 import com.mrcrayfish.furniture.mixin.CreativeModeInventoryScreenAccessor;
 import com.nosiphus.furniture.platform.services.IPlatformHelper;
+import com.nosiphus.furniture.world.item.CupItem;
 import net.fabricmc.fabric.api.screenhandler.v1.ExtendedScreenHandlerFactory;
 import net.fabricmc.fabric.api.screenhandler.v1.ExtendedScreenHandlerType;
 import net.fabricmc.loader.api.FabricLoader;
@@ -16,7 +17,10 @@ import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.MenuType;
+import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.CreativeModeTab;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.level.block.Block;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.function.Consumer;
@@ -84,5 +88,10 @@ public class FabricPlatformHelper implements IPlatformHelper {
     @Override
     public <T extends AbstractContainerMenu> MenuType<T> createMenuType(MenuFactory<T> factory) {
         return new ExtendedScreenHandlerType<>(factory::create);
+    }
+
+    @Override
+    public BlockItem createCupItem(Block block, Item.Properties properties) {
+        return new CupItem(block, properties);
     }
 }

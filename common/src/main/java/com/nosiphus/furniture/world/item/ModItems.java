@@ -37,11 +37,11 @@ public class ModItems {
     }
 
     private static Supplier<CupItem> registerCupItem(String name, Supplier<? extends Block> blockSupplier) {
-        return register(name, () -> new CupItem(blockSupplier.get(), new Item.Properties()));
+        return register(name, () -> (CupItem) Services.PLATFORM.createCupItem(blockSupplier.get(), new Item.Properties()));
     }
 
     private static Supplier<CupItem> registerOptionalCupItem(String name, Supplier<? extends Block> blockSupplier) {
-        return registerOptional(name, "yogmod", () -> new CupItem(blockSupplier.get(), new Item.Properties()));
+        return registerOptional(name, "yogmod", () -> (CupItem) Services.PLATFORM.createCupItem(blockSupplier.get(), new Item.Properties()));
     }
 
     // Tables
