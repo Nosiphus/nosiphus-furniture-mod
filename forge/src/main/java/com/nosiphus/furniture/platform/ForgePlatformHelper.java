@@ -16,11 +16,9 @@ import net.minecraft.world.level.block.Block;
 import net.minecraftforge.common.extensions.IForgeMenuType;
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.loading.FMLLoader;
-import net.minecraftforge.fml.util.ObfuscationReflectionHelper;
 import net.minecraftforge.network.NetworkHooks;
 
 import java.lang.reflect.Field;
-import java.util.Arrays;
 import java.util.function.Consumer;
 
 public class ForgePlatformHelper implements IPlatformHelper {
