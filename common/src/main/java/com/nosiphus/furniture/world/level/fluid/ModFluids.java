@@ -41,4 +41,17 @@ public class ModFluids {
             () -> ModItems.SUPER_SOAPY_WATER_BUCKET.get(),
             () -> (LiquidBlock) ModBlocks.SUPER_SOAPY_WATER.get()
     );
+
+    //Future Fluids
+    /*
+    CFM Originals:
+    Fruit Crush
+    Veggie Juice
+    Cookies and Cream Milkshake
+    Energy Drink
+    Egg Nog
+
+    Potential New Ideas:
+    TBD
+     */
 }
