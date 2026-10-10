@@ -1042,8 +1042,16 @@ public class ModBlocks {
             () -> new WreathBlock(BlockBehaviour.Properties.copy(Blocks.DARK_OAK_LEAVES).noOcclusion()));
 
     // Fluids
+    public static final Supplier<LiquidBlock> COOKIES_AND_CREAM = register("cookies_and_cream",
+            () -> new LiquidBlock(ModFluids.COOKIES_AND_CREAM.get(), BlockBehaviour.Properties.copy(Blocks.WATER)));
+    public static final Supplier<LiquidBlock> EGG_NOG = register("egg_nog",
+            () -> new LiquidBlock(ModFluids.EGG_NOG.get(), BlockBehaviour.Properties.copy(Blocks.WATER)));
+    public static final Supplier<LiquidBlock> ENERGY_DRINK = register("energy_drink",
+            () -> new LiquidBlock(ModFluids.ENERGY_DRINK.get(), BlockBehaviour.Properties.copy(Blocks.WATER)));
     public static final Supplier<LiquidBlock> FRUIT_CRUSH = register("fruit_crush",
             () -> new LiquidBlock(ModFluids.FRUIT_CRUSH.get(), BlockBehaviour.Properties.copy(Blocks.WATER)));
+    public static final Supplier<LiquidBlock> VEGGIE_JUICE = register("veggie_juice",
+            () -> new LiquidBlock(ModFluids.VEGGIE_JUICE.get(), BlockBehaviour.Properties.copy(Blocks.WATER)));
     public static final Supplier<LiquidBlock> SOAPY_WATER = register("soapy_water",
             () -> new LiquidBlock(ModFluids.SOAPY_WATER.get(), BlockBehaviour.Properties.copy(Blocks.WATER)));
     public static final Supplier<LiquidBlock> SUPER_SOAPY_WATER = register("super_soapy_water",

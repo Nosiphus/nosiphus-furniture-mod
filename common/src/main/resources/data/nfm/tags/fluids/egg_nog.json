@@ -1,0 +1,7 @@
+{
+  "replace": false,
+  "values": [
+    { "id": "nfm:egg_nog", "required": false },
+    { "id": "nfm:egg_nog_flowing", "required": false }
+  ]
+}

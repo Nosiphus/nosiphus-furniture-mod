@@ -44,7 +44,12 @@ import java.util.List;
 
 public class NosiphusFurnitureModFabricClient implements ClientModInitializer {
 
-    private static final ResourceLocation FRUIT_CRUSH_SCREEN = new ResourceLocation(NosiphusFurnitureMod.MOD_ID, "textures/misc/fruit_crush.png");
+    public static final ResourceLocation COOKIES_AND_CREAM_SCREEN = new ResourceLocation(NosiphusFurnitureMod.MOD_ID, "textures/misc/cookies_and_cream.png");
+    public static final ResourceLocation EGG_NOG_SCREEN = new ResourceLocation(NosiphusFurnitureMod.MOD_ID, "textures/misc/egg_nog.png");
+    public static final ResourceLocation ENERGY_DRINK_SCREEN = new ResourceLocation(NosiphusFurnitureMod.MOD_ID, "textures/misc/energy_drink.png");
+    public static final ResourceLocation FRUIT_CRUSH_SCREEN = new ResourceLocation(NosiphusFurnitureMod.MOD_ID, "textures/misc/fruit_crush.png");
+    public static final ResourceLocation VEGGIE_JUICE_SCREEN = new ResourceLocation(NosiphusFurnitureMod.MOD_ID, "textures/misc/veggie_juice.png");
+
     private static final ResourceLocation SOAP_SCREEN = new ResourceLocation(NosiphusFurnitureMod.MOD_ID, "textures/misc/soapy_water.png");
     private static final ResourceLocation SUPER_SOAP_SCREEN = new ResourceLocation(NosiphusFurnitureMod.MOD_ID, "textures/misc/super_soapy_water.png");
 
@@ -71,8 +76,16 @@ public class NosiphusFurnitureModFabricClient implements ClientModInitializer {
             FluidState state = client.player.level().getFluidState(pos);
 
             ResourceLocation overlay = null;
-            if (state.is(ModFluids.FRUIT_CRUSH.get()) || state.is(ModFluids.FRUIT_CRUSH_FLOWING.get())) {
+            if (state.is(ModFluids.COOKIES_AND_CREAM.get()) || state.is(ModFluids.COOKIES_AND_CREAM_FLOWING.get())) {
+                overlay = COOKIES_AND_CREAM_SCREEN;
+            } else if (state.is(ModFluids.EGG_NOG.get()) || state.is(ModFluids.EGG_NOG_FLOWING.get())) {
+                overlay = EGG_NOG_SCREEN;
+            } else if (state.is(ModFluids.ENERGY_DRINK.get()) || state.is(ModFluids.ENERGY_DRINK_FLOWING.get())) {
+                overlay = ENERGY_DRINK_SCREEN;
+            } else if (state.is(ModFluids.FRUIT_CRUSH.get()) || state.is(ModFluids.FRUIT_CRUSH_FLOWING.get())) {
                 overlay = FRUIT_CRUSH_SCREEN;
+            } else if (state.is(ModFluids.VEGGIE_JUICE.get()) || state.is(ModFluids.VEGGIE_JUICE_FLOWING.get())) {
+                overlay = VEGGIE_JUICE_SCREEN;
             } else if (state.is(ModFluids.SOAPY_WATER.get()) || state.is(ModFluids.SOAPY_WATER_FLOWING.get())) {
                 overlay = SOAP_SCREEN;
             } else if (state.is(ModFluids.SUPER_SOAPY_WATER.get()) || state.is(ModFluids.SUPER_SOAPY_WATER_FLOWING.get())) {

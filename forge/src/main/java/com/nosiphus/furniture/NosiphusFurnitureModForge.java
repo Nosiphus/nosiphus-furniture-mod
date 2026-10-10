@@ -109,6 +109,26 @@ public class NosiphusFurnitureModForge {
                 MenuScreens.register(ModMenuTypes.WALL_CABINET.get(), WallCabinetScreen::new);
                 MenuScreens.register(ModMenuTypes.WASHING_MACHINE.get(), WashingMachineScreen::new);
 
+                ItemBlockRenderTypes.setRenderLayer(ModFluids.COOKIES_AND_CREAM.get(), RenderType.translucent());
+                ItemBlockRenderTypes.setRenderLayer(ModFluids.COOKIES_AND_CREAM_FLOWING.get(), RenderType.translucent());
+                ItemBlockRenderTypes.setRenderLayer(ModBlocks.COOKIES_AND_CREAM.get(), RenderType.translucent());
+
+                ItemBlockRenderTypes.setRenderLayer(ModFluids.EGG_NOG.get(), RenderType.translucent());
+                ItemBlockRenderTypes.setRenderLayer(ModFluids.EGG_NOG_FLOWING.get(), RenderType.translucent());
+                ItemBlockRenderTypes.setRenderLayer(ModBlocks.EGG_NOG.get(), RenderType.translucent());
+
+                ItemBlockRenderTypes.setRenderLayer(ModFluids.ENERGY_DRINK.get(), RenderType.translucent());
+                ItemBlockRenderTypes.setRenderLayer(ModFluids.ENERGY_DRINK_FLOWING.get(), RenderType.translucent());
+                ItemBlockRenderTypes.setRenderLayer(ModBlocks.ENERGY_DRINK.get(), RenderType.translucent());
+
+                ItemBlockRenderTypes.setRenderLayer(ModFluids.FRUIT_CRUSH.get(), RenderType.translucent());
+                ItemBlockRenderTypes.setRenderLayer(ModFluids.FRUIT_CRUSH_FLOWING.get(), RenderType.translucent());
+                ItemBlockRenderTypes.setRenderLayer(ModBlocks.FRUIT_CRUSH.get(), RenderType.translucent());
+
+                ItemBlockRenderTypes.setRenderLayer(ModFluids.VEGGIE_JUICE.get(), RenderType.translucent());
+                ItemBlockRenderTypes.setRenderLayer(ModFluids.VEGGIE_JUICE_FLOWING.get(), RenderType.translucent());
+                ItemBlockRenderTypes.setRenderLayer(ModBlocks.VEGGIE_JUICE.get(), RenderType.translucent());
+
                 ItemBlockRenderTypes.setRenderLayer(ModFluids.SOAPY_WATER.get(), RenderType.translucent());
                 ItemBlockRenderTypes.setRenderLayer(ModFluids.SOAPY_WATER_FLOWING.get(), RenderType.translucent());
                 ItemBlockRenderTypes.setRenderLayer(ModBlocks.SOAPY_WATER.get(), RenderType.translucent());

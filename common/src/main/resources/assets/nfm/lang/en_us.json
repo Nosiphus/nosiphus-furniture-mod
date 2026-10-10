@@ -504,8 +504,13 @@
 
 	"block.nfm.electric_fence": "Electric Fence",
 
+	"block.nfm.cookies_and_cream": "Cookies and Cream",
+	"block.nfm.egg_nog": "Egg Nog",
+	"block.nfm.energy_drink": "Energy Drink",
+	"block.nfm.fruit_crush": "Fruit Crush",
 	"block.nfm.soapy_water": "Soapy Water",
 	"block.nfm.super_soapy_water": "Super Soapy Water",
+	"block.nfm.veggie_juice": "Veggie Juice",
 
 	"configgui.nfm.requireOpToSetUrls": "Operator permissions to change GIFs",
 	"configgui.nfm.trustedUrls": "Trusted URLs for GIFs",
@@ -527,11 +532,21 @@
 	"death.attack.electric_fence": "%1$s was zapped to death",
 	"death.attack.electric_fence.player": "%1$s was zapped to death trying to escape %2$s",
 
+	"fluid.nfm.cookies_and_cream": "Cookies and Cream",
+	"fluid.nfm.egg_nog": "Egg Nog",
+	"fluid.nfm.energy_drink": "Energy Drink",
+	"fluid.nfm.fruit_crush": "Fruit Crush",
 	"fluid.nfm.soapy_water": "Soapy Water",
 	"fluid.nfm.super_soapy_water": "Super Soapy Water",
+	"fluid.nfm.veggie_juice": "Veggie Juice",
 
+	"fluid_type.nfm.cookies_and_cream": "Cookies and Cream",
+	"fluid_type.nfm.egg_nog": "Egg Nog",
+	"fluid_type.nfm.energy_drink": "Energy Drink",
+	"fluid_type.nfm.fruit_crush": "Fruit Crush",
 	"fluid_type.nfm.soapy_water": "Soapy Water",
 	"fluid_type.nfm.super_soapy_water": "Super Soapy Water",
+	"fluid_type.nfm.veggie_juice": "Veggie Juice",
 
 	"gui.button.nfm.bin.empty": "Empty",
 
@@ -551,7 +566,11 @@
 	"item.nfm.bread_slice": "Bread Slice",
 	"item.nfm.cooked_kebab": "Cooked Kebab",
 	"item.nfm.cooked_sausage": "Cooked Sausage",
+	"item.nfm.cookies_and_cream_bucket": "Cookies and Cream Bucket",
 	"item.nfm.crowbar": "Crowbar",
+	"item.nfm.egg_nog_bucket": "Egg Nog Bucket",
+	"item.nfm.energy_drink_bucket": "Energy Drink Bucket",
+	"item.nfm.fruit_crush_bucket": "Fruit Crush Bucket",
 	"item.nfm.ink_cartridge": "Ink Cartridge",
 	"item.nfm.knife": "Knife",
 	"item.nfm.kebab": "Raw Kebab",
@@ -561,6 +580,7 @@
 	"item.nfm.super_soapy_water_bucket": "Super Soapy Water Bucket",
 	"item.nfm.television_remote": "Television Remote",
 	"item.nfm.toast": "Toast",
+	"item.nfm.veggie_juice_bucket": "Veggie Bucket",
 
 	"subtitle.nfm.close_bin": "Bin closing",
 	"subtitle.nfm.close_cabinet": "Cabinet closing",

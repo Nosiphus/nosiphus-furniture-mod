@@ -617,8 +617,16 @@ public class ModItems {
             () -> new SwordItem(Tiers.STONE, 1, -2.4F, new Item.Properties()));
     public static final Supplier<Item> SOAP = register("soap",
             () -> new Item(new Item.Properties()));
-    public static final Supplier<BucketItem> FRUIT_CRUSH_BUCKET = register("fruit_crush",
+    public static final Supplier<BucketItem> COOKIES_AND_CREAM_BUCKET = register("cookies_and_cream_bucket",
+            () -> new BucketItem(ModFluids.COOKIES_AND_CREAM.get(), new Item.Properties().stacksTo(1)));
+    public static final Supplier<BucketItem> EGG_NOG_BUCKET = register("egg_nog_bucket",
+            () -> new BucketItem(ModFluids.EGG_NOG.get(), new Item.Properties().stacksTo(1)));
+    public static final Supplier<BucketItem> ENERGY_DRINK_BUCKET = register("energy_drink_bucket",
+            () -> new BucketItem(ModFluids.ENERGY_DRINK.get(), new Item.Properties().stacksTo(1)));
+    public static final Supplier<BucketItem> FRUIT_CRUSH_BUCKET = register("fruit_crush_bucket",
             () -> new BucketItem(ModFluids.FRUIT_CRUSH.get(), new Item.Properties().stacksTo(1)));
+    public static final Supplier<BucketItem> VEGGIE_JUICE_BUCKET = register("veggie_juice_bucket",
+            () -> new BucketItem(ModFluids.VEGGIE_JUICE.get(), new Item.Properties().stacksTo(1)));
     public static final Supplier<BucketItem> SOAPY_WATER_BUCKET = register("soapy_water_bucket",
             () -> new BucketItem(ModFluids.SOAPY_WATER.get(), new Item.Properties().stacksTo(1)));
     public static final Supplier<BucketItem> SUPER_SOAPY_WATER_BUCKET = register("super_soapy_water_bucket",

@@ -12,6 +12,7 @@ import net.minecraft.tags.TagKey;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.material.Fluid;
 import net.minecraft.world.level.material.Fluids;
 
@@ -38,8 +39,16 @@ public class ModFluidTags {
 
     public static final TagKey<Fluid> DRINKS = tag(NosiphusFurnitureMod.MOD_ID, "drinks");
     public static final TagKey<Fluid> SOAPY_FLUIDS = tag(NosiphusFurnitureMod.MOD_ID, "soapy_fluids");
-
     public static final TagKey<Fluid> WATER_BASED_FLUIDS = tag(NosiphusFurnitureMod.MOD_ID, "water_based_fluids");
+
+    public static final TagKey<Fluid> COOKIES_AND_CREAM = tag(NosiphusFurnitureMod.MOD_ID, "cookies_and_cream");
+    public static final TagKey<Fluid> EGG_NOG = tag(NosiphusFurnitureMod.MOD_ID, "egg_nog");
+    public static final TagKey<Fluid> ENERGY_DRINK = tag(NosiphusFurnitureMod.MOD_ID, "energy_drink");
+    public static final TagKey<Fluid> FRUIT_CRUSH = tag(NosiphusFurnitureMod.MOD_ID, "fruit_crush");
+    public static final TagKey<Fluid> VEGGIE_JUICE = tag(NosiphusFurnitureMod.MOD_ID, "veggie_juice");
+
+    public static final TagKey<Fluid> SOAPY_WATER = tag(NosiphusFurnitureMod.MOD_ID, "soapy_water");
+    public static final TagKey<Fluid> SUPER_SOAPY_WATER = tag(NosiphusFurnitureMod.MOD_ID, "super_soapy_water");
 
     private static TagKey<Fluid> tag(String id, String name)
     {
@@ -63,11 +72,17 @@ public class ModFluidTags {
             new TagStyleRule(List.of(C_MILK, FORGE_MILK), 0xF0F0F0),
             new TagStyleRule(List.of(C_HONEY, FORGE_HONEY), 0xFFA812),
             new TagStyleRule(List.of(C_TEA, FORGE_TEA), 0x8D5B2A),
-            new TagStyleRule(List.of(C_JUICE, FORGE_JUICE, DRINKS), 0xFF3366),
+            new TagStyleRule(List.of(C_JUICE, FORGE_JUICE), 0xFF3366),
             new TagStyleRule(List.of(C_POTION), 0xB842FF),
             new TagStyleRule(List.of(C_CRUDE_OIL, C_OIL, FORGE_CRUDE_OIL, FORGE_OIL), 0x383838),
             new TagStyleRule(List.of(C_FUEL, FORGE_FUEL), 0xFFE033),
-            new TagStyleRule(List.of(SOAPY_FLUIDS), 0xA11FA0FF)
+            new TagStyleRule(List.of(COOKIES_AND_CREAM), 0xB59774),
+            new TagStyleRule(List.of(EGG_NOG), 0xB2A47D),
+            new TagStyleRule(List.of(ENERGY_DRINK), 0x421006),
+            new TagStyleRule(List.of(FRUIT_CRUSH), 0xBB2B1B),
+            new TagStyleRule(List.of(VEGGIE_JUICE), 0xB06357),
+            new TagStyleRule(List.of(SOAPY_WATER), 0x1FA0FF),
+            new TagStyleRule(List.of(SUPER_SOAPY_WATER), 0xC5FF1F)
     );
 
     private static final Style DEFAULT_FLUID_STYLE = Style.EMPTY.withColor(TextColor.fromRgb(0x55FFFF));
@@ -119,6 +134,52 @@ public class ModFluidTags {
         if (fluid.is(ModFluidTags.C_HONEY) || fluid.is(ModFluidTags.FORGE_HONEY)) {
             entity.removeEffect(MobEffects.POISON);
             entity.addEffect(new MobEffectInstance(MobEffects.REGENERATION, 4 * 20, 0));
+            return;
+        }
+
+        if (fluid.is(ModFluidTags.COOKIES_AND_CREAM)) {
+            if (entity instanceof Player player) {
+                player.getFoodData().eat(4, 0.3F);
+            }
+            entity.removeAllEffects();
+            entity.addEffect(new MobEffectInstance(MobEffects.REGENERATION, 4 * 20, 0));
+            return;
+        }
+
+        if (fluid.is(ModFluidTags.EGG_NOG)) {
+            if (entity instanceof Player player) {
+                player.getFoodData().eat(10, 0.8F);
+            }
+            entity.setTicksFrozen(0);
+            entity.addEffect(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, 30 * 20, 0));
+            entity.addEffect(new MobEffectInstance(MobEffects.CONFUSION, 6 * 20, 0));
+            return;
+        }
+
+        if (fluid.is(ModFluidTags.ENERGY_DRINK)) {
+            if (entity instanceof Player player) {
+                player.getFoodData().eat(10, 0.4F);
+            }
+            entity.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 30 * 20, 1));
+            entity.addEffect(new MobEffectInstance(MobEffects.DIG_SPEED, 30 * 20, 0));
+            entity.addEffect(new MobEffectInstance(MobEffects.FIRE_RESISTANCE, 15 * 20, 0));
+            return;
+        }
+
+        if (fluid.is(ModFluidTags.FRUIT_CRUSH)) {
+            if (entity instanceof Player player) {
+                player.getFoodData().eat(6, 0.6F);
+            }
+            entity.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 10 * 20, 0));
+            return;
+        }
+
+        if (fluid.is(ModFluidTags.VEGGIE_JUICE)) {
+            if (entity instanceof Player player) {
+                player.getFoodData().eat(18, 1.2F);
+            }
+            entity.addEffect(new MobEffectInstance(MobEffects.HEALTH_BOOST, 45 * 20, 0));
+            entity.addEffect(new MobEffectInstance(MobEffects.NIGHT_VISION, 30 * 20, 0));
             return;
         }
 

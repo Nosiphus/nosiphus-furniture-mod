@@ -1,0 +1,7 @@
+{
+  "replace": false,
+  "values": [
+    { "id": "nfm:cookies_and_cream", "required": false },
+    { "id": "nfm:cookies_and_cream_flowing", "required": false }
+  ]
+}

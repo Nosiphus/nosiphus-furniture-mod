@@ -28,10 +28,37 @@ public class ModFluidTypes {
 
     public static final ResourceLocation WATER_STILL = new ResourceLocation("block/water_still");
     public static final ResourceLocation WATER_FLOW = new ResourceLocation("block/water_flow");
+
+    public static final ResourceLocation COOKIES_AND_CREAM_OVERLAY = new ResourceLocation(NosiphusFurnitureMod.MOD_ID, "block/cookies_and_cream");
+    public static final ResourceLocation COOKIES_AND_CREAM_SCREEN = new ResourceLocation(NosiphusFurnitureMod.MOD_ID, "textures/misc/cookies_and_cream.png");
+    public static final ResourceLocation EGG_NOG_OVERLAY = new ResourceLocation(NosiphusFurnitureMod.MOD_ID, "block/egg_nog");
+    public static final ResourceLocation EGG_NOG_SCREEN = new ResourceLocation(NosiphusFurnitureMod.MOD_ID, "textures/misc/egg_nog.png");
+    public static final ResourceLocation ENERGY_DRINK_OVERLAY = new ResourceLocation(NosiphusFurnitureMod.MOD_ID, "block/energy_drink");
+    public static final ResourceLocation ENERGY_DRINK_SCREEN = new ResourceLocation(NosiphusFurnitureMod.MOD_ID, "textures/misc/energy_drink.png");
+    public static final ResourceLocation FRUIT_CRUSH_OVERLAY = new ResourceLocation(NosiphusFurnitureMod.MOD_ID, "block/fruit_crush");
+    public static final ResourceLocation FRUIT_CRUSH_SCREEN = new ResourceLocation(NosiphusFurnitureMod.MOD_ID, "textures/misc/fruit_crush.png");
+    public static final ResourceLocation VEGGIE_JUICE_OVERLAY = new ResourceLocation(NosiphusFurnitureMod.MOD_ID, "block/veggie_juice");
+    public static final ResourceLocation VEGGIE_JUICE_SCREEN = new ResourceLocation(NosiphusFurnitureMod.MOD_ID, "textures/misc/veggie_juice.png");
+
     public static final ResourceLocation SOAP_OVERLAY = new ResourceLocation(NosiphusFurnitureMod.MOD_ID, "block/soapy_water");
     public static final ResourceLocation SOAP_SCREEN = new ResourceLocation(NosiphusFurnitureMod.MOD_ID, "textures/misc/soapy_water.png");
     public static final ResourceLocation SUPER_SOAP_OVERLAY = new ResourceLocation(NosiphusFurnitureMod.MOD_ID, "block/super_soapy_water");
     public static final ResourceLocation SUPER_SOAP_SCREEN = new ResourceLocation(NosiphusFurnitureMod.MOD_ID, "textures/misc/super_soapy_water.png");
+
+    public static final RegistryObject<FluidType> COOKIES_AND_CREAM_TYPE = register("cookies_and_cream",
+            0xA1B59774, new Vec3(181f / 255f, 151f / 255f, 116f / 255f), COOKIES_AND_CREAM_OVERLAY, COOKIES_AND_CREAM_SCREEN, 7);
+
+    public static final RegistryObject<FluidType> EGG_NOG_TYPE = register("egg_nog",
+            0xA1B2A47D, new Vec3(178f / 255f, 164f / 255f, 125f / 255f), EGG_NOG_OVERLAY, EGG_NOG_SCREEN, 7);
+
+    public static final RegistryObject<FluidType> ENERGY_DRINK_TYPE = register("energy_drink",
+            0xA1421006, new Vec3(66f / 255f, 16f / 255f, 6f / 255f), ENERGY_DRINK_OVERLAY, ENERGY_DRINK_SCREEN, 7);
+
+    public static final RegistryObject<FluidType> FRUIT_CRUSH_TYPE = register("fruit_crush",
+            0xA1BB2B1B, new Vec3(187f / 255f, 43f / 255f, 27f / 255f), FRUIT_CRUSH_OVERLAY, FRUIT_CRUSH_SCREEN, 7);
+
+    public static final RegistryObject<FluidType> VEGGIE_JUICE_TYPE = register("veggie_juice",
+            0xA1B06357, new Vec3(176f / 255f, 99f / 255f, 87f / 255f), VEGGIE_JUICE_OVERLAY, VEGGIE_JUICE_SCREEN, 7);
 
     public static final RegistryObject<FluidType> SOAPY_WATER_TYPE = register("soapy_water",
             0xA11FA0FF, new Vec3(31f / 255f, 160f / 255f, 255f / 255f), SOAP_OVERLAY, SOAP_SCREEN, 7);

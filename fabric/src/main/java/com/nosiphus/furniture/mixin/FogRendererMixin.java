@@ -25,10 +25,26 @@ public abstract class FogRendererMixin {
         BlockPos pos = camera.getBlockPosition();
         FluidState state = level.getFluidState(pos);
 
-        if (state.is(ModFluids.FRUIT_CRUSH.get()) || state.is(ModFluids.FRUIT_CRUSH_FLOWING.get())) {
-            fogRed = 31f / 255;
-            fogGreen = 160f / 255;
-            fogBlue = 255f / 255;
+        if (state.is(ModFluids.COOKIES_AND_CREAM.get()) || state.is(ModFluids.COOKIES_AND_CREAM_FLOWING.get())) {
+            fogRed = 181f / 255f;
+            fogGreen = 151f / 255f;
+            fogBlue = 116f / 255f;
+        } else if (state.is(ModFluids.EGG_NOG.get()) || state.is(ModFluids.EGG_NOG_FLOWING.get())) {
+            fogRed = 178f / 255f;
+            fogGreen = 164f / 255f;
+            fogBlue = 125f / 255f;
+        } else if (state.is(ModFluids.ENERGY_DRINK.get()) || state.is(ModFluids.ENERGY_DRINK_FLOWING.get())) {
+            fogRed = 66f / 255f;
+            fogGreen = 16f / 255f;
+            fogBlue = 6f / 255f;
+        } else if (state.is(ModFluids.FRUIT_CRUSH.get()) || state.is(ModFluids.FRUIT_CRUSH_FLOWING.get())) {
+            fogRed = 187f / 255f;
+            fogGreen = 43f / 255f;
+            fogBlue = 27f / 255f;
+        } else if (state.is(ModFluids.VEGGIE_JUICE.get()) || state.is(ModFluids.VEGGIE_JUICE_FLOWING.get())) {
+            fogRed = 176f / 255f;
+            fogGreen = 99f / 255f;
+            fogBlue = 87f / 255f;
         } else if (state.is(ModFluids.SOAPY_WATER.get()) || state.is(ModFluids.SOAPY_WATER_FLOWING.get())) {
             fogRed = 31f / 255f;
             fogGreen = 160f / 255f;
@@ -44,7 +60,11 @@ public abstract class FogRendererMixin {
     private static void nfm$setupWaterFogDistance(Camera camera, FogRenderer.FogMode mode, float renderDistance, boolean thickFog, float partialTick, CallbackInfo ci) {
         FluidState state = camera.getEntity().level().getFluidState(camera.getBlockPosition());
 
-        if (state.is(ModFluids.FRUIT_CRUSH.get()) || state.is(ModFluids.FRUIT_CRUSH_FLOWING.get()) ||
+        if (state.is(ModFluids.COOKIES_AND_CREAM.get()) || state.is(ModFluids.COOKIES_AND_CREAM_FLOWING.get()) ||
+                state.is(ModFluids.EGG_NOG.get()) || state.is(ModFluids.EGG_NOG_FLOWING.get()) ||
+                state.is(ModFluids.ENERGY_DRINK.get()) || state.is(ModFluids.ENERGY_DRINK_FLOWING.get()) ||
+                state.is(ModFluids.FRUIT_CRUSH.get()) || state.is(ModFluids.FRUIT_CRUSH_FLOWING.get()) ||
+                state.is(ModFluids.VEGGIE_JUICE.get()) || state.is(ModFluids.VEGGIE_JUICE_FLOWING.get()) ||
                 state.is(ModFluids.SOAPY_WATER.get()) || state.is(ModFluids.SOAPY_WATER_FLOWING.get()) ||
                 state.is(ModFluids.SUPER_SOAPY_WATER.get()) || state.is(ModFluids.SUPER_SOAPY_WATER_FLOWING.get())) {
 

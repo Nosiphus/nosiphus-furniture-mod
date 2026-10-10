@@ -88,17 +88,32 @@ public class ForgeRegistryHelper implements IRegistryHelper {
         return SOUND_EVENTS.register(name, soundEventSupplier);
     }
 
+    private Supplier<FluidType> getFluidTypeForName(String name) {
+        if (name.contains("cookies_and_cream")) {
+            return ModFluidTypes.COOKIES_AND_CREAM_TYPE;
+        } else if (name.contains("egg_nog")) {
+            return ModFluidTypes.EGG_NOG_TYPE;
+        } else if (name.contains("energy_drink")) {
+            return ModFluidTypes.ENERGY_DRINK_TYPE;
+        } else if (name.contains("fruit_crush")) {
+            return ModFluidTypes.FRUIT_CRUSH_TYPE;
+        } else if (name.contains("veggie_juice")) {
+            return ModFluidTypes.VEGGIE_JUICE_TYPE;
+        } else if (name.contains("super")) {
+            return ModFluidTypes.SUPER_SOAPY_WATER_TYPE;
+        }
+        return ModFluidTypes.SOAPY_WATER_TYPE;
+    }
+
     @Override
-    @SuppressWarnings("unchecked")
     public <T extends FlowingFluid> Supplier<T> registerSourceFluid(String name, Supplier<? extends Fluid> still, Supplier<? extends Fluid> flowing, Supplier<? extends Item> bucket, Supplier<? extends LiquidBlock> block) {
-        Supplier<FluidType> type = name.contains("super") ? ModFluidTypes.SUPER_SOAPY_WATER_TYPE : ModFluidTypes.SOAPY_WATER_TYPE;
+        Supplier<FluidType> type = getFluidTypeForName(name);
         return (Supplier<T>) (Supplier<?>) FLUIDS.register(name, () -> new BaseFluidForge.Source(still, flowing, bucket, block, type));
     }
 
     @Override
-    @SuppressWarnings("unchecked")
     public <T extends FlowingFluid> Supplier<T> registerFlowingFluid(String name, Supplier<? extends Fluid> still, Supplier<? extends Fluid> flowing, Supplier<? extends Item> bucket, Supplier<? extends LiquidBlock> block) {
-        Supplier<FluidType> type = name.contains("super") ? ModFluidTypes.SUPER_SOAPY_WATER_TYPE : ModFluidTypes.SOAPY_WATER_TYPE;
+        Supplier<FluidType> type = getFluidTypeForName(name);
         return (Supplier<T>) (Supplier<?>) FLUIDS.register(name, () -> new BaseFluidForge.Flowing(still, flowing, bucket, block, type));
     }
 

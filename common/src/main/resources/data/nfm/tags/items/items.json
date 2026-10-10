@@ -6,6 +6,7 @@
 	{ "id": "nfm:toast", "required": false },
 	{ "id": "nfm:knife", "required": false },
 	{ "id": "nfm:soap", "required": false },
+	{ "id": "nfm:fruit_crush_bucket", "required": false },
 	{ "id": "nfm:soapy_water_bucket", "required": false },
 	{ "id": "nfm:super_soapy_water_bucket", "required": false },
 	{ "id": "nfm:sausage", "required": false },

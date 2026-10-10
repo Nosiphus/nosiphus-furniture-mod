@@ -1,9 +1,7 @@
 {
   "replace": false,
   "values": [
-    { "id": "nfm:soapy_water", "required": false },
-    { "id": "nfm:soapy_water_flowing", "required": false },
-    { "id": "nfm:super_soapy_water", "required": false },
-    { "id": "nfm:super_soapy_water_flowing", "required": false }
+    { "id": "#nfm:soapy_water", "required": false },
+    { "id": "#nfm:super_soapy_water", "required": false }
   ]
 }

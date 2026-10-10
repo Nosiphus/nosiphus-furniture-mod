@@ -1,0 +1,7 @@
+{
+  "replace": false,
+  "values": [
+    { "id": "nfm:fruit_crush", "required": false },
+    { "id": "nfm:fruit_crush_flowing", "required": false }
+  ]
+}
