@@ -39,6 +39,8 @@ public class ModFluidTags {
     public static final TagKey<Fluid> DRINKS = tag(NosiphusFurnitureMod.MOD_ID, "drinks");
     public static final TagKey<Fluid> SOAPY_FLUIDS = tag(NosiphusFurnitureMod.MOD_ID, "soapy_fluids");
 
+    public static final TagKey<Fluid> WATER_BASED_FLUIDS = tag(NosiphusFurnitureMod.MOD_ID, "water_based_fluids");
+
     private static TagKey<Fluid> tag(String id, String name)
     {
         return TagKey.create(Registries.FLUID, new ResourceLocation(id, name));

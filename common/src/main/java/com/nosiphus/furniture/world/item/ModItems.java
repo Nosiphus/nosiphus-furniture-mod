@@ -617,6 +617,8 @@ public class ModItems {
             () -> new SwordItem(Tiers.STONE, 1, -2.4F, new Item.Properties()));
     public static final Supplier<Item> SOAP = register("soap",
             () -> new Item(new Item.Properties()));
+    public static final Supplier<BucketItem> FRUIT_CRUSH_BUCKET = register("fruit_crush",
+            () -> new BucketItem(ModFluids.FRUIT_CRUSH.get(), new Item.Properties().stacksTo(1)));
     public static final Supplier<BucketItem> SOAPY_WATER_BUCKET = register("soapy_water_bucket",
             () -> new BucketItem(ModFluids.SOAPY_WATER.get(), new Item.Properties().stacksTo(1)));
     public static final Supplier<BucketItem> SUPER_SOAPY_WATER_BUCKET = register("super_soapy_water_bucket",

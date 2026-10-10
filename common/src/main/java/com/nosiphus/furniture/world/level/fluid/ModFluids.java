@@ -42,10 +42,23 @@ public class ModFluids {
             () -> (LiquidBlock) ModBlocks.SUPER_SOAPY_WATER.get()
     );
 
+    public static final Supplier<FlowingFluid> FRUIT_CRUSH = Services.REGISTRY.registerSourceFluid("fruit_crush",
+            () -> ModFluids.FRUIT_CRUSH.get(),
+            () -> ModFluids.FRUIT_CRUSH_FLOWING.get(),
+            () -> ModItems.FRUIT_CRUSH_BUCKET.get(),
+            () -> (LiquidBlock) ModBlocks.FRUIT_CRUSH.get()
+    );
+
+    public static final Supplier<FlowingFluid> FRUIT_CRUSH_FLOWING = Services.REGISTRY.registerFlowingFluid("fruit_crush_flowing",
+            () -> ModFluids.FRUIT_CRUSH.get(),
+            () -> ModFluids.FRUIT_CRUSH_FLOWING.get(),
+            () -> ModItems.FRUIT_CRUSH_BUCKET.get(),
+            () -> (LiquidBlock) ModBlocks.FRUIT_CRUSH.get()
+    );
+
     //Future Fluids
     /*
     CFM Originals:
-    Fruit Crush
     Veggie Juice
     Cookies and Cream Milkshake
     Energy Drink

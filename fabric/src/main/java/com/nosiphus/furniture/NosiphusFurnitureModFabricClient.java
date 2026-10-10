@@ -44,6 +44,7 @@ import java.util.List;
 
 public class NosiphusFurnitureModFabricClient implements ClientModInitializer {
 
+    private static final ResourceLocation FRUIT_CRUSH_SCREEN = new ResourceLocation(NosiphusFurnitureMod.MOD_ID, "textures/misc/fruit_crush.png");
     private static final ResourceLocation SOAP_SCREEN = new ResourceLocation(NosiphusFurnitureMod.MOD_ID, "textures/misc/soapy_water.png");
     private static final ResourceLocation SUPER_SOAP_SCREEN = new ResourceLocation(NosiphusFurnitureMod.MOD_ID, "textures/misc/super_soapy_water.png");
 
@@ -70,7 +71,9 @@ public class NosiphusFurnitureModFabricClient implements ClientModInitializer {
             FluidState state = client.player.level().getFluidState(pos);
 
             ResourceLocation overlay = null;
-            if (state.is(ModFluids.SOAPY_WATER.get()) || state.is(ModFluids.SOAPY_WATER_FLOWING.get())) {
+            if (state.is(ModFluids.FRUIT_CRUSH.get()) || state.is(ModFluids.FRUIT_CRUSH_FLOWING.get())) {
+                overlay = FRUIT_CRUSH_SCREEN;
+            } else if (state.is(ModFluids.SOAPY_WATER.get()) || state.is(ModFluids.SOAPY_WATER_FLOWING.get())) {
                 overlay = SOAP_SCREEN;
             } else if (state.is(ModFluids.SUPER_SOAPY_WATER.get()) || state.is(ModFluids.SUPER_SOAPY_WATER_FLOWING.get())) {
                 overlay = SUPER_SOAP_SCREEN;

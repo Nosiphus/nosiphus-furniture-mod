@@ -21,11 +21,15 @@ public abstract class FogRendererMixin {
     @Shadow private static float fogBlue;
 
     @Inject(method = "setupColor", at = @At("RETURN"))
-    private static void setupSoapyWaterFogColor(Camera camera, float partialTick, ClientLevel level, int renderDistance, float darkenWorldAmount, CallbackInfo ci) {
+    private static void nfm$setupWaterFogColor(Camera camera, float partialTick, ClientLevel level, int renderDistance, float darkenWorldAmount, CallbackInfo ci) {
         BlockPos pos = camera.getBlockPosition();
         FluidState state = level.getFluidState(pos);
 
-        if (state.is(ModFluids.SOAPY_WATER.get()) || state.is(ModFluids.SOAPY_WATER_FLOWING.get())) {
+        if (state.is(ModFluids.FRUIT_CRUSH.get()) || state.is(ModFluids.FRUIT_CRUSH_FLOWING.get())) {
+            fogRed = 31f / 255;
+            fogGreen = 160f / 255;
+            fogBlue = 255f / 255;
+        } else if (state.is(ModFluids.SOAPY_WATER.get()) || state.is(ModFluids.SOAPY_WATER_FLOWING.get())) {
             fogRed = 31f / 255f;
             fogGreen = 160f / 255f;
             fogBlue = 255f / 255f;
@@ -37,10 +41,11 @@ public abstract class FogRendererMixin {
     }
 
     @Inject(method = "setupFog", at = @At("HEAD"), cancellable = true)
-    private static void setupSoapyWaterFogDistance(Camera camera, FogRenderer.FogMode mode, float renderDistance, boolean thickFog, float partialTick, CallbackInfo ci) {
+    private static void nfm$setupWaterFogDistance(Camera camera, FogRenderer.FogMode mode, float renderDistance, boolean thickFog, float partialTick, CallbackInfo ci) {
         FluidState state = camera.getEntity().level().getFluidState(camera.getBlockPosition());
 
-        if (state.is(ModFluids.SOAPY_WATER.get()) || state.is(ModFluids.SOAPY_WATER_FLOWING.get()) ||
+        if (state.is(ModFluids.FRUIT_CRUSH.get()) || state.is(ModFluids.FRUIT_CRUSH_FLOWING.get()) ||
+                state.is(ModFluids.SOAPY_WATER.get()) || state.is(ModFluids.SOAPY_WATER_FLOWING.get()) ||
                 state.is(ModFluids.SUPER_SOAPY_WATER.get()) || state.is(ModFluids.SUPER_SOAPY_WATER_FLOWING.get())) {
 
             RenderSystem.setShaderFogStart(1.0f);

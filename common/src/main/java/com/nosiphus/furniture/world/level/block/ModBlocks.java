@@ -1042,6 +1042,8 @@ public class ModBlocks {
             () -> new WreathBlock(BlockBehaviour.Properties.copy(Blocks.DARK_OAK_LEAVES).noOcclusion()));
 
     // Fluids
+    public static final Supplier<LiquidBlock> FRUIT_CRUSH = register("fruit_crush",
+            () -> new LiquidBlock(ModFluids.FRUIT_CRUSH.get(), BlockBehaviour.Properties.copy(Blocks.WATER)));
     public static final Supplier<LiquidBlock> SOAPY_WATER = register("soapy_water",
             () -> new LiquidBlock(ModFluids.SOAPY_WATER.get(), BlockBehaviour.Properties.copy(Blocks.WATER)));
     public static final Supplier<LiquidBlock> SUPER_SOAPY_WATER = register("super_soapy_water",
