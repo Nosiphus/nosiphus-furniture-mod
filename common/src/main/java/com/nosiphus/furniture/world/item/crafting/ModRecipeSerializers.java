@@ -8,6 +8,9 @@ import java.util.function.Supplier;
 
 public class ModRecipeSerializers
 {
+    public static final Supplier<RecipeSerializer<BlendingRecipe>> BLENDING =
+            Services.REGISTRY.registerRecipeSerializer("blending", BlendingRecipe.Serializer::new);
+
     public static final Supplier<RecipeSerializer<ChoppingRecipe>> CHOPPING =
             Services.REGISTRY.registerRecipeSerializer("chopping", ChoppingRecipe.Serializer::new);
 

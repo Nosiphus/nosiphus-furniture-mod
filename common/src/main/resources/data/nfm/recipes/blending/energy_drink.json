@@ -1,0 +1,27 @@
+{
+  "type": "nfm:blending",
+  "ingredients": [
+    {
+      "ingredient": {
+        "item": "minecraft:sugar"
+      },
+      "count": 16
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:redstone"
+      },
+      "count": 8
+    },
+	{
+      "ingredient": {
+        "item": "minecraft:fire_charge"
+      },
+      "count": 1
+    }
+  ],
+  "result": {
+    "fluid": "nfm:energy_drink",
+    "amount": 4000
+  }
+}
