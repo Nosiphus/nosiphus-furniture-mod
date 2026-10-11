@@ -23,7 +23,7 @@ dependencies {
     modLocalRuntime "lol.bai:badpackets:fabric-${badpackets_version}"
     modImplementation("net.mehvahdjukaar:everycomp-fabric:${everycomp_version}:fabric") { transitive = false }
     modImplementation("net.mehvahdjukaar:moonlight-fabric:${moonlight_version}:fabric") { transitive = false }
-    modImplementation "curse.maven:yogmod-372408:8812348"
+    modImplementation "curse.maven:yogmod-372408:8865559"
 
     modLocalRuntime "curse.maven:modmenu-308702:5162837"
     modLocalRuntime "curse.maven:text-placeholder-api-1037459:6131409"

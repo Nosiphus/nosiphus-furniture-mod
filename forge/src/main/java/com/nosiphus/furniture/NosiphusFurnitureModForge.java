@@ -96,9 +96,11 @@ public class NosiphusFurnitureModForge {
 
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event) {
-            registerBlockEntityRenderers();
-
             event.enqueueWork(() -> {
+                NosiphusFurnitureModClient.initClient();
+
+                registerBlockEntityRenderers();
+
                 MenuScreens.register(ModMenuTypes.BIN.get(), BinScreen::new);
                 MenuScreens.register(ModMenuTypes.CATHODE_RAY_TUBE_TELEVISION.get(), CathodeRayTubeTelevisionScreen::new);
                 MenuScreens.register(ModMenuTypes.DISHWASHER.get(), DishwasherScreen::new);
