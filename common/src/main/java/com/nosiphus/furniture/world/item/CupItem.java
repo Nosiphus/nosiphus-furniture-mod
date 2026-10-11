@@ -1,6 +1,7 @@
 package com.nosiphus.furniture.world.item;
 
 import com.nosiphus.furniture.tags.ModFluidTags;
+import com.nosiphus.furniture.world.level.block.entity.ModBlockEntityTypes;
 import net.minecraft.ChatFormatting;
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.core.component.DataComponents;
@@ -128,81 +129,61 @@ public class CupItem extends BlockItem {
     }
 
     public static boolean hasFluid(ItemStack stack) {
-        CustomData customData = stack.get(DataComponents.CUSTOM_DATA);
+        CustomData customData = stack.get(DataComponents.BLOCK_ENTITY_DATA);
         if (customData == null) return false;
         CompoundTag tag = customData.copyTag();
-        return tag.contains("BlockEntityTag", CompoundTag.TAG_COMPOUND)
-                && tag.getCompound("BlockEntityTag").getInt("Amount") > 0;
+        return tag.getInt("Amount") > 0;
     }
 
     public static Fluid getFluid(ItemStack stack) {
-        CustomData customData = stack.get(DataComponents.CUSTOM_DATA);
+        CustomData customData = stack.get(DataComponents.BLOCK_ENTITY_DATA);
         if (customData != null) {
             CompoundTag tag = customData.copyTag();
-            if (tag.contains("BlockEntityTag", CompoundTag.TAG_COMPOUND)) {
-                CompoundTag beTag = tag.getCompound("BlockEntityTag");
-                if (beTag.contains("FluidName", CompoundTag.TAG_STRING)) {
-                    return BuiltInRegistries.FLUID.get(ResourceLocation.parse(beTag.getString("FluidName")));
-                }
+            if (tag.contains("FluidName", CompoundTag.TAG_STRING)) {
+                return BuiltInRegistries.FLUID.get(ResourceLocation.parse(tag.getString("FluidName")));
             }
         }
         return Fluids.EMPTY;
     }
 
     public static int getFluidAmount(ItemStack stack) {
-        CustomData customData = stack.get(DataComponents.CUSTOM_DATA);
+        CustomData customData = stack.get(DataComponents.BLOCK_ENTITY_DATA);
         if (customData != null) {
-            CompoundTag tag = customData.copyTag();
-            if (tag.contains("BlockEntityTag", CompoundTag.TAG_COMPOUND)) {
-                return tag.getCompound("BlockEntityTag").getInt("Amount");
-            }
+            return customData.copyTag().getInt("Amount");
         }
         return 0;
     }
 
     public static void setFluid(ItemStack stack, Fluid fluid, int amount) {
         if (fluid == Fluids.EMPTY || amount <= 0) {
-            stack.update(DataComponents.CUSTOM_DATA, CustomData.EMPTY, customData -> {
-                CompoundTag tag = customData.copyTag();
-                if (tag.contains("BlockEntityTag")) {
-                    CompoundTag beTag = tag.getCompound("BlockEntityTag");
-                    beTag.remove("FluidName");
-                    beTag.remove("FluidAmount");
-                    if (beTag.isEmpty()) {
-                        tag.remove("BlockEntityTag");
-                    }
-                }
-                return CustomData.of(tag);
-            });
+            stack.remove(DataComponents.BLOCK_ENTITY_DATA);
         } else {
-            stack.update(DataComponents.CUSTOM_DATA, CustomData.EMPTY, customData -> {
+            stack.update(DataComponents.BLOCK_ENTITY_DATA, CustomData.EMPTY, customData -> {
                 CompoundTag tag = customData.copyTag();
-                CompoundTag beTag = tag.contains("BlockEntityTag", CompoundTag.TAG_COMPOUND)
-                        ? tag.getCompound("BlockEntityTag")
-                        : new CompoundTag();
-                beTag.putString("FluidName", BuiltInRegistries.FLUID.getKey(fluid).toString());
-                beTag.putInt("Amount", amount);
-                tag.put("BlockEntityTag", beTag);
+                tag.putString("id", BuiltInRegistries.BLOCK_ENTITY_TYPE.getKey(ModBlockEntityTypes.CUP.get()).toString());
+                tag.putString("FluidName", BuiltInRegistries.FLUID.getKey(fluid).toString());
+                tag.putInt("Amount", amount);
                 return CustomData.of(tag);
             });
         }
     }
 
     public static ItemStack drainCupItem(ItemStack stack, int amount) {
-        stack.update(DataComponents.CUSTOM_DATA, CustomData.EMPTY, customData -> {
+        stack.update(DataComponents.BLOCK_ENTITY_DATA, CustomData.EMPTY, customData -> {
             CompoundTag tag = customData.copyTag();
-            if (tag.contains("BlockEntityTag", CompoundTag.TAG_COMPOUND)) {
-                CompoundTag beTag = tag.getCompound("BlockEntityTag");
-                int current = beTag.getInt("Amount");
-                int next = Math.max(0, current - amount);
-                if (next <= 0) {
-                    tag.remove("BlockEntityTag");
-                } else {
-                    beTag.putInt("Amount", next);
-                }
+            int current = tag.getInt("Amount");
+            int next = Math.max(0, current - amount);
+            if (next <= 0) {
+                tag.remove("FluidName");
+                tag.remove("Amount");
+            } else {
+                tag.putInt("Amount", next);
             }
             return CustomData.of(tag);
         });
+        if (!hasFluid(stack)) {
+            stack.remove(DataComponents.BLOCK_ENTITY_DATA);
+        }
         return stack;
     }
 

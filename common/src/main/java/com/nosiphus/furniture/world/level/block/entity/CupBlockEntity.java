@@ -3,8 +3,11 @@ package com.nosiphus.furniture.world.level.block.entity;
 import com.mrcrayfish.furniture.world.level.block.entity.FluidHandlerSyncedBlockEntity;
 import com.nosiphus.furniture.tags.ModFluidTags;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.HolderLookup;
 import net.minecraft.core.component.DataComponents;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.entity.player.Player;
@@ -27,11 +30,28 @@ public class CupBlockEntity extends FluidHandlerSyncedBlockEntity {
         ItemStack stack = new ItemStack(this.getBlockState().getBlock().asItem());
         if (this.fluid != Fluids.EMPTY && this.fluidAmount > 0 && this.level != null) {
             CompoundTag beTag = this.saveCustomOnly(this.level.registryAccess());
-            CompoundTag root = new CompoundTag();
-            root.put("BlockEntityTag", beTag);
-            stack.set(DataComponents.CUSTOM_DATA, CustomData.of(root));
+            beTag.putString("id", BuiltInRegistries.BLOCK_ENTITY_TYPE.getKey(this.getType()).toString());
+            stack.set(DataComponents.BLOCK_ENTITY_DATA, CustomData.of(beTag));
         }
         return stack;
+    }
+
+    @Override
+    protected void loadAdditional(CompoundTag tag, HolderLookup.Provider registries) {
+        super.loadAdditional(tag, registries);
+        if (tag.contains("FluidName", CompoundTag.TAG_STRING)) {
+            this.fluid = BuiltInRegistries.FLUID.get(ResourceLocation.parse(tag.getString("FluidName")));
+            this.fluidAmount = tag.getInt("Amount");
+        }
+    }
+
+    @Override
+    public void saveAdditional(CompoundTag tag, HolderLookup.Provider registries) {
+        super.saveAdditional(tag, registries);
+        if (this.fluid != Fluids.EMPTY && this.fluidAmount > 0) {
+            tag.putString("FluidName", BuiltInRegistries.FLUID.getKey(this.fluid).toString());
+            tag.putInt("Amount", this.fluidAmount);
+        }
     }
 
     public void drinkDirectly(Player player) {

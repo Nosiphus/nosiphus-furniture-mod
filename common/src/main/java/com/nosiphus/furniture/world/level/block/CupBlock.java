@@ -7,6 +7,7 @@ import com.mrcrayfish.furniture.world.phys.shapes.VoxelShapeHelper;
 import com.nosiphus.furniture.world.level.block.entity.CupBlockEntity;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.component.DataComponents;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
@@ -163,9 +164,8 @@ public class CupBlock extends FurnitureBlock implements EntityBlock {
                 ItemStack dropStack = new ItemStack(this);
                 if (cup.getFluid() != Fluids.EMPTY && cup.getFluidAmount() > 0) {
                     CompoundTag beTag = cup.saveCustomOnly(level.registryAccess());
-                    CompoundTag root = new CompoundTag();
-                    root.put("BlockEntityTag", beTag);
-                    dropStack.set(DataComponents.CUSTOM_DATA, CustomData.of(root));
+                    beTag.putString("id", BuiltInRegistries.BLOCK_ENTITY_TYPE.getKey(cup.getType()).toString());
+                    dropStack.set(DataComponents.BLOCK_ENTITY_DATA, CustomData.of(beTag));
                 }
 
                 if (!player.getInventory().add(dropStack)) {
