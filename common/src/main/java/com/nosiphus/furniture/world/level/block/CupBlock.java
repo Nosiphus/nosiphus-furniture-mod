@@ -4,6 +4,7 @@ import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
 import com.mrcrayfish.furniture.world.level.block.FurnitureBlock;
 import com.mrcrayfish.furniture.world.phys.shapes.VoxelShapeHelper;
+import com.nosiphus.furniture.world.item.CupItem;
 import com.nosiphus.furniture.world.level.block.entity.CupBlockEntity;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
@@ -25,6 +26,8 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.Fluid;
 import net.minecraft.world.level.material.Fluids;
+import net.minecraft.world.level.storage.loot.LootParams;
+import net.minecraft.world.level.storage.loot.parameters.LootContextParams;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
@@ -166,6 +169,24 @@ public class CupBlock extends FurnitureBlock implements EntityBlock {
         }
 
         return InteractionResult.PASS;
+    }
+
+    @Override
+    public List<ItemStack> getDrops(BlockState state, LootParams.Builder params) {
+        List<ItemStack> drops = super.getDrops(state, params);
+        BlockEntity blockEntity = params.getOptionalParameter(LootContextParams.BLOCK_ENTITY);
+
+        if (blockEntity instanceof CupBlockEntity cup && cup.getFluid() != Fluids.EMPTY && cup.getFluidAmount() > 0) {
+            CompoundTag beTag = new CompoundTag();
+            cup.saveAdditional(beTag);
+
+            for (ItemStack stack : drops) {
+                if (stack.getItem() instanceof CupItem) {
+                    stack.getOrCreateTag().put("BlockEntityTag", beTag);
+                }
+            }
+        }
+        return drops;
     }
 
     @Nullable
