@@ -434,6 +434,7 @@ public class ModItems {
     public static final Supplier<BlockItem> CHERRY_CHOPPING_BOARD = registerBlockItem("cherry_chopping_board", ModBlocks.CHERRY_CHOPPING_BOARD);
     public static final Supplier<BlockItem> CRIMSON_CHOPPING_BOARD = registerBlockItem("crimson_chopping_board", ModBlocks.CRIMSON_CHOPPING_BOARD);
     public static final Supplier<BlockItem> WARPED_CHOPPING_BOARD = registerBlockItem("warped_chopping_board", ModBlocks.WARPED_CHOPPING_BOARD);
+    public static final Supplier<BlockItem> BAMBOO_CHOPPING_BOARD = registerBlockItem("bamboo_chopping_board", ModBlocks.BAMBOO_CHOPPING_BOARD);
 
     // Door Bells
     public static final Supplier<BlockItem> OAK_DOOR_BELL = registerBlockItem("oak_door_bell", ModBlocks.OAK_DOOR_BELL);
@@ -446,6 +447,7 @@ public class ModItems {
     public static final Supplier<BlockItem> CHERRY_DOOR_BELL = registerBlockItem("cherry_door_bell", ModBlocks.CHERRY_DOOR_BELL);
     public static final Supplier<BlockItem> CRIMSON_DOOR_BELL = registerBlockItem("crimson_door_bell", ModBlocks.CRIMSON_DOOR_BELL);
     public static final Supplier<BlockItem> WARPED_DOOR_BELL = registerBlockItem("warped_door_bell", ModBlocks.WARPED_DOOR_BELL);
+    public static final Supplier<BlockItem> BAMBOO_DOOR_BELL = registerBlockItem("bamboo_door_bell", ModBlocks.BAMBOO_DOOR_BELL);
     public static final Supplier<BlockItem> STRIPPED_OAK_DOOR_BELL = registerBlockItem("stripped_oak_door_bell", ModBlocks.STRIPPED_OAK_DOOR_BELL);
     public static final Supplier<BlockItem> STRIPPED_SPRUCE_DOOR_BELL = registerBlockItem("stripped_spruce_door_bell", ModBlocks.STRIPPED_SPRUCE_DOOR_BELL);
     public static final Supplier<BlockItem> STRIPPED_BIRCH_DOOR_BELL = registerBlockItem("stripped_birch_door_bell", ModBlocks.STRIPPED_BIRCH_DOOR_BELL);
@@ -456,6 +458,7 @@ public class ModItems {
     public static final Supplier<BlockItem> STRIPPED_CHERRY_DOOR_BELL = registerBlockItem("stripped_cherry_door_bell", ModBlocks.STRIPPED_CHERRY_DOOR_BELL);
     public static final Supplier<BlockItem> STRIPPED_CRIMSON_DOOR_BELL = registerBlockItem("stripped_crimson_door_bell", ModBlocks.STRIPPED_CRIMSON_DOOR_BELL);
     public static final Supplier<BlockItem> STRIPPED_WARPED_DOOR_BELL = registerBlockItem("stripped_warped_door_bell", ModBlocks.STRIPPED_WARPED_DOOR_BELL);
+    public static final Supplier<BlockItem> STRIPPED_BAMBOO_DOOR_BELL = registerBlockItem("stripped_bamboo_door_bell", ModBlocks.STRIPPED_BAMBOO_DOOR_BELL);
 
     // Inflatable Castles
     public static final Supplier<BlockItem> WHITE_INFLATABLE_CASTLE = registerBlockItem("white_inflatable_castle", ModBlocks.WHITE_INFLATABLE_CASTLE);
@@ -525,6 +528,7 @@ public class ModItems {
     public static final Supplier<BlockItem> CHERRY_WATER_TANK = registerBlockItem("cherry_water_tank", ModBlocks.CHERRY_WATER_TANK);
     public static final Supplier<BlockItem> CRIMSON_WATER_TANK = registerBlockItem("crimson_water_tank", ModBlocks.CRIMSON_WATER_TANK);
     public static final Supplier<BlockItem> WARPED_WATER_TANK = registerBlockItem("warped_water_tank", ModBlocks.WARPED_WATER_TANK);
+    public static final Supplier<BlockItem> BAMBOO_WATER_TANK = registerBlockItem("bamboo_water_tank", ModBlocks.BAMBOO_WATER_TANK);
 
     // Appliances and Electronics
     public static final Supplier<BlockItem> ELECTRIC_FENCE = registerBlockItem("electric_fence", ModBlocks.ELECTRIC_FENCE);

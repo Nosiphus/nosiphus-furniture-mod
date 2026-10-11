@@ -752,6 +752,8 @@ public class ModBlocks {
             () -> new ChoppingBoardBlock(BlockBehaviour.Properties.copy(Blocks.MANGROVE_PLANKS)));
     public static final Supplier<Block> CHERRY_CHOPPING_BOARD = register("cherry_chopping_board",
             () -> new ChoppingBoardBlock(BlockBehaviour.Properties.copy(Blocks.CHERRY_PLANKS)));
+    public static final Supplier<Block> BAMBOO_CHOPPING_BOARD = register("bamboo_chopping_board",
+            () -> new ChoppingBoardBlock(BlockBehaviour.Properties.copy(Blocks.BAMBOO_PLANKS)));
     public static final Supplier<Block> CRIMSON_CHOPPING_BOARD = register("crimson_chopping_board",
             () -> new ChoppingBoardBlock(BlockBehaviour.Properties.copy(Blocks.CRIMSON_PLANKS)));
     public static final Supplier<Block> WARPED_CHOPPING_BOARD = register("warped_chopping_board",
@@ -778,6 +780,8 @@ public class ModBlocks {
             () -> new DoorBellBlock(BlockBehaviour.Properties.copy(Blocks.CRIMSON_PLANKS).noOcclusion()));
     public static final Supplier<Block> WARPED_DOOR_BELL = register("warped_door_bell",
             () -> new DoorBellBlock(BlockBehaviour.Properties.copy(Blocks.WARPED_PLANKS).noOcclusion()));
+    public static final Supplier<Block> BAMBOO_DOOR_BELL = register("bamboo_door_bell",
+            () -> new DoorBellBlock(BlockBehaviour.Properties.copy(Blocks.BAMBOO_PLANKS).noOcclusion()));
     public static final Supplier<Block> STRIPPED_OAK_DOOR_BELL = register("stripped_oak_door_bell",
             () -> new DoorBellBlock(BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS).noOcclusion()));
     public static final Supplier<Block> STRIPPED_SPRUCE_DOOR_BELL = register("stripped_spruce_door_bell",
@@ -798,6 +802,8 @@ public class ModBlocks {
             () -> new DoorBellBlock(BlockBehaviour.Properties.copy(Blocks.CRIMSON_PLANKS).noOcclusion()));
     public static final Supplier<Block> STRIPPED_WARPED_DOOR_BELL = register("stripped_warped_door_bell",
             () -> new DoorBellBlock(BlockBehaviour.Properties.copy(Blocks.WARPED_PLANKS).noOcclusion()));
+    public static final Supplier<Block> STRIPPED_BAMBOO_DOOR_BELL = register("stripped_bamboo_door_bell",
+            () -> new DoorBellBlock(BlockBehaviour.Properties.copy(Blocks.BAMBOO_PLANKS).noOcclusion()));
 
     // Inflatable Castles
     public static final Supplier<Block> WHITE_INFLATABLE_CASTLE = register("white_inflatable_castle",
@@ -925,6 +931,8 @@ public class ModBlocks {
     public static final Supplier<Block> CRIMSON_WATER_TANK = register("crimson_water_tank",
             () -> new WaterTankBlock(BlockBehaviour.Properties.copy(Blocks.CAULDRON).noOcclusion()));
     public static final Supplier<Block> WARPED_WATER_TANK = register("warped_water_tank",
+            () -> new WaterTankBlock(BlockBehaviour.Properties.copy(Blocks.CAULDRON).noOcclusion()));
+    public static final Supplier<Block> BAMBOO_WATER_TANK = register("bamboo_water_tank",
             () -> new WaterTankBlock(BlockBehaviour.Properties.copy(Blocks.CAULDRON).noOcclusion()));
 
     // Appliances and Electronics

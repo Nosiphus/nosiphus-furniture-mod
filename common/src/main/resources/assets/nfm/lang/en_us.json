@@ -359,6 +359,7 @@
 	"block.nfm.warped_chopping_board": "Warped Chopping Board",
 	"block.nfm.mangrove_chopping_board": "Mangrove Chopping Board",
 	"block.nfm.cherry_chopping_board": "Cherry Chopping Board",
+	"block.nfm.bamboo_chopping_board": "Bamboo Chopping Board",
 
 	"block.nfm.oak_door_bell": "Oak Door Bell",
 	"block.nfm.spruce_door_bell": "Spruce Door Bell",
@@ -370,6 +371,7 @@
 	"block.nfm.warped_door_bell": "Warped Door Bell",
 	"block.nfm.mangrove_door_bell": "Mangrove Door Bell",
 	"block.nfm.cherry_door_bell": "Cherry Door Bell",
+	"block.nfm.bamboo_door_bell": "Bamboo Door Bell",
 	"block.nfm.stripped_oak_door_bell": "Stripped Oak Door Bell",
 	"block.nfm.stripped_spruce_door_bell": "Stripped Spruce Door Bell",
 	"block.nfm.stripped_birch_door_bell": "Stripped Birch Door Bell",
@@ -380,6 +382,7 @@
 	"block.nfm.stripped_warped_door_bell": "Stripped Warped Door Bell",
 	"block.nfm.stripped_mangrove_door_bell": "Stripped Mangrove Door Bell",
 	"block.nfm.stripped_cherry_door_bell": "Stripped Cherry Door Bell",
+	"block.nfm.stripped_bamboo_door_bell": "Stripped Bamboo Door Bell",
 
 	"block.nfm.beige_inflatable_castle": "Beige Inflatable Castle",
 	"block.nfm.white_inflatable_castle": "White Inflatable Castle",
@@ -430,6 +433,7 @@
 	"block.nfm.warped_water_tank": "Warped Water Tank",
 	"block.nfm.mangrove_water_tank": "Mangrove Water Tank",
 	"block.nfm.cherry_water_tank": "Cherry Water Tank",
+	"block.nfm.bamboo_water_tank": "Bamboo Water Tank",
 	
 	"block.nfm.stone_bird_bath": "Stone Bird Bath",
 	"block.nfm.andesite_bird_bath": "Andesite Bird Bath",

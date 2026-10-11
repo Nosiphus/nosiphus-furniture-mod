@@ -59,7 +59,8 @@ public class ModBlockEntityTypes {
                     ModBlocks.BIRCH_CHOPPING_BOARD.get(), ModBlocks.JUNGLE_CHOPPING_BOARD.get(),
                     ModBlocks.ACACIA_CHOPPING_BOARD.get(), ModBlocks.DARK_OAK_CHOPPING_BOARD.get(),
                     ModBlocks.MANGROVE_CHOPPING_BOARD.get(), ModBlocks.CHERRY_CHOPPING_BOARD.get(),
-                    ModBlocks.CRIMSON_CHOPPING_BOARD.get(), ModBlocks.WARPED_CHOPPING_BOARD.get()
+                    ModBlocks.CRIMSON_CHOPPING_BOARD.get(), ModBlocks.WARPED_CHOPPING_BOARD.get(),
+                    ModBlocks.BAMBOO_CHOPPING_BOARD.get()
             ).build(null));
 
     public static final Supplier<BlockEntityType<CookieJarBlockEntity>> COOKIE_JAR =
@@ -261,7 +262,8 @@ public class ModBlockEntityTypes {
                     ModBlocks.BIRCH_WATER_TANK.get(), ModBlocks.JUNGLE_WATER_TANK.get(),
                     ModBlocks.ACACIA_WATER_TANK.get(), ModBlocks.DARK_OAK_WATER_TANK.get(),
                     ModBlocks.MANGROVE_WATER_TANK.get(), ModBlocks.CHERRY_WATER_TANK.get(),
-                    ModBlocks.CRIMSON_WATER_TANK.get(), ModBlocks.WARPED_WATER_TANK.get()
+                    ModBlocks.CRIMSON_WATER_TANK.get(), ModBlocks.WARPED_WATER_TANK.get(),
+                    ModBlocks.BAMBOO_WATER_TANK.get()
             ).build(null));
 
 }
