@@ -14,6 +14,7 @@ import net.minecraft.core.Direction;
 import net.minecraft.world.item.ItemDisplayContext;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.material.Fluid;
+import net.minecraft.world.level.material.Fluids;
 
 public class BlenderBlockEntityRenderer extends FluidHandlerSyncedBlockEntityRenderer<BlenderBlockEntity> {
 
@@ -31,23 +32,38 @@ public class BlenderBlockEntityRenderer extends FluidHandlerSyncedBlockEntityRen
         poseStack.mulPose(Axis.YP.rotationDegrees(-direction.toYRot()));
         poseStack.translate(-0.5D, -0.5D, -0.5D);
 
-        Fluid fluidToRender = blender.getFluid();
+        BlenderBlockEntity fluidTarget = blender;
         float fillRatio = (float) blender.getFluidAmount() / (float) blender.getCapacity();
 
         if (blender.isBlending() && blender.getLevel() != null) {
             var recipeOpt = blender.getLevel().getRecipeManager().getRecipeFor(ModRecipeTypes.BLENDING.get(), blender, blender.getLevel());
             if (recipeOpt.isPresent()) {
                 BlendingRecipe recipe = recipeOpt.get();
-                fluidToRender = recipe.getResultFluid();
+                Fluid targetFluid = recipe.getResultFluid();
+                int animatedAmount = Math.max(1, (int) (recipe.getFluidAmount() * progress));
+
+                fluidTarget = new BlenderBlockEntity(blender.getBlockPos(), blender.getBlockState()) {
+                    @Override
+                    public Fluid getFluid() {
+                        return targetFluid;
+                    }
+
+                    @Override
+                    public int getFluidAmount() {
+                        return animatedAmount;
+                    }
+                };
+                fluidTarget.setLevel(blender.getLevel());
+
                 fillRatio = ((float) recipe.getFluidAmount() / (float) blender.getCapacity()) * progress;
             }
         }
 
-        if (fillRatio > 0.0F) {
+        if (fluidTarget.getFluid() != Fluids.EMPTY && fillRatio > 0.0F) {
             float minY = 5.1F / 16.0F;
             float maxY = minY + ((8.7F * fillRatio) / 16.0F);
 
-            this.renderFluidBox(blender, poseStack, buffer,
+            this.renderFluidBox(fluidTarget, poseStack, buffer,
                     5.01F / 16.0F, minY, 5.01F / 16.0F,
                     10.99F / 16.0F, maxY, 10.99F / 16.0F,
                     light, overlay);
