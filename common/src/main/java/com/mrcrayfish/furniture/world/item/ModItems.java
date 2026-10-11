@@ -6,6 +6,7 @@ import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.SwordItem;
 import net.minecraft.world.item.Tiers;
+import net.minecraft.world.level.block.Block;
 
 import java.util.function.Supplier;
 
@@ -18,1089 +19,621 @@ public class ModItems
 
     }
 
-    private static <T extends Item> Supplier<T> register(String name, Supplier<T> supplier)
-    {
+    private static <T extends Item> Supplier<T> register(String name, Supplier<T> supplier) {
         return addToTab(Services.REGISTRY.registerItem(name, supplier));
     }
 
-    private static <T extends Item> Supplier<T> registerOptional(String name, String requiredModId, Supplier<T> supplier)
-    {
-        if (Services.PLATFORM.isModLoaded(requiredModId))
-        {
+    private static <T extends Item> Supplier<T> registerOptional(String name, String requiredModId, Supplier<T> supplier) {
+        if (Services.PLATFORM.isModLoaded(requiredModId)) {
             return register(name, supplier);
         }
         return () -> null;
     }
 
+    private static Supplier<BlockItem> registerBlockItem(String name, Supplier<? extends Block> blockSupplier) {
+        return register(name, () -> new BlockItem(blockSupplier.get(), new Item.Properties()));
+    }
+
+    private static Supplier<BlockItem> registerOptionalBlockItem(String name, Supplier<? extends Block> blockSupplier) {
+        return registerOptional(name, "yogmod", () -> new BlockItem(blockSupplier.get(), new Item.Properties()));
+    }
+
     // Tables
-    public static final Supplier<Item> OAK_TABLE = register("oak_table",
-            () -> new BlockItem(ModBlocks.OAK_TABLE.get(), new Item.Properties()));
-    public static final Supplier<Item> SPRUCE_TABLE = register("spruce_table",
-            () -> new BlockItem(ModBlocks.SPRUCE_TABLE.get(), new Item.Properties()));
-    public static final Supplier<Item> BIRCH_TABLE = register("birch_table",
-            () -> new BlockItem(ModBlocks.BIRCH_TABLE.get(), new Item.Properties()));
-    public static final Supplier<Item> JUNGLE_TABLE = register("jungle_table",
-            () -> new BlockItem(ModBlocks.JUNGLE_TABLE.get(), new Item.Properties()));
-    public static final Supplier<Item> ACACIA_TABLE = register("acacia_table",
-            () -> new BlockItem(ModBlocks.ACACIA_TABLE.get(), new Item.Properties()));
-    public static final Supplier<Item> DARK_OAK_TABLE = register("dark_oak_table",
-            () -> new BlockItem(ModBlocks.DARK_OAK_TABLE.get(), new Item.Properties()));
-    public static final Supplier<Item> MANGROVE_TABLE = register("mangrove_table",
-            () -> new BlockItem(ModBlocks.MANGROVE_TABLE.get(), new Item.Properties()));
-    public static final Supplier<Item> CHERRY_TABLE = register("cherry_table",
-            () -> new BlockItem(ModBlocks.CHERRY_TABLE.get(), new Item.Properties()));
-    public static final Supplier<Item> CRIMSON_TABLE = register("crimson_table",
-            () -> new BlockItem(ModBlocks.CRIMSON_TABLE.get(), new Item.Properties()));
-    public static final Supplier<Item> WARPED_TABLE = register("warped_table",
-            () -> new BlockItem(ModBlocks.WARPED_TABLE.get(), new Item.Properties()));
-    public static final Supplier<Item> STRIPPED_OAK_TABLE = register("stripped_oak_table",
-            () -> new BlockItem(ModBlocks.STRIPPED_OAK_TABLE.get(), new Item.Properties()));
-    public static final Supplier<Item> STRIPPED_SPRUCE_TABLE = register("stripped_spruce_table",
-            () -> new BlockItem(ModBlocks.STRIPPED_SPRUCE_TABLE.get(), new Item.Properties()));
-    public static final Supplier<Item> STRIPPED_BIRCH_TABLE = register("stripped_birch_table",
-            () -> new BlockItem(ModBlocks.STRIPPED_BIRCH_TABLE.get(), new Item.Properties()));
-    public static final Supplier<Item> STRIPPED_JUNGLE_TABLE = register("stripped_jungle_table",
-            () -> new BlockItem(ModBlocks.STRIPPED_JUNGLE_TABLE.get(), new Item.Properties()));
-    public static final Supplier<Item> STRIPPED_ACACIA_TABLE = register("stripped_acacia_table",
-            () -> new BlockItem(ModBlocks.STRIPPED_ACACIA_TABLE.get(), new Item.Properties()));
-    public static final Supplier<Item> STRIPPED_DARK_OAK_TABLE = register("stripped_dark_oak_table",
-            () -> new BlockItem(ModBlocks.STRIPPED_DARK_OAK_TABLE.get(), new Item.Properties()));
-    public static final Supplier<Item> STRIPPED_MANGROVE_TABLE = register("stripped_mangrove_table",
-            () -> new BlockItem(ModBlocks.STRIPPED_MANGROVE_TABLE.get(), new Item.Properties()));
-    public static final Supplier<Item> STRIPPED_CHERRY_TABLE = register("stripped_cherry_table",
-            () -> new BlockItem(ModBlocks.STRIPPED_CHERRY_TABLE.get(), new Item.Properties()));
-    public static final Supplier<Item> STRIPPED_CRIMSON_TABLE = register("stripped_crimson_table",
-            () -> new BlockItem(ModBlocks.STRIPPED_CRIMSON_TABLE.get(), new Item.Properties()));
-    public static final Supplier<Item> STRIPPED_WARPED_TABLE = register("stripped_warped_table",
-            () -> new BlockItem(ModBlocks.STRIPPED_WARPED_TABLE.get(), new Item.Properties()));
+    public static final Supplier<BlockItem> OAK_TABLE = registerBlockItem("oak_table", ModBlocks.OAK_TABLE);
+    public static final Supplier<BlockItem> SPRUCE_TABLE = registerBlockItem("spruce_table", ModBlocks.SPRUCE_TABLE);
+    public static final Supplier<BlockItem> BIRCH_TABLE = registerBlockItem("birch_table", ModBlocks.BIRCH_TABLE);
+    public static final Supplier<BlockItem> JUNGLE_TABLE = registerBlockItem("jungle_table", ModBlocks.JUNGLE_TABLE);
+    public static final Supplier<BlockItem> ACACIA_TABLE = registerBlockItem("acacia_table", ModBlocks.ACACIA_TABLE);
+    public static final Supplier<BlockItem> DARK_OAK_TABLE = registerBlockItem("dark_oak_table", ModBlocks.DARK_OAK_TABLE);
+    public static final Supplier<BlockItem> MANGROVE_TABLE = registerBlockItem("mangrove_table", ModBlocks.MANGROVE_TABLE);
+    public static final Supplier<BlockItem> CHERRY_TABLE = registerBlockItem("cherry_table", ModBlocks.CHERRY_TABLE);
+    public static final Supplier<BlockItem> CRIMSON_TABLE = registerBlockItem("crimson_table", ModBlocks.CRIMSON_TABLE);
+    public static final Supplier<BlockItem> WARPED_TABLE = registerBlockItem("warped_table", ModBlocks.WARPED_TABLE);
+    public static final Supplier<BlockItem> BAMBOO_TABLE = registerBlockItem("bamboo_table", ModBlocks.BAMBOO_TABLE);
+    public static final Supplier<BlockItem> STRIPPED_OAK_TABLE = registerBlockItem("stripped_oak_table", ModBlocks.STRIPPED_OAK_TABLE);
+    public static final Supplier<BlockItem> STRIPPED_SPRUCE_TABLE = registerBlockItem("stripped_spruce_table", ModBlocks.STRIPPED_SPRUCE_TABLE);
+    public static final Supplier<BlockItem> STRIPPED_BIRCH_TABLE = registerBlockItem("stripped_birch_table", ModBlocks.STRIPPED_BIRCH_TABLE);
+    public static final Supplier<BlockItem> STRIPPED_JUNGLE_TABLE = registerBlockItem("stripped_jungle_table", ModBlocks.STRIPPED_JUNGLE_TABLE);
+    public static final Supplier<BlockItem> STRIPPED_ACACIA_TABLE = registerBlockItem("stripped_acacia_table", ModBlocks.STRIPPED_ACACIA_TABLE);
+    public static final Supplier<BlockItem> STRIPPED_DARK_OAK_TABLE = registerBlockItem("stripped_dark_oak_table", ModBlocks.STRIPPED_DARK_OAK_TABLE);
+    public static final Supplier<BlockItem> STRIPPED_MANGROVE_TABLE = registerBlockItem("stripped_mangrove_table", ModBlocks.STRIPPED_MANGROVE_TABLE);
+    public static final Supplier<BlockItem> STRIPPED_CHERRY_TABLE = registerBlockItem("stripped_cherry_table", ModBlocks.STRIPPED_CHERRY_TABLE);
+    public static final Supplier<BlockItem> STRIPPED_CRIMSON_TABLE = registerBlockItem("stripped_crimson_table", ModBlocks.STRIPPED_CRIMSON_TABLE);
+    public static final Supplier<BlockItem> STRIPPED_WARPED_TABLE = registerBlockItem("stripped_warped_table", ModBlocks.STRIPPED_WARPED_TABLE);
+    public static final Supplier<BlockItem> STRIPPED_BAMBOO_TABLE = registerBlockItem("stripped_bamboo_table", ModBlocks.STRIPPED_BAMBOO_TABLE);
 
     // Chairs
-    public static final Supplier<Item> OAK_CHAIR = register("oak_chair",
-            () -> new BlockItem(ModBlocks.OAK_CHAIR.get(), new Item.Properties()));
-    public static final Supplier<Item> SPRUCE_CHAIR = register("spruce_chair",
-            () -> new BlockItem(ModBlocks.SPRUCE_CHAIR.get(), new Item.Properties()));
-    public static final Supplier<Item> BIRCH_CHAIR = register("birch_chair",
-            () -> new BlockItem(ModBlocks.BIRCH_CHAIR.get(), new Item.Properties()));
-    public static final Supplier<Item> JUNGLE_CHAIR = register("jungle_chair",
-            () -> new BlockItem(ModBlocks.JUNGLE_CHAIR.get(), new Item.Properties()));
-    public static final Supplier<Item> ACACIA_CHAIR = register("acacia_chair",
-            () -> new BlockItem(ModBlocks.ACACIA_CHAIR.get(), new Item.Properties()));
-    public static final Supplier<Item> DARK_OAK_CHAIR = register("dark_oak_chair",
-            () -> new BlockItem(ModBlocks.DARK_OAK_CHAIR.get(), new Item.Properties()));
-    public static final Supplier<Item> MANGROVE_CHAIR = register("mangrove_chair",
-            () -> new BlockItem(ModBlocks.MANGROVE_CHAIR.get(), new Item.Properties()));
-    public static final Supplier<Item> CHERRY_CHAIR = register("cherry_chair",
-            () -> new BlockItem(ModBlocks.CHERRY_CHAIR.get(), new Item.Properties()));
-    public static final Supplier<Item> CRIMSON_CHAIR = register("crimson_chair",
-            () -> new BlockItem(ModBlocks.CRIMSON_CHAIR.get(), new Item.Properties()));
-    public static final Supplier<Item> WARPED_CHAIR = register("warped_chair",
-            () -> new BlockItem(ModBlocks.WARPED_CHAIR.get(), new Item.Properties()));
-    public static final Supplier<Item> STRIPPED_OAK_CHAIR = register("stripped_oak_chair",
-            () -> new BlockItem(ModBlocks.STRIPPED_OAK_CHAIR.get(), new Item.Properties()));
-    public static final Supplier<Item> STRIPPED_SPRUCE_CHAIR = register("stripped_spruce_chair",
-            () -> new BlockItem(ModBlocks.STRIPPED_SPRUCE_CHAIR.get(), new Item.Properties()));
-    public static final Supplier<Item> STRIPPED_BIRCH_CHAIR = register("stripped_birch_chair",
-            () -> new BlockItem(ModBlocks.STRIPPED_BIRCH_CHAIR.get(), new Item.Properties()));
-    public static final Supplier<Item> STRIPPED_JUNGLE_CHAIR = register("stripped_jungle_chair",
-            () -> new BlockItem(ModBlocks.STRIPPED_JUNGLE_CHAIR.get(), new Item.Properties()));
-    public static final Supplier<Item> STRIPPED_ACACIA_CHAIR = register("stripped_acacia_chair",
-            () -> new BlockItem(ModBlocks.STRIPPED_ACACIA_CHAIR.get(), new Item.Properties()));
-    public static final Supplier<Item> STRIPPED_DARK_OAK_CHAIR = register("stripped_dark_oak_chair",
-            () -> new BlockItem(ModBlocks.STRIPPED_DARK_OAK_CHAIR.get(), new Item.Properties()));
-    public static final Supplier<Item> STRIPPED_MANGROVE_CHAIR = register("stripped_mangrove_chair",
-            () -> new BlockItem(ModBlocks.STRIPPED_MANGROVE_CHAIR.get(), new Item.Properties()));
-    public static final Supplier<Item> STRIPPED_CHERRY_CHAIR = register("stripped_cherry_chair",
-            () -> new BlockItem(ModBlocks.STRIPPED_CHERRY_CHAIR.get(), new Item.Properties()));
-    public static final Supplier<Item> STRIPPED_CRIMSON_CHAIR = register("stripped_crimson_chair",
-            () -> new BlockItem(ModBlocks.STRIPPED_CRIMSON_CHAIR.get(), new Item.Properties()));
-    public static final Supplier<Item> STRIPPED_WARPED_CHAIR = register("stripped_warped_chair",
-            () -> new BlockItem(ModBlocks.STRIPPED_WARPED_CHAIR.get(), new Item.Properties()));
+    public static final Supplier<BlockItem> OAK_CHAIR = registerBlockItem("oak_chair", ModBlocks.OAK_CHAIR);
+    public static final Supplier<BlockItem> SPRUCE_CHAIR = registerBlockItem("spruce_chair", ModBlocks.SPRUCE_CHAIR);
+    public static final Supplier<BlockItem> BIRCH_CHAIR = registerBlockItem("birch_chair", ModBlocks.BIRCH_CHAIR);
+    public static final Supplier<BlockItem> JUNGLE_CHAIR = registerBlockItem("jungle_chair", ModBlocks.JUNGLE_CHAIR);
+    public static final Supplier<BlockItem> ACACIA_CHAIR = registerBlockItem("acacia_chair", ModBlocks.ACACIA_CHAIR);
+    public static final Supplier<BlockItem> DARK_OAK_CHAIR = registerBlockItem("dark_oak_chair", ModBlocks.DARK_OAK_CHAIR);
+    public static final Supplier<BlockItem> MANGROVE_CHAIR = registerBlockItem("mangrove_chair", ModBlocks.MANGROVE_CHAIR);
+    public static final Supplier<BlockItem> CHERRY_CHAIR = registerBlockItem("cherry_chair", ModBlocks.CHERRY_CHAIR);
+    public static final Supplier<BlockItem> CRIMSON_CHAIR = registerBlockItem("crimson_chair", ModBlocks.CRIMSON_CHAIR);
+    public static final Supplier<BlockItem> WARPED_CHAIR = registerBlockItem("warped_chair", ModBlocks.WARPED_CHAIR);
+    public static final Supplier<BlockItem> BAMBOO_CHAIR = registerBlockItem("bamboo_chair", ModBlocks.BAMBOO_CHAIR);
+    public static final Supplier<BlockItem> STRIPPED_OAK_CHAIR = registerBlockItem("stripped_oak_chair", ModBlocks.STRIPPED_OAK_CHAIR);
+    public static final Supplier<BlockItem> STRIPPED_SPRUCE_CHAIR = registerBlockItem("stripped_spruce_chair", ModBlocks.STRIPPED_SPRUCE_CHAIR);
+    public static final Supplier<BlockItem> STRIPPED_BIRCH_CHAIR = registerBlockItem("stripped_birch_chair", ModBlocks.STRIPPED_BIRCH_CHAIR);
+    public static final Supplier<BlockItem> STRIPPED_JUNGLE_CHAIR = registerBlockItem("stripped_jungle_chair", ModBlocks.STRIPPED_JUNGLE_CHAIR);
+    public static final Supplier<BlockItem> STRIPPED_ACACIA_CHAIR = registerBlockItem("stripped_acacia_chair", ModBlocks.STRIPPED_ACACIA_CHAIR);
+    public static final Supplier<BlockItem> STRIPPED_DARK_OAK_CHAIR = registerBlockItem("stripped_dark_oak_chair", ModBlocks.STRIPPED_DARK_OAK_CHAIR);
+    public static final Supplier<BlockItem> STRIPPED_MANGROVE_CHAIR = registerBlockItem("stripped_mangrove_chair", ModBlocks.STRIPPED_MANGROVE_CHAIR);
+    public static final Supplier<BlockItem> STRIPPED_CHERRY_CHAIR = registerBlockItem("stripped_cherry_chair", ModBlocks.STRIPPED_CHERRY_CHAIR);
+    public static final Supplier<BlockItem> STRIPPED_CRIMSON_CHAIR = registerBlockItem("stripped_crimson_chair", ModBlocks.STRIPPED_CRIMSON_CHAIR);
+    public static final Supplier<BlockItem> STRIPPED_WARPED_CHAIR = registerBlockItem("stripped_warped_chair", ModBlocks.STRIPPED_WARPED_CHAIR);
+    public static final Supplier<BlockItem> STRIPPED_BAMBOO_CHAIR = registerBlockItem("stripped_bamboo_chair", ModBlocks.STRIPPED_BAMBOO_CHAIR);
 
     // Coffee Tables
-    public static final Supplier<Item> OAK_COFFEE_TABLE = register("oak_coffee_table",
-            () -> new BlockItem(ModBlocks.OAK_COFFEE_TABLE.get(), new Item.Properties()));
-    public static final Supplier<Item> SPRUCE_COFFEE_TABLE = register("spruce_coffee_table",
-            () -> new BlockItem(ModBlocks.SPRUCE_COFFEE_TABLE.get(), new Item.Properties()));
-    public static final Supplier<Item> BIRCH_COFFEE_TABLE = register("birch_coffee_table",
-            () -> new BlockItem(ModBlocks.BIRCH_COFFEE_TABLE.get(), new Item.Properties()));
-    public static final Supplier<Item> JUNGLE_COFFEE_TABLE = register("jungle_coffee_table",
-            () -> new BlockItem(ModBlocks.JUNGLE_COFFEE_TABLE.get(), new Item.Properties()));
-    public static final Supplier<Item> ACACIA_COFFEE_TABLE = register("acacia_coffee_table",
-            () -> new BlockItem(ModBlocks.ACACIA_COFFEE_TABLE.get(), new Item.Properties()));
-    public static final Supplier<Item> DARK_OAK_COFFEE_TABLE = register("dark_oak_coffee_table",
-            () -> new BlockItem(ModBlocks.DARK_OAK_COFFEE_TABLE.get(), new Item.Properties()));
-    public static final Supplier<Item> MANGROVE_COFFEE_TABLE = register("mangrove_coffee_table",
-            () -> new BlockItem(ModBlocks.MANGROVE_COFFEE_TABLE.get(), new Item.Properties()));
-    public static final Supplier<Item> CHERRY_COFFEE_TABLE = register("cherry_coffee_table",
-            () -> new BlockItem(ModBlocks.CHERRY_COFFEE_TABLE.get(), new Item.Properties()));
-    public static final Supplier<Item> CRIMSON_COFFEE_TABLE = register("crimson_coffee_table",
-            () -> new BlockItem(ModBlocks.CRIMSON_COFFEE_TABLE.get(), new Item.Properties()));
-    public static final Supplier<Item> WARPED_COFFEE_TABLE = register("warped_coffee_table",
-            () -> new BlockItem(ModBlocks.WARPED_COFFEE_TABLE.get(), new Item.Properties()));
-    public static final Supplier<Item> STRIPPED_OAK_COFFEE_TABLE = register("stripped_oak_coffee_table",
-            () -> new BlockItem(ModBlocks.STRIPPED_OAK_COFFEE_TABLE.get(), new Item.Properties()));
-    public static final Supplier<Item> STRIPPED_SPRUCE_COFFEE_TABLE = register("stripped_spruce_coffee_table",
-            () -> new BlockItem(ModBlocks.STRIPPED_SPRUCE_COFFEE_TABLE.get(), new Item.Properties()));
-    public static final Supplier<Item> STRIPPED_BIRCH_COFFEE_TABLE = register("stripped_birch_coffee_table",
-            () -> new BlockItem(ModBlocks.STRIPPED_BIRCH_COFFEE_TABLE.get(), new Item.Properties()));
-    public static final Supplier<Item> STRIPPED_JUNGLE_COFFEE_TABLE = register("stripped_jungle_coffee_table",
-            () -> new BlockItem(ModBlocks.STRIPPED_JUNGLE_COFFEE_TABLE.get(), new Item.Properties()));
-    public static final Supplier<Item> STRIPPED_ACACIA_COFFEE_TABLE = register("stripped_acacia_coffee_table",
-            () -> new BlockItem(ModBlocks.STRIPPED_ACACIA_COFFEE_TABLE.get(), new Item.Properties()));
-    public static final Supplier<Item> STRIPPED_DARK_OAK_COFFEE_TABLE = register("stripped_dark_oak_coffee_table",
-            () -> new BlockItem(ModBlocks.STRIPPED_DARK_OAK_COFFEE_TABLE.get(), new Item.Properties()));
-    public static final Supplier<Item> STRIPPED_MANGROVE_COFFEE_TABLE = register("stripped_mangrove_coffee_table",
-            () -> new BlockItem(ModBlocks.STRIPPED_MANGROVE_COFFEE_TABLE.get(), new Item.Properties()));
-    public static final Supplier<Item> STRIPPED_CHERRY_COFFEE_TABLE = register("stripped_cherry_coffee_table",
-            () -> new BlockItem(ModBlocks.STRIPPED_CHERRY_COFFEE_TABLE.get(), new Item.Properties()));
-    public static final Supplier<Item> STRIPPED_CRIMSON_COFFEE_TABLE = register("stripped_crimson_coffee_table",
-            () -> new BlockItem(ModBlocks.STRIPPED_CRIMSON_COFFEE_TABLE.get(), new Item.Properties()));
-    public static final Supplier<Item> STRIPPED_WARPED_COFFEE_TABLE = register("stripped_warped_coffee_table",
-            () -> new BlockItem(ModBlocks.STRIPPED_WARPED_COFFEE_TABLE.get(), new Item.Properties()));
+    public static final Supplier<BlockItem> OAK_COFFEE_TABLE = registerBlockItem("oak_coffee_table", ModBlocks.OAK_COFFEE_TABLE);
+    public static final Supplier<BlockItem> SPRUCE_COFFEE_TABLE = registerBlockItem("spruce_coffee_table", ModBlocks.SPRUCE_COFFEE_TABLE);
+    public static final Supplier<BlockItem> BIRCH_COFFEE_TABLE = registerBlockItem("birch_coffee_table", ModBlocks.BIRCH_COFFEE_TABLE);
+    public static final Supplier<BlockItem> JUNGLE_COFFEE_TABLE = registerBlockItem("jungle_coffee_table", ModBlocks.JUNGLE_COFFEE_TABLE);
+    public static final Supplier<BlockItem> ACACIA_COFFEE_TABLE = registerBlockItem("acacia_coffee_table", ModBlocks.ACACIA_COFFEE_TABLE);
+    public static final Supplier<BlockItem> DARK_OAK_COFFEE_TABLE = registerBlockItem("dark_oak_coffee_table", ModBlocks.DARK_OAK_COFFEE_TABLE);
+    public static final Supplier<BlockItem> MANGROVE_COFFEE_TABLE = registerBlockItem("mangrove_coffee_table", ModBlocks.MANGROVE_COFFEE_TABLE);
+    public static final Supplier<BlockItem> CHERRY_COFFEE_TABLE = registerBlockItem("cherry_coffee_table", ModBlocks.CHERRY_COFFEE_TABLE);
+    public static final Supplier<BlockItem> CRIMSON_COFFEE_TABLE = registerBlockItem("crimson_coffee_table", ModBlocks.CRIMSON_COFFEE_TABLE);
+    public static final Supplier<BlockItem> WARPED_COFFEE_TABLE = registerBlockItem("warped_coffee_table", ModBlocks.WARPED_COFFEE_TABLE);
+    public static final Supplier<BlockItem> BAMBOO_COFFEE_TABLE = registerBlockItem("bamboo_coffee_table", ModBlocks.BAMBOO_COFFEE_TABLE);
+    public static final Supplier<BlockItem> STRIPPED_OAK_COFFEE_TABLE = registerBlockItem("stripped_oak_coffee_table", ModBlocks.STRIPPED_OAK_COFFEE_TABLE);
+    public static final Supplier<BlockItem> STRIPPED_SPRUCE_COFFEE_TABLE = registerBlockItem("stripped_spruce_coffee_table", ModBlocks.STRIPPED_SPRUCE_COFFEE_TABLE);
+    public static final Supplier<BlockItem> STRIPPED_BIRCH_COFFEE_TABLE = registerBlockItem("stripped_birch_coffee_table", ModBlocks.STRIPPED_BIRCH_COFFEE_TABLE);
+    public static final Supplier<BlockItem> STRIPPED_JUNGLE_COFFEE_TABLE = registerBlockItem("stripped_jungle_coffee_table", ModBlocks.STRIPPED_JUNGLE_COFFEE_TABLE);
+    public static final Supplier<BlockItem> STRIPPED_ACACIA_COFFEE_TABLE = registerBlockItem("stripped_acacia_coffee_table", ModBlocks.STRIPPED_ACACIA_COFFEE_TABLE);
+    public static final Supplier<BlockItem> STRIPPED_DARK_OAK_COFFEE_TABLE = registerBlockItem("stripped_dark_oak_coffee_table", ModBlocks.STRIPPED_DARK_OAK_COFFEE_TABLE);
+    public static final Supplier<BlockItem> STRIPPED_MANGROVE_COFFEE_TABLE = registerBlockItem("stripped_mangrove_coffee_table", ModBlocks.STRIPPED_MANGROVE_COFFEE_TABLE);
+    public static final Supplier<BlockItem> STRIPPED_CHERRY_COFFEE_TABLE = registerBlockItem("stripped_cherry_coffee_table", ModBlocks.STRIPPED_CHERRY_COFFEE_TABLE);
+    public static final Supplier<BlockItem> STRIPPED_CRIMSON_COFFEE_TABLE = registerBlockItem("stripped_crimson_coffee_table", ModBlocks.STRIPPED_CRIMSON_COFFEE_TABLE);
+    public static final Supplier<BlockItem> STRIPPED_WARPED_COFFEE_TABLE = registerBlockItem("stripped_warped_coffee_table", ModBlocks.STRIPPED_WARPED_COFFEE_TABLE);
+    public static final Supplier<BlockItem> STRIPPED_BAMBOO_COFFEE_TABLE = registerBlockItem("stripped_bamboo_coffee_table", ModBlocks.STRIPPED_BAMBOO_COFFEE_TABLE);
 
     // Cabinets
-    public static final Supplier<Item> OAK_CABINET = register("oak_cabinet",
-            () -> new BlockItem(ModBlocks.OAK_CABINET.get(), new Item.Properties()));
-    public static final Supplier<Item> SPRUCE_CABINET = register("spruce_cabinet",
-            () -> new BlockItem(ModBlocks.SPRUCE_CABINET.get(), new Item.Properties()));
-    public static final Supplier<Item> BIRCH_CABINET = register("birch_cabinet",
-            () -> new BlockItem(ModBlocks.BIRCH_CABINET.get(), new Item.Properties()));
-    public static final Supplier<Item> JUNGLE_CABINET = register("jungle_cabinet",
-            () -> new BlockItem(ModBlocks.JUNGLE_CABINET.get(), new Item.Properties()));
-    public static final Supplier<Item> ACACIA_CABINET = register("acacia_cabinet",
-            () -> new BlockItem(ModBlocks.ACACIA_CABINET.get(), new Item.Properties()));
-    public static final Supplier<Item> DARK_OAK_CABINET = register("dark_oak_cabinet",
-            () -> new BlockItem(ModBlocks.DARK_OAK_CABINET.get(), new Item.Properties()));
-    public static final Supplier<Item> MANGROVE_CABINET = register("mangrove_cabinet",
-            () -> new BlockItem(ModBlocks.MANGROVE_CABINET.get(), new Item.Properties()));
-    public static final Supplier<Item> CHERRY_CABINET = register("cherry_cabinet",
-            () -> new BlockItem(ModBlocks.CHERRY_CABINET.get(), new Item.Properties()));
-    public static final Supplier<Item> CRIMSON_CABINET = register("crimson_cabinet",
-            () -> new BlockItem(ModBlocks.CRIMSON_CABINET.get(), new Item.Properties()));
-    public static final Supplier<Item> WARPED_CABINET = register("warped_cabinet",
-            () -> new BlockItem(ModBlocks.WARPED_CABINET.get(), new Item.Properties()));
-    public static final Supplier<Item> STRIPPED_OAK_CABINET = register("stripped_oak_cabinet",
-            () -> new BlockItem(ModBlocks.STRIPPED_OAK_CABINET.get(), new Item.Properties()));
-    public static final Supplier<Item> STRIPPED_SPRUCE_CABINET = register("stripped_spruce_cabinet",
-            () -> new BlockItem(ModBlocks.STRIPPED_SPRUCE_CABINET.get(), new Item.Properties()));
-    public static final Supplier<Item> STRIPPED_BIRCH_CABINET = register("stripped_birch_cabinet",
-            () -> new BlockItem(ModBlocks.STRIPPED_BIRCH_CABINET.get(), new Item.Properties()));
-    public static final Supplier<Item> STRIPPED_JUNGLE_CABINET = register("stripped_jungle_cabinet",
-            () -> new BlockItem(ModBlocks.STRIPPED_JUNGLE_CABINET.get(), new Item.Properties()));
-    public static final Supplier<Item> STRIPPED_ACACIA_CABINET = register("stripped_acacia_cabinet",
-            () -> new BlockItem(ModBlocks.STRIPPED_ACACIA_CABINET.get(), new Item.Properties()));
-    public static final Supplier<Item> STRIPPED_DARK_OAK_CABINET = register("stripped_dark_oak_cabinet",
-            () -> new BlockItem(ModBlocks.STRIPPED_DARK_OAK_CABINET.get(), new Item.Properties()));
-    public static final Supplier<Item> STRIPPED_MANGROVE_CABINET = register("stripped_mangrove_cabinet",
-            () -> new BlockItem(ModBlocks.STRIPPED_MANGROVE_CABINET.get(), new Item.Properties()));
-    public static final Supplier<Item> STRIPPED_CHERRY_CABINET = register("stripped_cherry_cabinet",
-            () -> new BlockItem(ModBlocks.STRIPPED_CHERRY_CABINET.get(), new Item.Properties()));
-    public static final Supplier<Item> STRIPPED_CRIMSON_CABINET = register("stripped_crimson_cabinet",
-            () -> new BlockItem(ModBlocks.STRIPPED_CRIMSON_CABINET.get(), new Item.Properties()));
-    public static final Supplier<Item> STRIPPED_WARPED_CABINET = register("stripped_warped_cabinet",
-            () -> new BlockItem(ModBlocks.STRIPPED_WARPED_CABINET.get(), new Item.Properties()));
+    public static final Supplier<BlockItem> OAK_CABINET = registerBlockItem("oak_cabinet", ModBlocks.OAK_CABINET);
+    public static final Supplier<BlockItem> SPRUCE_CABINET = registerBlockItem("spruce_cabinet", ModBlocks.SPRUCE_CABINET);
+    public static final Supplier<BlockItem> BIRCH_CABINET = registerBlockItem("birch_cabinet", ModBlocks.BIRCH_CABINET);
+    public static final Supplier<BlockItem> JUNGLE_CABINET = registerBlockItem("jungle_cabinet", ModBlocks.JUNGLE_CABINET);
+    public static final Supplier<BlockItem> ACACIA_CABINET = registerBlockItem("acacia_cabinet", ModBlocks.ACACIA_CABINET);
+    public static final Supplier<BlockItem> DARK_OAK_CABINET = registerBlockItem("dark_oak_cabinet", ModBlocks.DARK_OAK_CABINET);
+    public static final Supplier<BlockItem> MANGROVE_CABINET = registerBlockItem("mangrove_cabinet", ModBlocks.MANGROVE_CABINET);
+    public static final Supplier<BlockItem> CHERRY_CABINET = registerBlockItem("cherry_cabinet", ModBlocks.CHERRY_CABINET);
+    public static final Supplier<BlockItem> CRIMSON_CABINET = registerBlockItem("crimson_cabinet", ModBlocks.CRIMSON_CABINET);
+    public static final Supplier<BlockItem> WARPED_CABINET = registerBlockItem("warped_cabinet", ModBlocks.WARPED_CABINET);
+    public static final Supplier<BlockItem> BAMBOO_CABINET = registerBlockItem("bamboo_cabinet", ModBlocks.BAMBOO_CABINET);
+    public static final Supplier<BlockItem> STRIPPED_OAK_CABINET = registerBlockItem("stripped_oak_cabinet", ModBlocks.STRIPPED_OAK_CABINET);
+    public static final Supplier<BlockItem> STRIPPED_SPRUCE_CABINET = registerBlockItem("stripped_spruce_cabinet", ModBlocks.STRIPPED_SPRUCE_CABINET);
+    public static final Supplier<BlockItem> STRIPPED_BIRCH_CABINET = registerBlockItem("stripped_birch_cabinet", ModBlocks.STRIPPED_BIRCH_CABINET);
+    public static final Supplier<BlockItem> STRIPPED_JUNGLE_CABINET = registerBlockItem("stripped_jungle_cabinet", ModBlocks.STRIPPED_JUNGLE_CABINET);
+    public static final Supplier<BlockItem> STRIPPED_ACACIA_CABINET = registerBlockItem("stripped_acacia_cabinet", ModBlocks.STRIPPED_ACACIA_CABINET);
+    public static final Supplier<BlockItem> STRIPPED_DARK_OAK_CABINET = registerBlockItem("stripped_dark_oak_cabinet", ModBlocks.STRIPPED_DARK_OAK_CABINET);
+    public static final Supplier<BlockItem> STRIPPED_MANGROVE_CABINET = registerBlockItem("stripped_mangrove_cabinet", ModBlocks.STRIPPED_MANGROVE_CABINET);
+    public static final Supplier<BlockItem> STRIPPED_CHERRY_CABINET = registerBlockItem("stripped_cherry_cabinet", ModBlocks.STRIPPED_CHERRY_CABINET);
+    public static final Supplier<BlockItem> STRIPPED_CRIMSON_CABINET = registerBlockItem("stripped_crimson_cabinet", ModBlocks.STRIPPED_CRIMSON_CABINET);
+    public static final Supplier<BlockItem> STRIPPED_WARPED_CABINET = registerBlockItem("stripped_warped_cabinet", ModBlocks.STRIPPED_WARPED_CABINET);
+    public static final Supplier<BlockItem> STRIPPED_BAMBOO_CABINET = registerBlockItem("stripped_bamboo_cabinet", ModBlocks.STRIPPED_BAMBOO_CABINET);
 
     // Bedside Cabinets
-    public static final Supplier<Item> OAK_BEDSIDE_CABINET = register("oak_bedside_cabinet",
-            () -> new BlockItem(ModBlocks.OAK_BEDSIDE_CABINET.get(), new Item.Properties()));
-    public static final Supplier<Item> SPRUCE_BEDSIDE_CABINET = register("spruce_bedside_cabinet",
-            () -> new BlockItem(ModBlocks.SPRUCE_BEDSIDE_CABINET.get(), new Item.Properties()));
-    public static final Supplier<Item> BIRCH_BEDSIDE_CABINET = register("birch_bedside_cabinet",
-            () -> new BlockItem(ModBlocks.BIRCH_BEDSIDE_CABINET.get(), new Item.Properties()));
-    public static final Supplier<Item> JUNGLE_BEDSIDE_CABINET = register("jungle_bedside_cabinet",
-            () -> new BlockItem(ModBlocks.JUNGLE_BEDSIDE_CABINET.get(), new Item.Properties()));
-    public static final Supplier<Item> ACACIA_BEDSIDE_CABINET = register("acacia_bedside_cabinet",
-            () -> new BlockItem(ModBlocks.ACACIA_BEDSIDE_CABINET.get(), new Item.Properties()));
-    public static final Supplier<Item> DARK_OAK_BEDSIDE_CABINET = register("dark_oak_bedside_cabinet",
-            () -> new BlockItem(ModBlocks.DARK_OAK_BEDSIDE_CABINET.get(), new Item.Properties()));
-    public static final Supplier<Item> MANGROVE_BEDSIDE_CABINET = register("mangrove_bedside_cabinet",
-            () -> new BlockItem(ModBlocks.MANGROVE_BEDSIDE_CABINET.get(), new Item.Properties()));
-    public static final Supplier<Item> CHERRY_BEDSIDE_CABINET = register("cherry_bedside_cabinet",
-            () -> new BlockItem(ModBlocks.CHERRY_BEDSIDE_CABINET.get(), new Item.Properties()));
-    public static final Supplier<Item> CRIMSON_BEDSIDE_CABINET = register("crimson_bedside_cabinet",
-            () -> new BlockItem(ModBlocks.CRIMSON_BEDSIDE_CABINET.get(), new Item.Properties()));
-    public static final Supplier<Item> WARPED_BEDSIDE_CABINET = register("warped_bedside_cabinet",
-            () -> new BlockItem(ModBlocks.WARPED_BEDSIDE_CABINET.get(), new Item.Properties()));
-    public static final Supplier<Item> STRIPPED_OAK_BEDSIDE_CABINET = register("stripped_oak_bedside_cabinet",
-            () -> new BlockItem(ModBlocks.STRIPPED_OAK_BEDSIDE_CABINET.get(), new Item.Properties()));
-    public static final Supplier<Item> STRIPPED_SPRUCE_BEDSIDE_CABINET = register("stripped_spruce_bedside_cabinet",
-            () -> new BlockItem(ModBlocks.STRIPPED_SPRUCE_BEDSIDE_CABINET.get(), new Item.Properties()));
-    public static final Supplier<Item> STRIPPED_BIRCH_BEDSIDE_CABINET = register("stripped_birch_bedside_cabinet",
-            () -> new BlockItem(ModBlocks.STRIPPED_BIRCH_BEDSIDE_CABINET.get(), new Item.Properties()));
-    public static final Supplier<Item> STRIPPED_JUNGLE_BEDSIDE_CABINET = register("stripped_jungle_bedside_cabinet",
-            () -> new BlockItem(ModBlocks.STRIPPED_JUNGLE_BEDSIDE_CABINET.get(), new Item.Properties()));
-    public static final Supplier<Item> STRIPPED_ACACIA_BEDSIDE_CABINET = register("stripped_acacia_bedside_cabinet",
-            () -> new BlockItem(ModBlocks.STRIPPED_ACACIA_BEDSIDE_CABINET.get(), new Item.Properties()));
-    public static final Supplier<Item> STRIPPED_DARK_OAK_BEDSIDE_CABINET = register("stripped_dark_oak_bedside_cabinet",
-            () -> new BlockItem(ModBlocks.STRIPPED_DARK_OAK_BEDSIDE_CABINET.get(), new Item.Properties()));
-    public static final Supplier<Item> STRIPPED_MANGROVE_BEDSIDE_CABINET = register("stripped_mangrove_bedside_cabinet",
-            () -> new BlockItem(ModBlocks.STRIPPED_MANGROVE_BEDSIDE_CABINET.get(), new Item.Properties()));
-    public static final Supplier<Item> STRIPPED_CHERRY_BEDSIDE_CABINET = register("stripped_cherry_bedside_cabinet",
-            () -> new BlockItem(ModBlocks.STRIPPED_CHERRY_BEDSIDE_CABINET.get(), new Item.Properties()));
-    public static final Supplier<Item> STRIPPED_CRIMSON_BEDSIDE_CABINET = register("stripped_crimson_bedside_cabinet",
-            () -> new BlockItem(ModBlocks.STRIPPED_CRIMSON_BEDSIDE_CABINET.get(), new Item.Properties()));
-    public static final Supplier<Item> STRIPPED_WARPED_BEDSIDE_CABINET = register("stripped_warped_bedside_cabinet",
-            () -> new BlockItem(ModBlocks.STRIPPED_WARPED_BEDSIDE_CABINET.get(), new Item.Properties()));
+    public static final Supplier<BlockItem> OAK_BEDSIDE_CABINET = registerBlockItem("oak_bedside_cabinet", ModBlocks.OAK_BEDSIDE_CABINET);
+    public static final Supplier<BlockItem> SPRUCE_BEDSIDE_CABINET = registerBlockItem("spruce_bedside_cabinet", ModBlocks.SPRUCE_BEDSIDE_CABINET);
+    public static final Supplier<BlockItem> BIRCH_BEDSIDE_CABINET = registerBlockItem("birch_bedside_cabinet", ModBlocks.BIRCH_BEDSIDE_CABINET);
+    public static final Supplier<BlockItem> JUNGLE_BEDSIDE_CABINET = registerBlockItem("jungle_bedside_cabinet", ModBlocks.JUNGLE_BEDSIDE_CABINET);
+    public static final Supplier<BlockItem> ACACIA_BEDSIDE_CABINET = registerBlockItem("acacia_bedside_cabinet", ModBlocks.ACACIA_BEDSIDE_CABINET);
+    public static final Supplier<BlockItem> DARK_OAK_BEDSIDE_CABINET = registerBlockItem("dark_oak_bedside_cabinet", ModBlocks.DARK_OAK_BEDSIDE_CABINET);
+    public static final Supplier<BlockItem> MANGROVE_BEDSIDE_CABINET = registerBlockItem("mangrove_bedside_cabinet", ModBlocks.MANGROVE_BEDSIDE_CABINET);
+    public static final Supplier<BlockItem> CHERRY_BEDSIDE_CABINET = registerBlockItem("cherry_bedside_cabinet", ModBlocks.CHERRY_BEDSIDE_CABINET);
+    public static final Supplier<BlockItem> CRIMSON_BEDSIDE_CABINET = registerBlockItem("crimson_bedside_cabinet", ModBlocks.CRIMSON_BEDSIDE_CABINET);
+    public static final Supplier<BlockItem> WARPED_BEDSIDE_CABINET = registerBlockItem("warped_bedside_cabinet", ModBlocks.WARPED_BEDSIDE_CABINET);
+    public static final Supplier<BlockItem> BAMBOO_BEDSIDE_CABINET = registerBlockItem("bamboo_bedside_cabinet", ModBlocks.BAMBOO_BEDSIDE_CABINET);
+    public static final Supplier<BlockItem> STRIPPED_OAK_BEDSIDE_CABINET = registerBlockItem("stripped_oak_bedside_cabinet", ModBlocks.STRIPPED_OAK_BEDSIDE_CABINET);
+    public static final Supplier<BlockItem> STRIPPED_SPRUCE_BEDSIDE_CABINET = registerBlockItem("stripped_spruce_bedside_cabinet", ModBlocks.STRIPPED_SPRUCE_BEDSIDE_CABINET);
+    public static final Supplier<BlockItem> STRIPPED_BIRCH_BEDSIDE_CABINET = registerBlockItem("stripped_birch_bedside_cabinet", ModBlocks.STRIPPED_BIRCH_BEDSIDE_CABINET);
+    public static final Supplier<BlockItem> STRIPPED_JUNGLE_BEDSIDE_CABINET = registerBlockItem("stripped_jungle_bedside_cabinet", ModBlocks.STRIPPED_JUNGLE_BEDSIDE_CABINET);
+    public static final Supplier<BlockItem> STRIPPED_ACACIA_BEDSIDE_CABINET = registerBlockItem("stripped_acacia_bedside_cabinet", ModBlocks.STRIPPED_ACACIA_BEDSIDE_CABINET);
+    public static final Supplier<BlockItem> STRIPPED_DARK_OAK_BEDSIDE_CABINET = registerBlockItem("stripped_dark_oak_bedside_cabinet", ModBlocks.STRIPPED_DARK_OAK_BEDSIDE_CABINET);
+    public static final Supplier<BlockItem> STRIPPED_MANGROVE_BEDSIDE_CABINET = registerBlockItem("stripped_mangrove_bedside_cabinet", ModBlocks.STRIPPED_MANGROVE_BEDSIDE_CABINET);
+    public static final Supplier<BlockItem> STRIPPED_CHERRY_BEDSIDE_CABINET = registerBlockItem("stripped_cherry_bedside_cabinet", ModBlocks.STRIPPED_CHERRY_BEDSIDE_CABINET);
+    public static final Supplier<BlockItem> STRIPPED_CRIMSON_BEDSIDE_CABINET = registerBlockItem("stripped_crimson_bedside_cabinet", ModBlocks.STRIPPED_CRIMSON_BEDSIDE_CABINET);
+    public static final Supplier<BlockItem> STRIPPED_WARPED_BEDSIDE_CABINET = registerBlockItem("stripped_warped_bedside_cabinet", ModBlocks.STRIPPED_WARPED_BEDSIDE_CABINET);
+    public static final Supplier<BlockItem> STRIPPED_BAMBOO_BEDSIDE_CABINET = registerBlockItem("stripped_bamboo_bedside_cabinet", ModBlocks.STRIPPED_BAMBOO_BEDSIDE_CABINET);
 
     // Desks
-    public static final Supplier<Item> OAK_DESK = register("oak_desk",
-            () -> new BlockItem(ModBlocks.OAK_DESK.get(), new Item.Properties()));
-    public static final Supplier<Item> SPRUCE_DESK = register("spruce_desk",
-            () -> new BlockItem(ModBlocks.SPRUCE_DESK.get(), new Item.Properties()));
-    public static final Supplier<Item> BIRCH_DESK = register("birch_desk",
-            () -> new BlockItem(ModBlocks.BIRCH_DESK.get(), new Item.Properties()));
-    public static final Supplier<Item> JUNGLE_DESK = register("jungle_desk",
-            () -> new BlockItem(ModBlocks.JUNGLE_DESK.get(), new Item.Properties()));
-    public static final Supplier<Item> ACACIA_DESK = register("acacia_desk",
-            () -> new BlockItem(ModBlocks.ACACIA_DESK.get(), new Item.Properties()));
-    public static final Supplier<Item> DARK_OAK_DESK = register("dark_oak_desk",
-            () -> new BlockItem(ModBlocks.DARK_OAK_DESK.get(), new Item.Properties()));
-    public static final Supplier<Item> MANGROVE_DESK = register("mangrove_desk",
-            () -> new BlockItem(ModBlocks.MANGROVE_DESK.get(), new Item.Properties()));
-    public static final Supplier<Item> CHERRY_DESK = register("cherry_desk",
-            () -> new BlockItem(ModBlocks.CHERRY_DESK.get(), new Item.Properties()));
-    public static final Supplier<Item> CRIMSON_DESK = register("crimson_desk",
-            () -> new BlockItem(ModBlocks.CRIMSON_DESK.get(), new Item.Properties()));
-    public static final Supplier<Item> WARPED_DESK = register("warped_desk",
-            () -> new BlockItem(ModBlocks.WARPED_DESK.get(), new Item.Properties()));
-    public static final Supplier<Item> STRIPPED_OAK_DESK = register("stripped_oak_desk",
-            () -> new BlockItem(ModBlocks.STRIPPED_OAK_DESK.get(), new Item.Properties()));
-    public static final Supplier<Item> STRIPPED_SPRUCE_DESK = register("stripped_spruce_desk",
-            () -> new BlockItem(ModBlocks.STRIPPED_SPRUCE_DESK.get(), new Item.Properties()));
-    public static final Supplier<Item> STRIPPED_BIRCH_DESK = register("stripped_birch_desk",
-            () -> new BlockItem(ModBlocks.STRIPPED_BIRCH_DESK.get(), new Item.Properties()));
-    public static final Supplier<Item> STRIPPED_JUNGLE_DESK = register("stripped_jungle_desk",
-            () -> new BlockItem(ModBlocks.STRIPPED_JUNGLE_DESK.get(), new Item.Properties()));
-    public static final Supplier<Item> STRIPPED_ACACIA_DESK = register("stripped_acacia_desk",
-            () -> new BlockItem(ModBlocks.STRIPPED_ACACIA_DESK.get(), new Item.Properties()));
-    public static final Supplier<Item> STRIPPED_DARK_OAK_DESK = register("stripped_dark_oak_desk",
-            () -> new BlockItem(ModBlocks.STRIPPED_DARK_OAK_DESK.get(), new Item.Properties()));
-    public static final Supplier<Item> STRIPPED_MANGROVE_DESK = register("stripped_mangrove_desk",
-            () -> new BlockItem(ModBlocks.STRIPPED_MANGROVE_DESK.get(), new Item.Properties()));
-    public static final Supplier<Item> STRIPPED_CHERRY_DESK = register("stripped_cherry_desk",
-            () -> new BlockItem(ModBlocks.STRIPPED_CHERRY_DESK.get(), new Item.Properties()));
-    public static final Supplier<Item> STRIPPED_CRIMSON_DESK = register("stripped_crimson_desk",
-            () -> new BlockItem(ModBlocks.STRIPPED_CRIMSON_DESK.get(), new Item.Properties()));
-    public static final Supplier<Item> STRIPPED_WARPED_DESK = register("stripped_warped_desk",
-            () -> new BlockItem(ModBlocks.STRIPPED_WARPED_DESK.get(), new Item.Properties()));
+    public static final Supplier<BlockItem> OAK_DESK = registerBlockItem("oak_desk", ModBlocks.OAK_DESK);
+    public static final Supplier<BlockItem> SPRUCE_DESK = registerBlockItem("spruce_desk", ModBlocks.SPRUCE_DESK);
+    public static final Supplier<BlockItem> BIRCH_DESK = registerBlockItem("birch_desk", ModBlocks.BIRCH_DESK);
+    public static final Supplier<BlockItem> JUNGLE_DESK = registerBlockItem("jungle_desk", ModBlocks.JUNGLE_DESK);
+    public static final Supplier<BlockItem> ACACIA_DESK = registerBlockItem("acacia_desk", ModBlocks.ACACIA_DESK);
+    public static final Supplier<BlockItem> DARK_OAK_DESK = registerBlockItem("dark_oak_desk", ModBlocks.DARK_OAK_DESK);
+    public static final Supplier<BlockItem> MANGROVE_DESK = registerBlockItem("mangrove_desk", ModBlocks.MANGROVE_DESK);
+    public static final Supplier<BlockItem> CHERRY_DESK = registerBlockItem("cherry_desk", ModBlocks.CHERRY_DESK);
+    public static final Supplier<BlockItem> CRIMSON_DESK = registerBlockItem("crimson_desk", ModBlocks.CRIMSON_DESK);
+    public static final Supplier<BlockItem> WARPED_DESK = registerBlockItem("warped_desk", ModBlocks.WARPED_DESK);
+    public static final Supplier<BlockItem> BAMBOO_DESK = registerBlockItem("bamboo_desk", ModBlocks.BAMBOO_DESK);
+    public static final Supplier<BlockItem> STRIPPED_OAK_DESK = registerBlockItem("stripped_oak_desk", ModBlocks.STRIPPED_OAK_DESK);
+    public static final Supplier<BlockItem> STRIPPED_SPRUCE_DESK = registerBlockItem("stripped_spruce_desk", ModBlocks.STRIPPED_SPRUCE_DESK);
+    public static final Supplier<BlockItem> STRIPPED_BIRCH_DESK = registerBlockItem("stripped_birch_desk", ModBlocks.STRIPPED_BIRCH_DESK);
+    public static final Supplier<BlockItem> STRIPPED_JUNGLE_DESK = registerBlockItem("stripped_jungle_desk", ModBlocks.STRIPPED_JUNGLE_DESK);
+    public static final Supplier<BlockItem> STRIPPED_ACACIA_DESK = registerBlockItem("stripped_acacia_desk", ModBlocks.STRIPPED_ACACIA_DESK);
+    public static final Supplier<BlockItem> STRIPPED_DARK_OAK_DESK = registerBlockItem("stripped_dark_oak_desk", ModBlocks.STRIPPED_DARK_OAK_DESK);
+    public static final Supplier<BlockItem> STRIPPED_MANGROVE_DESK = registerBlockItem("stripped_mangrove_desk", ModBlocks.STRIPPED_MANGROVE_DESK);
+    public static final Supplier<BlockItem> STRIPPED_CHERRY_DESK = registerBlockItem("stripped_cherry_desk", ModBlocks.STRIPPED_CHERRY_DESK);
+    public static final Supplier<BlockItem> STRIPPED_CRIMSON_DESK = registerBlockItem("stripped_crimson_desk", ModBlocks.STRIPPED_CRIMSON_DESK);
+    public static final Supplier<BlockItem> STRIPPED_WARPED_DESK = registerBlockItem("stripped_warped_desk", ModBlocks.STRIPPED_WARPED_DESK);
+    public static final Supplier<BlockItem> STRIPPED_BAMBOO_DESK = registerBlockItem("stripped_bamboo_desk", ModBlocks.STRIPPED_BAMBOO_DESK);
 
     // Desk Cabinets
-    public static final Supplier<Item> OAK_DESK_CABINET = register("oak_desk_cabinet",
-            () -> new BlockItem(ModBlocks.OAK_DESK_CABINET.get(), new Item.Properties()));
-    public static final Supplier<Item> SPRUCE_DESK_CABINET = register("spruce_desk_cabinet",
-            () -> new BlockItem(ModBlocks.SPRUCE_DESK_CABINET.get(), new Item.Properties()));
-    public static final Supplier<Item> BIRCH_DESK_CABINET = register("birch_desk_cabinet",
-            () -> new BlockItem(ModBlocks.BIRCH_DESK_CABINET.get(), new Item.Properties()));
-    public static final Supplier<Item> JUNGLE_DESK_CABINET = register("jungle_desk_cabinet",
-            () -> new BlockItem(ModBlocks.JUNGLE_DESK_CABINET.get(), new Item.Properties()));
-    public static final Supplier<Item> ACACIA_DESK_CABINET = register("acacia_desk_cabinet",
-            () -> new BlockItem(ModBlocks.ACACIA_DESK_CABINET.get(), new Item.Properties()));
-    public static final Supplier<Item> DARK_OAK_DESK_CABINET = register("dark_oak_desk_cabinet",
-            () -> new BlockItem(ModBlocks.DARK_OAK_DESK_CABINET.get(), new Item.Properties()));
-    public static final Supplier<Item> MANGROVE_DESK_CABINET = register("mangrove_desk_cabinet",
-            () -> new BlockItem(ModBlocks.MANGROVE_DESK_CABINET.get(), new Item.Properties()));
-    public static final Supplier<Item> CHERRY_DESK_CABINET = register("cherry_desk_cabinet",
-            () -> new BlockItem(ModBlocks.CHERRY_DESK_CABINET.get(), new Item.Properties()));
-    public static final Supplier<Item> CRIMSON_DESK_CABINET = register("crimson_desk_cabinet",
-            () -> new BlockItem(ModBlocks.CRIMSON_DESK_CABINET.get(), new Item.Properties()));
-    public static final Supplier<Item> WARPED_DESK_CABINET = register("warped_desk_cabinet",
-            () -> new BlockItem(ModBlocks.WARPED_DESK_CABINET.get(), new Item.Properties()));
-    public static final Supplier<Item> STRIPPED_OAK_DESK_CABINET = register("stripped_oak_desk_cabinet",
-            () -> new BlockItem(ModBlocks.STRIPPED_OAK_DESK_CABINET.get(), new Item.Properties()));
-    public static final Supplier<Item> STRIPPED_SPRUCE_DESK_CABINET = register("stripped_spruce_desk_cabinet",
-            () -> new BlockItem(ModBlocks.STRIPPED_SPRUCE_DESK_CABINET.get(), new Item.Properties()));
-    public static final Supplier<Item> STRIPPED_BIRCH_DESK_CABINET = register("stripped_birch_desk_cabinet",
-            () -> new BlockItem(ModBlocks.STRIPPED_BIRCH_DESK_CABINET.get(), new Item.Properties()));
-    public static final Supplier<Item> STRIPPED_JUNGLE_DESK_CABINET = register("stripped_jungle_desk_cabinet",
-            () -> new BlockItem(ModBlocks.STRIPPED_JUNGLE_DESK_CABINET.get(), new Item.Properties()));
-    public static final Supplier<Item> STRIPPED_ACACIA_DESK_CABINET = register("stripped_acacia_desk_cabinet",
-            () -> new BlockItem(ModBlocks.STRIPPED_ACACIA_DESK_CABINET.get(), new Item.Properties()));
-    public static final Supplier<Item> STRIPPED_DARK_OAK_DESK_CABINET = register("stripped_dark_oak_desk_cabinet",
-            () -> new BlockItem(ModBlocks.STRIPPED_DARK_OAK_DESK_CABINET.get(), new Item.Properties()));
-    public static final Supplier<Item> STRIPPED_MANGROVE_DESK_CABINET = register("stripped_mangrove_desk_cabinet",
-            () -> new BlockItem(ModBlocks.STRIPPED_MANGROVE_DESK_CABINET.get(), new Item.Properties()));
-    public static final Supplier<Item> STRIPPED_CHERRY_DESK_CABINET = register("stripped_cherry_desk_cabinet",
-            () -> new BlockItem(ModBlocks.STRIPPED_CHERRY_DESK_CABINET.get(), new Item.Properties()));
-    public static final Supplier<Item> STRIPPED_CRIMSON_DESK_CABINET = register("stripped_crimson_desk_cabinet",
-            () -> new BlockItem(ModBlocks.STRIPPED_CRIMSON_DESK_CABINET.get(), new Item.Properties()));
-    public static final Supplier<Item> STRIPPED_WARPED_DESK_CABINET = register("stripped_warped_desk_cabinet",
-            () -> new BlockItem(ModBlocks.STRIPPED_WARPED_DESK_CABINET.get(), new Item.Properties()));
+    public static final Supplier<BlockItem> OAK_DESK_CABINET = registerBlockItem("oak_desk_cabinet", ModBlocks.OAK_DESK_CABINET);
+    public static final Supplier<BlockItem> SPRUCE_DESK_CABINET = registerBlockItem("spruce_desk_cabinet", ModBlocks.SPRUCE_DESK_CABINET);
+    public static final Supplier<BlockItem> BIRCH_DESK_CABINET = registerBlockItem("birch_desk_cabinet", ModBlocks.BIRCH_DESK_CABINET);
+    public static final Supplier<BlockItem> JUNGLE_DESK_CABINET = registerBlockItem("jungle_desk_cabinet", ModBlocks.JUNGLE_DESK_CABINET);
+    public static final Supplier<BlockItem> ACACIA_DESK_CABINET = registerBlockItem("acacia_desk_cabinet", ModBlocks.ACACIA_DESK_CABINET);
+    public static final Supplier<BlockItem> DARK_OAK_DESK_CABINET = registerBlockItem("dark_oak_desk_cabinet", ModBlocks.DARK_OAK_DESK_CABINET);
+    public static final Supplier<BlockItem> MANGROVE_DESK_CABINET = registerBlockItem("mangrove_desk_cabinet", ModBlocks.MANGROVE_DESK_CABINET);
+    public static final Supplier<BlockItem> CHERRY_DESK_CABINET = registerBlockItem("cherry_desk_cabinet", ModBlocks.CHERRY_DESK_CABINET);
+    public static final Supplier<BlockItem> CRIMSON_DESK_CABINET = registerBlockItem("crimson_desk_cabinet", ModBlocks.CRIMSON_DESK_CABINET);
+    public static final Supplier<BlockItem> WARPED_DESK_CABINET = registerBlockItem("warped_desk_cabinet", ModBlocks.WARPED_DESK_CABINET);
+    public static final Supplier<BlockItem> BAMBOO_DESK_CABINET = registerBlockItem("bamboo_desk_cabinet", ModBlocks.BAMBOO_DESK_CABINET);
+    public static final Supplier<BlockItem> STRIPPED_OAK_DESK_CABINET = registerBlockItem("stripped_oak_desk_cabinet", ModBlocks.STRIPPED_OAK_DESK_CABINET);
+    public static final Supplier<BlockItem> STRIPPED_SPRUCE_DESK_CABINET = registerBlockItem("stripped_spruce_desk_cabinet", ModBlocks.STRIPPED_SPRUCE_DESK_CABINET);
+    public static final Supplier<BlockItem> STRIPPED_BIRCH_DESK_CABINET = registerBlockItem("stripped_birch_desk_cabinet", ModBlocks.STRIPPED_BIRCH_DESK_CABINET);
+    public static final Supplier<BlockItem> STRIPPED_JUNGLE_DESK_CABINET = registerBlockItem("stripped_jungle_desk_cabinet", ModBlocks.STRIPPED_JUNGLE_DESK_CABINET);
+    public static final Supplier<BlockItem> STRIPPED_ACACIA_DESK_CABINET = registerBlockItem("stripped_acacia_desk_cabinet", ModBlocks.STRIPPED_ACACIA_DESK_CABINET);
+    public static final Supplier<BlockItem> STRIPPED_DARK_OAK_DESK_CABINET = registerBlockItem("stripped_dark_oak_desk_cabinet", ModBlocks.STRIPPED_DARK_OAK_DESK_CABINET);
+    public static final Supplier<BlockItem> STRIPPED_MANGROVE_DESK_CABINET = registerBlockItem("stripped_mangrove_desk_cabinet", ModBlocks.STRIPPED_MANGROVE_DESK_CABINET);
+    public static final Supplier<BlockItem> STRIPPED_CHERRY_DESK_CABINET = registerBlockItem("stripped_cherry_desk_cabinet", ModBlocks.STRIPPED_CHERRY_DESK_CABINET);
+    public static final Supplier<BlockItem> STRIPPED_CRIMSON_DESK_CABINET = registerBlockItem("stripped_crimson_desk_cabinet", ModBlocks.STRIPPED_CRIMSON_DESK_CABINET);
+    public static final Supplier<BlockItem> STRIPPED_WARPED_DESK_CABINET = registerBlockItem("stripped_warped_desk_cabinet", ModBlocks.STRIPPED_WARPED_DESK_CABINET);
+    public static final Supplier<BlockItem> STRIPPED_BAMBOO_DESK_CABINET = registerBlockItem("stripped_bamboo_desk_cabinet", ModBlocks.STRIPPED_BAMBOO_DESK_CABINET);
 
     // Sofas
-    public static final Supplier<Item> WHITE_SOFA = register("white_sofa",
-            () -> new BlockItem(ModBlocks.WHITE_SOFA.get(), new Item.Properties()));
-    public static final Supplier<Item> LIGHT_GRAY_SOFA = register("light_gray_sofa",
-            () -> new BlockItem(ModBlocks.LIGHT_GRAY_SOFA.get(), new Item.Properties()));
-    public static final Supplier<Item> GRAY_SOFA = register("gray_sofa",
-            () -> new BlockItem(ModBlocks.GRAY_SOFA.get(), new Item.Properties()));
-    public static final Supplier<Item> BLACK_SOFA = register("black_sofa",
-            () -> new BlockItem(ModBlocks.BLACK_SOFA.get(), new Item.Properties()));
-    public static final Supplier<Item> BROWN_SOFA = register("brown_sofa",
-            () -> new BlockItem(ModBlocks.BROWN_SOFA.get(), new Item.Properties()));
-    public static final Supplier<Item> RED_SOFA = register("red_sofa",
-            () -> new BlockItem(ModBlocks.RED_SOFA.get(), new Item.Properties()));
-    public static final Supplier<Item> ORANGE_SOFA = register("orange_sofa",
-            () -> new BlockItem(ModBlocks.ORANGE_SOFA.get(), new Item.Properties()));
-    public static final Supplier<Item> BEIGE_SOFA = registerOptional("beige_sofa", "yogmod",
-            () -> new BlockItem(ModBlocks.BEIGE_SOFA.get(), new Item.Properties()));
-    public static final Supplier<Item> YELLOW_SOFA = register("yellow_sofa",
-            () -> new BlockItem(ModBlocks.YELLOW_SOFA.get(), new Item.Properties()));
-    public static final Supplier<Item> LIME_SOFA = register("lime_sofa",
-            () -> new BlockItem(ModBlocks.LIME_SOFA.get(), new Item.Properties()));
-    public static final Supplier<Item> GREEN_SOFA = register("green_sofa",
-            () -> new BlockItem(ModBlocks.GREEN_SOFA.get(), new Item.Properties()));
-    public static final Supplier<Item> CYAN_SOFA = register("cyan_sofa",
-            () -> new BlockItem(ModBlocks.CYAN_SOFA.get(), new Item.Properties()));
-    public static final Supplier<Item> LIGHT_BLUE_SOFA = register("light_blue_sofa",
-            () -> new BlockItem(ModBlocks.LIGHT_BLUE_SOFA.get(), new Item.Properties()));
-    public static final Supplier<Item> BLUE_SOFA = register("blue_sofa",
-            () -> new BlockItem(ModBlocks.BLUE_SOFA.get(), new Item.Properties()));
-    public static final Supplier<Item> PURPLE_SOFA = register("purple_sofa",
-            () -> new BlockItem(ModBlocks.PURPLE_SOFA.get(), new Item.Properties()));
-    public static final Supplier<Item> MAGENTA_SOFA = register("magenta_sofa",
-            () -> new BlockItem(ModBlocks.MAGENTA_SOFA.get(), new Item.Properties()));
-    public static final Supplier<Item> PINK_SOFA = register("pink_sofa",
-            () -> new BlockItem(ModBlocks.PINK_SOFA.get(), new Item.Properties()));
-    public static final Supplier<Item> RAINBOW_SOFA = register("rainbow_sofa",
-            () -> new BlockItem(ModBlocks.RAINBOW_SOFA.get(), new Item.Properties()));
+    public static final Supplier<BlockItem> WHITE_SOFA = registerBlockItem("white_sofa", ModBlocks.WHITE_SOFA);
+    public static final Supplier<BlockItem> LIGHT_GRAY_SOFA = registerBlockItem("light_gray_sofa", ModBlocks.LIGHT_GRAY_SOFA);
+    public static final Supplier<BlockItem> GRAY_SOFA = registerBlockItem("gray_sofa", ModBlocks.GRAY_SOFA);
+    public static final Supplier<BlockItem> BLACK_SOFA = registerBlockItem("black_sofa", ModBlocks.BLACK_SOFA);
+    public static final Supplier<BlockItem> BROWN_SOFA = registerBlockItem("brown_sofa", ModBlocks.BROWN_SOFA);
+    public static final Supplier<BlockItem> RED_SOFA = registerBlockItem("red_sofa", ModBlocks.RED_SOFA);
+    public static final Supplier<BlockItem> ORANGE_SOFA = registerBlockItem("orange_sofa", ModBlocks.ORANGE_SOFA);
+    public static final Supplier<BlockItem> BEIGE_SOFA = registerOptionalBlockItem("beige_sofa", ModBlocks.BEIGE_SOFA);
+    public static final Supplier<BlockItem> YELLOW_SOFA = registerBlockItem("yellow_sofa", ModBlocks.YELLOW_SOFA);
+    public static final Supplier<BlockItem> LIME_SOFA = registerBlockItem("lime_sofa", ModBlocks.LIME_SOFA);
+    public static final Supplier<BlockItem> GREEN_SOFA = registerBlockItem("green_sofa", ModBlocks.GREEN_SOFA);
+    public static final Supplier<BlockItem> CYAN_SOFA = registerBlockItem("cyan_sofa", ModBlocks.CYAN_SOFA);
+    public static final Supplier<BlockItem> LIGHT_BLUE_SOFA = registerBlockItem("light_blue_sofa", ModBlocks.LIGHT_BLUE_SOFA);
+    public static final Supplier<BlockItem> BLUE_SOFA = registerBlockItem("blue_sofa", ModBlocks.BLUE_SOFA);
+    public static final Supplier<BlockItem> PURPLE_SOFA = registerBlockItem("purple_sofa", ModBlocks.PURPLE_SOFA);
+    public static final Supplier<BlockItem> MAGENTA_SOFA = registerBlockItem("magenta_sofa", ModBlocks.MAGENTA_SOFA);
+    public static final Supplier<BlockItem> PINK_SOFA = registerBlockItem("pink_sofa", ModBlocks.PINK_SOFA);
+    public static final Supplier<BlockItem> RAINBOW_SOFA = registerBlockItem("rainbow_sofa", ModBlocks.RAINBOW_SOFA);
 
     // Blinds
-    public static final Supplier<Item> OAK_BLINDS = register("oak_blinds",
-            () -> new BlockItem(ModBlocks.OAK_BLINDS.get(), new Item.Properties()));
-    public static final Supplier<Item> SPRUCE_BLINDS = register("spruce_blinds",
-            () -> new BlockItem(ModBlocks.SPRUCE_BLINDS.get(), new Item.Properties()));
-    public static final Supplier<Item> BIRCH_BLINDS = register("birch_blinds",
-            () -> new BlockItem(ModBlocks.BIRCH_BLINDS.get(), new Item.Properties()));
-    public static final Supplier<Item> JUNGLE_BLINDS = register("jungle_blinds",
-            () -> new BlockItem(ModBlocks.JUNGLE_BLINDS.get(), new Item.Properties()));
-    public static final Supplier<Item> ACACIA_BLINDS = register("acacia_blinds",
-            () -> new BlockItem(ModBlocks.ACACIA_BLINDS.get(), new Item.Properties()));
-    public static final Supplier<Item> DARK_OAK_BLINDS = register("dark_oak_blinds",
-            () -> new BlockItem(ModBlocks.DARK_OAK_BLINDS.get(), new Item.Properties()));
-    public static final Supplier<Item> MANGROVE_BLINDS = register("mangrove_blinds",
-            () -> new BlockItem(ModBlocks.MANGROVE_BLINDS.get(), new Item.Properties()));
-    public static final Supplier<Item> CHERRY_BLINDS = register("cherry_blinds",
-            () -> new BlockItem(ModBlocks.CHERRY_BLINDS.get(), new Item.Properties()));
-    public static final Supplier<Item> CRIMSON_BLINDS = register("crimson_blinds",
-            () -> new BlockItem(ModBlocks.CRIMSON_BLINDS.get(), new Item.Properties()));
-    public static final Supplier<Item> WARPED_BLINDS = register("warped_blinds",
-            () -> new BlockItem(ModBlocks.WARPED_BLINDS.get(), new Item.Properties()));
-    public static final Supplier<Item> STRIPPED_OAK_BLINDS = register("stripped_oak_blinds",
-            () -> new BlockItem(ModBlocks.STRIPPED_OAK_BLINDS.get(), new Item.Properties()));
-    public static final Supplier<Item> STRIPPED_SPRUCE_BLINDS = register("stripped_spruce_blinds",
-            () -> new BlockItem(ModBlocks.STRIPPED_SPRUCE_BLINDS.get(), new Item.Properties()));
-    public static final Supplier<Item> STRIPPED_BIRCH_BLINDS = register("stripped_birch_blinds",
-            () -> new BlockItem(ModBlocks.STRIPPED_BIRCH_BLINDS.get(), new Item.Properties()));
-    public static final Supplier<Item> STRIPPED_JUNGLE_BLINDS = register("stripped_jungle_blinds",
-            () -> new BlockItem(ModBlocks.STRIPPED_JUNGLE_BLINDS.get(), new Item.Properties()));
-    public static final Supplier<Item> STRIPPED_ACACIA_BLINDS = register("stripped_acacia_blinds",
-            () -> new BlockItem(ModBlocks.STRIPPED_ACACIA_BLINDS.get(), new Item.Properties()));
-    public static final Supplier<Item> STRIPPED_DARK_OAK_BLINDS = register("stripped_dark_oak_blinds",
-            () -> new BlockItem(ModBlocks.STRIPPED_DARK_OAK_BLINDS.get(), new Item.Properties()));
-    public static final Supplier<Item> STRIPPED_MANGROVE_BLINDS = register("stripped_mangrove_blinds",
-            () -> new BlockItem(ModBlocks.STRIPPED_MANGROVE_BLINDS.get(), new Item.Properties()));
-    public static final Supplier<Item> STRIPPED_CHERRY_BLINDS = register("stripped_cherry_blinds",
-            () -> new BlockItem(ModBlocks.STRIPPED_CHERRY_BLINDS.get(), new Item.Properties()));
-    public static final Supplier<Item> STRIPPED_CRIMSON_BLINDS = register("stripped_crimson_blinds",
-            () -> new BlockItem(ModBlocks.STRIPPED_CRIMSON_BLINDS.get(), new Item.Properties()));
-    public static final Supplier<Item> STRIPPED_WARPED_BLINDS = register("stripped_warped_blinds",
-            () -> new BlockItem(ModBlocks.STRIPPED_WARPED_BLINDS.get(), new Item.Properties()));
+    public static final Supplier<BlockItem> OAK_BLINDS = registerBlockItem("oak_blinds", ModBlocks.OAK_BLINDS);
+    public static final Supplier<BlockItem> SPRUCE_BLINDS = registerBlockItem("spruce_blinds", ModBlocks.SPRUCE_BLINDS);
+    public static final Supplier<BlockItem> BIRCH_BLINDS = registerBlockItem("birch_blinds", ModBlocks.BIRCH_BLINDS);
+    public static final Supplier<BlockItem> JUNGLE_BLINDS = registerBlockItem("jungle_blinds", ModBlocks.JUNGLE_BLINDS);
+    public static final Supplier<BlockItem> ACACIA_BLINDS = registerBlockItem("acacia_blinds", ModBlocks.ACACIA_BLINDS);
+    public static final Supplier<BlockItem> DARK_OAK_BLINDS = registerBlockItem("dark_oak_blinds", ModBlocks.DARK_OAK_BLINDS);
+    public static final Supplier<BlockItem> MANGROVE_BLINDS = registerBlockItem("mangrove_blinds", ModBlocks.MANGROVE_BLINDS);
+    public static final Supplier<BlockItem> CHERRY_BLINDS = registerBlockItem("cherry_blinds", ModBlocks.CHERRY_BLINDS);
+    public static final Supplier<BlockItem> CRIMSON_BLINDS = registerBlockItem("crimson_blinds", ModBlocks.CRIMSON_BLINDS);
+    public static final Supplier<BlockItem> WARPED_BLINDS = registerBlockItem("warped_blinds", ModBlocks.WARPED_BLINDS);
+    public static final Supplier<BlockItem> BAMBOO_BLINDS = registerBlockItem("bamboo_blinds", ModBlocks.BAMBOO_BLINDS);
+    public static final Supplier<BlockItem> STRIPPED_OAK_BLINDS = registerBlockItem("stripped_oak_blinds", ModBlocks.STRIPPED_OAK_BLINDS);
+    public static final Supplier<BlockItem> STRIPPED_SPRUCE_BLINDS = registerBlockItem("stripped_spruce_blinds", ModBlocks.STRIPPED_SPRUCE_BLINDS);
+    public static final Supplier<BlockItem> STRIPPED_BIRCH_BLINDS = registerBlockItem("stripped_birch_blinds", ModBlocks.STRIPPED_BIRCH_BLINDS);
+    public static final Supplier<BlockItem> STRIPPED_JUNGLE_BLINDS = registerBlockItem("stripped_jungle_blinds", ModBlocks.STRIPPED_JUNGLE_BLINDS);
+    public static final Supplier<BlockItem> STRIPPED_ACACIA_BLINDS = registerBlockItem("stripped_acacia_blinds", ModBlocks.STRIPPED_ACACIA_BLINDS);
+    public static final Supplier<BlockItem> STRIPPED_DARK_OAK_BLINDS = registerBlockItem("stripped_dark_oak_blinds", ModBlocks.STRIPPED_DARK_OAK_BLINDS);
+    public static final Supplier<BlockItem> STRIPPED_MANGROVE_BLINDS = registerBlockItem("stripped_mangrove_blinds", ModBlocks.STRIPPED_MANGROVE_BLINDS);
+    public static final Supplier<BlockItem> STRIPPED_CHERRY_BLINDS = registerBlockItem("stripped_cherry_blinds", ModBlocks.STRIPPED_CHERRY_BLINDS);
+    public static final Supplier<BlockItem> STRIPPED_CRIMSON_BLINDS = registerBlockItem("stripped_crimson_blinds", ModBlocks.STRIPPED_CRIMSON_BLINDS);
+    public static final Supplier<BlockItem> STRIPPED_WARPED_BLINDS = registerBlockItem("stripped_warped_blinds", ModBlocks.STRIPPED_WARPED_BLINDS);
+    public static final Supplier<BlockItem> STRIPPED_BAMBOO_BLINDS = registerBlockItem("stripped_bamboo_blinds", ModBlocks.STRIPPED_BAMBOO_BLINDS);
 
     // Upgraded Fences
-    public static final Supplier<Item> OAK_UPGRADED_FENCE = register("oak_upgraded_fence",
-            () -> new BlockItem(ModBlocks.OAK_UPGRADED_FENCE.get(), new Item.Properties()));
-    public static final Supplier<Item> SPRUCE_UPGRADED_FENCE = register("spruce_upgraded_fence",
-            () -> new BlockItem(ModBlocks.SPRUCE_UPGRADED_FENCE.get(), new Item.Properties()));
-    public static final Supplier<Item> BIRCH_UPGRADED_FENCE = register("birch_upgraded_fence",
-            () -> new BlockItem(ModBlocks.BIRCH_UPGRADED_FENCE.get(), new Item.Properties()));
-    public static final Supplier<Item> JUNGLE_UPGRADED_FENCE = register("jungle_upgraded_fence",
-            () -> new BlockItem(ModBlocks.JUNGLE_UPGRADED_FENCE.get(), new Item.Properties()));
-    public static final Supplier<Item> ACACIA_UPGRADED_FENCE = register("acacia_upgraded_fence",
-            () -> new BlockItem(ModBlocks.ACACIA_UPGRADED_FENCE.get(), new Item.Properties()));
-    public static final Supplier<Item> DARK_OAK_UPGRADED_FENCE = register("dark_oak_upgraded_fence",
-            () -> new BlockItem(ModBlocks.DARK_OAK_UPGRADED_FENCE.get(), new Item.Properties()));
-    public static final Supplier<Item> MANGROVE_UPGRADED_FENCE = register("mangrove_upgraded_fence",
-            () -> new BlockItem(ModBlocks.MANGROVE_UPGRADED_FENCE.get(), new Item.Properties()));
-    public static final Supplier<Item> CHERRY_UPGRADED_FENCE = register("cherry_upgraded_fence",
-            () -> new BlockItem(ModBlocks.CHERRY_UPGRADED_FENCE.get(), new Item.Properties()));
-    public static final Supplier<Item> CRIMSON_UPGRADED_FENCE = register("crimson_upgraded_fence",
-            () -> new BlockItem(ModBlocks.CRIMSON_UPGRADED_FENCE.get(), new Item.Properties()));
-    public static final Supplier<Item> WARPED_UPGRADED_FENCE = register("warped_upgraded_fence",
-            () -> new BlockItem(ModBlocks.WARPED_UPGRADED_FENCE.get(), new Item.Properties()));
-    public static final Supplier<Item> STRIPPED_OAK_UPGRADED_FENCE = register("stripped_oak_upgraded_fence",
-            () -> new BlockItem(ModBlocks.STRIPPED_OAK_UPGRADED_FENCE.get(), new Item.Properties()));
-    public static final Supplier<Item> STRIPPED_SPRUCE_UPGRADED_FENCE = register("stripped_spruce_upgraded_fence",
-            () -> new BlockItem(ModBlocks.STRIPPED_SPRUCE_UPGRADED_FENCE.get(), new Item.Properties()));
-    public static final Supplier<Item> STRIPPED_BIRCH_UPGRADED_FENCE = register("stripped_birch_upgraded_fence",
-            () -> new BlockItem(ModBlocks.STRIPPED_BIRCH_UPGRADED_FENCE.get(), new Item.Properties()));
-    public static final Supplier<Item> STRIPPED_JUNGLE_UPGRADED_FENCE = register("stripped_jungle_upgraded_fence",
-            () -> new BlockItem(ModBlocks.STRIPPED_JUNGLE_UPGRADED_FENCE.get(), new Item.Properties()));
-    public static final Supplier<Item> STRIPPED_ACACIA_UPGRADED_FENCE = register("stripped_acacia_upgraded_fence",
-            () -> new BlockItem(ModBlocks.STRIPPED_ACACIA_UPGRADED_FENCE.get(), new Item.Properties()));
-    public static final Supplier<Item> STRIPPED_DARK_OAK_UPGRADED_FENCE = register("stripped_dark_oak_upgraded_fence",
-            () -> new BlockItem(ModBlocks.STRIPPED_DARK_OAK_UPGRADED_FENCE.get(), new Item.Properties()));
-    public static final Supplier<Item> STRIPPED_MANGROVE_UPGRADED_FENCE = register("stripped_mangrove_upgraded_fence",
-            () -> new BlockItem(ModBlocks.STRIPPED_MANGROVE_UPGRADED_FENCE.get(), new Item.Properties()));
-    public static final Supplier<Item> STRIPPED_CHERRY_UPGRADED_FENCE = register("stripped_cherry_upgraded_fence",
-            () -> new BlockItem(ModBlocks.STRIPPED_CHERRY_UPGRADED_FENCE.get(), new Item.Properties()));
-    public static final Supplier<Item> STRIPPED_CRIMSON_UPGRADED_FENCE = register("stripped_crimson_upgraded_fence",
-            () -> new BlockItem(ModBlocks.STRIPPED_CRIMSON_UPGRADED_FENCE.get(), new Item.Properties()));
-    public static final Supplier<Item> STRIPPED_WARPED_UPGRADED_FENCE = register("stripped_warped_upgraded_fence",
-            () -> new BlockItem(ModBlocks.STRIPPED_WARPED_UPGRADED_FENCE.get(), new Item.Properties()));
+    public static final Supplier<BlockItem> OAK_UPGRADED_FENCE = registerBlockItem("oak_upgraded_fence", ModBlocks.OAK_UPGRADED_FENCE);
+    public static final Supplier<BlockItem> SPRUCE_UPGRADED_FENCE = registerBlockItem("spruce_upgraded_fence", ModBlocks.SPRUCE_UPGRADED_FENCE);
+    public static final Supplier<BlockItem> BIRCH_UPGRADED_FENCE = registerBlockItem("birch_upgraded_fence", ModBlocks.BIRCH_UPGRADED_FENCE);
+    public static final Supplier<BlockItem> JUNGLE_UPGRADED_FENCE = registerBlockItem("jungle_upgraded_fence", ModBlocks.JUNGLE_UPGRADED_FENCE);
+    public static final Supplier<BlockItem> ACACIA_UPGRADED_FENCE = registerBlockItem("acacia_upgraded_fence", ModBlocks.ACACIA_UPGRADED_FENCE);
+    public static final Supplier<BlockItem> DARK_OAK_UPGRADED_FENCE = registerBlockItem("dark_oak_upgraded_fence", ModBlocks.DARK_OAK_UPGRADED_FENCE);
+    public static final Supplier<BlockItem> MANGROVE_UPGRADED_FENCE = registerBlockItem("mangrove_upgraded_fence", ModBlocks.MANGROVE_UPGRADED_FENCE);
+    public static final Supplier<BlockItem> CHERRY_UPGRADED_FENCE = registerBlockItem("cherry_upgraded_fence", ModBlocks.CHERRY_UPGRADED_FENCE);
+    public static final Supplier<BlockItem> CRIMSON_UPGRADED_FENCE = registerBlockItem("crimson_upgraded_fence", ModBlocks.CRIMSON_UPGRADED_FENCE);
+    public static final Supplier<BlockItem> WARPED_UPGRADED_FENCE = registerBlockItem("warped_upgraded_fence", ModBlocks.WARPED_UPGRADED_FENCE);
+    public static final Supplier<BlockItem> BAMBOO_UPGRADED_FENCE = registerBlockItem("bamboo_upgraded_fence", ModBlocks.BAMBOO_UPGRADED_FENCE);
+    public static final Supplier<BlockItem> STRIPPED_OAK_UPGRADED_FENCE = registerBlockItem("stripped_oak_upgraded_fence", ModBlocks.STRIPPED_OAK_UPGRADED_FENCE);
+    public static final Supplier<BlockItem> STRIPPED_SPRUCE_UPGRADED_FENCE = registerBlockItem("stripped_spruce_upgraded_fence", ModBlocks.STRIPPED_SPRUCE_UPGRADED_FENCE);
+    public static final Supplier<BlockItem> STRIPPED_BIRCH_UPGRADED_FENCE = registerBlockItem("stripped_birch_upgraded_fence", ModBlocks.STRIPPED_BIRCH_UPGRADED_FENCE);
+    public static final Supplier<BlockItem> STRIPPED_JUNGLE_UPGRADED_FENCE = registerBlockItem("stripped_jungle_upgraded_fence", ModBlocks.STRIPPED_JUNGLE_UPGRADED_FENCE);
+    public static final Supplier<BlockItem> STRIPPED_ACACIA_UPGRADED_FENCE = registerBlockItem("stripped_acacia_upgraded_fence", ModBlocks.STRIPPED_ACACIA_UPGRADED_FENCE);
+    public static final Supplier<BlockItem> STRIPPED_DARK_OAK_UPGRADED_FENCE = registerBlockItem("stripped_dark_oak_upgraded_fence", ModBlocks.STRIPPED_DARK_OAK_UPGRADED_FENCE);
+    public static final Supplier<BlockItem> STRIPPED_MANGROVE_UPGRADED_FENCE = registerBlockItem("stripped_mangrove_upgraded_fence", ModBlocks.STRIPPED_MANGROVE_UPGRADED_FENCE);
+    public static final Supplier<BlockItem> STRIPPED_CHERRY_UPGRADED_FENCE = registerBlockItem("stripped_cherry_upgraded_fence", ModBlocks.STRIPPED_CHERRY_UPGRADED_FENCE);
+    public static final Supplier<BlockItem> STRIPPED_CRIMSON_UPGRADED_FENCE = registerBlockItem("stripped_crimson_upgraded_fence", ModBlocks.STRIPPED_CRIMSON_UPGRADED_FENCE);
+    public static final Supplier<BlockItem> STRIPPED_WARPED_UPGRADED_FENCE = registerBlockItem("stripped_warped_upgraded_fence", ModBlocks.STRIPPED_WARPED_UPGRADED_FENCE);
+    public static final Supplier<BlockItem> STRIPPED_BAMBOO_UPGRADED_FENCE = registerBlockItem("stripped_bamboo_upgraded_fence", ModBlocks.STRIPPED_BAMBOO_UPGRADED_FENCE);
 
     // Upgraded Gates
-    public static final Supplier<Item> OAK_UPGRADED_GATE = register("oak_upgraded_gate",
-            () -> new BlockItem(ModBlocks.OAK_UPGRADED_GATE.get(), new Item.Properties()));
-    public static final Supplier<Item> SPRUCE_UPGRADED_GATE = register("spruce_upgraded_gate",
-            () -> new BlockItem(ModBlocks.SPRUCE_UPGRADED_GATE.get(), new Item.Properties()));
-    public static final Supplier<Item> BIRCH_UPGRADED_GATE = register("birch_upgraded_gate",
-            () -> new BlockItem(ModBlocks.BIRCH_UPGRADED_GATE.get(), new Item.Properties()));
-    public static final Supplier<Item> JUNGLE_UPGRADED_GATE = register("jungle_upgraded_gate",
-            () -> new BlockItem(ModBlocks.JUNGLE_UPGRADED_GATE.get(), new Item.Properties()));
-    public static final Supplier<Item> ACACIA_UPGRADED_GATE = register("acacia_upgraded_gate",
-            () -> new BlockItem(ModBlocks.ACACIA_UPGRADED_GATE.get(), new Item.Properties()));
-    public static final Supplier<Item> DARK_OAK_UPGRADED_GATE = register("dark_oak_upgraded_gate",
-            () -> new BlockItem(ModBlocks.DARK_OAK_UPGRADED_GATE.get(), new Item.Properties()));
-    public static final Supplier<Item> MANGROVE_UPGRADED_GATE = register("mangrove_upgraded_gate",
-            () -> new BlockItem(ModBlocks.MANGROVE_UPGRADED_GATE.get(), new Item.Properties()));
-    public static final Supplier<Item> CHERRY_UPGRADED_GATE = register("cherry_upgraded_gate",
-            () -> new BlockItem(ModBlocks.CHERRY_UPGRADED_GATE.get(), new Item.Properties()));
-    public static final Supplier<Item> CRIMSON_UPGRADED_GATE = register("crimson_upgraded_gate",
-            () -> new BlockItem(ModBlocks.CRIMSON_UPGRADED_GATE.get(), new Item.Properties()));
-    public static final Supplier<Item> WARPED_UPGRADED_GATE = register("warped_upgraded_gate",
-            () -> new BlockItem(ModBlocks.WARPED_UPGRADED_GATE.get(), new Item.Properties()));
-    public static final Supplier<Item> STRIPPED_OAK_UPGRADED_GATE = register("stripped_oak_upgraded_gate",
-            () -> new BlockItem(ModBlocks.STRIPPED_OAK_UPGRADED_GATE.get(), new Item.Properties()));
-    public static final Supplier<Item> STRIPPED_SPRUCE_UPGRADED_GATE = register("stripped_spruce_upgraded_gate",
-            () -> new BlockItem(ModBlocks.STRIPPED_SPRUCE_UPGRADED_GATE.get(), new Item.Properties()));
-    public static final Supplier<Item> STRIPPED_BIRCH_UPGRADED_GATE = register("stripped_birch_upgraded_gate",
-            () -> new BlockItem(ModBlocks.STRIPPED_BIRCH_UPGRADED_GATE.get(), new Item.Properties()));
-    public static final Supplier<Item> STRIPPED_JUNGLE_UPGRADED_GATE = register("stripped_jungle_upgraded_gate",
-            () -> new BlockItem(ModBlocks.STRIPPED_JUNGLE_UPGRADED_GATE.get(), new Item.Properties()));
-    public static final Supplier<Item> STRIPPED_ACACIA_UPGRADED_GATE = register("stripped_acacia_upgraded_gate",
-            () -> new BlockItem(ModBlocks.STRIPPED_ACACIA_UPGRADED_GATE.get(), new Item.Properties()));
-    public static final Supplier<Item> STRIPPED_DARK_OAK_UPGRADED_GATE = register("stripped_dark_oak_upgraded_gate",
-            () -> new BlockItem(ModBlocks.STRIPPED_DARK_OAK_UPGRADED_GATE.get(), new Item.Properties()));
-    public static final Supplier<Item> STRIPPED_MANGROVE_UPGRADED_GATE = register("stripped_mangrove_upgraded_gate",
-            () -> new BlockItem(ModBlocks.STRIPPED_MANGROVE_UPGRADED_GATE.get(), new Item.Properties()));
-    public static final Supplier<Item> STRIPPED_CHERRY_UPGRADED_GATE = register("stripped_cherry_upgraded_gate",
-            () -> new BlockItem(ModBlocks.STRIPPED_CHERRY_UPGRADED_GATE.get(), new Item.Properties()));
-    public static final Supplier<Item> STRIPPED_CRIMSON_UPGRADED_GATE = register("stripped_crimson_upgraded_gate",
-            () -> new BlockItem(ModBlocks.STRIPPED_CRIMSON_UPGRADED_GATE.get(), new Item.Properties()));
-    public static final Supplier<Item> STRIPPED_WARPED_UPGRADED_GATE = register("stripped_warped_upgraded_gate",
-            () -> new BlockItem(ModBlocks.STRIPPED_WARPED_UPGRADED_GATE.get(), new Item.Properties()));
+    public static final Supplier<BlockItem> OAK_UPGRADED_GATE = registerBlockItem("oak_upgraded_gate", ModBlocks.OAK_UPGRADED_GATE);
+    public static final Supplier<BlockItem> SPRUCE_UPGRADED_GATE = registerBlockItem("spruce_upgraded_gate", ModBlocks.SPRUCE_UPGRADED_GATE);
+    public static final Supplier<BlockItem> BIRCH_UPGRADED_GATE = registerBlockItem("birch_upgraded_gate", ModBlocks.BIRCH_UPGRADED_GATE);
+    public static final Supplier<BlockItem> JUNGLE_UPGRADED_GATE = registerBlockItem("jungle_upgraded_gate", ModBlocks.JUNGLE_UPGRADED_GATE);
+    public static final Supplier<BlockItem> ACACIA_UPGRADED_GATE = registerBlockItem("acacia_upgraded_gate", ModBlocks.ACACIA_UPGRADED_GATE);
+    public static final Supplier<BlockItem> DARK_OAK_UPGRADED_GATE = registerBlockItem("dark_oak_upgraded_gate", ModBlocks.DARK_OAK_UPGRADED_GATE);
+    public static final Supplier<BlockItem> MANGROVE_UPGRADED_GATE = registerBlockItem("mangrove_upgraded_gate", ModBlocks.MANGROVE_UPGRADED_GATE);
+    public static final Supplier<BlockItem> CHERRY_UPGRADED_GATE = registerBlockItem("cherry_upgraded_gate", ModBlocks.CHERRY_UPGRADED_GATE);
+    public static final Supplier<BlockItem> CRIMSON_UPGRADED_GATE = registerBlockItem("crimson_upgraded_gate", ModBlocks.CRIMSON_UPGRADED_GATE);
+    public static final Supplier<BlockItem> WARPED_UPGRADED_GATE = registerBlockItem("warped_upgraded_gate", ModBlocks.WARPED_UPGRADED_GATE);
+    public static final Supplier<BlockItem> BAMBOO_UPGRADED_GATE = registerBlockItem("bamboo_upgraded_gate", ModBlocks.BAMBOO_UPGRADED_GATE);
+    public static final Supplier<BlockItem> STRIPPED_OAK_UPGRADED_GATE = registerBlockItem("stripped_oak_upgraded_gate", ModBlocks.STRIPPED_OAK_UPGRADED_GATE);
+    public static final Supplier<BlockItem> STRIPPED_SPRUCE_UPGRADED_GATE = registerBlockItem("stripped_spruce_upgraded_gate", ModBlocks.STRIPPED_SPRUCE_UPGRADED_GATE);
+    public static final Supplier<BlockItem> STRIPPED_BIRCH_UPGRADED_GATE = registerBlockItem("stripped_birch_upgraded_gate", ModBlocks.STRIPPED_BIRCH_UPGRADED_GATE);
+    public static final Supplier<BlockItem> STRIPPED_JUNGLE_UPGRADED_GATE = registerBlockItem("stripped_jungle_upgraded_gate", ModBlocks.STRIPPED_JUNGLE_UPGRADED_GATE);
+    public static final Supplier<BlockItem> STRIPPED_ACACIA_UPGRADED_GATE = registerBlockItem("stripped_acacia_upgraded_gate", ModBlocks.STRIPPED_ACACIA_UPGRADED_GATE);
+    public static final Supplier<BlockItem> STRIPPED_DARK_OAK_UPGRADED_GATE = registerBlockItem("stripped_dark_oak_upgraded_gate", ModBlocks.STRIPPED_DARK_OAK_UPGRADED_GATE);
+    public static final Supplier<BlockItem> STRIPPED_MANGROVE_UPGRADED_GATE = registerBlockItem("stripped_mangrove_upgraded_gate", ModBlocks.STRIPPED_MANGROVE_UPGRADED_GATE);
+    public static final Supplier<BlockItem> STRIPPED_CHERRY_UPGRADED_GATE = registerBlockItem("stripped_cherry_upgraded_gate", ModBlocks.STRIPPED_CHERRY_UPGRADED_GATE);
+    public static final Supplier<BlockItem> STRIPPED_CRIMSON_UPGRADED_GATE = registerBlockItem("stripped_crimson_upgraded_gate", ModBlocks.STRIPPED_CRIMSON_UPGRADED_GATE);
+    public static final Supplier<BlockItem> STRIPPED_WARPED_UPGRADED_GATE = registerBlockItem("stripped_warped_upgraded_gate", ModBlocks.STRIPPED_WARPED_UPGRADED_GATE);
+    public static final Supplier<BlockItem> STRIPPED_BAMBOO_UPGRADED_GATE = registerBlockItem("stripped_bamboo_upgraded_gate", ModBlocks.STRIPPED_BAMBOO_UPGRADED_GATE);
 
     // Picket Fences
-    public static final Supplier<Item> WHITE_PICKET_FENCE = register("white_picket_fence",
-            () -> new BlockItem(ModBlocks.WHITE_PICKET_FENCE.get(), new Item.Properties()));
-    public static final Supplier<Item> LIGHT_GRAY_PICKET_FENCE = register("light_gray_picket_fence",
-            () -> new BlockItem(ModBlocks.LIGHT_GRAY_PICKET_FENCE.get(), new Item.Properties()));
-    public static final Supplier<Item> GRAY_PICKET_FENCE = register("gray_picket_fence",
-            () -> new BlockItem(ModBlocks.GRAY_PICKET_FENCE.get(), new Item.Properties()));
-    public static final Supplier<Item> BLACK_PICKET_FENCE = register("black_picket_fence",
-            () -> new BlockItem(ModBlocks.BLACK_PICKET_FENCE.get(), new Item.Properties()));
-    public static final Supplier<Item> BROWN_PICKET_FENCE = register("brown_picket_fence",
-            () -> new BlockItem(ModBlocks.BROWN_PICKET_FENCE.get(), new Item.Properties()));
-    public static final Supplier<Item> RED_PICKET_FENCE = register("red_picket_fence",
-            () -> new BlockItem(ModBlocks.RED_PICKET_FENCE.get(), new Item.Properties()));
-    public static final Supplier<Item> ORANGE_PICKET_FENCE = register("orange_picket_fence",
-            () -> new BlockItem(ModBlocks.ORANGE_PICKET_FENCE.get(), new Item.Properties()));
-    public static final Supplier<Item> BEIGE_PICKET_FENCE = registerOptional("beige_picket_fence", "yogmod",
-            () -> new BlockItem(ModBlocks.BEIGE_PICKET_FENCE.get(), new Item.Properties()));
-    public static final Supplier<Item> YELLOW_PICKET_FENCE = register("yellow_picket_fence",
-            () -> new BlockItem(ModBlocks.YELLOW_PICKET_FENCE.get(), new Item.Properties()));
-    public static final Supplier<Item> LIME_PICKET_FENCE = register("lime_picket_fence",
-            () -> new BlockItem(ModBlocks.LIME_PICKET_FENCE.get(), new Item.Properties()));
-    public static final Supplier<Item> GREEN_PICKET_FENCE = register("green_picket_fence",
-            () -> new BlockItem(ModBlocks.GREEN_PICKET_FENCE.get(), new Item.Properties()));
-    public static final Supplier<Item> CYAN_PICKET_FENCE = register("cyan_picket_fence",
-            () -> new BlockItem(ModBlocks.CYAN_PICKET_FENCE.get(), new Item.Properties()));
-    public static final Supplier<Item> LIGHT_BLUE_PICKET_FENCE = register("light_blue_picket_fence",
-            () -> new BlockItem(ModBlocks.LIGHT_BLUE_PICKET_FENCE.get(), new Item.Properties()));
-    public static final Supplier<Item> BLUE_PICKET_FENCE = register("blue_picket_fence",
-            () -> new BlockItem(ModBlocks.BLUE_PICKET_FENCE.get(), new Item.Properties()));
-    public static final Supplier<Item> PURPLE_PICKET_FENCE = register("purple_picket_fence",
-            () -> new BlockItem(ModBlocks.PURPLE_PICKET_FENCE.get(), new Item.Properties()));
-    public static final Supplier<Item> MAGENTA_PICKET_FENCE = register("magenta_picket_fence",
-            () -> new BlockItem(ModBlocks.MAGENTA_PICKET_FENCE.get(), new Item.Properties()));
-    public static final Supplier<Item> PINK_PICKET_FENCE = register("pink_picket_fence",
-            () -> new BlockItem(ModBlocks.PINK_PICKET_FENCE.get(), new Item.Properties()));
+    public static final Supplier<BlockItem> WHITE_PICKET_FENCE = registerBlockItem("white_picket_fence", ModBlocks.WHITE_PICKET_FENCE);
+    public static final Supplier<BlockItem> LIGHT_GRAY_PICKET_FENCE = registerBlockItem("light_gray_picket_fence", ModBlocks.LIGHT_GRAY_PICKET_FENCE);
+    public static final Supplier<BlockItem> GRAY_PICKET_FENCE = registerBlockItem("gray_picket_fence", ModBlocks.GRAY_PICKET_FENCE);
+    public static final Supplier<BlockItem> BLACK_PICKET_FENCE = registerBlockItem("black_picket_fence", ModBlocks.BLACK_PICKET_FENCE);
+    public static final Supplier<BlockItem> BROWN_PICKET_FENCE = registerBlockItem("brown_picket_fence", ModBlocks.BROWN_PICKET_FENCE);
+    public static final Supplier<BlockItem> RED_PICKET_FENCE = registerBlockItem("red_picket_fence", ModBlocks.RED_PICKET_FENCE);
+    public static final Supplier<BlockItem> ORANGE_PICKET_FENCE = registerBlockItem("orange_picket_fence", ModBlocks.ORANGE_PICKET_FENCE);
+    public static final Supplier<BlockItem> BEIGE_PICKET_FENCE = registerOptionalBlockItem("beige_picket_fence", ModBlocks.BEIGE_PICKET_FENCE);
+    public static final Supplier<BlockItem> YELLOW_PICKET_FENCE = registerBlockItem("yellow_picket_fence", ModBlocks.YELLOW_PICKET_FENCE);
+    public static final Supplier<BlockItem> LIME_PICKET_FENCE = registerBlockItem("lime_picket_fence", ModBlocks.LIME_PICKET_FENCE);
+    public static final Supplier<BlockItem> GREEN_PICKET_FENCE = registerBlockItem("green_picket_fence", ModBlocks.GREEN_PICKET_FENCE);
+    public static final Supplier<BlockItem> CYAN_PICKET_FENCE = registerBlockItem("cyan_picket_fence", ModBlocks.CYAN_PICKET_FENCE);
+    public static final Supplier<BlockItem> LIGHT_BLUE_PICKET_FENCE = registerBlockItem("light_blue_picket_fence", ModBlocks.LIGHT_BLUE_PICKET_FENCE);
+    public static final Supplier<BlockItem> BLUE_PICKET_FENCE = registerBlockItem("blue_picket_fence", ModBlocks.BLUE_PICKET_FENCE);
+    public static final Supplier<BlockItem> PURPLE_PICKET_FENCE = registerBlockItem("purple_picket_fence", ModBlocks.PURPLE_PICKET_FENCE);
+    public static final Supplier<BlockItem> MAGENTA_PICKET_FENCE = registerBlockItem("magenta_picket_fence", ModBlocks.MAGENTA_PICKET_FENCE);
+    public static final Supplier<BlockItem> PINK_PICKET_FENCE = registerBlockItem("pink_picket_fence", ModBlocks.PINK_PICKET_FENCE);
 
     // Picket Gates
-    public static final Supplier<Item> WHITE_PICKET_GATE = register("white_picket_gate",
-            () -> new BlockItem(ModBlocks.WHITE_PICKET_GATE.get(), new Item.Properties()));
-    public static final Supplier<Item> LIGHT_GRAY_PICKET_GATE = register("light_gray_picket_gate",
-            () -> new BlockItem(ModBlocks.LIGHT_GRAY_PICKET_GATE.get(), new Item.Properties()));
-    public static final Supplier<Item> GRAY_PICKET_GATE = register("gray_picket_gate",
-            () -> new BlockItem(ModBlocks.GRAY_PICKET_GATE.get(), new Item.Properties()));
-    public static final Supplier<Item> BLACK_PICKET_GATE = register("black_picket_gate",
-            () -> new BlockItem(ModBlocks.BLACK_PICKET_GATE.get(), new Item.Properties()));
-    public static final Supplier<Item> BROWN_PICKET_GATE = register("brown_picket_gate",
-            () -> new BlockItem(ModBlocks.BROWN_PICKET_GATE.get(), new Item.Properties()));
-    public static final Supplier<Item> RED_PICKET_GATE = register("red_picket_gate",
-            () -> new BlockItem(ModBlocks.RED_PICKET_GATE.get(), new Item.Properties()));
-    public static final Supplier<Item> ORANGE_PICKET_GATE = register("orange_picket_gate",
-            () -> new BlockItem(ModBlocks.ORANGE_PICKET_GATE.get(), new Item.Properties()));
-    public static final Supplier<Item> BEIGE_PICKET_GATE = registerOptional("beige_picket_gate", "yogmod",
-            () -> new BlockItem(ModBlocks.BEIGE_PICKET_GATE.get(), new Item.Properties()));
-    public static final Supplier<Item> YELLOW_PICKET_GATE = register("yellow_picket_gate",
-            () -> new BlockItem(ModBlocks.YELLOW_PICKET_GATE.get(), new Item.Properties()));
-    public static final Supplier<Item> LIME_PICKET_GATE = register("lime_picket_gate",
-            () -> new BlockItem(ModBlocks.LIME_PICKET_GATE.get(), new Item.Properties()));
-    public static final Supplier<Item> GREEN_PICKET_GATE = register("green_picket_gate",
-            () -> new BlockItem(ModBlocks.GREEN_PICKET_GATE.get(), new Item.Properties()));
-    public static final Supplier<Item> CYAN_PICKET_GATE = register("cyan_picket_gate",
-            () -> new BlockItem(ModBlocks.CYAN_PICKET_GATE.get(), new Item.Properties()));
-    public static final Supplier<Item> LIGHT_BLUE_PICKET_GATE = register("light_blue_picket_gate",
-            () -> new BlockItem(ModBlocks.LIGHT_BLUE_PICKET_GATE.get(), new Item.Properties()));
-    public static final Supplier<Item> BLUE_PICKET_GATE = register("blue_picket_gate",
-            () -> new BlockItem(ModBlocks.BLUE_PICKET_GATE.get(), new Item.Properties()));
-    public static final Supplier<Item> PURPLE_PICKET_GATE = register("purple_picket_gate",
-            () -> new BlockItem(ModBlocks.PURPLE_PICKET_GATE.get(), new Item.Properties()));
-    public static final Supplier<Item> MAGENTA_PICKET_GATE = register("magenta_picket_gate",
-            () -> new BlockItem(ModBlocks.MAGENTA_PICKET_GATE.get(), new Item.Properties()));
-    public static final Supplier<Item> PINK_PICKET_GATE = register("pink_picket_gate",
-            () -> new BlockItem(ModBlocks.PINK_PICKET_GATE.get(), new Item.Properties()));
+    public static final Supplier<BlockItem> WHITE_PICKET_GATE = registerBlockItem("white_picket_gate", ModBlocks.WHITE_PICKET_GATE);
+    public static final Supplier<BlockItem> LIGHT_GRAY_PICKET_GATE = registerBlockItem("light_gray_picket_gate", ModBlocks.LIGHT_GRAY_PICKET_GATE);
+    public static final Supplier<BlockItem> GRAY_PICKET_GATE = registerBlockItem("gray_picket_gate", ModBlocks.GRAY_PICKET_GATE);
+    public static final Supplier<BlockItem> BLACK_PICKET_GATE = registerBlockItem("black_picket_gate", ModBlocks.BLACK_PICKET_GATE);
+    public static final Supplier<BlockItem> BROWN_PICKET_GATE = registerBlockItem("brown_picket_gate", ModBlocks.BROWN_PICKET_GATE);
+    public static final Supplier<BlockItem> RED_PICKET_GATE = registerBlockItem("red_picket_gate", ModBlocks.RED_PICKET_GATE);
+    public static final Supplier<BlockItem> ORANGE_PICKET_GATE = registerBlockItem("orange_picket_gate", ModBlocks.ORANGE_PICKET_GATE);
+    public static final Supplier<BlockItem> BEIGE_PICKET_GATE = registerOptionalBlockItem("beige_picket_gate", ModBlocks.BEIGE_PICKET_GATE);
+    public static final Supplier<BlockItem> YELLOW_PICKET_GATE = registerBlockItem("yellow_picket_gate", ModBlocks.YELLOW_PICKET_GATE);
+    public static final Supplier<BlockItem> LIME_PICKET_GATE = registerBlockItem("lime_picket_gate", ModBlocks.LIME_PICKET_GATE);
+    public static final Supplier<BlockItem> GREEN_PICKET_GATE = registerBlockItem("green_picket_gate", ModBlocks.GREEN_PICKET_GATE);
+    public static final Supplier<BlockItem> CYAN_PICKET_GATE = registerBlockItem("cyan_picket_gate", ModBlocks.CYAN_PICKET_GATE);
+    public static final Supplier<BlockItem> LIGHT_BLUE_PICKET_GATE = registerBlockItem("light_blue_picket_gate", ModBlocks.LIGHT_BLUE_PICKET_GATE);
+    public static final Supplier<BlockItem> BLUE_PICKET_GATE = registerBlockItem("blue_picket_gate", ModBlocks.BLUE_PICKET_GATE);
+    public static final Supplier<BlockItem> PURPLE_PICKET_GATE = registerBlockItem("purple_picket_gate", ModBlocks.PURPLE_PICKET_GATE);
+    public static final Supplier<BlockItem> MAGENTA_PICKET_GATE = registerBlockItem("magenta_picket_gate", ModBlocks.MAGENTA_PICKET_GATE);
+    public static final Supplier<BlockItem> PINK_PICKET_GATE = registerBlockItem("pink_picket_gate", ModBlocks.PINK_PICKET_GATE);
 
     // Crates
-    public static final Supplier<Item> OAK_CRATE = register("oak_crate",
-            () -> new BlockItem(ModBlocks.OAK_CRATE.get(), new Item.Properties()));
-    public static final Supplier<Item> SPRUCE_CRATE = register("spruce_crate",
-            () -> new BlockItem(ModBlocks.SPRUCE_CRATE.get(), new Item.Properties()));
-    public static final Supplier<Item> BIRCH_CRATE = register("birch_crate",
-            () -> new BlockItem(ModBlocks.BIRCH_CRATE.get(), new Item.Properties()));
-    public static final Supplier<Item> JUNGLE_CRATE = register("jungle_crate",
-            () -> new BlockItem(ModBlocks.JUNGLE_CRATE.get(), new Item.Properties()));
-    public static final Supplier<Item> ACACIA_CRATE = register("acacia_crate",
-            () -> new BlockItem(ModBlocks.ACACIA_CRATE.get(), new Item.Properties()));
-    public static final Supplier<Item> DARK_OAK_CRATE = register("dark_oak_crate",
-            () -> new BlockItem(ModBlocks.DARK_OAK_CRATE.get(), new Item.Properties()));
-    public static final Supplier<Item> MANGROVE_CRATE = register("mangrove_crate",
-            () -> new BlockItem(ModBlocks.MANGROVE_CRATE.get(), new Item.Properties()));
-    public static final Supplier<Item> CHERRY_CRATE = register("cherry_crate",
-            () -> new BlockItem(ModBlocks.CHERRY_CRATE.get(), new Item.Properties()));
-    public static final Supplier<Item> CRIMSON_CRATE = register("crimson_crate",
-            () -> new BlockItem(ModBlocks.CRIMSON_CRATE.get(), new Item.Properties()));
-    public static final Supplier<Item> WARPED_CRATE = register("warped_crate",
-            () -> new BlockItem(ModBlocks.WARPED_CRATE.get(), new Item.Properties()));
-    public static final Supplier<Item> STRIPPED_OAK_CRATE = register("stripped_oak_crate",
-            () -> new BlockItem(ModBlocks.STRIPPED_OAK_CRATE.get(), new Item.Properties()));
-    public static final Supplier<Item> STRIPPED_SPRUCE_CRATE = register("stripped_spruce_crate",
-            () -> new BlockItem(ModBlocks.STRIPPED_SPRUCE_CRATE.get(), new Item.Properties()));
-    public static final Supplier<Item> STRIPPED_BIRCH_CRATE = register("stripped_birch_crate",
-            () -> new BlockItem(ModBlocks.STRIPPED_BIRCH_CRATE.get(), new Item.Properties()));
-    public static final Supplier<Item> STRIPPED_JUNGLE_CRATE = register("stripped_jungle_crate",
-            () -> new BlockItem(ModBlocks.STRIPPED_JUNGLE_CRATE.get(), new Item.Properties()));
-    public static final Supplier<Item> STRIPPED_ACACIA_CRATE = register("stripped_acacia_crate",
-            () -> new BlockItem(ModBlocks.STRIPPED_ACACIA_CRATE.get(), new Item.Properties()));
-    public static final Supplier<Item> STRIPPED_DARK_OAK_CRATE = register("stripped_dark_oak_crate",
-            () -> new BlockItem(ModBlocks.STRIPPED_DARK_OAK_CRATE.get(), new Item.Properties()));
-    public static final Supplier<Item> STRIPPED_MANGROVE_CRATE = register("stripped_mangrove_crate",
-            () -> new BlockItem(ModBlocks.STRIPPED_MANGROVE_CRATE.get(), new Item.Properties()));
-    public static final Supplier<Item> STRIPPED_CHERRY_CRATE = register("stripped_cherry_crate",
-            () -> new BlockItem(ModBlocks.STRIPPED_CHERRY_CRATE.get(), new Item.Properties()));
-    public static final Supplier<Item> STRIPPED_CRIMSON_CRATE = register("stripped_crimson_crate",
-            () -> new BlockItem(ModBlocks.STRIPPED_CRIMSON_CRATE.get(), new Item.Properties()));
-    public static final Supplier<Item> STRIPPED_WARPED_CRATE = register("stripped_warped_crate",
-            () -> new BlockItem(ModBlocks.STRIPPED_WARPED_CRATE.get(), new Item.Properties()));
+    public static final Supplier<BlockItem> OAK_CRATE = registerBlockItem("oak_crate", ModBlocks.OAK_CRATE);
+    public static final Supplier<BlockItem> SPRUCE_CRATE = registerBlockItem("spruce_crate", ModBlocks.SPRUCE_CRATE);
+    public static final Supplier<BlockItem> BIRCH_CRATE = registerBlockItem("birch_crate", ModBlocks.BIRCH_CRATE);
+    public static final Supplier<BlockItem> JUNGLE_CRATE = registerBlockItem("jungle_crate", ModBlocks.JUNGLE_CRATE);
+    public static final Supplier<BlockItem> ACACIA_CRATE = registerBlockItem("acacia_crate", ModBlocks.ACACIA_CRATE);
+    public static final Supplier<BlockItem> DARK_OAK_CRATE = registerBlockItem("dark_oak_crate", ModBlocks.DARK_OAK_CRATE);
+    public static final Supplier<BlockItem> MANGROVE_CRATE = registerBlockItem("mangrove_crate", ModBlocks.MANGROVE_CRATE);
+    public static final Supplier<BlockItem> CHERRY_CRATE = registerBlockItem("cherry_crate", ModBlocks.CHERRY_CRATE);
+    public static final Supplier<BlockItem> CRIMSON_CRATE = registerBlockItem("crimson_crate", ModBlocks.CRIMSON_CRATE);
+    public static final Supplier<BlockItem> WARPED_CRATE = registerBlockItem("warped_crate", ModBlocks.WARPED_CRATE);
+    public static final Supplier<BlockItem> BAMBOO_CRATE = registerBlockItem("bamboo_crate", ModBlocks.BAMBOO_CRATE);
+    public static final Supplier<BlockItem> STRIPPED_OAK_CRATE = registerBlockItem("stripped_oak_crate", ModBlocks.STRIPPED_OAK_CRATE);
+    public static final Supplier<BlockItem> STRIPPED_SPRUCE_CRATE = registerBlockItem("stripped_spruce_crate", ModBlocks.STRIPPED_SPRUCE_CRATE);
+    public static final Supplier<BlockItem> STRIPPED_BIRCH_CRATE = registerBlockItem("stripped_birch_crate", ModBlocks.STRIPPED_BIRCH_CRATE);
+    public static final Supplier<BlockItem> STRIPPED_JUNGLE_CRATE = registerBlockItem("stripped_jungle_crate", ModBlocks.STRIPPED_JUNGLE_CRATE);
+    public static final Supplier<BlockItem> STRIPPED_ACACIA_CRATE = registerBlockItem("stripped_acacia_crate", ModBlocks.STRIPPED_ACACIA_CRATE);
+    public static final Supplier<BlockItem> STRIPPED_DARK_OAK_CRATE = registerBlockItem("stripped_dark_oak_crate", ModBlocks.STRIPPED_DARK_OAK_CRATE);
+    public static final Supplier<BlockItem> STRIPPED_MANGROVE_CRATE = registerBlockItem("stripped_mangrove_crate", ModBlocks.STRIPPED_MANGROVE_CRATE);
+    public static final Supplier<BlockItem> STRIPPED_CHERRY_CRATE = registerBlockItem("stripped_cherry_crate", ModBlocks.STRIPPED_CHERRY_CRATE);
+    public static final Supplier<BlockItem> STRIPPED_CRIMSON_CRATE = registerBlockItem("stripped_crimson_crate", ModBlocks.STRIPPED_CRIMSON_CRATE);
+    public static final Supplier<BlockItem> STRIPPED_WARPED_CRATE = registerBlockItem("stripped_warped_crate", ModBlocks.STRIPPED_WARPED_CRATE);
+    public static final Supplier<BlockItem> STRIPPED_BAMBOO_CRATE = registerBlockItem("stripped_bamboo_crate", ModBlocks.STRIPPED_BAMBOO_CRATE);
 
     // Park Benches
-    public static final Supplier<Item> OAK_PARK_BENCH = register("oak_park_bench",
-            () -> new BlockItem(ModBlocks.OAK_PARK_BENCH.get(), new Item.Properties()));
-    public static final Supplier<Item> SPRUCE_PARK_BENCH = register("spruce_park_bench",
-            () -> new BlockItem(ModBlocks.SPRUCE_PARK_BENCH.get(), new Item.Properties()));
-    public static final Supplier<Item> BIRCH_PARK_BENCH = register("birch_park_bench",
-            () -> new BlockItem(ModBlocks.BIRCH_PARK_BENCH.get(), new Item.Properties()));
-    public static final Supplier<Item> JUNGLE_PARK_BENCH = register("jungle_park_bench",
-            () -> new BlockItem(ModBlocks.JUNGLE_PARK_BENCH.get(), new Item.Properties()));
-    public static final Supplier<Item> ACACIA_PARK_BENCH = register("acacia_park_bench",
-            () -> new BlockItem(ModBlocks.ACACIA_PARK_BENCH.get(), new Item.Properties()));
-    public static final Supplier<Item> DARK_OAK_PARK_BENCH = register("dark_oak_park_bench",
-            () -> new BlockItem(ModBlocks.DARK_OAK_PARK_BENCH.get(), new Item.Properties()));
-    public static final Supplier<Item> MANGROVE_PARK_BENCH = register("mangrove_park_bench",
-            () -> new BlockItem(ModBlocks.MANGROVE_PARK_BENCH.get(), new Item.Properties()));
-    public static final Supplier<Item> CHERRY_PARK_BENCH = register("cherry_park_bench",
-            () -> new BlockItem(ModBlocks.CHERRY_PARK_BENCH.get(), new Item.Properties()));
-    public static final Supplier<Item> CRIMSON_PARK_BENCH = register("crimson_park_bench",
-            () -> new BlockItem(ModBlocks.CRIMSON_PARK_BENCH.get(), new Item.Properties()));
-    public static final Supplier<Item> WARPED_PARK_BENCH = register("warped_park_bench",
-            () -> new BlockItem(ModBlocks.WARPED_PARK_BENCH.get(), new Item.Properties()));
-    public static final Supplier<Item> STRIPPED_OAK_PARK_BENCH = register("stripped_oak_park_bench",
-            () -> new BlockItem(ModBlocks.STRIPPED_OAK_PARK_BENCH.get(), new Item.Properties()));
-    public static final Supplier<Item> STRIPPED_SPRUCE_PARK_BENCH = register("stripped_spruce_park_bench",
-            () -> new BlockItem(ModBlocks.STRIPPED_SPRUCE_PARK_BENCH.get(), new Item.Properties()));
-    public static final Supplier<Item> STRIPPED_BIRCH_PARK_BENCH = register("stripped_birch_park_bench",
-            () -> new BlockItem(ModBlocks.STRIPPED_BIRCH_PARK_BENCH.get(), new Item.Properties()));
-    public static final Supplier<Item> STRIPPED_JUNGLE_PARK_BENCH = register("stripped_jungle_park_bench",
-            () -> new BlockItem(ModBlocks.STRIPPED_JUNGLE_PARK_BENCH.get(), new Item.Properties()));
-    public static final Supplier<Item> STRIPPED_ACACIA_PARK_BENCH = register("stripped_acacia_park_bench",
-            () -> new BlockItem(ModBlocks.STRIPPED_ACACIA_PARK_BENCH.get(), new Item.Properties()));
-    public static final Supplier<Item> STRIPPED_DARK_OAK_PARK_BENCH = register("stripped_dark_oak_park_bench",
-            () -> new BlockItem(ModBlocks.STRIPPED_DARK_OAK_PARK_BENCH.get(), new Item.Properties()));
-    public static final Supplier<Item> STRIPPED_MANGROVE_PARK_BENCH = register("stripped_mangrove_park_bench",
-            () -> new BlockItem(ModBlocks.STRIPPED_MANGROVE_PARK_BENCH.get(), new Item.Properties()));
-    public static final Supplier<Item> STRIPPED_CHERRY_PARK_BENCH = register("stripped_cherry_park_bench",
-            () -> new BlockItem(ModBlocks.STRIPPED_CHERRY_PARK_BENCH.get(), new Item.Properties()));
-    public static final Supplier<Item> STRIPPED_CRIMSON_PARK_BENCH = register("stripped_crimson_park_bench",
-            () -> new BlockItem(ModBlocks.STRIPPED_CRIMSON_PARK_BENCH.get(), new Item.Properties()));
-    public static final Supplier<Item> STRIPPED_WARPED_PARK_BENCH = register("stripped_warped_park_bench",
-            () -> new BlockItem(ModBlocks.STRIPPED_WARPED_PARK_BENCH.get(), new Item.Properties()));
+    public static final Supplier<BlockItem> OAK_PARK_BENCH = registerBlockItem("oak_park_bench", ModBlocks.OAK_PARK_BENCH);
+    public static final Supplier<BlockItem> SPRUCE_PARK_BENCH = registerBlockItem("spruce_park_bench", ModBlocks.SPRUCE_PARK_BENCH);
+    public static final Supplier<BlockItem> BIRCH_PARK_BENCH = registerBlockItem("birch_park_bench", ModBlocks.BIRCH_PARK_BENCH);
+    public static final Supplier<BlockItem> JUNGLE_PARK_BENCH = registerBlockItem("jungle_park_bench", ModBlocks.JUNGLE_PARK_BENCH);
+    public static final Supplier<BlockItem> ACACIA_PARK_BENCH = registerBlockItem("acacia_park_bench", ModBlocks.ACACIA_PARK_BENCH);
+    public static final Supplier<BlockItem> DARK_OAK_PARK_BENCH = registerBlockItem("dark_oak_park_bench", ModBlocks.DARK_OAK_PARK_BENCH);
+    public static final Supplier<BlockItem> MANGROVE_PARK_BENCH = registerBlockItem("mangrove_park_bench", ModBlocks.MANGROVE_PARK_BENCH);
+    public static final Supplier<BlockItem> CHERRY_PARK_BENCH = registerBlockItem("cherry_park_bench", ModBlocks.CHERRY_PARK_BENCH);
+    public static final Supplier<BlockItem> CRIMSON_PARK_BENCH = registerBlockItem("crimson_park_bench", ModBlocks.CRIMSON_PARK_BENCH);
+    public static final Supplier<BlockItem> WARPED_PARK_BENCH = registerBlockItem("warped_park_bench", ModBlocks.WARPED_PARK_BENCH);
+    public static final Supplier<BlockItem> BAMBOO_PARK_BENCH = registerBlockItem("bamboo_park_bench", ModBlocks.BAMBOO_PARK_BENCH);
+    public static final Supplier<BlockItem> STRIPPED_OAK_PARK_BENCH = registerBlockItem("stripped_oak_park_bench", ModBlocks.STRIPPED_OAK_PARK_BENCH);
+    public static final Supplier<BlockItem> STRIPPED_SPRUCE_PARK_BENCH = registerBlockItem("stripped_spruce_park_bench", ModBlocks.STRIPPED_SPRUCE_PARK_BENCH);
+    public static final Supplier<BlockItem> STRIPPED_BIRCH_PARK_BENCH = registerBlockItem("stripped_birch_park_bench", ModBlocks.STRIPPED_BIRCH_PARK_BENCH);
+    public static final Supplier<BlockItem> STRIPPED_JUNGLE_PARK_BENCH = registerBlockItem("stripped_jungle_park_bench", ModBlocks.STRIPPED_JUNGLE_PARK_BENCH);
+    public static final Supplier<BlockItem> STRIPPED_ACACIA_PARK_BENCH = registerBlockItem("stripped_acacia_park_bench", ModBlocks.STRIPPED_ACACIA_PARK_BENCH);
+    public static final Supplier<BlockItem> STRIPPED_DARK_OAK_PARK_BENCH = registerBlockItem("stripped_dark_oak_park_bench", ModBlocks.STRIPPED_DARK_OAK_PARK_BENCH);
+    public static final Supplier<BlockItem> STRIPPED_MANGROVE_PARK_BENCH = registerBlockItem("stripped_mangrove_park_bench", ModBlocks.STRIPPED_MANGROVE_PARK_BENCH);
+    public static final Supplier<BlockItem> STRIPPED_CHERRY_PARK_BENCH = registerBlockItem("stripped_cherry_park_bench", ModBlocks.STRIPPED_CHERRY_PARK_BENCH);
+    public static final Supplier<BlockItem> STRIPPED_CRIMSON_PARK_BENCH = registerBlockItem("stripped_crimson_park_bench", ModBlocks.STRIPPED_CRIMSON_PARK_BENCH);
+    public static final Supplier<BlockItem> STRIPPED_WARPED_PARK_BENCH = registerBlockItem("stripped_warped_park_bench", ModBlocks.STRIPPED_WARPED_PARK_BENCH);
+    public static final Supplier<BlockItem> STRIPPED_BAMBOO_PARK_BENCH = registerBlockItem("stripped_bamboo_park_bench", ModBlocks.STRIPPED_BAMBOO_PARK_BENCH);
 
     // Post Box
-    public static final Supplier<Item> POST_BOX = register("post_box",
-            () -> new BlockItem(ModBlocks.POST_BOX.get(), new Item.Properties()));
+    public static final Supplier<BlockItem> POST_BOX = registerBlockItem("post_box", ModBlocks.POST_BOX);
 
     // Mail Boxes
-    public static final Supplier<Item> OAK_MAIL_BOX = register("oak_mail_box",
-            () -> new BlockItem(ModBlocks.OAK_MAIL_BOX.get(), new Item.Properties()));
-    public static final Supplier<Item> SPRUCE_MAIL_BOX = register("spruce_mail_box",
-            () -> new BlockItem(ModBlocks.SPRUCE_MAIL_BOX.get(), new Item.Properties()));
-    public static final Supplier<Item> BIRCH_MAIL_BOX = register("birch_mail_box",
-            () -> new BlockItem(ModBlocks.BIRCH_MAIL_BOX.get(), new Item.Properties()));
-    public static final Supplier<Item> JUNGLE_MAIL_BOX = register("jungle_mail_box",
-            () -> new BlockItem(ModBlocks.JUNGLE_MAIL_BOX.get(), new Item.Properties()));
-    public static final Supplier<Item> ACACIA_MAIL_BOX = register("acacia_mail_box",
-            () -> new BlockItem(ModBlocks.ACACIA_MAIL_BOX.get(), new Item.Properties()));
-    public static final Supplier<Item> DARK_OAK_MAIL_BOX = register("dark_oak_mail_box",
-            () -> new BlockItem(ModBlocks.DARK_OAK_MAIL_BOX.get(), new Item.Properties()));
-    public static final Supplier<Item> MANGROVE_MAIL_BOX = register("mangrove_mail_box",
-            () -> new BlockItem(ModBlocks.MANGROVE_MAIL_BOX.get(), new Item.Properties()));
-    public static final Supplier<Item> CHERRY_MAIL_BOX = register("cherry_mail_box",
-            () -> new BlockItem(ModBlocks.CHERRY_MAIL_BOX.get(), new Item.Properties()));
-    public static final Supplier<Item> CRIMSON_MAIL_BOX = register("crimson_mail_box",
-            () -> new BlockItem(ModBlocks.CRIMSON_MAIL_BOX.get(), new Item.Properties()));
-    public static final Supplier<Item> WARPED_MAIL_BOX = register("warped_mail_box",
-            () -> new BlockItem(ModBlocks.WARPED_MAIL_BOX.get(), new Item.Properties()));
-    public static final Supplier<Item> STRIPPED_OAK_MAIL_BOX = register("stripped_oak_mail_box",
-            () -> new BlockItem(ModBlocks.STRIPPED_OAK_MAIL_BOX.get(), new Item.Properties()));
-    public static final Supplier<Item> STRIPPED_SPRUCE_MAIL_BOX = register("stripped_spruce_mail_box",
-            () -> new BlockItem(ModBlocks.STRIPPED_SPRUCE_MAIL_BOX.get(), new Item.Properties()));
-    public static final Supplier<Item> STRIPPED_BIRCH_MAIL_BOX = register("stripped_birch_mail_box",
-            () -> new BlockItem(ModBlocks.STRIPPED_BIRCH_MAIL_BOX.get(), new Item.Properties()));
-    public static final Supplier<Item> STRIPPED_JUNGLE_MAIL_BOX = register("stripped_jungle_mail_box",
-            () -> new BlockItem(ModBlocks.STRIPPED_JUNGLE_MAIL_BOX.get(), new Item.Properties()));
-    public static final Supplier<Item> STRIPPED_ACACIA_MAIL_BOX = register("stripped_acacia_mail_box",
-            () -> new BlockItem(ModBlocks.STRIPPED_ACACIA_MAIL_BOX.get(), new Item.Properties()));
-    public static final Supplier<Item> STRIPPED_DARK_OAK_MAIL_BOX = register("stripped_dark_oak_mail_box",
-            () -> new BlockItem(ModBlocks.STRIPPED_DARK_OAK_MAIL_BOX.get(), new Item.Properties()));
-    public static final Supplier<Item> STRIPPED_MANGROVE_MAIL_BOX = register("stripped_mangrove_mail_box",
-            () -> new BlockItem(ModBlocks.STRIPPED_MANGROVE_MAIL_BOX.get(), new Item.Properties()));
-    public static final Supplier<Item> STRIPPED_CHERRY_MAIL_BOX = register("stripped_cherry_mail_box",
-            () -> new BlockItem(ModBlocks.STRIPPED_CHERRY_MAIL_BOX.get(), new Item.Properties()));
-    public static final Supplier<Item> STRIPPED_CRIMSON_MAIL_BOX = register("stripped_crimson_mail_box",
-            () -> new BlockItem(ModBlocks.STRIPPED_CRIMSON_MAIL_BOX.get(), new Item.Properties()));
-    public static final Supplier<Item> STRIPPED_WARPED_MAIL_BOX = register("stripped_warped_mail_box",
-            () -> new BlockItem(ModBlocks.STRIPPED_WARPED_MAIL_BOX.get(), new Item.Properties()));
+    public static final Supplier<BlockItem> OAK_MAIL_BOX = registerBlockItem("oak_mail_box", ModBlocks.OAK_MAIL_BOX);
+    public static final Supplier<BlockItem> SPRUCE_MAIL_BOX = registerBlockItem("spruce_mail_box", ModBlocks.SPRUCE_MAIL_BOX);
+    public static final Supplier<BlockItem> BIRCH_MAIL_BOX = registerBlockItem("birch_mail_box", ModBlocks.BIRCH_MAIL_BOX);
+    public static final Supplier<BlockItem> JUNGLE_MAIL_BOX = registerBlockItem("jungle_mail_box", ModBlocks.JUNGLE_MAIL_BOX);
+    public static final Supplier<BlockItem> ACACIA_MAIL_BOX = registerBlockItem("acacia_mail_box", ModBlocks.ACACIA_MAIL_BOX);
+    public static final Supplier<BlockItem> DARK_OAK_MAIL_BOX = registerBlockItem("dark_oak_mail_box", ModBlocks.DARK_OAK_MAIL_BOX);
+    public static final Supplier<BlockItem> MANGROVE_MAIL_BOX = registerBlockItem("mangrove_mail_box", ModBlocks.MANGROVE_MAIL_BOX);
+    public static final Supplier<BlockItem> CHERRY_MAIL_BOX = registerBlockItem("cherry_mail_box", ModBlocks.CHERRY_MAIL_BOX);
+    public static final Supplier<BlockItem> CRIMSON_MAIL_BOX = registerBlockItem("crimson_mail_box", ModBlocks.CRIMSON_MAIL_BOX);
+    public static final Supplier<BlockItem> WARPED_MAIL_BOX = registerBlockItem("warped_mail_box", ModBlocks.WARPED_MAIL_BOX);
+    public static final Supplier<BlockItem> BAMBOO_MAIL_BOX = registerBlockItem("bamboo_mail_box", ModBlocks.BAMBOO_MAIL_BOX);
+    public static final Supplier<BlockItem> STRIPPED_OAK_MAIL_BOX = registerBlockItem("stripped_oak_mail_box", ModBlocks.STRIPPED_OAK_MAIL_BOX);
+    public static final Supplier<BlockItem> STRIPPED_SPRUCE_MAIL_BOX = registerBlockItem("stripped_spruce_mail_box", ModBlocks.STRIPPED_SPRUCE_MAIL_BOX);
+    public static final Supplier<BlockItem> STRIPPED_BIRCH_MAIL_BOX = registerBlockItem("stripped_birch_mail_box", ModBlocks.STRIPPED_BIRCH_MAIL_BOX);
+    public static final Supplier<BlockItem> STRIPPED_JUNGLE_MAIL_BOX = registerBlockItem("stripped_jungle_mail_box", ModBlocks.STRIPPED_JUNGLE_MAIL_BOX);
+    public static final Supplier<BlockItem> STRIPPED_ACACIA_MAIL_BOX = registerBlockItem("stripped_acacia_mail_box", ModBlocks.STRIPPED_ACACIA_MAIL_BOX);
+    public static final Supplier<BlockItem> STRIPPED_DARK_OAK_MAIL_BOX = registerBlockItem("stripped_dark_oak_mail_box", ModBlocks.STRIPPED_DARK_OAK_MAIL_BOX);
+    public static final Supplier<BlockItem> STRIPPED_MANGROVE_MAIL_BOX = registerBlockItem("stripped_mangrove_mail_box", ModBlocks.STRIPPED_MANGROVE_MAIL_BOX);
+    public static final Supplier<BlockItem> STRIPPED_CHERRY_MAIL_BOX = registerBlockItem("stripped_cherry_mail_box", ModBlocks.STRIPPED_CHERRY_MAIL_BOX);
+    public static final Supplier<BlockItem> STRIPPED_CRIMSON_MAIL_BOX = registerBlockItem("stripped_crimson_mail_box", ModBlocks.STRIPPED_CRIMSON_MAIL_BOX);
+    public static final Supplier<BlockItem> STRIPPED_WARPED_MAIL_BOX = registerBlockItem("stripped_warped_mail_box", ModBlocks.STRIPPED_WARPED_MAIL_BOX);
+    public static final Supplier<BlockItem> STRIPPED_BAMBOO_MAIL_BOX = registerBlockItem("stripped_bamboo_mail_box", ModBlocks.STRIPPED_BAMBOO_MAIL_BOX);
 
     // Hedges
-    public static final Supplier<Item> OAK_HEDGE = register("oak_hedge",
-            () -> new BlockItem(ModBlocks.OAK_HEDGE.get(), new Item.Properties()));
-    public static final Supplier<Item> SPRUCE_HEDGE = register("spruce_hedge",
-            () -> new BlockItem(ModBlocks.SPRUCE_HEDGE.get(), new Item.Properties()));
-    public static final Supplier<Item> BIRCH_HEDGE = register("birch_hedge",
-            () -> new BlockItem(ModBlocks.BIRCH_HEDGE.get(), new Item.Properties()));
-    public static final Supplier<Item> JUNGLE_HEDGE = register("jungle_hedge",
-            () -> new BlockItem(ModBlocks.JUNGLE_HEDGE.get(), new Item.Properties()));
-    public static final Supplier<Item> ACACIA_HEDGE = register("acacia_hedge",
-            () -> new BlockItem(ModBlocks.ACACIA_HEDGE.get(), new Item.Properties()));
-    public static final Supplier<Item> DARK_OAK_HEDGE = register("dark_oak_hedge",
-            () -> new BlockItem(ModBlocks.DARK_OAK_HEDGE.get(), new Item.Properties()));
-    public static final Supplier<Item> MANGROVE_HEDGE = register("mangrove_hedge",
-            () -> new BlockItem(ModBlocks.MANGROVE_HEDGE.get(), new Item.Properties()));
-    public static final Supplier<Item> CHERRY_HEDGE = register("cherry_hedge",
-            () -> new BlockItem(ModBlocks.CHERRY_HEDGE.get(), new Item.Properties()));
-    public static final Supplier<Item> AZALEA_HEDGE = register("azalea_hedge",
-            () -> new BlockItem(ModBlocks.AZALEA_HEDGE.get(), new Item.Properties()));
-    public static final Supplier<Item> FLOWERING_AZALEA_HEDGE = register("flowering_azalea_hedge",
-            () -> new BlockItem(ModBlocks.FLOWERING_AZALEA_HEDGE.get(), new Item.Properties()));
+    public static final Supplier<BlockItem> OAK_HEDGE = registerBlockItem("oak_hedge", ModBlocks.OAK_HEDGE);
+    public static final Supplier<BlockItem> SPRUCE_HEDGE = registerBlockItem("spruce_hedge", ModBlocks.SPRUCE_HEDGE);
+    public static final Supplier<BlockItem> BIRCH_HEDGE = registerBlockItem("birch_hedge", ModBlocks.BIRCH_HEDGE);
+    public static final Supplier<BlockItem> JUNGLE_HEDGE = registerBlockItem("jungle_hedge", ModBlocks.JUNGLE_HEDGE);
+    public static final Supplier<BlockItem> ACACIA_HEDGE = registerBlockItem("acacia_hedge", ModBlocks.ACACIA_HEDGE);
+    public static final Supplier<BlockItem> DARK_OAK_HEDGE = registerBlockItem("dark_oak_hedge", ModBlocks.DARK_OAK_HEDGE);
+    public static final Supplier<BlockItem> MANGROVE_HEDGE = registerBlockItem("mangrove_hedge", ModBlocks.MANGROVE_HEDGE);
+    public static final Supplier<BlockItem> CHERRY_HEDGE = registerBlockItem("cherry_hedge", ModBlocks.CHERRY_HEDGE);
+    public static final Supplier<BlockItem> AZALEA_HEDGE = registerBlockItem("azalea_hedge", ModBlocks.AZALEA_HEDGE);
+    public static final Supplier<BlockItem> FLOWERING_AZALEA_HEDGE = registerBlockItem("flowering_azalea_hedge", ModBlocks.FLOWERING_AZALEA_HEDGE);
 
     // Rock Path
-    public static final Supplier<Item> ROCK_PATH = register("rock_path",
-            () -> new BlockItem(ModBlocks.ROCK_PATH.get(), new Item.Properties()));
+    public static final Supplier<BlockItem> ROCK_PATH = registerBlockItem("rock_path", ModBlocks.ROCK_PATH);
 
     // Trampolines
-    public static final Supplier<Item> WHITE_TRAMPOLINE = register("white_trampoline",
-            () -> new BlockItem(ModBlocks.WHITE_TRAMPOLINE.get(), new Item.Properties()));
-    public static final Supplier<Item> LIGHT_GRAY_TRAMPOLINE = register("light_gray_trampoline",
-            () -> new BlockItem(ModBlocks.LIGHT_GRAY_TRAMPOLINE.get(), new Item.Properties()));
-    public static final Supplier<Item> GRAY_TRAMPOLINE = register("gray_trampoline",
-            () -> new BlockItem(ModBlocks.GRAY_TRAMPOLINE.get(), new Item.Properties()));
-    public static final Supplier<Item> BLACK_TRAMPOLINE = register("black_trampoline",
-            () -> new BlockItem(ModBlocks.BLACK_TRAMPOLINE.get(), new Item.Properties()));
-    public static final Supplier<Item> BROWN_TRAMPOLINE = register("brown_trampoline",
-            () -> new BlockItem(ModBlocks.BROWN_TRAMPOLINE.get(), new Item.Properties()));
-    public static final Supplier<Item> RED_TRAMPOLINE = register("red_trampoline",
-            () -> new BlockItem(ModBlocks.RED_TRAMPOLINE.get(), new Item.Properties()));
-    public static final Supplier<Item> ORANGE_TRAMPOLINE = register("orange_trampoline",
-            () -> new BlockItem(ModBlocks.ORANGE_TRAMPOLINE.get(), new Item.Properties()));
-    public static final Supplier<Item> BEIGE_TRAMPOLINE = registerOptional("beige_trampoline", "yogmod",
-            () -> new BlockItem(ModBlocks.BEIGE_TRAMPOLINE.get(), new Item.Properties()));
-    public static final Supplier<Item> YELLOW_TRAMPOLINE = register("yellow_trampoline",
-            () -> new BlockItem(ModBlocks.YELLOW_TRAMPOLINE.get(), new Item.Properties()));
-    public static final Supplier<Item> LIME_TRAMPOLINE = register("lime_trampoline",
-            () -> new BlockItem(ModBlocks.LIME_TRAMPOLINE.get(), new Item.Properties()));
-    public static final Supplier<Item> GREEN_TRAMPOLINE = register("green_trampoline",
-            () -> new BlockItem(ModBlocks.GREEN_TRAMPOLINE.get(), new Item.Properties()));
-    public static final Supplier<Item> CYAN_TRAMPOLINE = register("cyan_trampoline",
-            () -> new BlockItem(ModBlocks.CYAN_TRAMPOLINE.get(), new Item.Properties()));
-    public static final Supplier<Item> LIGHT_BLUE_TRAMPOLINE = register("light_blue_trampoline",
-            () -> new BlockItem(ModBlocks.LIGHT_BLUE_TRAMPOLINE.get(), new Item.Properties()));
-    public static final Supplier<Item> BLUE_TRAMPOLINE = register("blue_trampoline",
-            () -> new BlockItem(ModBlocks.BLUE_TRAMPOLINE.get(), new Item.Properties()));
-    public static final Supplier<Item> PURPLE_TRAMPOLINE = register("purple_trampoline",
-            () -> new BlockItem(ModBlocks.PURPLE_TRAMPOLINE.get(), new Item.Properties()));
-    public static final Supplier<Item> MAGENTA_TRAMPOLINE = register("magenta_trampoline",
-            () -> new BlockItem(ModBlocks.MAGENTA_TRAMPOLINE.get(), new Item.Properties()));
-    public static final Supplier<Item> PINK_TRAMPOLINE = register("pink_trampoline",
-            () -> new BlockItem(ModBlocks.PINK_TRAMPOLINE.get(), new Item.Properties()));
+    public static final Supplier<BlockItem> WHITE_TRAMPOLINE = registerBlockItem("white_trampoline", ModBlocks.WHITE_TRAMPOLINE);
+    public static final Supplier<BlockItem> LIGHT_GRAY_TRAMPOLINE = registerBlockItem("light_gray_trampoline", ModBlocks.LIGHT_GRAY_TRAMPOLINE);
+    public static final Supplier<BlockItem> GRAY_TRAMPOLINE = registerBlockItem("gray_trampoline", ModBlocks.GRAY_TRAMPOLINE);
+    public static final Supplier<BlockItem> BLACK_TRAMPOLINE = registerBlockItem("black_trampoline", ModBlocks.BLACK_TRAMPOLINE);
+    public static final Supplier<BlockItem> BROWN_TRAMPOLINE = registerBlockItem("brown_trampoline", ModBlocks.BROWN_TRAMPOLINE);
+    public static final Supplier<BlockItem> RED_TRAMPOLINE = registerBlockItem("red_trampoline", ModBlocks.RED_TRAMPOLINE);
+    public static final Supplier<BlockItem> ORANGE_TRAMPOLINE = registerBlockItem("orange_trampoline", ModBlocks.ORANGE_TRAMPOLINE);
+    public static final Supplier<BlockItem> BEIGE_TRAMPOLINE = registerOptionalBlockItem("beige_trampoline", ModBlocks.BEIGE_TRAMPOLINE);
+    public static final Supplier<BlockItem> YELLOW_TRAMPOLINE = registerBlockItem("yellow_trampoline", ModBlocks.YELLOW_TRAMPOLINE);
+    public static final Supplier<BlockItem> LIME_TRAMPOLINE = registerBlockItem("lime_trampoline", ModBlocks.LIME_TRAMPOLINE);
+    public static final Supplier<BlockItem> GREEN_TRAMPOLINE = registerBlockItem("green_trampoline", ModBlocks.GREEN_TRAMPOLINE);
+    public static final Supplier<BlockItem> CYAN_TRAMPOLINE = registerBlockItem("cyan_trampoline", ModBlocks.CYAN_TRAMPOLINE);
+    public static final Supplier<BlockItem> LIGHT_BLUE_TRAMPOLINE = registerBlockItem("light_blue_trampoline", ModBlocks.LIGHT_BLUE_TRAMPOLINE);
+    public static final Supplier<BlockItem> BLUE_TRAMPOLINE = registerBlockItem("blue_trampoline", ModBlocks.BLUE_TRAMPOLINE);
+    public static final Supplier<BlockItem> PURPLE_TRAMPOLINE = registerBlockItem("purple_trampoline", ModBlocks.PURPLE_TRAMPOLINE);
+    public static final Supplier<BlockItem> MAGENTA_TRAMPOLINE = registerBlockItem("magenta_trampoline", ModBlocks.MAGENTA_TRAMPOLINE);
+    public static final Supplier<BlockItem> PINK_TRAMPOLINE = registerBlockItem("pink_trampoline", ModBlocks.PINK_TRAMPOLINE);
 
     // Coolers
-    public static final Supplier<Item> WHITE_COOLER = register("white_cooler",
-            () -> new BlockItem(ModBlocks.WHITE_COOLER.get(), new Item.Properties()));
-    public static final Supplier<Item> LIGHT_GRAY_COOLER = register("light_gray_cooler",
-            () -> new BlockItem(ModBlocks.LIGHT_GRAY_COOLER.get(), new Item.Properties()));
-    public static final Supplier<Item> GRAY_COOLER = register("gray_cooler",
-            () -> new BlockItem(ModBlocks.GRAY_COOLER.get(), new Item.Properties()));
-    public static final Supplier<Item> BLACK_COOLER = register("black_cooler",
-            () -> new BlockItem(ModBlocks.BLACK_COOLER.get(), new Item.Properties()));
-    public static final Supplier<Item> BROWN_COOLER = register("brown_cooler",
-            () -> new BlockItem(ModBlocks.BROWN_COOLER.get(), new Item.Properties()));
-    public static final Supplier<Item> RED_COOLER = register("red_cooler",
-            () -> new BlockItem(ModBlocks.RED_COOLER.get(), new Item.Properties()));
-    public static final Supplier<Item> ORANGE_COOLER = register("orange_cooler",
-            () -> new BlockItem(ModBlocks.ORANGE_COOLER.get(), new Item.Properties()));
-    public static final Supplier<Item> BEIGE_COOLER = registerOptional("beige_cooler", "yogmod",
-            () -> new BlockItem(ModBlocks.BEIGE_COOLER.get(), new Item.Properties()));
-    public static final Supplier<Item> YELLOW_COOLER = register("yellow_cooler",
-            () -> new BlockItem(ModBlocks.YELLOW_COOLER.get(), new Item.Properties()));
-    public static final Supplier<Item> LIME_COOLER = register("lime_cooler",
-            () -> new BlockItem(ModBlocks.LIME_COOLER.get(), new Item.Properties()));
-    public static final Supplier<Item> GREEN_COOLER = register("green_cooler",
-            () -> new BlockItem(ModBlocks.GREEN_COOLER.get(), new Item.Properties()));
-    public static final Supplier<Item> CYAN_COOLER = register("cyan_cooler",
-            () -> new BlockItem(ModBlocks.CYAN_COOLER.get(), new Item.Properties()));
-    public static final Supplier<Item> LIGHT_BLUE_COOLER = register("light_blue_cooler",
-            () -> new BlockItem(ModBlocks.LIGHT_BLUE_COOLER.get(), new Item.Properties()));
-    public static final Supplier<Item> BLUE_COOLER = register("blue_cooler",
-            () -> new BlockItem(ModBlocks.BLUE_COOLER.get(), new Item.Properties()));
-    public static final Supplier<Item> PURPLE_COOLER = register("purple_cooler",
-            () -> new BlockItem(ModBlocks.PURPLE_COOLER.get(), new Item.Properties()));
-    public static final Supplier<Item> MAGENTA_COOLER = register("magenta_cooler",
-            () -> new BlockItem(ModBlocks.MAGENTA_COOLER.get(), new Item.Properties()));
-    public static final Supplier<Item> PINK_COOLER = register("pink_cooler",
-            () -> new BlockItem(ModBlocks.PINK_COOLER.get(), new Item.Properties()));
+    public static final Supplier<BlockItem> WHITE_COOLER = registerBlockItem("white_cooler", ModBlocks.WHITE_COOLER);
+    public static final Supplier<BlockItem> LIGHT_GRAY_COOLER = registerBlockItem("light_gray_cooler", ModBlocks.LIGHT_GRAY_COOLER);
+    public static final Supplier<BlockItem> GRAY_COOLER = registerBlockItem("gray_cooler", ModBlocks.GRAY_COOLER);
+    public static final Supplier<BlockItem> BLACK_COOLER = registerBlockItem("black_cooler", ModBlocks.BLACK_COOLER);
+    public static final Supplier<BlockItem> BROWN_COOLER = registerBlockItem("brown_cooler", ModBlocks.BROWN_COOLER);
+    public static final Supplier<BlockItem> RED_COOLER = registerBlockItem("red_cooler", ModBlocks.RED_COOLER);
+    public static final Supplier<BlockItem> ORANGE_COOLER = registerBlockItem("orange_cooler", ModBlocks.ORANGE_COOLER);
+    public static final Supplier<BlockItem> BEIGE_COOLER = registerOptionalBlockItem("beige_cooler", ModBlocks.BEIGE_COOLER);
+    public static final Supplier<BlockItem> YELLOW_COOLER = registerBlockItem("yellow_cooler", ModBlocks.YELLOW_COOLER);
+    public static final Supplier<BlockItem> LIME_COOLER = registerBlockItem("lime_cooler", ModBlocks.LIME_COOLER);
+    public static final Supplier<BlockItem> GREEN_COOLER = registerBlockItem("green_cooler", ModBlocks.GREEN_COOLER);
+    public static final Supplier<BlockItem> CYAN_COOLER = registerBlockItem("cyan_cooler", ModBlocks.CYAN_COOLER);
+    public static final Supplier<BlockItem> LIGHT_BLUE_COOLER = registerBlockItem("light_blue_cooler", ModBlocks.LIGHT_BLUE_COOLER);
+    public static final Supplier<BlockItem> BLUE_COOLER = registerBlockItem("blue_cooler", ModBlocks.BLUE_COOLER);
+    public static final Supplier<BlockItem> PURPLE_COOLER = registerBlockItem("purple_cooler", ModBlocks.PURPLE_COOLER);
+    public static final Supplier<BlockItem> MAGENTA_COOLER = registerBlockItem("magenta_cooler", ModBlocks.MAGENTA_COOLER);
+    public static final Supplier<BlockItem> PINK_COOLER = registerBlockItem("pink_cooler", ModBlocks.PINK_COOLER);
 
     // Grills
-    public static final Supplier<Item> WHITE_GRILL = register("white_grill",
-            () -> new BlockItem(ModBlocks.WHITE_GRILL.get(), new Item.Properties()));
-    public static final Supplier<Item> LIGHT_GRAY_GRILL = register("light_gray_grill",
-            () -> new BlockItem(ModBlocks.LIGHT_GRAY_GRILL.get(), new Item.Properties()));
-    public static final Supplier<Item> GRAY_GRILL = register("gray_grill",
-            () -> new BlockItem(ModBlocks.GRAY_GRILL.get(), new Item.Properties()));
-    public static final Supplier<Item> BLACK_GRILL = register("black_grill",
-            () -> new BlockItem(ModBlocks.BLACK_GRILL.get(), new Item.Properties()));
-    public static final Supplier<Item> BROWN_GRILL = register("brown_grill",
-            () -> new BlockItem(ModBlocks.BROWN_GRILL.get(), new Item.Properties()));
-    public static final Supplier<Item> RED_GRILL = register("red_grill",
-            () -> new BlockItem(ModBlocks.RED_GRILL.get(), new Item.Properties()));
-    public static final Supplier<Item> ORANGE_GRILL = register("orange_grill",
-            () -> new BlockItem(ModBlocks.ORANGE_GRILL.get(), new Item.Properties()));
-    public static final Supplier<Item> BEIGE_GRILL = registerOptional("beige_grill", "yogmod",
-            () -> new BlockItem(ModBlocks.BEIGE_GRILL.get(), new Item.Properties()));
-    public static final Supplier<Item> YELLOW_GRILL = register("yellow_grill",
-            () -> new BlockItem(ModBlocks.YELLOW_GRILL.get(), new Item.Properties()));
-    public static final Supplier<Item> LIME_GRILL = register("lime_grill",
-            () -> new BlockItem(ModBlocks.LIME_GRILL.get(), new Item.Properties()));
-    public static final Supplier<Item> GREEN_GRILL = register("green_grill",
-            () -> new BlockItem(ModBlocks.GREEN_GRILL.get(), new Item.Properties()));
-    public static final Supplier<Item> CYAN_GRILL = register("cyan_grill",
-            () -> new BlockItem(ModBlocks.CYAN_GRILL.get(), new Item.Properties()));
-    public static final Supplier<Item> LIGHT_BLUE_GRILL = register("light_blue_grill",
-            () -> new BlockItem(ModBlocks.LIGHT_BLUE_GRILL.get(), new Item.Properties()));
-    public static final Supplier<Item> BLUE_GRILL = register("blue_grill",
-            () -> new BlockItem(ModBlocks.BLUE_GRILL.get(), new Item.Properties()));
-    public static final Supplier<Item> PURPLE_GRILL = register("purple_grill",
-            () -> new BlockItem(ModBlocks.PURPLE_GRILL.get(), new Item.Properties()));
-    public static final Supplier<Item> MAGENTA_GRILL = register("magenta_grill",
-            () -> new BlockItem(ModBlocks.MAGENTA_GRILL.get(), new Item.Properties()));
-    public static final Supplier<Item> PINK_GRILL = register("pink_grill",
-            () -> new BlockItem(ModBlocks.PINK_GRILL.get(), new Item.Properties()));
+    public static final Supplier<BlockItem> WHITE_GRILL = registerBlockItem("white_grill", ModBlocks.WHITE_GRILL);
+    public static final Supplier<BlockItem> LIGHT_GRAY_GRILL = registerBlockItem("light_gray_grill", ModBlocks.LIGHT_GRAY_GRILL);
+    public static final Supplier<BlockItem> GRAY_GRILL = registerBlockItem("gray_grill", ModBlocks.GRAY_GRILL);
+    public static final Supplier<BlockItem> BLACK_GRILL = registerBlockItem("black_grill", ModBlocks.BLACK_GRILL);
+    public static final Supplier<BlockItem> BROWN_GRILL = registerBlockItem("brown_grill", ModBlocks.BROWN_GRILL);
+    public static final Supplier<BlockItem> RED_GRILL = registerBlockItem("red_grill", ModBlocks.RED_GRILL);
+    public static final Supplier<BlockItem> ORANGE_GRILL = registerBlockItem("orange_grill", ModBlocks.ORANGE_GRILL);
+    public static final Supplier<BlockItem> BEIGE_GRILL = registerOptionalBlockItem("beige_grill", ModBlocks.BEIGE_GRILL);
+    public static final Supplier<BlockItem> YELLOW_GRILL = registerBlockItem("yellow_grill", ModBlocks.YELLOW_GRILL);
+    public static final Supplier<BlockItem> LIME_GRILL = registerBlockItem("lime_grill", ModBlocks.LIME_GRILL);
+    public static final Supplier<BlockItem> GREEN_GRILL = registerBlockItem("green_grill", ModBlocks.GREEN_GRILL);
+    public static final Supplier<BlockItem> CYAN_GRILL = registerBlockItem("cyan_grill", ModBlocks.CYAN_GRILL);
+    public static final Supplier<BlockItem> LIGHT_BLUE_GRILL = registerBlockItem("light_blue_grill", ModBlocks.LIGHT_BLUE_GRILL);
+    public static final Supplier<BlockItem> BLUE_GRILL = registerBlockItem("blue_grill", ModBlocks.BLUE_GRILL);
+    public static final Supplier<BlockItem> PURPLE_GRILL = registerBlockItem("purple_grill", ModBlocks.PURPLE_GRILL);
+    public static final Supplier<BlockItem> MAGENTA_GRILL = registerBlockItem("magenta_grill", ModBlocks.MAGENTA_GRILL);
+    public static final Supplier<BlockItem> PINK_GRILL = registerBlockItem("pink_grill", ModBlocks.PINK_GRILL);
 
     // Door Mat
     public static final Supplier<Item> DOOR_MAT = register("door_mat",
             () -> new DoorMatItem(ModBlocks.DOOR_MAT.get(), new Item.Properties()));
 
     // Diving Board
-    public static final Supplier<Item> DIVING_BOARD = register("diving_board",
-            () -> new BlockItem(ModBlocks.DIVING_BOARD.get(), new Item.Properties()));
+    public static final Supplier<BlockItem> DIVING_BOARD = registerBlockItem("diving_board", ModBlocks.DIVING_BOARD);
 
     // Kitchen Counters
-    public static final Supplier<Item> OAK_KITCHEN_COUNTER = register("oak_kitchen_counter",
-            () -> new BlockItem(ModBlocks.OAK_KITCHEN_COUNTER.get(), new Item.Properties()));
-    public static final Supplier<Item> SPRUCE_KITCHEN_COUNTER = register("spruce_kitchen_counter",
-            () -> new BlockItem(ModBlocks.SPRUCE_KITCHEN_COUNTER.get(), new Item.Properties()));
-    public static final Supplier<Item> BIRCH_KITCHEN_COUNTER = register("birch_kitchen_counter",
-            () -> new BlockItem(ModBlocks.BIRCH_KITCHEN_COUNTER.get(), new Item.Properties()));
-    public static final Supplier<Item> JUNGLE_KITCHEN_COUNTER = register("jungle_kitchen_counter",
-            () -> new BlockItem(ModBlocks.JUNGLE_KITCHEN_COUNTER.get(), new Item.Properties()));
-    public static final Supplier<Item> ACACIA_KITCHEN_COUNTER = register("acacia_kitchen_counter",
-            () -> new BlockItem(ModBlocks.ACACIA_KITCHEN_COUNTER.get(), new Item.Properties()));
-    public static final Supplier<Item> DARK_OAK_KITCHEN_COUNTER = register("dark_oak_kitchen_counter",
-            () -> new BlockItem(ModBlocks.DARK_OAK_KITCHEN_COUNTER.get(), new Item.Properties()));
-    public static final Supplier<Item> MANGROVE_KITCHEN_COUNTER = register("mangrove_kitchen_counter",
-            () -> new BlockItem(ModBlocks.MANGROVE_KITCHEN_COUNTER.get(), new Item.Properties()));
-    public static final Supplier<Item> CHERRY_KITCHEN_COUNTER = register("cherry_kitchen_counter",
-            () -> new BlockItem(ModBlocks.CHERRY_KITCHEN_COUNTER.get(), new Item.Properties()));
-    public static final Supplier<Item> CRIMSON_KITCHEN_COUNTER = register("crimson_kitchen_counter",
-            () -> new BlockItem(ModBlocks.CRIMSON_KITCHEN_COUNTER.get(), new Item.Properties()));
-    public static final Supplier<Item> WARPED_KITCHEN_COUNTER = register("warped_kitchen_counter",
-            () -> new BlockItem(ModBlocks.WARPED_KITCHEN_COUNTER.get(), new Item.Properties()));
-    public static final Supplier<Item> STRIPPED_OAK_KITCHEN_COUNTER = register("stripped_oak_kitchen_counter",
-            () -> new BlockItem(ModBlocks.STRIPPED_OAK_KITCHEN_COUNTER.get(), new Item.Properties()));
-    public static final Supplier<Item> STRIPPED_SPRUCE_KITCHEN_COUNTER = register("stripped_spruce_kitchen_counter",
-            () -> new BlockItem(ModBlocks.STRIPPED_SPRUCE_KITCHEN_COUNTER.get(), new Item.Properties()));
-    public static final Supplier<Item> STRIPPED_BIRCH_KITCHEN_COUNTER = register("stripped_birch_kitchen_counter",
-            () -> new BlockItem(ModBlocks.STRIPPED_BIRCH_KITCHEN_COUNTER.get(), new Item.Properties()));
-    public static final Supplier<Item> STRIPPED_JUNGLE_KITCHEN_COUNTER = register("stripped_jungle_kitchen_counter",
-            () -> new BlockItem(ModBlocks.STRIPPED_JUNGLE_KITCHEN_COUNTER.get(), new Item.Properties()));
-    public static final Supplier<Item> STRIPPED_ACACIA_KITCHEN_COUNTER = register("stripped_acacia_kitchen_counter",
-            () -> new BlockItem(ModBlocks.STRIPPED_ACACIA_KITCHEN_COUNTER.get(), new Item.Properties()));
-    public static final Supplier<Item> STRIPPED_DARK_OAK_KITCHEN_COUNTER = register("stripped_dark_oak_kitchen_counter",
-            () -> new BlockItem(ModBlocks.STRIPPED_DARK_OAK_KITCHEN_COUNTER.get(), new Item.Properties()));
-    public static final Supplier<Item> STRIPPED_MANGROVE_KITCHEN_COUNTER = register("stripped_mangrove_kitchen_counter",
-            () -> new BlockItem(ModBlocks.STRIPPED_MANGROVE_KITCHEN_COUNTER.get(), new Item.Properties()));
-    public static final Supplier<Item> STRIPPED_CHERRY_KITCHEN_COUNTER = register("stripped_cherry_kitchen_counter",
-            () -> new BlockItem(ModBlocks.STRIPPED_CHERRY_KITCHEN_COUNTER.get(), new Item.Properties()));
-    public static final Supplier<Item> STRIPPED_CRIMSON_KITCHEN_COUNTER = register("stripped_crimson_kitchen_counter",
-            () -> new BlockItem(ModBlocks.STRIPPED_CRIMSON_KITCHEN_COUNTER.get(), new Item.Properties()));
-    public static final Supplier<Item> STRIPPED_WARPED_KITCHEN_COUNTER = register("stripped_warped_kitchen_counter",
-            () -> new BlockItem(ModBlocks.STRIPPED_WARPED_KITCHEN_COUNTER.get(), new Item.Properties()));
-    public static final Supplier<Item> WHITE_KITCHEN_COUNTER = register("white_kitchen_counter",
-            () -> new BlockItem(ModBlocks.WHITE_KITCHEN_COUNTER.get(), new Item.Properties()));
-    public static final Supplier<Item> LIGHT_GRAY_KITCHEN_COUNTER = register("light_gray_kitchen_counter",
-            () -> new BlockItem(ModBlocks.LIGHT_GRAY_KITCHEN_COUNTER.get(), new Item.Properties()));
-    public static final Supplier<Item> GRAY_KITCHEN_COUNTER = register("gray_kitchen_counter",
-            () -> new BlockItem(ModBlocks.GRAY_KITCHEN_COUNTER.get(), new Item.Properties()));
-    public static final Supplier<Item> BLACK_KITCHEN_COUNTER = register("black_kitchen_counter",
-            () -> new BlockItem(ModBlocks.BLACK_KITCHEN_COUNTER.get(), new Item.Properties()));
-    public static final Supplier<Item> BROWN_KITCHEN_COUNTER = register("brown_kitchen_counter",
-            () -> new BlockItem(ModBlocks.BROWN_KITCHEN_COUNTER.get(), new Item.Properties()));
-    public static final Supplier<Item> RED_KITCHEN_COUNTER = register("red_kitchen_counter",
-            () -> new BlockItem(ModBlocks.RED_KITCHEN_COUNTER.get(), new Item.Properties()));
-    public static final Supplier<Item> ORANGE_KITCHEN_COUNTER = register("orange_kitchen_counter",
-            () -> new BlockItem(ModBlocks.ORANGE_KITCHEN_COUNTER.get(), new Item.Properties()));
-    public static final Supplier<Item> BEIGE_KITCHEN_COUNTER = registerOptional("beige_kitchen_counter", "yogmod",
-            () -> new BlockItem(ModBlocks.BEIGE_KITCHEN_COUNTER.get(), new Item.Properties()));
-    public static final Supplier<Item> YELLOW_KITCHEN_COUNTER = register("yellow_kitchen_counter",
-            () -> new BlockItem(ModBlocks.YELLOW_KITCHEN_COUNTER.get(), new Item.Properties()));
-    public static final Supplier<Item> LIME_KITCHEN_COUNTER = register("lime_kitchen_counter",
-            () -> new BlockItem(ModBlocks.LIME_KITCHEN_COUNTER.get(), new Item.Properties()));
-    public static final Supplier<Item> GREEN_KITCHEN_COUNTER = register("green_kitchen_counter",
-            () -> new BlockItem(ModBlocks.GREEN_KITCHEN_COUNTER.get(), new Item.Properties()));
-    public static final Supplier<Item> CYAN_KITCHEN_COUNTER = register("cyan_kitchen_counter",
-            () -> new BlockItem(ModBlocks.CYAN_KITCHEN_COUNTER.get(), new Item.Properties()));
-    public static final Supplier<Item> LIGHT_BLUE_KITCHEN_COUNTER = register("light_blue_kitchen_counter",
-            () -> new BlockItem(ModBlocks.LIGHT_BLUE_KITCHEN_COUNTER.get(), new Item.Properties()));
-    public static final Supplier<Item> BLUE_KITCHEN_COUNTER = register("blue_kitchen_counter",
-            () -> new BlockItem(ModBlocks.BLUE_KITCHEN_COUNTER.get(), new Item.Properties()));
-    public static final Supplier<Item> PURPLE_KITCHEN_COUNTER = register("purple_kitchen_counter",
-            () -> new BlockItem(ModBlocks.PURPLE_KITCHEN_COUNTER.get(), new Item.Properties()));
-    public static final Supplier<Item> MAGENTA_KITCHEN_COUNTER = register("magenta_kitchen_counter",
-            () -> new BlockItem(ModBlocks.MAGENTA_KITCHEN_COUNTER.get(), new Item.Properties()));
-    public static final Supplier<Item> PINK_KITCHEN_COUNTER = register("pink_kitchen_counter",
-            () -> new BlockItem(ModBlocks.PINK_KITCHEN_COUNTER.get(), new Item.Properties()));
+    public static final Supplier<BlockItem> OAK_KITCHEN_COUNTER = registerBlockItem("oak_kitchen_counter", ModBlocks.OAK_KITCHEN_COUNTER);
+    public static final Supplier<BlockItem> SPRUCE_KITCHEN_COUNTER = registerBlockItem("spruce_kitchen_counter", ModBlocks.SPRUCE_KITCHEN_COUNTER);
+    public static final Supplier<BlockItem> BIRCH_KITCHEN_COUNTER = registerBlockItem("birch_kitchen_counter", ModBlocks.BIRCH_KITCHEN_COUNTER);
+    public static final Supplier<BlockItem> JUNGLE_KITCHEN_COUNTER = registerBlockItem("jungle_kitchen_counter", ModBlocks.JUNGLE_KITCHEN_COUNTER);
+    public static final Supplier<BlockItem> ACACIA_KITCHEN_COUNTER = registerBlockItem("acacia_kitchen_counter", ModBlocks.ACACIA_KITCHEN_COUNTER);
+    public static final Supplier<BlockItem> DARK_OAK_KITCHEN_COUNTER = registerBlockItem("dark_oak_kitchen_counter", ModBlocks.DARK_OAK_KITCHEN_COUNTER);
+    public static final Supplier<BlockItem> MANGROVE_KITCHEN_COUNTER = registerBlockItem("mangrove_kitchen_counter", ModBlocks.MANGROVE_KITCHEN_COUNTER);
+    public static final Supplier<BlockItem> CHERRY_KITCHEN_COUNTER = registerBlockItem("cherry_kitchen_counter", ModBlocks.CHERRY_KITCHEN_COUNTER);
+    public static final Supplier<BlockItem> CRIMSON_KITCHEN_COUNTER = registerBlockItem("crimson_kitchen_counter", ModBlocks.CRIMSON_KITCHEN_COUNTER);
+    public static final Supplier<BlockItem> WARPED_KITCHEN_COUNTER = registerBlockItem("warped_kitchen_counter", ModBlocks.WARPED_KITCHEN_COUNTER);
+    public static final Supplier<BlockItem> BAMBOO_KITCHEN_COUNTER = registerBlockItem("bamboo_kitchen_counter", ModBlocks.BAMBOO_KITCHEN_COUNTER);
+    public static final Supplier<BlockItem> STRIPPED_OAK_KITCHEN_COUNTER = registerBlockItem("stripped_oak_kitchen_counter", ModBlocks.STRIPPED_OAK_KITCHEN_COUNTER);
+    public static final Supplier<BlockItem> STRIPPED_SPRUCE_KITCHEN_COUNTER = registerBlockItem("stripped_spruce_kitchen_counter", ModBlocks.STRIPPED_SPRUCE_KITCHEN_COUNTER);
+    public static final Supplier<BlockItem> STRIPPED_BIRCH_KITCHEN_COUNTER = registerBlockItem("stripped_birch_kitchen_counter", ModBlocks.STRIPPED_BIRCH_KITCHEN_COUNTER);
+    public static final Supplier<BlockItem> STRIPPED_JUNGLE_KITCHEN_COUNTER = registerBlockItem("stripped_jungle_kitchen_counter", ModBlocks.STRIPPED_JUNGLE_KITCHEN_COUNTER);
+    public static final Supplier<BlockItem> STRIPPED_ACACIA_KITCHEN_COUNTER = registerBlockItem("stripped_acacia_kitchen_counter", ModBlocks.STRIPPED_ACACIA_KITCHEN_COUNTER);
+    public static final Supplier<BlockItem> STRIPPED_DARK_OAK_KITCHEN_COUNTER = registerBlockItem("stripped_dark_oak_kitchen_counter", ModBlocks.STRIPPED_DARK_OAK_KITCHEN_COUNTER);
+    public static final Supplier<BlockItem> STRIPPED_MANGROVE_KITCHEN_COUNTER = registerBlockItem("stripped_mangrove_kitchen_counter", ModBlocks.STRIPPED_MANGROVE_KITCHEN_COUNTER);
+    public static final Supplier<BlockItem> STRIPPED_CHERRY_KITCHEN_COUNTER = registerBlockItem("stripped_cherry_kitchen_counter", ModBlocks.STRIPPED_CHERRY_KITCHEN_COUNTER);
+    public static final Supplier<BlockItem> STRIPPED_CRIMSON_KITCHEN_COUNTER = registerBlockItem("stripped_crimson_kitchen_counter", ModBlocks.STRIPPED_CRIMSON_KITCHEN_COUNTER);
+    public static final Supplier<BlockItem> STRIPPED_WARPED_KITCHEN_COUNTER = registerBlockItem("stripped_warped_kitchen_counter", ModBlocks.STRIPPED_WARPED_KITCHEN_COUNTER);
+    public static final Supplier<BlockItem> STRIPPED_BAMBOO_KITCHEN_COUNTER = registerBlockItem("stripped_bamboo_kitchen_counter", ModBlocks.STRIPPED_BAMBOO_KITCHEN_COUNTER);
+    public static final Supplier<BlockItem> WHITE_KITCHEN_COUNTER = registerBlockItem("white_kitchen_counter", ModBlocks.WHITE_KITCHEN_COUNTER);
+    public static final Supplier<BlockItem> LIGHT_GRAY_KITCHEN_COUNTER = registerBlockItem("light_gray_kitchen_counter", ModBlocks.LIGHT_GRAY_KITCHEN_COUNTER);
+    public static final Supplier<BlockItem> GRAY_KITCHEN_COUNTER = registerBlockItem("gray_kitchen_counter", ModBlocks.GRAY_KITCHEN_COUNTER);
+    public static final Supplier<BlockItem> BLACK_KITCHEN_COUNTER = registerBlockItem("black_kitchen_counter", ModBlocks.BLACK_KITCHEN_COUNTER);
+    public static final Supplier<BlockItem> BROWN_KITCHEN_COUNTER = registerBlockItem("brown_kitchen_counter", ModBlocks.BROWN_KITCHEN_COUNTER);
+    public static final Supplier<BlockItem> RED_KITCHEN_COUNTER = registerBlockItem("red_kitchen_counter", ModBlocks.RED_KITCHEN_COUNTER);
+    public static final Supplier<BlockItem> ORANGE_KITCHEN_COUNTER = registerBlockItem("orange_kitchen_counter", ModBlocks.ORANGE_KITCHEN_COUNTER);
+    public static final Supplier<BlockItem> BEIGE_KITCHEN_COUNTER = registerOptionalBlockItem("beige_kitchen_counter", ModBlocks.BEIGE_KITCHEN_COUNTER);
+    public static final Supplier<BlockItem> YELLOW_KITCHEN_COUNTER = registerBlockItem("yellow_kitchen_counter", ModBlocks.YELLOW_KITCHEN_COUNTER);
+    public static final Supplier<BlockItem> LIME_KITCHEN_COUNTER = registerBlockItem("lime_kitchen_counter", ModBlocks.LIME_KITCHEN_COUNTER);
+    public static final Supplier<BlockItem> GREEN_KITCHEN_COUNTER = registerBlockItem("green_kitchen_counter", ModBlocks.GREEN_KITCHEN_COUNTER);
+    public static final Supplier<BlockItem> CYAN_KITCHEN_COUNTER = registerBlockItem("cyan_kitchen_counter", ModBlocks.CYAN_KITCHEN_COUNTER);
+    public static final Supplier<BlockItem> LIGHT_BLUE_KITCHEN_COUNTER = registerBlockItem("light_blue_kitchen_counter", ModBlocks.LIGHT_BLUE_KITCHEN_COUNTER);
+    public static final Supplier<BlockItem> BLUE_KITCHEN_COUNTER = registerBlockItem("blue_kitchen_counter", ModBlocks.BLUE_KITCHEN_COUNTER);
+    public static final Supplier<BlockItem> PURPLE_KITCHEN_COUNTER = registerBlockItem("purple_kitchen_counter", ModBlocks.PURPLE_KITCHEN_COUNTER);
+    public static final Supplier<BlockItem> MAGENTA_KITCHEN_COUNTER = registerBlockItem("magenta_kitchen_counter", ModBlocks.MAGENTA_KITCHEN_COUNTER);
+    public static final Supplier<BlockItem> PINK_KITCHEN_COUNTER = registerBlockItem("pink_kitchen_counter", ModBlocks.PINK_KITCHEN_COUNTER);
 
     // Kitchen Drawers
-    public static final Supplier<Item> OAK_KITCHEN_DRAWER = register("oak_kitchen_drawer",
-            () -> new BlockItem(ModBlocks.OAK_KITCHEN_DRAWER.get(), new Item.Properties()));
-    public static final Supplier<Item> SPRUCE_KITCHEN_DRAWER = register("spruce_kitchen_drawer",
-            () -> new BlockItem(ModBlocks.SPRUCE_KITCHEN_DRAWER.get(), new Item.Properties()));
-    public static final Supplier<Item> BIRCH_KITCHEN_DRAWER = register("birch_kitchen_drawer",
-            () -> new BlockItem(ModBlocks.BIRCH_KITCHEN_DRAWER.get(), new Item.Properties()));
-    public static final Supplier<Item> JUNGLE_KITCHEN_DRAWER = register("jungle_kitchen_drawer",
-            () -> new BlockItem(ModBlocks.JUNGLE_KITCHEN_DRAWER.get(), new Item.Properties()));
-    public static final Supplier<Item> ACACIA_KITCHEN_DRAWER = register("acacia_kitchen_drawer",
-            () -> new BlockItem(ModBlocks.ACACIA_KITCHEN_DRAWER.get(), new Item.Properties()));
-    public static final Supplier<Item> DARK_OAK_KITCHEN_DRAWER = register("dark_oak_kitchen_drawer",
-            () -> new BlockItem(ModBlocks.DARK_OAK_KITCHEN_DRAWER.get(), new Item.Properties()));
-    public static final Supplier<Item> MANGROVE_KITCHEN_DRAWER = register("mangrove_kitchen_drawer",
-            () -> new BlockItem(ModBlocks.MANGROVE_KITCHEN_DRAWER.get(), new Item.Properties()));
-    public static final Supplier<Item> CHERRY_KITCHEN_DRAWER = register("cherry_kitchen_drawer",
-            () -> new BlockItem(ModBlocks.CHERRY_KITCHEN_DRAWER.get(), new Item.Properties()));
-    public static final Supplier<Item> CRIMSON_KITCHEN_DRAWER = register("crimson_kitchen_drawer",
-            () -> new BlockItem(ModBlocks.CRIMSON_KITCHEN_DRAWER.get(), new Item.Properties()));
-    public static final Supplier<Item> WARPED_KITCHEN_DRAWER = register("warped_kitchen_drawer",
-            () -> new BlockItem(ModBlocks.WARPED_KITCHEN_DRAWER.get(), new Item.Properties()));
-    public static final Supplier<Item> STRIPPED_OAK_KITCHEN_DRAWER = register("stripped_oak_kitchen_drawer",
-            () -> new BlockItem(ModBlocks.STRIPPED_OAK_KITCHEN_DRAWER.get(), new Item.Properties()));
-    public static final Supplier<Item> STRIPPED_SPRUCE_KITCHEN_DRAWER = register("stripped_spruce_kitchen_drawer",
-            () -> new BlockItem(ModBlocks.STRIPPED_SPRUCE_KITCHEN_DRAWER.get(), new Item.Properties()));
-    public static final Supplier<Item> STRIPPED_BIRCH_KITCHEN_DRAWER = register("stripped_birch_kitchen_drawer",
-            () -> new BlockItem(ModBlocks.STRIPPED_BIRCH_KITCHEN_DRAWER.get(), new Item.Properties()));
-    public static final Supplier<Item> STRIPPED_JUNGLE_KITCHEN_DRAWER = register("stripped_jungle_kitchen_drawer",
-            () -> new BlockItem(ModBlocks.STRIPPED_JUNGLE_KITCHEN_DRAWER.get(), new Item.Properties()));
-    public static final Supplier<Item> STRIPPED_ACACIA_KITCHEN_DRAWER = register("stripped_acacia_kitchen_drawer",
-            () -> new BlockItem(ModBlocks.STRIPPED_ACACIA_KITCHEN_DRAWER.get(), new Item.Properties()));
-    public static final Supplier<Item> STRIPPED_DARK_OAK_KITCHEN_DRAWER = register("stripped_dark_oak_kitchen_drawer",
-            () -> new BlockItem(ModBlocks.STRIPPED_DARK_OAK_KITCHEN_DRAWER.get(), new Item.Properties()));
-    public static final Supplier<Item> STRIPPED_MANGROVE_KITCHEN_DRAWER = register("stripped_mangrove_kitchen_drawer",
-            () -> new BlockItem(ModBlocks.STRIPPED_MANGROVE_KITCHEN_DRAWER.get(), new Item.Properties()));
-    public static final Supplier<Item> STRIPPED_CHERRY_KITCHEN_DRAWER = register("stripped_cherry_kitchen_drawer",
-            () -> new BlockItem(ModBlocks.STRIPPED_CHERRY_KITCHEN_DRAWER.get(), new Item.Properties()));
-    public static final Supplier<Item> STRIPPED_CRIMSON_KITCHEN_DRAWER = register("stripped_crimson_kitchen_drawer",
-            () -> new BlockItem(ModBlocks.STRIPPED_CRIMSON_KITCHEN_DRAWER.get(), new Item.Properties()));
-    public static final Supplier<Item> STRIPPED_WARPED_KITCHEN_DRAWER = register("stripped_warped_kitchen_drawer",
-            () -> new BlockItem(ModBlocks.STRIPPED_WARPED_KITCHEN_DRAWER.get(), new Item.Properties()));
-    public static final Supplier<Item> WHITE_KITCHEN_DRAWER = register("white_kitchen_drawer",
-            () -> new BlockItem(ModBlocks.WHITE_KITCHEN_DRAWER.get(), new Item.Properties()));
-    public static final Supplier<Item> LIGHT_GRAY_KITCHEN_DRAWER = register("light_gray_kitchen_drawer",
-            () -> new BlockItem(ModBlocks.LIGHT_GRAY_KITCHEN_DRAWER.get(), new Item.Properties()));
-    public static final Supplier<Item> GRAY_KITCHEN_DRAWER = register("gray_kitchen_drawer",
-            () -> new BlockItem(ModBlocks.GRAY_KITCHEN_DRAWER.get(), new Item.Properties()));
-    public static final Supplier<Item> BLACK_KITCHEN_DRAWER = register("black_kitchen_drawer",
-            () -> new BlockItem(ModBlocks.BLACK_KITCHEN_DRAWER.get(), new Item.Properties()));
-    public static final Supplier<Item> BROWN_KITCHEN_DRAWER = register("brown_kitchen_drawer",
-            () -> new BlockItem(ModBlocks.BROWN_KITCHEN_DRAWER.get(), new Item.Properties()));
-    public static final Supplier<Item> RED_KITCHEN_DRAWER = register("red_kitchen_drawer",
-            () -> new BlockItem(ModBlocks.RED_KITCHEN_DRAWER.get(), new Item.Properties()));
-    public static final Supplier<Item> ORANGE_KITCHEN_DRAWER = register("orange_kitchen_drawer",
-            () -> new BlockItem(ModBlocks.ORANGE_KITCHEN_DRAWER.get(), new Item.Properties()));
-    public static final Supplier<Item> BEIGE_KITCHEN_DRAWER = registerOptional("beige_kitchen_drawer", "yogmod",
-            () -> new BlockItem(ModBlocks.BEIGE_KITCHEN_DRAWER.get(), new Item.Properties()));
-    public static final Supplier<Item> YELLOW_KITCHEN_DRAWER = register("yellow_kitchen_drawer",
-            () -> new BlockItem(ModBlocks.YELLOW_KITCHEN_DRAWER.get(), new Item.Properties()));
-    public static final Supplier<Item> LIME_KITCHEN_DRAWER = register("lime_kitchen_drawer",
-            () -> new BlockItem(ModBlocks.LIME_KITCHEN_DRAWER.get(), new Item.Properties()));
-    public static final Supplier<Item> GREEN_KITCHEN_DRAWER = register("green_kitchen_drawer",
-            () -> new BlockItem(ModBlocks.GREEN_KITCHEN_DRAWER.get(), new Item.Properties()));
-    public static final Supplier<Item> CYAN_KITCHEN_DRAWER = register("cyan_kitchen_drawer",
-            () -> new BlockItem(ModBlocks.CYAN_KITCHEN_DRAWER.get(), new Item.Properties()));
-    public static final Supplier<Item> LIGHT_BLUE_KITCHEN_DRAWER = register("light_blue_kitchen_drawer",
-            () -> new BlockItem(ModBlocks.LIGHT_BLUE_KITCHEN_DRAWER.get(), new Item.Properties()));
-    public static final Supplier<Item> BLUE_KITCHEN_DRAWER = register("blue_kitchen_drawer",
-            () -> new BlockItem(ModBlocks.BLUE_KITCHEN_DRAWER.get(), new Item.Properties()));
-    public static final Supplier<Item> PURPLE_KITCHEN_DRAWER = register("purple_kitchen_drawer",
-            () -> new BlockItem(ModBlocks.PURPLE_KITCHEN_DRAWER.get(), new Item.Properties()));
-    public static final Supplier<Item> MAGENTA_KITCHEN_DRAWER = register("magenta_kitchen_drawer",
-            () -> new BlockItem(ModBlocks.MAGENTA_KITCHEN_DRAWER.get(), new Item.Properties()));
-    public static final Supplier<Item> PINK_KITCHEN_DRAWER = register("pink_kitchen_drawer",
-            () -> new BlockItem(ModBlocks.PINK_KITCHEN_DRAWER.get(), new Item.Properties()));
+    public static final Supplier<BlockItem> OAK_KITCHEN_DRAWER = registerBlockItem("oak_kitchen_drawer", ModBlocks.OAK_KITCHEN_DRAWER);
+    public static final Supplier<BlockItem> SPRUCE_KITCHEN_DRAWER = registerBlockItem("spruce_kitchen_drawer", ModBlocks.SPRUCE_KITCHEN_DRAWER);
+    public static final Supplier<BlockItem> BIRCH_KITCHEN_DRAWER = registerBlockItem("birch_kitchen_drawer", ModBlocks.BIRCH_KITCHEN_DRAWER);
+    public static final Supplier<BlockItem> JUNGLE_KITCHEN_DRAWER = registerBlockItem("jungle_kitchen_drawer", ModBlocks.JUNGLE_KITCHEN_DRAWER);
+    public static final Supplier<BlockItem> ACACIA_KITCHEN_DRAWER = registerBlockItem("acacia_kitchen_drawer", ModBlocks.ACACIA_KITCHEN_DRAWER);
+    public static final Supplier<BlockItem> DARK_OAK_KITCHEN_DRAWER = registerBlockItem("dark_oak_kitchen_drawer", ModBlocks.DARK_OAK_KITCHEN_DRAWER);
+    public static final Supplier<BlockItem> MANGROVE_KITCHEN_DRAWER = registerBlockItem("mangrove_kitchen_drawer", ModBlocks.MANGROVE_KITCHEN_DRAWER);
+    public static final Supplier<BlockItem> CHERRY_KITCHEN_DRAWER = registerBlockItem("cherry_kitchen_drawer", ModBlocks.CHERRY_KITCHEN_DRAWER);
+    public static final Supplier<BlockItem> CRIMSON_KITCHEN_DRAWER = registerBlockItem("crimson_kitchen_drawer", ModBlocks.CRIMSON_KITCHEN_DRAWER);
+    public static final Supplier<BlockItem> WARPED_KITCHEN_DRAWER = registerBlockItem("warped_kitchen_drawer", ModBlocks.WARPED_KITCHEN_DRAWER);
+    public static final Supplier<BlockItem> BAMBOO_KITCHEN_DRAWER = registerBlockItem("bamboo_kitchen_drawer", ModBlocks.BAMBOO_KITCHEN_DRAWER);
+    public static final Supplier<BlockItem> STRIPPED_OAK_KITCHEN_DRAWER = registerBlockItem("stripped_oak_kitchen_drawer", ModBlocks.STRIPPED_OAK_KITCHEN_DRAWER);
+    public static final Supplier<BlockItem> STRIPPED_SPRUCE_KITCHEN_DRAWER = registerBlockItem("stripped_spruce_kitchen_drawer", ModBlocks.STRIPPED_SPRUCE_KITCHEN_DRAWER);
+    public static final Supplier<BlockItem> STRIPPED_BIRCH_KITCHEN_DRAWER = registerBlockItem("stripped_birch_kitchen_drawer", ModBlocks.STRIPPED_BIRCH_KITCHEN_DRAWER);
+    public static final Supplier<BlockItem> STRIPPED_JUNGLE_KITCHEN_DRAWER = registerBlockItem("stripped_jungle_kitchen_drawer", ModBlocks.STRIPPED_JUNGLE_KITCHEN_DRAWER);
+    public static final Supplier<BlockItem> STRIPPED_ACACIA_KITCHEN_DRAWER = registerBlockItem("stripped_acacia_kitchen_drawer", ModBlocks.STRIPPED_ACACIA_KITCHEN_DRAWER);
+    public static final Supplier<BlockItem> STRIPPED_DARK_OAK_KITCHEN_DRAWER = registerBlockItem("stripped_dark_oak_kitchen_drawer", ModBlocks.STRIPPED_DARK_OAK_KITCHEN_DRAWER);
+    public static final Supplier<BlockItem> STRIPPED_MANGROVE_KITCHEN_DRAWER = registerBlockItem("stripped_mangrove_kitchen_drawer", ModBlocks.STRIPPED_MANGROVE_KITCHEN_DRAWER);
+    public static final Supplier<BlockItem> STRIPPED_CHERRY_KITCHEN_DRAWER = registerBlockItem("stripped_cherry_kitchen_drawer", ModBlocks.STRIPPED_CHERRY_KITCHEN_DRAWER);
+    public static final Supplier<BlockItem> STRIPPED_CRIMSON_KITCHEN_DRAWER = registerBlockItem("stripped_crimson_kitchen_drawer", ModBlocks.STRIPPED_CRIMSON_KITCHEN_DRAWER);
+    public static final Supplier<BlockItem> STRIPPED_WARPED_KITCHEN_DRAWER = registerBlockItem("stripped_warped_kitchen_drawer", ModBlocks.STRIPPED_WARPED_KITCHEN_DRAWER);
+    public static final Supplier<BlockItem> STRIPPED_BAMBOO_KITCHEN_DRAWER = registerBlockItem("stripped_bamboo_kitchen_drawer", ModBlocks.STRIPPED_BAMBOO_KITCHEN_DRAWER);
+    public static final Supplier<BlockItem> WHITE_KITCHEN_DRAWER = registerBlockItem("white_kitchen_drawer", ModBlocks.WHITE_KITCHEN_DRAWER);
+    public static final Supplier<BlockItem> LIGHT_GRAY_KITCHEN_DRAWER = registerBlockItem("light_gray_kitchen_drawer", ModBlocks.LIGHT_GRAY_KITCHEN_DRAWER);
+    public static final Supplier<BlockItem> GRAY_KITCHEN_DRAWER = registerBlockItem("gray_kitchen_drawer", ModBlocks.GRAY_KITCHEN_DRAWER);
+    public static final Supplier<BlockItem> BLACK_KITCHEN_DRAWER = registerBlockItem("black_kitchen_drawer", ModBlocks.BLACK_KITCHEN_DRAWER);
+    public static final Supplier<BlockItem> BROWN_KITCHEN_DRAWER = registerBlockItem("brown_kitchen_drawer", ModBlocks.BROWN_KITCHEN_DRAWER);
+    public static final Supplier<BlockItem> RED_KITCHEN_DRAWER = registerBlockItem("red_kitchen_drawer", ModBlocks.RED_KITCHEN_DRAWER);
+    public static final Supplier<BlockItem> ORANGE_KITCHEN_DRAWER = registerBlockItem("orange_kitchen_drawer", ModBlocks.ORANGE_KITCHEN_DRAWER);
+    public static final Supplier<BlockItem> BEIGE_KITCHEN_DRAWER = registerOptionalBlockItem("beige_kitchen_drawer", ModBlocks.BEIGE_KITCHEN_DRAWER);
+    public static final Supplier<BlockItem> YELLOW_KITCHEN_DRAWER = registerBlockItem("yellow_kitchen_drawer", ModBlocks.YELLOW_KITCHEN_DRAWER);
+    public static final Supplier<BlockItem> LIME_KITCHEN_DRAWER = registerBlockItem("lime_kitchen_drawer", ModBlocks.LIME_KITCHEN_DRAWER);
+    public static final Supplier<BlockItem> GREEN_KITCHEN_DRAWER = registerBlockItem("green_kitchen_drawer", ModBlocks.GREEN_KITCHEN_DRAWER);
+    public static final Supplier<BlockItem> CYAN_KITCHEN_DRAWER = registerBlockItem("cyan_kitchen_drawer", ModBlocks.CYAN_KITCHEN_DRAWER);
+    public static final Supplier<BlockItem> LIGHT_BLUE_KITCHEN_DRAWER = registerBlockItem("light_blue_kitchen_drawer", ModBlocks.LIGHT_BLUE_KITCHEN_DRAWER);
+    public static final Supplier<BlockItem> BLUE_KITCHEN_DRAWER = registerBlockItem("blue_kitchen_drawer", ModBlocks.BLUE_KITCHEN_DRAWER);
+    public static final Supplier<BlockItem> PURPLE_KITCHEN_DRAWER = registerBlockItem("purple_kitchen_drawer", ModBlocks.PURPLE_KITCHEN_DRAWER);
+    public static final Supplier<BlockItem> MAGENTA_KITCHEN_DRAWER = registerBlockItem("magenta_kitchen_drawer", ModBlocks.MAGENTA_KITCHEN_DRAWER);
+    public static final Supplier<BlockItem> PINK_KITCHEN_DRAWER = registerBlockItem("pink_kitchen_drawer", ModBlocks.PINK_KITCHEN_DRAWER);
 
     // Kitchen Sinks
-    public static final Supplier<Item> OAK_KITCHEN_SINK_LIGHT = register("oak_kitchen_sink_light",
-            () -> new BlockItem(ModBlocks.OAK_KITCHEN_SINK_LIGHT.get(), new Item.Properties()));
-    public static final Supplier<Item> SPRUCE_KITCHEN_SINK_LIGHT = register("spruce_kitchen_sink_light",
-            () -> new BlockItem(ModBlocks.SPRUCE_KITCHEN_SINK_LIGHT.get(), new Item.Properties()));
-    public static final Supplier<Item> BIRCH_KITCHEN_SINK_LIGHT = register("birch_kitchen_sink_light",
-            () -> new BlockItem(ModBlocks.BIRCH_KITCHEN_SINK_LIGHT.get(), new Item.Properties()));
-    public static final Supplier<Item> JUNGLE_KITCHEN_SINK_LIGHT = register("jungle_kitchen_sink_light",
-            () -> new BlockItem(ModBlocks.JUNGLE_KITCHEN_SINK_LIGHT.get(), new Item.Properties()));
-    public static final Supplier<Item> ACACIA_KITCHEN_SINK_LIGHT = register("acacia_kitchen_sink_light",
-            () -> new BlockItem(ModBlocks.ACACIA_KITCHEN_SINK_LIGHT.get(), new Item.Properties()));
-    public static final Supplier<Item> DARK_OAK_KITCHEN_SINK_LIGHT = register("dark_oak_kitchen_sink_light",
-            () -> new BlockItem(ModBlocks.DARK_OAK_KITCHEN_SINK_LIGHT.get(), new Item.Properties()));
-    public static final Supplier<Item> MANGROVE_KITCHEN_SINK_LIGHT = register("mangrove_kitchen_sink_light",
-            () -> new BlockItem(ModBlocks.MANGROVE_KITCHEN_SINK_LIGHT.get(), new Item.Properties()));
-    public static final Supplier<Item> CHERRY_KITCHEN_SINK_LIGHT = register("cherry_kitchen_sink_light",
-            () -> new BlockItem(ModBlocks.CHERRY_KITCHEN_SINK_LIGHT.get(), new Item.Properties()));
-    public static final Supplier<Item> CRIMSON_KITCHEN_SINK_LIGHT = register("crimson_kitchen_sink_light",
-            () -> new BlockItem(ModBlocks.CRIMSON_KITCHEN_SINK_LIGHT.get(), new Item.Properties()));
-    public static final Supplier<Item> WARPED_KITCHEN_SINK_LIGHT = register("warped_kitchen_sink_light",
-            () -> new BlockItem(ModBlocks.WARPED_KITCHEN_SINK_LIGHT.get(), new Item.Properties()));
-    public static final Supplier<Item> STRIPPED_OAK_KITCHEN_SINK_LIGHT = register("stripped_oak_kitchen_sink_light",
-            () -> new BlockItem(ModBlocks.STRIPPED_OAK_KITCHEN_SINK_LIGHT.get(), new Item.Properties()));
-    public static final Supplier<Item> STRIPPED_SPRUCE_KITCHEN_SINK_LIGHT = register("stripped_spruce_kitchen_sink_light",
-            () -> new BlockItem(ModBlocks.STRIPPED_SPRUCE_KITCHEN_SINK_LIGHT.get(), new Item.Properties()));
-    public static final Supplier<Item> STRIPPED_BIRCH_KITCHEN_SINK_LIGHT = register("stripped_birch_kitchen_sink_light",
-            () -> new BlockItem(ModBlocks.STRIPPED_BIRCH_KITCHEN_SINK_LIGHT.get(), new Item.Properties()));
-    public static final Supplier<Item> STRIPPED_JUNGLE_KITCHEN_SINK_LIGHT = register("stripped_jungle_kitchen_sink_light",
-            () -> new BlockItem(ModBlocks.STRIPPED_JUNGLE_KITCHEN_SINK_LIGHT.get(), new Item.Properties()));
-    public static final Supplier<Item> STRIPPED_ACACIA_KITCHEN_SINK_LIGHT = register("stripped_acacia_kitchen_sink_light",
-            () -> new BlockItem(ModBlocks.STRIPPED_ACACIA_KITCHEN_SINK_LIGHT.get(), new Item.Properties()));
-    public static final Supplier<Item> STRIPPED_DARK_OAK_KITCHEN_SINK_LIGHT = register("stripped_dark_oak_kitchen_sink_light",
-            () -> new BlockItem(ModBlocks.STRIPPED_DARK_OAK_KITCHEN_SINK_LIGHT.get(), new Item.Properties()));
-    public static final Supplier<Item> STRIPPED_MANGROVE_KITCHEN_SINK_LIGHT = register("stripped_mangrove_kitchen_sink_light",
-            () -> new BlockItem(ModBlocks.STRIPPED_MANGROVE_KITCHEN_SINK_LIGHT.get(), new Item.Properties()));
-    public static final Supplier<Item> STRIPPED_CHERRY_KITCHEN_SINK_LIGHT = register("stripped_cherry_kitchen_sink_light",
-            () -> new BlockItem(ModBlocks.STRIPPED_CHERRY_KITCHEN_SINK_LIGHT.get(), new Item.Properties()));
-    public static final Supplier<Item> STRIPPED_CRIMSON_KITCHEN_SINK_LIGHT = register("stripped_crimson_kitchen_sink_light",
-            () -> new BlockItem(ModBlocks.STRIPPED_CRIMSON_KITCHEN_SINK_LIGHT.get(), new Item.Properties()));
-    public static final Supplier<Item> STRIPPED_WARPED_KITCHEN_SINK_LIGHT = register("stripped_warped_kitchen_sink_light",
-            () -> new BlockItem(ModBlocks.STRIPPED_WARPED_KITCHEN_SINK_LIGHT.get(), new Item.Properties()));
-    public static final Supplier<Item> OAK_KITCHEN_SINK_DARK = register("oak_kitchen_sink_dark",
-            () -> new BlockItem(ModBlocks.OAK_KITCHEN_SINK_DARK.get(), new Item.Properties()));
-    public static final Supplier<Item> SPRUCE_KITCHEN_SINK_DARK = register("spruce_kitchen_sink_dark",
-            () -> new BlockItem(ModBlocks.SPRUCE_KITCHEN_SINK_DARK.get(), new Item.Properties()));
-    public static final Supplier<Item> BIRCH_KITCHEN_SINK_DARK = register("birch_kitchen_sink_dark",
-            () -> new BlockItem(ModBlocks.BIRCH_KITCHEN_SINK_DARK.get(), new Item.Properties()));
-    public static final Supplier<Item> JUNGLE_KITCHEN_SINK_DARK = register("jungle_kitchen_sink_dark",
-            () -> new BlockItem(ModBlocks.JUNGLE_KITCHEN_SINK_DARK.get(), new Item.Properties()));
-    public static final Supplier<Item> ACACIA_KITCHEN_SINK_DARK = register("acacia_kitchen_sink_dark",
-            () -> new BlockItem(ModBlocks.ACACIA_KITCHEN_SINK_DARK.get(), new Item.Properties()));
-    public static final Supplier<Item> DARK_OAK_KITCHEN_SINK_DARK = register("dark_oak_kitchen_sink_dark",
-            () -> new BlockItem(ModBlocks.DARK_OAK_KITCHEN_SINK_DARK.get(), new Item.Properties()));
-    public static final Supplier<Item> MANGROVE_KITCHEN_SINK_DARK = register("mangrove_kitchen_sink_dark",
-            () -> new BlockItem(ModBlocks.MANGROVE_KITCHEN_SINK_DARK.get(), new Item.Properties()));
-    public static final Supplier<Item> CHERRY_KITCHEN_SINK_DARK = register("cherry_kitchen_sink_dark",
-            () -> new BlockItem(ModBlocks.CHERRY_KITCHEN_SINK_DARK.get(), new Item.Properties()));
-    public static final Supplier<Item> CRIMSON_KITCHEN_SINK_DARK = register("crimson_kitchen_sink_dark",
-            () -> new BlockItem(ModBlocks.CRIMSON_KITCHEN_SINK_DARK.get(), new Item.Properties()));
-    public static final Supplier<Item> WARPED_KITCHEN_SINK_DARK = register("warped_kitchen_sink_dark",
-            () -> new BlockItem(ModBlocks.WARPED_KITCHEN_SINK_DARK.get(), new Item.Properties()));
-    public static final Supplier<Item> STRIPPED_OAK_KITCHEN_SINK_DARK = register("stripped_oak_kitchen_sink_dark",
-            () -> new BlockItem(ModBlocks.STRIPPED_OAK_KITCHEN_SINK_DARK.get(), new Item.Properties()));
-    public static final Supplier<Item> STRIPPED_SPRUCE_KITCHEN_SINK_DARK = register("stripped_spruce_kitchen_sink_dark",
-            () -> new BlockItem(ModBlocks.STRIPPED_SPRUCE_KITCHEN_SINK_DARK.get(), new Item.Properties()));
-    public static final Supplier<Item> STRIPPED_BIRCH_KITCHEN_SINK_DARK = register("stripped_birch_kitchen_sink_dark",
-            () -> new BlockItem(ModBlocks.STRIPPED_BIRCH_KITCHEN_SINK_DARK.get(), new Item.Properties()));
-    public static final Supplier<Item> STRIPPED_JUNGLE_KITCHEN_SINK_DARK = register("stripped_jungle_kitchen_sink_dark",
-            () -> new BlockItem(ModBlocks.STRIPPED_JUNGLE_KITCHEN_SINK_DARK.get(), new Item.Properties()));
-    public static final Supplier<Item> STRIPPED_ACACIA_KITCHEN_SINK_DARK = register("stripped_acacia_kitchen_sink_dark",
-            () -> new BlockItem(ModBlocks.STRIPPED_ACACIA_KITCHEN_SINK_DARK.get(), new Item.Properties()));
-    public static final Supplier<Item> STRIPPED_DARK_OAK_KITCHEN_SINK_DARK = register("stripped_dark_oak_kitchen_sink_dark",
-            () -> new BlockItem(ModBlocks.STRIPPED_DARK_OAK_KITCHEN_SINK_DARK.get(), new Item.Properties()));
-    public static final Supplier<Item> STRIPPED_MANGROVE_KITCHEN_SINK_DARK = register("stripped_mangrove_kitchen_sink_dark",
-            () -> new BlockItem(ModBlocks.STRIPPED_MANGROVE_KITCHEN_SINK_DARK.get(), new Item.Properties()));
-    public static final Supplier<Item> STRIPPED_CHERRY_KITCHEN_SINK_DARK = register("stripped_cherry_kitchen_sink_dark",
-            () -> new BlockItem(ModBlocks.STRIPPED_CHERRY_KITCHEN_SINK_DARK.get(), new Item.Properties()));
-    public static final Supplier<Item> STRIPPED_CRIMSON_KITCHEN_SINK_DARK = register("stripped_crimson_kitchen_sink_dark",
-            () -> new BlockItem(ModBlocks.STRIPPED_CRIMSON_KITCHEN_SINK_DARK.get(), new Item.Properties()));
-    public static final Supplier<Item> STRIPPED_WARPED_KITCHEN_SINK_DARK = register("stripped_warped_kitchen_sink_dark",
-            () -> new BlockItem(ModBlocks.STRIPPED_WARPED_KITCHEN_SINK_DARK.get(), new Item.Properties()));
-    public static final Supplier<Item> WHITE_KITCHEN_SINK = register("white_kitchen_sink",
-            () -> new BlockItem(ModBlocks.WHITE_KITCHEN_SINK.get(), new Item.Properties()));
-    public static final Supplier<Item> LIGHT_GRAY_KITCHEN_SINK = register("light_gray_kitchen_sink",
-            () -> new BlockItem(ModBlocks.LIGHT_GRAY_KITCHEN_SINK.get(), new Item.Properties()));
-    public static final Supplier<Item> GRAY_KITCHEN_SINK = register("gray_kitchen_sink",
-            () -> new BlockItem(ModBlocks.GRAY_KITCHEN_SINK.get(), new Item.Properties()));
-    public static final Supplier<Item> BLACK_KITCHEN_SINK = register("black_kitchen_sink",
-            () -> new BlockItem(ModBlocks.BLACK_KITCHEN_SINK.get(), new Item.Properties()));
-    public static final Supplier<Item> BROWN_KITCHEN_SINK = register("brown_kitchen_sink",
-            () -> new BlockItem(ModBlocks.BROWN_KITCHEN_SINK.get(), new Item.Properties()));
-    public static final Supplier<Item> RED_KITCHEN_SINK = register("red_kitchen_sink",
-            () -> new BlockItem(ModBlocks.RED_KITCHEN_SINK.get(), new Item.Properties()));
-    public static final Supplier<Item> ORANGE_KITCHEN_SINK = register("orange_kitchen_sink",
-            () -> new BlockItem(ModBlocks.ORANGE_KITCHEN_SINK.get(), new Item.Properties()));
-    public static final Supplier<Item> BEIGE_KITCHEN_SINK = registerOptional("beige_kitchen_sink", "yogmod",
-            () -> new BlockItem(ModBlocks.BEIGE_KITCHEN_SINK.get(), new Item.Properties()));
-    public static final Supplier<Item> YELLOW_KITCHEN_SINK = register("yellow_kitchen_sink",
-            () -> new BlockItem(ModBlocks.YELLOW_KITCHEN_SINK.get(), new Item.Properties()));
-    public static final Supplier<Item> LIME_KITCHEN_SINK = register("lime_kitchen_sink",
-            () -> new BlockItem(ModBlocks.LIME_KITCHEN_SINK.get(), new Item.Properties()));
-    public static final Supplier<Item> GREEN_KITCHEN_SINK = register("green_kitchen_sink",
-            () -> new BlockItem(ModBlocks.GREEN_KITCHEN_SINK.get(), new Item.Properties()));
-    public static final Supplier<Item> CYAN_KITCHEN_SINK = register("cyan_kitchen_sink",
-            () -> new BlockItem(ModBlocks.CYAN_KITCHEN_SINK.get(), new Item.Properties()));
-    public static final Supplier<Item> LIGHT_BLUE_KITCHEN_SINK = register("light_blue_kitchen_sink",
-            () -> new BlockItem(ModBlocks.LIGHT_BLUE_KITCHEN_SINK.get(), new Item.Properties()));
-    public static final Supplier<Item> BLUE_KITCHEN_SINK = register("blue_kitchen_sink",
-            () -> new BlockItem(ModBlocks.BLUE_KITCHEN_SINK.get(), new Item.Properties()));
-    public static final Supplier<Item> PURPLE_KITCHEN_SINK = register("purple_kitchen_sink",
-            () -> new BlockItem(ModBlocks.PURPLE_KITCHEN_SINK.get(), new Item.Properties()));
-    public static final Supplier<Item> MAGENTA_KITCHEN_SINK = register("magenta_kitchen_sink",
-            () -> new BlockItem(ModBlocks.MAGENTA_KITCHEN_SINK.get(), new Item.Properties()));
-    public static final Supplier<Item> PINK_KITCHEN_SINK = register("pink_kitchen_sink",
-            () -> new BlockItem(ModBlocks.PINK_KITCHEN_SINK.get(), new Item.Properties()));
+    public static final Supplier<BlockItem> OAK_KITCHEN_SINK_LIGHT = registerBlockItem("oak_kitchen_sink_light", ModBlocks.OAK_KITCHEN_SINK_LIGHT);
+    public static final Supplier<BlockItem> SPRUCE_KITCHEN_SINK_LIGHT = registerBlockItem("spruce_kitchen_sink_light", ModBlocks.SPRUCE_KITCHEN_SINK_LIGHT);
+    public static final Supplier<BlockItem> BIRCH_KITCHEN_SINK_LIGHT = registerBlockItem("birch_kitchen_sink_light", ModBlocks.BIRCH_KITCHEN_SINK_LIGHT);
+    public static final Supplier<BlockItem> JUNGLE_KITCHEN_SINK_LIGHT = registerBlockItem("jungle_kitchen_sink_light", ModBlocks.JUNGLE_KITCHEN_SINK_LIGHT);
+    public static final Supplier<BlockItem> ACACIA_KITCHEN_SINK_LIGHT = registerBlockItem("acacia_kitchen_sink_light", ModBlocks.ACACIA_KITCHEN_SINK_LIGHT);
+    public static final Supplier<BlockItem> DARK_OAK_KITCHEN_SINK_LIGHT = registerBlockItem("dark_oak_kitchen_sink_light", ModBlocks.DARK_OAK_KITCHEN_SINK_LIGHT);
+    public static final Supplier<BlockItem> MANGROVE_KITCHEN_SINK_LIGHT = registerBlockItem("mangrove_kitchen_sink_light", ModBlocks.MANGROVE_KITCHEN_SINK_LIGHT);
+    public static final Supplier<BlockItem> CHERRY_KITCHEN_SINK_LIGHT = registerBlockItem("cherry_kitchen_sink_light", ModBlocks.CHERRY_KITCHEN_SINK_LIGHT);
+    public static final Supplier<BlockItem> CRIMSON_KITCHEN_SINK_LIGHT = registerBlockItem("crimson_kitchen_sink_light", ModBlocks.CRIMSON_KITCHEN_SINK_LIGHT);
+    public static final Supplier<BlockItem> WARPED_KITCHEN_SINK_LIGHT = registerBlockItem("warped_kitchen_sink_light", ModBlocks.WARPED_KITCHEN_SINK_LIGHT);
+    public static final Supplier<BlockItem> BAMBOO_KITCHEN_SINK_LIGHT = registerBlockItem("bamboo_kitchen_sink_light", ModBlocks.BAMBOO_KITCHEN_SINK_LIGHT);
+    public static final Supplier<BlockItem> STRIPPED_OAK_KITCHEN_SINK_LIGHT = registerBlockItem("stripped_oak_kitchen_sink_light", ModBlocks.STRIPPED_OAK_KITCHEN_SINK_LIGHT);
+    public static final Supplier<BlockItem> STRIPPED_SPRUCE_KITCHEN_SINK_LIGHT = registerBlockItem("stripped_spruce_kitchen_sink_light", ModBlocks.STRIPPED_SPRUCE_KITCHEN_SINK_LIGHT);
+    public static final Supplier<BlockItem> STRIPPED_BIRCH_KITCHEN_SINK_LIGHT = registerBlockItem("stripped_birch_kitchen_sink_light", ModBlocks.STRIPPED_BIRCH_KITCHEN_SINK_LIGHT);
+    public static final Supplier<BlockItem> STRIPPED_JUNGLE_KITCHEN_SINK_LIGHT = registerBlockItem("stripped_jungle_kitchen_sink_light", ModBlocks.STRIPPED_JUNGLE_KITCHEN_SINK_LIGHT);
+    public static final Supplier<BlockItem> STRIPPED_ACACIA_KITCHEN_SINK_LIGHT = registerBlockItem("stripped_acacia_kitchen_sink_light", ModBlocks.STRIPPED_ACACIA_KITCHEN_SINK_LIGHT);
+    public static final Supplier<BlockItem> STRIPPED_DARK_OAK_KITCHEN_SINK_LIGHT = registerBlockItem("stripped_dark_oak_kitchen_sink_light", ModBlocks.STRIPPED_DARK_OAK_KITCHEN_SINK_LIGHT);
+    public static final Supplier<BlockItem> STRIPPED_MANGROVE_KITCHEN_SINK_LIGHT = registerBlockItem("stripped_mangrove_kitchen_sink_light", ModBlocks.STRIPPED_MANGROVE_KITCHEN_SINK_LIGHT);
+    public static final Supplier<BlockItem> STRIPPED_CHERRY_KITCHEN_SINK_LIGHT = registerBlockItem("stripped_cherry_kitchen_sink_light", ModBlocks.STRIPPED_CHERRY_KITCHEN_SINK_LIGHT);
+    public static final Supplier<BlockItem> STRIPPED_CRIMSON_KITCHEN_SINK_LIGHT = registerBlockItem("stripped_crimson_kitchen_sink_light", ModBlocks.STRIPPED_CRIMSON_KITCHEN_SINK_LIGHT);
+    public static final Supplier<BlockItem> STRIPPED_WARPED_KITCHEN_SINK_LIGHT = registerBlockItem("stripped_warped_kitchen_sink_light", ModBlocks.STRIPPED_WARPED_KITCHEN_SINK_LIGHT);
+    public static final Supplier<BlockItem> STRIPPED_BAMBOO_KITCHEN_SINK_LIGHT = registerBlockItem("stripped_bamboo_kitchen_sink_light", ModBlocks.STRIPPED_BAMBOO_KITCHEN_SINK_LIGHT);
+    public static final Supplier<BlockItem> OAK_KITCHEN_SINK_DARK = registerBlockItem("oak_kitchen_sink_dark", ModBlocks.OAK_KITCHEN_SINK_DARK);
+    public static final Supplier<BlockItem> SPRUCE_KITCHEN_SINK_DARK = registerBlockItem("spruce_kitchen_sink_dark", ModBlocks.SPRUCE_KITCHEN_SINK_DARK);
+    public static final Supplier<BlockItem> BIRCH_KITCHEN_SINK_DARK = registerBlockItem("birch_kitchen_sink_dark", ModBlocks.BIRCH_KITCHEN_SINK_DARK);
+    public static final Supplier<BlockItem> JUNGLE_KITCHEN_SINK_DARK = registerBlockItem("jungle_kitchen_sink_dark", ModBlocks.JUNGLE_KITCHEN_SINK_DARK);
+    public static final Supplier<BlockItem> ACACIA_KITCHEN_SINK_DARK = registerBlockItem("acacia_kitchen_sink_dark", ModBlocks.ACACIA_KITCHEN_SINK_DARK);
+    public static final Supplier<BlockItem> DARK_OAK_KITCHEN_SINK_DARK = registerBlockItem("dark_oak_kitchen_sink_dark", ModBlocks.DARK_OAK_KITCHEN_SINK_DARK);
+    public static final Supplier<BlockItem> MANGROVE_KITCHEN_SINK_DARK = registerBlockItem("mangrove_kitchen_sink_dark", ModBlocks.MANGROVE_KITCHEN_SINK_DARK);
+    public static final Supplier<BlockItem> CHERRY_KITCHEN_SINK_DARK = registerBlockItem("cherry_kitchen_sink_dark", ModBlocks.CHERRY_KITCHEN_SINK_DARK);
+    public static final Supplier<BlockItem> CRIMSON_KITCHEN_SINK_DARK = registerBlockItem("crimson_kitchen_sink_dark", ModBlocks.CRIMSON_KITCHEN_SINK_DARK);
+    public static final Supplier<BlockItem> WARPED_KITCHEN_SINK_DARK = registerBlockItem("warped_kitchen_sink_dark", ModBlocks.WARPED_KITCHEN_SINK_DARK);
+    public static final Supplier<BlockItem> BAMBOO_KITCHEN_SINK_DARK = registerBlockItem("bamboo_kitchen_sink_dark", ModBlocks.BAMBOO_KITCHEN_SINK_DARK);
+    public static final Supplier<BlockItem> STRIPPED_OAK_KITCHEN_SINK_DARK = registerBlockItem("stripped_oak_kitchen_sink_dark", ModBlocks.STRIPPED_OAK_KITCHEN_SINK_DARK);
+    public static final Supplier<BlockItem> STRIPPED_SPRUCE_KITCHEN_SINK_DARK = registerBlockItem("stripped_spruce_kitchen_sink_dark", ModBlocks.STRIPPED_SPRUCE_KITCHEN_SINK_DARK);
+    public static final Supplier<BlockItem> STRIPPED_BIRCH_KITCHEN_SINK_DARK = registerBlockItem("stripped_birch_kitchen_sink_dark", ModBlocks.STRIPPED_BIRCH_KITCHEN_SINK_DARK);
+    public static final Supplier<BlockItem> STRIPPED_JUNGLE_KITCHEN_SINK_DARK = registerBlockItem("stripped_jungle_kitchen_sink_dark", ModBlocks.STRIPPED_JUNGLE_KITCHEN_SINK_DARK);
+    public static final Supplier<BlockItem> STRIPPED_ACACIA_KITCHEN_SINK_DARK = registerBlockItem("stripped_acacia_kitchen_sink_dark", ModBlocks.STRIPPED_ACACIA_KITCHEN_SINK_DARK);
+    public static final Supplier<BlockItem> STRIPPED_DARK_OAK_KITCHEN_SINK_DARK = registerBlockItem("stripped_dark_oak_kitchen_sink_dark", ModBlocks.STRIPPED_DARK_OAK_KITCHEN_SINK_DARK);
+    public static final Supplier<BlockItem> STRIPPED_MANGROVE_KITCHEN_SINK_DARK = registerBlockItem("stripped_mangrove_kitchen_sink_dark", ModBlocks.STRIPPED_MANGROVE_KITCHEN_SINK_DARK);
+    public static final Supplier<BlockItem> STRIPPED_CHERRY_KITCHEN_SINK_DARK = registerBlockItem("stripped_cherry_kitchen_sink_dark", ModBlocks.STRIPPED_CHERRY_KITCHEN_SINK_DARK);
+    public static final Supplier<BlockItem> STRIPPED_CRIMSON_KITCHEN_SINK_DARK = registerBlockItem("stripped_crimson_kitchen_sink_dark", ModBlocks.STRIPPED_CRIMSON_KITCHEN_SINK_DARK);
+    public static final Supplier<BlockItem> STRIPPED_WARPED_KITCHEN_SINK_DARK = registerBlockItem("stripped_warped_kitchen_sink_dark", ModBlocks.STRIPPED_WARPED_KITCHEN_SINK_DARK);
+    public static final Supplier<BlockItem> STRIPPED_BAMBOO_KITCHEN_SINK_DARK = registerBlockItem("stripped_bamboo_kitchen_sink_dark", ModBlocks.STRIPPED_BAMBOO_KITCHEN_SINK_DARK);
+    public static final Supplier<BlockItem> WHITE_KITCHEN_SINK = registerBlockItem("white_kitchen_sink", ModBlocks.WHITE_KITCHEN_SINK);
+    public static final Supplier<BlockItem> LIGHT_GRAY_KITCHEN_SINK = registerBlockItem("light_gray_kitchen_sink", ModBlocks.LIGHT_GRAY_KITCHEN_SINK);
+    public static final Supplier<BlockItem> GRAY_KITCHEN_SINK = registerBlockItem("gray_kitchen_sink", ModBlocks.GRAY_KITCHEN_SINK);
+    public static final Supplier<BlockItem> BLACK_KITCHEN_SINK = registerBlockItem("black_kitchen_sink", ModBlocks.BLACK_KITCHEN_SINK);
+    public static final Supplier<BlockItem> BROWN_KITCHEN_SINK = registerBlockItem("brown_kitchen_sink", ModBlocks.BROWN_KITCHEN_SINK);
+    public static final Supplier<BlockItem> RED_KITCHEN_SINK = registerBlockItem("red_kitchen_sink", ModBlocks.RED_KITCHEN_SINK);
+    public static final Supplier<BlockItem> ORANGE_KITCHEN_SINK = registerBlockItem("orange_kitchen_sink", ModBlocks.ORANGE_KITCHEN_SINK);
+    public static final Supplier<BlockItem> BEIGE_KITCHEN_SINK = registerOptionalBlockItem("beige_kitchen_sink", ModBlocks.BEIGE_KITCHEN_SINK);
+    public static final Supplier<BlockItem> YELLOW_KITCHEN_SINK = registerBlockItem("yellow_kitchen_sink", ModBlocks.YELLOW_KITCHEN_SINK);
+    public static final Supplier<BlockItem> LIME_KITCHEN_SINK = registerBlockItem("lime_kitchen_sink", ModBlocks.LIME_KITCHEN_SINK);
+    public static final Supplier<BlockItem> GREEN_KITCHEN_SINK = registerBlockItem("green_kitchen_sink", ModBlocks.GREEN_KITCHEN_SINK);
+    public static final Supplier<BlockItem> CYAN_KITCHEN_SINK = registerBlockItem("cyan_kitchen_sink", ModBlocks.CYAN_KITCHEN_SINK);
+    public static final Supplier<BlockItem> LIGHT_BLUE_KITCHEN_SINK = registerBlockItem("light_blue_kitchen_sink", ModBlocks.LIGHT_BLUE_KITCHEN_SINK);
+    public static final Supplier<BlockItem> BLUE_KITCHEN_SINK = registerBlockItem("blue_kitchen_sink", ModBlocks.BLUE_KITCHEN_SINK);
+    public static final Supplier<BlockItem> PURPLE_KITCHEN_SINK = registerBlockItem("purple_kitchen_sink", ModBlocks.PURPLE_KITCHEN_SINK);
+    public static final Supplier<BlockItem> MAGENTA_KITCHEN_SINK = registerBlockItem("magenta_kitchen_sink", ModBlocks.MAGENTA_KITCHEN_SINK);
+    public static final Supplier<BlockItem> PINK_KITCHEN_SINK = registerBlockItem("pink_kitchen_sink", ModBlocks.PINK_KITCHEN_SINK);
 
     // Appliances
     public static final Supplier<Item> FRIDGE_LIGHT = register("fridge_light",

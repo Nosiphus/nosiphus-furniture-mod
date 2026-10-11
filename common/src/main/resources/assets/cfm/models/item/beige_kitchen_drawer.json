@@ -2,6 +2,6 @@
     "parent": "cfm:block/kitchen_drawer_closed",
     "textures": {
         "top": "yogmod:block/beige_terracotta",
-        "base": "yogmod:block/beige_concrete"
+        "base": "minecraft:block/white_concrete"
     }
 }

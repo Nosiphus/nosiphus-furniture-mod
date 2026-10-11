@@ -1,0 +1,8 @@
+{
+    "parent": "cfm:block/bedside_cabinet_closed",
+    "textures": {
+        "base": "minecraft:block/stripped_bamboo_block",
+        "top": "minecraft:block/stripped_bamboo_block",
+        "draw_front": "minecraft:block/bamboo_block"
+    }
+}
