@@ -1,0 +1,25 @@
+{
+  "type": "nfm:blending",
+  "ingredients": [
+    {
+      "ingredient": {
+        "item": "minecraft:carrot"
+      },
+      "count": 4
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:pumpkin_pie"
+      },
+      "count": 2
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:potato"
+      },
+      "count": 1
+    }
+  ],
+  "result_fluid": "nfm:veggie_juice",
+  "fluid_amount": 4000
+}

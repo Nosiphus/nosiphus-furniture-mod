@@ -4,18 +4,42 @@ import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
 import com.mrcrayfish.furniture.world.level.block.FurnitureHorizontalBlock;
 import com.mrcrayfish.furniture.world.phys.shapes.VoxelShapeHelper;
+import com.nosiphus.furniture.world.item.CupItem;
+import com.nosiphus.furniture.world.level.block.entity.BlenderBlockEntity;
+import com.nosiphus.furniture.world.level.block.entity.ModBlockEntityTypes;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.core.component.DataComponents;
+import net.minecraft.sounds.SoundEvent;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
+import net.minecraft.tags.FluidTags;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResult;
+import net.minecraft.world.ItemInteractionResult;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.*;
+import net.minecraft.world.item.alchemy.PotionContents;
+import net.minecraft.world.item.alchemy.Potions;
 import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.EntityBlock;
+import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.world.level.block.entity.BlockEntityTicker;
+import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.material.Fluid;
+import net.minecraft.world.level.material.Fluids;
+import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
+import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class BlenderBlock extends FurnitureHorizontalBlock {
+public class BlenderBlock extends FurnitureHorizontalBlock implements EntityBlock {
 
     public final ImmutableMap<BlockState, VoxelShape> SHAPES;
 
@@ -59,4 +83,198 @@ public class BlenderBlock extends FurnitureHorizontalBlock {
         return SHAPES.get(state);
     }
 
+    @Override
+    protected ItemInteractionResult useItemOn(ItemStack heldItem, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hitResult) {
+        if (!(level.getBlockEntity(pos) instanceof BlenderBlockEntity blender)) {
+            return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
+        }
+
+        if (blender.isBlending()) {
+            return ItemInteractionResult.CONSUME;
+        }
+
+        if (heldItem.getItem() instanceof BucketItem bucketItem && bucketItem.content != Fluids.EMPTY) {
+            Fluid incomingFluid = bucketItem.content;
+            if (blender.canFill(incomingFluid, 1000)) {
+                if (!level.isClientSide) {
+                    blender.fill(incomingFluid, 1000);
+                    player.setItemInHand(hand, ItemUtils.createFilledResult(
+                            heldItem, player, BucketItem.getEmptySuccessItem(heldItem, player)
+                    ));
+                    SoundEvent emptySound = incomingFluid.is(FluidTags.LAVA) ? SoundEvents.BUCKET_EMPTY_LAVA : SoundEvents.BUCKET_EMPTY;
+                    level.playSound(null, pos, emptySound, SoundSource.BLOCKS, 1.0F, 1.0F);
+                    level.sendBlockUpdated(pos, state, state, 3);
+                }
+                return ItemInteractionResult.sidedSuccess(level.isClientSide);
+            }
+            return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
+        }
+
+        if (heldItem.is(Items.BUCKET)) {
+            if (blender.getFluid() != Fluids.EMPTY && blender.getFluidAmount() >= 1000) {
+                Fluid fluidInBlender = blender.getFluid();
+                Item filledBucket = fluidInBlender.getBucket();
+                if (filledBucket != Items.AIR) {
+                    if (!level.isClientSide) {
+                        if (!player.getAbilities().instabuild) {
+                            blender.drain(1000);
+                        }
+                        player.setItemInHand(hand, ItemUtils.createFilledResult(heldItem, player, new ItemStack(filledBucket)));
+                        SoundEvent fillSound = fluidInBlender.is(FluidTags.LAVA) ? SoundEvents.BUCKET_FILL_LAVA : SoundEvents.BUCKET_FILL;
+                        level.playSound(null, pos, fillSound, SoundSource.BLOCKS, 1.0F, 1.0F);
+                        level.sendBlockUpdated(pos, state, state, 3);
+                    }
+                    return ItemInteractionResult.sidedSuccess(level.isClientSide);
+                }
+            }
+            return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
+        }
+
+        if (heldItem.is(Items.POTION)) {
+            PotionContents potionContents = heldItem.getOrDefault(DataComponents.POTION_CONTENTS, PotionContents.EMPTY);
+            Fluid potionFluid = potionContents.is(Potions.WATER)
+                    ? Fluids.WATER
+                    : blender.getPotionFluidEquivalent(heldItem);
+
+            if (potionFluid != Fluids.EMPTY && blender.canFill(potionFluid, 250)) {
+                if (!level.isClientSide) {
+                    blender.fill(potionFluid, 250);
+                    player.setItemInHand(hand, ItemUtils.createFilledResult(heldItem, player, new ItemStack(Items.GLASS_BOTTLE)));
+                    level.playSound(null, pos, SoundEvents.BOTTLE_EMPTY, SoundSource.BLOCKS, 1.0F, 1.0F);
+                    level.sendBlockUpdated(pos, state, state, 3);
+                }
+                return ItemInteractionResult.sidedSuccess(level.isClientSide);
+            }
+        }
+        else if (heldItem.is(Items.GLASS_BOTTLE)) {
+            if (blender.getFluid() != Fluids.EMPTY && blender.getFluidAmount() >= 250) {
+                if (!level.isClientSide) {
+                    ItemStack filledBottle = blender.createBottleFromFluid(blender.getFluid());
+                    if (!filledBottle.isEmpty()) {
+                        if (!player.getAbilities().instabuild) {
+                            blender.drain(250);
+                        }
+                        player.setItemInHand(hand, ItemUtils.createFilledResult(heldItem, player, filledBottle));
+                        level.playSound(null, pos, SoundEvents.BOTTLE_FILL, SoundSource.BLOCKS, 1.0F, 1.0F);
+                        level.sendBlockUpdated(pos, state, state, 3);
+                    }
+                }
+                return ItemInteractionResult.sidedSuccess(level.isClientSide);
+            }
+        }
+
+        if (heldItem.getItem() instanceof CupItem) {
+            if (blender.getFluid() != Fluids.EMPTY && blender.getFluidAmount() > 0) {
+                Fluid blenderFluid = blender.getFluid();
+                Fluid cupFluid = CupItem.getFluid(heldItem);
+                int cupAmount = CupItem.getFluidAmount(heldItem);
+                int cupCapacity = 1000;
+
+                if ((cupFluid == Fluids.EMPTY || cupFluid == blenderFluid) && cupAmount < cupCapacity) {
+                    int spaceAvailable = cupCapacity - cupAmount;
+                    int transferAmount = Math.min(blender.getFluidAmount(), spaceAvailable);
+
+                    if (transferAmount > 0) {
+                        if (!level.isClientSide) {
+                            if (!player.getAbilities().instabuild) {
+                                blender.drain(transferAmount);
+                            }
+
+                            ItemStack filledCup = heldItem.copyWithCount(1);
+                            CupItem.setFluid(filledCup, blenderFluid, cupAmount + transferAmount);
+
+                            ItemStack resultStack = ItemUtils.createFilledResult(heldItem, player, filledCup);
+                            player.setItemInHand(hand, resultStack);
+
+                            level.playSound(null, pos, SoundEvents.BOTTLE_FILL, SoundSource.BLOCKS, 1.0F, 1.0F);
+                            level.sendBlockUpdated(pos, state, state, 3);
+                            blender.setChanged();
+                        }
+                        return ItemInteractionResult.sidedSuccess(level.isClientSide);
+                    }
+                }
+            }
+            return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
+        }
+
+        if (!heldItem.isEmpty()) {
+            if (blender.getFluid() != Fluids.EMPTY && blender.getFluidAmount() > 0) {
+                return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
+            }
+
+            if (!blender.isValidIngredient(heldItem)) {
+                return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
+            }
+
+            for (int i = 0; i < blender.getContainerSize(); i++) {
+                ItemStack slotStack = blender.getItem(i);
+                if (slotStack.isEmpty()) {
+                    if (!level.isClientSide) {
+                        blender.setItem(i, heldItem.split(heldItem.getCount()));
+                    }
+                    return ItemInteractionResult.sidedSuccess(level.isClientSide);
+                } else if (ItemStack.isSameItemSameComponents(slotStack, heldItem) && slotStack.getCount() < slotStack.getMaxStackSize()) {
+                    if (!level.isClientSide) {
+                        int transfer = Math.min(heldItem.getCount(), slotStack.getMaxStackSize() - slotStack.getCount());
+                        slotStack.grow(transfer);
+                        heldItem.shrink(transfer);
+                        blender.markUpdated();
+                    }
+                    return ItemInteractionResult.sidedSuccess(level.isClientSide);
+                }
+            }
+        }
+
+        return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
+    }
+
+    @Override
+    protected InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hitResult) {
+        if (!(level.getBlockEntity(pos) instanceof BlenderBlockEntity blender)) {
+            return InteractionResult.PASS;
+        }
+
+        if (blender.isBlending()) {
+            return InteractionResult.CONSUME;
+        }
+
+        if (player.isShiftKeyDown()) {
+            if (!level.isClientSide) {
+                if (blender.startBlending()) {
+                    level.playSound(null, pos, SoundEvents.BREWING_STAND_BREW, SoundSource.BLOCKS, 0.8F, 1.2F);
+                }
+            }
+            return InteractionResult.sidedSuccess(level.isClientSide);
+        }
+
+        for (int i = blender.getContainerSize() - 1; i >= 0; i--) {
+            ItemStack slotStack = blender.getItem(i);
+            if (!slotStack.isEmpty()) {
+                if (!level.isClientSide) {
+                    player.setItemInHand(InteractionHand.MAIN_HAND, slotStack.copy());
+                    blender.setItem(i, ItemStack.EMPTY);
+                }
+                return InteractionResult.sidedSuccess(level.isClientSide);
+            }
+        }
+
+        return InteractionResult.PASS;
+    }
+
+    @Nullable
+    @Override
+    public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
+        return new BlenderBlockEntity(pos, state);
+    }
+
+    @Nullable
+    @Override
+    public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level level, BlockState state, BlockEntityType<T> type) {
+        if (type != ModBlockEntityTypes.BLENDER.get()) {
+            return null;
+        }
+        return level.isClientSide
+                ? (lvl, p, st, be) -> BlenderBlockEntity.clientTick(lvl, p, st, (BlenderBlockEntity) be)
+                : (lvl, p, st, be) -> BlenderBlockEntity.serverTick(lvl, p, st, (BlenderBlockEntity) be);
+    }
 }

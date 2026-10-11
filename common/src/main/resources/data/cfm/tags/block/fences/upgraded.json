@@ -11,6 +11,7 @@
     { "id": "cfm:cherry_upgraded_fence", "required": false },
     { "id": "cfm:crimson_upgraded_fence", "required": false },
     { "id": "cfm:warped_upgraded_fence", "required": false },
+	{ "id": "cfm:bamboo_upgraded_fence", "required": false },
     { "id": "cfm:stripped_oak_upgraded_fence", "required": false },
     { "id": "cfm:stripped_spruce_upgraded_fence", "required": false },
     { "id": "cfm:stripped_birch_upgraded_fence", "required": false },
@@ -20,6 +21,7 @@
     { "id": "cfm:stripped_mangrove_upgraded_fence", "required": false },
     { "id": "cfm:stripped_cherry_upgraded_fence", "required": false },
     { "id": "cfm:stripped_crimson_upgraded_fence", "required": false },
-    { "id": "cfm:stripped_warped_upgraded_fence", "required": false }
+    { "id": "cfm:stripped_warped_upgraded_fence", "required": false },
+	{ "id": "cfm:stripped_bamboo_upgraded_fence", "required": false }
   ]
 }

@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+	{ "id": "#nfm:cookies_and_cream", "required": false },
+	{ "id": "#nfm:egg_nog", "required": false },
+    { "id": "#nfm:energy_drink", "required": false },
+	{ "id": "#nfm:fruit_crush", "required": false },
+	{ "id": "#nfm:veggie_juice", "required": false }
+  ]
+}

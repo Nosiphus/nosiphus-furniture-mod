@@ -21,11 +21,31 @@ public abstract class FogRendererMixin {
     @Shadow private static float fogBlue;
 
     @Inject(method = "setupColor", at = @At("RETURN"))
-    private static void setupSoapyWaterFogColor(Camera camera, float partialTick, ClientLevel level, int renderDistance, float darkenWorldAmount, CallbackInfo ci) {
+    private static void setupWaterFogColor(Camera camera, float partialTick, ClientLevel level, int renderDistance, float darkenWorldAmount, CallbackInfo ci) {
         BlockPos pos = camera.getBlockPosition();
         FluidState state = level.getFluidState(pos);
 
-        if (state.is(ModFluids.SOAPY_WATER.get()) || state.is(ModFluids.SOAPY_WATER_FLOWING.get())) {
+        if (state.is(ModFluids.COOKIES_AND_CREAM.get()) || state.is(ModFluids.COOKIES_AND_CREAM_FLOWING.get())) {
+            fogRed = 181f / 255f;
+            fogGreen = 151f / 255f;
+            fogBlue = 116f / 255f;
+        } else if (state.is(ModFluids.EGG_NOG.get()) || state.is(ModFluids.EGG_NOG_FLOWING.get())) {
+            fogRed = 178f / 255f;
+            fogGreen = 164f / 255f;
+            fogBlue = 125f / 255f;
+        } else if (state.is(ModFluids.ENERGY_DRINK.get()) || state.is(ModFluids.ENERGY_DRINK_FLOWING.get())) {
+            fogRed = 66f / 255f;
+            fogGreen = 16f / 255f;
+            fogBlue = 6f / 255f;
+        } else if (state.is(ModFluids.FRUIT_CRUSH.get()) || state.is(ModFluids.FRUIT_CRUSH_FLOWING.get())) {
+            fogRed = 187f / 255f;
+            fogGreen = 43f / 255f;
+            fogBlue = 27f / 255f;
+        } else if (state.is(ModFluids.VEGGIE_JUICE.get()) || state.is(ModFluids.VEGGIE_JUICE_FLOWING.get())) {
+            fogRed = 176f / 255f;
+            fogGreen = 99f / 255f;
+            fogBlue = 87f / 255f;
+        } else if (state.is(ModFluids.SOAPY_WATER.get()) || state.is(ModFluids.SOAPY_WATER_FLOWING.get())) {
             fogRed = 31f / 255f;
             fogGreen = 160f / 255f;
             fogBlue = 255f / 255f;
@@ -37,10 +57,15 @@ public abstract class FogRendererMixin {
     }
 
     @Inject(method = "setupFog", at = @At("HEAD"), cancellable = true)
-    private static void setupSoapyWaterFogDistance(Camera camera, FogRenderer.FogMode mode, float renderDistance, boolean thickFog, float partialTick, CallbackInfo ci) {
+    private static void setupWaterFogDistance(Camera camera, FogRenderer.FogMode mode, float renderDistance, boolean thickFog, float partialTick, CallbackInfo ci) {
         FluidState state = camera.getEntity().level().getFluidState(camera.getBlockPosition());
 
-        if (state.is(ModFluids.SOAPY_WATER.get()) || state.is(ModFluids.SOAPY_WATER_FLOWING.get()) ||
+        if (state.is(ModFluids.COOKIES_AND_CREAM.get()) || state.is(ModFluids.COOKIES_AND_CREAM_FLOWING.get()) ||
+                state.is(ModFluids.EGG_NOG.get()) || state.is(ModFluids.EGG_NOG_FLOWING.get()) ||
+                state.is(ModFluids.ENERGY_DRINK.get()) || state.is(ModFluids.ENERGY_DRINK_FLOWING.get()) ||
+                state.is(ModFluids.FRUIT_CRUSH.get()) || state.is(ModFluids.FRUIT_CRUSH_FLOWING.get()) ||
+                state.is(ModFluids.VEGGIE_JUICE.get()) || state.is(ModFluids.VEGGIE_JUICE_FLOWING.get()) ||
+                state.is(ModFluids.SOAPY_WATER.get()) || state.is(ModFluids.SOAPY_WATER_FLOWING.get()) ||
                 state.is(ModFluids.SUPER_SOAPY_WATER.get()) || state.is(ModFluids.SUPER_SOAPY_WATER_FLOWING.get())) {
 
             RenderSystem.setShaderFogStart(1.0f);

@@ -1,0 +1,23 @@
+{
+  "type": "nfm:blending",
+  "ingredients": [
+    {
+      "ingredient": {
+        "item": "minecraft:cookie"
+      },
+      "count": 2
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:milk_bucket"
+      },
+      "count": 1
+    }
+  ],
+  "result_fluid": "nfm:cookies_and_cream",
+  "fluid_amount": 4000,
+  "remainder": {
+    "id": "minecraft:bucket",
+    "count": 1
+  }
+}

@@ -1,11 +1,15 @@
 {
 	"block.bin.open": {
         "subtitle": "subtitle.nfm.open_bin",
-        "sounds": [ "nfm:block/bin/open" ]
+        "sounds": [ "nfm:block/bins/open" ]
     },
     "block.bin.close": {
         "subtitle": "subtitle.nfm.close_bin",
-        "sounds": [ "nfm:block/bin/close" ]
+        "sounds": [ "nfm:block/bins/close" ]
+    },
+	"block.blender.running": {
+        "subtitle": "subtitle.nfm.blender_running",
+        "sounds": [ "nfm:block/blender/running" ]
     },
     "block.chopping_board.knife_chop": {
         "subtitle": "subtitle.nfm.knife_chop",

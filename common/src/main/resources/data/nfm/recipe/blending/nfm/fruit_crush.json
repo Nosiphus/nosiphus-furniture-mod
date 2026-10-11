@@ -1,0 +1,19 @@
+{
+  "type": "nfm:blending",
+  "ingredients": [
+    {
+      "ingredient": {
+        "item": "minecraft:melon_slice"
+      },
+      "count": 4
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:apple"
+      },
+      "count": 2
+    }
+  ],
+  "result_fluid": "nfm:fruit_crush",
+  "fluid_amount": 4000
+}

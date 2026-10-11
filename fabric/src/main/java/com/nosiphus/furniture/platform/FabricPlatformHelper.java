@@ -2,6 +2,7 @@ package com.nosiphus.furniture.platform;
 
 import com.mrcrayfish.furniture.mixin.AbstractContainerScreenAccessor;
 import com.nosiphus.furniture.platform.services.IPlatformHelper;
+import com.nosiphus.furniture.world.item.CupItem;
 import io.netty.buffer.Unpooled;
 import net.fabricmc.fabric.api.screenhandler.v1.ExtendedScreenHandlerFactory;
 import net.fabricmc.fabric.api.screenhandler.v1.ExtendedScreenHandlerType;
@@ -17,6 +18,9 @@ import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.MenuType;
+import net.minecraft.world.item.BlockItem;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.level.block.Block;
 
 import java.util.function.Consumer;
 
@@ -90,5 +94,10 @@ public class FabricPlatformHelper implements IPlatformHelper {
                 },
                 ByteBufCodecs.BYTE_ARRAY.cast()
         );
+    }
+
+    @Override
+    public BlockItem createCupItem(Block block, Item.Properties properties) {
+        return new CupItem(block, properties);
     }
 }

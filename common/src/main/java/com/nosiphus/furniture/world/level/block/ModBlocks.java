@@ -756,6 +756,8 @@ public class ModBlocks {
             () -> new ChoppingBoardBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.CRIMSON_PLANKS)));
     public static final Supplier<Block> WARPED_CHOPPING_BOARD = register("warped_chopping_board",
             () -> new ChoppingBoardBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.WARPED_PLANKS)));
+    public static final Supplier<Block> BAMBOO_CHOPPING_BOARD = register("bamboo_chopping_board",
+            () -> new ChoppingBoardBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.BAMBOO_PLANKS)));
 
     // Door Bells
     public static final Supplier<Block> OAK_DOOR_BELL = register("oak_door_bell",
@@ -778,6 +780,8 @@ public class ModBlocks {
             () -> new DoorBellBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.CRIMSON_PLANKS).noOcclusion()));
     public static final Supplier<Block> WARPED_DOOR_BELL = register("warped_door_bell",
             () -> new DoorBellBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.WARPED_PLANKS).noOcclusion()));
+    public static final Supplier<Block> BAMBOO_DOOR_BELL = register("bamboo_door_bell",
+            () -> new DoorBellBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.BAMBOO_PLANKS).noOcclusion()));
     public static final Supplier<Block> STRIPPED_OAK_DOOR_BELL = register("stripped_oak_door_bell",
             () -> new DoorBellBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS).noOcclusion()));
     public static final Supplier<Block> STRIPPED_SPRUCE_DOOR_BELL = register("stripped_spruce_door_bell",
@@ -798,6 +802,8 @@ public class ModBlocks {
             () -> new DoorBellBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.CRIMSON_PLANKS).noOcclusion()));
     public static final Supplier<Block> STRIPPED_WARPED_DOOR_BELL = register("stripped_warped_door_bell",
             () -> new DoorBellBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.WARPED_PLANKS).noOcclusion()));
+    public static final Supplier<Block> STRIPPED_BAMBOO_DOOR_BELL = register("stripped_bamboo_door_bell",
+            () -> new DoorBellBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.BAMBOO_PLANKS).noOcclusion()));
 
     // Inflatable Castles
     public static final Supplier<Block> WHITE_INFLATABLE_CASTLE = register("white_inflatable_castle",
@@ -926,6 +932,8 @@ public class ModBlocks {
             () -> new WaterTankBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.CAULDRON).noOcclusion()));
     public static final Supplier<Block> WARPED_WATER_TANK = register("warped_water_tank",
             () -> new WaterTankBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.CAULDRON).noOcclusion()));
+    public static final Supplier<Block> BAMBOO_WATER_TANK = register("bamboo_water_tank",
+            () -> new WaterTankBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.CAULDRON).noOcclusion()));
 
     // Appliances and Electronics
     public static final Supplier<Block> ELECTRIC_FENCE = register("electric_fence",
@@ -1042,6 +1050,16 @@ public class ModBlocks {
             () -> new WreathBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.DARK_OAK_LEAVES).noOcclusion()));
 
     // Fluids
+    public static final Supplier<LiquidBlock> COOKIES_AND_CREAM = register("cookies_and_cream",
+            () -> new LiquidBlock(ModFluids.COOKIES_AND_CREAM.get(), BlockBehaviour.Properties.ofFullCopy(Blocks.WATER)));
+    public static final Supplier<LiquidBlock> EGG_NOG = register("egg_nog",
+            () -> new LiquidBlock(ModFluids.EGG_NOG.get(), BlockBehaviour.Properties.ofFullCopy(Blocks.WATER)));
+    public static final Supplier<LiquidBlock> ENERGY_DRINK = register("energy_drink",
+            () -> new LiquidBlock(ModFluids.ENERGY_DRINK.get(), BlockBehaviour.Properties.ofFullCopy(Blocks.WATER)));
+    public static final Supplier<LiquidBlock> FRUIT_CRUSH = register("fruit_crush",
+            () -> new LiquidBlock(ModFluids.FRUIT_CRUSH.get(), BlockBehaviour.Properties.ofFullCopy(Blocks.WATER)));
+    public static final Supplier<LiquidBlock> VEGGIE_JUICE = register("veggie_juice",
+            () -> new LiquidBlock(ModFluids.VEGGIE_JUICE.get(), BlockBehaviour.Properties.ofFullCopy(Blocks.WATER)));
     public static final Supplier<LiquidBlock> SOAPY_WATER = register("soapy_water",
             () -> new LiquidBlock(ModFluids.SOAPY_WATER.get(), BlockBehaviour.Properties.ofFullCopy(Blocks.WATER)));
     public static final Supplier<LiquidBlock> SUPER_SOAPY_WATER = register("super_soapy_water",

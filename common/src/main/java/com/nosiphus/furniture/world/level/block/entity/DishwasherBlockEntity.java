@@ -136,7 +136,7 @@ public class DishwasherBlockEntity extends FluidHandlerSyncedBlockEntity impleme
     }
 
     @Override
-    protected void saveAdditional(CompoundTag tag, HolderLookup.Provider registries) {
+    public void saveAdditional(CompoundTag tag, HolderLookup.Provider registries) {
         super.saveAdditional(tag, registries);
         ContainerHelper.saveAllItems(tag, this.inventory, registries);
         tag.putBoolean("Washing", this.washing);

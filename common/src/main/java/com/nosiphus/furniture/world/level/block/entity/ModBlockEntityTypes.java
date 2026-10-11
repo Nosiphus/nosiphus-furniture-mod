@@ -40,6 +40,12 @@ public class ModBlockEntityTypes {
                     ModBlocks.BLACKSTONE_BIRD_BATH.get(), ModBlocks.DEEPSLATE_BIRD_BATH.get()
             ).build(null));
 
+    public static final Supplier<BlockEntityType<BlenderBlockEntity>> BLENDER =
+            register("blender", () -> BlockEntityType.Builder.of(
+                    BlenderBlockEntity::new,
+                    ModBlocks.BLENDER_LIGHT.get(), ModBlocks.BLENDER_DARK.get()
+            ).build(null));
+
     public static final Supplier<BlockEntityType<CathodeRayTubeTelevisionBlockEntity>> CATHODE_RAY_TUBE_TELEVISION =
             register("cathode_ray_tube_television", () -> BlockEntityType.Builder.of(
                     CathodeRayTubeTelevisionBlockEntity::new,
@@ -53,13 +59,39 @@ public class ModBlockEntityTypes {
                     ModBlocks.BIRCH_CHOPPING_BOARD.get(), ModBlocks.JUNGLE_CHOPPING_BOARD.get(),
                     ModBlocks.ACACIA_CHOPPING_BOARD.get(), ModBlocks.DARK_OAK_CHOPPING_BOARD.get(),
                     ModBlocks.MANGROVE_CHOPPING_BOARD.get(), ModBlocks.CHERRY_CHOPPING_BOARD.get(),
-                    ModBlocks.CRIMSON_CHOPPING_BOARD.get(), ModBlocks.WARPED_CHOPPING_BOARD.get()
+                    ModBlocks.CRIMSON_CHOPPING_BOARD.get(), ModBlocks.WARPED_CHOPPING_BOARD.get(),
+                    ModBlocks.BAMBOO_CHOPPING_BOARD.get()
             ).build(null));
 
     public static final Supplier<BlockEntityType<CookieJarBlockEntity>> COOKIE_JAR =
             register("cookie_jar", () -> BlockEntityType.Builder.of(
                     CookieJarBlockEntity::new,
                     ModBlocks.COOKIE_JAR.get()
+            ).build(null));
+
+    public static final Supplier<BlockEntityType<CupBlockEntity>> CUP =
+            register("cup", () -> BlockEntityType.Builder.of(CupBlockEntity::new,
+                    Stream.of(
+                                    ModBlocks.WHITE_CUP,
+                                    ModBlocks.LIGHT_GRAY_CUP,
+                                    ModBlocks.GRAY_CUP,
+                                    ModBlocks.BLACK_CUP,
+                                    ModBlocks.BROWN_CUP,
+                                    ModBlocks.RED_CUP,
+                                    ModBlocks.ORANGE_CUP,
+                                    Services.PLATFORM.isModLoaded("yogmod") ? ModBlocks.BEIGE_CUP : null,
+                                    ModBlocks.YELLOW_CUP,
+                                    ModBlocks.LIME_CUP,
+                                    ModBlocks.GREEN_CUP,
+                                    ModBlocks.CYAN_CUP,
+                                    ModBlocks.LIGHT_BLUE_CUP,
+                                    ModBlocks.BLUE_CUP,
+                                    ModBlocks.PURPLE_CUP,
+                                    ModBlocks.MAGENTA_CUP,
+                                    ModBlocks.PINK_CUP
+                            ).filter(Objects::nonNull)
+                            .map(Supplier::get)
+                            .toArray(Block[]::new)
             ).build(null));
 
     public static final Supplier<BlockEntityType<DigitalClockBlockEntity>> DIGITAL_CLOCK =
@@ -230,7 +262,8 @@ public class ModBlockEntityTypes {
                     ModBlocks.BIRCH_WATER_TANK.get(), ModBlocks.JUNGLE_WATER_TANK.get(),
                     ModBlocks.ACACIA_WATER_TANK.get(), ModBlocks.DARK_OAK_WATER_TANK.get(),
                     ModBlocks.MANGROVE_WATER_TANK.get(), ModBlocks.CHERRY_WATER_TANK.get(),
-                    ModBlocks.CRIMSON_WATER_TANK.get(), ModBlocks.WARPED_WATER_TANK.get()
+                    ModBlocks.CRIMSON_WATER_TANK.get(), ModBlocks.WARPED_WATER_TANK.get(),
+                    ModBlocks.BAMBOO_WATER_TANK.get()
             ).build(null));
 
 }

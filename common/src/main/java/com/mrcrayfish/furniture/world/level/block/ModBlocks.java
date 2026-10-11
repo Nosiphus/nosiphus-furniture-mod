@@ -49,6 +49,8 @@ public class ModBlocks
             () -> new TableBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.CRIMSON_PLANKS)));
     public static final Supplier<Block> WARPED_TABLE = register("warped_table",
             () -> new TableBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.WARPED_PLANKS)));
+    public static final Supplier<Block> BAMBOO_TABLE = register("bamboo_table",
+            () -> new TableBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.BAMBOO_PLANKS)));
     public static final Supplier<Block> STRIPPED_OAK_TABLE = register("stripped_oak_table",
             () -> new TableBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS)));
     public static final Supplier<Block> STRIPPED_SPRUCE_TABLE = register("stripped_spruce_table",
@@ -69,6 +71,8 @@ public class ModBlocks
             () -> new TableBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.CRIMSON_PLANKS)));
     public static final Supplier<Block> STRIPPED_WARPED_TABLE = register("stripped_warped_table",
             () -> new TableBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.WARPED_PLANKS)));
+    public static final Supplier<Block> STRIPPED_BAMBOO_TABLE = register("stripped_bamboo_table",
+            () -> new TableBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.BAMBOO_PLANKS)));
 
     // Chairs
     public static final Supplier<Block> OAK_CHAIR = register("oak_chair",
@@ -91,6 +95,8 @@ public class ModBlocks
             () -> new ChairBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.CRIMSON_PLANKS)));
     public static final Supplier<Block> WARPED_CHAIR = register("warped_chair",
             () -> new ChairBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.WARPED_PLANKS)));
+    public static final Supplier<Block> BAMBOO_CHAIR = register("bamboo_chair",
+            () -> new ChairBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.BAMBOO_PLANKS)));
     public static final Supplier<Block> STRIPPED_OAK_CHAIR = register("stripped_oak_chair",
             () -> new ChairBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS)));
     public static final Supplier<Block> STRIPPED_SPRUCE_CHAIR = register("stripped_spruce_chair",
@@ -111,6 +117,8 @@ public class ModBlocks
             () -> new ChairBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.CRIMSON_PLANKS)));
     public static final Supplier<Block> STRIPPED_WARPED_CHAIR = register("stripped_warped_chair",
             () -> new ChairBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.WARPED_PLANKS)));
+    public static final Supplier<Block> STRIPPED_BAMBOO_CHAIR = register("stripped_bamboo_chair",
+            () -> new ChairBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.BAMBOO_PLANKS)));
 
     // Coffee Tables
     public static final Supplier<Block> OAK_COFFEE_TABLE = register("oak_coffee_table",
@@ -133,6 +141,8 @@ public class ModBlocks
             () -> new CoffeeTableBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.CRIMSON_PLANKS)));
     public static final Supplier<Block> WARPED_COFFEE_TABLE = register("warped_coffee_table",
             () -> new CoffeeTableBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.WARPED_PLANKS)));
+    public static final Supplier<Block> BAMBOO_COFFEE_TABLE = register("bamboo_coffee_table",
+            () -> new CoffeeTableBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.BAMBOO_PLANKS)));
     public static final Supplier<Block> STRIPPED_OAK_COFFEE_TABLE = register("stripped_oak_coffee_table",
             () -> new CoffeeTableBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS)));
     public static final Supplier<Block> STRIPPED_SPRUCE_COFFEE_TABLE = register("stripped_spruce_coffee_table",
@@ -153,6 +163,8 @@ public class ModBlocks
             () -> new CoffeeTableBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.CRIMSON_PLANKS)));
     public static final Supplier<Block> STRIPPED_WARPED_COFFEE_TABLE = register("stripped_warped_coffee_table",
             () -> new CoffeeTableBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.WARPED_PLANKS)));
+    public static final Supplier<Block> STRIPPED_BAMBOO_COFFEE_TABLE = register("stripped_bamboo_coffee_table",
+            () -> new CoffeeTableBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.BAMBOO_PLANKS)));
 
     // Cabinets
     public static final Supplier<Block> OAK_CABINET = register("oak_cabinet",
@@ -175,6 +187,8 @@ public class ModBlocks
             () -> new CabinetBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.CRIMSON_PLANKS)));
     public static final Supplier<Block> WARPED_CABINET = register("warped_cabinet",
             () -> new CabinetBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.WARPED_PLANKS)));
+    public static final Supplier<Block> BAMBOO_CABINET = register("bamboo_cabinet",
+            () -> new CabinetBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.BAMBOO_PLANKS)));
     public static final Supplier<Block> STRIPPED_OAK_CABINET = register("stripped_oak_cabinet",
             () -> new CabinetBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS)));
     public static final Supplier<Block> STRIPPED_SPRUCE_CABINET = register("stripped_spruce_cabinet",
@@ -195,6 +209,8 @@ public class ModBlocks
             () -> new CabinetBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.CRIMSON_PLANKS)));
     public static final Supplier<Block> STRIPPED_WARPED_CABINET = register("stripped_warped_cabinet",
             () -> new CabinetBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.WARPED_PLANKS)));
+    public static final Supplier<Block> STRIPPED_BAMBOO_CABINET = register("stripped_bamboo_cabinet",
+            () -> new CabinetBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.BAMBOO_PLANKS)));
 
     // Bedside Cabinets
     public static final Supplier<Block> OAK_BEDSIDE_CABINET = register("oak_bedside_cabinet",
@@ -217,6 +233,8 @@ public class ModBlocks
             () -> new BedsideCabinetBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.CRIMSON_PLANKS)));
     public static final Supplier<Block> WARPED_BEDSIDE_CABINET = register("warped_bedside_cabinet",
             () -> new BedsideCabinetBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.WARPED_PLANKS)));
+    public static final Supplier<Block> BAMBOO_BEDSIDE_CABINET = register("bamboo_bedside_cabinet",
+            () -> new BedsideCabinetBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.BAMBOO_PLANKS)));
     public static final Supplier<Block> STRIPPED_OAK_BEDSIDE_CABINET = register("stripped_oak_bedside_cabinet",
             () -> new BedsideCabinetBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS)));
     public static final Supplier<Block> STRIPPED_SPRUCE_BEDSIDE_CABINET = register("stripped_spruce_bedside_cabinet",
@@ -237,6 +255,8 @@ public class ModBlocks
             () -> new BedsideCabinetBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.CRIMSON_PLANKS)));
     public static final Supplier<Block> STRIPPED_WARPED_BEDSIDE_CABINET = register("stripped_warped_bedside_cabinet",
             () -> new BedsideCabinetBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.WARPED_PLANKS)));
+    public static final Supplier<Block> STRIPPED_BAMBOO_BEDSIDE_CABINET = register("stripped_bamboo_bedside_cabinet",
+            () -> new BedsideCabinetBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.BAMBOO_PLANKS)));
 
     // Desks
     public static final Supplier<Block> OAK_DESK = register("oak_desk",
@@ -259,6 +279,8 @@ public class ModBlocks
             () -> new DeskBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.CRIMSON_PLANKS), DeskBlock.MaterialType.CRIMSON));
     public static final Supplier<Block> WARPED_DESK = register("warped_desk",
             () -> new DeskBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.WARPED_PLANKS), DeskBlock.MaterialType.WARPED));
+    public static final Supplier<Block> BAMBOO_DESK = register("bamboo_desk",
+            () -> new DeskBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.BAMBOO_PLANKS), DeskBlock.MaterialType.BAMBOO));
     public static final Supplier<Block> STRIPPED_OAK_DESK = register("stripped_oak_desk",
             () -> new DeskBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS), DeskBlock.MaterialType.STRIPPED_OAK));
     public static final Supplier<Block> STRIPPED_SPRUCE_DESK = register("stripped_spruce_desk",
@@ -279,6 +301,8 @@ public class ModBlocks
             () -> new DeskBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.CRIMSON_PLANKS), DeskBlock.MaterialType.STRIPPED_CRIMSON));
     public static final Supplier<Block> STRIPPED_WARPED_DESK = register("stripped_warped_desk",
             () -> new DeskBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.WARPED_PLANKS), DeskBlock.MaterialType.STRIPPED_WARPED));
+    public static final Supplier<Block> STRIPPED_BAMBOO_DESK = register("stripped_bamboo_desk",
+            () -> new DeskBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.BAMBOO_PLANKS), DeskBlock.MaterialType.STRIPPED_BAMBOO));
 
     // Desk Cabinets
     public static final Supplier<Block> OAK_DESK_CABINET = register("oak_desk_cabinet",
@@ -301,6 +325,8 @@ public class ModBlocks
             () -> new DeskCabinetBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.CRIMSON_PLANKS), DeskBlock.MaterialType.CRIMSON));
     public static final Supplier<Block> WARPED_DESK_CABINET = register("warped_desk_cabinet",
             () -> new DeskCabinetBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.WARPED_PLANKS), DeskBlock.MaterialType.WARPED));
+    public static final Supplier<Block> BAMBOO_DESK_CABINET = register("bamboo_desk_cabinet",
+            () -> new DeskCabinetBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.BAMBOO_PLANKS), DeskBlock.MaterialType.BAMBOO));
     public static final Supplier<Block> STRIPPED_OAK_DESK_CABINET = register("stripped_oak_desk_cabinet",
             () -> new DeskCabinetBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS), DeskBlock.MaterialType.STRIPPED_OAK));
     public static final Supplier<Block> STRIPPED_SPRUCE_DESK_CABINET = register("stripped_spruce_desk_cabinet",
@@ -321,6 +347,8 @@ public class ModBlocks
             () -> new DeskCabinetBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.CRIMSON_PLANKS), DeskBlock.MaterialType.STRIPPED_CRIMSON));
     public static final Supplier<Block> STRIPPED_WARPED_DESK_CABINET = register("stripped_warped_desk_cabinet",
             () -> new DeskCabinetBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.WARPED_PLANKS), DeskBlock.MaterialType.STRIPPED_WARPED));
+    public static final Supplier<Block> STRIPPED_BAMBOO_DESK_CABINET = register("stripped_bamboo_desk_cabinet",
+            () -> new DeskCabinetBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.BAMBOO_PLANKS), DeskBlock.MaterialType.STRIPPED_BAMBOO));
 
     // Sofas
     public static final Supplier<Block> WHITE_SOFA = register("white_sofa",
@@ -381,6 +409,8 @@ public class ModBlocks
             () -> new BlindsBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.CRIMSON_PLANKS)));
     public static final Supplier<Block> WARPED_BLINDS = register("warped_blinds",
             () -> new BlindsBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.WARPED_PLANKS)));
+    public static final Supplier<Block> BAMBOO_BLINDS = register("bamboo_blinds",
+            () -> new BlindsBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.BAMBOO_PLANKS)));
     public static final Supplier<Block> STRIPPED_OAK_BLINDS = register("stripped_oak_blinds",
             () -> new BlindsBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS)));
     public static final Supplier<Block> STRIPPED_SPRUCE_BLINDS = register("stripped_spruce_blinds",
@@ -401,6 +431,8 @@ public class ModBlocks
             () -> new BlindsBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.CRIMSON_PLANKS)));
     public static final Supplier<Block> STRIPPED_WARPED_BLINDS = register("stripped_warped_blinds",
             () -> new BlindsBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.WARPED_PLANKS)));
+    public static final Supplier<Block> STRIPPED_BAMBOO_BLINDS = register("stripped_bamboo_blinds",
+            () -> new BlindsBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.BAMBOO_PLANKS)));
 
     // Upgraded Fences
     public static final Supplier<Block> OAK_UPGRADED_FENCE = register("oak_upgraded_fence",
@@ -423,6 +455,8 @@ public class ModBlocks
             () -> new UpgradedFenceBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.CRIMSON_PLANKS)));
     public static final Supplier<Block> WARPED_UPGRADED_FENCE = register("warped_upgraded_fence",
             () -> new UpgradedFenceBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.WARPED_PLANKS)));
+    public static final Supplier<Block> BAMBOO_UPGRADED_FENCE = register("bamboo_upgraded_fence",
+            () -> new UpgradedFenceBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.BAMBOO_PLANKS)));
     public static final Supplier<Block> STRIPPED_OAK_UPGRADED_FENCE = register("stripped_oak_upgraded_fence",
             () -> new UpgradedFenceBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS)));
     public static final Supplier<Block> STRIPPED_SPRUCE_UPGRADED_FENCE = register("stripped_spruce_upgraded_fence",
@@ -443,6 +477,8 @@ public class ModBlocks
             () -> new UpgradedFenceBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.CRIMSON_PLANKS)));
     public static final Supplier<Block> STRIPPED_WARPED_UPGRADED_FENCE = register("stripped_warped_upgraded_fence",
             () -> new UpgradedFenceBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.WARPED_PLANKS)));
+    public static final Supplier<Block> STRIPPED_BAMBOO_UPGRADED_FENCE = register("stripped_bamboo_upgraded_fence",
+            () -> new UpgradedFenceBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.BAMBOO_PLANKS)));
 
     // Upgraded Gates
     public static final Supplier<Block> OAK_UPGRADED_GATE = register("oak_upgraded_gate",
@@ -465,6 +501,8 @@ public class ModBlocks
             () -> new UpgradedGateBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.CRIMSON_PLANKS)));
     public static final Supplier<Block> WARPED_UPGRADED_GATE = register("warped_upgraded_gate",
             () -> new UpgradedGateBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.WARPED_PLANKS)));
+    public static final Supplier<Block> BAMBOO_UPGRADED_GATE = register("bamboo_upgraded_gate",
+            () -> new UpgradedGateBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.BAMBOO_PLANKS)));
     public static final Supplier<Block> STRIPPED_OAK_UPGRADED_GATE = register("stripped_oak_upgraded_gate",
             () -> new UpgradedGateBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS)));
     public static final Supplier<Block> STRIPPED_SPRUCE_UPGRADED_GATE = register("stripped_spruce_upgraded_gate",
@@ -485,6 +523,8 @@ public class ModBlocks
             () -> new UpgradedGateBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.CRIMSON_PLANKS)));
     public static final Supplier<Block> STRIPPED_WARPED_UPGRADED_GATE = register("stripped_warped_upgraded_gate",
             () -> new UpgradedGateBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.WARPED_PLANKS)));
+    public static final Supplier<Block> STRIPPED_BAMBOO_UPGRADED_GATE = register("stripped_bamboo_upgraded_gate",
+            () -> new UpgradedGateBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.BAMBOO_PLANKS)));
 
     // Picket Fences
     public static final Supplier<Block> WHITE_PICKET_FENCE = register("white_picket_fence",
@@ -579,6 +619,8 @@ public class ModBlocks
             () -> new CrateBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.CHEST)));
     public static final Supplier<Block> WARPED_CRATE = register("warped_crate",
             () -> new CrateBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.CHEST)));
+    public static final Supplier<Block> BAMBOO_CRATE = register("bamboo_crate",
+            () -> new CrateBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.CHEST)));
     public static final Supplier<Block> STRIPPED_OAK_CRATE = register("stripped_oak_crate",
             () -> new CrateBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.CHEST)));
     public static final Supplier<Block> STRIPPED_SPRUCE_CRATE = register("stripped_spruce_crate",
@@ -598,6 +640,8 @@ public class ModBlocks
     public static final Supplier<Block> STRIPPED_CRIMSON_CRATE = register("stripped_crimson_crate",
             () -> new CrateBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.CHEST)));
     public static final Supplier<Block> STRIPPED_WARPED_CRATE = register("stripped_warped_crate",
+            () -> new CrateBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.CHEST)));
+    public static final Supplier<Block> STRIPPED_BAMBOO_CRATE = register("stripped_bamboo_crate",
             () -> new CrateBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.CHEST)));
 
     // Park Benches
@@ -621,6 +665,8 @@ public class ModBlocks
             () -> new ParkBenchBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.CRIMSON_PLANKS)));
     public static final Supplier<Block> WARPED_PARK_BENCH = register("warped_park_bench",
             () -> new ParkBenchBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.WARPED_PLANKS)));
+    public static final Supplier<Block> BAMBOO_PARK_BENCH = register("bamboo_park_bench",
+            () -> new ParkBenchBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.BAMBOO_PLANKS)));
     public static final Supplier<Block> STRIPPED_OAK_PARK_BENCH = register("stripped_oak_park_bench",
             () -> new ParkBenchBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS)));
     public static final Supplier<Block> STRIPPED_SPRUCE_PARK_BENCH = register("stripped_spruce_park_bench",
@@ -641,6 +687,8 @@ public class ModBlocks
             () -> new ParkBenchBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.CRIMSON_PLANKS)));
     public static final Supplier<Block> STRIPPED_WARPED_PARK_BENCH = register("stripped_warped_park_bench",
             () -> new ParkBenchBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.WARPED_PLANKS)));
+    public static final Supplier<Block> STRIPPED_BAMBOO_PARK_BENCH = register("stripped_bamboo_park_bench",
+            () -> new ParkBenchBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.BAMBOO_PLANKS)));
 
     // Post Box
     public static final Supplier<Block> POST_BOX = register("post_box",
@@ -667,6 +715,8 @@ public class ModBlocks
             () -> new MailBoxBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.CRIMSON_PLANKS)));
     public static final Supplier<Block> WARPED_MAIL_BOX = register("warped_mail_box",
             () -> new MailBoxBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.WARPED_PLANKS)));
+    public static final Supplier<Block> BAMBOO_MAIL_BOX = register("bamboo_mail_box",
+            () -> new MailBoxBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.BAMBOO_PLANKS)));
     public static final Supplier<Block> STRIPPED_OAK_MAIL_BOX = register("stripped_oak_mail_box",
             () -> new MailBoxBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS)));
     public static final Supplier<Block> STRIPPED_SPRUCE_MAIL_BOX = register("stripped_spruce_mail_box",
@@ -687,6 +737,8 @@ public class ModBlocks
             () -> new MailBoxBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.CRIMSON_PLANKS)));
     public static final Supplier<Block> STRIPPED_WARPED_MAIL_BOX = register("stripped_warped_mail_box",
             () -> new MailBoxBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.WARPED_PLANKS)));
+    public static final Supplier<Block> STRIPPED_BAMBOO_MAIL_BOX = register("stripped_bamboo_mail_box",
+            () -> new MailBoxBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.BAMBOO_PLANKS)));
 
     // Hedges
     public static final Supplier<Block> OAK_HEDGE = register("oak_hedge",
@@ -851,6 +903,8 @@ public class ModBlocks
             () -> new KitchenCounterBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.CRIMSON_PLANKS)));
     public static final Supplier<Block> WARPED_KITCHEN_COUNTER = register("warped_kitchen_counter",
             () -> new KitchenCounterBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.WARPED_PLANKS)));
+    public static final Supplier<Block> BAMBOO_KITCHEN_COUNTER = register("bamboo_kitchen_counter",
+            () -> new KitchenCounterBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.BAMBOO_PLANKS)));
     public static final Supplier<Block> STRIPPED_OAK_KITCHEN_COUNTER = register("stripped_oak_kitchen_counter",
             () -> new KitchenCounterBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS)));
     public static final Supplier<Block> STRIPPED_SPRUCE_KITCHEN_COUNTER = register("stripped_spruce_kitchen_counter",
@@ -871,6 +925,8 @@ public class ModBlocks
             () -> new KitchenCounterBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.CRIMSON_PLANKS)));
     public static final Supplier<Block> STRIPPED_WARPED_KITCHEN_COUNTER = register("stripped_warped_kitchen_counter",
             () -> new KitchenCounterBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.WARPED_PLANKS)));
+    public static final Supplier<Block> STRIPPED_BAMBOO_KITCHEN_COUNTER = register("stripped_bamboo_kitchen_counter",
+            () -> new KitchenCounterBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.BAMBOO_PLANKS)));
     public static final Supplier<Block> WHITE_KITCHEN_COUNTER = register("white_kitchen_counter",
             () -> new KitchenCounterBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.WHITE_CONCRETE)));
     public static final Supplier<Block> LIGHT_GRAY_KITCHEN_COUNTER = register("light_gray_kitchen_counter",
@@ -927,6 +983,8 @@ public class ModBlocks
             () -> new KitchenDrawerBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.CRIMSON_PLANKS)));
     public static final Supplier<Block> WARPED_KITCHEN_DRAWER = register("warped_kitchen_drawer",
             () -> new KitchenDrawerBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.WARPED_PLANKS)));
+    public static final Supplier<Block> BAMBOO_KITCHEN_DRAWER = register("bamboo_kitchen_drawer",
+            () -> new KitchenDrawerBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.BAMBOO_PLANKS)));
     public static final Supplier<Block> STRIPPED_OAK_KITCHEN_DRAWER = register("stripped_oak_kitchen_drawer",
             () -> new KitchenDrawerBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS)));
     public static final Supplier<Block> STRIPPED_SPRUCE_KITCHEN_DRAWER = register("stripped_spruce_kitchen_drawer",
@@ -947,6 +1005,8 @@ public class ModBlocks
             () -> new KitchenDrawerBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.CRIMSON_PLANKS)));
     public static final Supplier<Block> STRIPPED_WARPED_KITCHEN_DRAWER = register("stripped_warped_kitchen_drawer",
             () -> new KitchenDrawerBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.WARPED_PLANKS)));
+    public static final Supplier<Block> STRIPPED_BAMBOO_KITCHEN_DRAWER = register("stripped_bamboo_kitchen_drawer",
+            () -> new KitchenDrawerBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.BAMBOO_PLANKS)));
     public static final Supplier<Block> WHITE_KITCHEN_DRAWER = register("white_kitchen_drawer",
             () -> new KitchenDrawerBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.WHITE_CONCRETE)));
     public static final Supplier<Block> LIGHT_GRAY_KITCHEN_DRAWER = register("light_gray_kitchen_drawer",
@@ -1003,6 +1063,8 @@ public class ModBlocks
             () -> new KitchenSinkBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.CRIMSON_PLANKS), true));
     public static final Supplier<Block> WARPED_KITCHEN_SINK_LIGHT = register("warped_kitchen_sink_light",
             () -> new KitchenSinkBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.WARPED_PLANKS), true));
+    public static final Supplier<Block> BAMBOO_KITCHEN_SINK_LIGHT = register("bamboo_kitchen_sink_light",
+            () -> new KitchenSinkBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.BAMBOO_PLANKS), true));
     public static final Supplier<Block> STRIPPED_OAK_KITCHEN_SINK_LIGHT = register("stripped_oak_kitchen_sink_light",
             () -> new KitchenSinkBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS), true));
     public static final Supplier<Block> STRIPPED_SPRUCE_KITCHEN_SINK_LIGHT = register("stripped_spruce_kitchen_sink_light",
@@ -1023,6 +1085,8 @@ public class ModBlocks
             () -> new KitchenSinkBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.CRIMSON_PLANKS), true));
     public static final Supplier<Block> STRIPPED_WARPED_KITCHEN_SINK_LIGHT = register("stripped_warped_kitchen_sink_light",
             () -> new KitchenSinkBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.WARPED_PLANKS), true));
+    public static final Supplier<Block> STRIPPED_BAMBOO_KITCHEN_SINK_LIGHT = register("stripped_bamboo_kitchen_sink_light",
+            () -> new KitchenSinkBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.BAMBOO_PLANKS), true));
     public static final Supplier<Block> OAK_KITCHEN_SINK_DARK = register("oak_kitchen_sink_dark",
             () -> new KitchenSinkBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS), true));
     public static final Supplier<Block> SPRUCE_KITCHEN_SINK_DARK = register("spruce_kitchen_sink_dark",
@@ -1043,6 +1107,8 @@ public class ModBlocks
             () -> new KitchenSinkBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.CRIMSON_PLANKS), true));
     public static final Supplier<Block> WARPED_KITCHEN_SINK_DARK = register("warped_kitchen_sink_dark",
             () -> new KitchenSinkBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.WARPED_PLANKS), true));
+    public static final Supplier<Block> BAMBOO_KITCHEN_SINK_DARK = register("bamboo_kitchen_sink_dark",
+            () -> new KitchenSinkBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.BAMBOO_PLANKS), true));
     public static final Supplier<Block> STRIPPED_OAK_KITCHEN_SINK_DARK = register("stripped_oak_kitchen_sink_dark",
             () -> new KitchenSinkBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS), true));
     public static final Supplier<Block> STRIPPED_SPRUCE_KITCHEN_SINK_DARK = register("stripped_spruce_kitchen_sink_dark",
@@ -1063,6 +1129,8 @@ public class ModBlocks
             () -> new KitchenSinkBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.CRIMSON_PLANKS), true));
     public static final Supplier<Block> STRIPPED_WARPED_KITCHEN_SINK_DARK = register("stripped_warped_kitchen_sink_dark",
             () -> new KitchenSinkBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.WARPED_PLANKS), true));
+    public static final Supplier<Block> STRIPPED_BAMBOO_KITCHEN_SINK_DARK = register("stripped_bamboo_kitchen_sink_dark",
+            () -> new KitchenSinkBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.BAMBOO_PLANKS), true));
     public static final Supplier<Block> WHITE_KITCHEN_SINK = register("white_kitchen_sink",
             () -> new KitchenSinkBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.WHITE_CONCRETE), false));
     public static final Supplier<Block> LIGHT_GRAY_KITCHEN_SINK = register("light_gray_kitchen_sink",
@@ -1107,4 +1175,5 @@ public class ModBlocks
             () -> new FreezerBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK).noOcclusion(), () -> ModBlocks.FRIDGE_DARK.get()));
     public static final Supplier<Block> FRIDGE_DARK = register("fridge_dark",
             () -> new FridgeBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK).noOcclusion(), () -> ModBlocks.FREEZER_DARK.get()));
+
 }

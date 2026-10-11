@@ -29,6 +29,7 @@
     { "id": "cfm:cherry_table", "required": false },
     { "id": "cfm:crimson_table", "required": false },
     { "id": "cfm:warped_table", "required": false },
+    { "id": "cfm:bamboo_table", "required": false },
     { "id": "cfm:stripped_oak_table", "required": false },
     { "id": "cfm:stripped_spruce_table", "required": false },
     { "id": "cfm:stripped_birch_table", "required": false },
@@ -39,6 +40,7 @@
     { "id": "cfm:stripped_cherry_table", "required": false },
     { "id": "cfm:stripped_crimson_table", "required": false },
     { "id": "cfm:stripped_warped_table", "required": false },
+    { "id": "cfm:stripped_bamboo_table", "required": false },
     { "id": "cfm:oak_chair", "required": false },
     { "id": "cfm:spruce_chair", "required": false },
     { "id": "cfm:birch_chair", "required": false },
@@ -49,6 +51,7 @@
     { "id": "cfm:cherry_chair", "required": false },
     { "id": "cfm:crimson_chair", "required": false },
     { "id": "cfm:warped_chair", "required": false },
+    { "id": "cfm:bamboo_chair", "required": false },
     { "id": "cfm:stripped_oak_chair", "required": false },
     { "id": "cfm:stripped_spruce_chair", "required": false },
     { "id": "cfm:stripped_birch_chair", "required": false },
@@ -59,6 +62,7 @@
     { "id": "cfm:stripped_cherry_chair", "required": false },
     { "id": "cfm:stripped_crimson_chair", "required": false },
     { "id": "cfm:stripped_warped_chair", "required": false },
+    { "id": "cfm:stripped_bamboo_chair", "required": false },
     { "id": "cfm:oak_coffee_table", "required": false },
     { "id": "cfm:spruce_coffee_table", "required": false },
     { "id": "cfm:birch_coffee_table", "required": false },
@@ -69,6 +73,7 @@
     { "id": "cfm:cherry_coffee_table", "required": false },
     { "id": "cfm:crimson_coffee_table", "required": false },
     { "id": "cfm:warped_coffee_table", "required": false },
+    { "id": "cfm:bamboo_coffee_table", "required": false },
     { "id": "cfm:stripped_oak_coffee_table", "required": false },
     { "id": "cfm:stripped_spruce_coffee_table", "required": false },
     { "id": "cfm:stripped_birch_coffee_table", "required": false },
@@ -78,6 +83,7 @@
     { "id": "cfm:stripped_mangrove_coffee_table", "required": false },
     { "id": "cfm:stripped_cherry_coffee_table", "required": false },
     { "id": "cfm:stripped_crimson_coffee_table", "required": false },
-    { "id": "cfm:stripped_warped_coffee_table", "required": false }
+    { "id": "cfm:stripped_warped_coffee_table", "required": false },
+    { "id": "cfm:stripped_bamboo_coffee_table", "required": false }
   ]
 }

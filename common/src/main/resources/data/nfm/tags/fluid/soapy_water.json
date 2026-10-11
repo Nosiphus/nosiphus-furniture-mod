@@ -1,0 +1,7 @@
+{
+  "replace": false,
+  "values": [
+    { "id": "nfm:soapy_water", "required": false },
+    { "id": "nfm:soapy_water_flowing", "required": false }
+  ]
+}

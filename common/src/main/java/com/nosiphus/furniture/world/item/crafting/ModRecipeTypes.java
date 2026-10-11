@@ -7,6 +7,14 @@ import java.util.function.Supplier;
 
 public class ModRecipeTypes
 {
+    public static final Supplier<RecipeType<BlendingRecipe>> BLENDING = Services.REGISTRY.registerRecipeType("blending",
+            () -> new RecipeType<BlendingRecipe>() {
+                @Override
+                public String toString() {
+                    return "nfm:blending";
+                }
+            });
+
     public static final Supplier<RecipeType<ChoppingRecipe>> CHOPPING = Services.REGISTRY.registerRecipeType("chopping",
             () -> new RecipeType<ChoppingRecipe>() {
                 @Override

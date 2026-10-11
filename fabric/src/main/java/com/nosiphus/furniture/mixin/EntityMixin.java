@@ -35,15 +35,15 @@ public abstract class EntityMixin {
                     target = "Lnet/minecraft/world/entity/Entity;updateFluidHeightAndDoFluidPushing(Lnet/minecraft/tags/TagKey;D)Z"
             )
     )
-    private boolean nfm$checkWaterAndSoapyWater(Entity entity, TagKey<Fluid> fluidTag, double motionScale) {
+    private boolean nfm$waterAndSoapyWater(Entity entity, TagKey<Fluid> fluidTag, double motionScale) {
         boolean inWater = entity.updateFluidHeightAndDoFluidPushing(FluidTags.WATER, motionScale);
-        boolean inSoapyWater = entity.updateFluidHeightAndDoFluidPushing(ModFluidTags.SOAPY_FLUIDS, motionScale);
+        boolean inSoapyWater = entity.updateFluidHeightAndDoFluidPushing(ModFluidTags.WATER_BASED_FLUIDS, motionScale);
         return inWater || inSoapyWater;
     }
 
     @Inject(method = "updateFluidOnEyes", at = @At("TAIL"))
-    private void nfm$soapyWaterEyeCheck(CallbackInfo ci) {
-        if (this.isEyeInFluid(ModFluidTags.SOAPY_FLUIDS)) {
+    private void nfm$waterEyeCheck(CallbackInfo ci) {
+        if (this.isEyeInFluid(ModFluidTags.WATER_BASED_FLUIDS)) {
             this.wasEyeInWater = true;
         }
     }
@@ -52,7 +52,7 @@ public abstract class EntityMixin {
     private void nfm$soapyWaterSwimming(CallbackInfo ci) {
         if (!this.isSwimming()) {
             if (this.isSprinting() && this.isUnderWater() && !this.isPassenger()
-                    && this.level().getFluidState(this.blockPosition()).is(ModFluidTags.SOAPY_FLUIDS)) {
+                    && this.level().getFluidState(this.blockPosition()).is(ModFluidTags.WATER_BASED_FLUIDS)) {
                 this.setSwimming(true);
             }
         }

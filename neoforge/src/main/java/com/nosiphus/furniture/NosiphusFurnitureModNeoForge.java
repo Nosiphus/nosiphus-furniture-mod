@@ -3,6 +3,7 @@ package com.nosiphus.furniture;
 import com.mrcrayfish.furniture.platform.NeoForgeFluidHelper;
 import com.mrcrayfish.furniture.world.level.block.entity.FluidHandlerSyncedBlockEntity;
 import com.nosiphus.furniture.client.gui.screens.inventory.*;
+import com.nosiphus.furniture.client.model.inventory.ModItemStackRenderer;
 import com.nosiphus.furniture.client.particle.ModParticleTypes;
 import com.nosiphus.furniture.client.particle.ShowerParticle;
 import com.nosiphus.furniture.client.renderer.blockentity.*;
@@ -12,6 +13,7 @@ import com.nosiphus.furniture.network.protocol.common.*;
 import com.nosiphus.furniture.platform.NeoForgeRegistryHelper;
 import com.nosiphus.furniture.world.entity.ModEntityTypes;
 import com.nosiphus.furniture.world.inventory.ModMenuTypes;
+import com.nosiphus.furniture.world.item.CupItem;
 import com.nosiphus.furniture.world.item.ModCreativeModeTabsNeoForge;
 import com.nosiphus.furniture.world.level.block.ModBlocks;
 import com.nosiphus.furniture.world.level.block.entity.ModBlockEntityTypes;
@@ -19,11 +21,17 @@ import com.nosiphus.furniture.world.level.fluid.ModFluidTypes;
 import com.nosiphus.furniture.world.level.fluid.ModFluids;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.BiomeColors;
+import net.minecraft.client.renderer.BlockEntityWithoutLevelRenderer;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderers;
+import net.minecraft.client.resources.model.BakedModel;
+import net.minecraft.client.resources.model.ModelResourceLocation;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.item.BlockItem;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.level.FoliageColor;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntity;
@@ -40,6 +48,8 @@ import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.neoforge.capabilities.Capabilities;
 import net.neoforged.neoforge.capabilities.RegisterCapabilitiesEvent;
 import net.neoforged.neoforge.client.event.*;
+import net.neoforged.neoforge.client.extensions.common.IClientItemExtensions;
+import net.neoforged.neoforge.client.extensions.common.RegisterClientExtensionsEvent;
 import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.network.event.RegisterPayloadHandlersEvent;
 import net.neoforged.neoforge.network.registration.PayloadRegistrar;
@@ -47,6 +57,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.util.List;
+import java.util.Map;
 import java.util.function.Supplier;
 
 @Mod(NosiphusFurnitureMod.MOD_ID)
@@ -85,9 +96,31 @@ public class NosiphusFurnitureModNeoForge {
 
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event) {
-            registerBlockEntityRenderers();
-
             event.enqueueWork(() -> {
+                NosiphusFurnitureModClient.initClient();
+
+                registerBlockEntityRenderers();
+
+                ItemBlockRenderTypes.setRenderLayer(ModFluids.COOKIES_AND_CREAM.get(), RenderType.translucent());
+                ItemBlockRenderTypes.setRenderLayer(ModFluids.COOKIES_AND_CREAM_FLOWING.get(), RenderType.translucent());
+                ItemBlockRenderTypes.setRenderLayer(ModBlocks.COOKIES_AND_CREAM.get(), RenderType.translucent());
+
+                ItemBlockRenderTypes.setRenderLayer(ModFluids.EGG_NOG.get(), RenderType.translucent());
+                ItemBlockRenderTypes.setRenderLayer(ModFluids.EGG_NOG_FLOWING.get(), RenderType.translucent());
+                ItemBlockRenderTypes.setRenderLayer(ModBlocks.EGG_NOG.get(), RenderType.translucent());
+
+                ItemBlockRenderTypes.setRenderLayer(ModFluids.ENERGY_DRINK.get(), RenderType.translucent());
+                ItemBlockRenderTypes.setRenderLayer(ModFluids.ENERGY_DRINK_FLOWING.get(), RenderType.translucent());
+                ItemBlockRenderTypes.setRenderLayer(ModBlocks.ENERGY_DRINK.get(), RenderType.translucent());
+
+                ItemBlockRenderTypes.setRenderLayer(ModFluids.FRUIT_CRUSH.get(), RenderType.translucent());
+                ItemBlockRenderTypes.setRenderLayer(ModFluids.FRUIT_CRUSH_FLOWING.get(), RenderType.translucent());
+                ItemBlockRenderTypes.setRenderLayer(ModBlocks.FRUIT_CRUSH.get(), RenderType.translucent());
+
+                ItemBlockRenderTypes.setRenderLayer(ModFluids.VEGGIE_JUICE.get(), RenderType.translucent());
+                ItemBlockRenderTypes.setRenderLayer(ModFluids.VEGGIE_JUICE_FLOWING.get(), RenderType.translucent());
+                ItemBlockRenderTypes.setRenderLayer(ModBlocks.VEGGIE_JUICE.get(), RenderType.translucent());
+
                 ItemBlockRenderTypes.setRenderLayer(ModFluids.SOAPY_WATER.get(), RenderType.translucent());
                 ItemBlockRenderTypes.setRenderLayer(ModFluids.SOAPY_WATER_FLOWING.get(), RenderType.translucent());
                 ItemBlockRenderTypes.setRenderLayer(ModBlocks.SOAPY_WATER.get(), RenderType.translucent());
@@ -96,6 +129,20 @@ public class NosiphusFurnitureModNeoForge {
                 ItemBlockRenderTypes.setRenderLayer(ModFluids.SUPER_SOAPY_WATER_FLOWING.get(), RenderType.translucent());
                 ItemBlockRenderTypes.setRenderLayer(ModBlocks.SUPER_SOAPY_WATER.get(), RenderType.translucent());
             });
+        }
+
+        @SubscribeEvent
+        public static void registerClientExtensions(RegisterClientExtensionsEvent event) {
+            IClientItemExtensions cupRendererExtension = new IClientItemExtensions() {
+                @Override
+                public BlockEntityWithoutLevelRenderer getCustomRenderer() {
+                    return ModItemStackRenderer.INSTANCE;
+                }
+            };
+
+            BuiltInRegistries.ITEM.stream()
+                    .filter(item -> item instanceof CupItem)
+                    .forEach(cupItem -> event.registerItem(cupRendererExtension, cupItem));
         }
 
         @SubscribeEvent
@@ -149,6 +196,8 @@ public class NosiphusFurnitureModNeoForge {
         public static void registerCapabilities(RegisterCapabilitiesEvent event) {
             registerFluidCapability(event, ModBlockEntityTypes.BATH);
             registerFluidCapability(event, ModBlockEntityTypes.BIRD_BATH);
+            registerFluidCapability(event, ModBlockEntityTypes.BLENDER);
+            registerFluidCapability(event, ModBlockEntityTypes.CUP);
             registerFluidCapability(event, ModBlockEntityTypes.DISHWASHER);
             registerFluidCapability(event, ModBlockEntityTypes.SINK);
             registerFluidCapability(event, ModBlockEntityTypes.TAP);
@@ -202,9 +251,11 @@ public class NosiphusFurnitureModNeoForge {
     private static void registerBlockEntityRenderers() {
         BlockEntityRenderers.register(ModBlockEntityTypes.BATH.get(), BathBlockEntityRenderer::new);
         BlockEntityRenderers.register(ModBlockEntityTypes.BIRD_BATH.get(), BirdBathBlockEntityRenderer::new);
+        BlockEntityRenderers.register(ModBlockEntityTypes.BLENDER.get(), BlenderBlockEntityRenderer::new);
         BlockEntityRenderers.register(ModBlockEntityTypes.CATHODE_RAY_TUBE_TELEVISION.get(), CathodeRayTubeTelevisionBlockEntityRenderer::new);
         BlockEntityRenderers.register(ModBlockEntityTypes.CHOPPING_BOARD.get(), ChoppingBoardBlockEntityRenderer::new);
         BlockEntityRenderers.register(ModBlockEntityTypes.COOKIE_JAR.get(), CookieJarBlockEntityRenderer::new);
+        BlockEntityRenderers.register(ModBlockEntityTypes.CUP.get(), CupBlockEntityRenderer::new);
         BlockEntityRenderers.register(ModBlockEntityTypes.DIGITAL_CLOCK.get(), DigitalClockBlockEntityRenderer::new);
         BlockEntityRenderers.register(ModBlockEntityTypes.LIQUID_CRYSTAL_DISPLAY_TELEVISION.get(), LiquidCrystalDisplayTelevisionBlockEntityRenderer::new);
         BlockEntityRenderers.register(ModBlockEntityTypes.PLATE.get(), PlateBlockEntityRenderer::new);

@@ -69,10 +69,6 @@ public class FabricPlatformHelper implements IPlatformHelper {
 
     @Override
     public TextureAtlasSprite getStillFluidSprite(Fluid fluid) {
-        if (fluid == Fluids.WATER || fluid == Fluids.FLOWING_WATER) {
-            return Minecraft.getInstance().getTextureAtlas(TextureAtlas.LOCATION_BLOCKS)
-                    .apply(ResourceLocation.withDefaultNamespace("block/water_still"));
-        }
         TextureAtlasSprite sprite = FluidVariantRendering.getSprite(FluidVariant.of(fluid));
         if (sprite == null) {
             sprite = Minecraft.getInstance().getTextureAtlas(TextureAtlas.LOCATION_BLOCKS)

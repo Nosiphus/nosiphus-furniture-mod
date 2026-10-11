@@ -16,6 +16,7 @@ dependencies {
     implementation("net.mehvahdjukaar:moonlight-neoforge:${moonlight_version}:neoforge") { transitive = false }
 
     runtimeOnly "curse.maven:catalogue-459701:6926815"
+    runtimeOnly "curse.maven:nosifix-1715316:8995348"
 }
 
 neoForge {

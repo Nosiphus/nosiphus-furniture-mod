@@ -1,0 +1,7 @@
+{
+  "replace": false,
+  "values": [
+    { "id": "#nfm:drinks", "required": false },
+    { "id": "#nfm:soapy_fluids", "required": false }
+  ]
+}

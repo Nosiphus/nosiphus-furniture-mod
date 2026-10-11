@@ -99,7 +99,7 @@ public abstract class FluidHandlerSyncedBlockEntity extends BlockEntity implemen
     }
 
     @Override
-    protected void saveAdditional(CompoundTag tag, HolderLookup.Provider registries) {
+    public void saveAdditional(CompoundTag tag, HolderLookup.Provider registries) {
         super.saveAdditional(tag, registries);
         if (this.fluid != Fluids.EMPTY) {
             tag.putString("FluidName", BuiltInRegistries.FLUID.getKey(this.fluid).toString());

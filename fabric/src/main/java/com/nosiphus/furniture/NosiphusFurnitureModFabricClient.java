@@ -4,6 +4,7 @@ import com.mojang.blaze3d.systems.RenderSystem;
 import com.nosiphus.furniture.client.ModFluidRenderers;
 import com.nosiphus.furniture.client.event.CreativeScreenEventsFabric;
 import com.nosiphus.furniture.client.gui.screens.inventory.*;
+import com.nosiphus.furniture.client.model.inventory.ModItemStackRenderer;
 import com.nosiphus.furniture.client.particle.ModParticleTypes;
 import com.nosiphus.furniture.client.particle.ShowerParticle;
 import com.nosiphus.furniture.client.renderer.blockentity.*;
@@ -11,6 +12,7 @@ import com.nosiphus.furniture.client.renderer.entity.SeatRenderer;
 import com.nosiphus.furniture.network.NetworkFabric;
 import com.nosiphus.furniture.world.entity.ModEntityTypes;
 import com.nosiphus.furniture.world.inventory.ModMenuTypes;
+import com.nosiphus.furniture.world.item.CupItem;
 import com.nosiphus.furniture.world.item.ModCreativeModeTabsFabric;
 import com.nosiphus.furniture.world.level.block.ModBlocks;
 import com.nosiphus.furniture.world.level.block.entity.ModBlockEntityTypes;
@@ -18,6 +20,7 @@ import com.nosiphus.furniture.world.level.fluid.ModFluids;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.client.particle.v1.ParticleFactoryRegistry;
+import net.fabricmc.fabric.api.client.rendering.v1.BuiltinItemRendererRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.ColorProviderRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.HudRenderCallback;
@@ -27,8 +30,10 @@ import net.minecraft.client.renderer.BiomeColors;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderers;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.BlockItem;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.level.FoliageColor;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
@@ -38,6 +43,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class NosiphusFurnitureModFabricClient implements ClientModInitializer {
+
+    public static final ResourceLocation COOKIES_AND_CREAM_SCREEN = ResourceLocation.fromNamespaceAndPath(NosiphusFurnitureMod.MOD_ID, "textures/misc/cookies_and_cream.png");
+    public static final ResourceLocation EGG_NOG_SCREEN = ResourceLocation.fromNamespaceAndPath(NosiphusFurnitureMod.MOD_ID, "textures/misc/egg_nog.png");
+    public static final ResourceLocation ENERGY_DRINK_SCREEN = ResourceLocation.fromNamespaceAndPath(NosiphusFurnitureMod.MOD_ID, "textures/misc/energy_drink.png");
+    public static final ResourceLocation FRUIT_CRUSH_SCREEN = ResourceLocation.fromNamespaceAndPath(NosiphusFurnitureMod.MOD_ID, "textures/misc/fruit_crush.png");
+    public static final ResourceLocation VEGGIE_JUICE_SCREEN = ResourceLocation.fromNamespaceAndPath(NosiphusFurnitureMod.MOD_ID, "textures/misc/veggie_juice.png");
 
     private static final ResourceLocation SOAP_SCREEN = ResourceLocation.fromNamespaceAndPath(NosiphusFurnitureMod.MOD_ID, "textures/misc/soapy_water.png");
     private static final ResourceLocation SUPER_SOAP_SCREEN = ResourceLocation.fromNamespaceAndPath(NosiphusFurnitureMod.MOD_ID, "textures/misc/super_soapy_water.png");
@@ -65,7 +76,17 @@ public class NosiphusFurnitureModFabricClient implements ClientModInitializer {
             FluidState state = client.player.level().getFluidState(pos);
 
             ResourceLocation overlay = null;
-            if (state.is(ModFluids.SOAPY_WATER.get()) || state.is(ModFluids.SOAPY_WATER_FLOWING.get())) {
+            if (state.is(ModFluids.COOKIES_AND_CREAM.get()) || state.is(ModFluids.COOKIES_AND_CREAM_FLOWING.get())) {
+                overlay = COOKIES_AND_CREAM_SCREEN;
+            } else if (state.is(ModFluids.EGG_NOG.get()) || state.is(ModFluids.EGG_NOG_FLOWING.get())) {
+                overlay = EGG_NOG_SCREEN;
+            } else if (state.is(ModFluids.ENERGY_DRINK.get()) || state.is(ModFluids.ENERGY_DRINK_FLOWING.get())) {
+                overlay = ENERGY_DRINK_SCREEN;
+            } else if (state.is(ModFluids.FRUIT_CRUSH.get()) || state.is(ModFluids.FRUIT_CRUSH_FLOWING.get())) {
+                overlay = FRUIT_CRUSH_SCREEN;
+            } else if (state.is(ModFluids.VEGGIE_JUICE.get()) || state.is(ModFluids.VEGGIE_JUICE_FLOWING.get())) {
+                overlay = VEGGIE_JUICE_SCREEN;
+            } else if (state.is(ModFluids.SOAPY_WATER.get()) || state.is(ModFluids.SOAPY_WATER_FLOWING.get())) {
                 overlay = SOAP_SCREEN;
             } else if (state.is(ModFluids.SUPER_SOAPY_WATER.get()) || state.is(ModFluids.SUPER_SOAPY_WATER_FLOWING.get())) {
                 overlay = SUPER_SOAP_SCREEN;
@@ -82,6 +103,12 @@ public class NosiphusFurnitureModFabricClient implements ClientModInitializer {
                 RenderSystem.disableBlend();
             }
         });
+
+        for (Item item : BuiltInRegistries.ITEM) {
+            if (item instanceof CupItem) {
+                BuiltinItemRendererRegistry.INSTANCE.register(item, ModItemStackRenderer.INSTANCE::renderByItem);
+            }
+        }
 
         List<Block> translucentBlocks = new ArrayList<>();
         List<Block> cutoutMippedBlocks = new ArrayList<>();
@@ -126,9 +153,11 @@ public class NosiphusFurnitureModFabricClient implements ClientModInitializer {
     {
         BlockEntityRenderers.register(ModBlockEntityTypes.BATH.get(), BathBlockEntityRenderer::new);
         BlockEntityRenderers.register(ModBlockEntityTypes.BIRD_BATH.get(), BirdBathBlockEntityRenderer::new);
+        BlockEntityRenderers.register(ModBlockEntityTypes.BLENDER.get(), BlenderBlockEntityRenderer::new);
         BlockEntityRenderers.register(ModBlockEntityTypes.CATHODE_RAY_TUBE_TELEVISION.get(), CathodeRayTubeTelevisionBlockEntityRenderer::new);
         BlockEntityRenderers.register(ModBlockEntityTypes.CHOPPING_BOARD.get(), ChoppingBoardBlockEntityRenderer::new);
         BlockEntityRenderers.register(ModBlockEntityTypes.COOKIE_JAR.get(), CookieJarBlockEntityRenderer::new);
+        BlockEntityRenderers.register(ModBlockEntityTypes.CUP.get(), CupBlockEntityRenderer::new);
         BlockEntityRenderers.register(ModBlockEntityTypes.DIGITAL_CLOCK.get(), DigitalClockBlockEntityRenderer::new);
         BlockEntityRenderers.register(ModBlockEntityTypes.LIQUID_CRYSTAL_DISPLAY_TELEVISION.get(), LiquidCrystalDisplayTelevisionBlockEntityRenderer::new);
         BlockEntityRenderers.register(ModBlockEntityTypes.PLATE.get(), PlateBlockEntityRenderer::new);

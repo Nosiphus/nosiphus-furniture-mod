@@ -1,0 +1,8 @@
+{
+    "parent": "cfm:block/desk_single",
+    "textures": {
+        "base": "minecraft:block/stripped_bamboo_block",
+        "top": "minecraft:block/stripped_bamboo_block",
+        "legs": "minecraft:block/bamboo_block"
+    }
+}

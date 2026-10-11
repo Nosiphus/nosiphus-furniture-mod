@@ -10,6 +10,7 @@
 	{ "id": "nfm:crimson_water_tank", "required": false },
 	{ "id": "nfm:warped_water_tank", "required": false },
 	{ "id": "nfm:mangrove_water_tank", "required": false },
-	{ "id": "nfm:cherry_water_tank", "required": false }
+	{ "id": "nfm:cherry_water_tank", "required": false },
+	{ "id": "nfm:bamboo_water_tank", "required": false }
   ]
 }

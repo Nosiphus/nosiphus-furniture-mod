@@ -20,6 +20,7 @@ public class ModSoundEvents {
 
     public static final Supplier<SoundEvent> BLOCK_BIN_OPEN = register("block.bin.open");
     public static final Supplier<SoundEvent> BLOCK_BIN_CLOSE = register("block.bin.close");
+    public static final Supplier<SoundEvent> BLOCK_BLENDER_RUNNING = register("block.blender.running");
     public static final Supplier<SoundEvent> BLOCK_CHOPPING_BOARD_KNIFE_CHOP = register("block.chopping_board.knife_chop");
     public static final Supplier<SoundEvent> BLOCK_DOOR_BELL_RING = register("block.door_bell.ring");
     public static final Supplier<SoundEvent> BLOCK_ELECTRIC_FENCE_ZAP = register("block.electric_fence.zap");

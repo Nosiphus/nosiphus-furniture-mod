@@ -359,6 +359,7 @@
 	"block.nfm.warped_chopping_board": "Warped Chopping Board",
 	"block.nfm.mangrove_chopping_board": "Mangrove Chopping Board",
 	"block.nfm.cherry_chopping_board": "Cherry Chopping Board",
+	"block.nfm.bamboo_chopping_board": "Bamboo Chopping Board",
 
 	"block.nfm.oak_door_bell": "Oak Door Bell",
 	"block.nfm.spruce_door_bell": "Spruce Door Bell",
@@ -370,6 +371,7 @@
 	"block.nfm.warped_door_bell": "Warped Door Bell",
 	"block.nfm.mangrove_door_bell": "Mangrove Door Bell",
 	"block.nfm.cherry_door_bell": "Cherry Door Bell",
+	"block.nfm.bamboo_door_bell": "Bamboo Door Bell",
 	"block.nfm.stripped_oak_door_bell": "Stripped Oak Door Bell",
 	"block.nfm.stripped_spruce_door_bell": "Stripped Spruce Door Bell",
 	"block.nfm.stripped_birch_door_bell": "Stripped Birch Door Bell",
@@ -380,6 +382,7 @@
 	"block.nfm.stripped_warped_door_bell": "Stripped Warped Door Bell",
 	"block.nfm.stripped_mangrove_door_bell": "Stripped Mangrove Door Bell",
 	"block.nfm.stripped_cherry_door_bell": "Stripped Cherry Door Bell",
+	"block.nfm.stripped_bamboo_door_bell": "Stripped Bamboo Door Bell",
 
 	"block.nfm.beige_inflatable_castle": "Beige Inflatable Castle",
 	"block.nfm.white_inflatable_castle": "White Inflatable Castle",
@@ -430,6 +433,7 @@
 	"block.nfm.warped_water_tank": "Warped Water Tank",
 	"block.nfm.mangrove_water_tank": "Mangrove Water Tank",
 	"block.nfm.cherry_water_tank": "Cherry Water Tank",
+	"block.nfm.bamboo_water_tank": "Bamboo Water Tank",
 	
 	"block.nfm.stone_bird_bath": "Stone Bird Bath",
 	"block.nfm.andesite_bird_bath": "Andesite Bird Bath",
@@ -504,13 +508,19 @@
 
 	"block.nfm.electric_fence": "Electric Fence",
 
+	"block.nfm.cookies_and_cream": "Cookies and Cream",
+	"block.nfm.egg_nog": "Egg Nog",
+	"block.nfm.energy_drink": "Energy Drink",
+	"block.nfm.fruit_crush": "Fruit Crush",
 	"block.nfm.soapy_water": "Soapy Water",
 	"block.nfm.super_soapy_water": "Super Soapy Water",
+	"block.nfm.veggie_juice": "Veggie Juice",
 
 	"configgui.nfm.requireOpToSetUrls": "Operator permissions to change GIFs",
 	"configgui.nfm.trustedUrls": "Trusted URLs for GIFs",
 
 	"container.nfm.bedside_cabinet": "Bedside Cabinet",
+	"container.nfm.blender": "Blender",
 	"container.nfm.bin": "Bin",
 	"container.nfm.cabinet": "Cabinet",
 	"container.nfm.cathode_ray_tube_television": "Cathode Ray Tube Television",
@@ -527,11 +537,21 @@
 	"death.attack.electric_fence": "%1$s was zapped to death",
 	"death.attack.electric_fence.player": "%1$s was zapped to death trying to escape %2$s",
 
+	"fluid.nfm.cookies_and_cream": "Cookies and Cream",
+	"fluid.nfm.egg_nog": "Egg Nog",
+	"fluid.nfm.energy_drink": "Energy Drink",
+	"fluid.nfm.fruit_crush": "Fruit Crush",
 	"fluid.nfm.soapy_water": "Soapy Water",
 	"fluid.nfm.super_soapy_water": "Super Soapy Water",
+	"fluid.nfm.veggie_juice": "Veggie Juice",
 
+	"fluid_type.nfm.cookies_and_cream": "Cookies and Cream",
+	"fluid_type.nfm.egg_nog": "Egg Nog",
+	"fluid_type.nfm.energy_drink": "Energy Drink",
+	"fluid_type.nfm.fruit_crush": "Fruit Crush",
 	"fluid_type.nfm.soapy_water": "Soapy Water",
 	"fluid_type.nfm.super_soapy_water": "Super Soapy Water",
+	"fluid_type.nfm.veggie_juice": "Veggie Juice",
 
 	"gui.button.nfm.bin.empty": "Empty",
 
@@ -551,7 +571,11 @@
 	"item.nfm.bread_slice": "Bread Slice",
 	"item.nfm.cooked_kebab": "Cooked Kebab",
 	"item.nfm.cooked_sausage": "Cooked Sausage",
+	"item.nfm.cookies_and_cream_bucket": "Cookies and Cream Bucket",
 	"item.nfm.crowbar": "Crowbar",
+	"item.nfm.egg_nog_bucket": "Egg Nog Bucket",
+	"item.nfm.energy_drink_bucket": "Energy Drink Bucket",
+	"item.nfm.fruit_crush_bucket": "Fruit Crush Bucket",
 	"item.nfm.ink_cartridge": "Ink Cartridge",
 	"item.nfm.knife": "Knife",
 	"item.nfm.kebab": "Raw Kebab",
@@ -561,7 +585,9 @@
 	"item.nfm.super_soapy_water_bucket": "Super Soapy Water Bucket",
 	"item.nfm.television_remote": "Television Remote",
 	"item.nfm.toast": "Toast",
+	"item.nfm.veggie_juice_bucket": "Veggie Bucket",
 
+	"subtitle.nfm.blender_running": "Blender running",
 	"subtitle.nfm.close_bin": "Bin closing",
 	"subtitle.nfm.close_cabinet": "Cabinet closing",
 	"subtitle.nfm.bounce_inflatable_castle": "Inflatable castle bouncing",
