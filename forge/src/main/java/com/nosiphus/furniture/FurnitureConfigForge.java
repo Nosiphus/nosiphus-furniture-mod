@@ -1,12 +1,30 @@
 package com.nosiphus.furniture;
 
+import com.nosiphus.furniture.network.UrlValidator;
 import net.minecraftforge.common.ForgeConfigSpec;
 import org.apache.commons.lang3.tuple.Pair;
 
-import java.net.URI;
 import java.util.List;
 
 public class FurnitureConfigForge {
+
+    public static class Client {
+        public final ForgeConfigSpec.ConfigValue<List<? extends String>> trustedServers;
+
+        Client(ForgeConfigSpec.Builder builder) {
+            builder.comment("Television GIF security settings").push("trusted_urls");
+
+            this.trustedServers = builder
+                    .comment("Your client will only display GIFs from sources other than your approved list on these servers.")
+                    .translation("configgui.nfm.trustedServers")
+                    .defineListAllowEmpty(
+                            List.of("allowed_servers"),
+                            () -> FurnitureConfig.DEFAULT_TRUSTED_SERVERS,
+                            element -> element instanceof String s && UrlValidator.isValidAddressFormat(s)
+                    );
+            builder.pop();
+        }
+    }
 
     public static class Common {
         public final ForgeConfigSpec.ConfigValue<List<? extends String>> trustedUrls;
@@ -18,42 +36,30 @@ public class FurnitureConfigForge {
             this.requireOpToSetUrls = builder
                     .comment("If enabled, on servers only operators will be able to set GIFs on TVs.")
                     .translation("configgui.nfm.requireOpToSetUrls")
-                    .define("requireOpToSetUrls", true);
+                    .define("requireOpToSetUrls", FurnitureConfig.DEFAULT_REQUIRE_OP_TO_SET_URLS);
 
             this.trustedUrls = builder
                     .comment("GIFs on screens will only be permitted from the following URLs. HTTPS required.")
                     .translation("configgui.nfm.trustedUrls")
                     .defineListAllowEmpty(
                             List.of("allowed_urls"),
-                            () -> List.of(
-                                    "https://imgur.com/",
-                                    "https://giphy.com/",
-                                    "https://discordapp.com/"
-                            ),
-                            element -> element instanceof String && isValidUrlFormat((String) element)
+                            () -> FurnitureConfig.DEFAULT_TRUSTED_URLS,
+                            element -> element instanceof String s && UrlValidator.isValidUrlFormat(s)
                     );
             builder.pop();
         }
-
-        private static boolean isValidUrlFormat(String url) {
-            if (url == null || url.isBlank()) {
-                return false;
-            }
-
-            try {
-                URI uri = URI.create(url.trim());
-                String scheme = uri.getScheme();
-                return scheme != null && scheme.equalsIgnoreCase("https") && uri.getHost() != null;
-            } catch (Exception e) {
-                return false;
-            }
-        }
     }
 
+    public static final ForgeConfigSpec CLIENT_SPEC;
+    public static final Client CLIENT;
     public static final ForgeConfigSpec COMMON_SPEC;
     public static final Common COMMON;
 
     static {
+        final Pair<Client, ForgeConfigSpec> clientSpecPair = new ForgeConfigSpec.Builder().configure(Client::new);
+        CLIENT_SPEC = clientSpecPair.getRight();
+        CLIENT = clientSpecPair.getLeft();
+
         final Pair<Common, ForgeConfigSpec> commonSpecPair = new ForgeConfigSpec.Builder().configure(Common::new);
         COMMON_SPEC = commonSpecPair.getRight();
         COMMON = commonSpecPair.getLeft();
@@ -61,9 +67,7 @@ public class FurnitureConfigForge {
 
     @SuppressWarnings("unchecked")
     public static void init() {
-        FurnitureConfig.setCommonConfig(
-                COMMON.requireOpToSetUrls::get,
-                () -> (List<String>) COMMON.trustedUrls.get()
-        );
+        FurnitureConfig.setClientConfig(() -> (List<String>) CLIENT.trustedServers.get());
+        FurnitureConfig.setCommonConfig(COMMON.requireOpToSetUrls::get, () -> (List<String>) COMMON.trustedUrls.get());
     }
 }

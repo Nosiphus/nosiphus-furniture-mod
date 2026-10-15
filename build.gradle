@@ -30,6 +30,13 @@ subprojects {
                 includeGroup "lol.bai"
             }
         }
+        maven {
+            name = "Modrinth"
+            url = "https://api.modrinth.com/maven"
+            content {
+                includeGroup "maven.modrinth"
+            }
+        }
         maven { url = "https://registry.somethingcatchy.net/repository/maven-releases/" }
     }
 }

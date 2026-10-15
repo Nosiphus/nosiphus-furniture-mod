@@ -45,7 +45,7 @@ public class ServerPlayHandler {
         boolean isSingleplayer = player.getServer() != null && player.getServer().isSingleplayer();
         boolean isOp = player.hasPermissions(2);
 
-        if (FurnitureConfig.isRequireOpToSetUrls() && !isSingleplayer && !isOp) {
+        if (FurnitureConfig.requireOpToSetUrls() && !isSingleplayer && !isOp) {
             player.sendSystemMessage(Component.literal("Only server operators can set TV URLs on this server."));
             return;
         }
@@ -53,17 +53,21 @@ public class ServerPlayHandler {
         if (message.channel() < 0 || message.channel() > 2) return;
         if (!player.level().isLoaded(message.pos())) return;
 
-        BlockEntity be = player.level().getBlockEntity(message.pos());
-        String url = message.url().trim();
-        if (!url.isEmpty() && !UrlValidator.isTrustedUrl(url)) {
+        String rawUrl = message.url();
+        String normalizedUrl = UrlValidator.normalizeUrl(rawUrl);
+
+        // If the URL is not empty, it must pass the server's trusted URL validation rules
+        if (!normalizedUrl.isEmpty() && !UrlValidator.isTrustedUrl(normalizedUrl)) {
             player.sendSystemMessage(Component.literal("URL rejected: Must be HTTPS and on the server allowlist."));
             return;
         }
 
+        BlockEntity be = player.level().getBlockEntity(message.pos());
+
         if (be instanceof CathodeRayTubeTelevisionBlockEntity tv) {
-            tv.setChannelUrl(message.channel(), url);
+            tv.setChannelUrl(message.channel(), normalizedUrl);
         } else if (be instanceof LiquidCrystalDisplayTelevisionBlockEntity tv) {
-            tv.setChannelUrl(message.channel(), url);
+            tv.setChannelUrl(message.channel(), normalizedUrl);
         }
     }
 }
