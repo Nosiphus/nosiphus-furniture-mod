@@ -85,6 +85,7 @@ public class NosiphusFurnitureModForge {
         ForgeRegistryHelper.RECIPE_TYPES.register(eventBus);
         ForgeRegistryHelper.SOUND_EVENTS.register(eventBus);
 
+        ModLoadingContext.get().registerConfig(ModConfig.Type.CLIENT, FurnitureConfigForge.CLIENT_SPEC);
         ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, FurnitureConfigForge.COMMON_SPEC);
         FurnitureConfigForge.init();
 

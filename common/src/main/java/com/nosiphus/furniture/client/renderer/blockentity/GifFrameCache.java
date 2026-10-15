@@ -158,7 +158,7 @@ public class GifFrameCache {
         String currentServerIp = (serverData != null) ? serverData.ip : null;
 
         if (!UrlValidator.isClientTrustedUrl(url, currentServerIp)) {
-            failUrl(url, "This GIF is from an untrusted domain. To enable, add the domain to trustedUrls or the server to trustedServers in the configuration.");
+            failUrl(url, "This GIF is from an untrusted domain. To enable, add the domain to allowed_urls or the server to allowed_servers in the configuration.");
             return null;
         }
 
