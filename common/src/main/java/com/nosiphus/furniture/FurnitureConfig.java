@@ -9,14 +9,13 @@ public class FurnitureConfig {
     public static final boolean DEFAULT_REQUIRE_OP_TO_SET_URLS = true;
 
     public static final List<String> DEFAULT_TRUSTED_SERVERS = List.of(
-            "vi.nosiphus.com"
+            "www.example.com"
     );
 
     public static final List<String> DEFAULT_TRUSTED_URLS = List.of(
             "https://imgur.com/",
             "https://giphy.com/",
-            "https://discordapp.com/",
-            "https://klipy.com/"
+            "https://discordapp.com/"
     );
 
     private static Supplier<List<String>> trustedServersSupplier = () -> DEFAULT_TRUSTED_SERVERS;

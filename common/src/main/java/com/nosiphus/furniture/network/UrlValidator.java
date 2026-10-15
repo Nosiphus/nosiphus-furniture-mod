@@ -190,7 +190,12 @@ public class UrlValidator {
             return InetAddresses.forString(currentHost).equals(InetAddresses.forString(allowedHost));
         }
         if (!InetAddresses.isInetAddress(currentHost) && !InetAddresses.isInetAddress(allowedHost)) {
-            return currentHost.endsWith("." + allowedHost);
+            try {
+                InternetDomainName domain = InternetDomainName.from(allowedHost);
+                if (domain.isUnderPublicSuffix() && currentHost.endsWith("." + allowedHost)) {
+                    return true;
+                }
+            } catch (IllegalArgumentException ignored) {}
         }
         return false;
     }

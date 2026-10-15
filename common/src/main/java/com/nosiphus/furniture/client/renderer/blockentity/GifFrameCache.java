@@ -59,7 +59,7 @@ public class GifFrameCache {
 
     // A small dedicated thread pool for web downloads so we never block Minecraft's worker threads
     private final ExecutorService networkExecutor = Executors.newFixedThreadPool(3, r -> {
-        Thread t = new Thread(r, "NFM-Gif-Loader");
+        Thread t = new Thread(r, "NFM-GIF-Loader");
         t.setDaemon(true);
         return t;
     });
@@ -158,7 +158,7 @@ public class GifFrameCache {
         String currentServerIp = (serverData != null) ? serverData.ip : null;
 
         if (!UrlValidator.isClientTrustedUrl(url, currentServerIp)) {
-            failUrl(url, "Blocked untrusted GIF domain (add server to allowed_servers or domain to allowed_urls)");
+            failUrl(url, "This GIF is from an untrusted domain. To enable, add the domain to trustedUrls or the server to trustedServers in the configuration.");
             return null;
         }
 
@@ -558,8 +558,7 @@ public class GifFrameCache {
                 );
                 totalAllocatedMemory += frameBytes;
                 if (totalAllocatedMemory > MAX_SINGLE_GIF_BYTES) {
-                    System.err.println("[NFM] Aborted GIF decoding: Total uncompressed size exceeded " + (MAX_SINGLE_GIF_BYTES / 1024 / 1024) + "MB limit.");
-                    break;
+                    throw new IOException("Aborted GIF decoding: Total uncompressed size exceeded " + (MAX_SINGLE_GIF_BYTES / 1024 / 1024) + "MB limit.");
                 }
 
                 BufferedImage rawFrame = reader.read(i);
