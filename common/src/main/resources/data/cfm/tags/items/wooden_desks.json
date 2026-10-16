@@ -1,0 +1,27 @@
+{
+  "replace": false,
+  "values": [
+    { "id": "cfm:oak_desk", "required": false },
+    { "id": "cfm:spruce_desk", "required": false },
+    { "id": "cfm:birch_desk", "required": false },
+    { "id": "cfm:jungle_desk", "required": false },
+    { "id": "cfm:acacia_desk", "required": false },
+    { "id": "cfm:dark_oak_desk", "required": false },
+	{ "id": "cfm:crimson_desk", "required": false },
+	{ "id": "cfm:warped_desk", "required": false },
+	{ "id": "cfm:mangrove_desk", "required": false },
+	{ "id": "cfm:cherry_desk", "required": false },
+	{ "id": "cfm:bamboo_desk", "required": false },
+	{ "id": "cfm:stripped_oak_desk", "required": false },
+    { "id": "cfm:stripped_spruce_desk", "required": false },
+    { "id": "cfm:stripped_birch_desk", "required": false },
+    { "id": "cfm:stripped_jungle_desk", "required": false },
+    { "id": "cfm:stripped_acacia_desk", "required": false },
+    { "id": "cfm:stripped_dark_oak_desk", "required": false },
+	{ "id": "cfm:stripped_crimson_desk", "required": false },
+	{ "id": "cfm:stripped_warped_desk", "required": false },
+	{ "id": "cfm:stripped_mangrove_desk", "required": false },
+	{ "id": "cfm:stripped_cherry_desk", "required": false },
+	{ "id": "cfm:stripped_bamboo_desk", "required": false }
+  ]
+}

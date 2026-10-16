@@ -63,8 +63,8 @@ public class EveryCompatModule extends SimpleModule {
         tables = SimpleEntrySet.builder(WoodType.class, "table",
                         ModBlocks.OAK_TABLE, () -> VanillaWoodTypes.OAK,
                         w -> new TableBlock(Utils.copyPropertySafe(w.log)))
-                .addTag(BlockTags.MINEABLE_WITH_AXE, Registries.BLOCK)
-                .addTag(ModItemTags.GENERAL, Registries.ITEM)
+                .addTag(ModBlockTags.WOODEN_TABLES, Registries.BLOCK)
+                .addTag(ModItemTags.WOODEN_TABLES, Registries.ITEM)
                 .setTabKey(tab)
                 .defaultRecipe()
                 .setRenderType(RenderLayer.CUTOUT)
@@ -75,8 +75,8 @@ public class EveryCompatModule extends SimpleModule {
                         ModBlocks.STRIPPED_OAK_TABLE, () -> VanillaWoodTypes.OAK,
                         w -> new TableBlock(Utils.copyPropertySafe(w.log)))
                 .requiresChildren("stripped_log")
-                .addTag(BlockTags.MINEABLE_WITH_AXE, Registries.BLOCK)
-                .addTag(ModItemTags.GENERAL, Registries.ITEM)
+                .addTag(ModBlockTags.WOODEN_TABLES, Registries.BLOCK)
+                .addTag(ModItemTags.WOODEN_TABLES, Registries.ITEM)
                 .setTabKey(tab)
                 .defaultRecipe()
                 .setRenderType(RenderLayer.CUTOUT)
@@ -86,8 +86,8 @@ public class EveryCompatModule extends SimpleModule {
         chairs = SimpleEntrySet.builder(WoodType.class, "chair",
                         ModBlocks.OAK_CHAIR, () -> VanillaWoodTypes.OAK,
                         w -> new ChairBlock(Utils.copyPropertySafe(w.log)))
-                .addTag(BlockTags.MINEABLE_WITH_AXE, Registries.BLOCK)
-                .addTag(ModItemTags.GENERAL, Registries.ITEM)
+                .addTag(ModBlockTags.WOODEN_CHAIRS, Registries.BLOCK)
+                .addTag(ModItemTags.WOODEN_CHAIRS, Registries.ITEM)
                 .setTabKey(tab)
                 .defaultRecipe()
                 .setRenderType(RenderLayer.CUTOUT)
@@ -98,8 +98,8 @@ public class EveryCompatModule extends SimpleModule {
                         ModBlocks.STRIPPED_OAK_CHAIR, () -> VanillaWoodTypes.OAK,
                         w -> new ChairBlock(Utils.copyPropertySafe(w.log)))
                 .requiresChildren("stripped_log")
-                .addTag(BlockTags.MINEABLE_WITH_AXE, Registries.BLOCK)
-                .addTag(ModItemTags.GENERAL, Registries.ITEM)
+                .addTag(ModBlockTags.WOODEN_CHAIRS, Registries.BLOCK)
+                .addTag(ModItemTags.WOODEN_CHAIRS, Registries.ITEM)
                 .setTabKey(tab)
                 .defaultRecipe()
                 .setRenderType(RenderLayer.CUTOUT)
@@ -109,8 +109,8 @@ public class EveryCompatModule extends SimpleModule {
         coffeeTables = SimpleEntrySet.builder(WoodType.class, "coffee_table",
                         ModBlocks.OAK_COFFEE_TABLE, () -> VanillaWoodTypes.OAK,
                         w -> new CoffeeTableBlock(Utils.copyPropertySafe(w.log)))
-                .addTag(BlockTags.MINEABLE_WITH_AXE, Registries.BLOCK)
-                .addTag(ModItemTags.GENERAL, Registries.ITEM)
+                .addTag(ModBlockTags.WOODEN_COFFEE_TABLES, Registries.BLOCK)
+                .addTag(ModItemTags.WOODEN_COFFEE_TABLES, Registries.ITEM)
                 .setTabKey(tab)
                 .defaultRecipe()
                 .setRenderType(RenderLayer.CUTOUT)
@@ -121,8 +121,8 @@ public class EveryCompatModule extends SimpleModule {
                         ModBlocks.STRIPPED_OAK_COFFEE_TABLE, () -> VanillaWoodTypes.OAK,
                         w -> new CoffeeTableBlock(Utils.copyPropertySafe(w.log)))
                 .requiresChildren("stripped_log")
-                .addTag(BlockTags.MINEABLE_WITH_AXE, Registries.BLOCK)
-                .addTag(ModItemTags.GENERAL, Registries.ITEM)
+                .addTag(ModBlockTags.WOODEN_COFFEE_TABLES, Registries.BLOCK)
+                .addTag(ModItemTags.WOODEN_COFFEE_TABLES, Registries.ITEM)
                 .setTabKey(tab)
                 .defaultRecipe()
                 .setRenderType(RenderLayer.CUTOUT)
@@ -132,8 +132,8 @@ public class EveryCompatModule extends SimpleModule {
         cabinets = SimpleEntrySet.builder(WoodType.class, "cabinet",
                         ModBlocks.OAK_CABINET, () -> VanillaWoodTypes.OAK,
                         w -> new CabinetBlock(Utils.copyPropertySafe(w.planks)))
-                .addTag(BlockTags.MINEABLE_WITH_AXE, Registries.BLOCK)
-                .addTag(ModItemTags.STORAGE, Registries.ITEM)
+                .addTag(ModBlockTags.WOODEN_CABINETS, Registries.BLOCK)
+                .addTag(ModItemTags.WOODEN_CABINETS, Registries.ITEM)
                 .setTabKey(tab)
                 .addTile(ModBlockEntityTypes.CABINET)
                 .defaultRecipe()
@@ -145,8 +145,8 @@ public class EveryCompatModule extends SimpleModule {
                         ModBlocks.STRIPPED_OAK_CABINET, () -> VanillaWoodTypes.OAK,
                         w -> new CabinetBlock(Utils.copyPropertySafe(w.planks)))
                 .requiresChildren("stripped_log")
-                .addTag(BlockTags.MINEABLE_WITH_AXE, Registries.BLOCK)
-                .addTag(ModItemTags.STORAGE, Registries.ITEM)
+                .addTag(ModBlockTags.WOODEN_CABINETS, Registries.BLOCK)
+                .addTag(ModItemTags.WOODEN_CABINETS, Registries.ITEM)
                 .setTabKey(tab)
                 .addTile(ModBlockEntityTypes.CABINET)
                 .defaultRecipe()
@@ -157,9 +157,8 @@ public class EveryCompatModule extends SimpleModule {
         bedsideCabinets = SimpleEntrySet.builder(WoodType.class, "bedside_cabinet",
                         ModBlocks.OAK_BEDSIDE_CABINET, () -> VanillaWoodTypes.OAK,
                         w -> new BedsideCabinetBlock(Utils.copyPropertySafe(w.log)))
-                .addTag(BlockTags.MINEABLE_WITH_AXE, Registries.BLOCK)
-                .addTag(ModItemTags.BEDROOM, Registries.ITEM)
-                .addTag(ModItemTags.STORAGE, Registries.ITEM)
+                .addTag(ModBlockTags.WOODEN_BEDSIDE_CABINETS, Registries.BLOCK)
+                .addTag(ModItemTags.WOODEN_BEDSIDE_CABINETS, Registries.ITEM)
                 .setTabKey(tab)
                 .addTile(ModBlockEntityTypes.BEDSIDE_CABINET)
                 .defaultRecipe()
@@ -170,9 +169,8 @@ public class EveryCompatModule extends SimpleModule {
         strippedBedsideCabinets = SimpleEntrySet.builder(WoodType.class, "bedside_cabinet", "stripped",
                         ModBlocks.STRIPPED_OAK_BEDSIDE_CABINET, () -> VanillaWoodTypes.OAK,
                         w -> new BedsideCabinetBlock(Utils.copyPropertySafe(w.log)))
-                .addTag(BlockTags.MINEABLE_WITH_AXE, Registries.BLOCK)
-                .addTag(ModItemTags.BEDROOM, Registries.ITEM)
-                .addTag(ModItemTags.STORAGE, Registries.ITEM)
+                .addTag(ModBlockTags.WOODEN_BEDSIDE_CABINETS, Registries.BLOCK)
+                .addTag(ModItemTags.WOODEN_BEDSIDE_CABINETS, Registries.ITEM)
                 .setTabKey(tab)
                 .requiresChildren("stripped_log")
                 .addTile(ModBlockEntityTypes.BEDSIDE_CABINET)
@@ -184,8 +182,8 @@ public class EveryCompatModule extends SimpleModule {
         desks = SimpleEntrySet.builder(WoodType.class, "desk",
                         ModBlocks.OAK_DESK, () -> VanillaWoodTypes.OAK,
                         w -> new DeskBlock(Utils.copyPropertySafe(w.planks), DeskBlock.MaterialType.OAK))
-                .addTag(BlockTags.MINEABLE_WITH_AXE, Registries.BLOCK)
-                .addTag(ModItemTags.BEDROOM, Registries.ITEM)
+                .addTag(ModBlockTags.WOODEN_DESKS, Registries.BLOCK)
+                .addTag(ModItemTags.WOODEN_DESKS, Registries.ITEM)
                 .setTabKey(tab)
                 .defaultRecipe()
                 .setRenderType(RenderLayer.CUTOUT)
@@ -196,8 +194,8 @@ public class EveryCompatModule extends SimpleModule {
                         ModBlocks.STRIPPED_OAK_DESK, () -> VanillaWoodTypes.OAK,
                         w -> new DeskBlock(Utils.copyPropertySafe(w.log), DeskBlock.MaterialType.STRIPPED_OAK))
                 .requiresChildren("stripped_log")
-                .addTag(BlockTags.MINEABLE_WITH_AXE, Registries.BLOCK)
-                .addTag(ModItemTags.BEDROOM, Registries.ITEM)
+                .addTag(ModBlockTags.WOODEN_DESKS, Registries.BLOCK)
+                .addTag(ModItemTags.WOODEN_DESKS, Registries.ITEM)
                 .setTabKey(tab)
                 .defaultRecipe()
                 .setRenderType(RenderLayer.CUTOUT)
@@ -207,9 +205,8 @@ public class EveryCompatModule extends SimpleModule {
         deskCabinets = SimpleEntrySet.builder(WoodType.class, "desk_cabinet",
                         ModBlocks.OAK_DESK_CABINET, () -> VanillaWoodTypes.OAK,
                         w -> new DeskCabinetBlock(Utils.copyPropertySafe(w.log), DeskBlock.MaterialType.OAK))
-                .addTag(BlockTags.MINEABLE_WITH_AXE, Registries.BLOCK)
-                .addTag(ModItemTags.BEDROOM, Registries.ITEM)
-                .addTag(ModItemTags.STORAGE, Registries.ITEM)
+                .addTag(ModBlockTags.WOODEN_DESK_CABINETS, Registries.BLOCK)
+                .addTag(ModItemTags.WOODEN_DESK_CABINETS, Registries.ITEM)
                 .setTabKey(tab)
                 .addTile(ModBlockEntityTypes.DESK_CABINET)
                 .defaultRecipe()
@@ -220,9 +217,8 @@ public class EveryCompatModule extends SimpleModule {
         strippedDeskCabinets = SimpleEntrySet.builder(WoodType.class, "desk_cabinet", "stripped",
                         ModBlocks.STRIPPED_OAK_DESK_CABINET, () -> VanillaWoodTypes.OAK,
                         w -> new DeskCabinetBlock(Utils.copyPropertySafe(w.log), DeskBlock.MaterialType.STRIPPED_OAK)).requiresChildren("stripped_log")
-                .addTag(BlockTags.MINEABLE_WITH_AXE, Registries.BLOCK)
-                .addTag(ModItemTags.BEDROOM, Registries.ITEM)
-                .addTag(ModItemTags.STORAGE, Registries.ITEM)
+                .addTag(ModBlockTags.WOODEN_DESK_CABINETS, Registries.BLOCK)
+                .addTag(ModItemTags.WOODEN_DESK_CABINETS, Registries.ITEM)
                 .setTabKey(tab)
                 .addTile(ModBlockEntityTypes.DESK_CABINET)
                 .defaultRecipe()
@@ -234,8 +230,8 @@ public class EveryCompatModule extends SimpleModule {
                         ModBlocks.OAK_BLINDS, () -> VanillaWoodTypes.OAK,
                         w -> new BlindsBlock(Utils.copyPropertySafe(w.log)))
                 .requiresChildren("stripped_log")
-                .addTag(BlockTags.MINEABLE_WITH_AXE, Registries.BLOCK)
-                .addTag(ModItemTags.BEDROOM, Registries.ITEM)
+                .addTag(ModBlockTags.BLINDS, Registries.BLOCK)
+                .addTag(ModItemTags.BLINDS, Registries.ITEM)
                 .setTabKey(tab)
                 .defaultRecipe()
                 .build();
@@ -245,8 +241,8 @@ public class EveryCompatModule extends SimpleModule {
                         ModBlocks.STRIPPED_OAK_BLINDS, () -> VanillaWoodTypes.OAK,
                         w -> new BlindsBlock(Utils.copyPropertySafe(w.log)))
                 .requiresChildren("stripped_log")
-                .addTag(BlockTags.MINEABLE_WITH_AXE, Registries.BLOCK)
-                .addTag(ModItemTags.BEDROOM, Registries.ITEM)
+                .addTag(ModBlockTags.BLINDS, Registries.BLOCK)
+                .addTag(ModItemTags.BLINDS, Registries.ITEM)
                 .setTabKey(tab)
                 .defaultRecipe()
                 .build();
@@ -255,10 +251,7 @@ public class EveryCompatModule extends SimpleModule {
         upgradedFences = SimpleEntrySet.builder(WoodType.class, "upgraded_fence",
                         ModBlocks.OAK_UPGRADED_FENCE, () -> VanillaWoodTypes.OAK,
                         w -> new UpgradedFenceBlock(Utils.copyPropertySafe(w.planks)))
-                .addTag(BlockTags.FENCES, Registries.BLOCK)
-                .addTag(BlockTags.MINEABLE_WITH_AXE, Registries.BLOCK)
                 .addTag(ModBlockTags.UPGRADED_FENCES, Registries.BLOCK)
-                .addTag(ModItemTags.OUTDOORS, Registries.ITEM)
                 .addTag(ModItemTags.UPGRADED_FENCES, Registries.ITEM)
                 .setTabKey(tab)
                 .defaultRecipe()
@@ -269,10 +262,7 @@ public class EveryCompatModule extends SimpleModule {
         strippedUpgradedFences = SimpleEntrySet.builder(WoodType.class, "upgraded_fence", "stripped",
                         ModBlocks.STRIPPED_OAK_UPGRADED_FENCE, () -> VanillaWoodTypes.OAK,
                         w -> new UpgradedFenceBlock(Utils.copyPropertySafe(w.planks)))
-                .addTag(BlockTags.FENCES, Registries.BLOCK)
-                .addTag(BlockTags.MINEABLE_WITH_AXE, Registries.BLOCK)
                 .addTag(ModBlockTags.UPGRADED_FENCES, Registries.BLOCK)
-                .addTag(ModItemTags.OUTDOORS, Registries.ITEM)
                 .addTag(ModItemTags.UPGRADED_FENCES, Registries.ITEM)
                 .setTabKey(tab)
                 .defaultRecipe()
@@ -283,11 +273,7 @@ public class EveryCompatModule extends SimpleModule {
         upgradedGates = SimpleEntrySet.builder(WoodType.class, "upgraded_gate",
                         ModBlocks.OAK_UPGRADED_GATE, () -> VanillaWoodTypes.OAK,
                         w -> new UpgradedGateBlock(Utils.copyPropertySafe(w.planks)))
-                .addTag(BlockTags.FENCE_GATES, Registries.BLOCK)
-                .addTag(BlockTags.MINEABLE_WITH_AXE, Registries.BLOCK)
-                .addTag(BlockTags.UNSTABLE_BOTTOM_CENTER, Registries.BLOCK)
                 .addTag(ModBlockTags.UPGRADED_FENCE_GATES, Registries.BLOCK)
-                .addTag(ModItemTags.OUTDOORS, Registries.ITEM)
                 .addTag(ModItemTags.UPGRADED_FENCE_GATES, Registries.ITEM)
                 .setTabKey(tab)
                 .defaultRecipe()
@@ -298,11 +284,7 @@ public class EveryCompatModule extends SimpleModule {
         strippedUpgradedGates = SimpleEntrySet.builder(WoodType.class, "upgraded_gate", "stripped",
                         ModBlocks.STRIPPED_OAK_UPGRADED_GATE, () -> VanillaWoodTypes.OAK,
                         w -> new UpgradedGateBlock(Utils.copyPropertySafe(w.planks)))
-                .addTag(BlockTags.FENCE_GATES, Registries.BLOCK)
-                .addTag(BlockTags.MINEABLE_WITH_AXE, Registries.BLOCK)
-                .addTag(BlockTags.UNSTABLE_BOTTOM_CENTER, Registries.BLOCK)
                 .addTag(ModBlockTags.UPGRADED_FENCE_GATES, Registries.BLOCK)
-                .addTag(ModItemTags.OUTDOORS, Registries.ITEM)
                 .addTag(ModItemTags.UPGRADED_FENCE_GATES, Registries.ITEM)
                 .setTabKey(tab)
                 .defaultRecipe()
@@ -313,8 +295,8 @@ public class EveryCompatModule extends SimpleModule {
         crates = SimpleEntrySet.builder(WoodType.class, "crate",
                         ModBlocks.OAK_CRATE, () -> VanillaWoodTypes.OAK,
                         w -> new CrateBlock(Utils.copyPropertySafe(w.log)))
-                .addTag(BlockTags.MINEABLE_WITH_AXE, Registries.BLOCK)
-                .addTag(ModItemTags.STORAGE, Registries.ITEM)
+                .addTag(ModBlockTags.CRATES, Registries.BLOCK)
+                .addTag(ModItemTags.CRATES, Registries.ITEM)
                 .setTabKey(tab)
                 .addTile(ModBlockEntityTypes.CRATE)
                 .defaultRecipe()
@@ -326,8 +308,8 @@ public class EveryCompatModule extends SimpleModule {
                         ModBlocks.STRIPPED_OAK_CRATE, () -> VanillaWoodTypes.OAK,
                         w -> new CrateBlock(Utils.copyPropertySafe(w.log)))
                 .requiresChildren("stripped_log")
-                .addTag(BlockTags.MINEABLE_WITH_AXE, Registries.BLOCK)
-                .addTag(ModItemTags.STORAGE, Registries.ITEM)
+                .addTag(ModBlockTags.CRATES, Registries.BLOCK)
+                .addTag(ModItemTags.CRATES, Registries.ITEM)
                 .setTabKey(tab)
                 .addTile(ModBlockEntityTypes.CRATE)
                 .defaultRecipe()
@@ -338,9 +320,8 @@ public class EveryCompatModule extends SimpleModule {
         parkBenches = SimpleEntrySet.builder(WoodType.class, "park_bench",
                         ModBlocks.OAK_PARK_BENCH, () -> VanillaWoodTypes.OAK,
                         w -> new ParkBenchBlock(Utils.copyPropertySafe(w.planks)))
-                .addTag(BlockTags.MINEABLE_WITH_AXE, Registries.BLOCK)
-                .addTag(ModItemTags.OUTDOORS, Registries.ITEM)
-                .addTag(ModItemTags.STORAGE, Registries.ITEM)
+                .addTag(ModBlockTags.PARK_BENCHES, Registries.BLOCK)
+                .addTag(ModItemTags.PARK_BENCHES, Registries.ITEM)
                 .setTabKey(tab)
                 .defaultRecipe()
                 .setRenderType(RenderLayer.CUTOUT)
@@ -350,9 +331,8 @@ public class EveryCompatModule extends SimpleModule {
         strippedParkBenches = SimpleEntrySet.builder(WoodType.class, "park_bench", "stripped",
                         ModBlocks.STRIPPED_OAK_PARK_BENCH, () -> VanillaWoodTypes.OAK,
                         w -> new ParkBenchBlock(Utils.copyPropertySafe(w.log)))
-                .addTag(BlockTags.MINEABLE_WITH_AXE, Registries.BLOCK)
-                .addTag(ModItemTags.OUTDOORS, Registries.ITEM)
-                .addTag(ModItemTags.STORAGE, Registries.ITEM)
+                .addTag(ModBlockTags.PARK_BENCHES, Registries.BLOCK)
+                .addTag(ModItemTags.PARK_BENCHES, Registries.ITEM)
                 .requiresChildren("stripped_log")
                 .setTabKey(tab)
                 .defaultRecipe()
@@ -363,9 +343,8 @@ public class EveryCompatModule extends SimpleModule {
         mailBoxes = SimpleEntrySet.builder(WoodType.class, "mail_box",
                         ModBlocks.OAK_MAIL_BOX, () -> VanillaWoodTypes.OAK,
                         w -> new MailBoxBlock(Utils.copyPropertySafe(w.log)))
-                .addTag(BlockTags.MINEABLE_WITH_AXE, Registries.BLOCK)
-                .addTag(ModItemTags.OUTDOORS, Registries.ITEM)
-                .addTag(ModItemTags.STORAGE, Registries.ITEM)
+                .addTag(ModBlockTags.MAIL_BOXES, Registries.BLOCK)
+                .addTag(ModItemTags.MAIL_BOXES, Registries.ITEM)
                 .setTabKey(tab)
                 .addTile(ModBlockEntityTypes.MAIL_BOX)
                 .defaultRecipe()
@@ -377,9 +356,8 @@ public class EveryCompatModule extends SimpleModule {
                         ModBlocks.STRIPPED_OAK_MAIL_BOX, () -> VanillaWoodTypes.OAK,
                         w -> new MailBoxBlock(Utils.copyPropertySafe(w.log)))
                 .requiresChildren("stripped_log")
-                .addTag(BlockTags.MINEABLE_WITH_AXE, Registries.BLOCK)
-                .addTag(ModItemTags.OUTDOORS, Registries.ITEM)
-                .addTag(ModItemTags.STORAGE, Registries.ITEM)
+                .addTag(ModBlockTags.MAIL_BOXES, Registries.BLOCK)
+                .addTag(ModItemTags.MAIL_BOXES, Registries.ITEM)
                 .setTabKey(tab)
                 .addTile(ModBlockEntityTypes.MAIL_BOX)
                 .defaultRecipe()
@@ -394,10 +372,9 @@ public class EveryCompatModule extends SimpleModule {
                             if (l == null) return null;
                             return new HedgeBlock(Utils.copyPropertySafe(l));
                         })
-                .requiresChildren("leaves") // Reason: RECIPES
+                .requiresChildren("leaves")
                 .addTag(ModBlockTags.HEDGES, Registries.BLOCK)
                 .addTag(ModItemTags.HEDGES, Registries.ITEM)
-                .addTag(ModItemTags.OUTDOORS, Registries.ITEM)
                 .addModelTransform(m -> m.replaceWithTextureFromChild("minecraft:block/oak_leaves",
                         "leaves", s -> !s.contains("/snow") && !s.contains("_snow")))
                 .setTabKey(tab)
@@ -410,8 +387,8 @@ public class EveryCompatModule extends SimpleModule {
         kitchenCounters = SimpleEntrySet.builder(WoodType.class, "kitchen_counter",
                         ModBlocks.OAK_KITCHEN_COUNTER, () -> VanillaWoodTypes.OAK,
                         w -> new KitchenCounterBlock(Utils.copyPropertySafe(w.planks)))
-                .addTag(BlockTags.MINEABLE_WITH_AXE, Registries.BLOCK)
-                .addTag(ModItemTags.KITCHEN, Registries.ITEM)
+                .addTag(ModBlockTags.WOODEN_KITCHEN_COUNTERS, Registries.BLOCK)
+                .addTag(ModItemTags.WOODEN_KITCHEN_COUNTERS, Registries.ITEM)
                 .setTabKey(tab)
                 .defaultRecipe()
                 .setRenderType(RenderLayer.CUTOUT)
@@ -421,8 +398,8 @@ public class EveryCompatModule extends SimpleModule {
         strippedKitchenCounters = SimpleEntrySet.builder(WoodType.class, "kitchen_counter", "stripped",
                         ModBlocks.STRIPPED_OAK_KITCHEN_COUNTER, () -> VanillaWoodTypes.OAK,
                         w -> new KitchenCounterBlock(Utils.copyPropertySafe(w.log))).requiresChildren("stripped_log")
-                .addTag(BlockTags.MINEABLE_WITH_AXE, Registries.BLOCK)
-                .addTag(ModItemTags.KITCHEN, Registries.ITEM)
+                .addTag(ModBlockTags.WOODEN_KITCHEN_COUNTERS, Registries.BLOCK)
+                .addTag(ModItemTags.WOODEN_KITCHEN_COUNTERS, Registries.ITEM)
                 .setTabKey(tab)
                 .defaultRecipe()
                 .setRenderType(RenderLayer.CUTOUT)
@@ -432,9 +409,8 @@ public class EveryCompatModule extends SimpleModule {
         kitchenDrawers = SimpleEntrySet.builder(WoodType.class, "kitchen_drawer",
                         ModBlocks.OAK_KITCHEN_DRAWER, () -> VanillaWoodTypes.OAK,
                         w -> new KitchenDrawerBlock(Utils.copyPropertySafe(w.planks)))
-                .addTag(BlockTags.MINEABLE_WITH_AXE, Registries.BLOCK)
-                .addTag(ModItemTags.KITCHEN, Registries.ITEM)
-                .addTag(ModItemTags.STORAGE, Registries.ITEM)
+                .addTag(ModBlockTags.WOODEN_KITCHEN_DRAWERS, Registries.BLOCK)
+                .addTag(ModItemTags.WOODEN_KITCHEN_DRAWERS, Registries.ITEM)
                 .addTile(ModBlockEntityTypes.KITCHEN_DRAWER)
                 .setTabKey(tab)
                 .defaultRecipe()
@@ -446,9 +422,8 @@ public class EveryCompatModule extends SimpleModule {
                         ModBlocks.STRIPPED_OAK_KITCHEN_DRAWER, () -> VanillaWoodTypes.OAK,
                         w -> new KitchenDrawerBlock(Utils.copyPropertySafe(w.log)))
                 .requiresChildren("stripped_log")
-                .addTag(BlockTags.MINEABLE_WITH_AXE, Registries.BLOCK)
-                .addTag(ModItemTags.KITCHEN, Registries.ITEM)
-                .addTag(ModItemTags.STORAGE, Registries.ITEM)
+                .addTag(ModBlockTags.WOODEN_KITCHEN_DRAWERS, Registries.BLOCK)
+                .addTag(ModItemTags.WOODEN_KITCHEN_DRAWERS, Registries.ITEM)
                 .setTabKey(tab)
                 .addTile(ModBlockEntityTypes.KITCHEN_DRAWER)
                 .defaultRecipe()
@@ -459,8 +434,8 @@ public class EveryCompatModule extends SimpleModule {
         kitchenSinkLight = SimpleEntrySet.builder(WoodType.class, "kitchen_sink_light",
                         ModBlocks.OAK_KITCHEN_SINK_LIGHT, () -> VanillaWoodTypes.OAK,
                         w -> new KitchenSinkBlock(Utils.copyPropertySafe(w.planks), true))
-                .addTag(BlockTags.MINEABLE_WITH_AXE, Registries.BLOCK)
-                .addTag(ModItemTags.KITCHEN, Registries.ITEM)
+                .addTag(ModBlockTags.WOODEN_KITCHEN_SINKS, Registries.BLOCK)
+                .addTag(ModItemTags.WOODEN_KITCHEN_SINKS, Registries.ITEM)
                 .setTabKey(tab)
                 .addTile(ModBlockEntityTypes.KITCHEN_SINK)
                 .defaultRecipe()
@@ -472,8 +447,8 @@ public class EveryCompatModule extends SimpleModule {
                         ModBlocks.STRIPPED_OAK_KITCHEN_SINK_LIGHT, () -> VanillaWoodTypes.OAK,
                         w -> new KitchenSinkBlock(Utils.copyPropertySafe(w.log), true))
                 .requiresChildren("stripped_log")
-                .addTag(BlockTags.MINEABLE_WITH_AXE, Registries.BLOCK)
-                .addTag(ModItemTags.KITCHEN, Registries.ITEM)
+                .addTag(ModBlockTags.WOODEN_KITCHEN_SINKS, Registries.BLOCK)
+                .addTag(ModItemTags.WOODEN_KITCHEN_SINKS, Registries.ITEM)
                 .setTabKey(tab)
                 .addTile(ModBlockEntityTypes.KITCHEN_SINK)
                 .defaultRecipe()
@@ -484,8 +459,8 @@ public class EveryCompatModule extends SimpleModule {
         kitchenSinkDark = SimpleEntrySet.builder(WoodType.class, "kitchen_sink_dark",
                         ModBlocks.OAK_KITCHEN_SINK_DARK, () -> VanillaWoodTypes.OAK,
                         w -> new KitchenSinkBlock(Utils.copyPropertySafe(w.planks), true))
-                .addTag(BlockTags.MINEABLE_WITH_AXE, Registries.BLOCK)
-                .addTag(ModItemTags.KITCHEN, Registries.ITEM)
+                .addTag(ModBlockTags.WOODEN_KITCHEN_SINKS, Registries.BLOCK)
+                .addTag(ModItemTags.WOODEN_KITCHEN_SINKS, Registries.ITEM)
                 .setTabKey(tab)
                 .addTile(ModBlockEntityTypes.KITCHEN_SINK)
                 .defaultRecipe()
@@ -497,8 +472,8 @@ public class EveryCompatModule extends SimpleModule {
                         ModBlocks.STRIPPED_OAK_KITCHEN_SINK_DARK, () -> VanillaWoodTypes.OAK,
                         w -> new KitchenSinkBlock(Utils.copyPropertySafe(w.log), true))
                 .requiresChildren("stripped_log")
-                .addTag(BlockTags.MINEABLE_WITH_AXE, Registries.BLOCK)
-                .addTag(ModItemTags.KITCHEN, Registries.ITEM)
+                .addTag(ModBlockTags.WOODEN_KITCHEN_SINKS, Registries.BLOCK)
+                .addTag(ModItemTags.WOODEN_KITCHEN_SINKS, Registries.ITEM)
                 .setTabKey(tab)
                 .addTile(ModBlockEntityTypes.KITCHEN_SINK)
                 .defaultRecipe()

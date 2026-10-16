@@ -1,0 +1,27 @@
+{
+  "replace": false,
+  "values": [
+    { "id": "cfm:oak_blinds", "required": false },
+    { "id": "cfm:spruce_blinds", "required": false },
+    { "id": "cfm:birch_blinds", "required": false },
+    { "id": "cfm:jungle_blinds", "required": false },
+    { "id": "cfm:acacia_blinds", "required": false },
+    { "id": "cfm:dark_oak_blinds", "required": false },
+	{ "id": "cfm:crimson_blinds", "required": false },
+	{ "id": "cfm:warped_blinds", "required": false },
+	{ "id": "cfm:mangrove_blinds", "required": false },
+	{ "id": "cfm:cherry_blinds", "required": false },
+	{ "id": "cfm:bamboo_blinds", "required": false },
+	{ "id": "cfm:stripped_oak_blinds", "required": false },
+    { "id": "cfm:stripped_spruce_blinds", "required": false },
+    { "id": "cfm:stripped_birch_blinds", "required": false },
+    { "id": "cfm:stripped_jungle_blinds", "required": false },
+    { "id": "cfm:stripped_acacia_blinds", "required": false },
+    { "id": "cfm:stripped_dark_oak_blinds", "required": false },
+	{ "id": "cfm:stripped_crimson_blinds", "required": false },
+	{ "id": "cfm:stripped_warped_blinds", "required": false },
+	{ "id": "cfm:stripped_mangrove_blinds", "required": false },
+	{ "id": "cfm:stripped_cherry_blinds", "required": false },
+	{ "id": "cfm:stripped_bamboo_blinds", "required": false }
+  ]
+}
