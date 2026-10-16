@@ -32,7 +32,7 @@
     { "id": "#nfm:stone_desk_cabinets", "required": false },
 	{ "id": "#nfm:modern_desk_cabinets", "required": false },
     { "id": "#nfm:wall_cabinets", "required": false },
-    { "id": "#nfm:sofas", "required": false },
+    { "id": "#nfm:modern_sofas", "required": false },
     { "id": "#nfm:television_stands", "required": false },
     { "id": "#nfm:lamps", "required": false },
     { "id": "#nfm:modern_kitchen_counters", "required": false },
