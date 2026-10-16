@@ -1,0 +1,27 @@
+{
+  "replace": false,
+  "values": [
+    { "id": "cfm:oak_cabinet", "required": false },
+    { "id": "cfm:spruce_cabinet", "required": false },
+    { "id": "cfm:birch_cabinet", "required": false },
+    { "id": "cfm:jungle_cabinet", "required": false },
+    { "id": "cfm:acacia_cabinet", "required": false },
+    { "id": "cfm:dark_oak_cabinet", "required": false },
+	{ "id": "cfm:crimson_cabinet", "required": false },
+	{ "id": "cfm:warped_cabinet", "required": false },
+	{ "id": "cfm:mangrove_cabinet", "required": false },
+	{ "id": "cfm:cherry_cabinet", "required": false },
+	{ "id": "cfm:bamboo_cabinet", "required": false },
+	{ "id": "cfm:stripped_oak_cabinet", "required": false },
+    { "id": "cfm:stripped_spruce_cabinet", "required": false },
+    { "id": "cfm:stripped_birch_cabinet", "required": false },
+    { "id": "cfm:stripped_jungle_cabinet", "required": false },
+    { "id": "cfm:stripped_acacia_cabinet", "required": false },
+    { "id": "cfm:stripped_dark_oak_cabinet", "required": false },
+	{ "id": "cfm:stripped_crimson_cabinet", "required": false },
+	{ "id": "cfm:stripped_warped_cabinet", "required": false },
+	{ "id": "cfm:stripped_mangrove_cabinet", "required": false },
+	{ "id": "cfm:stripped_cherry_cabinet", "required": false },
+	{ "id": "cfm:stripped_bamboo_cabinet", "required": false }
+  ]
+}

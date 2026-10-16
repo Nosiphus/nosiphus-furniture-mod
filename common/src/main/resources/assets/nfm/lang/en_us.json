@@ -517,6 +517,7 @@
 	"block.nfm.veggie_juice": "Veggie Juice",
 
 	"configgui.nfm.requireOpToSetUrls": "Operator permissions to change GIFs",
+	"configgui.nfm.trustedServers": "Trusted servers for unapproved GIFs",
 	"configgui.nfm.trustedUrls": "Trusted URLs for GIFs",
 
 	"container.nfm.bedside_cabinet": "Bedside Cabinet",

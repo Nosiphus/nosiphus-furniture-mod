@@ -6,23 +6,40 @@ import java.util.function.Supplier;
 
 public class FurnitureConfig {
 
-    private static BooleanSupplier requireOpToSetUrls = () -> true;
-    private static Supplier<List<String>> trustedUrls = () -> List.of(
+    public static final boolean DEFAULT_REQUIRE_OP_TO_SET_URLS = true;
+
+    public static final List<String> DEFAULT_TRUSTED_SERVERS = List.of(
+            "www.example.com"
+    );
+
+    public static final List<String> DEFAULT_TRUSTED_URLS = List.of(
             "https://imgur.com/",
             "https://giphy.com/",
             "https://discordapp.com/"
     );
 
-    public static void setCommonConfig(BooleanSupplier requireOpToSetUrls, Supplier<List<String>> trustedUrls) {
-        FurnitureConfig.requireOpToSetUrls = requireOpToSetUrls;
-        FurnitureConfig.trustedUrls = trustedUrls;
+    private static Supplier<List<String>> trustedServersSupplier = () -> DEFAULT_TRUSTED_SERVERS;
+    private static BooleanSupplier requireOpToSetUrlsSupplier = () -> DEFAULT_REQUIRE_OP_TO_SET_URLS;
+    private static Supplier<List<String>> trustedUrlsSupplier = () -> DEFAULT_TRUSTED_URLS;
+
+    public static void setClientConfig(Supplier<List<String>> trustedServers) {
+        trustedServersSupplier = trustedServers;
     }
 
-    public static boolean isRequireOpToSetUrls() {
-        return requireOpToSetUrls.getAsBoolean();
+    public static void setCommonConfig(BooleanSupplier requireOpToSetUrls, Supplier<List<String>> trustedUrls) {
+        requireOpToSetUrlsSupplier = requireOpToSetUrls;
+        trustedUrlsSupplier = trustedUrls;
+    }
+
+    public static List<String> getTrustedServers() {
+        return trustedServersSupplier.get();
+    }
+
+    public static boolean requireOpToSetUrls() {
+        return requireOpToSetUrlsSupplier.getAsBoolean();
     }
 
     public static List<String> getTrustedUrls() {
-        return trustedUrls.get();
+        return trustedUrlsSupplier.get();
     }
 }

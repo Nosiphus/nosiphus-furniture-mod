@@ -17,26 +17,25 @@ public class NetworkFabric {
         PayloadTypeRegistry.playC2S().register(ServerboundSetMailBoxName.TYPE, ServerboundSetMailBoxName.STREAM_CODEC);
 
         ServerPlayNetworking.registerGlobalReceiver(ServerboundLockCrate.TYPE, (payload, context) -> {
-            context.server().execute(() -> PacketHandlers.handleLockCrate(payload, context.player()));
+            context.server().execute(() -> ServerPacketHandlers.handleLockCrate(payload, context.player()));
         });
         ServerPlayNetworking.registerGlobalReceiver(ServerboundOpenMailBox.TYPE, (payload, context) -> {
-            context.server().execute(() -> PacketHandlers.handleOpenMailBox(payload, context.player()));
+            context.server().execute(() -> ServerPacketHandlers.handleOpenMailBox(payload, context.player()));
         });
         ServerPlayNetworking.registerGlobalReceiver(ServerboundSendMail.TYPE, (payload, context) -> {
-            context.server().execute(() -> PacketHandlers.handleSendMail(payload, context.player()));
+            context.server().execute(() -> ServerPacketHandlers.handleSendMail(payload, context.player()));
         });
         ServerPlayNetworking.registerGlobalReceiver(ServerboundSetDoorMat.TYPE, (payload, context) -> {
-            context.server().execute(() -> PacketHandlers.handleSetDoorMat(payload, context.player()));
+            context.server().execute(() -> ServerPacketHandlers.handleSetDoorMat(payload, context.player()));
         });
         ServerPlayNetworking.registerGlobalReceiver(ServerboundSetMailBoxName.TYPE, (payload, context) -> {
-            context.server().execute(() -> PacketHandlers.handleSetMailBoxName(payload, context.player()));
+            context.server().execute(() -> ServerPacketHandlers.handleSetMailBoxName(payload, context.player()));
         });
     }
 
     public static void registerClient() {
         ClientPlayNetworking.registerGlobalReceiver(ClientboundFlipGrill.TYPE, (payload, context) -> {
-            context.client().execute(() -> PacketHandlers.handleFlipGrill(payload));
+            context.client().execute(() -> ClientPacketHandlers.handleFlipGrill(payload));
         });
     }
-
 }

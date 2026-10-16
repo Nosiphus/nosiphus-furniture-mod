@@ -1,0 +1,27 @@
+{
+  "replace": false,
+  "values": [
+    { "id": "cfm:oak_coffee_table", "required": false },
+    { "id": "cfm:spruce_coffee_table", "required": false },
+    { "id": "cfm:birch_coffee_table", "required": false },
+    { "id": "cfm:jungle_coffee_table", "required": false },
+    { "id": "cfm:acacia_coffee_table", "required": false },
+    { "id": "cfm:dark_oak_coffee_table", "required": false },
+	{ "id": "cfm:crimson_coffee_table", "required": false },
+	{ "id": "cfm:warped_coffee_table", "required": false },
+	{ "id": "cfm:mangrove_coffee_table", "required": false },
+	{ "id": "cfm:cherry_coffee_table", "required": false },
+	{ "id": "cfm:bamboo_coffee_table", "required": false },
+	{ "id": "cfm:stripped_oak_coffee_table", "required": false },
+    { "id": "cfm:stripped_spruce_coffee_table", "required": false },
+    { "id": "cfm:stripped_birch_coffee_table", "required": false },
+    { "id": "cfm:stripped_jungle_coffee_table", "required": false },
+    { "id": "cfm:stripped_acacia_coffee_table", "required": false },
+    { "id": "cfm:stripped_dark_oak_coffee_table", "required": false },
+	{ "id": "cfm:stripped_crimson_coffee_table", "required": false },
+	{ "id": "cfm:stripped_warped_coffee_table", "required": false },
+	{ "id": "cfm:stripped_mangrove_coffee_table", "required": false },
+	{ "id": "cfm:stripped_cherry_coffee_table", "required": false },
+	{ "id": "cfm:stripped_bamboo_coffee_table", "required": false }
+  ]
+}

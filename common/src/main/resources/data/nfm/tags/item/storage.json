@@ -1,11 +1,16 @@
 {
   "replace": false,
   "values": [
-	{ "id": "#nfm:cabinets", "required": false },
-	{ "id": "#nfm:bedside_cabinets", "required": false },
+	{ "id": "#nfm:stone_cabinets", "required": false },
+	{ "id": "#nfm:modern_cabinets", "required": false },
+	{ "id": "#nfm:stone_bedside_cabinets", "required": false },
+	{ "id": "#nfm:modern_bedside_cabinets", "required": false },
 	{ "id": "#nfm:wall_cabinets", "required": false },
-	{ "id": "#nfm:kitchen_drawers", "required": false },
-	{ "id": "#nfm:desk_cabinets", "required": false },
+	{ "id": "#nfm:modern_kitchen_drawers", "required": false },
+	{ "id": "#nfm:stone_desk_cabinets", "required": false },
+	{ "id": "#nfm:modern_desk_cabinets", "required": false },
+	{ "id": "#nfm:modern_kitchen_sinks", "required": false },
+	{ "id": "#nfm:water_tanks", "required": false },
 	{ "id": "nfm:crowbar", "required": false }
   ]
 }

@@ -1,12 +1,17 @@
 {
   "replace": false,
   "values": [
-    { "id": "#nfm:tables", "required": false },
-    { "id": "#nfm:chairs", "required": false },
-    { "id": "#nfm:coffee_tables", "required": false },
-	{ "id": "#nfm:sofas", "required": false },
+    { "id": "#nfm:stone_tables", "required": false },
+	{ "id": "#nfm:modern_tables", "required": false },
+    { "id": "#nfm:stone_chairs", "required": false },
+	{ "id": "#nfm:modern_chairs", "required": false },
+    { "id": "#nfm:stone_coffee_tables", "required": false },
+	{ "id": "#nfm:modern_coffee_tables", "required": false },
+	{ "id": "#nfm:modern_sofas", "required": false },
 	{ "id": "#nfm:bar_stools", "required": false },
-	{ "id": "#nfm:desks", "required": false },
-    { "id": "#nfm:desk_cabinets", "required": false }
+	{ "id": "#nfm:stone_desks", "required": false },
+	{ "id": "#nfm:modern_desks", "required": false },
+    { "id": "#nfm:stone_desk_cabinets", "required": false },
+	{ "id": "#nfm:modern_desk_cabinets", "required": false }
   ]
 }

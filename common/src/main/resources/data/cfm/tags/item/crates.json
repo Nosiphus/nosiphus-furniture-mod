@@ -1,0 +1,27 @@
+{
+  "replace": false,
+  "values": [
+    { "id": "cfm:oak_crate", "required": false },
+    { "id": "cfm:spruce_crate", "required": false },
+    { "id": "cfm:birch_crate", "required": false },
+    { "id": "cfm:jungle_crate", "required": false },
+    { "id": "cfm:acacia_crate", "required": false },
+    { "id": "cfm:dark_oak_crate", "required": false },
+	{ "id": "cfm:crimson_crate", "required": false },
+	{ "id": "cfm:warped_crate", "required": false },
+	{ "id": "cfm:mangrove_crate", "required": false },
+	{ "id": "cfm:cherry_crate", "required": false },
+	{ "id": "cfm:bamboo_crate", "required": false },
+	{ "id": "cfm:stripped_oak_crate", "required": false },
+    { "id": "cfm:stripped_spruce_crate", "required": false },
+    { "id": "cfm:stripped_birch_crate", "required": false },
+    { "id": "cfm:stripped_jungle_crate", "required": false },
+    { "id": "cfm:stripped_acacia_crate", "required": false },
+    { "id": "cfm:stripped_dark_oak_crate", "required": false },
+	{ "id": "cfm:stripped_crimson_crate", "required": false },
+	{ "id": "cfm:stripped_warped_crate", "required": false },
+	{ "id": "cfm:stripped_mangrove_crate", "required": false },
+	{ "id": "cfm:stripped_cherry_crate", "required": false },
+	{ "id": "cfm:stripped_bamboo_crate", "required": false }
+  ]
+}

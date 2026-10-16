@@ -1,0 +1,27 @@
+{
+  "replace": false,
+  "values": [
+    { "id": "cfm:oak_mail_box", "required": false },
+    { "id": "cfm:spruce_mail_box", "required": false },
+    { "id": "cfm:birch_mail_box", "required": false },
+    { "id": "cfm:jungle_mail_box", "required": false },
+    { "id": "cfm:acacia_mail_box", "required": false },
+    { "id": "cfm:dark_oak_mail_box", "required": false },
+	{ "id": "cfm:crimson_mail_box", "required": false },
+	{ "id": "cfm:warped_mail_box", "required": false },
+	{ "id": "cfm:mangrove_mail_box", "required": false },
+	{ "id": "cfm:cherry_mail_box", "required": false },
+	{ "id": "cfm:bamboo_mail_box", "required": false },
+	{ "id": "cfm:stripped_oak_mail_box", "required": false },
+    { "id": "cfm:stripped_spruce_mail_box", "required": false },
+    { "id": "cfm:stripped_birch_mail_box", "required": false },
+    { "id": "cfm:stripped_jungle_mail_box", "required": false },
+    { "id": "cfm:stripped_acacia_mail_box", "required": false },
+    { "id": "cfm:stripped_dark_oak_mail_box", "required": false },
+	{ "id": "cfm:stripped_crimson_mail_box", "required": false },
+	{ "id": "cfm:stripped_warped_mail_box", "required": false },
+	{ "id": "cfm:stripped_mangrove_mail_box", "required": false },
+	{ "id": "cfm:stripped_cherry_mail_box", "required": false },
+	{ "id": "cfm:stripped_bamboo_mail_box", "required": false }
+  ]
+}

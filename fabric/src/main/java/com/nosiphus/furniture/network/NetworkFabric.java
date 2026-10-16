@@ -16,26 +16,25 @@ public class NetworkFabric {
         PayloadTypeRegistry.playC2S().register(ServerboundTVURLSync.TYPE, ServerboundTVURLSync.STREAM_CODEC);
 
         ServerPlayNetworking.registerGlobalReceiver(ServerboundBinEmpty.TYPE, (payload, context) -> {
-            context.server().execute(() -> PacketHandlers.handleBinEmpty(payload, context.player()));
+            context.server().execute(() -> ServerPacketHandlers.handleBinEmpty(payload, context.player()));
         });
 
         ServerPlayNetworking.registerGlobalReceiver(ServerboundTVChannelSync.TYPE, (payload, context) -> {
-            context.server().execute(() -> PacketHandlers.handleTVChannelSync(payload, context.player()));
+            context.server().execute(() -> ServerPacketHandlers.handleTVChannelSync(payload, context.player()));
         });
 
         ServerPlayNetworking.registerGlobalReceiver(ServerboundTVURLSync.TYPE, (payload, context) -> {
-            context.server().execute(() -> PacketHandlers.handleTVURLSync(payload, context.player()));
+            context.server().execute(() -> ServerPacketHandlers.handleTVURLSync(payload, context.player()));
         });
     }
 
     public static void registerClient() {
         ClientPlayNetworking.registerGlobalReceiver(ClientboundDishwasherSync.TYPE, (payload, context) -> {
-            context.client().execute(() -> PacketHandlers.handleDishwasherSync(payload));
+            context.client().execute(() -> ClientPacketHandlers.handleDishwasherSync(payload));
         });
 
         ClientPlayNetworking.registerGlobalReceiver(ClientboundWashingMachineSync.TYPE, (payload, context) -> {
-            context.client().execute(() -> PacketHandlers.handleWashingMachineSync(payload));
+            context.client().execute(() -> ClientPacketHandlers.handleWashingMachineSync(payload));
         });
     }
-
 }

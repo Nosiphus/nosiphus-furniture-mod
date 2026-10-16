@@ -1,6 +1,7 @@
 package com.nosiphus.furniture.integration.everycomp;
 
 import com.nosiphus.furniture.NosiphusFurnitureMod;
+import com.nosiphus.furniture.tags.ModBlockTags;
 import com.nosiphus.furniture.tags.ModItemTags;
 import com.nosiphus.furniture.world.level.block.ChoppingBoardBlock;
 import com.nosiphus.furniture.world.level.block.DoorBellBlock;
@@ -14,7 +15,6 @@ import net.mehvahdjukaar.moonlight.api.set.wood.WoodType;
 import net.mehvahdjukaar.moonlight.api.util.Utils;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.tags.BlockTags;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 
@@ -37,8 +37,8 @@ public class EveryCompatModule extends SimpleModule {
                 )
                 .requiresChildren("slab")
                 .addTile(ModBlockEntityTypes.CHOPPING_BOARD)
-                .addTag(BlockTags.MINEABLE_WITH_AXE, Registries.BLOCK)
-                .addTag(ModItemTags.KITCHEN, Registries.ITEM)
+                .addTag(ModBlockTags.CHOPPING_BOARDS, Registries.BLOCK)
+                .addTag(ModItemTags.CHOPPING_BOARDS, Registries.ITEM)
                 .setTabKey(tab)
                 .defaultRecipe()
                 .build();
@@ -48,9 +48,8 @@ public class EveryCompatModule extends SimpleModule {
                         ModBlocks.OAK_DOOR_BELL, () -> VanillaWoodTypes.OAK,
                         w -> new DoorBellBlock(Utils.copyPropertySafe(w.log).noOcclusion())
                 )
-                .addTag(BlockTags.MINEABLE_WITH_AXE, Registries.BLOCK)
-                .addTag(ModItemTags.ELECTRONICS, Registries.ITEM)
-                .addTag(ModItemTags.OUTDOORS, Registries.ITEM)
+                .addTag(ModBlockTags.DOOR_BELLS, Registries.BLOCK)
+                .addTag(ModItemTags.DOOR_BELLS, Registries.ITEM)
                 .setTabKey(tab)
                 .defaultRecipe()
                 .build();
@@ -61,9 +60,8 @@ public class EveryCompatModule extends SimpleModule {
                         w -> new DoorBellBlock(Utils.copyPropertySafe(Objects.requireNonNull(w.getBlockOfThis("stripped_log"))).noOcclusion())
                 )
                 .requiresChildren("stripped_log")
-                .addTag(BlockTags.MINEABLE_WITH_AXE, Registries.BLOCK)
-                .addTag(ModItemTags.ELECTRONICS, Registries.ITEM)
-                .addTag(ModItemTags.OUTDOORS, Registries.ITEM)
+                .addTag(ModBlockTags.DOOR_BELLS, Registries.BLOCK)
+                .addTag(ModItemTags.DOOR_BELLS, Registries.ITEM)
                 .setTabKey(tab)
                 .defaultRecipe()
                 .build();
@@ -74,8 +72,8 @@ public class EveryCompatModule extends SimpleModule {
                         w -> new WaterTankBlock(Utils.copyPropertySafe(Blocks.CAULDRON).noOcclusion())
                 )
                 .addTile(getModTile("water_tank"))
-                .addTag(BlockTags.MINEABLE_WITH_AXE, Registries.BLOCK)
-                .addTag(ModItemTags.OUTDOORS, Registries.ITEM)
+                .addTag(ModBlockTags.WATER_TANKS, Registries.BLOCK)
+                .addTag(ModItemTags.WATER_TANKS, Registries.ITEM)
                 .setTabKey(tab)
                 .defaultRecipe()
                 .build();

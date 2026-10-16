@@ -10,7 +10,8 @@ import com.mrcrayfish.furniture.client.renderer.blockentity.DoorMatBlockEntityRe
 import com.mrcrayfish.furniture.client.renderer.blockentity.GrillBlockEntityRenderer;
 import com.mrcrayfish.furniture.client.renderer.blockentity.KitchenSinkBlockEntityRenderer;
 import com.mrcrayfish.furniture.client.renderer.entity.SeatRenderer;
-import com.mrcrayfish.furniture.network.PacketHandlers;
+import com.mrcrayfish.furniture.network.ClientPacketHandlers;
+import com.mrcrayfish.furniture.network.ServerPacketHandlers;
 import com.mrcrayfish.furniture.network.protocol.common.*;
 import com.mrcrayfish.furniture.platform.NeoForgeFluidHelper;
 import com.mrcrayfish.furniture.platform.NeoForgeRegistryHelper;
@@ -438,37 +439,37 @@ public class MrCrayFishFurnitureModNeoForge {
             registrar.playToClient(
                     ClientboundFlipGrill.TYPE,
                     ClientboundFlipGrill.STREAM_CODEC,
-                    (payload, context) -> context.enqueueWork(() -> PacketHandlers.handleFlipGrill(payload))
+                    (payload, context) -> context.enqueueWork(() -> ClientPacketHandlers.handleFlipGrill(payload))
             );
 
             registrar.playToServer(
                     ServerboundLockCrate.TYPE,
                     ServerboundLockCrate.STREAM_CODEC,
-                    (payload, context) -> context.enqueueWork(() -> PacketHandlers.handleLockCrate(payload, (ServerPlayer) context.player()))
+                    (payload, context) -> context.enqueueWork(() -> ServerPacketHandlers.handleLockCrate(payload, (ServerPlayer) context.player()))
             );
 
             registrar.playToServer(
                     ServerboundOpenMailBox.TYPE,
                     ServerboundOpenMailBox.STREAM_CODEC,
-                    (payload, context) -> context.enqueueWork(() -> PacketHandlers.handleOpenMailBox(payload, (ServerPlayer) context.player()))
+                    (payload, context) -> context.enqueueWork(() -> ServerPacketHandlers.handleOpenMailBox(payload, (ServerPlayer) context.player()))
             );
 
             registrar.playToServer(
                     ServerboundSendMail.TYPE,
                     ServerboundSendMail.STREAM_CODEC,
-                    (payload, context) -> context.enqueueWork(() -> PacketHandlers.handleSendMail(payload, (ServerPlayer) context.player()))
+                    (payload, context) -> context.enqueueWork(() -> ServerPacketHandlers.handleSendMail(payload, (ServerPlayer) context.player()))
             );
 
             registrar.playToServer(
                     ServerboundSetDoorMat.TYPE,
                     ServerboundSetDoorMat.STREAM_CODEC,
-                    (payload, context) -> context.enqueueWork(() -> PacketHandlers.handleSetDoorMat(payload, (ServerPlayer) context.player()))
+                    (payload, context) -> context.enqueueWork(() -> ServerPacketHandlers.handleSetDoorMat(payload, (ServerPlayer) context.player()))
             );
 
             registrar.playToServer(
                     ServerboundSetMailBoxName.TYPE,
                     ServerboundSetMailBoxName.STREAM_CODEC,
-                    (payload, context) -> context.enqueueWork(() -> PacketHandlers.handleSetMailBoxName(payload, (ServerPlayer) context.player()))
+                    (payload, context) -> context.enqueueWork(() -> ServerPacketHandlers.handleSetMailBoxName(payload, (ServerPlayer) context.player()))
             );
         }
 

@@ -8,7 +8,8 @@ import com.nosiphus.furniture.client.particle.ModParticleTypes;
 import com.nosiphus.furniture.client.particle.ShowerParticle;
 import com.nosiphus.furniture.client.renderer.blockentity.*;
 import com.nosiphus.furniture.client.renderer.entity.SeatRenderer;
-import com.nosiphus.furniture.network.PacketHandlers;
+import com.nosiphus.furniture.network.ClientPacketHandlers;
+import com.nosiphus.furniture.network.ServerPacketHandlers;
 import com.nosiphus.furniture.network.protocol.common.*;
 import com.nosiphus.furniture.platform.NeoForgeRegistryHelper;
 import com.nosiphus.furniture.world.entity.ModEntityTypes;
@@ -76,6 +77,7 @@ public class NosiphusFurnitureModNeoForge {
         NeoForgeRegistryHelper.RECIPE_TYPES.register(eventBus);
         NeoForgeRegistryHelper.SOUND_EVENTS.register(eventBus);
 
+        container.registerConfig(ModConfig.Type.CLIENT, FurnitureConfigNeoForge.CLIENT_SPEC);
         container.registerConfig(ModConfig.Type.COMMON, FurnitureConfigNeoForge.COMMON_SPEC);
         FurnitureConfigNeoForge.init();
 
@@ -218,27 +220,27 @@ public class NosiphusFurnitureModNeoForge {
             registrar.playToClient(
                     ClientboundDishwasherSync.TYPE,
                     ClientboundDishwasherSync.STREAM_CODEC,
-                    (payload, context) -> context.enqueueWork(() -> PacketHandlers.handleDishwasherSync(payload))
+                    (payload, context) -> context.enqueueWork(() -> ClientPacketHandlers.handleDishwasherSync(payload))
             );
             registrar.playToClient(
                     ClientboundWashingMachineSync.TYPE,
                     ClientboundWashingMachineSync.STREAM_CODEC,
-                    (payload, context) -> context.enqueueWork(() -> PacketHandlers.handleWashingMachineSync(payload))
+                    (payload, context) -> context.enqueueWork(() -> ClientPacketHandlers.handleWashingMachineSync(payload))
             );
             registrar.playToServer(
                     ServerboundBinEmpty.TYPE,
                     ServerboundBinEmpty.STREAM_CODEC,
-                    (payload, context) -> context.enqueueWork(() -> PacketHandlers.handleBinEmpty(payload, (ServerPlayer) context.player()))
+                    (payload, context) -> context.enqueueWork(() -> ServerPacketHandlers.handleBinEmpty(payload, (ServerPlayer) context.player()))
             );
             registrar.playToServer(
                     ServerboundTVChannelSync.TYPE,
                     ServerboundTVChannelSync.STREAM_CODEC,
-                    (payload, context) -> context.enqueueWork(() -> PacketHandlers.handleTVChannelSync(payload, (ServerPlayer) context.player()))
+                    (payload, context) -> context.enqueueWork(() -> ServerPacketHandlers.handleTVChannelSync(payload, (ServerPlayer) context.player()))
             );
             registrar.playToServer(
                     ServerboundTVURLSync.TYPE,
                     ServerboundTVURLSync.STREAM_CODEC,
-                    (payload, context) -> context.enqueueWork(() -> PacketHandlers.handleTVURLSync(payload, (ServerPlayer) context.player()))
+                    (payload, context) -> context.enqueueWork(() -> ServerPacketHandlers.handleTVURLSync(payload, (ServerPlayer) context.player()))
             );
         }
     }
