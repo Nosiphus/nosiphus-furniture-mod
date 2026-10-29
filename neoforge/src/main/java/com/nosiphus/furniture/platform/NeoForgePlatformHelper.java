@@ -10,11 +10,17 @@ import net.minecraft.world.MenuProvider;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.MenuType;
 import net.minecraft.world.item.BlockItem;
+import net.minecraft.world.item.BucketItem;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.material.Fluid;
+import net.minecraft.world.level.material.Fluids;
 import net.neoforged.fml.ModList;
 import net.neoforged.fml.loading.FMLLoader;
 import net.neoforged.neoforge.common.extensions.IMenuTypeExtension;
+import net.neoforged.neoforge.fluids.FluidStack;
+import net.neoforged.neoforge.fluids.FluidUtil;
 
 import java.util.function.Consumer;
 
@@ -66,5 +72,12 @@ public class NeoForgePlatformHelper implements IPlatformHelper {
     @Override
     public BlockItem createCupItem(Block block, Item.Properties properties) {
         return new CupItem(block, properties);
+    }
+
+    @Override
+    public Fluid getFluidFromBucket(BucketItem bucketItem) {
+        return FluidUtil.getFluidContained(new ItemStack(bucketItem))
+                .map(FluidStack::getFluid)
+                .orElse(Fluids.EMPTY);
     }
 }

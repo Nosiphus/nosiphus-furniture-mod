@@ -19,8 +19,10 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.MenuType;
 import net.minecraft.world.item.BlockItem;
+import net.minecraft.world.item.BucketItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.material.Fluid;
 
 import java.util.function.Consumer;
 
@@ -99,5 +101,10 @@ public class FabricPlatformHelper implements IPlatformHelper {
     @Override
     public BlockItem createCupItem(Block block, Item.Properties properties) {
         return new CupItem(block, properties);
+    }
+
+    @Override
+    public Fluid getFluidFromBucket(BucketItem bucketItem) {
+        return bucketItem.content;
     }
 }

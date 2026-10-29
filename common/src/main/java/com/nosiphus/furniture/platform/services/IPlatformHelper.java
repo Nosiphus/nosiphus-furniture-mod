@@ -9,8 +9,10 @@ import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.MenuType;
 import net.minecraft.world.item.BlockItem;
+import net.minecraft.world.item.BucketItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.material.Fluid;
 
 import java.util.function.Consumer;
 
@@ -58,5 +60,6 @@ public interface IPlatformHelper {
         T create(int windowId, Inventory inventory, RegistryFriendlyByteBuf buf);
     }
     BlockItem createCupItem(Block block, Item.Properties properties);
+    Fluid getFluidFromBucket(BucketItem bucketItem);
 
 }
