@@ -10,9 +10,11 @@ import net.minecraft.world.MenuProvider;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.MenuType;
 import net.minecraft.world.item.BlockItem;
+import net.minecraft.world.item.BucketItem;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.material.Fluid;
 import net.minecraftforge.common.extensions.IForgeMenuType;
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.loading.FMLLoader;
@@ -106,5 +108,10 @@ public class ForgePlatformHelper implements IPlatformHelper {
     @Override
     public BlockItem createCupItem(Block block, Item.Properties properties) {
         return new CupItemForge(block, properties);
+    }
+
+    @Override
+    public Fluid getFluidFromBucket(BucketItem bucketItem) {
+        return bucketItem.getFluid();
     }
 }

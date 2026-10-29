@@ -4,6 +4,7 @@ import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
 import com.mrcrayfish.furniture.world.level.block.FurnitureHorizontalBlock;
 import com.mrcrayfish.furniture.world.phys.shapes.VoxelShapeHelper;
+import com.nosiphus.furniture.platform.Services;
 import com.nosiphus.furniture.world.item.CupItem;
 import com.nosiphus.furniture.world.level.block.entity.BlenderBlockEntity;
 import com.nosiphus.furniture.world.level.block.entity.ModBlockEntityTypes;
@@ -104,9 +105,9 @@ public class BlenderBlock extends FurnitureHorizontalBlock implements EntityBloc
 
         ItemStack heldItem = player.getItemInHand(hand);
 
-        if (heldItem.getItem() instanceof BucketItem bucketItem && bucketItem.content != Fluids.EMPTY) {
-            Fluid incomingFluid = bucketItem.content;
-            if (blender.canFill(incomingFluid, 1000)) {
+        if (heldItem.getItem() instanceof BucketItem bucketItem) {
+            Fluid incomingFluid = Services.PLATFORM.getFluidFromBucket(bucketItem);
+            if (incomingFluid != Fluids.EMPTY && blender.canFill(incomingFluid, 1000)) {
                 if (!level.isClientSide) {
                     blender.fill(incomingFluid, 1000);
                     player.setItemInHand(hand, ItemUtils.createFilledResult(

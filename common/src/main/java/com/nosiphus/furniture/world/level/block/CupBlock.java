@@ -4,6 +4,7 @@ import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
 import com.mrcrayfish.furniture.world.level.block.FurnitureBlock;
 import com.mrcrayfish.furniture.world.phys.shapes.VoxelShapeHelper;
+import com.nosiphus.furniture.platform.Services;
 import com.nosiphus.furniture.world.item.CupItem;
 import com.nosiphus.furniture.world.level.block.entity.CupBlockEntity;
 import net.minecraft.core.BlockPos;
@@ -105,9 +106,9 @@ public class CupBlock extends FurnitureBlock implements EntityBlock {
             return InteractionResult.PASS;
         }
 
-        if (heldItem.getItem() instanceof BucketItem bucketItem && bucketItem.content != Fluids.EMPTY) {
-            Fluid incomingFluid = bucketItem.content;
-            if (cup.canFill(incomingFluid, 1000)) {
+        if (heldItem.getItem() instanceof BucketItem bucketItem) {
+            Fluid incomingFluid = Services.PLATFORM.getFluidFromBucket(bucketItem);
+            if (incomingFluid != Fluids.EMPTY && cup.canFill(incomingFluid, 1000)) {
                 if (!level.isClientSide) {
                     cup.fill(incomingFluid, 1000);
                     player.setItemInHand(hand, ItemUtils.createFilledResult(
