@@ -5,7 +5,6 @@ import com.google.common.collect.ImmutableMap;
 import com.mrcrayfish.furniture.world.entity.decoration.SeatEntity;
 import com.mrcrayfish.furniture.world.level.block.FurnitureHorizontalBlock;
 import com.mrcrayfish.furniture.world.phys.shapes.VoxelShapeHelper;
-import net.mehvahdjukaar.moonlight.api.set.leaves.VanillaLeavesTypes;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.util.StringRepresentable;
