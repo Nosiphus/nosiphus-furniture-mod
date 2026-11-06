@@ -23,7 +23,7 @@ displayURL="https://www.curseforge.com/minecraft/mc-mods/nosiphus-furniture-mod"
 logoFile="cfm-logo.png" #optional
 credits="The people who helped me when I first started creating mods. I wouldn't be here without them!" #optional
 authors = "MrCrayFish, Nosiphus" #optional
-description = '''MrCrayfish's Furniture Mod is all about adding functioning furniture and decorations. This mod currently adds over eighty unique blocks and is continuely growing with new updates. Ported by Nosiphus as part of Nosiphus Furniture Mod.''' #mandatory (Supports multiline text)
+description = '''The greatest furniture mod ever made, updated and extended for modern versions of Minecraft.''' #mandatory (Supports multiline text)
 
 [[mixins]]
 config = "${mod_id}.mixins.json"

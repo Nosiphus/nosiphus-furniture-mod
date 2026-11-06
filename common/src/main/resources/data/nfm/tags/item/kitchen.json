@@ -25,6 +25,7 @@
 	{ "id": "nfm:dishwasher_dark", "required": false },
 	{ "id": "#nfm:chopping_boards", "required": false },
 	{ "id": "#nfm:bar_stools", "required": false },
+	{ "id": "#nfm:grand_chairs", "required": false },
 	{ "id": "#nfm:stone_tables", "required": false },
 	{ "id": "#nfm:modern_tables", "required": false },
 	{ "id": "#nfm:stone_chairs", "required": false },

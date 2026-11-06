@@ -98,6 +98,25 @@ public class ModItems {
     public static final Supplier<BlockItem> MAGENTA_MODERN_CHAIR = registerBlockItem("magenta_modern_chair", ModBlocks.MAGENTA_MODERN_CHAIR);
     public static final Supplier<BlockItem> PINK_MODERN_CHAIR = registerBlockItem("pink_modern_chair", ModBlocks.PINK_MODERN_CHAIR);
 
+    // Grand Chairs
+    public static final Supplier<BlockItem> WHITE_GRAND_CHAIR = registerBlockItem("white_grand_chair", ModBlocks.WHITE_GRAND_CHAIR);
+    public static final Supplier<BlockItem> LIGHT_GRAY_GRAND_CHAIR = registerBlockItem("light_gray_grand_chair", ModBlocks.LIGHT_GRAY_GRAND_CHAIR);
+    public static final Supplier<BlockItem> GRAY_GRAND_CHAIR = registerBlockItem("gray_grand_chair", ModBlocks.GRAY_GRAND_CHAIR);
+    public static final Supplier<BlockItem> BLACK_GRAND_CHAIR = registerBlockItem("black_grand_chair", ModBlocks.BLACK_GRAND_CHAIR);
+    public static final Supplier<BlockItem> BROWN_GRAND_CHAIR = registerBlockItem("brown_grand_chair", ModBlocks.BROWN_GRAND_CHAIR);
+    public static final Supplier<BlockItem> RED_GRAND_CHAIR = registerBlockItem("red_grand_chair", ModBlocks.RED_GRAND_CHAIR);
+    public static final Supplier<BlockItem> ORANGE_GRAND_CHAIR = registerBlockItem("orange_grand_chair", ModBlocks.ORANGE_GRAND_CHAIR);
+    public static final Supplier<BlockItem> BEIGE_GRAND_CHAIR = registerOptionalBlockItem("beige_grand_chair", ModBlocks.BEIGE_GRAND_CHAIR);
+    public static final Supplier<BlockItem> YELLOW_GRAND_CHAIR = registerBlockItem("yellow_grand_chair", ModBlocks.YELLOW_GRAND_CHAIR);
+    public static final Supplier<BlockItem> LIME_GRAND_CHAIR = registerBlockItem("lime_grand_chair", ModBlocks.LIME_GRAND_CHAIR);
+    public static final Supplier<BlockItem> GREEN_GRAND_CHAIR = registerBlockItem("green_grand_chair", ModBlocks.GREEN_GRAND_CHAIR);
+    public static final Supplier<BlockItem> CYAN_GRAND_CHAIR = registerBlockItem("cyan_grand_chair", ModBlocks.CYAN_GRAND_CHAIR);
+    public static final Supplier<BlockItem> LIGHT_BLUE_GRAND_CHAIR = registerBlockItem("light_blue_grand_chair", ModBlocks.LIGHT_BLUE_GRAND_CHAIR);
+    public static final Supplier<BlockItem> BLUE_GRAND_CHAIR = registerBlockItem("blue_grand_chair", ModBlocks.BLUE_GRAND_CHAIR);
+    public static final Supplier<BlockItem> PURPLE_GRAND_CHAIR = registerBlockItem("purple_grand_chair", ModBlocks.PURPLE_GRAND_CHAIR);
+    public static final Supplier<BlockItem> MAGENTA_GRAND_CHAIR = registerBlockItem("magenta_grand_chair", ModBlocks.MAGENTA_GRAND_CHAIR);
+    public static final Supplier<BlockItem> PINK_GRAND_CHAIR = registerBlockItem("pink_grand_chair", ModBlocks.PINK_GRAND_CHAIR);
+
     // Coffee Tables
     public static final Supplier<BlockItem> STONE_COFFEE_TABLE = registerBlockItem("stone_coffee_table", ModBlocks.STONE_COFFEE_TABLE);
     public static final Supplier<BlockItem> ANDESITE_COFFEE_TABLE = registerBlockItem("andesite_coffee_table", ModBlocks.ANDESITE_COFFEE_TABLE);

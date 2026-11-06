@@ -1,0 +1,19 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "  P",
+        "WWP",
+        "P P"
+    ],
+    "key": {
+        "P": {
+            "item": "minecraft:dark_oak_planks"
+        },
+        "W": {
+            "item": "minecraft:light_blue_wool"
+        }
+    },
+    "result": {
+        "id": "nfm:light_blue_grand_chair"
+    }
+}

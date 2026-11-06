@@ -125,6 +125,42 @@ public class ModBlocks {
     public static final Supplier<Block> PINK_MODERN_CHAIR = register("pink_modern_chair",
             () -> new ModernChairBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.PINK_CONCRETE)));
 
+    // Grand Chairs
+    public static final Supplier<Block> WHITE_GRAND_CHAIR = register("white_grand_chair",
+            () -> new GrandChairBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.SPRUCE_PLANKS)));
+    public static final Supplier<Block> LIGHT_GRAY_GRAND_CHAIR = register("light_gray_grand_chair",
+            () -> new GrandChairBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.SPRUCE_PLANKS)));
+    public static final Supplier<Block> GRAY_GRAND_CHAIR = register("gray_grand_chair",
+            () -> new GrandChairBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.SPRUCE_PLANKS)));
+    public static final Supplier<Block> BLACK_GRAND_CHAIR = register("black_grand_chair",
+            () -> new GrandChairBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.SPRUCE_PLANKS)));
+    public static final Supplier<Block> BROWN_GRAND_CHAIR = register("brown_grand_chair",
+            () -> new GrandChairBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.SPRUCE_PLANKS)));
+    public static final Supplier<Block> RED_GRAND_CHAIR = register("red_grand_chair",
+            () -> new GrandChairBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.SPRUCE_PLANKS)));
+    public static final Supplier<Block> ORANGE_GRAND_CHAIR = register("orange_grand_chair",
+            () -> new GrandChairBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.SPRUCE_PLANKS)));
+    public static final Supplier<Block> BEIGE_GRAND_CHAIR = Services.PLATFORM.isModLoaded("yogmod") ? register("beige_grand_chair",
+            () -> new GrandChairBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.SPRUCE_PLANKS))) : null;
+    public static final Supplier<Block> YELLOW_GRAND_CHAIR = register("yellow_grand_chair",
+            () -> new GrandChairBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.SPRUCE_PLANKS)));
+    public static final Supplier<Block> LIME_GRAND_CHAIR = register("lime_grand_chair",
+            () -> new GrandChairBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.SPRUCE_PLANKS)));
+    public static final Supplier<Block> GREEN_GRAND_CHAIR = register("green_grand_chair",
+            () -> new GrandChairBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.SPRUCE_PLANKS)));
+    public static final Supplier<Block> CYAN_GRAND_CHAIR = register("cyan_grand_chair",
+            () -> new GrandChairBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.SPRUCE_PLANKS)));
+    public static final Supplier<Block> LIGHT_BLUE_GRAND_CHAIR = register("light_blue_grand_chair",
+            () -> new GrandChairBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.SPRUCE_PLANKS)));
+    public static final Supplier<Block> BLUE_GRAND_CHAIR = register("blue_grand_chair",
+            () -> new GrandChairBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.SPRUCE_PLANKS)));
+    public static final Supplier<Block> PURPLE_GRAND_CHAIR = register("purple_grand_chair",
+            () -> new GrandChairBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.SPRUCE_PLANKS)));
+    public static final Supplier<Block> MAGENTA_GRAND_CHAIR = register("magenta_grand_chair",
+            () -> new GrandChairBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.SPRUCE_PLANKS)));
+    public static final Supplier<Block> PINK_GRAND_CHAIR = register("pink_grand_chair",
+            () -> new GrandChairBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.SPRUCE_PLANKS)));
+
     // Coffee Tables
     public static final Supplier<Block> STONE_COFFEE_TABLE = register("stone_coffee_table",
             () -> new CoffeeTableBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE)));

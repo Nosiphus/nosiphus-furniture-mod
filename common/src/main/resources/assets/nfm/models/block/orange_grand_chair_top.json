@@ -1,0 +1,6 @@
+{
+    "parent": "nfm:block/grand_chair_top",
+    "textures": {
+        "1": "minecraft:block/orange_wool"
+    }
+}
