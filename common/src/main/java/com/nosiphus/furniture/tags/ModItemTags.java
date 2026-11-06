@@ -16,6 +16,7 @@ public class ModItemTags {
     public static final TagKey<Item> CURTAINS = tag("curtains");
     public static final TagKey<Item> DIGITAL_CLOCKS = tag("digital_clocks");
     public static final TagKey<Item> DOOR_BELLS = tag("door_bells");
+    public static final TagKey<Item> GRAND_CHAIRS = tag("grand_chairs");
     public static final TagKey<Item> INFLATABLE_CASTLES = tag("inflatable_castles");
     public static final TagKey<Item> LAMPS = tag("lamps");
     public static final TagKey<Item> MODERN_BEDSIDE_CABINETS = tag("modern_bedside_cabinets");
