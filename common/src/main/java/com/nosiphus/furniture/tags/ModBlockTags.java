@@ -16,6 +16,7 @@ public class ModBlockTags {
     public static final TagKey<Block> CURTAINS = tag("curtains");
     public static final TagKey<Block> DIGITAL_CLOCKS = tag("digital_clocks");
     public static final TagKey<Block> DOOR_BELLS = tag("door_bells");
+    public static final TagKey<Block> GRAND_CHAIRS = tag("grand_chairs");
     public static final TagKey<Block> INFLATABLE_CASTLES = tag("inflatable_castles");
     public static final TagKey<Block> LAMPS = tag("lamps");
     public static final TagKey<Block> MODERN_BEDSIDE_CABINETS = tag("modern_bedside_cabinets");
