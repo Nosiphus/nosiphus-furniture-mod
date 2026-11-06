@@ -2,15 +2,16 @@ package com.mrcrayfish.furniture.mixin;
 
 import net.mehvahdjukaar.every_compat.EveryCompat;
 import net.mehvahdjukaar.every_compat.api.CompatModule;
-import net.mehvahdjukaar.every_compat.forge.EveryCompatForge;
 import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Pseudo;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Redirect;
 
 import java.util.function.Function;
 import java.util.function.Supplier;
 
-@Mixin(value = EveryCompatForge.class, remap = false)
+@Pseudo
+@Mixin(targets = "net.mehvahdjukaar.every_compat.forge.EveryCompatForge", remap = false)
 public abstract class EveryCompatForgeMixin {
 
     @Redirect(
