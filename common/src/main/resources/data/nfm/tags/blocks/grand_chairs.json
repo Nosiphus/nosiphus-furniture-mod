@@ -1,0 +1,22 @@
+{
+  "replace": false,
+  "values": [
+    { "id": "nfm:white_grand_chair", "required": false },
+    { "id": "nfm:light_gray_grand_chair", "required": false },
+    { "id": "nfm:gray_grand_chair", "required": false },
+    { "id": "nfm:black_grand_chair", "required": false },
+    { "id": "nfm:brown_grand_chair", "required": false },
+    { "id": "nfm:red_grand_chair", "required": false },
+    { "id": "nfm:orange_grand_chair", "required": false },
+    { "id": "nfm:beige_grand_chair", "required": false },
+    { "id": "nfm:yellow_grand_chair", "required": false },
+    { "id": "nfm:lime_grand_chair", "required": false },
+    { "id": "nfm:green_grand_chair", "required": false },
+    { "id": "nfm:cyan_grand_chair", "required": false },
+    { "id": "nfm:light_blue_grand_chair", "required": false },
+    { "id": "nfm:blue_grand_chair", "required": false },
+    { "id": "nfm:purple_grand_chair", "required": false },
+    { "id": "nfm:magenta_grand_chair", "required": false },
+    { "id": "nfm:pink_grand_chair", "required": false }
+  ]
+}

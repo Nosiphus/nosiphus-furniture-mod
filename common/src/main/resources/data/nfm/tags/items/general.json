@@ -5,6 +5,7 @@
 	{ "id": "#nfm:modern_tables", "required": false },
     { "id": "#nfm:stone_chairs", "required": false },
 	{ "id": "#nfm:modern_chairs", "required": false },
+	{ "id": "#nfm:grand_chairs", "required": false },
     { "id": "#nfm:stone_coffee_tables", "required": false },
 	{ "id": "#nfm:modern_coffee_tables", "required": false },
 	{ "id": "#nfm:modern_sofas", "required": false },

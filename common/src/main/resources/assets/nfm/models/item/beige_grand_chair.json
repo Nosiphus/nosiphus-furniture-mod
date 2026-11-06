@@ -1,0 +1,6 @@
+{
+    "parent": "nfm:block/grand_chair",
+	"textures": {
+        "1": "yogmod:block/beige_wool"
+    }
+}
