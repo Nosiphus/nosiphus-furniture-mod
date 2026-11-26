@@ -56,6 +56,11 @@ public class CookingRecipe implements Recipe<SingleRecipeInput> {
         return ModRecipeTypes.COOKING.get();
     }
 
+    @Override
+    public boolean isSpecial() {
+        return true;
+    }
+
     public static class Serializer implements RecipeSerializer<CookingRecipe> {
         public static final MapCodec<CookingRecipe> CODEC = RecordCodecBuilder.mapCodec(inst -> inst.group(
                 Ingredient.CODEC.fieldOf("base").forGetter(r -> r.base),
