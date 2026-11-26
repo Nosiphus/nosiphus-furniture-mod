@@ -735,6 +735,42 @@ public class ModBlocks {
     public static final Supplier<Block> PINK_MODERN_KITCHEN_SINK = register("pink_modern_kitchen_sink",
             () -> new KitchenSinkBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.PINK_CONCRETE), false));
 
+    // Modern Stairs
+    public static final Supplier<Block> WHITE_MODERN_STAIRS = register("white_modern_stairs",
+            () -> new ModernStairsBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.WHITE_CONCRETE)));
+    public static final Supplier<Block> LIGHT_GRAY_MODERN_STAIRS = register("light_gray_modern_stairs",
+            () -> new ModernStairsBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.LIGHT_GRAY_CONCRETE)));
+    public static final Supplier<Block> GRAY_MODERN_STAIRS = register("gray_modern_stairs",
+            () -> new ModernStairsBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.GRAY_CONCRETE)));
+    public static final Supplier<Block> BLACK_MODERN_STAIRS = register("black_modern_stairs",
+            () -> new ModernStairsBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.BLACK_CONCRETE)));
+    public static final Supplier<Block> BROWN_MODERN_STAIRS = register("brown_modern_stairs",
+            () -> new ModernStairsBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.BROWN_CONCRETE)));
+    public static final Supplier<Block> RED_MODERN_STAIRS = register("red_modern_stairs",
+            () -> new ModernStairsBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.RED_CONCRETE)));
+    public static final Supplier<Block> ORANGE_MODERN_STAIRS = register("orange_modern_stairs",
+            () -> new ModernStairsBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.ORANGE_CONCRETE)));
+    public static final Supplier<Block> BEIGE_MODERN_STAIRS = Services.PLATFORM.isModLoaded("yogmod") ? register("beige_modern_stairs",
+            () -> new ModernStairsBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.YELLOW_CONCRETE))) : null;
+    public static final Supplier<Block> YELLOW_MODERN_STAIRS = register("yellow_modern_stairs",
+            () -> new ModernStairsBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.YELLOW_CONCRETE)));
+    public static final Supplier<Block> LIME_MODERN_STAIRS = register("lime_modern_stairs",
+            () -> new ModernStairsBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.LIME_CONCRETE)));
+    public static final Supplier<Block> GREEN_MODERN_STAIRS = register("green_modern_stairs",
+            () -> new ModernStairsBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.GREEN_CONCRETE)));
+    public static final Supplier<Block> CYAN_MODERN_STAIRS = register("cyan_modern_stairs",
+            () -> new ModernStairsBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.CYAN_CONCRETE)));
+    public static final Supplier<Block> LIGHT_BLUE_MODERN_STAIRS = register("light_blue_modern_stairs",
+            () -> new ModernStairsBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.LIGHT_BLUE_CONCRETE)));
+    public static final Supplier<Block> BLUE_MODERN_STAIRS = register("blue_modern_stairs",
+            () -> new ModernStairsBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.BLUE_CONCRETE)));
+    public static final Supplier<Block> PURPLE_MODERN_STAIRS = register("purple_modern_stairs",
+            () -> new ModernStairsBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.PURPLE_CONCRETE)));
+    public static final Supplier<Block> MAGENTA_MODERN_STAIRS = register("magenta_modern_stairs",
+            () -> new ModernStairsBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.MAGENTA_CONCRETE)));
+    public static final Supplier<Block> PINK_MODERN_STAIRS = register("pink_modern_stairs",
+            () -> new ModernStairsBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.PINK_CONCRETE)));
+
     // Bar Stools
     public static final Supplier<Block> WHITE_BAR_STOOL = register("white_bar_stool",
             () -> new BarStoolBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.WHITE_CONCRETE)));

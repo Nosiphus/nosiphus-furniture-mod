@@ -4,6 +4,7 @@ import com.nosiphus.furniture.NosiphusFurnitureMod;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 
 public class ModBlockTags {
@@ -29,6 +30,7 @@ public class ModBlockTags {
     public static final TagKey<Block> MODERN_KITCHEN_DRAWERS = tag("modern_kitchen_drawers");
     public static final TagKey<Block> MODERN_KITCHEN_SINKS = tag("modern_kitchen_sinks");
     public static final TagKey<Block> MODERN_SOFAS = tag("modern_sofas");
+    public static final TagKey<Block> MODERN_STAIRS = tag("modern_stairs");
     public static final TagKey<Block> MODERN_TABLES = tag("modern_tables");
     public static final TagKey<Block> STONE_BEDSIDE_CABINETS = tag("stone_bedside_cabinets");
     public static final TagKey<Block> STONE_CABINETS = tag("stone_cabinets");

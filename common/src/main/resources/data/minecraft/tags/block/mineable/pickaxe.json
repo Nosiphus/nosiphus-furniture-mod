@@ -38,6 +38,7 @@
     { "id": "#nfm:modern_kitchen_counters", "required": false },
     { "id": "#nfm:modern_kitchen_drawers", "required": false },
     { "id": "#nfm:modern_kitchen_sinks", "required": false },
+	{ "id": "#nfm:modern_stairs", "required": false },
     { "id": "#nfm:bar_stools", "required": false },
     { "id": "#nfm:water_tanks", "required": false },
     { "id": "nfm:plate", "required": false },
