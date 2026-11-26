@@ -423,6 +423,25 @@ public class ModItems {
     public static final Supplier<BlockItem> MAGENTA_MODERN_KITCHEN_SINK = registerBlockItem("magenta_modern_kitchen_sink", ModBlocks.MAGENTA_MODERN_KITCHEN_SINK);
     public static final Supplier<BlockItem> PINK_MODERN_KITCHEN_SINK = registerBlockItem("pink_modern_kitchen_sink", ModBlocks.PINK_MODERN_KITCHEN_SINK);
 
+    // Modern Stairs
+    public static final Supplier<BlockItem> WHITE_MODERN_STAIRS = registerBlockItem("white_modern_stairs", ModBlocks.WHITE_MODERN_STAIRS);
+    public static final Supplier<BlockItem> LIGHT_GRAY_MODERN_STAIRS = registerBlockItem("light_gray_modern_stairs", ModBlocks.LIGHT_GRAY_MODERN_STAIRS);
+    public static final Supplier<BlockItem> GRAY_MODERN_STAIRS = registerBlockItem("gray_modern_stairs", ModBlocks.GRAY_MODERN_STAIRS);
+    public static final Supplier<BlockItem> BLACK_MODERN_STAIRS = registerBlockItem("black_modern_stairs", ModBlocks.BLACK_MODERN_STAIRS);
+    public static final Supplier<BlockItem> BROWN_MODERN_STAIRS = registerBlockItem("brown_modern_stairs", ModBlocks.BROWN_MODERN_STAIRS);
+    public static final Supplier<BlockItem> RED_MODERN_STAIRS = registerBlockItem("red_modern_stairs", ModBlocks.RED_MODERN_STAIRS);
+    public static final Supplier<BlockItem> ORANGE_MODERN_STAIRS = registerBlockItem("orange_modern_stairs", ModBlocks.ORANGE_MODERN_STAIRS);
+    public static final Supplier<BlockItem> BEIGE_MODERN_STAIRS = registerOptionalBlockItem("beige_modern_stairs", ModBlocks.BEIGE_MODERN_STAIRS);
+    public static final Supplier<BlockItem> YELLOW_MODERN_STAIRS = registerBlockItem("yellow_modern_stairs", ModBlocks.YELLOW_MODERN_STAIRS);
+    public static final Supplier<BlockItem> LIME_MODERN_STAIRS = registerBlockItem("lime_modern_stairs", ModBlocks.LIME_MODERN_STAIRS);
+    public static final Supplier<BlockItem> GREEN_MODERN_STAIRS = registerBlockItem("green_modern_stairs", ModBlocks.GREEN_MODERN_STAIRS);
+    public static final Supplier<BlockItem> CYAN_MODERN_STAIRS = registerBlockItem("cyan_modern_stairs", ModBlocks.CYAN_MODERN_STAIRS);
+    public static final Supplier<BlockItem> LIGHT_BLUE_MODERN_STAIRS = registerBlockItem("light_blue_modern_stairs", ModBlocks.LIGHT_BLUE_MODERN_STAIRS);
+    public static final Supplier<BlockItem> BLUE_MODERN_STAIRS = registerBlockItem("blue_modern_stairs", ModBlocks.BLUE_MODERN_STAIRS);
+    public static final Supplier<BlockItem> PURPLE_MODERN_STAIRS = registerBlockItem("purple_modern_stairs", ModBlocks.PURPLE_MODERN_STAIRS);
+    public static final Supplier<BlockItem> MAGENTA_MODERN_STAIRS = registerBlockItem("magenta_modern_stairs", ModBlocks.MAGENTA_MODERN_STAIRS);
+    public static final Supplier<BlockItem> PINK_MODERN_STAIRS = registerBlockItem("pink_modern_stairs", ModBlocks.PINK_MODERN_STAIRS);
+
     // Bar Stools
     public static final Supplier<BlockItem> WHITE_BAR_STOOL = registerBlockItem("white_bar_stool", ModBlocks.WHITE_BAR_STOOL);
     public static final Supplier<BlockItem> LIGHT_GRAY_BAR_STOOL = registerBlockItem("light_gray_bar_stool", ModBlocks.LIGHT_GRAY_BAR_STOOL);

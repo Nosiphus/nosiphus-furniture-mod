@@ -9,6 +9,7 @@
     { "id": "#nfm:stone_coffee_tables", "required": false },
 	{ "id": "#nfm:modern_coffee_tables", "required": false },
 	{ "id": "#nfm:modern_sofas", "required": false },
+	{ "id": "#nfm:modern_stairs", "required": false },
 	{ "id": "#nfm:bar_stools", "required": false },
 	{ "id": "#nfm:stone_desks", "required": false },
 	{ "id": "#nfm:modern_desks", "required": false },

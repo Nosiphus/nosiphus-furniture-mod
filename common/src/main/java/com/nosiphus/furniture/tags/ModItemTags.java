@@ -29,6 +29,7 @@ public class ModItemTags {
     public static final TagKey<Item> MODERN_KITCHEN_DRAWERS = tag("modern_kitchen_drawers");
     public static final TagKey<Item> MODERN_KITCHEN_SINKS = tag("modern_kitchen_sinks");
     public static final TagKey<Item> MODERN_SOFAS = tag("modern_sofas");
+    public static final TagKey<Item> MODERN_STAIRS = tag("modern_stairs");
     public static final TagKey<Item> MODERN_TABLES = tag("modern_tables");
     public static final TagKey<Item> STONE_BEDSIDE_CABINETS = tag("stone_bedside_cabinets");
     public static final TagKey<Item> STONE_CABINETS = tag("stone_cabinets");
