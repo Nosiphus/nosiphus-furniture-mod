@@ -65,6 +65,11 @@ public class CookingRecipe implements Recipe<Container> {
         return ModRecipeTypes.COOKING.get();
     }
 
+    @Override
+    public boolean isSpecial() {
+        return true;
+    }
+
     public static class Serializer implements RecipeSerializer<CookingRecipe> {
 
         @Override
